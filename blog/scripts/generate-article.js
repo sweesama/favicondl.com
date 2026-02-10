@@ -17,7 +17,7 @@
  *   GEMINI_API_KEY=xxx node generate-article.js
  */
 
-import { GoogleGenerativeAI } from '@google/generative-ai';
+import { GoogleGenAI } from '@google/genai';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -41,7 +41,7 @@ if (!API_KEY) {
   process.exit(1);
 }
 
-const genAI = new GoogleGenerativeAI(API_KEY);
+const ai = new GoogleGenAI({ apiKey: API_KEY });
 
 // 模型优先级列表（最新 → 稳定 → 备选）
 const MODEL_LIST = ['gemini-3-flash-preview', 'gemini-2.5-flash', 'gemini-2.5-pro'];
@@ -364,24 +364,24 @@ async function generateArticleContent(keyword, slug, tags, existingArticles, int
     for (let attempt = 1; attempt <= MAX_RETRIES; attempt++) {
       try {
         console.log(`  → 模型 ${modelName} (第 ${attempt}/${MAX_RETRIES} 次)...`);
-        const model = genAI.getGenerativeModel({
-          model: modelName,
-          generationConfig: {
-            temperature: 0.55,       // 平衡准确性与可读性（0.4太死板，0.7太散）
-            topP: 0.88,
-            maxOutputTokens: 65536,
-            responseMimeType: 'application/json',
-          }
-        });
         // 120 秒超时，防止 API 挂起
         const timeoutPromise = new Promise((_, reject) =>
           setTimeout(() => reject(new Error('API 调用超时(120s)')), 120000)
         );
         const result = await Promise.race([
-          model.generateContent(prompt),
+          ai.models.generateContent({
+            model: modelName,
+            contents: prompt,
+            config: {
+              temperature: 0.55,       // 平衡准确性与可读性（0.4太死板，0.7太散）
+              topP: 0.88,
+              maxOutputTokens: 65536,
+              responseMimeType: 'application/json',
+            }
+          }),
           timeoutPromise
         ]);
-        responseText = result.response.text();
+        responseText = result.text;
         usedModel = modelName;
         console.log(`  ✅ ${modelName} 响应成功 (${responseText.length} 字符)`);
         break;
