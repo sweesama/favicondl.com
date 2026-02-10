@@ -1,0 +1,611 @@
+[
+  {
+    "keyword": "favicon generator online free",
+    "slug": "favicon-generator-free",
+    "tags": [
+      "tools",
+      "generator"
+    ],
+    "intent": "tool-guide",
+    "depth": "standard",
+    "avoidOverlap": [],
+    "status": "pending"
+  },
+  {
+    "keyword": "how to make a favicon from image",
+    "slug": "make-favicon-from-image",
+    "tags": [
+      "how-to",
+      "conversion"
+    ],
+    "intent": "how-to",
+    "depth": "standard",
+    "avoidOverlap": [
+      "png-to-ico"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "favicon vs logo difference",
+    "slug": "favicon-vs-logo",
+    "tags": [
+      "basics",
+      "design"
+    ],
+    "intent": "comparison",
+    "depth": "standard",
+    "avoidOverlap": [
+      "what-is-favicon"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "how to check website favicon",
+    "slug": "check-website-favicon",
+    "tags": [
+      "how-to",
+      "tools"
+    ],
+    "intent": "tool-guide",
+    "depth": "brief",
+    "avoidOverlap": [
+      "how-to-download-favicon"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "favicon dark mode support",
+    "slug": "favicon-dark-mode",
+    "tags": [
+      "advanced",
+      "design"
+    ],
+    "intent": "how-to",
+    "depth": "standard",
+    "avoidOverlap": [
+      "svg-favicon"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "favicon for wordpress",
+    "slug": "favicon-wordpress",
+    "tags": [
+      "how-to",
+      "wordpress"
+    ],
+    "intent": "how-to",
+    "depth": "standard",
+    "avoidOverlap": [
+      "how-to-add-favicon-to-website"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "web app manifest favicon",
+    "slug": "web-app-manifest-favicon",
+    "tags": [
+      "pwa",
+      "guide"
+    ],
+    "intent": "how-to",
+    "depth": "deep",
+    "avoidOverlap": [
+      "apple-touch-icon-guide"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "favicon transparent background",
+    "slug": "favicon-transparent-background",
+    "tags": [
+      "design",
+      "tips"
+    ],
+    "intent": "how-to",
+    "depth": "brief",
+    "avoidOverlap": [],
+    "status": "pending"
+  },
+  {
+    "keyword": "favicon google search console",
+    "slug": "favicon-google-search-console",
+    "tags": [
+      "seo",
+      "google"
+    ],
+    "intent": "how-to",
+    "depth": "standard",
+    "avoidOverlap": [
+      "favicon-for-seo"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "animated favicon",
+    "slug": "animated-favicon",
+    "tags": [
+      "advanced",
+      "design"
+    ],
+    "intent": "how-to",
+    "depth": "standard",
+    "avoidOverlap": [],
+    "status": "pending"
+  },
+  {
+    "keyword": "react favicon setup",
+    "slug": "react-favicon",
+    "tags": [
+      "framework",
+      "react"
+    ],
+    "intent": "how-to",
+    "depth": "standard",
+    "avoidOverlap": [
+      "how-to-add-favicon-to-website"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "favicon emoji",
+    "slug": "favicon-emoji",
+    "tags": [
+      "creative",
+      "tips"
+    ],
+    "intent": "how-to",
+    "depth": "brief",
+    "avoidOverlap": [],
+    "status": "pending"
+  },
+  {
+    "keyword": "ico vs png favicon",
+    "slug": "ico-vs-png-favicon",
+    "tags": [
+      "comparison",
+      "format"
+    ],
+    "intent": "comparison",
+    "depth": "standard",
+    "avoidOverlap": [
+      "png-to-ico",
+      "svg-favicon"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "how to extract favicon from app",
+    "slug": "extract-favicon-from-app",
+    "tags": [
+      "how-to",
+      "extraction"
+    ],
+    "intent": "tool-guide",
+    "depth": "standard",
+    "avoidOverlap": [
+      "how-to-download-favicon"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "favicon for shopify",
+    "slug": "favicon-shopify",
+    "tags": [
+      "how-to",
+      "shopify"
+    ],
+    "intent": "how-to",
+    "depth": "standard",
+    "avoidOverlap": [
+      "how-to-add-favicon-to-website"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "dynamic favicon javascript",
+    "slug": "dynamic-favicon-javascript",
+    "tags": [
+      "advanced",
+      "javascript"
+    ],
+    "intent": "how-to",
+    "depth": "deep",
+    "avoidOverlap": [],
+    "status": "pending"
+  },
+  {
+    "keyword": "safari pinned tab icon",
+    "slug": "safari-pinned-tab-icon",
+    "tags": [
+      "guide",
+      "safari"
+    ],
+    "intent": "how-to",
+    "depth": "standard",
+    "avoidOverlap": [
+      "apple-touch-icon-guide"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "favicon cache clear",
+    "slug": "favicon-cache-clear",
+    "tags": [
+      "troubleshooting",
+      "fix"
+    ],
+    "intent": "troubleshooting",
+    "depth": "brief",
+    "avoidOverlap": [
+      "favicon-not-showing"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "favicon design tips",
+    "slug": "favicon-design-tips",
+    "tags": [
+      "design",
+      "tips"
+    ],
+    "intent": "informational",
+    "depth": "standard",
+    "avoidOverlap": [
+      "favicon-best-practices"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "nextjs favicon",
+    "slug": "nextjs-favicon",
+    "tags": [
+      "framework",
+      "nextjs"
+    ],
+    "intent": "how-to",
+    "depth": "standard",
+    "avoidOverlap": [
+      "react-favicon",
+      "how-to-add-favicon-to-website"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "favicon accessibility",
+    "slug": "favicon-accessibility",
+    "tags": [
+      "best-practices",
+      "a11y"
+    ],
+    "intent": "informational",
+    "depth": "standard",
+    "avoidOverlap": [
+      "favicon-best-practices"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "progressive web app icon requirements",
+    "slug": "pwa-icon-requirements",
+    "tags": [
+      "pwa",
+      "requirements"
+    ],
+    "intent": "informational",
+    "depth": "deep",
+    "avoidOverlap": [
+      "web-app-manifest-favicon",
+      "apple-touch-icon-guide"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "windows tile icon favicon",
+    "slug": "windows-tile-icon",
+    "tags": [
+      "guide",
+      "windows"
+    ],
+    "intent": "how-to",
+    "depth": "standard",
+    "avoidOverlap": [],
+    "status": "pending"
+  },
+  {
+    "keyword": "favicon for email signature",
+    "slug": "favicon-email-signature",
+    "tags": [
+      "tips",
+      "email"
+    ],
+    "intent": "how-to",
+    "depth": "brief",
+    "avoidOverlap": [],
+    "status": "pending"
+  },
+  {
+    "keyword": "squarespace favicon",
+    "slug": "squarespace-favicon",
+    "tags": [
+      "how-to",
+      "squarespace"
+    ],
+    "intent": "how-to",
+    "depth": "standard",
+    "avoidOverlap": [
+      "how-to-add-favicon-to-website"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "svg to ico converter",
+    "slug": "svg-to-ico",
+    "tags": [
+      "conversion",
+      "tools"
+    ],
+    "intent": "tool-guide",
+    "depth": "standard",
+    "avoidOverlap": [
+      "svg-favicon",
+      "png-to-ico"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "favicon branding strategy",
+    "slug": "favicon-branding-strategy",
+    "tags": [
+      "design",
+      "branding"
+    ],
+    "intent": "informational",
+    "depth": "deep",
+    "avoidOverlap": [
+      "favicon-design-tips"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "github pages favicon",
+    "slug": "github-pages-favicon",
+    "tags": [
+      "how-to",
+      "github"
+    ],
+    "intent": "how-to",
+    "depth": "standard",
+    "avoidOverlap": [
+      "how-to-add-favicon-to-website"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "favicon cdn hosting",
+    "slug": "favicon-cdn-hosting",
+    "tags": [
+      "advanced",
+      "hosting"
+    ],
+    "intent": "informational",
+    "depth": "standard",
+    "avoidOverlap": [],
+    "status": "pending"
+  },
+  {
+    "keyword": "maskable icon favicon",
+    "slug": "maskable-icon",
+    "tags": [
+      "pwa",
+      "advanced"
+    ],
+    "intent": "how-to",
+    "depth": "standard",
+    "avoidOverlap": [
+      "pwa-icon-requirements",
+      "web-app-manifest-favicon"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "favicon color palette",
+    "slug": "favicon-color-palette",
+    "tags": [
+      "design",
+      "color"
+    ],
+    "intent": "informational",
+    "depth": "brief",
+    "avoidOverlap": [
+      "favicon-design-tips"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "vue favicon setup",
+    "slug": "vue-favicon",
+    "tags": [
+      "framework",
+      "vue"
+    ],
+    "intent": "how-to",
+    "depth": "standard",
+    "avoidOverlap": [
+      "react-favicon",
+      "how-to-add-favicon-to-website"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "favicon testing tools",
+    "slug": "favicon-testing-tools",
+    "tags": [
+      "tools",
+      "testing"
+    ],
+    "intent": "tool-guide",
+    "depth": "standard",
+    "avoidOverlap": [
+      "check-website-favicon"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "favicon 404 error fix",
+    "slug": "favicon-404-error",
+    "tags": [
+      "troubleshooting",
+      "fix"
+    ],
+    "intent": "troubleshooting",
+    "depth": "brief",
+    "avoidOverlap": [
+      "favicon-not-showing",
+      "favicon-cache-clear"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "wix favicon setup",
+    "slug": "wix-favicon",
+    "tags": [
+      "how-to",
+      "wix"
+    ],
+    "intent": "how-to",
+    "depth": "standard",
+    "avoidOverlap": [
+      "how-to-add-favicon-to-website"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "retina favicon high dpi",
+    "slug": "retina-favicon-high-dpi",
+    "tags": [
+      "advanced",
+      "display"
+    ],
+    "intent": "informational",
+    "depth": "standard",
+    "avoidOverlap": [
+      "favicon-sizes-guide"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "multi size favicon ico",
+    "slug": "multi-size-favicon-ico",
+    "tags": [
+      "advanced",
+      "format"
+    ],
+    "intent": "how-to",
+    "depth": "standard",
+    "avoidOverlap": [
+      "favicon-sizes-guide",
+      "png-to-ico"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "favicon for angular app",
+    "slug": "angular-favicon",
+    "tags": [
+      "framework",
+      "angular"
+    ],
+    "intent": "how-to",
+    "depth": "standard",
+    "avoidOverlap": [
+      "react-favicon",
+      "how-to-add-favicon-to-website"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "favicon security concerns",
+    "slug": "favicon-security",
+    "tags": [
+      "security",
+      "advanced"
+    ],
+    "intent": "informational",
+    "depth": "standard",
+    "avoidOverlap": [],
+    "status": "pending"
+  },
+  {
+    "keyword": "favicon site.webmanifest",
+    "slug": "favicon-webmanifest",
+    "tags": [
+      "pwa",
+      "guide"
+    ],
+    "intent": "how-to",
+    "depth": "standard",
+    "avoidOverlap": [
+      "web-app-manifest-favicon"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "favicon metadata json",
+    "slug": "favicon-metadata-json",
+    "tags": [
+      "advanced",
+      "metadata"
+    ],
+    "intent": "informational",
+    "depth": "standard",
+    "avoidOverlap": [
+      "favicon-webmanifest"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "favicon for gatsby site",
+    "slug": "gatsby-favicon",
+    "tags": [
+      "framework",
+      "gatsby"
+    ],
+    "intent": "how-to",
+    "depth": "standard",
+    "avoidOverlap": [
+      "react-favicon",
+      "nextjs-favicon"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "laravel favicon setup",
+    "slug": "laravel-favicon",
+    "tags": [
+      "framework",
+      "laravel"
+    ],
+    "intent": "how-to",
+    "depth": "standard",
+    "avoidOverlap": [
+      "how-to-add-favicon-to-website"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "django favicon setup",
+    "slug": "django-favicon",
+    "tags": [
+      "framework",
+      "django"
+    ],
+    "intent": "how-to",
+    "depth": "standard",
+    "avoidOverlap": [
+      "laravel-favicon",
+      "how-to-add-favicon-to-website"
+    ],
+    "status": "pending"
+  }
+]

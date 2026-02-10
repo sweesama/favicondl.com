@@ -1,0 +1,5 @@
+# Mzu favicondl - robots.txt
+User-agent: *
+Allow: /
+
+Sitemap: https://favicondl.com/sitemap.xml

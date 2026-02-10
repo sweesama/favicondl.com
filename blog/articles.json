@@ -1,0 +1,134 @@
+[
+  {
+    "slug": "what-is-favicon",
+    "publishDate": "2026-02-11",
+    "titleEn": "What is a Favicon? Complete Guide for Beginners",
+    "titleZh": "什么是 Favicon？新手完全指南",
+    "descEn": "Learn what a favicon is, why it matters, and how to create one for your website.",
+    "descZh": "了解什么是 Favicon、为什么重要、以及如何为你的网站创建一个。",
+    "keyword": "what is a favicon",
+    "tags": [
+      "basics",
+      "beginner"
+    ]
+  },
+  {
+    "slug": "how-to-download-favicon",
+    "publishDate": "2026-02-12",
+    "titleEn": "How to Download a Favicon from Any Website",
+    "titleZh": "如何从任何网站下载 Favicon",
+    "descEn": "3 methods to download favicons: browser trick, Google API, and dedicated tools like Mzu favicondl.",
+    "descZh": "下载 Favicon 的 3 种方法：浏览器技巧、Google API、以及专用工具。",
+    "keyword": "download favicon from website",
+    "tags": [
+      "how-to",
+      "download"
+    ]
+  },
+  {
+    "slug": "favicon-sizes-guide",
+    "publishDate": "2026-02-13",
+    "titleEn": "Favicon Sizes Guide: What Sizes Do You Really Need?",
+    "titleZh": "Favicon 尺寸指南：你到底需要哪些尺寸？",
+    "descEn": "The definitive guide to favicon sizes in 2026. From 16x16 to 512x512, learn what each size is for.",
+    "descZh": "2026 年 Favicon 尺寸权威指南：从 16x16 到 512x512，了解每种尺寸的用途。",
+    "keyword": "favicon sizes",
+    "tags": [
+      "guide",
+      "sizes"
+    ]
+  },
+  {
+    "slug": "how-to-add-favicon-to-website",
+    "publishDate": "2026-02-14",
+    "titleEn": "How to Add a Favicon to Your Website (HTML Guide)",
+    "titleZh": "如何给网站添加 Favicon（HTML 代码指南）",
+    "descEn": "Step-by-step HTML code to add favicons to any website. Covers ICO, PNG, SVG, and Apple Touch Icon.",
+    "descZh": "一步步教你用 HTML 代码给网站添加 Favicon，涵盖 ICO、PNG、SVG 和 Apple Touch Icon。",
+    "keyword": "how to add favicon to website",
+    "tags": [
+      "how-to",
+      "html"
+    ]
+  },
+  {
+    "slug": "png-to-ico",
+    "publishDate": "2026-02-15",
+    "titleEn": "How to Convert PNG to ICO: Free Methods Explained",
+    "titleZh": "PNG 转 ICO：免费转换方法详解",
+    "descEn": "Convert PNG images to ICO favicon format using free online tools and command-line methods.",
+    "descZh": "使用免费在线工具和命令行方法将 PNG 图片转换为 ICO Favicon 格式。",
+    "keyword": "png to ico",
+    "tags": [
+      "conversion",
+      "tools"
+    ]
+  },
+  {
+    "slug": "favicon-not-showing",
+    "publishDate": "2026-02-16",
+    "titleEn": "Favicon Not Showing? 7 Common Causes & Fixes",
+    "titleZh": "Favicon 不显示？7 个常见原因及解决方法",
+    "descEn": "Troubleshoot why your favicon isn't appearing. Covers caching, path errors, format issues, and more.",
+    "descZh": "排查 Favicon 不显示的原因，涵盖缓存、路径错误、格式问题等。",
+    "keyword": "favicon not showing",
+    "tags": [
+      "troubleshooting",
+      "fix"
+    ]
+  },
+  {
+    "slug": "apple-touch-icon-guide",
+    "publishDate": "2026-02-17",
+    "titleEn": "Apple Touch Icon: Complete Setup Guide",
+    "titleZh": "Apple Touch Icon 完整设置指南",
+    "descEn": "Everything about Apple Touch Icons: sizes, formats, HTML code, and best practices for iOS.",
+    "descZh": "关于 Apple Touch Icon 的一切：尺寸、格式、HTML 代码和 iOS 最佳实践。",
+    "keyword": "apple touch icon",
+    "tags": [
+      "guide",
+      "apple",
+      "ios"
+    ]
+  },
+  {
+    "slug": "svg-favicon",
+    "publishDate": "2026-02-18",
+    "titleEn": "SVG Favicon: The Modern Approach to Website Icons",
+    "titleZh": "SVG Favicon：现代网站图标方案",
+    "descEn": "Why SVG favicons are the future. Browser support, dark mode, and implementation guide.",
+    "descZh": "为什么 SVG Favicon 是未来趋势？浏览器支持、暗黑模式和实现指南。",
+    "keyword": "svg favicon",
+    "tags": [
+      "guide",
+      "svg",
+      "modern"
+    ]
+  },
+  {
+    "slug": "favicon-best-practices",
+    "publishDate": "2026-02-19",
+    "titleEn": "Favicon Best Practices in 2026",
+    "titleZh": "2026 年 Favicon 最佳实践",
+    "descEn": "The complete checklist for favicon implementation in 2026. Sizes, formats, SEO, and performance.",
+    "descZh": "2026 年 Favicon 实施完整清单：尺寸、格式、SEO 和性能优化。",
+    "keyword": "favicon best practices",
+    "tags": [
+      "best-practices",
+      "checklist"
+    ]
+  },
+  {
+    "slug": "favicon-for-seo",
+    "publishDate": "2026-02-20",
+    "titleEn": "Why Favicons Matter for SEO (Google Search Results)",
+    "titleZh": "为什么 Favicon 对 SEO 很重要（Google 搜索结果）",
+    "descEn": "How favicons appear in Google search results and why they boost your click-through rate.",
+    "descZh": "Favicon 如何出现在 Google 搜索结果中，以及为什么它能提升点击率。",
+    "keyword": "favicon seo",
+    "tags": [
+      "seo",
+      "google"
+    ]
+  }
+]

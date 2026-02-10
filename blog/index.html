@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Mzu favicondl</title>
+    <meta name="description" content="Favicon guides, tutorials, and best practices. Learn everything about website favicons.">
+    <meta name="keywords" content="favicon guide, favicon tutorial, favicon tips, favicon blog, website icon guide">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/blog/">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://favicondl.com/blog/">
+    <meta property="og:title" content="Blog - Mzu favicondl">
+    <meta property="og:description" content="Favicon guides, tutorials, and best practices.">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Blog - Mzu favicondl">
+    <meta name="twitter:description" content="Favicon guides, tutorials, and best practices.">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        * {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        body { background: #fafafa; }
+        .nav-link { color: #1d1d1f; font-size: 14px; font-weight: 500; text-decoration: none; transition: color 0.2s; }
+        .nav-link:hover { color: #0071e3; }
+        .article-card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 28px;
+            border: 1px solid #e5e5ea;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: block;
+        }
+        .article-card:hover {
+            border-color: #0071e3;
+            box-shadow: 0 4px 20px rgba(0, 113, 227, 0.08);
+            transform: translateY(-2px);
+        }
+        .tag {
+            display: inline-block;
+            padding: 2px 10px;
+            border-radius: 980px;
+            font-size: 12px;
+            font-weight: 500;
+            background: #f5f5f7;
+            color: #86868b;
+        }
+        .lang-dropdown { position: relative; }
+        .lang-btn {
+            background: none; border: none; cursor: pointer;
+            padding: 4px 8px; border-radius: 6px; transition: background 0.2s;
+            display: flex; align-items: center; gap: 4px;
+        }
+        .lang-btn:hover { background: #f5f5f7; }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/index.html" class="font-semibold text-lg text-gray-900">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/documentation.html" class="nav-link" data-en="Docs" data-zh="文档">Docs</a>
+                <a href="/tools.html" class="nav-link" data-en="Tools" data-zh="工具">Tools</a>
+                <a href="/blog/" class="nav-link" style="color:#0071e3" data-en="Blog" data-zh="博客">Blog</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="EN" style="width:20px;height:20px;">
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="pt-16 pb-10 px-6">
+        <div class="max-w-3xl mx-auto text-center">
+            <h1 class="text-4xl font-bold text-gray-900 mb-4" data-en="Favicon Guide & Blog" data-zh="Favicon 指南与博客">Favicon Guide & Blog</h1>
+            <p class="text-gray-500 text-lg" data-en="Professional guides on favicons — sizes, formats, troubleshooting, and best practices." data-zh="关于 Favicon 的专业指南 — 尺寸、格式、问题排查与最佳实践。">Professional guides on favicons — sizes, formats, troubleshooting, and best practices.</p>
+        </div>
+    </section>
+
+    <!-- Articles Grid -->
+    <section class="pb-20 px-6">
+        <div class="max-w-4xl mx-auto">
+            <div id="articles-grid" class="grid md:grid-cols-2 gap-6">
+                <!-- Populated by JS -->
+            </div>
+            <p id="no-articles" class="text-center text-gray-400 py-16 hidden" data-en="New articles coming soon!" data-zh="新文章即将发布！">New articles coming soon!</p>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-16 px-6 bg-white border-t border-gray-100">
+        <div class="max-w-3xl mx-auto text-center">
+            <h2 class="text-2xl font-semibold text-gray-900 mb-4" data-en="Ready to grab some favicons?" data-zh="准备好获取 Favicon 了吗？">Ready to grab some favicons?</h2>
+            <p class="text-gray-500 mb-8" data-en="Download and extract any website's favicon instantly. Free and fast." data-zh="即时下载和提取任何网站的 Favicon，免费且快速。">Download and extract any website's favicon instantly. Free and fast.</p>
+            <a href="/index.html" style="background:#0071e3;color:white;padding:12px 28px;border-radius:980px;font-size:14px;font-weight:500;text-decoration:none;display:inline-block;transition:background 0.2s;">
+                <span data-en="Try Mzu favicondl →" data-zh="试试 Mzu favicondl →">Try Mzu favicondl →</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© <script>document.write(new Date().getFullYear())</script> Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/index.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Home" data-zh="首页">Home</a>
+                <a href="/documentation.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Docs" data-zh="文档">Docs</a>
+                <a href="/tools.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Tools" data-zh="工具">Tools</a>
+                <a href="/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Blog" data-zh="博客">Blog</a>
+                <a href="/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Privacy" data-zh="隐私政策">Privacy</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    (function() {
+        // Language system
+        const LANG_KEY = 'mzu_favicondl_lang';
+        let lang = localStorage.getItem(LANG_KEY) || new URLSearchParams(location.search).get('lang') || 'en';
+
+        function applyLang() {
+            document.querySelectorAll('[data-en]').forEach(el => {
+                el.textContent = lang === 'zh' ? el.dataset.zh : el.dataset.en;
+            });
+            const flag = document.querySelector('.lang-flag');
+            if (flag) {
+                flag.src = lang === 'zh'
+                    ? 'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg'
+                    : 'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg';
+                flag.alt = lang === 'zh' ? 'ZH' : 'EN';
+            }
+        }
+
+        document.getElementById('lang-toggle').addEventListener('click', () => {
+            lang = lang === 'en' ? 'zh' : 'en';
+            localStorage.setItem(LANG_KEY, lang);
+            applyLang();
+            renderArticles();
+        });
+
+        // Load and render articles
+        async function renderArticles() {
+            try {
+                const res = await fetch('/blog/articles.json');
+                const articles = await res.json();
+                const today = new Date().toISOString().split('T')[0];
+                const published = articles
+                    .filter(a => a.publishDate <= today)
+                    .sort((a, b) => b.publishDate.localeCompare(a.publishDate));
+
+                const grid = document.getElementById('articles-grid');
+                const noMsg = document.getElementById('no-articles');
+
+                if (published.length === 0) {
+                    grid.innerHTML = '';
+                    noMsg.classList.remove('hidden');
+                    return;
+                }
+                noMsg.classList.add('hidden');
+
+                grid.innerHTML = published.map(a => `
+                    <a href="/blog/${a.slug}.html" class="article-card">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="tag">${a.tags[0]}</span>
+                            <span class="text-xs text-gray-400">${a.publishDate}</span>
+                        </div>
+                        <h2 class="text-lg font-semibold text-gray-900 mb-2">${lang === 'zh' ? a.titleZh : a.titleEn}</h2>
+                        <p class="text-sm text-gray-500 line-clamp-2">${lang === 'zh' ? a.descZh : a.descEn}</p>
+                        <span class="inline-block mt-4 text-sm font-medium text-blue-600">${lang === 'zh' ? '阅读全文 →' : 'Read more →'}</span>
+                    </a>
+                `).join('');
+            } catch(e) {
+                console.error('Failed to load articles:', e);
+            }
+        }
+
+        applyLang();
+        renderArticles();
+    })();
+    </script>
+</body>
+</html>

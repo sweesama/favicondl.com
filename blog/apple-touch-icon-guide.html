@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apple Touch Icon: Complete Setup Guide - Mzu favicondl</title>
+    <meta name="description" content="Everything about Apple Touch Icons: sizes, formats, HTML code, and best practices for iOS home screen icons.">
+    <meta name="keywords" content="apple touch icon, apple touch icon sizes, ios favicon, iphone favicon, ipad icon, apple touch icon html, apple-touch-icon.png">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/blog/apple-touch-icon-guide.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/blog/apple-touch-icon-guide.html">
+    <meta property="og:title" content="Apple Touch Icon: Complete Setup Guide">
+    <meta property="og:description" content="Everything about Apple Touch Icons for iOS.">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Apple Touch Icon Guide">
+    <meta name="twitter:description" content="Complete guide to Apple Touch Icons for iOS.">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css">
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/index.html" class="font-semibold text-lg text-gray-900">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/documentation.html" class="nav-link" data-en="Docs" data-zh="文档">Docs</a>
+                <a href="/tools.html" class="nav-link" data-en="Tools" data-zh="工具">Tools</a>
+                <a href="/blog/" class="nav-link" data-en="Blog" data-zh="博客">Blog</a>
+                <div class="lang-dropdown"><button id="lang-toggle" class="lang-btn"><img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="EN" style="width:20px;height:20px;"></button></div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/index.html" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600" data-en="Apple Touch Icon Guide" data-zh="Apple Touch Icon 指南">Apple Touch Icon Guide</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">guide</span><time class="text-sm text-gray-400">2026-02-17</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight" data-en="Apple Touch Icon: Complete Setup Guide" data-zh="Apple Touch Icon 完整设置指南">Apple Touch Icon: Complete Setup Guide</h1>
+        </header>
+
+        <div class="article-body" data-lang="en">
+            <p>When someone adds your website to their iPhone or iPad home screen, iOS uses the <strong>Apple Touch Icon</strong> as the app-like icon. Without one, iOS takes an ugly screenshot of your page instead. Here's everything you need to know.</p>
+
+            <h2>What is an Apple Touch Icon?</h2>
+            <p>An Apple Touch Icon is a special PNG image that iOS devices use when a user bookmarks your site to their home screen. It works like a native app icon — iOS automatically applies its signature rounded corners and gloss effect (on older iOS versions).</p>
+            <p>It's declared in HTML with:</p>
+            <pre><code>&lt;link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"&gt;</code></pre>
+
+            <h2>Required Size: 180×180 Pixels</h2>
+            <p>In 2026, you only need <strong>one size: 180×180 pixels</strong>. Here's why:</p>
+            <ul>
+                <li><strong>iPhone (Retina)</strong> — Uses 120×120 or 180×180 (iOS scales 180 down to 120 if needed)</li>
+                <li><strong>iPad Pro</strong> — Uses 167×167 (iOS scales 180 down)</li>
+                <li><strong>iPad</strong> — Uses 152×152 (iOS scales 180 down)</li>
+            </ul>
+            <p>Since iOS can scale down but cannot scale up well, providing the largest size (180×180) is the safest approach. One file covers all devices.</p>
+            <div class="info-box"><p><strong>Historical note:</strong> In the past, you needed separate sizes for each device (57, 60, 72, 76, 114, 120, 144, 152, 167, 180). Modern iOS handles scaling well enough that 180×180 alone works perfectly.</p></div>
+
+            <h2>File Format Requirements</h2>
+            <ul>
+                <li><strong>Format:</strong> PNG only (JPEG works but PNG is standard)</li>
+                <li><strong>Shape:</strong> Square (iOS applies rounded corners automatically)</li>
+                <li><strong>Transparency:</strong> Avoid it — iOS replaces transparent areas with black</li>
+                <li><strong>File name:</strong> Convention is <code>apple-touch-icon.png</code> (iOS also looks for this name automatically)</li>
+            </ul>
+
+            <h2>HTML Implementation</h2>
+            <h3>Basic (one line)</h3>
+            <pre><code>&lt;link rel="apple-touch-icon" href="/apple-touch-icon.png"&gt;</code></pre>
+
+            <h3>With explicit size</h3>
+            <pre><code>&lt;link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"&gt;</code></pre>
+
+            <h3>Automatic discovery (no HTML needed)</h3>
+            <p>If you place a file named <code>apple-touch-icon.png</code> in your website's root directory, iOS will find it automatically — even without any HTML declaration. However, explicitly declaring it in HTML is still recommended for reliability.</p>
+
+            <h2>apple-touch-icon vs apple-touch-icon-precomposed</h2>
+            <table>
+                <thead><tr><th>Attribute</th><th>apple-touch-icon</th><th>apple-touch-icon-precomposed</th></tr></thead>
+                <tbody>
+                    <tr><td>Gloss effect</td><td>iOS adds gloss (iOS 6 and earlier)</td><td>No gloss added</td></tr>
+                    <tr><td>Modern iOS (7+)</td><td>No gloss (same behavior)</td><td>No gloss (same behavior)</td></tr>
+                    <tr><td>Recommendation</td><td><strong>Use this one</strong></td><td>Deprecated, not needed</td></tr>
+                </tbody>
+            </table>
+            <p>Since iOS 7+ no longer adds the gloss effect, <code>apple-touch-icon</code> and <code>apple-touch-icon-precomposed</code> behave identically. Just use <code>apple-touch-icon</code>.</p>
+
+            <h2>Design Tips</h2>
+            <ul>
+                <li><strong>Don't add rounded corners</strong> — iOS applies them automatically. If you round them yourself, you'll get double-rounded corners.</li>
+                <li><strong>Avoid transparency</strong> — Use a solid background color. Transparent areas become black on iOS.</li>
+                <li><strong>Keep it simple</strong> — The icon is displayed at ~60px on screen. Fine details won't be visible.</li>
+                <li><strong>Use your brand color as background</strong> — This ensures the icon stands out on any wallpaper.</li>
+                <li><strong>Test on a real device</strong> — The iOS simulator doesn't always match real devices.</li>
+            </ul>
+
+            <h2>Common Mistakes</h2>
+            <ol>
+                <li><strong>Using transparency</strong> → Black background on iOS home screen</li>
+                <li><strong>Adding rounded corners manually</strong> → Double rounding effect</li>
+                <li><strong>Wrong file format</strong> → SVG is not supported; use PNG</li>
+                <li><strong>Too small</strong> → Providing 57×57 looks blurry on modern Retina screens</li>
+                <li><strong>Forgetting to test</strong> → Always test by actually adding to home screen on a real iPhone</li>
+            </ol>
+
+            <h2>See How Other Sites Do It</h2>
+            <p>Curious how major websites handle their Apple Touch Icons? Use <a href="/index.html">Mzu favicondl</a> to check any website's favicon setup, including the Apple Touch Icon.</p>
+        </div>
+
+        <div class="article-body" data-lang="zh" style="display:none">
+            <p>当有人把你的网站添加到 iPhone 或 iPad 的主屏幕时，iOS 使用 <strong>Apple Touch Icon</strong> 作为类似应用的图标。如果没有，iOS 会截取一张难看的页面截图来代替。以下是你需要了解的一切。</p>
+
+            <h2>什么是 Apple Touch Icon？</h2>
+            <p>Apple Touch Icon 是一种特殊的 PNG 图片，iOS 设备在用户将你的网站添加到主屏幕时使用它。它的效果就像原生应用图标 — iOS 会自动应用标志性的圆角。</p>
+            <p>在 HTML 中这样声明：</p>
+            <pre><code>&lt;link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"&gt;</code></pre>
+
+            <h2>所需尺寸：180×180 像素</h2>
+            <p>在 2026 年，你只需要<strong>一个尺寸：180×180 像素</strong>。原因如下：</p>
+            <ul>
+                <li><strong>iPhone（Retina）</strong>— 使用 120×120 或 180×180（iOS 会在需要时将 180 缩小到 120）</li>
+                <li><strong>iPad Pro</strong> — 使用 167×167（iOS 将 180 缩小）</li>
+                <li><strong>iPad</strong> — 使用 152×152（iOS 将 180 缩小）</li>
+            </ul>
+            <p>由于 iOS 可以很好地缩小但不能很好地放大，提供最大尺寸（180×180）是最安全的方法。一个文件覆盖所有设备。</p>
+            <div class="info-box"><p><strong>历史说明：</strong>过去，你需要为每种设备单独提供尺寸（57、60、72、76、114、120、144、152、167、180）。现代 iOS 的缩放处理足够好，仅 180×180 就能完美工作。</p></div>
+
+            <h2>文件格式要求</h2>
+            <ul>
+                <li><strong>格式：</strong>仅 PNG（JPEG 也可以但 PNG 是标准）</li>
+                <li><strong>形状：</strong>正方形（iOS 自动应用圆角）</li>
+                <li><strong>透明度：</strong>避免使用 — iOS 会将透明区域替换为黑色</li>
+                <li><strong>文件名：</strong>约定俗成为 <code>apple-touch-icon.png</code>（iOS 也会自动查找这个名称）</li>
+            </ul>
+
+            <h2>HTML 实现</h2>
+            <h3>基本写法（一行）</h3>
+            <pre><code>&lt;link rel="apple-touch-icon" href="/apple-touch-icon.png"&gt;</code></pre>
+
+            <h3>带明确尺寸</h3>
+            <pre><code>&lt;link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"&gt;</code></pre>
+
+            <h3>自动发现（无需 HTML）</h3>
+            <p>如果你在网站根目录放置名为 <code>apple-touch-icon.png</code> 的文件，iOS 会自动找到它 — 即使没有任何 HTML 声明。但仍然推荐在 HTML 中明确声明以确保可靠性。</p>
+
+            <h2>设计技巧</h2>
+            <ul>
+                <li><strong>不要添加圆角</strong> — iOS 会自动应用。如果你自己加了圆角，会出现双重圆角效果。</li>
+                <li><strong>避免透明</strong> — 使用纯色背景。透明区域在 iOS 主屏幕上会变成黑色。</li>
+                <li><strong>保持简洁</strong> — 图标在屏幕上显示约 60px。精细细节不可见。</li>
+                <li><strong>使用品牌色作为背景</strong> — 确保图标在任何壁纸上都能突出。</li>
+                <li><strong>在真机上测试</strong> — iOS 模拟器并不总是与真实设备一致。</li>
+            </ul>
+
+            <h2>常见错误</h2>
+            <ol>
+                <li><strong>使用透明</strong> → iOS 主屏幕上显示黑色背景</li>
+                <li><strong>手动添加圆角</strong> → 双重圆角效果</li>
+                <li><strong>错误的文件格式</strong> → SVG 不支持；使用 PNG</li>
+                <li><strong>太小</strong> → 提供 57×57 的在现代 Retina 屏幕上看起来模糊</li>
+                <li><strong>忘记测试</strong> → 始终在真实 iPhone 上实际添加到主屏幕来测试</li>
+            </ol>
+
+            <h2>看看其他网站怎么做的</h2>
+            <p>好奇主流网站如何处理 Apple Touch Icon？使用 <a href="/index.html">Mzu favicondl</a> 查看任何网站的 Favicon 配置，包括 Apple Touch Icon。</p>
+        </div>
+
+        <div class="cta-box">
+            <h3 data-en="Generate your Apple Touch Icon" data-zh="生成你的 Apple Touch Icon">Generate your Apple Touch Icon</h3>
+            <p data-en="Upload any image and get a properly sized apple-touch-icon.png instantly." data-zh="上传任意图片，即刻获得正确尺寸的 apple-touch-icon.png。">Upload any image and get a properly sized apple-touch-icon.png instantly.</p>
+            <a href="/tools.html" class="cta-btn" data-en="Create Apple Touch Icon →" data-zh="创建 Apple Touch Icon →">Create Apple Touch Icon →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© <script>document.write(new Date().getFullYear())</script> Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/index.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Home" data-zh="首页">Home</a>
+                <a href="/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Blog" data-zh="博客">Blog</a>
+                <a href="/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Privacy" data-zh="隐私政策">Privacy</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js"></script>
+</body>
+</html>

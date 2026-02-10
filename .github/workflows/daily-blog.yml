@@ -1,0 +1,87 @@
+# 每日自动生成博客文章
+# 
+# 工作原理：
+# 1. 每天 UTC 00:00（北京时间 08:00）自动触发
+# 2. 从 queue.json 取下一个关键词
+# 3. 调用 Gemini API 生成双语文章
+# 4. 生成 HTML + 更新 articles.json + sitemap.xml
+# 5. 自动 commit & push 到 main 分支
+#
+# 需要在 GitHub Repo → Settings → Secrets → Actions 中添加:
+#   GEMINI_API_KEY = 你的 Google AI Studio API Key
+
+name: Daily Blog Article Generator
+
+on:
+  schedule:
+    # 每天 UTC 00:00 运行（北京时间 08:00）
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+    # 也支持手动触发（方便测试）
+
+permissions:
+  contents: write
+
+jobs:
+  generate-article:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4.2.2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4.1.0
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        working-directory: blog/scripts
+        run: npm install
+
+      - name: Check if there are pending keywords
+        id: check-queue
+        run: |
+          PENDING=$(node -e "
+            const q = JSON.parse(require('fs').readFileSync('blog/queue.json','utf-8'));
+            const p = q.filter(i => i.status === 'pending').length;
+            console.log(p);
+          ")
+          echo "pending=$PENDING" >> $GITHUB_OUTPUT
+          echo "📋 Pending keywords: $PENDING"
+
+      - name: Generate article
+        if: steps.check-queue.outputs.pending != '0'
+        working-directory: blog/scripts
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: node generate-article.js
+
+      - name: Commit and push
+        if: steps.check-queue.outputs.pending != '0'
+        run: |
+          git config user.name "Blog Bot"
+          git config user.email "bot@favicondl.com"
+          git add -A
+          if ! git diff --staged --quiet; then
+            SLUG=$(node -e "
+              const q = JSON.parse(require('fs').readFileSync('blog/queue.json','utf-8'));
+              const done = q.filter(i => i.status === 'done');
+              console.log(done[done.length-1]?.slug || 'new-article');
+            ")
+            git commit -m "📝 Auto-publish blog: $SLUG"
+            git pull --rebase origin main
+            git push
+          else
+            echo "ℹ️ No file changes detected, skipping commit."
+          fi
+
+      - name: Summary
+        if: steps.check-queue.outputs.pending != '0'
+        run: echo "✅ Article published successfully!"
+
+      - name: No articles to publish
+        if: steps.check-queue.outputs.pending == '0'
+        run: echo "⏸️ No pending keywords in queue. Add more to blog/queue.json"

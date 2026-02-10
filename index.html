@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mzu favicondl - Favicon Downloader & Extractor</title>
+    <meta name="description" content="Download and extract any website's favicon instantly. Copy-ready Direct URLs and HTML snippets. Free, fast, and reliable.">
+    <meta name="keywords" content="favicon downloader, favicon extractor, website icon, download favicon, favicon generator, favicon converter, batch favicon, free favicon tool">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://favicondl.com/">
+    <meta property="og:title" content="Mzu favicondl - Favicon Downloader & Extractor">
+    <meta property="og:description" content="Download and extract any website's favicon instantly. Free, fast, and reliable.">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Mzu favicondl - Favicon Downloader & Extractor">
+    <meta name="twitter:description" content="Download and extract any website's favicon instantly. Free, fast, and reliable.">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <!-- Google Analytics (replace GA_MEASUREMENT_ID with your real ID) -->
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'GA_MEASUREMENT_ID');
+    </script> -->
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        
+        * {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        /* 苹果风格 - 简洁干净 */
+        body {
+            background: #fafafa;
+        }
+        
+        /* 输入框 */
+        .search-input {
+            width: 100%;
+            padding: 16px 20px;
+            font-size: 17px;
+            border: none;
+            border-radius: 12px;
+            background: #f5f5f7;
+            color: #1d1d1f;
+            transition: all 0.2s ease;
+        }
+        
+        .search-input::placeholder {
+            color: #86868b;
+        }
+        
+        .search-input:focus {
+            outline: none;
+            background: #fff;
+            box-shadow: 0 0 0 4px rgba(0, 125, 250, 0.1), 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+        
+        /* 按钮 */
+        .btn-primary {
+            background: #0071e3;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 980px;
+            font-size: 14px;
+            font-weight: 500;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .btn-primary:hover {
+            background: #0077ed;
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: #0071e3;
+            padding: 12px 24px;
+            border-radius: 980px;
+            font-size: 14px;
+            font-weight: 500;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(0, 113, 227, 0.1);
+        }
+        
+        /* 网站卡片 */
+        .site-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: #fff;
+            border-radius: 980px;
+            font-size: 14px;
+            color: #1d1d1f;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: 1px solid #d2d2d7;
+        }
+        
+        .site-pill:hover {
+            background: #f5f5f7;
+            border-color: #86868b;
+        }
+        
+        .site-pill img {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+        }
+        
+        /* 代码块 */
+        .code-block {
+            background: #1d1d1f;
+            border-radius: 12px;
+            padding: 16px 20px;
+            font-family: 'SF Mono', 'Monaco', 'Inconsolata', monospace;
+            font-size: 13px;
+            color: #f5f5f7;
+            position: relative;
+            overflow-x: auto;
+        }
+        
+        .code-block .copy-btn {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.1);
+            color: #86868b;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: none;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .code-block .copy-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            color: #fff;
+        }
+        
+        .segmented {
+            display: inline-flex;
+            align-items: center;
+            gap: 2px;
+            padding: 2px;
+            background: #f5f5f7;
+            border: 1px solid #d2d2d7;
+            border-radius: 980px;
+        }
+
+        .segmented .segmented-item {
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .segmented .segmented-item span {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px 14px;
+            border-radius: 980px;
+            font-size: 13px;
+            font-weight: 500;
+            color: #6b7280;
+            background: transparent;
+            transition: background 0.15s ease, box-shadow 0.15s ease, color 0.15s ease;
+            min-width: 84px;
+        }
+
+        .segmented .segmented-item input:checked + span {
+            background: #ffffff;
+            color: #111827;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+        }
+
+        .segmented .segmented-item:focus-within span {
+            box-shadow: 0 0 0 4px rgba(0, 125, 250, 0.12), 0 1px 2px rgba(0, 0, 0, 0.06);
+        }
+        
+        /* 预览卡片 */
+        .preview-card {
+            background: white;
+            border-radius: 24px;
+            padding: 32px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+        }
+        
+        /* 特性卡片 */
+        .feature-card {
+            background: #fff;
+            border-radius: 20px;
+            padding: 32px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* 动画 */
+        .fade-in {
+            animation: fadeIn 0.3s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .loading-spinner {
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        /* 导航链接 */
+        .nav-link {
+            color: #1d1d1f;
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        .nav-link:hover {
+            color: #0071e3;
+        }
+
+        /* Language Dropdown */
+        .lang-dropdown { position: relative; }
+        .lang-btn {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 10px;
+            border-radius: 8px;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            transition: background 0.2s;
+            font-size: 14px;
+            font-weight: 500;
+            color: #1d1d1f;
+        }
+        .lang-btn:hover { background: #f5f5f7; }
+        .lang-menu {
+            position: absolute;
+            right: 0;
+            top: calc(100% + 6px);
+            min-width: 140px;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+            border: 1px solid rgba(0,0,0,0.06);
+            padding: 4px;
+            z-index: 60;
+            opacity: 0;
+            transform: translateY(-4px) scale(0.98);
+            transition: opacity 0.15s ease, transform 0.15s ease;
+            pointer-events: none;
+        }
+        .lang-menu.show {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            pointer-events: auto;
+        }
+        .lang-option {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            width: 100%;
+            padding: 8px 12px;
+            border: none;
+            background: none;
+            font-size: 14px;
+            color: #1d1d1f;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: background 0.15s;
+        }
+        .lang-option:hover { background: #f5f5f7; }
+        .lang-option.active { color: #0071e3; font-weight: 600; }
+        .lang-mobile-group {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            padding: 4px 12px;
+        }
+        .lang-mobile-btn {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            border-radius: 8px;
+            border: 1px solid transparent;
+            background: transparent;
+            font-size: 14px;
+            color: #1d1d1f;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .lang-mobile-btn:hover { background: #f5f5f7; }
+        .lang-mobile-btn.active {
+            background: #f0f5ff;
+            border-color: rgba(0,113,227,0.3);
+            color: #0071e3;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="index.html" class="font-semibold text-lg text-gray-900">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="documentation.html" class="nav-link" data-en="Docs" data-zh="文档">Docs</a>
+                <a href="tools.html" class="nav-link" data-en="Tools" data-zh="工具">Tools</a>
+                <a href="/blog/" class="nav-link" data-en="Blog" data-zh="博客">Blog</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="EN" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <button class="lang-option" data-lang="en"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="EN" style="width:18px;height:18px;"><span>English</span></button>
+                        <button class="lang-option" data-lang="zh"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="pt-20 pb-16 px-6">
+        <div class="max-w-3xl mx-auto text-center">
+            <h1 class="text-5xl font-semibold text-gray-900 tracking-tight mb-4" data-en="Download any website favicon. Instantly." data-zh="一键下载任意网站图标。">
+                Download any website favicon. Instantly.
+            </h1>
+            <p class="text-xl text-gray-500 mb-12" data-en="Enter a domain or URL to extract the favicon, copy the link, or download as PNG." data-zh="输入域名或网址，提取图标并复制链接或下载 PNG。">
+                Enter a domain or URL to extract the favicon, copy the link, or download as PNG.
+            </p>
+            
+            <!-- Search Box -->
+            <div class="max-w-xl mx-auto mb-6">
+                <div class="relative">
+                    <input 
+                        type="text" 
+                        id="domain-input" 
+                        class="search-input pr-12"
+                        placeholder="github.com"
+                    >
+                    <div id="loading-indicator" class="absolute right-4 top-1/2 -translate-y-1/2 hidden">
+                        <div class="loading-spinner w-5 h-5 border-2 border-blue-500 border-t-transparent rounded-full"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="max-w-xl mx-auto mb-10">
+                <p class="text-sm text-gray-400" data-en="Try:" data-zh="试试：">Try:</p>
+                <div class="flex flex-wrap justify-center gap-2 mt-3">
+                    <button class="px-3 py-1.5 rounded-full bg-gray-100 text-gray-600 text-sm border border-gray-200" onclick="window.faviconTool.selectDomain('github.com')">github.com</button>
+                    <button class="px-3 py-1.5 rounded-full bg-gray-100 text-gray-600 text-sm border border-gray-200" onclick="window.faviconTool.selectDomain('openai.com')">openai.com</button>
+                    <button class="px-3 py-1.5 rounded-full bg-gray-100 text-gray-600 text-sm border border-gray-200" onclick="window.faviconTool.selectDomain('claude.ai')">claude.ai</button>
+                    <button class="px-3 py-1.5 rounded-full bg-gray-100 text-gray-600 text-sm border border-gray-200" onclick="window.faviconTool.selectDomain('wikipedia.org')">wikipedia.org</button>
+                </div>
+            </div>
+            
+            <!-- Size Options -->
+            <div class="flex justify-center flex-wrap gap-x-6 gap-y-3 mb-8">
+                <label class="flex items-center gap-2 text-gray-600 cursor-pointer">
+                    <input type="radio" name="size" value="16" class="accent-blue-500">
+                    <span class="text-sm" data-en="16" data-zh="16">16</span>
+                </label>
+                <label class="flex items-center gap-2 text-gray-600 cursor-pointer">
+                    <input type="radio" name="size" value="32" checked class="accent-blue-500">
+                    <span class="text-sm" data-en="32 (Browser)" data-zh="32（浏览器）">32 (Browser)</span>
+                </label>
+                <label class="flex items-center gap-2 text-gray-600 cursor-pointer">
+                    <input type="radio" name="size" value="48" class="accent-blue-500">
+                    <span class="text-sm" data-en="48 (Google)" data-zh="48（Google）">48 (Google)</span>
+                </label>
+                <label class="flex items-center gap-2 text-gray-600 cursor-pointer">
+                    <input type="radio" name="size" value="64" class="accent-blue-500">
+                    <span class="text-sm" data-en="64" data-zh="64">64</span>
+                </label>
+                <label class="flex items-center gap-2 text-gray-600 cursor-pointer">
+                    <input type="radio" name="size" value="128" class="accent-blue-500">
+                    <span class="text-sm" data-en="128" data-zh="128">128</span>
+                </label>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Preview Section -->
+    <section id="preview-section" class="hidden fade-in pb-16 px-6">
+        <div class="max-w-2xl mx-auto">
+            <div class="preview-card">
+                <!-- Icon Preview -->
+                <div class="flex items-center gap-5 mb-8 pb-8 border-b border-gray-100">
+                    <div class="w-20 h-20 rounded-2xl bg-gray-50 flex items-center justify-center">
+                        <img id="preview-icon" src="" alt="" class="w-14 h-14 object-contain">
+                    </div>
+                    <div>
+                        <p class="text-sm text-gray-400 mb-1" data-en="Domain" data-zh="域名">Domain</p>
+                        <p id="preview-domain" class="text-2xl font-semibold text-gray-900"></p>
+                    </div>
+                </div>
+                
+                <!-- Code Snippets -->
+                <div class="space-y-4 mb-8">
+                    <div>
+                        <div class="flex items-center justify-between mb-2">
+                            <p class="text-sm text-gray-500" data-en="HTML" data-zh="HTML 代码">HTML</p>
+                            <button id="copy-html-btn" class="copy-btn" data-en="Copy" data-zh="复制">Copy</button>
+                        </div>
+                        <div class="code-block">
+                            <code id="html-code"></code>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <div class="flex items-center justify-between mb-2">
+                            <p class="text-sm text-gray-500" data-en="Direct URL" data-zh="直接链接">Direct URL</p>
+                            <button id="copy-url-btn" class="copy-btn" data-en="Copy" data-zh="复制">Copy</button>
+                        </div>
+                        <div class="code-block">
+                            <code id="api-url"></code>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flex flex-col gap-3 mb-6">
+                    <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
+                        <div class="flex flex-col gap-2">
+                            <label class="flex items-center gap-2 text-gray-600 cursor-pointer select-none">
+                                <input id="transparent-bg-toggle" type="checkbox" class="accent-blue-500">
+                                <span class="text-sm" data-en="Try to make background transparent (experimental)" data-zh="尝试将背景变透明（实验功能）">Try to make background transparent (experimental)</span>
+                            </label>
+                            <label class="flex items-center gap-2 text-gray-600 cursor-pointer select-none">
+                                <input id="export-size-toggle" type="checkbox" checked class="accent-blue-500">
+                                <span class="text-sm" data-en="Export at selected size" data-zh="按所选尺寸导出">Export at selected size</span>
+                            </label>
+                        </div>
+
+                        <div class="flex flex-col items-start sm:items-end gap-2">
+                            <p class="text-xs text-gray-400 tracking-wide" data-en="Download mode" data-zh="下载方式">Download mode</p>
+                            <div class="segmented">
+                                <label class="segmented-item">
+                                    <input type="radio" name="download-mode" value="saveas" class="hidden">
+                                    <span data-en="Save As" data-zh="另存为">Save As</span>
+                                </label>
+                                <label class="segmented-item">
+                                    <input type="radio" name="download-mode" value="browser" checked class="hidden">
+                                    <span data-en="Browser" data-zh="浏览器下载">Browser</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Actions -->
+                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+                    <button id="new-search-btn" class="btn-secondary" data-en="New Search" data-zh="重新搜索">New Search</button>
+                    <button id="download-btn" class="btn-primary flex items-center gap-2">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+                        </svg>
+                        <span data-en="Download" data-zh="下载">Download</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Error Message -->
+    <div id="error-message" class="hidden px-6 pb-8">
+        <div class="max-w-2xl mx-auto bg-red-50 border border-red-100 rounded-xl p-4 flex items-center gap-3">
+            <svg class="w-5 h-5 text-red-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
+            </svg>
+            <p id="error-text" class="text-red-700 text-sm"></p>
+        </div>
+    </div>
+    
+    <!-- Popular Sites -->
+    <section class="py-16 px-6 bg-white">
+        <div class="max-w-4xl mx-auto">
+            <p class="text-center text-gray-400 text-sm mb-8" data-en="Popular sites" data-zh="热门网站">Popular sites</p>
+            <div class="flex flex-wrap justify-center gap-3">
+                <div class="site-pill" onclick="window.faviconTool.selectDomain('google.com')">
+                    <img src="https://www.google.com/s2/favicons?domain=google.com&sz=32" alt="Google favicon">
+                    <span>Google</span>
+                </div>
+                <div class="site-pill" onclick="window.faviconTool.selectDomain('apple.com')">
+                    <img src="https://www.google.com/s2/favicons?domain=apple.com&sz=32" alt="Apple favicon">
+                    <span>Apple</span>
+                </div>
+                <div class="site-pill" onclick="window.faviconTool.selectDomain('github.com')">
+                    <img src="https://www.google.com/s2/favicons?domain=github.com&sz=32" alt="GitHub favicon">
+                    <span>GitHub</span>
+                </div>
+                <div class="site-pill" onclick="window.faviconTool.selectDomain('chatgpt.com')">
+                    <img src="https://chatgpt.com/cdn/assets/favicon-eex17e9e.ico" alt="ChatGPT favicon">
+                    <span>ChatGPT</span>
+                </div>
+                <div class="site-pill" onclick="window.faviconTool.selectDomain('claude.ai')">
+                    <img src="https://www.google.com/s2/favicons?domain=claude.ai&sz=32" alt="Claude favicon">
+                    <span>Claude</span>
+                </div>
+                <div class="site-pill" onclick="window.faviconTool.selectDomain('youtube.com')">
+                    <img src="https://www.google.com/s2/favicons?domain=youtube.com&sz=32" alt="YouTube favicon">
+                    <span>YouTube</span>
+                </div>
+                <div class="site-pill" onclick="window.faviconTool.selectDomain('twitter.com')">
+                    <img src="https://www.google.com/s2/favicons?domain=twitter.com&sz=32" alt="Twitter favicon">
+                    <span>Twitter</span>
+                </div>
+                <div class="site-pill" onclick="window.faviconTool.selectDomain('facebook.com')">
+                    <img src="https://www.google.com/s2/favicons?domain=facebook.com&sz=32" alt="Facebook favicon">
+                    <span>Facebook</span>
+                </div>
+                <div class="site-pill" onclick="window.faviconTool.selectDomain('tiktok.com')">
+                    <img src="https://www.google.com/s2/favicons?domain=tiktok.com&sz=32" alt="TikTok favicon">
+                    <span>TikTok</span>
+                </div>
+                <div class="site-pill" onclick="window.faviconTool.selectDomain('whatsapp.com')">
+                    <img src="https://www.google.com/s2/favicons?domain=whatsapp.com&sz=32" alt="WhatsApp favicon">
+                    <span>WhatsApp</span>
+                </div>
+                <div class="site-pill" onclick="window.faviconTool.selectDomain('netflix.com')">
+                    <img src="https://www.google.com/s2/favicons?domain=netflix.com&sz=32" alt="Netflix favicon">
+                    <span>Netflix</span>
+                </div>
+                <div class="site-pill" onclick="window.faviconTool.selectDomain('spotify.com')">
+                    <img src="https://www.google.com/s2/favicons?domain=spotify.com&sz=32" alt="Spotify favicon">
+                    <span>Spotify</span>
+                </div>
+                <div class="site-pill" onclick="window.faviconTool.selectDomain('amazon.com')">
+                    <img src="https://www.google.com/s2/favicons?domain=amazon.com&sz=32" alt="Amazon favicon">
+                    <span>Amazon</span>
+                </div>
+                <div class="site-pill" onclick="window.faviconTool.selectDomain('linkedin.com')">
+                    <img src="https://www.google.com/s2/favicons?domain=linkedin.com&sz=32" alt="LinkedIn favicon">
+                    <span>LinkedIn</span>
+                </div>
+                <div class="site-pill" onclick="window.faviconTool.selectDomain('instagram.com')">
+                    <img src="https://www.google.com/s2/favicons?domain=instagram.com&sz=32" alt="Instagram favicon">
+                    <span>Instagram</span>
+                </div>
+                <div class="site-pill" onclick="window.faviconTool.selectDomain('wikipedia.org')">
+                    <img src="https://www.google.com/s2/favicons?domain=wikipedia.org&sz=32" alt="Wikipedia favicon">
+                    <span>Wikipedia</span>
+                </div>
+                <div class="site-pill" onclick="window.faviconTool.selectDomain('reddit.com')">
+                    <img src="https://www.google.com/s2/favicons?domain=reddit.com&sz=32" alt="Reddit favicon">
+                    <span>Reddit</span>
+                </div>
+                <div class="site-pill" onclick="window.faviconTool.selectDomain('stackoverflow.com')">
+                    <img src="https://www.google.com/s2/favicons?domain=stackoverflow.com&sz=32" alt="Stack Overflow favicon">
+                    <span>Stack Overflow</span>
+                </div>
+                <div class="site-pill" onclick="window.faviconTool.selectDomain('discord.com')">
+                    <img src="https://www.google.com/s2/favicons?domain=discord.com&sz=32" alt="Discord favicon">
+                    <span>Discord</span>
+                </div>
+                <div class="site-pill" onclick="window.faviconTool.selectDomain('nytimes.com')">
+                    <img src="https://www.google.com/s2/favicons?domain=nytimes.com&sz=32" alt="NYTimes favicon">
+                    <span>NYTimes</span>
+                </div>
+            </div>
+
+            <details class="mt-10">
+                <summary class="cursor-pointer text-sm text-gray-500 text-center select-none" data-en="More sites" data-zh="更多网站">More sites</summary>
+                <div class="flex flex-wrap justify-center gap-3 mt-6">
+                    <div class="site-pill" onclick="window.faviconTool.selectDomain('bing.com')">
+                        <img src="https://www.google.com/s2/favicons?domain=bing.com&sz=32" alt="Bing favicon">
+                        <span>Bing</span>
+                    </div>
+                    <div class="site-pill" onclick="window.faviconTool.selectDomain('duckduckgo.com')">
+                        <img src="https://www.google.com/s2/favicons?domain=duckduckgo.com&sz=32" alt="DuckDuckGo favicon">
+                        <span>DuckDuckGo</span>
+                    </div>
+                    <div class="site-pill" onclick="window.faviconTool.selectDomain('microsoft.com')">
+                        <img src="https://www.google.com/s2/favicons?domain=microsoft.com&sz=32" alt="Microsoft favicon">
+                        <span>Microsoft</span>
+                    </div>
+                    <div class="site-pill" onclick="window.faviconTool.selectDomain('office.com')">
+                        <img src="https://www.google.com/s2/favicons?domain=office.com&sz=32" alt="Office favicon">
+                        <span>Office</span>
+                    </div>
+                    <div class="site-pill" onclick="window.faviconTool.selectDomain('paypal.com')">
+                        <img src="https://www.google.com/s2/favicons?domain=paypal.com&sz=32" alt="PayPal favicon">
+                        <span>PayPal</span>
+                    </div>
+                    <div class="site-pill" onclick="window.faviconTool.selectDomain('stripe.com')">
+                        <img src="https://www.google.com/s2/favicons?domain=stripe.com&sz=32" alt="Stripe favicon">
+                        <span>Stripe</span>
+                    </div>
+                    <div class="site-pill" onclick="window.faviconTool.selectDomain('ebay.com')">
+                        <img src="https://www.google.com/s2/favicons?domain=ebay.com&sz=32" alt="eBay favicon">
+                        <span>eBay</span>
+                    </div>
+                    <div class="site-pill" onclick="window.faviconTool.selectDomain('walmart.com')">
+                        <img src="https://www.google.com/s2/favicons?domain=walmart.com&sz=32" alt="Walmart favicon">
+                        <span>Walmart</span>
+                    </div>
+                    <div class="site-pill" onclick="window.faviconTool.selectDomain('aliexpress.com')">
+                        <img src="https://www.google.com/s2/favicons?domain=aliexpress.com&sz=32" alt="AliExpress favicon">
+                        <span>AliExpress</span>
+                    </div>
+                    <div class="site-pill" onclick="window.faviconTool.selectDomain('huggingface.co')">
+                        <img src="https://www.google.com/s2/favicons?domain=huggingface.co&sz=32" alt="Hugging Face favicon">
+                        <span>Hugging Face</span>
+                    </div>
+                    <div class="site-pill" onclick="window.faviconTool.selectDomain('midjourney.com')">
+                        <img src="https://www.google.com/s2/favicons?domain=midjourney.com&sz=32" alt="Midjourney favicon">
+                        <span>Midjourney</span>
+                    </div>
+                    <div class="site-pill" onclick="window.faviconTool.selectDomain('twitch.tv')">
+                        <img src="https://www.google.com/s2/favicons?domain=twitch.tv&sz=32" alt="Twitch favicon">
+                        <span>Twitch</span>
+                    </div>
+                    <div class="site-pill" onclick="window.faviconTool.selectDomain('imdb.com')">
+                        <img src="https://www.google.com/s2/favicons?domain=imdb.com&sz=32" alt="IMDb favicon">
+                        <span>IMDb</span>
+                    </div>
+                    <div class="site-pill" onclick="window.faviconTool.selectDomain('bbc.com')">
+                        <img src="https://www.google.com/s2/favicons?domain=bbc.com&sz=32" alt="BBC favicon">
+                        <span>BBC</span>
+                    </div>
+                    <div class="site-pill" onclick="window.faviconTool.selectDomain('cnn.com')">
+                        <img src="https://www.google.com/s2/favicons?domain=cnn.com&sz=32" alt="CNN favicon">
+                        <span>CNN</span>
+                    </div>
+                    <div class="site-pill" onclick="window.faviconTool.selectDomain('medium.com')">
+                        <img src="https://www.google.com/s2/favicons?domain=medium.com&sz=32" alt="Medium favicon">
+                        <span>Medium</span>
+                    </div>
+                </div>
+            </details>
+        </div>
+    </section>
+    
+    <!-- Features -->
+    <section class="py-20 px-6">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-3xl font-semibold text-gray-900 text-center mb-4" data-en="Why Mzu favicondl?" data-zh="为什么选择 Mzu favicondl？">Why Mzu favicondl?</h2>
+            <p class="text-gray-500 text-center mb-16" data-en="Simple, fast, and reliable favicon fetching." data-zh="简单、快速、可靠的图标获取服务。">Simple, fast, and reliable favicon fetching.</p>
+            
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="feature-card">
+                    <div class="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center mx-auto mb-5">
+                        <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2" data-en="Lightning Fast" data-zh="闪电般快速">Lightning Fast</h3>
+                    <p class="text-gray-500 text-sm" data-en="Get favicons in milliseconds with our optimized service." data-zh="毫秒级响应，即时获取图标。">Get favicons in milliseconds with our optimized service.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center mx-auto mb-5">
+                        <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2" data-en="Multiple Sizes" data-zh="多种尺寸">Multiple Sizes</h3>
+                    <p class="text-gray-500 text-sm" data-en="Fetch 32px & 128px on the homepage. Generate 16–512px in Tools." data-zh="主页支持 32/128 获取；工具页可生成 16–512 多尺寸。">Fetch 32px & 128px on the homepage. Generate 16–512px in Tools.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center mx-auto mb-5">
+                        <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2" data-en="Developer Friendly" data-zh="开发者友好">Developer Friendly</h3>
+                    <p class="text-gray-500 text-sm" data-en="Copy-ready URL templates and HTML snippets." data-zh="一键复制 URL 模板与 HTML 代码片段。">Copy-ready URL templates and HTML snippets.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA -->
+    <section class="py-16 px-6 bg-gray-50">
+        <div class="max-w-3xl mx-auto text-center">
+            <h2 class="text-2xl font-semibold text-gray-900 mb-4" data-en="Need more tools?" data-zh="需要更多工具？">Need more tools?</h2>
+            <p class="text-gray-500 mb-8" data-en="Convert images to favicons, batch process, and more." data-zh="图片转 Favicon、批量处理等更多功能。">Convert images to favicons, batch process, and more.</p>
+            <a href="tools.html" class="btn-primary inline-flex items-center gap-2">
+                <span data-en="Explore Tools" data-zh="探索工具">Explore Tools</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                </svg>
+            </a>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="py-8 px-6 border-t border-gray-200">
+        <div class="max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+            <p class="text-gray-400 text-sm">© <script>document.write(new Date().getFullYear())</script> Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="index.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Home" data-zh="首页">Home</a>
+                <a href="documentation.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Docs" data-zh="文档">Docs</a>
+                <a href="tools.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Tools" data-zh="工具">Tools</a>
+                <a href="/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Blog" data-zh="博客">Blog</a>
+                <a href="privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Privacy" data-zh="隐私政策">Privacy</a>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Toast -->
+    <div id="success-toast" class="fixed top-20 right-6 bg-gray-900 text-white px-5 py-3 rounded-xl shadow-lg transform translate-x-[200%] transition-transform duration-300 z-50 flex items-center gap-2 text-sm">
+        <svg class="w-4 h-4 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+        </svg>
+        <span id="toast-message" data-en="Copied!" data-zh="已复制！">Copied!</span>
+    </div>
+    
+    <script src="main.js?v=20260207"></script>
+</body>
+</html>

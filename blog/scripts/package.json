@@ -1,0 +1,9 @@
+{
+  "name": "favicondl-blog-generator",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@google/generative-ai": "^0.24.0"
+  }
+}
