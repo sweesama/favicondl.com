@@ -143,5 +143,18 @@
       "tools",
       "generator"
     ]
+  },
+  {
+    "slug": "make-favicon-from-image",
+    "publishDate": "2026-02-10",
+    "titleEn": "How to Make a Favicon from Image: The Pro Developer Guide",
+    "titleZh": "如何将图片制作成 Favicon：开发者实战指南",
+    "descEn": "Learn how to make a favicon from image files like PNG or SVG. Avoid blurry icons and master the art of simplifying logos for the browser tab in 2026.",
+    "descZh": "学习如何将 PNG 或 SVG 图片制作成高质量的 Favicon。避开模糊图标的坑，掌握 2026 年为浏览器标签页简化 Logo 的实战技巧。",
+    "keyword": "how to make a favicon from image",
+    "tags": [
+      "how-to",
+      "conversion"
+    ]
   }
 ]
