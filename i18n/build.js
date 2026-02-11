@@ -1,0 +1,287 @@
+#!/usr/bin/env node
+/**
+ * i18n Build Script — 从英文源页面生成多语言版本
+ * 用法: cd i18n && npm install && npm run build
+ *
+ * 输出: /{lang}/index.html, /{lang}/tools.html 等
+ * 同时给英文根页面注入 hreflang 标签和多语言切换器
+ */
+
+import { load } from 'cheerio';
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const ROOT = path.resolve(__dirname, '..');
+
+// ─── 配置 ───────────────────────────────────────────────
+const DOMAIN = 'https://favicondl.com';
+const LANGUAGES = ['zh', 'ja', 'ko', 'es'];
+const ALL_LANGS = ['en', ...LANGUAGES];
+const PAGES = [
+  'index.html',
+  'tools.html',
+  'documentation.html',
+  'privacy.html',
+  '404.html',
+];
+
+const FLAGS = {
+  en: { svg: '1f1fa-1f1f8', name: 'English' },
+  zh: { svg: '1f1e8-1f1f3', name: '中文' },
+  ja: { svg: '1f1ef-1f1f5', name: '日本語' },
+  ko: { svg: '1f1f0-1f1f7', name: '한국어' },
+  es: { svg: '1f1ea-1f1f8', name: 'Español' },
+};
+
+const flagUrl = (code) =>
+  `https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/${FLAGS[code].svg}.svg`;
+
+// ─── 翻译加载 ───────────────────────────────────────────
+function loadTranslations() {
+  const t = {};
+  for (const lang of LANGUAGES) {
+    t[lang] = JSON.parse(
+      fs.readFileSync(path.join(__dirname, `${lang}.json`), 'utf-8')
+    );
+  }
+  return t;
+}
+
+// ─── hreflang 标签生成 ──────────────────────────────────
+function hreflangTags(page) {
+  const pagePath = page === 'index.html' ? '/' : `/${page}`;
+  const tags = [];
+  // English (default / x-default)
+  tags.push(`<link rel="alternate" hreflang="en" href="${DOMAIN}${pagePath}">`);
+  tags.push(`<link rel="alternate" hreflang="x-default" href="${DOMAIN}${pagePath}">`);
+  for (const lang of LANGUAGES) {
+    tags.push(
+      `<link rel="alternate" hreflang="${lang}" href="${DOMAIN}/${lang}${pagePath}">`
+    );
+  }
+  return '\n    ' + tags.join('\n    ');
+}
+
+// ─── 语言切换器 HTML ────────────────────────────────────
+function switcherDropdown(currentLang, page) {
+  const pagePath = page === 'index.html' ? '/' : `/${page}`;
+  const options = ALL_LANGS.map((lang) => {
+    const href = lang === 'en' ? pagePath : `/${lang}${pagePath}`;
+    const active = lang === currentLang ? ' active' : '';
+    return `<a href="${href}" class="lang-option${active}" style="text-decoration:none;"><img src="${flagUrl(lang)}" alt="${FLAGS[lang].name}" style="width:18px;height:18px;"><span>${FLAGS[lang].name}</span></a>`;
+  }).join('\n                        ');
+
+  return `<div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="${flagUrl(currentLang)}" alt="${FLAGS[currentLang].name}" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        ${options}
+                    </div>
+                </div>`;
+}
+
+// ─── 移动端语言切换器 ───────────────────────────────────
+function switcherMobile(currentLang, page) {
+  const pagePath = page === 'index.html' ? '/' : `/${page}`;
+  return ALL_LANGS.map((lang) => {
+    const href = lang === 'en' ? pagePath : `/${lang}${pagePath}`;
+    const active = lang === currentLang ? ' active' : '';
+    return `<a href="${href}" class="lang-mobile-btn${active}" style="text-decoration:none;"><img src="${flagUrl(lang)}" alt="${FLAGS[lang].name}" style="width:18px;height:18px;"><span>${FLAGS[lang].name}</span></a>`;
+  }).join('\n                    ');
+}
+
+// ─── 内部链接前缀 ──────────────────────────────────────
+function prefixLinks($, lang) {
+  $('a[href]').each(function () {
+    const href = $(this).attr('href');
+    if (!href) return;
+    // 跳过外部链接、锚点、javascript、mailto
+    if (/^(https?:|mailto:|javascript:|#)/i.test(href)) return;
+    // 对 .html 链接和目录链接加语言前缀
+    if (href.endsWith('.html') || href === '/' || href.endsWith('/')) {
+      const prefix = href.startsWith('/') ? `/${lang}` : `/${lang}/`;
+      $(this).attr('href', prefix + href);
+    }
+  });
+}
+
+// ─── 替换文本内容 ───────────────────────────────────────
+function translateContent($, lang, strings) {
+  $('[data-en]').each(function () {
+    const enText = $(this).attr('data-en');
+    let translated;
+
+    if (lang === 'zh') {
+      // 中文直接取 data-zh 属性（已经手写在 HTML 里）
+      translated = $(this).attr('data-zh');
+    } else {
+      translated = strings[enText];
+    }
+
+    if (translated && $(this).children().length === 0) {
+      $(this).text(translated);
+    }
+  });
+}
+
+// ─── 替换 meta 标签 ────────────────────────────────────
+function translateMeta($, lang, pageMeta, page) {
+  // lang 属性
+  $('html').attr('lang', lang);
+
+  // title
+  if (pageMeta?.title) $('title').text(pageMeta.title);
+
+  // meta description
+  if (pageMeta?.description)
+    $('meta[name="description"]').attr('content', pageMeta.description);
+
+  // OG
+  if (pageMeta?.ogTitle) {
+    $('meta[property="og:title"]').attr('content', pageMeta.ogTitle);
+    $('meta[name="twitter:title"]').attr('content', pageMeta.ogTitle);
+  }
+  if (pageMeta?.ogDescription) {
+    $('meta[property="og:description"]').attr('content', pageMeta.ogDescription);
+    $('meta[name="twitter:description"]').attr('content', pageMeta.ogDescription);
+  }
+
+  // Canonical + OG URL
+  const pagePath = page === 'index.html' ? '/' : `/${page}`;
+  $('link[rel="canonical"]').attr('href', `${DOMAIN}/${lang}${pagePath}`);
+  $('meta[property="og:url"]').attr('content', `${DOMAIN}/${lang}${pagePath}`);
+}
+
+// ─── 替换语言切换器 ────────────────────────────────────
+function replaceSwitcher($, lang, page) {
+  // 桌面端：替换 .lang-dropdown
+  const desktopDropdown = $('.lang-dropdown').first();
+  if (desktopDropdown.length) {
+    desktopDropdown.replaceWith(switcherDropdown(lang, page));
+  }
+
+  // 移动端：替换 .lang-mobile-group
+  const mobileGroup = $('.lang-mobile-group');
+  if (mobileGroup.length) {
+    mobileGroup.html(switcherMobile(lang, page));
+  }
+}
+
+// ─── 构建单个语言页面 ──────────────────────────────────
+function buildPage(html, lang, page, translations) {
+  const $ = load(html, { decodeEntities: false });
+  const t = translations[lang];
+  const pageName = page.replace('.html', '');
+
+  // 1. Meta 标签
+  translateMeta($, lang, t._pages?.[pageName], page);
+
+  // 2. 文本内容替换
+  translateContent($, lang, t._strings || {});
+
+  // 3. hreflang
+  $('link[rel="canonical"]').after(hreflangTags(page));
+
+  // 4. 内部链接加前缀（必须在替换切换器之前执行）
+  prefixLinks($, lang);
+
+  // 5. 语言切换器（在 prefixLinks 之后，避免切换器链接被二次加前缀）
+  replaceSwitcher($, lang, page);
+
+  // 输出
+  const outDir = path.join(ROOT, lang);
+  fs.mkdirSync(outDir, { recursive: true });
+  fs.writeFileSync(path.join(outDir, page), $.html(), 'utf-8');
+}
+
+// ─── 给英文根页面注入 hreflang + 多语言切换器 ─────────
+function patchEnglishPage(html, page) {
+  const $ = load(html, { decodeEntities: false });
+
+  // 如果已经有 hreflang，先移除（幂等）
+  $('link[rel="alternate"][hreflang]').remove();
+
+  // 注入 hreflang
+  $('link[rel="canonical"]').after(hreflangTags(page));
+
+  // 替换语言切换器
+  replaceSwitcher($, 'en', page);
+
+  return $.html();
+}
+
+// ─── 复制静态资源软链接 ────────────────────────────────
+function ensureSharedAssets(lang) {
+  // 各语言目录需要能访问到 /favicons/、/blog/ 等资源
+  // 因为 Vercel 是静态服务，语言目录下的页面用的是绝对路径 /favicons/...
+  // 所以不需要复制资源，绝对路径直接指向根目录
+}
+
+// ─── 复制 JS 文件到语言目录 ─────────────────────────────
+function copyJsFiles(lang) {
+  // main.js 和 tools.js 需要在语言目录下可用
+  // 因为页面用的是相对路径引用 JS
+  const jsFiles = ['main.js', 'tools.js'];
+  const outDir = path.join(ROOT, lang);
+  for (const file of jsFiles) {
+    const src = path.join(ROOT, file);
+    const dest = path.join(outDir, file);
+    if (fs.existsSync(src) && !fs.existsSync(dest)) {
+      // 写一个重定向脚本，加载根目录的 JS
+      fs.writeFileSync(
+        dest,
+        `// Auto-generated: load root JS\nimport('/${file}');\n`,
+        'utf-8'
+      );
+    }
+  }
+}
+
+// ─── 主流程 ─────────────────────────────────────────────
+async function main() {
+  console.log('🌐 i18n Build — 开始生成多语言页面\n');
+  console.log(`   语言: ${ALL_LANGS.join(', ')}`);
+  console.log(`   页面: ${PAGES.join(', ')}\n`);
+
+  const translations = loadTranslations();
+  let totalPages = 0;
+
+  for (const page of PAGES) {
+    const srcPath = path.join(ROOT, page);
+    if (!fs.existsSync(srcPath)) {
+      console.log(`⚠️  跳过 ${page}（文件不存在）`);
+      continue;
+    }
+    const html = fs.readFileSync(srcPath, 'utf-8');
+
+    // 为每种目标语言生成页面
+    for (const lang of LANGUAGES) {
+      buildPage(html, lang, page, translations);
+      totalPages++;
+    }
+
+    // 更新英文根页面（注入 hreflang + 多语言切换器）
+    const patchedEnglish = patchEnglishPage(html, page);
+    fs.writeFileSync(srcPath, patchedEnglish, 'utf-8');
+
+    console.log(`✅ ${page} → en(patched), ${LANGUAGES.join(', ')}`);
+  }
+
+  // 确保 JS 文件可用
+  for (const lang of LANGUAGES) {
+    ensureSharedAssets(lang);
+    copyJsFiles(lang);
+  }
+
+  console.log(`\n🎉 完成！共生成 ${totalPages} 个多语言页面`);
+  console.log('   目录:', LANGUAGES.map((l) => `/${l}/`).join(', '));
+}
+
+main().catch((err) => {
+  console.error('❌ 构建失败:', err);
+  process.exit(1);
+});

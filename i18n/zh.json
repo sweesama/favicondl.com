@@ -1,0 +1,35 @@
+{
+  "_meta": {
+    "code": "zh",
+    "name": "中文",
+    "flag": "1f1e8-1f1f3"
+  },
+  "_pages": {
+    "index": {
+      "title": "Mzu favicondl - Favicon 下载器与提取器",
+      "description": "即时下载和提取任何网站的 Favicon。直接复制 URL 和 HTML 代码片段。免费、快速、可靠。",
+      "ogTitle": "Mzu favicondl - Favicon 下载器与提取器",
+      "ogDescription": "即时下载和提取任何网站的 Favicon。免费、快速、可靠。"
+    },
+    "tools": {
+      "title": "工具 - Mzu favicondl",
+      "description": "Mzu favicondl 工具 - 图片转 Favicon、批量处理、格式转换",
+      "ogTitle": "工具 - Mzu favicondl",
+      "ogDescription": "图片转 Favicon、批量处理、格式转换工具。免费好用。"
+    },
+    "documentation": {
+      "title": "文档 - Mzu favicondl",
+      "description": "Mzu favicondl 文档 - Favicon URL 模板与使用指南",
+      "ogTitle": "文档 - Mzu favicondl",
+      "ogDescription": "可直接复制使用的 Favicon URL 模板与完整使用指南。"
+    },
+    "privacy": {
+      "title": "隐私政策 - Mzu favicondl",
+      "description": "Mzu favicondl 隐私政策 - Favicon 下载器与提取器"
+    },
+    "404": {
+      "title": "404 - 页面未找到 | Mzu favicondl"
+    }
+  },
+  "_strings": {}
+}
