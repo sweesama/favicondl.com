@@ -63,10 +63,15 @@ const VALID_CTA_LINKS = ['/index.html', '/tools.html', '/documentation.html'];
 
 // AI 输出必须包含的字段
 const REQUIRED_FIELDS = [
-  'titleEn', 'titleZh', 'descEn', 'descZh', 'metaKeywords',
-  'breadcrumbEn', 'breadcrumbZh', 'contentEn', 'contentZh',
-  'ctaTitleEn', 'ctaTitleZh', 'ctaDescEn', 'ctaDescZh',
-  'ctaBtnEn', 'ctaBtnZh', 'ctaLink'
+  'titleEn', 'titleZh', 'titleJa', 'titleKo', 'titleEs',
+  'descEn', 'descZh', 'descJa', 'descKo', 'descEs',
+  'metaKeywords',
+  'breadcrumbEn', 'breadcrumbZh', 'breadcrumbJa', 'breadcrumbKo', 'breadcrumbEs',
+  'contentEn', 'contentZh',
+  'ctaTitleEn', 'ctaTitleZh', 'ctaTitleJa', 'ctaTitleKo', 'ctaTitleEs',
+  'ctaDescEn', 'ctaDescZh', 'ctaDescJa', 'ctaDescKo', 'ctaDescEs',
+  'ctaBtnEn', 'ctaBtnZh', 'ctaBtnJa', 'ctaBtnKo', 'ctaBtnEs',
+  'ctaLink'
 ];
 
 // ============================================================
@@ -148,8 +153,14 @@ async function main() {
       publishDate: today,
       titleEn: articleData.titleEn,
       titleZh: articleData.titleZh,
+      titleJa: articleData.titleJa,
+      titleKo: articleData.titleKo,
+      titleEs: articleData.titleEs,
       descEn: articleData.descEn,
       descZh: articleData.descZh,
+      descJa: articleData.descJa,
+      descKo: articleData.descKo,
+      descEs: articleData.descEs,
       keyword: nextItem.keyword,
       tags: nextItem.tags
     });
@@ -168,8 +179,11 @@ async function main() {
     // --- 最终输出 ---
     console.log('\n' + '='.repeat(50));
     console.log(`🎉 文章发布成功!`);
-    console.log(`   标题: ${articleData.titleEn}`);
-    console.log(`   中文: ${articleData.titleZh}`);
+    console.log(`   EN: ${articleData.titleEn}`);
+    console.log(`   ZH: ${articleData.titleZh}`);
+    console.log(`   JA: ${articleData.titleJa}`);
+    console.log(`   KO: ${articleData.titleKo}`);
+    console.log(`   ES: ${articleData.titleEs}`);
     console.log(`   文件: blog/${nextItem.slug}.html`);
     console.log(`   日期: ${today}`);
     console.log(`   英文长度: ${articleData.contentEn.length} 字符`);
@@ -325,25 +339,53 @@ ${avoidSection}
 - Adapt idioms and examples for Chinese readers. Keep technical terms in English.
 - Apply the same anti-AI writing rules: no 套话 like "在当今数字化时代", "众所周知", "不言而喻". Write like a Chinese developer blogging, not a textbook.
 
+=== MULTI-LANGUAGE (ja/ko/es) ===
+In addition to English and Chinese full articles, provide TRANSLATED metadata for Japanese, Korean, and Spanish:
+- titleJa/Ko/Es: Natural, localized titles (NOT literal translations)
+- descJa/Ko/Es: Meta descriptions adapted for each language
+- breadcrumbJa/Ko/Es: Short breadcrumb text
+- ctaTitleJa/Ko/Es, ctaDescJa/Ko/Es, ctaBtnJa/Ko/Es: CTA section translations
+- Keep technical terms (favicon, ICO, PNG, SVG, etc.) in English across all languages.
+- Japanese: use です/ます style. Korean: use 합니다 style. Spanish: use "tú" form.
+- These are UI-level translations only (no full article body needed for ja/ko/es).
+
 === OUTPUT FORMAT ===
 Return ONLY valid JSON.
 
 {
   "titleEn": "Engaging title with keyword (50-60 chars)",
   "titleZh": "自然的中文标题",
+  "titleJa": "日本語タイトル",
+  "titleKo": "한국어 제목",
+  "titleEs": "Título en español",
   "descEn": "Meta description (140-160 chars)",
   "descZh": "中文描述",
+  "descJa": "日本語の説明",
+  "descKo": "한국어 설명",
+  "descEs": "Descripción en español",
   "metaKeywords": "keyword1, keyword2, ...",
   "breadcrumbEn": "Short Breadcrumb",
   "breadcrumbZh": "中文面包屑",
+  "breadcrumbJa": "パンくず",
+  "breadcrumbKo": "브레드크럼",
+  "breadcrumbEs": "Migas de pan",
   "contentEn": "<p>HTML article body...</p>",
   "contentZh": "<p>中文文章正文...</p>",
   "ctaTitleEn": "CTA heading",
   "ctaTitleZh": "CTA 标题",
+  "ctaTitleJa": "CTA 見出し",
+  "ctaTitleKo": "CTA 제목",
+  "ctaTitleEs": "Título CTA",
   "ctaDescEn": "CTA description",
   "ctaDescZh": "CTA 描述",
+  "ctaDescJa": "CTA 説明",
+  "ctaDescKo": "CTA 설명",
+  "ctaDescEs": "Descripción CTA",
   "ctaBtnEn": "Try It Free →",
   "ctaBtnZh": "免费试用 →",
+  "ctaBtnJa": "無料で試す →",
+  "ctaBtnKo": "무료로 사용해보기 →",
+  "ctaBtnEs": "Pruébalo gratis →",
   "ctaLink": "/index.html"
 }`;
 }
@@ -674,7 +716,7 @@ function buildHTML(data, queueItem, publishDate) {
     <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
 
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="/blog/blog.css">
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
 
     <script type="application/ld+json">
     ${buildJsonLd(data.titleEn, data.descEn, publishDate, slug)}
@@ -688,7 +730,7 @@ function buildHTML(data, queueItem, publishDate) {
                 <a href="/documentation.html" class="nav-link" data-en="Docs" data-zh="文档">Docs</a>
                 <a href="/tools.html" class="nav-link" data-en="Tools" data-zh="工具">Tools</a>
                 <a href="/blog/" class="nav-link" data-en="Blog" data-zh="博客">Blog</a>
-                <div class="lang-dropdown"><button id="lang-toggle" class="lang-btn"><img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="EN" style="width:20px;height:20px;"></button></div>
+                <div class="lang-dropdown"><button id="lang-toggle" class="lang-btn"><img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="EN" style="width:20px;height:20px;"><svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button><div id="lang-menu" class="lang-menu"><a href="/blog/${slug}.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a><a href="/zh/blog/${slug}.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a><a href="/ja/blog/${slug}.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a><a href="/ko/blog/${slug}.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a><a href="/es/blog/${slug}.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a></div></div>
             </div>
         </div>
     </nav>
@@ -730,7 +772,7 @@ function buildHTML(data, queueItem, publishDate) {
             </div>
         </div>
     </footer>
-    <script src="/blog/blog.js"></script>
+    <script src="/blog/blog.js?v=20260211"></script>
 </body>
 </html>
 `;
