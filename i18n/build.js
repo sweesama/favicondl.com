@@ -49,11 +49,19 @@ function loadTranslations() {
   return t;
 }
 
-// ─── hreflang 标签生成 ──────────────────────────────────
+// ─── hreflang 标签生成 ──────────────────────────────
+// page 可以是 'index.html' 或 'blog/index.html' 等子目录路径
 function hreflangTags(page) {
-  const pagePath = page === 'index.html' ? '/' : `/${page}`;
+  // 将 page 转换为 URL 路径：'index.html' -> '/', 'blog/index.html' -> '/blog/', 'tools.html' -> '/tools.html'
+  let pagePath;
+  if (page.endsWith('/index.html')) {
+    pagePath = '/' + page.replace('/index.html', '/'); // 'blog/index.html' -> '/blog/'
+  } else if (page === 'index.html') {
+    pagePath = '/';
+  } else {
+    pagePath = '/' + page;
+  }
   const tags = [];
-  // English (default / x-default)
   tags.push(`<link rel="alternate" hreflang="en" href="${DOMAIN}${pagePath}">`);
   tags.push(`<link rel="alternate" hreflang="x-default" href="${DOMAIN}${pagePath}">`);
   for (const lang of LANGUAGES) {
@@ -64,9 +72,15 @@ function hreflangTags(page) {
   return '\n    ' + tags.join('\n    ');
 }
 
-// ─── 语言切换器 HTML ────────────────────────────────────
+// ─── 语言切换器 HTML ──────────────────────────────
+function pageToPath(page) {
+  if (page.endsWith('/index.html')) return '/' + page.replace('/index.html', '/');
+  if (page === 'index.html') return '/';
+  return '/' + page;
+}
+
 function switcherDropdown(currentLang, page) {
-  const pagePath = page === 'index.html' ? '/' : `/${page}`;
+  const pagePath = pageToPath(page);
   const options = ALL_LANGS.map((lang) => {
     const href = lang === 'en' ? pagePath : `/${lang}${pagePath}`;
     const active = lang === currentLang ? ' active' : '';
@@ -84,9 +98,9 @@ function switcherDropdown(currentLang, page) {
                 </div>`;
 }
 
-// ─── 移动端语言切换器 ───────────────────────────────────
+// ─── 移动端语言切换器 ─────────────────────────────
 function switcherMobile(currentLang, page) {
-  const pagePath = page === 'index.html' ? '/' : `/${page}`;
+  const pagePath = pageToPath(page);
   return ALL_LANGS.map((lang) => {
     const href = lang === 'en' ? pagePath : `/${lang}${pagePath}`;
     const active = lang === currentLang ? ' active' : '';
@@ -213,10 +227,10 @@ function buildPage(html, lang, page, translations) {
   // 6. 语言切换器（在 prefixLinks 之后，避免切换器链接被二次加前缀）
   replaceSwitcher($, lang, page);
 
-  // 输出
-  const outDir = path.join(ROOT, lang);
-  fs.mkdirSync(outDir, { recursive: true });
-  fs.writeFileSync(path.join(outDir, page), $.html(), 'utf-8');
+  // 输出（支持子目录如 blog/index.html）
+  const outFile = path.join(ROOT, lang, page);
+  fs.mkdirSync(path.dirname(outFile), { recursive: true });
+  fs.writeFileSync(outFile, $.html(), 'utf-8');
 }
 
 // ─── 给英文根页面注入 hreflang + 多语言切换器 ─────────
@@ -288,6 +302,31 @@ async function main() {
   for (const lang of LANGUAGES) {
     ensureSharedAssets(lang);
     cleanOldJsFiles(lang);
+  }
+
+  // ─── 博客页面 ────────────────────────────────
+  const blogDir = path.join(ROOT, 'blog');
+  if (fs.existsSync(blogDir)) {
+    const blogFiles = fs.readdirSync(blogDir)
+      .filter(f => f.endsWith('.html'));
+    console.log(`\n   博客页面: ${blogFiles.join(', ')}\n`);
+
+    for (const file of blogFiles) {
+      const blogPage = `blog/${file}`;  // 如 'blog/index.html'
+      const srcPath = path.join(ROOT, blogPage);
+      const html = fs.readFileSync(srcPath, 'utf-8');
+
+      for (const lang of LANGUAGES) {
+        buildPage(html, lang, blogPage, translations);
+        totalPages++;
+      }
+
+      // 给英文博客页注入 hreflang + 切换器
+      const patchedBlog = patchEnglishPage(html, blogPage);
+      fs.writeFileSync(srcPath, patchedBlog, 'utf-8');
+
+      console.log(`✅ ${blogPage} → en(patched), ${LANGUAGES.join(', ')}`);
+    }
   }
 
   console.log(`\n🎉 完成！共生成 ${totalPages} 个多语言页面`);

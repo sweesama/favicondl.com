@@ -1,0 +1,277 @@
+<!DOCTYPE html><html lang="ko"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Add a Favicon to Your Website (HTML Guide) - Mzu favicondl</title>
+    <meta name="description" content="Step-by-step HTML code to add favicons to any website. Covers ICO, PNG, SVG, Apple Touch Icon, and PWA manifest.">
+    <meta name="keywords" content="how to add favicon, favicon html code, add favicon to website, favicon link tag, favicon html, website icon html">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/ko/blog/how-to-add-favicon-to-website.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/how-to-add-favicon-to-website.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/how-to-add-favicon-to-website.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/how-to-add-favicon-to-website.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/how-to-add-favicon-to-website.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/how-to-add-favicon-to-website.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/how-to-add-favicon-to-website.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/ko/blog/how-to-add-favicon-to-website.html">
+    <meta property="og:title" content="How to Add a Favicon to Your Website (HTML Guide)">
+    <meta property="og:description" content="Step-by-step HTML code to add favicons to any website.">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="How to Add a Favicon to Your Website">
+    <meta name="twitter:description" content="Complete HTML guide for adding favicons.">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css">
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/ko/index.html" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/ko/documentation.html" class="nav-link" data-en="Docs" data-zh="文档">문서</a>
+                <a href="/ko/tools.html" class="nav-link" data-en="Tools" data-zh="工具">도구</a>
+                <a href="/ko/blog/" class="nav-link" data-en="Blog" data-zh="博客">블로그</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/how-to-add-favicon-to-website.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/how-to-add-favicon-to-website.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/how-to-add-favicon-to-website.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/how-to-add-favicon-to-website.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/how-to-add-favicon-to-website.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/ko/index.html" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/ko/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600" data-en="Add Favicon to Website" data-zh="给网站添加 Favicon">Add Favicon to Website</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">how-to</span><time class="text-sm text-gray-400">2026-02-14</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight" data-en="How to Add a Favicon to Your Website (HTML Guide)" data-zh="如何给网站添加 Favicon（HTML 代码指南）">How to Add a Favicon to Your Website (HTML Guide)</h1>
+        </header>
+
+        <div class="article-body" data-lang="en">
+            <p>Adding a favicon to your website is one of the simplest yet most impactful things you can do. Here's the complete HTML code guide, from the absolute minimum to the full professional setup.</p>
+
+            <h2>Step 1: Prepare Your Favicon Files</h2>
+            <p>Before writing any HTML, you need the actual icon files. You have two options:</p>
+            <ul>
+                <li><strong>Create from scratch</strong> — Use the <a href="/ko/tools.html">Image to Favicon</a> tool to convert any PNG/JPG image into a complete favicon package.</li>
+                <li><strong>Use an existing icon</strong> — Find inspiration by <a href="/ko/index.html">downloading favicons</a> from websites you admire.</li>
+            </ul>
+            <p>At minimum, you'll need:</p>
+            <ul>
+                <li><code>favicon.ico</code> (32×32) — The legacy format</li>
+                <li><code>apple-touch-icon.png</code> (180×180) — For iOS devices</li>
+            </ul>
+
+            <h2>Step 2: Place Files in Your Root Directory</h2>
+            <p>Upload your favicon files to the <strong>root</strong> of your website (same level as <code>index.html</code>). Browsers automatically look for <code>/favicon.ico</code> at the root, even without any HTML declaration.</p>
+            <pre><code>your-website/
+├── index.html
+├── favicon.ico
+├── favicon-32x32.png
+├── favicon-16x16.png
+├── apple-touch-icon.png
+├── android-chrome-192x192.png
+├── android-chrome-512x512.png
+└── site.webmanifest</code></pre>
+
+            <h2>Step 3: Add HTML to Your &lt;head&gt;</h2>
+            <h3>Minimum Setup (2 lines)</h3>
+            <pre><code>&lt;link rel="icon" href="/favicon.ico" sizes="32x32"&gt;
+&lt;link rel="apple-touch-icon" href="/apple-touch-icon.png"&gt;</code></pre>
+            <p>This handles browser tabs and iOS home screen. Good enough for most personal projects.</p>
+
+            <h3>Recommended Setup (5 lines)</h3>
+            <pre><code>&lt;link rel="icon" type="image/x-icon" href="/favicon.ico"&gt;
+&lt;link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"&gt;
+&lt;link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"&gt;
+&lt;link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"&gt;
+&lt;link rel="manifest" href="/site.webmanifest"&gt;</code></pre>
+            <p>This covers all modern browsers, iOS, Android, and PWA. <strong>This is what we recommend for production websites.</strong></p>
+
+            <h3>Full Professional Setup (with theme color)</h3>
+            <pre><code>&lt;link rel="icon" type="image/x-icon" href="/favicon.ico"&gt;
+&lt;link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"&gt;
+&lt;link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"&gt;
+&lt;link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"&gt;
+&lt;link rel="manifest" href="/site.webmanifest"&gt;
+&lt;meta name="theme-color" content="#ffffff"&gt;
+&lt;meta name="msapplication-TileColor" content="#ffffff"&gt;</code></pre>
+
+            <h2>The site.webmanifest File</h2>
+            <p>This JSON file tells Android and PWAs about your icons:</p>
+            <pre><code>{
+  "name": "Your Site Name",
+  "short_name": "Site",
+  "icons": [
+    { "src": "/android-chrome-192x192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/android-chrome-512x512.png", "sizes": "512x512", "type": "image/png" }
+  ],
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff",
+  "display": "standalone"
+}</code></pre>
+
+            <h2>Framework-Specific Instructions</h2>
+            <h3>React (Create React App / Vite)</h3>
+            <p>Place favicon files in the <code>public/</code> folder and add link tags to <code>public/index.html</code> (CRA) or <code>index.html</code> (Vite).</p>
+
+            <h3>Next.js (App Router)</h3>
+            <p>Place <code>favicon.ico</code> in the <code>app/</code> directory. Next.js 13+ automatically serves it. For other formats, use the <code>metadata</code> export in <code>layout.tsx</code>.</p>
+
+            <h3>WordPress</h3>
+            <p>Go to <strong>Appearance → Customize → Site Identity → Site Icon</strong>. Upload a 512×512 PNG and WordPress generates all sizes automatically.</p>
+
+            <h2>Testing Your Favicon</h2>
+            <p>After adding the code:</p>
+            <ol>
+                <li><strong>Hard refresh</strong> your browser (<code>Ctrl+Shift+R</code> or <code>Cmd+Shift+R</code>) — favicons are heavily cached.</li>
+                <li>Open in <strong>Incognito/Private mode</strong> to bypass cache entirely.</li>
+                <li>Check the <strong>Google Rich Results test</strong> to see how your favicon appears in search results.</li>
+                <li>Test on an actual <strong>iPhone/iPad</strong> by adding to home screen.</li>
+            </ol>
+
+            <h2>Common Mistakes to Avoid</h2>
+            <ul>
+                <li><strong>Wrong path</strong> — Use absolute paths (<code>/favicon.ico</code>) instead of relative ones (<code>favicon.ico</code>) to work on all pages.</li>
+                <li><strong>Missing type attribute</strong> — Always specify <code>type="image/png"</code> or <code>type="image/x-icon"</code> for best compatibility.</li>
+                <li><strong>Forgetting Apple Touch Icon</strong> — Without it, iOS will take a screenshot of your page instead, which looks terrible.</li>
+                <li><strong>Not clearing cache</strong> — Favicons are cached aggressively. Always hard-refresh after changes.</li>
+            </ul>
+        </div>
+
+        <div class="article-body" data-lang="zh" style="display:none">
+            <p>给网站添加 Favicon 是最简单但影响力最大的事情之一。以下是完整的 HTML 代码指南，从最简配置到专业级设置。</p>
+
+            <h2>第一步：准备 Favicon 文件</h2>
+            <p>在编写 HTML 之前，你需要实际的图标文件。有两种选择：</p>
+            <ul>
+                <li><strong>从零创建</strong> — 使用<a href="/ko/tools.html">图片转 Favicon</a> 工具，将任何 PNG/JPG 图片转换为完整的 Favicon 包。</li>
+                <li><strong>使用现有图标</strong> — 通过<a href="/ko/index.html">下载 Favicon</a> 从你欣赏的网站获取灵感。</li>
+            </ul>
+            <p>最少需要：</p>
+            <ul>
+                <li><code>favicon.ico</code>（32×32）— 传统格式</li>
+                <li><code>apple-touch-icon.png</code>（180×180）— 适用于 iOS 设备</li>
+            </ul>
+
+            <h2>第二步：放置文件到根目录</h2>
+            <p>将 Favicon 文件上传到网站的<strong>根目录</strong>（与 <code>index.html</code> 同级）。即使没有 HTML 声明，浏览器也会自动在根目录查找 <code>/favicon.ico</code>。</p>
+            <pre><code>your-website/
+├── index.html
+├── favicon.ico
+├── favicon-32x32.png
+├── favicon-16x16.png
+├── apple-touch-icon.png
+├── android-chrome-192x192.png
+├── android-chrome-512x512.png
+└── site.webmanifest</code></pre>
+
+            <h2>第三步：在 &lt;head&gt; 中添加 HTML</h2>
+            <h3>最简配置（2 行）</h3>
+            <pre><code>&lt;link rel="icon" href="/favicon.ico" sizes="32x32"&gt;
+&lt;link rel="apple-touch-icon" href="/apple-touch-icon.png"&gt;</code></pre>
+            <p>覆盖浏览器标签页和 iOS 主屏幕。个人项目够用了。</p>
+
+            <h3>推荐配置（5 行）</h3>
+            <pre><code>&lt;link rel="icon" type="image/x-icon" href="/favicon.ico"&gt;
+&lt;link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"&gt;
+&lt;link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"&gt;
+&lt;link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"&gt;
+&lt;link rel="manifest" href="/site.webmanifest"&gt;</code></pre>
+            <p>覆盖所有现代浏览器、iOS、Android 和 PWA。<strong>这是我们推荐的生产环境配置。</strong></p>
+
+            <h3>完整专业配置（带主题色）</h3>
+            <pre><code>&lt;link rel="icon" type="image/x-icon" href="/favicon.ico"&gt;
+&lt;link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"&gt;
+&lt;link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"&gt;
+&lt;link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"&gt;
+&lt;link rel="manifest" href="/site.webmanifest"&gt;
+&lt;meta name="theme-color" content="#ffffff"&gt;
+&lt;meta name="msapplication-TileColor" content="#ffffff"&gt;</code></pre>
+
+            <h2>site.webmanifest 文件</h2>
+            <p>这个 JSON 文件告诉 Android 和 PWA 你的图标信息：</p>
+            <pre><code>{
+  "name": "你的网站名",
+  "short_name": "简称",
+  "icons": [
+    { "src": "/android-chrome-192x192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/android-chrome-512x512.png", "sizes": "512x512", "type": "image/png" }
+  ],
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff",
+  "display": "standalone"
+}</code></pre>
+
+            <h2>各框架特别说明</h2>
+            <h3>React（Create React App / Vite）</h3>
+            <p>将 Favicon 文件放在 <code>public/</code> 文件夹中，在 <code>public/index.html</code>（CRA）或 <code>index.html</code>（Vite）中添加 link 标签。</p>
+
+            <h3>Next.js（App Router）</h3>
+            <p>将 <code>favicon.ico</code> 放在 <code>app/</code> 目录中。Next.js 13+ 会自动提供服务。其他格式使用 <code>layout.tsx</code> 中的 <code>metadata</code> 导出。</p>
+
+            <h3>WordPress</h3>
+            <p>进入<strong>外观 → 自定义 → 站点身份 → 站点图标</strong>。上传 512×512 的 PNG，WordPress 会自动生成所有尺寸。</p>
+
+            <h2>测试你的 Favicon</h2>
+            <p>添加代码后：</p>
+            <ol>
+                <li><strong>强制刷新</strong>浏览器（<code>Ctrl+Shift+R</code> 或 <code>Cmd+Shift+R</code>）— Favicon 缓存很重。</li>
+                <li>在<strong>无痕/隐私模式</strong>中打开，完全绕过缓存。</li>
+                <li>检查 <strong>Google 富媒体搜索结果测试</strong>，看 Favicon 在搜索结果中的显示效果。</li>
+                <li>在真实 <strong>iPhone/iPad</strong> 上测试添加到主屏幕功能。</li>
+            </ol>
+
+            <h2>常见错误</h2>
+            <ul>
+                <li><strong>路径错误</strong> — 使用绝对路径（<code>/favicon.ico</code>）而非相对路径（<code>favicon.ico</code>），确保在所有页面都能正常工作。</li>
+                <li><strong>缺少 type 属性</strong> — 始终指定 <code>type="image/png"</code> 或 <code>type="image/x-icon"</code> 以获得最佳兼容性。</li>
+                <li><strong>忘记 Apple Touch Icon</strong> — 没有它，iOS 会截取页面截图作为图标，效果很差。</li>
+                <li><strong>没有清除缓存</strong> — Favicon 缓存很强。修改后务必强制刷新。</li>
+            </ul>
+        </div>
+
+        <div class="cta-box">
+            <h3 data-en="Generate all favicon files automatically" data-zh="自动生成所有 Favicon 文件">Generate all favicon files automatically</h3>
+            <p data-en="Upload one image, get a complete favicon package with all sizes and the HTML code." data-zh="上传一张图片，获得包含所有尺寸和 HTML 代码的完整 Favicon 包。">Upload one image, get a complete favicon package with all sizes and the HTML code.</p>
+            <a href="/ko/tools.html" class="cta-btn" data-en="Image to Favicon Tool →" data-zh="图片转 Favicon 工具 →">Image to Favicon Tool →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© <script>document.write(new Date().getFullYear())</script> Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/ko/index.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Home" data-zh="首页">홈</a>
+                <a href="/ko/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Blog" data-zh="博客">블로그</a>
+                <a href="/ko/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Privacy" data-zh="隐私政策">개인정보</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js"></script>
+
+
+</body></html>

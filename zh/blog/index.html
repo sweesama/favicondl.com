@@ -1,0 +1,250 @@
+<!DOCTYPE html><html lang="zh"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Mzu favicondl</title>
+    <meta name="description" content="Favicon guides, tutorials, and best practices. Learn everything about website favicons.">
+    <meta name="keywords" content="favicon guide, favicon tutorial, favicon tips, favicon blog, website icon guide">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/zh/blog/index.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://favicondl.com/zh/blog/index.html">
+    <meta property="og:title" content="Blog - Mzu favicondl">
+    <meta property="og:description" content="Favicon guides, tutorials, and best practices.">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Blog - Mzu favicondl">
+    <meta name="twitter:description" content="Favicon guides, tutorials, and best practices.">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        * {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        body { background: #fafafa; }
+        .nav-link { color: #1d1d1f; font-size: 14px; font-weight: 500; text-decoration: none; transition: color 0.2s; }
+        .nav-link:hover { color: #0071e3; }
+        .article-card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 28px;
+            border: 1px solid #e5e5ea;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: block;
+        }
+        .article-card:hover {
+            border-color: #0071e3;
+            box-shadow: 0 4px 20px rgba(0, 113, 227, 0.08);
+            transform: translateY(-2px);
+        }
+        .tag {
+            display: inline-block;
+            padding: 2px 10px;
+            border-radius: 980px;
+            font-size: 12px;
+            font-weight: 500;
+            background: #f5f5f7;
+            color: #86868b;
+        }
+        .lang-dropdown { position: relative; }
+        .lang-btn {
+            background: none; border: none; cursor: pointer;
+            padding: 4px 8px; border-radius: 6px; transition: background 0.2s;
+            display: flex; align-items: center; gap: 4px;
+        }
+        .lang-btn:hover { background: #f5f5f7; }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/zh/index.html" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/zh/documentation.html" class="nav-link" data-en="Docs" data-zh="文档">文档</a>
+                <a href="/zh/tools.html" class="nav-link" data-en="Tools" data-zh="工具">工具</a>
+                <a href="/zh/blog/" class="nav-link" style="color:#0071e3" data-en="Blog" data-zh="博客">博客</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="pt-16 pb-10 px-6">
+        <div class="max-w-3xl mx-auto text-center">
+            <h1 class="text-4xl font-bold text-gray-900 mb-4" data-en="Favicon Guide &amp; Blog" data-zh="Favicon 指南与博客">Favicon 指南与博客</h1>
+            <p class="text-gray-500 text-lg" data-en="Professional guides on favicons — sizes, formats, troubleshooting, and best practices." data-zh="关于 Favicon 的专业指南 — 尺寸、格式、问题排查与最佳实践。">关于 Favicon 的专业指南 — 尺寸、格式、问题排查与最佳实践。</p>
+        </div>
+    </section>
+
+    <!-- Articles Grid -->
+    <section class="pb-20 px-6">
+        <div class="max-w-4xl mx-auto">
+            <div id="articles-grid" class="grid md:grid-cols-2 gap-6">
+                <!-- Populated by JS -->
+            </div>
+            <p id="no-articles" class="text-center text-gray-400 py-16 hidden" data-en="New articles coming soon!" data-zh="新文章即将发布！">新文章即将发布！</p>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-16 px-6 bg-white border-t border-gray-100">
+        <div class="max-w-3xl mx-auto text-center">
+            <h2 class="text-2xl font-semibold text-gray-900 mb-4" data-en="Ready to grab some favicons?" data-zh="准备好获取 Favicon 了吗？">准备好获取 Favicon 了吗？</h2>
+            <p class="text-gray-500 mb-8" data-en="Download and extract any website's favicon instantly. Free and fast." data-zh="即时下载和提取任何网站的 Favicon，免费且快速。">即时下载和提取任何网站的 Favicon，免费且快速。</p>
+            <a href="/zh/index.html" style="background:#0071e3;color:white;padding:12px 28px;border-radius:980px;font-size:14px;font-weight:500;text-decoration:none;display:inline-block;transition:background 0.2s;">
+                <span data-en="Try Mzu favicondl →" data-zh="试试 Mzu favicondl →">试试 Mzu favicondl →</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© <script>document.write(new Date().getFullYear())</script> Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/zh/index.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Home" data-zh="首页">首页</a>
+                <a href="/zh/documentation.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Docs" data-zh="文档">文档</a>
+                <a href="/zh/tools.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Tools" data-zh="工具">工具</a>
+                <a href="/zh/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Blog" data-zh="博客">博客</a>
+                <a href="/zh/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Privacy" data-zh="隐私政策">隐私政策</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    (function() {
+        // Language system — 支持 5 种语言 + URL 路径检测
+        const LANG_KEY = 'mzu_favicondl_lang';
+        const SUPPORTED = ['en', 'zh', 'ja', 'ko', 'es'];
+        const FLAGS = {
+            en: 'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg',
+            zh: 'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg',
+            ja: 'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg',
+            ko: 'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg',
+            es: 'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg',
+        };
+        const READ_MORE = { en: 'Read more →', zh: '阅读全文 →', ja: '続きを読む →', ko: '더 읽기 →', es: 'Leer más →' };
+        const LANG_NAMES = { en: 'En', zh: 'Zh', ja: 'Ja', ko: 'Ko', es: 'Es' };
+
+        // 检测语言：URL路径 > 查询参数 > localStorage > 默认en
+        function detectLang() {
+            try {
+                const m = location.pathname.match(/^\/(zh|ja|ko|es)(\/|$)/);
+                if (m) return m[1];
+            } catch {}
+            const q = new URLSearchParams(location.search).get('lang');
+            if (q && SUPPORTED.includes(q)) return q;
+            const s = localStorage.getItem(LANG_KEY);
+            if (s && SUPPORTED.includes(s)) return s;
+            return 'en';
+        }
+        let lang = detectLang();
+
+        // 获取文章标题（按语言优先级回退到英文）
+        function getTitle(a) {
+            const key = 'title' + lang.charAt(0).toUpperCase() + lang.slice(1);
+            return a[key] || a.titleEn;
+        }
+        function getDesc(a) {
+            const key = 'desc' + lang.charAt(0).toUpperCase() + lang.slice(1);
+            return a[key] || a.descEn;
+        }
+
+        function applyLang() {
+            // 对 ja/ko/es 页面，文本已由构建脚本翻译，跳过覆盖
+            if (!['ja', 'ko', 'es'].includes(lang)) {
+                document.querySelectorAll('[data-en]').forEach(el => {
+                    el.textContent = lang === 'zh' ? el.dataset.zh : el.dataset.en;
+                });
+            }
+            const flag = document.querySelector('.lang-flag');
+            if (flag) {
+                flag.src = FLAGS[lang] || FLAGS.en;
+                flag.alt = LANG_NAMES[lang] || 'EN';
+            }
+        }
+
+        // 博客文章列表链接前缀
+        function blogLinkPrefix() {
+            if (lang === 'en') return '/blog/';
+            return '/' + lang + '/blog/';
+        }
+
+        // Load and render articles
+        async function renderArticles() {
+            try {
+                const res = await fetch('/blog/articles.json');
+                const articles = await res.json();
+                const today = new Date().toISOString().split('T')[0];
+                const published = articles
+                    .filter(a => a.publishDate <= today)
+                    .sort((a, b) => b.publishDate.localeCompare(a.publishDate));
+
+                const grid = document.getElementById('articles-grid');
+                const noMsg = document.getElementById('no-articles');
+
+                if (published.length === 0) {
+                    grid.innerHTML = '';
+                    noMsg.classList.remove('hidden');
+                    return;
+                }
+                noMsg.classList.add('hidden');
+
+                const prefix = blogLinkPrefix();
+                grid.innerHTML = published.map(a => `
+                    <a href="${prefix}${a.slug}.html" class="article-card">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="tag">${a.tags[0]}</span>
+                            <span class="text-xs text-gray-400">${a.publishDate}</span>
+                        </div>
+                        <h2 class="text-lg font-semibold text-gray-900 mb-2">${getTitle(a)}</h2>
+                        <p class="text-sm text-gray-500 line-clamp-2">${getDesc(a)}</p>
+                        <span class="inline-block mt-4 text-sm font-medium text-blue-600">${READ_MORE[lang] || READ_MORE.en}</span>
+                    </a>
+                `).join('');
+            } catch(e) {
+                console.error('Failed to load articles:', e);
+            }
+        }
+
+        applyLang();
+        renderArticles();
+    })();
+    </script>
+
+
+</body></html>

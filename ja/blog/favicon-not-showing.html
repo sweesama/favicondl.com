@@ -1,0 +1,261 @@
+<!DOCTYPE html><html lang="ja"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favicon Not Showing? 7 Common Causes &amp; Fixes - Mzu favicondl</title>
+    <meta name="description" content="Troubleshoot why your favicon isn't appearing. Covers browser caching, incorrect paths, format issues, server config, and more.">
+    <meta name="keywords" content="favicon not showing, favicon not working, favicon not appearing, favicon troubleshooting, favicon cache, favicon fix">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/ja/blog/favicon-not-showing.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/favicon-not-showing.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/favicon-not-showing.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/favicon-not-showing.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/favicon-not-showing.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/favicon-not-showing.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/favicon-not-showing.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/ja/blog/favicon-not-showing.html">
+    <meta property="og:title" content="Favicon Not Showing? 7 Common Causes &amp; Fixes">
+    <meta property="og:description" content="Troubleshoot why your favicon isn't appearing.">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Favicon Not Showing? Fix It Now">
+    <meta name="twitter:description" content="7 common causes and fixes for missing favicons.">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css">
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/ja/index.html" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/ja/documentation.html" class="nav-link" data-en="Docs" data-zh="文档">ドキュメント</a>
+                <a href="/ja/tools.html" class="nav-link" data-en="Tools" data-zh="工具">ツール</a>
+                <a href="/ja/blog/" class="nav-link" data-en="Blog" data-zh="博客">ブログ</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/favicon-not-showing.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/favicon-not-showing.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/favicon-not-showing.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/favicon-not-showing.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/favicon-not-showing.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/ja/index.html" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/ja/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600" data-en="Favicon Not Showing" data-zh="Favicon 不显示">Favicon Not Showing</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">troubleshooting</span><time class="text-sm text-gray-400">2026-02-16</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight" data-en="Favicon Not Showing? 7 Common Causes &amp; Fixes" data-zh="Favicon 不显示？7 个常见原因及解决方法">Favicon Not Showing? 7 Common Causes &amp; Fixes</h1>
+        </header>
+
+        <div class="article-body" data-lang="en">
+            <p>You've added a favicon to your website, but it's not appearing in the browser tab. Frustrating? Let's go through the <strong>7 most common reasons</strong> and their fixes, ordered from most to least likely.</p>
+
+            <h2>1. Browser Cache (Most Common)</h2>
+            <p>Favicons are cached more aggressively than almost anything else in the browser. Even after you update the file, the browser may show the old one (or no icon) for hours or days.</p>
+            <p><strong>Fix:</strong></p>
+            <ul>
+                <li>Hard refresh: <code>Ctrl+Shift+R</code> (Windows/Linux) or <code>Cmd+Shift+R</code> (Mac)</li>
+                <li>Open in <strong>Incognito/Private</strong> mode</li>
+                <li>Clear browser cache: <code>Settings → Privacy → Clear browsing data → Cached images and files</code></li>
+                <li>Add a cache-busting query string: <code>href="/favicon.ico?v=2"</code></li>
+            </ul>
+
+            <h2>2. Wrong File Path</h2>
+            <p>The most common coding error. The browser can't find your favicon file because the path is incorrect.</p>
+            <p><strong>Fix:</strong></p>
+            <ul>
+                <li>Use <strong>absolute paths</strong> starting with <code>/</code>: <code>href="/favicon.ico"</code></li>
+                <li>Open <code>https://yoursite.com/favicon.ico</code> directly in the browser — can you see the icon?</li>
+                <li>Check for typos in the filename (e.g., <code>favicon.ico</code> vs <code>Favicon.ico</code> — case matters on Linux servers)</li>
+            </ul>
+
+            <h2>3. Missing or Incorrect HTML Tags</h2>
+            <p>The <code>&lt;link&gt;</code> tag might be missing, malformed, or placed outside the <code>&lt;head&gt;</code>.</p>
+            <p><strong>Fix:</strong> Ensure this code is inside your <code>&lt;head&gt;</code> tags:</p>
+            <pre><code>&lt;link rel="icon" type="image/x-icon" href="/favicon.ico"&gt;</code></pre>
+            <p>Common mistakes:</p>
+            <ul>
+                <li>Using <code>rel="shortcut icon"</code> — while still supported, <code>rel="icon"</code> is the standard</li>
+                <li>Missing the <code>type</code> attribute — add <code>type="image/x-icon"</code> or <code>type="image/png"</code></li>
+                <li>Placing the link tag in <code>&lt;body&gt;</code> instead of <code>&lt;head&gt;</code></li>
+            </ul>
+
+            <h2>4. Corrupt or Invalid File</h2>
+            <p>The file might look fine on your computer but be corrupted or in the wrong format.</p>
+            <p><strong>Fix:</strong></p>
+            <ul>
+                <li>Verify the file is a valid ICO/PNG — open it in an image viewer</li>
+                <li>Don't just rename a JPEG to <code>.ico</code> — that doesn't convert the format</li>
+                <li>Regenerate using a proper tool like <a href="/ja/tools.html">Mzu favicondl's Image to Favicon</a></li>
+            </ul>
+
+            <h2>5. Server Not Serving the Correct MIME Type</h2>
+            <p>Some servers don't recognize <code>.ico</code> files and serve them with the wrong Content-Type header.</p>
+            <p><strong>Fix:</strong> Check the response headers in DevTools (Network tab). The MIME type should be:</p>
+            <ul>
+                <li><code>.ico</code> → <code>image/x-icon</code> or <code>image/vnd.microsoft.icon</code></li>
+                <li><code>.png</code> → <code>image/png</code></li>
+                <li><code>.svg</code> → <code>image/svg+xml</code></li>
+            </ul>
+            <p>For Apache, add to <code>.htaccess</code>:</p>
+            <pre><code>AddType image/x-icon .ico</code></pre>
+            <p>For Nginx:</p>
+            <pre><code>location ~* \.ico$ {
+    add_header Content-Type image/x-icon;
+}</code></pre>
+
+            <h2>6. HTTPS / Mixed Content Issues</h2>
+            <p>If your site is on HTTPS but the favicon URL uses HTTP, the browser will block it silently.</p>
+            <p><strong>Fix:</strong></p>
+            <ul>
+                <li>Use protocol-relative paths: <code>href="/favicon.ico"</code> (no <code>http://</code> or <code>https://</code>)</li>
+                <li>Or explicitly use HTTPS: <code>href="https://yoursite.com/favicon.ico"</code></li>
+            </ul>
+
+            <h2>7. Favicon Not Showing in Google Search Results</h2>
+            <p>Your favicon appears in the browser tab but not in Google search results. This is a separate issue.</p>
+            <p><strong>Google's favicon requirements:</strong></p>
+            <ul>
+                <li>The favicon URL must be crawlable (not blocked by <code>robots.txt</code>)</li>
+                <li>Size must be a <strong>multiple of 48px</strong> (e.g., 48×48, 96×96, 144×144)</li>
+                <li>Must be a square image</li>
+                <li>Google won't display favicons that it deems inappropriate or low quality</li>
+                <li>It can take <strong>days to weeks</strong> for Google to pick up a new favicon</li>
+            </ul>
+            <p><strong>Fix:</strong> Use the <a href="https://search.google.com/search-console" rel="noopener">Google Search Console</a> URL Inspection tool to request re-crawling of your homepage.</p>
+
+            <h2>Quick Debugging Checklist</h2>
+            <ol>
+                <li>Open <code>https://yoursite.com/favicon.ico</code> — does it load?</li>
+                <li>Open DevTools → Network tab → reload → filter by "favicon" — any 404 errors?</li>
+                <li>Check the HTML source — is the <code>&lt;link&gt;</code> tag correct and inside <code>&lt;head&gt;</code>?</li>
+                <li>Try Incognito mode — does it show there?</li>
+                <li>Check another browser — is it browser-specific?</li>
+            </ol>
+        </div>
+
+        <div class="article-body" data-lang="zh" style="display:none">
+            <p>你已经给网站添加了 Favicon，但浏览器标签页里就是不显示。很烦对吧？让我们看看<strong>最常见的 7 个原因</strong>及其解决方法，按可能性从高到低排列。</p>
+
+            <h2>1. 浏览器缓存（最常见）</h2>
+            <p>Favicon 的缓存比几乎所有其他资源都更激进。即使你更新了文件，浏览器可能还会显示旧的（或不显示）长达数小时甚至数天。</p>
+            <p><strong>解决方法：</strong></p>
+            <ul>
+                <li>强制刷新：<code>Ctrl+Shift+R</code>（Windows/Linux）或 <code>Cmd+Shift+R</code>（Mac）</li>
+                <li>在<strong>无痕/隐私模式</strong>中打开</li>
+                <li>清除浏览器缓存：<code>设置 → 隐私 → 清除浏览数据 → 缓存的图片和文件</code></li>
+                <li>添加缓存破坏查询字符串：<code>href="/favicon.ico?v=2"</code></li>
+            </ul>
+
+            <h2>2. 文件路径错误</h2>
+            <p>最常见的代码错误。浏览器找不到你的 Favicon 文件因为路径不正确。</p>
+            <p><strong>解决方法：</strong></p>
+            <ul>
+                <li>使用以 <code>/</code> 开头的<strong>绝对路径</strong>：<code>href="/favicon.ico"</code></li>
+                <li>直接在浏览器打开 <code>https://你的网站.com/favicon.ico</code> — 能看到图标吗？</li>
+                <li>检查文件名拼写（如 <code>favicon.ico</code> vs <code>Favicon.ico</code> — 在 Linux 服务器上大小写敏感）</li>
+            </ul>
+
+            <h2>3. HTML 标签缺失或错误</h2>
+            <p><code>&lt;link&gt;</code> 标签可能缺失、格式错误、或放在了 <code>&lt;head&gt;</code> 外面。</p>
+            <p><strong>解决方法：</strong>确保以下代码在 <code>&lt;head&gt;</code> 标签内：</p>
+            <pre><code>&lt;link rel="icon" type="image/x-icon" href="/favicon.ico"&gt;</code></pre>
+            <p>常见错误：</p>
+            <ul>
+                <li>使用 <code>rel="shortcut icon"</code> — 虽然仍然支持，但 <code>rel="icon"</code> 才是标准</li>
+                <li>缺少 <code>type</code> 属性 — 添加 <code>type="image/x-icon"</code> 或 <code>type="image/png"</code></li>
+                <li>把 link 标签放在了 <code>&lt;body&gt;</code> 而不是 <code>&lt;head&gt;</code> 中</li>
+            </ul>
+
+            <h2>4. 文件损坏或格式无效</h2>
+            <p>文件在你的电脑上看起来没问题，但可能已损坏或格式错误。</p>
+            <p><strong>解决方法：</strong></p>
+            <ul>
+                <li>确认文件是有效的 ICO/PNG — 用图片查看器打开它</li>
+                <li>不要只是把 JPEG 重命名为 <code>.ico</code> — 那并不会转换格式</li>
+                <li>使用正规工具重新生成，如 <a href="/ja/tools.html">Mzu favicondl 的图片转 Favicon</a></li>
+            </ul>
+
+            <h2>5. 服务器未正确提供 MIME 类型</h2>
+            <p>有些服务器不识别 <code>.ico</code> 文件，会用错误的 Content-Type 头来提供。</p>
+            <p><strong>解决方法：</strong>在 DevTools（网络标签）中检查响应头。MIME 类型应该是：</p>
+            <ul>
+                <li><code>.ico</code> → <code>image/x-icon</code> 或 <code>image/vnd.microsoft.icon</code></li>
+                <li><code>.png</code> → <code>image/png</code></li>
+                <li><code>.svg</code> → <code>image/svg+xml</code></li>
+            </ul>
+
+            <h2>6. HTTPS / 混合内容问题</h2>
+            <p>如果你的网站使用 HTTPS 但 Favicon URL 使用 HTTP，浏览器会静默阻止。</p>
+            <p><strong>解决方法：</strong></p>
+            <ul>
+                <li>使用协议无关路径：<code>href="/favicon.ico"</code>（不要加 <code>http://</code> 或 <code>https://</code>）</li>
+                <li>或明确使用 HTTPS：<code>href="https://你的网站.com/favicon.ico"</code></li>
+            </ul>
+
+            <h2>7. Google 搜索结果中不显示 Favicon</h2>
+            <p>你的 Favicon 在浏览器标签页中显示但不在 Google 搜索结果中。这是一个单独的问题。</p>
+            <p><strong>Google 的 Favicon 要求：</strong></p>
+            <ul>
+                <li>Favicon URL 必须可抓取（不被 <code>robots.txt</code> 阻止）</li>
+                <li>尺寸必须是 <strong>48px 的倍数</strong>（如 48×48、96×96、144×144）</li>
+                <li>必须是正方形图片</li>
+                <li>Google 不会显示它认为不合适或低质量的 Favicon</li>
+                <li>Google 获取新 Favicon 可能需要<strong>几天到几周</strong></li>
+            </ul>
+            <p><strong>解决方法：</strong>使用 <a href="https://search.google.com/search-console" rel="noopener">Google Search Console</a> 的 URL 检查工具请求重新抓取你的首页。</p>
+
+            <h2>快速排查清单</h2>
+            <ol>
+                <li>打开 <code>https://你的网站.com/favicon.ico</code> — 能加载吗？</li>
+                <li>打开 DevTools → 网络标签 → 刷新 → 筛选 "favicon" — 有 404 错误吗？</li>
+                <li>检查 HTML 源码 — <code>&lt;link&gt;</code> 标签正确且在 <code>&lt;head&gt;</code> 内吗？</li>
+                <li>试试无痕模式 — 那里能显示吗？</li>
+                <li>换个浏览器 — 是浏览器特定问题吗？</li>
+            </ol>
+        </div>
+
+        <div class="cta-box">
+            <h3 data-en="Check how other sites handle their favicons" data-zh="看看其他网站怎么处理 Favicon">Check how other sites handle their favicons</h3>
+            <p data-en="Enter any domain to see its favicon setup — great for debugging inspiration." data-zh="输入任意域名查看其 Favicon 配置 — 很适合排查灵感。">Enter any domain to see its favicon setup — great for debugging inspiration.</p>
+            <a href="/ja/index.html" class="cta-btn" data-en="Inspect Any Favicon →" data-zh="检查任意 Favicon →">Inspect Any Favicon →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© <script>document.write(new Date().getFullYear())</script> Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/ja/index.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Home" data-zh="首页">ホーム</a>
+                <a href="/ja/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Blog" data-zh="博客">ブログ</a>
+                <a href="/ja/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Privacy" data-zh="隐私政策">プライバシー</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js"></script>
+
+
+</body></html>

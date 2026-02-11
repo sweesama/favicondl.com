@@ -7,7 +7,15 @@
     { "source": "/zh/", "destination": "/zh/index.html" },
     { "source": "/ja/", "destination": "/ja/index.html" },
     { "source": "/ko/", "destination": "/ko/index.html" },
-    { "source": "/es/", "destination": "/es/index.html" }
+    { "source": "/es/", "destination": "/es/index.html" },
+    { "source": "/zh/blog", "destination": "/zh/blog/index.html" },
+    { "source": "/ja/blog", "destination": "/ja/blog/index.html" },
+    { "source": "/ko/blog", "destination": "/ko/blog/index.html" },
+    { "source": "/es/blog", "destination": "/es/blog/index.html" },
+    { "source": "/zh/blog/", "destination": "/zh/blog/index.html" },
+    { "source": "/ja/blog/", "destination": "/ja/blog/index.html" },
+    { "source": "/ko/blog/", "destination": "/ko/blog/index.html" },
+    { "source": "/es/blog/", "destination": "/es/blog/index.html" }
   ],
   "headers": [
     {

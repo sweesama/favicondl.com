@@ -1,0 +1,287 @@
+<!DOCTYPE html><html lang="ko"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SVG Favicon: The Modern Approach to Website Icons - Mzu favicondl</title>
+    <meta name="description" content="Why SVG favicons are the future. Browser support, dark mode adaptation, implementation guide, and fallback strategies.">
+    <meta name="keywords" content="svg favicon, svg icon, favicon svg format, dark mode favicon, scalable favicon, modern favicon, vector favicon">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/ko/blog/svg-favicon.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/svg-favicon.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/svg-favicon.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/svg-favicon.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/svg-favicon.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/svg-favicon.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/svg-favicon.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/ko/blog/svg-favicon.html">
+    <meta property="og:title" content="SVG Favicon: The Modern Approach">
+    <meta property="og:description" content="Why SVG favicons are the future of website icons.">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="SVG Favicon Guide">
+    <meta name="twitter:description" content="Modern SVG favicon implementation guide.">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css">
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/ko/index.html" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/ko/documentation.html" class="nav-link" data-en="Docs" data-zh="文档">문서</a>
+                <a href="/ko/tools.html" class="nav-link" data-en="Tools" data-zh="工具">도구</a>
+                <a href="/ko/blog/" class="nav-link" data-en="Blog" data-zh="博客">블로그</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/svg-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/svg-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/svg-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/svg-favicon.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/svg-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/ko/index.html" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/ko/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600" data-en="SVG Favicon" data-zh="SVG Favicon">SVG Favicon</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">guide</span><time class="text-sm text-gray-400">2026-02-18</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight" data-en="SVG Favicon: The Modern Approach to Website Icons" data-zh="SVG Favicon：现代网站图标方案">SVG Favicon: The Modern Approach to Website Icons</h1>
+        </header>
+
+        <div class="article-body" data-lang="en">
+            <p>SVG favicons represent the cutting edge of website icon technology. They're scalable, support dark mode, and can be a single file that looks perfect at any size. Here's everything you need to know.</p>
+
+            <h2>Why SVG Favicons?</h2>
+            <ul>
+                <li><strong>Infinitely scalable</strong> — Looks crisp at 16px, 32px, 512px, or any size. No pixelation ever.</li>
+                <li><strong>Tiny file size</strong> — A simple SVG favicon can be under 1KB, smaller than any PNG.</li>
+                <li><strong>Dark mode support</strong> — SVG can use CSS <code>prefers-color-scheme</code> media queries to adapt.</li>
+                <li><strong>One file to rule them all</strong> — No need for multiple sizes (though you'll still need PNG fallbacks).</li>
+            </ul>
+
+            <h2>Browser Support (2026)</h2>
+            <table>
+                <thead><tr><th>Browser</th><th>SVG Favicon Support</th></tr></thead>
+                <tbody>
+                    <tr><td>Chrome 80+</td><td>Yes</td></tr>
+                    <tr><td>Firefox 41+</td><td>Yes</td></tr>
+                    <tr><td>Edge 80+</td><td>Yes</td></tr>
+                    <tr><td>Opera 67+</td><td>Yes</td></tr>
+                    <tr><td><strong>Safari</strong></td><td><strong>No (as of Safari 18)</strong></td></tr>
+                    <tr><td>IE</td><td>No</td></tr>
+                </tbody>
+            </table>
+            <div class="info-box"><p><strong>Key limitation:</strong> Safari does not support SVG favicons. This means you <em>must</em> provide PNG/ICO fallbacks for full browser coverage.</p></div>
+
+            <h2>How to Implement SVG Favicon</h2>
+            <pre><code>&lt;!-- SVG favicon for modern browsers --&gt;
+&lt;link rel="icon" href="/favicon.svg" type="image/svg+xml"&gt;
+
+&lt;!-- PNG fallback for Safari and older browsers --&gt;
+&lt;link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32"&gt;
+
+&lt;!-- ICO fallback for very old browsers --&gt;
+&lt;link rel="icon" href="/favicon.ico" sizes="32x32"&gt;
+
+&lt;!-- Apple Touch Icon (always PNG, SVG not supported) --&gt;
+&lt;link rel="apple-touch-icon" href="/apple-touch-icon.png"&gt;</code></pre>
+            <p>Browsers that support SVG will use it; others fall back to PNG or ICO.</p>
+
+            <h2>Dark Mode Adaptation</h2>
+            <p>The killer feature of SVG favicons — your icon can automatically adapt to the user's color scheme:</p>
+            <pre><code>&lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"&gt;
+  &lt;style&gt;
+    circle { fill: #1d1d1f; }
+    text { fill: white; }
+
+    @media (prefers-color-scheme: dark) {
+      circle { fill: white; }
+      text { fill: #1d1d1f; }
+    }
+  &lt;/style&gt;
+  &lt;circle cx="50" cy="50" r="45"/&gt;
+  &lt;text x="50" y="65" text-anchor="middle"
+        font-family="system-ui" font-size="50" font-weight="bold"&gt;M&lt;/text&gt;
+&lt;/svg&gt;</code></pre>
+            <p>In light mode: dark icon on light background. In dark mode: light icon on dark background. Automatic, no JavaScript needed.</p>
+
+            <h2>Creating an SVG Favicon</h2>
+            <h3>Method 1: Design Tools</h3>
+            <ul>
+                <li><strong>Figma</strong> — Design your icon, select it, and export as SVG</li>
+                <li><strong>Illustrator</strong> — File → Save As → SVG</li>
+                <li><strong>Inkscape</strong> — Free and open source vector editor</li>
+            </ul>
+
+            <h3>Method 2: Hand-Code It</h3>
+            <p>For simple icons, writing SVG by hand is quick:</p>
+            <pre><code>&lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"&gt;
+  &lt;rect width="100" height="100" rx="20" fill="#0071e3"/&gt;
+  &lt;text x="50" y="70" text-anchor="middle"
+        font-size="60" font-weight="bold" fill="white"&gt;F&lt;/text&gt;
+&lt;/svg&gt;</code></pre>
+
+            <h3>Optimization Tips</h3>
+            <ul>
+                <li>Use <a href="https://svgomg.net/" rel="noopener">SVGOMG</a> to optimize file size</li>
+                <li>Remove unnecessary metadata, comments, and editor-specific attributes</li>
+                <li>Keep paths simple — complex gradients may not render well at small sizes</li>
+                <li>Always include the <code>xmlns</code> attribute</li>
+                <li>Set a <code>viewBox</code> for proper scaling</li>
+            </ul>
+
+            <h2>The Recommended Full Setup in 2026</h2>
+            <p>Combining SVG with traditional fallbacks gives you the best of all worlds:</p>
+            <pre><code>&lt;!-- Modern: SVG with dark mode support --&gt;
+&lt;link rel="icon" href="/favicon.svg" type="image/svg+xml"&gt;
+
+&lt;!-- Fallback: Traditional favicon set --&gt;
+&lt;link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"&gt;
+&lt;link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"&gt;
+&lt;link rel="icon" href="/favicon.ico" sizes="32x32"&gt;
+
+&lt;!-- Apple (no SVG support) --&gt;
+&lt;link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"&gt;
+
+&lt;!-- PWA --&gt;
+&lt;link rel="manifest" href="/site.webmanifest"&gt;</code></pre>
+
+            <h2>Should You Use SVG Favicon Today?</h2>
+            <p><strong>Yes, but always with fallbacks.</strong> The Safari limitation means you can't rely on SVG alone. However, for users on Chrome, Firefox, and Edge, an SVG favicon provides a noticeably better experience — especially if you support dark mode.</p>
+        </div>
+
+        <div class="article-body" data-lang="zh" style="display:none">
+            <p>SVG Favicon 代表了网站图标技术的最前沿。它们可缩放、支持暗黑模式，而且可以是一个在任何尺寸下都完美显示的文件。以下是你需要了解的一切。</p>
+
+            <h2>为什么选择 SVG Favicon？</h2>
+            <ul>
+                <li><strong>无限可缩放</strong> — 在 16px、32px、512px 或任何尺寸下都清晰锐利。永远不会有像素化。</li>
+                <li><strong>极小的文件大小</strong> — 简单的 SVG Favicon 可以不到 1KB，比任何 PNG 都小。</li>
+                <li><strong>暗黑模式支持</strong> — SVG 可以使用 CSS <code>prefers-color-scheme</code> 媒体查询来自适应。</li>
+                <li><strong>一个文件搞定一切</strong> — 不需要多种尺寸（尽管你仍然需要 PNG 后备方案）。</li>
+            </ul>
+
+            <h2>浏览器支持（2026）</h2>
+            <table>
+                <thead><tr><th>浏览器</th><th>SVG Favicon 支持</th></tr></thead>
+                <tbody>
+                    <tr><td>Chrome 80+</td><td>支持</td></tr>
+                    <tr><td>Firefox 41+</td><td>支持</td></tr>
+                    <tr><td>Edge 80+</td><td>支持</td></tr>
+                    <tr><td>Opera 67+</td><td>支持</td></tr>
+                    <tr><td><strong>Safari</strong></td><td><strong>不支持（截至 Safari 18）</strong></td></tr>
+                    <tr><td>IE</td><td>不支持</td></tr>
+                </tbody>
+            </table>
+            <div class="info-box"><p><strong>关键限制：</strong>Safari 不支持 SVG Favicon。这意味着你<em>必须</em>提供 PNG/ICO 后备方案以确保完整的浏览器覆盖。</p></div>
+
+            <h2>如何实现 SVG Favicon</h2>
+            <pre><code>&lt;!-- 现代浏览器使用 SVG --&gt;
+&lt;link rel="icon" href="/favicon.svg" type="image/svg+xml"&gt;
+
+&lt;!-- Safari 和旧浏览器使用 PNG --&gt;
+&lt;link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32"&gt;
+
+&lt;!-- 非常老的浏览器使用 ICO --&gt;
+&lt;link rel="icon" href="/favicon.ico" sizes="32x32"&gt;
+
+&lt;!-- Apple Touch Icon（始终使用 PNG，不支持 SVG） --&gt;
+&lt;link rel="apple-touch-icon" href="/apple-touch-icon.png"&gt;</code></pre>
+
+            <h2>暗黑模式自适应</h2>
+            <p>SVG Favicon 的杀手级功能 — 你的图标可以自动适应用户的颜色方案：</p>
+            <pre><code>&lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"&gt;
+  &lt;style&gt;
+    circle { fill: #1d1d1f; }
+    text { fill: white; }
+
+    @media (prefers-color-scheme: dark) {
+      circle { fill: white; }
+      text { fill: #1d1d1f; }
+    }
+  &lt;/style&gt;
+  &lt;circle cx="50" cy="50" r="45"/&gt;
+  &lt;text x="50" y="65" text-anchor="middle"
+        font-family="system-ui" font-size="50" font-weight="bold"&gt;M&lt;/text&gt;
+&lt;/svg&gt;</code></pre>
+            <p>浅色模式：深色图标浅色背景。暗黑模式：浅色图标深色背景。全自动，无需 JavaScript。</p>
+
+            <h2>创建 SVG Favicon</h2>
+            <h3>方法一：设计工具</h3>
+            <ul>
+                <li><strong>Figma</strong> — 设计图标，选中后导出为 SVG</li>
+                <li><strong>Illustrator</strong> — 文件 → 另存为 → SVG</li>
+                <li><strong>Inkscape</strong> — 免费开源矢量编辑器</li>
+            </ul>
+
+            <h3>方法二：手写代码</h3>
+            <p>对于简单图标，手写 SVG 很快：</p>
+            <pre><code>&lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"&gt;
+  &lt;rect width="100" height="100" rx="20" fill="#0071e3"/&gt;
+  &lt;text x="50" y="70" text-anchor="middle"
+        font-size="60" font-weight="bold" fill="white"&gt;F&lt;/text&gt;
+&lt;/svg&gt;</code></pre>
+
+            <h2>2026 年推荐的完整配置</h2>
+            <p>将 SVG 与传统后备方案结合，获得所有世界的最佳体验：</p>
+            <pre><code>&lt;!-- 现代：支持暗黑模式的 SVG --&gt;
+&lt;link rel="icon" href="/favicon.svg" type="image/svg+xml"&gt;
+
+&lt;!-- 后备：传统 Favicon 套件 --&gt;
+&lt;link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"&gt;
+&lt;link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"&gt;
+&lt;link rel="icon" href="/favicon.ico" sizes="32x32"&gt;
+
+&lt;!-- Apple（不支持 SVG） --&gt;
+&lt;link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"&gt;
+
+&lt;!-- PWA --&gt;
+&lt;link rel="manifest" href="/site.webmanifest"&gt;</code></pre>
+
+            <h2>现在应该用 SVG Favicon 吗？</h2>
+            <p><strong>应该，但始终要提供后备方案。</strong>Safari 的限制意味着你不能只依赖 SVG。但对于 Chrome、Firefox 和 Edge 用户来说，SVG Favicon 提供了明显更好的体验 — 特别是如果你支持暗黑模式。</p>
+        </div>
+
+        <div class="cta-box">
+            <h3 data-en="See how top websites handle favicons" data-zh="看看顶级网站如何处理 Favicon">See how top websites handle favicons</h3>
+            <p data-en="Check any website's favicon setup with Mzu favicondl." data-zh="使用 Mzu favicondl 查看任何网站的 Favicon 配置。">Check any website's favicon setup with Mzu favicondl.</p>
+            <a href="/ko/index.html" class="cta-btn" data-en="Explore Favicons →" data-zh="探索 Favicon →">Explore Favicons →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© <script>document.write(new Date().getFullYear())</script> Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/ko/index.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Home" data-zh="首页">홈</a>
+                <a href="/ko/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Blog" data-zh="博客">블로그</a>
+                <a href="/ko/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Privacy" data-zh="隐私政策">개인정보</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js"></script>
+
+
+</body></html>
