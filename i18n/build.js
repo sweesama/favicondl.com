@@ -215,7 +215,8 @@ function buildPage(html, lang, page, translations) {
   // 2. 文本内容替换
   translateContent($, lang, t._strings || {});
 
-  // 3. hreflang
+  // 3. hreflang（先移除已有的，保证幂等）
+  $('link[rel="alternate"][hreflang]').remove();
   $('link[rel="canonical"]').after(hreflangTags(page));
 
   // 4. JS/CSS 相对路径改绝对路径
