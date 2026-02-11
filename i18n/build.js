@@ -94,6 +94,24 @@ function switcherMobile(currentLang, page) {
   }).join('\n                    ');
 }
 
+// ─── JS/CSS 相对路径改为绝对路径 ───────────────────────
+function absolutifyScripts($) {
+  $('script[src]').each(function () {
+    const src = $(this).attr('src');
+    if (!src) return;
+    // 跳过已经是绝对路径或外部 CDN
+    if (src.startsWith('/') || src.startsWith('http')) return;
+    // 相对路径改为绝对路径（如 main.js?v=xxx → /main.js?v=xxx）
+    $(this).attr('src', '/' + src);
+  });
+  $('link[rel="stylesheet"][href]').each(function () {
+    const href = $(this).attr('href');
+    if (!href) return;
+    if (href.startsWith('/') || href.startsWith('http')) return;
+    $(this).attr('href', '/' + href);
+  });
+}
+
 // ─── 内部链接前缀 ──────────────────────────────────────
 function prefixLinks($, lang) {
   $('a[href]').each(function () {
@@ -186,10 +204,13 @@ function buildPage(html, lang, page, translations) {
   // 3. hreflang
   $('link[rel="canonical"]').after(hreflangTags(page));
 
-  // 4. 内部链接加前缀（必须在替换切换器之前执行）
+  // 4. JS/CSS 相对路径改绝对路径
+  absolutifyScripts($);
+
+  // 5. 内部链接加前缀（必须在替换切换器之前执行）
   prefixLinks($, lang);
 
-  // 5. 语言切换器（在 prefixLinks 之后，避免切换器链接被二次加前缀）
+  // 6. 语言切换器（在 prefixLinks 之后，避免切换器链接被二次加前缀）
   replaceSwitcher($, lang, page);
 
   // 输出
@@ -221,22 +242,14 @@ function ensureSharedAssets(lang) {
   // 所以不需要复制资源，绝对路径直接指向根目录
 }
 
-// ─── 复制 JS 文件到语言目录 ─────────────────────────────
-function copyJsFiles(lang) {
-  // main.js 和 tools.js 需要在语言目录下可用
-  // 因为页面用的是相对路径引用 JS
+// ─── 清理语言目录中的过期 JS 文件 ─────────────────────────
+function cleanOldJsFiles(lang) {
   const jsFiles = ['main.js', 'tools.js'];
   const outDir = path.join(ROOT, lang);
   for (const file of jsFiles) {
-    const src = path.join(ROOT, file);
     const dest = path.join(outDir, file);
-    if (fs.existsSync(src) && !fs.existsSync(dest)) {
-      // 写一个重定向脚本，加载根目录的 JS
-      fs.writeFileSync(
-        dest,
-        `// Auto-generated: load root JS\nimport('/${file}');\n`,
-        'utf-8'
-      );
+    if (fs.existsSync(dest)) {
+      fs.unlinkSync(dest);
     }
   }
 }
@@ -271,10 +284,10 @@ async function main() {
     console.log(`✅ ${page} → en(patched), ${LANGUAGES.join(', ')}`);
   }
 
-  // 确保 JS 文件可用
+  // 清理旧的 JS 重定向文件（不再需要）
   for (const lang of LANGUAGES) {
     ensureSharedAssets(lang);
-    copyJsFiles(lang);
+    cleanOldJsFiles(lang);
   }
 
   console.log(`\n🎉 完成！共生成 ${totalPages} 个多语言页面`);

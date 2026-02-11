@@ -1,0 +1,30 @@
+{
+  "rewrites": [
+    { "source": "/zh", "destination": "/zh/index.html" },
+    { "source": "/ja", "destination": "/ja/index.html" },
+    { "source": "/ko", "destination": "/ko/index.html" },
+    { "source": "/es", "destination": "/es/index.html" },
+    { "source": "/zh/", "destination": "/zh/index.html" },
+    { "source": "/ja/", "destination": "/ja/index.html" },
+    { "source": "/ko/", "destination": "/ko/index.html" },
+    { "source": "/es/", "destination": "/es/index.html" }
+  ],
+  "headers": [
+    {
+      "source": "/zh/(.*)",
+      "headers": [{ "key": "Content-Language", "value": "zh" }]
+    },
+    {
+      "source": "/ja/(.*)",
+      "headers": [{ "key": "Content-Language", "value": "ja" }]
+    },
+    {
+      "source": "/ko/(.*)",
+      "headers": [{ "key": "Content-Language", "value": "ko" }]
+    },
+    {
+      "source": "/es/(.*)",
+      "headers": [{ "key": "Content-Language", "value": "es" }]
+    }
+  ]
+}
