@@ -156,5 +156,18 @@
       "how-to",
       "conversion"
     ]
+  },
+  {
+    "slug": "favicon-vs-logo",
+    "publishDate": "2026-02-11",
+    "titleEn": "Favicon vs Logo Difference: Why You Can't Just Resize It",
+    "titleZh": "Favicon 与 Logo 的核心区别：为什么不能直接缩小图片？",
+    "descEn": "Stop using your full logo as a favicon. Learn the technical and design differences between favicons and logos for better UX and performance in 2026.",
+    "descZh": "别再直接缩小 Logo 当图标了。深入了解 Favicon 与 Logo 在技术和设计上的核心区别，提升 2026 年的网站用户体验与性能。",
+    "keyword": "favicon vs logo difference",
+    "tags": [
+      "basics",
+      "design"
+    ]
   }
 ]
