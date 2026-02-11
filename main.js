@@ -537,26 +537,18 @@ class FaviconTool {
             }
         }
 
-        const maxFallbackTries = 12;
-        let ftries = 0;
-        for (const url of toTry(fallbackSources)) {
-            if (ftries >= maxFallbackTries) break;
-            ftries++;
-            try {
-                await this.preloadImageWithTimeout(url, 2500);
-                return url;
-            } catch {
-            }
-        }
-
+        // 最后回退：聚合器服务（Google S2 / DuckDuckGo / gstatic）
         for (const url of aggregatorSources) {
-            const ok = await this.preloadImageWithTimeout(forceRefresh ? this.withCacheBust(url) : url, 1500);
-            if (ok) return forceRefresh ? this.withCacheBust(url) : url;
-            const okProxy = await this.preloadImageWithTimeout(
-                forceRefresh ? this.withCacheBust(this.buildProxyUrl(url)) : this.buildProxyUrl(url),
-                1500
-            );
-            if (okProxy) return forceRefresh ? this.withCacheBust(this.buildProxyUrl(url)) : this.buildProxyUrl(url);
+            try {
+                const finalUrl = forceRefresh ? this.withCacheBust(url) : url;
+                await this.preloadImageWithTimeout(finalUrl, 2500);
+                return finalUrl;
+            } catch {}
+            try {
+                const proxyUrl = forceRefresh ? this.withCacheBust(this.buildProxyUrl(url)) : this.buildProxyUrl(url);
+                await this.preloadImageWithTimeout(proxyUrl, 2500);
+                return proxyUrl;
+            } catch {}
         }
 
         if (workerLowQualityFallback) {
