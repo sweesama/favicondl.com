@@ -91,11 +91,16 @@ class FaviconTools {
 
     // 更新语言下拉菜单的显示状态
     updateLangDropdown() {
-        const isZh = this.currentLang === 'zh';
-        const FLAG_US = 'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg';
-        const FLAG_CN = 'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg';
+        const FLAGS = {
+            en: 'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg',
+            zh: 'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg',
+            ja: 'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg',
+            ko: 'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg',
+            es: 'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg',
+        };
+        const flagSrc = FLAGS[this.currentLang] || FLAGS.en;
         document.querySelectorAll('.lang-flag').forEach(el => {
-            el.src = isZh ? FLAG_CN : FLAG_US;
+            el.src = flagSrc;
         });
         document.querySelectorAll('.lang-option').forEach(btn => {
             btn.classList.toggle('active', btn.dataset.lang === this.currentLang);
