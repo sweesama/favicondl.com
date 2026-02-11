@@ -42,23 +42,30 @@ class FaviconTools {
     }
 
     loadSavedLanguage() {
-        const STORAGE_KEY = 'mzu_favicondl_lang';
+        const SUPPORTED = ['en', 'zh', 'ja', 'ko', 'es'];
+        // 1. 优先从 URL 路径检测语言
+        try {
+            const pathMatch = window.location.pathname.match(/^\/(zh|ja|ko|es)(\/|$)/);
+            if (pathMatch) return pathMatch[1];
+        } catch {}
+        // 2. 查询参数
         try {
             const url = new URL(window.location.href);
             const fromQuery = String(url.searchParams.get('lang') || '').trim();
-            if (fromQuery === 'zh' || fromQuery === 'en') return fromQuery;
-        } catch {
-        }
+            if (SUPPORTED.includes(fromQuery)) return fromQuery;
+        } catch {}
+        // 3. localStorage
+        const STORAGE_KEY = 'mzu_favicondl_lang';
         try {
             const saved = String(localStorage.getItem(STORAGE_KEY) || '').trim();
             if (saved === 'zh' || saved === 'en') return saved;
-        } catch {
-        }
+        } catch {}
         return 'en';
     }
 
-    // 全局点击拦截器：点击内部 .html 链接时自动携带 ?lang= 参数
+    // 全局点击拦截器（URL 路由模式下不再加 ?lang=）
     setupLangInterceptor() {
+        if (/^\/(zh|ja|ko|es)(\/|$)/.test(window.location.pathname)) return;
         document.addEventListener('click', (e) => {
             const a = e.target.closest('a[href]');
             if (!a) return;
@@ -224,6 +231,8 @@ class FaviconTools {
     }
 
     updateLanguage() {
+        // ja/ko/es 页面文本已由构建脚本翻译，跳过 JS 覆盖
+        if (['ja', 'ko', 'es'].includes(this.currentLang)) return;
         document.querySelectorAll('[data-zh][data-en]').forEach(el => {
             const text = el.getAttribute(`data-${this.currentLang}`);
             if (text) el.textContent = text;

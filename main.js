@@ -21,23 +21,33 @@ class FaviconTool {
     }
 
     loadSavedLanguage() {
-        const STORAGE_KEY = 'mzu_favicondl_lang';
+        const SUPPORTED = ['en', 'zh', 'ja', 'ko', 'es'];
+        // 1. 优先从 URL 路径检测语言（/zh/、/ja/ 等）
+        try {
+            const pathMatch = window.location.pathname.match(/^\/(zh|ja|ko|es)(\/|$)/);
+            if (pathMatch) return pathMatch[1];
+        } catch {}
+        // 2. 查询参数（兼容旧链接）
         try {
             const url = new URL(window.location.href);
             const fromQuery = String(url.searchParams.get('lang') || '').trim();
-            if (fromQuery === 'zh' || fromQuery === 'en') return fromQuery;
-        } catch {
-        }
+            if (SUPPORTED.includes(fromQuery)) return fromQuery;
+        } catch {}
+        // 3. localStorage
+        const STORAGE_KEY = 'mzu_favicondl_lang';
         try {
             const saved = String(localStorage.getItem(STORAGE_KEY) || '').trim();
             if (saved === 'zh' || saved === 'en') return saved;
-        } catch {
-        }
+        } catch {}
         return 'en';
     }
 
-    // 全局点击拦截器：点击内部 .html 链接时自动携带 ?lang= 参数
+    // 全局点击拦截器（URL 路由模式下已不需要加 ?lang= 参数）
     setupLangInterceptor() {
+        // 如果当前在语言子目录（/zh/、/ja/ 等），不再拦截链接
+        // 因为链接已经是正确的 URL 路由形式
+        if (/^\/(zh|ja|ko|es)(\/|$)/.test(window.location.pathname)) return;
+        // 仅对英文根页面保留旧的 ?lang= 兼容逻辑
         document.addEventListener('click', (e) => {
             const a = e.target.closest('a[href]');
             if (!a) return;
@@ -1178,6 +1188,9 @@ class FaviconTool {
     }
 
     updateLanguage() {
+        // 对 ja/ko/es 页面，文本已由构建脚本翻译，不需要 JS 覆盖
+        if (['ja', 'ko', 'es'].includes(this.currentLang)) return;
+        // 仅 en/zh 使用 data 属性切换
         document.querySelectorAll('[data-zh][data-en]').forEach(el => {
             const text = el.getAttribute(`data-${this.currentLang}`);
             if (text) el.textContent = text;
