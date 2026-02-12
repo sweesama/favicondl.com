@@ -3,9 +3,10 @@
 # 工作原理：
 # 1. 每天 UTC 00:00（北京时间 08:00）自动触发
 # 2. 从 queue.json 取下一个关键词
-# 3. 调用 Gemini API 生成双语文章
+# 3. 调用 Gemini API 生成 5 语言文章（en/zh/ja/ko/es）
 # 4. 生成 HTML + 更新 articles.json + sitemap.xml
-# 5. 自动 commit & push 到 main 分支
+# 5. 运行 i18n build 生成多语言页面
+# 6. 自动 commit & push 到 main 分支
 #
 # 需要在 GitHub Repo → Settings → Secrets → Actions 中添加:
 #   GEMINI_API_KEY = 你的 Google AI Studio API Key
@@ -58,6 +59,16 @@ jobs:
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: node generate-article.js
+
+      - name: Install i18n dependencies
+        if: steps.check-queue.outputs.pending != '0'
+        working-directory: i18n
+        run: npm install
+
+      - name: Build multi-language pages
+        if: steps.check-queue.outputs.pending != '0'
+        working-directory: i18n
+        run: node build.js
 
       - name: Commit and push
         if: steps.check-queue.outputs.pending != '0'
