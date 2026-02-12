@@ -718,6 +718,15 @@ function buildHTML(data, queueItem, publishDate) {
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="/blog/blog.css?v=20260211">
 
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+
     <script type="application/ld+json">
     ${buildJsonLd(data.titleEn, data.descEn, publishDate, slug)}
     </script>
