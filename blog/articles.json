@@ -247,5 +247,24 @@
       "basics",
       "design"
     ]
+  },
+  {
+    "slug": "check-website-favicon",
+    "publishDate": "2026-02-12",
+    "titleEn": "How to Check Website Favicon: The Dev's Audit Guide",
+    "titleZh": "如何检查网站 Favicon：开发者审计指南",
+    "titleJa": "サイトのファビコンを確認する方法：開発者向け監査ガイド",
+    "titleKo": "웹사이트 파비콘 확인 방법: 개발자용 감사 가이드",
+    "titleEs": "Cómo comprobar el favicon de una web: Guía de auditoría",
+    "descEn": "Learn how to check website favicon implementation across all platforms. Use Mzu favicondl to verify your site icons for desktop, mobile, and SEO.",
+    "descZh": "学习如何跨平台检查网站 Favicon 实现。使用 Mzu favicondl 验证您的桌面、移动端及 SEO 网站图标。",
+    "descJa": "すべてのプラットフォームでサイトのファビコンを確認する方法を学びます。Mzu favicondl を使用して、デスクトップ、モバイル、SEO 用のアイコンを検証します。",
+    "descKo": "모든 플랫폼에서 웹사이트 파비콘 구현을 확인하는 방법을 알아보세요. Mzu favicondl을 사용하여 데스크톱, 모바일 및 SEO용 아이콘을 검증하십시오.",
+    "descEs": "Aprende a comprobar la implementación del favicon en todas las plataformas. Usa Mzu favicondl para verificar tus iconos en escritorio, móvil y SEO.",
+    "keyword": "how to check website favicon",
+    "tags": [
+      "how-to",
+      "tools"
+    ]
   }
 ]
