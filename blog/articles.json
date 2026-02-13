@@ -266,5 +266,24 @@
       "how-to",
       "tools"
     ]
+  },
+  {
+    "slug": "favicon-dark-mode",
+    "publishDate": "2026-02-13",
+    "titleEn": "Favicon Dark Mode Support: A Pro Guide for 2026",
+    "titleZh": "Favicon 深色模式适配指南：2026 前端实战教程",
+    "titleJa": "ファビコンのダークモード対応：2026年の完全ガイド",
+    "titleKo": "파비콘 다크 모드 지원: 2026년 전문가용 가이드",
+    "titleEs": "Soporte de Modo Oscuro para Favicon: Guía Pro 2026",
+    "descEn": "Stop letting your logo disappear in dark mode. Learn how to implement favicon dark mode support using SVG and CSS media queries for a perfect look.",
+    "descZh": "别让你的 Logo 在深色模式下“隐身”。学习如何使用 SVG 和 CSS 媒体查询实现 Favicon 深色模式适配，提升品牌质感。",
+    "descJa": "ダークモードでロゴが消えていませんか？SVGとCSSメディアクエリを使用して、ファビコンをダークモードに対応させる方法を解説します。",
+    "descKo": "다크 모드에서 로고가 사라지지 않게 하세요. SVG와 CSS 미디어 쿼리를 사용하여 파비콘 다크 모드 지원을 구현하는 방법을 배웁니다.",
+    "descEs": "No dejes que tu logo desaparezca en el modo oscuro. Aprende a implementar el soporte de modo oscuro para favicon usando SVG y consultas de medios CSS.",
+    "keyword": "favicon dark mode support",
+    "tags": [
+      "advanced",
+      "design"
+    ]
   }
 ]
