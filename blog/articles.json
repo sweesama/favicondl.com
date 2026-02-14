@@ -285,5 +285,24 @@
       "advanced",
       "design"
     ]
+  },
+  {
+    "slug": "favicon-wordpress",
+    "publishDate": "2026-02-14",
+    "titleEn": "How to Add a Favicon for WordPress: The 2026 Guide",
+    "titleZh": "WordPress 网站图标设置指南：2026 开发者实战手册",
+    "titleJa": "WordPressにファビコンを設定する方法：2026年版ガイド",
+    "titleKo": "워드프레스 파비콘 설정 방법: 2026년 최신 가이드",
+    "titleEs": "Cómo añadir un favicon en WordPress: Guía para 2026",
+    "descEn": "Learn the best ways to set a favicon for WordPress in 2026. From the Site Editor to manual code, ensure your site looks professional on all devices.",
+    "descZh": "了解 2026 年在 WordPress 中设置网站图标的最佳方法。从站点编辑器到手动代码，确保您的网站在所有设备上都显得专业。",
+    "descJa": "2026年にWordPressでファビコンを設定する最適な方法を解説。サイトエディターから手動コードまで、プロフェッショナルなサイト作りをサポートします。",
+    "descKo": "2026년 워드프레스 파비콘 설정의 모든 것. 사이트 에디터부터 수동 코드 삽입까지, 모든 기기에서 전문적으로 보이는 웹사이트를 만드세요.",
+    "descEs": "Aprende las mejores formas de poner un favicon en WordPress en 2026. Desde el Editor del Sitio hasta código manual, mejora la imagen de tu web.",
+    "keyword": "favicon for wordpress",
+    "tags": [
+      "how-to",
+      "wordpress"
+    ]
   }
 ]
