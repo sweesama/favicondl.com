@@ -304,5 +304,24 @@
       "how-to",
       "wordpress"
     ]
+  },
+  {
+    "slug": "web-app-manifest-favicon",
+    "publishDate": "2026-02-16",
+    "titleEn": "Web App Manifest Favicon Guide: Master Mobile Icons in 2026",
+    "titleZh": "Web App Manifest Favicon 指南：2026 年移动端图标配置全攻略",
+    "titleJa": "Web App Manifest Favicon 設定ガイド：2026 年のモバイルアイコン最適化",
+    "titleKo": "웹 앱 매니페스트 파비콘 가이드: 2026년 모바일 아이콘 완벽 설정",
+    "titleEs": "Guía de Favicon para Web App Manifest: Domina los Iconos en 2026",
+    "descEn": "Learn how to configure the web app manifest favicon for Android and PWAs. Master maskable icons, manifest.json setup, and splash screen optimization in 2026.",
+    "descZh": "学习如何为安卓和 PWA 配置 Web App Manifest Favicon。掌握 2026 年的可遮罩图标、manifest.json 设置以及启动页优化技巧。",
+    "descJa": "Android や PWA 向けの Web App Manifest Favicon 設定方法を解説。2026 年のマスク可能アイコン、manifest.json、スプラッシュ画面の最適化をマスターしましょう。",
+    "descKo": "Android 및 PWA를 위한 웹 앱 매니페스트 파비콘 설정 방법을 알아보세요. 2026년 기준 마스커블 아이콘, manifest.json 설정 및 스플래시 화면 최적화를 마스터하세요.",
+    "descEs": "Aprende a configurar el favicon del web app manifest para Android y PWA. Domina los iconos ajustables, la configuración de manifest.json y la optimización de pantalla de inicio.",
+    "keyword": "web app manifest favicon",
+    "tags": [
+      "pwa",
+      "guide"
+    ]
   }
 ]
