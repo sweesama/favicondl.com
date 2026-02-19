@@ -342,5 +342,24 @@
       "design",
       "tips"
     ]
+  },
+  {
+    "slug": "favicon-google-search-console",
+    "publishDate": "2026-02-19",
+    "titleEn": "How to Fix Your Favicon in Google Search Console (2026)",
+    "titleZh": "如何在 Google Search Console 中修复网站图标 (2026 指南)",
+    "titleJa": "Google Search Console でファビコンを反映させる方法 (2026)",
+    "titleKo": "Google Search Console에서 파비콘을 수정하는 방법 (2026)",
+    "titleEs": "Cómo arreglar el favicon en Google Search Console (2026)",
+    "descEn": "Is your favicon missing from Google Search? Learn how to use Google Search Console to force an update and ensure your brand stands out in SERPs.",
+    "descZh": "您的网站图标在 Google 搜索中消失了吗？学习如何使用 Google Search Console 强制更新，并确保您的品牌在搜索结果中脱颖而出。",
+    "descJa": "Google 検索でファビコンが表示されませんか？Google Search Console を使用して更新を強制し、検索結果でブランドを目立たせる方法を解説します。",
+    "descKo": "Google 검색에서 파비콘이 누락되었나요? Google Search Console을 사용하여 업데이트를 강제하고 검색 결과에서 브랜드를 돋보이게 하는 방법을 알아보세요.",
+    "descEs": "¿Tu favicon no aparece en la búsqueda de Google? Aprende a usar Google Search Console para forzar la actualización y destacar en los resultados.",
+    "keyword": "favicon google search console",
+    "tags": [
+      "seo",
+      "google"
+    ]
   }
 ]
