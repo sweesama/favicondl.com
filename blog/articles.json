@@ -361,5 +361,24 @@
       "seo",
       "google"
     ]
+  },
+  {
+    "slug": "animated-favicon",
+    "publishDate": "2026-02-20",
+    "titleEn": "How to Create an Animated Favicon (APNG Guide for 2026)",
+    "titleZh": "2026 年动态 Favicon 制作指南：APNG 方案",
+    "titleJa": "2026年版アニメーションFaviconの作成方法（APNGガイド）",
+    "titleKo": "2026년 애니메이션 Favicon 만들기: APNG 가이드",
+    "titleEs": "Cómo Crear un Favicon Animado (Guía APNG para 2026)",
+    "descEn": "Want your website to pop in browser tabs? Learn how to create an animated favicon using APNG. This 2026 guide covers design, implementation, and pitfalls.",
+    "descZh": "想让你的网站在浏览器标签页中脱颖而出？学习如何使用 APNG 制作动态 favicon。这份 2026 年指南涵盖设计、实现和常见陷阱。",
+    "descJa": "ブラウザのタブでウェブサイトを目立たせたいですか？APNGを使ってアニメーションFaviconを作成する方法を学びましょう。2026年版のデザイン、実装、注意点を解説します。",
+    "descKo": "브라우저 탭에서 웹사이트를 돋보이게 하고 싶으신가요? APNG를 사용하여 애니메이션 Favicon을 만드는 방법을 알아보세요. 2026년 가이드에서 디자인, 구현 및 함정을 다룹니다.",
+    "descEs": "¿Quieres que tu sitio web destaque en las pestañas del navegador? Aprende a crear un favicon animado usando APNG. Esta guía de 2026 cubre diseño, implementación y errores comunes.",
+    "keyword": "animated favicon",
+    "tags": [
+      "advanced",
+      "design"
+    ]
   }
 ]
