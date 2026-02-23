@@ -822,14 +822,25 @@ function updateSitemap(slug, date) {
     return;
   }
 
-  const newEntry = `  <url>
+  // 英文原版 + 4 种语言版本
+  const langs = ['zh', 'ja', 'ko', 'es'];
+  let newEntries = `  <url>
     <loc>https://favicondl.com/blog/${slug}.html</loc>
     <lastmod>${date}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>`;
 
-  sitemap = sitemap.replace('</urlset>', newEntry + '\n</urlset>');
+  for (const lang of langs) {
+    newEntries += `\n  <url>
+    <loc>https://favicondl.com/${lang}/blog/${slug}.html</loc>
+    <lastmod>${date}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>`;
+  }
+
+  sitemap = sitemap.replace('</urlset>', newEntries + '\n</urlset>');
   fs.writeFileSync(SITEMAP_PATH, sitemap, 'utf-8');
 }
 
