@@ -33,9 +33,11 @@
         }
 
         // Toggle article body language blocks
-        document.querySelectorAll('.article-body[data-lang]').forEach(el => {
-            // 对 ja/ko/es 页面，显示 en 版本（文章内容未翻译）
-            const showLang = ['ja', 'ko', 'es'].includes(lang) ? 'en' : lang;
+        // 优先显示当前语言的正文，如果不存在则回退到 en
+        const bodies = document.querySelectorAll('.article-body[data-lang]');
+        const hasLangBody = Array.from(bodies).some(el => el.dataset.lang === lang);
+        const showLang = hasLangBody ? lang : 'en';
+        bodies.forEach(el => {
             el.style.display = el.dataset.lang === showLang ? '' : 'none';
         });
 

@@ -67,7 +67,7 @@ const REQUIRED_FIELDS = [
   'descEn', 'descZh', 'descJa', 'descKo', 'descEs',
   'metaKeywords',
   'breadcrumbEn', 'breadcrumbZh', 'breadcrumbJa', 'breadcrumbKo', 'breadcrumbEs',
-  'contentEn', 'contentZh',
+  'contentEn', 'contentZh', 'contentJa', 'contentKo', 'contentEs',
   'ctaTitleEn', 'ctaTitleZh', 'ctaTitleJa', 'ctaTitleKo', 'ctaTitleEs',
   'ctaDescEn', 'ctaDescZh', 'ctaDescJa', 'ctaDescKo', 'ctaDescEs',
   'ctaBtnEn', 'ctaBtnZh', 'ctaBtnJa', 'ctaBtnKo', 'ctaBtnEs',
@@ -138,6 +138,9 @@ async function main() {
     // --- 净化 HTML ---
     articleData.contentEn = sanitizeHTML(articleData.contentEn);
     articleData.contentZh = sanitizeHTML(articleData.contentZh);
+    articleData.contentJa = sanitizeHTML(articleData.contentJa);
+    articleData.contentKo = sanitizeHTML(articleData.contentKo);
+    articleData.contentEs = sanitizeHTML(articleData.contentEs);
 
     // --- 动态更新内部链接池（新文章可以被后续文章引用）---
     // (pool 在下一次运行时自动生效，因为我们读取 articles.json)
@@ -186,8 +189,11 @@ async function main() {
     console.log(`   ES: ${articleData.titleEs}`);
     console.log(`   文件: blog/${nextItem.slug}.html`);
     console.log(`   日期: ${today}`);
-    console.log(`   英文长度: ${articleData.contentEn.length} 字符`);
-    console.log(`   中文长度: ${articleData.contentZh.length} 字符`);
+    console.log(`   EN: ${articleData.contentEn.length} 字符`);
+    console.log(`   ZH: ${articleData.contentZh.length} 字符`);
+    console.log(`   JA: ${articleData.contentJa.length} 字符`);
+    console.log(`   KO: ${articleData.contentKo.length} 字符`);
+    console.log(`   ES: ${articleData.contentEs.length} 字符`);
     console.log('='.repeat(50));
 
   } catch (err) {
@@ -340,14 +346,15 @@ ${avoidSection}
 - Apply the same anti-AI writing rules: no 套话 like "在当今数字化时代", "众所周知", "不言而喻". Write like a Chinese developer blogging, not a textbook.
 
 === MULTI-LANGUAGE (ja/ko/es) ===
-In addition to English and Chinese full articles, provide TRANSLATED metadata for Japanese, Korean, and Spanish:
+Provide FULL translations for Japanese, Korean, and Spanish — both metadata AND article body:
 - titleJa/Ko/Es: Natural, localized titles (NOT literal translations)
 - descJa/Ko/Es: Meta descriptions adapted for each language
 - breadcrumbJa/Ko/Es: Short breadcrumb text
+- contentJa/Ko/Es: Full HTML article body translated from the English version. NOT literal word-by-word — adapt naturally for each language's readers. Same HTML structure (h2/h3/p/code/table/etc.)
 - ctaTitleJa/Ko/Es, ctaDescJa/Ko/Es, ctaBtnJa/Ko/Es: CTA section translations
 - Keep technical terms (favicon, ICO, PNG, SVG, etc.) in English across all languages.
-- Japanese: use です/ます style. Korean: use 합니다 style. Spanish: use "tú" form.
-- These are UI-level translations only (no full article body needed for ja/ko/es).
+- Japanese: use です/ます style, natural dev blog tone. Korean: use 합니다 style. Spanish: use "tú" form.
+- Apply the same anti-AI writing rules to all languages — no clichés, no filler.
 
 === OUTPUT FORMAT ===
 Return ONLY valid JSON.
@@ -371,6 +378,9 @@ Return ONLY valid JSON.
   "breadcrumbEs": "Migas de pan",
   "contentEn": "<p>HTML article body...</p>",
   "contentZh": "<p>中文文章正文...</p>",
+  "contentJa": "<p>日本語の記事本文...</p>",
+  "contentKo": "<p>한국어 기사 본문...</p>",
+  "contentEs": "<p>Cuerpo del artículo en español...</p>",
   "ctaTitleEn": "CTA heading",
   "ctaTitleZh": "CTA 标题",
   "ctaTitleJa": "CTA 見出し",
@@ -588,7 +598,7 @@ function validateArticleData(data, keyword, depth) {
   }
 
   // --- 8. 禁止标签检查 ---
-  const allContent = (data.contentEn || '') + (data.contentZh || '');
+  const allContent = (data.contentEn || '') + (data.contentZh || '') + (data.contentJa || '') + (data.contentKo || '') + (data.contentEs || '');
   for (const tag of FORBIDDEN_TAGS) {
     if (new RegExp(`<${tag}[\\s>]`, 'i').test(allContent)) {
       errors.push(`内容包含禁止标签: <${tag}>`);
@@ -764,10 +774,22 @@ function buildHTML(data, queueItem, publishDate) {
             ${data.contentZh}
         </div>
 
+        <div class="article-body" data-lang="ja" style="display:none">
+            ${data.contentJa}
+        </div>
+
+        <div class="article-body" data-lang="ko" style="display:none">
+            ${data.contentKo}
+        </div>
+
+        <div class="article-body" data-lang="es" style="display:none">
+            ${data.contentEs}
+        </div>
+
         <div class="cta-box">
-            <h3 data-en="${esc(data.ctaTitleEn)}" data-zh="${esc(data.ctaTitleZh)}">${esc(data.ctaTitleEn)}</h3>
-            <p data-en="${esc(data.ctaDescEn)}" data-zh="${esc(data.ctaDescZh)}">${esc(data.ctaDescEn)}</p>
-            <a href="${data.ctaLink}" class="cta-btn" data-en="${esc(data.ctaBtnEn)}" data-zh="${esc(data.ctaBtnZh)}">${esc(data.ctaBtnEn)}</a>
+            <h3 data-en="${esc(data.ctaTitleEn)}" data-zh="${esc(data.ctaTitleZh)}" data-ja="${esc(data.ctaTitleJa)}" data-ko="${esc(data.ctaTitleKo)}" data-es="${esc(data.ctaTitleEs)}">${esc(data.ctaTitleEn)}</h3>
+            <p data-en="${esc(data.ctaDescEn)}" data-zh="${esc(data.ctaDescZh)}" data-ja="${esc(data.ctaDescJa)}" data-ko="${esc(data.ctaDescKo)}" data-es="${esc(data.ctaDescEs)}">${esc(data.ctaDescEn)}</p>
+            <a href="${data.ctaLink}" class="cta-btn" data-en="${esc(data.ctaBtnEn)}" data-zh="${esc(data.ctaBtnZh)}" data-ja="${esc(data.ctaBtnJa)}" data-ko="${esc(data.ctaBtnKo)}" data-es="${esc(data.ctaBtnEs)}">${esc(data.ctaBtnEn)}</a>
         </div>
     </article>
 
