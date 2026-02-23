@@ -24,12 +24,12 @@ if (!API_KEY) {
 }
 
 const ai = new GoogleGenAI({ apiKey: API_KEY });
-const MODEL_LIST = ['gemini-2.0-flash', 'gemini-2.5-flash-preview', 'gemini-2.5-pro-preview'];
-const RETRY_DELAY_MS = 30000;
+const MODEL_LIST = ['gemini-2.5-flash', 'gemini-2.0-flash', 'gemini-2.5-pro'];
+const RETRY_DELAY_MS = 10000;
 
-// 从命令行参数获取限制数（默认 20，匹配免费额度）
+// 从命令行参数获取限制数（付费层 10K RPD，可一次跑完所有文章）
 const limitArg = process.argv.find(a => a.startsWith('--limit'));
-const LIMIT = limitArg ? parseInt(process.argv[process.argv.indexOf(limitArg) + 1]) || 20 : 20;
+const LIMIT = limitArg ? parseInt(process.argv[process.argv.indexOf(limitArg) + 1]) || 50 : 50;
 
 // ============================================================
 // 主函数

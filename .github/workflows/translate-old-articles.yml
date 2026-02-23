@@ -9,9 +9,9 @@ on:
   workflow_dispatch:
     inputs:
       limit:
-        description: '每次翻译的文章数量上限（免费额度 20/天）'
+        description: '每次翻译的文章数量上限（付费层可一次跑完）'
         required: false
-        default: '20'
+        default: '50'
 
 jobs:
   translate:
