@@ -24,7 +24,7 @@ if (!API_KEY) {
 }
 
 const ai = new GoogleGenAI({ apiKey: API_KEY });
-const MODEL_LIST = ['gemini-2.5-flash', 'gemini-2.0-flash', 'gemini-2.5-pro'];
+const MODEL_LIST = ['gemini-3-flash', 'gemini-2.5-flash', 'gemini-2.5-pro'];
 const RETRY_DELAY_MS = 10000;
 
 // 从命令行参数获取限制数（付费层 10K RPD，可一次跑完所有文章）
