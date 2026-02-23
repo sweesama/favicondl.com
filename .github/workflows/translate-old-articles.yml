@@ -1,0 +1,63 @@
+# 一次性工作流：为旧博客文章补充 ja/ko/es 正文翻译
+# 手动触发（workflow_dispatch），跑完自动 commit & push
+# Gemini 免费额度 20 RPD，23 篇文章需要跑 2 次（今天 20，明天 3）
+# 脚本会自动跳过已翻译的文章，所以重复跑也安全
+
+name: Translate Old Blog Articles
+
+on:
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: '每次翻译的文章数量上限（免费额度 20/天）'
+        required: false
+        default: '20'
+
+jobs:
+  translate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        working-directory: blog/scripts
+        run: npm install
+
+      - name: Run translation script
+        working-directory: blog/scripts
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: node translate-old-articles.js --limit ${{ github.event.inputs.limit }}
+
+      - name: Install i18n dependencies
+        working-directory: i18n
+        run: npm install
+
+      - name: Run i18n build
+        working-directory: i18n
+        run: node build.js
+
+      - name: Commit & Push
+        run: |
+          git config user.name "Translate Bot"
+          git config user.email "bot@favicondl.com"
+          git add -A
+          if ! git diff --staged --quiet; then
+            git commit -m "🌐 Translate old articles to ja/ko/es (batch)"
+            git pull --rebase origin main
+            git push
+          else
+            echo "ℹ️ No changes to commit"
+          fi
+
+      - name: Summary
+        run: |
+          echo "✅ Translation batch complete!"
+          echo "If articles remain, run this workflow again tomorrow."
