@@ -24,7 +24,7 @@ if (!API_KEY) {
 }
 
 const ai = new GoogleGenAI({ apiKey: API_KEY });
-const MODEL_LIST = ['gemini-3-flash', 'gemini-2.5-flash', 'gemini-2.5-pro'];
+const MODEL_LIST = ['gemini-2.5-flash', 'gemini-2.5-pro', 'gemini-2.0-flash'];
 const RETRY_DELAY_MS = 10000;
 
 // 从命令行参数获取限制数（付费层 10K RPD，可一次跑完所有文章）
@@ -119,18 +119,14 @@ async function translateArticle(filename) {
   // 调用 Gemini API 翻译
   const translations = await callGeminiTranslate(enContent, filename);
 
-  // 找到中文正文块的结束位置，在其后插入 ja/ko/es 块
-  // 如果没有中文块，就在英文块后面插入
-  const zhEndPattern = /<\/div>\s*(?=\s*<div class="cta-box")/;
-  const insertMatch = html.match(zhEndPattern);
-
-  if (!insertMatch) {
-    throw new Error('无法找到插入位置（cta-box 之前）');
+  // 找到 cta-box 的位置，在其前面插入 ja/ko/es 块
+  const ctaIndex = html.indexOf('<div class="cta-box">');
+  if (ctaIndex === -1) {
+    throw new Error('无法找到 cta-box 元素');
   }
 
-  const insertPos = html.indexOf(insertMatch[0]) + insertMatch[0].length;
-  const beforeInsert = html.slice(0, insertPos);
-  const afterInsert = html.slice(insertPos);
+  const beforeInsert = html.slice(0, ctaIndex);
+  const afterInsert = html.slice(ctaIndex);
 
   const newBlocks = `
 
