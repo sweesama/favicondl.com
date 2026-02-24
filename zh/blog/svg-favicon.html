@@ -108,6 +108,12 @@
     
     
     
+    
+    
+    
+    
+    
+    
 
     <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
@@ -368,7 +374,314 @@
             <p><strong>应该，但始终要提供后备方案。</strong>Safari 的限制意味着你不能只依赖 SVG。但对于 Chrome、Firefox 和 Edge 用户来说，SVG Favicon 提供了明显更好的体验 — 特别是如果你支持暗黑模式。</p>
         </div>
 
-        <div class="cta-box">
+        
+
+        <div class="article-body" data-lang="ja" style="display:none">
+            <p>SVG faviconは、ウェブサイトのアイコン技術の最先端をいくものです。スケーラブルで、ダークモードに対応し、どんなサイズでも完璧に見える単一のファイルとして機能します。知っておくべきことをすべてご紹介します。</p>
+
+            <h2>SVG Faviconを使う理由</h2>
+            <ul>
+                <li><strong>無限にスケーラブル</strong> — 16px、32px、512px、またはどんなサイズでも鮮明に見えます。ピクセル化は一切ありません。</li>
+                <li><strong>非常に小さいファイルサイズ</strong> — シンプルなSVG faviconは1KB未満にでき、どのPNGよりも小さくなります。</li>
+                <li><strong>ダークモード対応</strong> — SVGはCSSの<code>prefers-color-scheme</code>メディアクエリを使用して適応できます。</li>
+                <li><strong>すべてを統べる一つのファイル</strong> — 複数のサイズを用意する必要がありません（ただし、PNGのフォールバックはまだ必要です）。</li>
+            </ul>
+
+            <h2>ブラウザサポート (2026年)</h2>
+            <table>
+                <thead><tr><th>ブラウザ</th><th>SVG Faviconサポート</th></tr></thead>
+                <tbody>
+                    <tr><td>Chrome 80+</td><td>はい</td></tr>
+                    <tr><td>Firefox 41+</td><td>はい</td></tr>
+                    <tr><td>Edge 80+</td><td>はい</td></tr>
+                    <tr><td>Opera 67+</td><td>はい</td></tr>
+                    <tr><td><strong>Safari</strong></td><td><strong>いいえ (Safari 18時点)</strong></td></tr>
+                    <tr><td>IE</td><td>いいえ</td></tr>
+                </tbody>
+            </table>
+            <div class="info-box"><p><strong>主な制限事項:</strong> SafariはSVG faviconをサポートしていません。そのため、すべてのブラウザをカバーするには、PNG/ICOのフォールバックを<em>必ず</em>提供する必要があります。</p></div>
+
+            <h2>SVG Faviconの実装方法</h2>
+            <pre><code>&lt;!-- SVG favicon for modern browsers --&gt;
+&lt;link rel="icon" href="/favicon.svg" type="image/svg+xml"&gt;
+
+&lt;!-- PNG fallback for Safari and older browsers --&gt;
+&lt;link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32"&gt;
+
+&lt;!-- ICO fallback for very old browsers --&gt;
+&lt;link rel="icon" href="/favicon.ico" sizes="32x32"&gt;
+
+&lt;!-- Apple Touch Icon (always PNG, SVG not supported) --&gt;
+&lt;link rel="apple-touch-icon" href="/apple-touch-icon.png"&gt;</code></pre>
+            <p>SVGをサポートするブラウザはそれを使用し、それ以外のブラウザはPNGまたはICOにフォールバックします。</p>
+
+            <h2>ダークモードへの適応</h2>
+            <p>SVG faviconの目玉機能は、アイコンがユーザーのカラースキームに自動的に適応できることです。</p>
+            <pre><code>&lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"&gt;
+  &lt;style&gt;
+    circle { fill: #1d1d1f; }
+    text { fill: white; }
+
+    @media (prefers-color-scheme: dark) {
+      circle { fill: white; }
+      text { fill: #1d1d1f; }
+    }
+  &lt;/style&gt;
+  &lt;circle cx="50" cy="50" r="45"/&gt;
+  &lt;text x="50" y="65" text-anchor="middle"
+        font-family="system-ui" font-size="50" font-weight="bold"&gt;M&lt;/text&gt;
+&lt;/svg&gt;</code></pre>
+            <p>ライトモードでは、明るい背景に暗いアイコン。ダークモードでは、暗い背景に明るいアイコン。JavaScriptは不要で、自動的に切り替わります。</p>
+
+            <h2>SVG Faviconの作成</h2>
+            <h3>方法1: デザインツール</h3>
+            <ul>
+                <li><strong>Figma</strong> — アイコンをデザインし、選択してSVGとしてエクスポートします</li>
+                <li><strong>Illustrator</strong> — ファイル → 別名で保存 → SVG</li>
+                <li><strong>Inkscape</strong> — 無料のオープンソースベクターエディター</li>
+            </ul>
+
+            <h3>方法2: 手書きコーディング</h3>
+            <p>シンプルなアイコンであれば、SVGを手書きで記述するのは迅速です。</p>
+            <pre><code>&lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"&gt;
+  &lt;rect width="100" height="100" rx="20" fill="#0071e3"/&gt;
+  &lt;text x="50" y="70" text-anchor="middle"
+        font-size="60" font-weight="bold" fill="white"&gt;F&lt;/text&gt;
+&lt;/svg&gt;</code></pre>
+
+            <h3>最適化のヒント</h3>
+            <ul>
+                <li>ファイルサイズを最適化するには<a href="https://svgomg.net/" rel="noopener">SVGOMG</a>を使用します</li>
+                <li>不要なメタデータ、コメント、エディター固有の属性を削除します</li>
+                <li>パスはシンプルに保ちます — 複雑なグラデーションは小さいサイズではうまくレンダリングされない場合があります</li>
+                <li>常に<code>xmlns</code>属性を含めます</li>
+                <li>適切なスケーリングのために<code>viewBox</code>を設定します</li>
+            </ul>
+
+            <h2>2026年推奨の完全なセットアップ</h2>
+            <p>SVGと従来のフォールバックを組み合わせることで、すべての利点を享受できます。</p>
+            <pre><code>&lt;!-- Modern: SVG with dark mode support --&gt;
+&lt;link rel="icon" href="/favicon.svg" type="image/svg+xml"&gt;
+
+&lt;!-- Fallback: Traditional favicon set --&gt;
+&lt;link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"&gt;
+&lt;link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"&gt;
+&lt;link rel="icon" href="/favicon.ico" sizes="32x32"&gt;
+
+&lt;!-- Apple (no SVG support) --&gt;
+&lt;link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"&gt;
+
+&lt;!-- PWA --&gt;
+&lt;link rel="manifest" href="/site.webmanifest"&gt;</code></pre>
+
+            <h2>今日、SVG Faviconを使うべきでしょうか？</h2>
+            <p><strong>はい、ただし常にフォールバックと併用してください。</strong> Safariの制限があるため、SVG単独に頼ることはできません。しかし、Chrome、Firefox、Edgeのユーザーにとっては、SVG faviconは特にダークモードをサポートしている場合、著しく優れた体験を提供します。</p>
+        </div>
+
+        <div class="article-body" data-lang="ko" style="display:none">
+            <p>SVG favicon은 웹사이트 아이콘 기술의 최첨단을 대표합니다. 확장 가능하고, 다크 모드를 지원하며, 어떤 크기에서도 완벽하게 보이는 단일 파일이 될 수 있습니다. 알아야 할 모든 것을 여기에 정리했습니다.</p>
+
+            <h2>SVG Favicon을 사용해야 하는 이유</h2>
+            <ul>
+                <li><strong>무한히 확장 가능</strong> — 16px, 32px, 512px 또는 어떤 크기에서도 선명하게 보입니다. 픽셀 깨짐이 전혀 없습니다.</li>
+                <li><strong>매우 작은 파일 크기</strong> — 간단한 SVG favicon은 1KB 미만으로, 어떤 PNG보다도 작을 수 있습니다.</li>
+                <li><strong>다크 모드 지원</strong> — SVG는 CSS <code>prefers-color-scheme</code> 미디어 쿼리를 사용하여 적응할 수 있습니다.</li>
+                <li><strong>모든 것을 아우르는 하나의 파일</strong> — 여러 크기가 필요 없습니다 (하지만 PNG 폴백은 여전히 필요합니다).</li>
+            </ul>
+
+            <h2>브라우저 지원 (2026년)</h2>
+            <table>
+                <thead><tr><th>브라우저</th><th>SVG Favicon 지원</th></tr></thead>
+                <tbody>
+                    <tr><td>Chrome 80+</td><td>예</td></tr>
+                    <tr><td>Firefox 41+</td><td>예</td></tr>
+                    <tr><td>Edge 80+</td><td>예</td></tr>
+                    <tr><td>Opera 67+</td><td>예</td></tr>
+                    <tr><td><strong>Safari</strong></td><td><strong>아니요 (Safari 18 기준)</strong></td></tr>
+                    <tr><td>IE</td><td>아니요</td></tr>
+                </tbody>
+            </table>
+            <div class="info-box"><p><strong>주요 제한 사항:</strong> Safari는 SVG favicon을 지원하지 않습니다. 이는 모든 브라우저를 지원하기 위해 PNG/ICO 폴백을 <em>반드시</em> 제공해야 함을 의미합니다.</p></div>
+
+            <h2>SVG Favicon 구현 방법</h2>
+            <pre><code>&lt;!-- SVG favicon for modern browsers --&gt;
+&lt;link rel="icon" href="/favicon.svg" type="image/svg+xml"&gt;
+
+&lt;!-- PNG fallback for Safari and older browsers --&gt;
+&lt;link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32"&gt;
+
+&lt;!-- ICO fallback for very old browsers --&gt;
+&lt;link rel="icon" href="/favicon.ico" sizes="32x32"&gt;
+
+&lt;!-- Apple Touch Icon (always PNG, SVG not supported) --&gt;
+&lt;link rel="apple-touch-icon" href="/apple-touch-icon.png"&gt;</code></pre>
+            <p>SVG를 지원하는 브라우저는 SVG를 사용하고, 그렇지 않은 브라우저는 PNG 또는 ICO로 폴백합니다.</p>
+
+            <h2>다크 모드 적응</h2>
+            <p>SVG favicon의 핵심 기능은 아이콘이 사용자의 색상 스키마에 자동으로 적응할 수 있다는 것입니다.</p>
+            <pre><code>&lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"&gt;
+  &lt;style&gt;
+    circle { fill: #1d1d1f; }
+    text { fill: white; }
+
+    @media (prefers-color-scheme: dark) {
+      circle { fill: white; }
+      text { fill: #1d1d1f; }
+    }
+  &lt;/style&gt;
+  &lt;circle cx="50" cy="50" r="45"/&gt;
+  &lt;text x="50" y="65" text-anchor="middle"
+        font-family="system-ui" font-size="50" font-weight="bold"&gt;M&lt;/text&gt;
+&lt;/svg&gt;</code></pre>
+            <p>라이트 모드에서는 밝은 배경에 어두운 아이콘. 다크 모드에서는 어두운 배경에 밝은 아이콘. JavaScript 없이 자동으로 작동합니다.</p>
+
+            <h2>SVG Favicon 생성</h2>
+            <h3>방법 1: 디자인 도구</h3>
+            <ul>
+                <li><strong>Figma</strong> — 아이콘을 디자인하고 선택한 다음 SVG로 내보냅니다.</li>
+                <li><strong>Illustrator</strong> — 파일 → 다른 이름으로 저장 → SVG</li>
+                <li><strong>Inkscape</strong> — 무료 오픈 소스 벡터 편집기</li>
+            </ul>
+
+            <h3>방법 2: 직접 코딩하기</h3>
+            <p>간단한 아이콘의 경우, SVG를 직접 코딩하는 것이 빠릅니다.</p>
+            <pre><code>&lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"&gt;
+  &lt;rect width="100" height="100" rx="20" fill="#0071e3"/&gt;
+  &lt;text x="50" y="70" text-anchor="middle"
+        font-size="60" font-weight="bold" fill="white"&gt;F&lt;/text&gt;
+&lt;/svg&gt;</code></pre>
+
+            <h3>최적화 팁</h3>
+            <ul>
+                <li>파일 크기를 최적화하려면 <a href="https://svgomg.net/" rel="noopener">SVGOMG</a>를 사용하세요.</li>
+                <li>불필요한 메타데이터, 주석 및 편집기별 속성을 제거하세요.</li>
+                <li>경로를 단순하게 유지하세요 — 복잡한 그라데이션은 작은 크기에서 잘 렌더링되지 않을 수 있습니다.</li>
+                <li>항상 <code>xmlns</code> 속성을 포함하세요.</li>
+                <li>적절한 스케일링을 위해 <code>viewBox</code>를 설정하세요.</li>
+            </ul>
+
+            <h2>2026년 권장 전체 설정</h2>
+            <p>SVG와 전통적인 폴백을 결합하면 모든 장점을 얻을 수 있습니다.</p>
+            <pre><code>&lt;!-- Modern: SVG with dark mode support --&gt;
+&lt;link rel="icon" href="/favicon.svg" type="image/svg+xml"&gt;
+
+&lt;!-- Fallback: Traditional favicon set --&gt;
+&lt;link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"&gt;
+&lt;link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"&gt;
+&lt;link rel="icon" href="/favicon.ico" sizes="32x32"&gt;
+
+&lt;!-- Apple (no SVG support) --&gt;
+&lt;link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"&gt;
+
+&lt;!-- PWA --&gt;
+&lt;link rel="manifest" href="/site.webmanifest"&gt;</code></pre>
+
+            <h2>오늘날 SVG Favicon을 사용해야 할까요?</h2>
+            <p><strong>예, 하지만 항상 폴백과 함께 사용하세요.</strong> Safari의 제한으로 인해 SVG만으로는 의존할 수 없습니다. 그러나 Chrome, Firefox, Edge 사용자의 경우, SVG favicon은 특히 다크 모드를 지원한다면 훨씬 더 나은 경험을 제공합니다.</p>
+        </div>
+
+        <div class="article-body" data-lang="es" style="display:none">
+            <p>Los SVG favicons representan la vanguardia de la tecnología de iconos para sitios web. Son escalables, soportan el modo oscuro y pueden ser un único archivo que se ve perfecto en cualquier tamaño. Aquí tienes todo lo que necesitas saber.</p>
+
+            <h2>¿Por qué SVG Favicons?</h2>
+            <ul>
+                <li><strong>Infinitamente escalable</strong> — Se ve nítido a 16px, 32px, 512px o cualquier tamaño. Nunca hay pixelación.</li>
+                <li><strong>Tamaño de archivo minúsculo</strong> — Un SVG favicon simple puede pesar menos de 1KB, más pequeño que cualquier PNG.</li>
+                <li><strong>Soporte para modo oscuro</strong> — SVG puede usar las media queries CSS <code>prefers-color-scheme</code> para adaptarse.</li>
+                <li><strong>Un solo archivo para gobernarlos a todos</strong> — No necesitas múltiples tamaños (aunque seguirás necesitando fallbacks en PNG).</li>
+            </ul>
+
+            <h2>Soporte de Navegadores (2026)</h2>
+            <table>
+                <thead><tr><th>Navegador</th><th>Soporte de SVG Favicon</th></tr></thead>
+                <tbody>
+                    <tr><td>Chrome 80+</td><td>Sí</td></tr>
+                    <tr><td>Firefox 41+</td><td>Sí</td></tr>
+                    <tr><td>Edge 80+</td><td>Sí</td></tr>
+                    <tr><td>Opera 67+</td><td>Sí</td></tr>
+                    <tr><td><strong>Safari</strong></td><td><strong>No (a partir de Safari 18)</strong></td></tr>
+                    <tr><td>IE</td><td>No</td></tr>
+                </tbody>
+            </table>
+            <div class="info-box"><p><strong>Limitación clave:</strong> Safari no soporta los SVG favicons. Esto significa que <em>debes</em> proporcionar fallbacks en PNG/ICO para una cobertura completa del navegador.</p></div>
+
+            <h2>Cómo Implementar un SVG Favicon</h2>
+            <pre><code>&lt;!-- SVG favicon for modern browsers --&gt;
+&lt;link rel="icon" href="/favicon.svg" type="image/svg+xml"&gt;
+
+&lt;!-- PNG fallback for Safari and older browsers --&gt;
+&lt;link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32"&gt;
+
+&lt;!-- ICO fallback for very old browsers --&gt;
+&lt;link rel="icon" href="/favicon.ico" sizes="32x32"&gt;
+
+&lt;!-- Apple Touch Icon (always PNG, SVG not supported) --&gt;
+&lt;link rel="apple-touch-icon" href="/apple-touch-icon.png"&gt;</code></pre>
+            <p>Los navegadores que soportan SVG lo usarán; otros recurrirán a PNG o ICO.</p>
+
+            <h2>Adaptación al Modo Oscuro</h2>
+            <p>La característica estrella de los SVG favicons: tu icono puede adaptarse automáticamente al esquema de color del usuario:</p>
+            <pre><code>&lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"&gt;
+  &lt;style&gt;
+    circle { fill: #1d1d1f; }
+    text { fill: white; }
+
+    @media (prefers-color-scheme: dark) {
+      circle { fill: white; }
+      text { fill: #1d1d1f; }
+    }
+  &lt;/style&gt;
+  &lt;circle cx="50" cy="50" r="45"/&gt;
+  &lt;text x="50" y="65" text-anchor="middle"
+        font-family="system-ui" font-size="50" font-weight="bold"&gt;M&lt;/text&gt;
+&lt;/svg&gt;</code></pre>
+            <p>En modo claro: icono oscuro sobre fondo claro. En modo oscuro: icono claro sobre fondo oscuro. Automático, sin necesidad de JavaScript.</p>
+
+            <h2>Creando un SVG Favicon</h2>
+            <h3>Método 1: Herramientas de Diseño</h3>
+            <ul>
+                <li><strong>Figma</strong> — Diseña tu icono, selecciónalo y expórtalo como SVG</li>
+                <li><strong>Illustrator</strong> — Archivo → Guardar como → SVG</li>
+                <li><strong>Inkscape</strong> — Editor vectorial gratuito y de código abierto</li>
+            </ul>
+
+            <h3>Método 2: Codifícalo a Mano</h3>
+            <p>Para iconos sencillos, escribir SVG a mano es rápido:</p>
+            <pre><code>&lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"&gt;
+  &lt;rect width="100" height="100" rx="20" fill="#0071e3"/&gt;
+  &lt;text x="50" y="70" text-anchor="middle"
+        font-size="60" font-weight="bold" fill="white"&gt;F&lt;/text&gt;
+&lt;/svg&gt;</code></pre>
+
+            <h3>Consejos de Optimización</h3>
+            <ul>
+                <li>Usa <a href="https://svgomg.net/" rel="noopener">SVGOMG</a> para optimizar el tamaño del archivo</li>
+                <li>Elimina metadatos innecesarios, comentarios y atributos específicos del editor</li>
+                <li>Mantén los trazados simples — los gradientes complejos pueden no renderizarse bien en tamaños pequeños</li>
+                <li>Incluye siempre el atributo <code>xmlns</code></li>
+                <li>Establece un <code>viewBox</code> para un escalado adecuado</li>
+            </ul>
+
+            <h2>La Configuración Completa Recomendada en 2026</h2>
+            <p>Combinar SVG con fallbacks tradicionales te ofrece lo mejor de todos los mundos:</p>
+            <pre><code>&lt;!-- Modern: SVG with dark mode support --&gt;
+&lt;link rel="icon" href="/favicon.svg" type="image/svg+xml"&gt;
+
+&lt;!-- Fallback: Traditional favicon set --&gt;
+&lt;link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"&gt;
+&lt;link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"&gt;
+&lt;link rel="icon" href="/favicon.ico" sizes="32x32"&gt;
+
+&lt;!-- Apple (no SVG support) --&gt;
+&lt;link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"&gt;
+
+&lt;!-- PWA --&gt;
+&lt;link rel="manifest" href="/site.webmanifest"&gt;</code></pre>
+
+            <h2>¿Deberías Usar SVG Favicon Hoy?</h2>
+            <p><strong>Sí, pero siempre con fallbacks.</strong> La limitación de Safari significa que no puedes depender solo de SVG. Sin embargo, para los usuarios de Chrome, Firefox y Edge, un SVG favicon proporciona una experiencia notablemente mejor, especialmente si soportas el modo oscuro.</p>
+        </div>
+<div class="cta-box">
             <h3 data-en="See how top websites handle favicons" data-zh="看看顶级网站如何处理 Favicon">看看顶级网站如何处理 Favicon</h3>
             <p data-en="Check any website's favicon setup with Mzu favicondl." data-zh="使用 Mzu favicondl 查看任何网站的 Favicon 配置。">使用 Mzu favicondl 查看任何网站的 Favicon 配置。</p>
             <a href="/zh/index.html" class="cta-btn" data-en="Explore Favicons →" data-zh="探索 Favicon →">探索 Favicon →</a>

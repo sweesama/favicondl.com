@@ -108,6 +108,12 @@
     
     
     
+    
+    
+    
+    
+    
+    
 
     <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
@@ -301,7 +307,213 @@
             <p>好奇主流网站如何处理 Apple Touch Icon？使用 <a href="/es/index.html">Mzu favicondl</a> 查看任何网站的 Favicon 配置，包括 Apple Touch Icon。</p>
         </div>
 
-        <div class="cta-box">
+        
+
+        <div class="article-body" data-lang="ja" style="display:none">
+            <p>誰かがあなたのウェブサイトをiPhoneやiPadのホーム画面に追加すると、iOSはアプリのようなアイコンとして<strong>Apple Touch Icon</strong>を使用します。これがないと、iOSは代わりにページの醜いスクリーンショットを撮ってしまいます。知っておくべきことをすべてご紹介します。</p>
+
+            <h2>Apple Touch Iconとは？</h2>
+            <p>Apple Touch Iconは、ユーザーがあなたのサイトをホーム画面にブックマークしたときにiOSデバイスが使用する特別なPNG画像です。ネイティブアプリのアイコンのように機能し、iOSは自動的に特徴的な角丸と光沢効果（古いiOSバージョンで）を適用します。</p>
+            <p>HTMLでは次のように宣言します。</p>
+            <pre><code>&lt;link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"&gt;</code></pre>
+
+            <h2>必須サイズ：180×180ピクセル</h2>
+            <p>2026年現在、必要なサイズは<strong>180×180ピクセル</strong>の1種類だけです。その理由は次のとおりです。</p>
+            <ul>
+                <li><strong>iPhone (Retina)</strong> — 120×120または180×180を使用します（必要に応じてiOSが180を120に縮小します）</li>
+                <li><strong>iPad Pro</strong> — 167×167を使用します（iOSが180を縮小します）</li>
+                <li><strong>iPad</strong> — 152×152を使用します（iOSが180を縮小します）</li>
+            </ul>
+            <p>iOSは縮小はうまくできますが、拡大はうまくできないため、最大のサイズ（180×180）を提供するのが最も安全なアプローチです。1つのファイルですべてのデバイスに対応できます。</p>
+            <div class="info-box"><p><strong>補足：</strong>以前は、各デバイス（57, 60, 72, 76, 114, 120, 144, 152, 167, 180）ごとに異なるサイズが必要でした。現代のiOSはスケーリングを十分にうまく処理するため、180×180だけで完全に機能します。</p></div>
+
+            <h2>ファイル形式の要件</h2>
+            <ul>
+                <li><strong>フォーマット:</strong> PNGのみ（JPEGも機能しますが、PNGが標準です）</li>
+                <li><strong>形状:</strong> 正方形（iOSが自動的に角丸を適用します）</li>
+                <li><strong>透明度:</strong> 避けてください — iOSは透明な領域を黒で置き換えます</li>
+                <li><strong>ファイル名:</strong> 慣例では<code>apple-touch-icon.png</code>です（iOSもこの名前を自動的に探します）</li>
+            </ul>
+
+            <h2>HTMLの実装</h2>
+            <h3>基本（1行）</h3>
+            <pre><code>&lt;link rel="apple-touch-icon" href="/apple-touch-icon.png"&gt;</code></pre>
+
+            <h3>明示的なサイズ指定</h3>
+            <pre><code>&lt;link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"&gt;</code></pre>
+
+            <h3>自動検出（HTML不要）</h3>
+            <p><code>apple-touch-icon.png</code>という名前のファイルをウェブサイトのルートディレクトリに配置すると、HTML宣言がなくてもiOSは自動的にそれを見つけます。ただし、信頼性を高めるためには、HTMLで明示的に宣言することをお勧めします。</p>
+
+            <h2>apple-touch-icon vs apple-touch-icon-precomposed</h2>
+            <table>
+                <thead><tr><th>属性</th><th>apple-touch-icon</th><th>apple-touch-icon-precomposed</th></tr></thead>
+                <tbody>
+                    <tr><td>光沢効果</td><td>iOSが光沢を追加します (iOS 6以前)</td><td>光沢は追加されません</td></tr>
+                    <tr><td>モダンiOS (7+)</td><td>光沢なし (同じ挙動)</td><td>光沢なし (同じ挙動)</td></tr>
+                    <tr><td>推奨</td><td><strong>こちらを使用してください</strong></td><td>非推奨、不要です</td></tr>
+                </tbody>
+            </table>
+            <p>iOS 7以降では光沢効果が追加されなくなったため、<code>apple-touch-icon</code>と<code>apple-touch-icon-precomposed</code>は同じように動作します。<code>apple-touch-icon</code>を使用するだけで十分です。</p>
+
+            <h2>デザインのヒント</h2>
+            <ul>
+                <li><strong>角丸を追加しないでください</strong> — iOSが自動的に適用します。自分で角丸にすると、二重に角丸になってしまいます。</li>
+                <li><strong>透明度を避けてください</strong> — 単色の背景色を使用してください。透明な領域はiOSで黒になります。</li>
+                <li><strong>シンプルに保ってください</strong> — アイコンは画面上で約60pxで表示されます。細かいディテールは表示されません。</li>
+                <li><strong>ブランドカラーを背景に使用してください</strong> — これにより、アイコンがあらゆる壁紙で目立つようになります。</li>
+                <li><strong>実機でテストしてください</strong> — iOSシミュレーターは常に実機と一致するとは限りません。</li>
+            </ul>
+
+            <h2>よくある間違い</h2>
+            <ol>
+                <li><strong>透明度の使用</strong> → iOSホーム画面で黒い背景になります</li>
+                <li><strong>手動での角丸追加</strong> → 二重の角丸効果</li>
+                <li><strong>間違ったファイル形式</strong> → SVGはサポートされていません。PNGを使用してください</li>
+                <li><strong>小さすぎる</strong> → 57×57を提供すると、現代のRetina画面ではぼやけて見えます</li>
+                <li><strong>テストを忘れる</strong> → 常に実際のiPhoneでホーム画面に追加してテストしてください</li>
+            </ol>
+
+            <h2>他のサイトの例を見る</h2>
+            <p>他の主要なウェブサイトがApple Touch Iconをどのように扱っているか気になりますか？<a href="/es/index.html">Mzu favicondl</a>を使用して、Apple Touch Iconを含むあらゆるウェブサイトのfavicon設定を確認できます。</p>
+        </div>
+
+        <div class="article-body" data-lang="ko" style="display:none">
+            <p>누군가 당신의 웹사이트를 iPhone 또는 iPad 홈 화면에 추가할 때, iOS는 <strong>Apple Touch Icon</strong>을 앱과 같은 아이콘으로 사용합니다. 이것이 없으면 iOS는 대신 페이지의 보기 흉한 스크린샷을 찍습니다. 알아야 할 모든 것을 여기에 정리했습니다.</p>
+
+            <h2>Apple Touch Icon이란 무엇입니까?</h2>
+            <p>Apple Touch Icon은 사용자가 당신의 사이트를 홈 화면에 북마크할 때 iOS 기기가 사용하는 특별한 PNG 이미지입니다. 네이티브 앱 아이콘처럼 작동하며, iOS는 자동으로 시그니처인 둥근 모서리와 광택 효과(이전 iOS 버전에서)를 적용합니다. HTML에서는 다음과 같이 선언합니다.</p>
+            <pre><code>&lt;link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"&gt;</code></pre>
+
+            <h2>필수 크기: 180×180 픽셀</h2>
+            <p>2026년에는 <strong>180×180 픽셀</strong> 한 가지 크기만 필요합니다. 그 이유는 다음과 같습니다.</p>
+            <ul>
+                <li><strong>iPhone (Retina)</strong> — 120×120 또는 180×180을 사용합니다 (필요한 경우 iOS가 180을 120으로 축소합니다)</li>
+                <li><strong>iPad Pro</strong> — 167×167을 사용합니다 (iOS가 180을 축소합니다)</li>
+                <li><strong>iPad</strong> — 152×152를 사용합니다 (iOS가 180을 축소합니다)</li>
+            </ul>
+            <p>iOS는 축소는 잘하지만 확대는 잘하지 못하므로, 가장 큰 크기(180×180)를 제공하는 것이 가장 안전한 접근 방식입니다. 하나의 파일로 모든 기기를 커버할 수 있습니다.</p>
+            <div class="info-box"><p><strong>역사적 참고:</strong> 과거에는 각 기기(57, 60, 72, 76, 114, 120, 144, 152, 167, 180)마다 별도의 크기가 필요했습니다. 최신 iOS는 스케일링을 충분히 잘 처리하므로 180×180 하나만으로 완벽하게 작동합니다.</p></div>
+
+            <h2>파일 형식 요구 사항</h2>
+            <ul>
+                <li><strong>형식:</strong> PNG만 지원합니다 (JPEG도 작동하지만 PNG가 표준입니다)</li>
+                <li><strong>모양:</strong> 정사각형 (iOS가 자동으로 둥근 모서리를 적용합니다)</li>
+                <li><strong>투명도:</strong> 피하십시오 — iOS는 투명한 영역을 검은색으로 대체합니다</li>
+                <li><strong>파일 이름:</strong> 관례적으로 <code>apple-touch-icon.png</code>입니다 (iOS도 이 이름을 자동으로 찾습니다)</li>
+            </ul>
+
+            <h2>HTML 구현</h2>
+            <h3>기본 (한 줄)</h3>
+            <pre><code>&lt;link rel="apple-touch-icon" href="/apple-touch-icon.png"&gt;</code></pre>
+
+            <h3>명시적 크기 지정</h3>
+            <pre><code>&lt;link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"&gt;</code></pre>
+
+            <h3>자동 검색 (HTML 불필요)</h3>
+            <p><code>apple-touch-icon.png</code>라는 파일을 웹사이트의 루트 디렉토리에 배치하면, HTML 선언이 없어도 iOS가 자동으로 이를 찾습니다. 하지만 신뢰성을 위해 HTML에 명시적으로 선언하는 것을 여전히 권장합니다.</p>
+
+            <h2>apple-touch-icon vs apple-touch-icon-precomposed</h2>
+            <table>
+                <thead><tr><th>속성</th><th>apple-touch-icon</th><th>apple-touch-icon-precomposed</th></tr></thead>
+                <tbody>
+                    <tr><td>광택 효과</td><td>iOS가 광택을 추가합니다 (iOS 6 및 이전)</td><td>광택이 추가되지 않습니다</td></tr>
+                    <tr><td>최신 iOS (7+)</td><td>광택 없음 (동일한 동작)</td><td>광택 없음 (동일한 동작)</td></tr>
+                    <tr><td>권장 사항</td><td><strong>이것을 사용하십시오</strong></td><td>더 이상 사용되지 않으며 필요 없습니다</td></tr>
+                </tbody>
+            </table>
+            <p>iOS 7 이상에서는 더 이상 광택 효과를 추가하지 않으므로, <code>apple-touch-icon</code>과 <code>apple-touch-icon-precomposed</code>는 동일하게 동작합니다. 그냥 <code>apple-touch-icon</code>을 사용하십시오.</p>
+
+            <h2>디자인 팁</h2>
+            <ul>
+                <li><strong>둥근 모서리를 추가하지 마십시오</strong> — iOS가 자동으로 적용합니다. 직접 둥글게 만들면 이중으로 둥근 모서리가 됩니다.</li>
+                <li><strong>투명도를 피하십시오</strong> — 단색 배경색을 사용하십시오. 투명한 영역은 iOS에서 검은색이 됩니다.</li>
+                <li><strong>간단하게 유지하십시오</strong> — 아이콘은 화면에서 약 60px로 표시됩니다. 미세한 디테일은 보이지 않습니다.</li>
+                <li><strong>브랜드 색상을 배경으로 사용하십시오</strong> — 이렇게 하면 아이콘이 어떤 배경화면에서도 돋보이게 됩니다.</li>
+                <li><strong>실제 기기에서 테스트하십시오</strong> — iOS 시뮬레이터는 항상 실제 기기와 일치하지는 않습니다.</li>
+            </ul>
+
+            <h2>흔한 실수</h2>
+            <ol>
+                <li><strong>투명도 사용</strong> → iOS 홈 화면에서 검은색 배경이 됩니다</li>
+                <li><strong>수동으로 둥근 모서리 추가</strong> → 이중 둥근 모서리 효과</li>
+                <li><strong>잘못된 파일 형식</strong> → SVG는 지원되지 않습니다; PNG를 사용하십시오</li>
+                <li><strong>너무 작음</strong> → 57×57을 제공하면 최신 Retina 화면에서 흐릿하게 보입니다</li>
+                <li><strong>테스트를 잊음</strong> → 항상 실제 iPhone에서 홈 화면에 추가하여 테스트하십시오</li>
+            </ol>
+
+            <h2>다른 사이트들이 어떻게 하는지 확인하십시오</h2>
+            <p>다른 주요 웹사이트들이 Apple Touch Icon을 어떻게 처리하는지 궁금하십니까? <a href="/es/index.html">Mzu favicondl</a>을 사용하여 Apple Touch Icon을 포함한 모든 웹사이트의 favicon 설정을 확인할 수 있습니다.</p>
+        </div>
+
+        <div class="article-body" data-lang="es" style="display:none">
+            <p>Cuando alguien añade tu sitio web a la pantalla de inicio de su iPhone o iPad, iOS utiliza el <strong>Apple Touch Icon</strong> como icono de aplicación. Sin él, iOS toma una fea captura de pantalla de tu página. Aquí tienes todo lo que necesitas saber.</p>
+
+            <h2>¿Qué es un Apple Touch Icon?</h2>
+            <p>Un Apple Touch Icon es una imagen PNG especial que los dispositivos iOS utilizan cuando un usuario marca tu sitio en su pantalla de inicio. Funciona como un icono de aplicación nativa: iOS aplica automáticamente sus esquinas redondeadas distintivas y un efecto de brillo (en versiones antiguas de iOS). Se declara en HTML con:</p>
+            <pre><code>&lt;link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"&gt;</code></pre>
+
+            <h2>Tamaño Requerido: 180×180 Píxeles</h2>
+            <p>En 2026, solo necesitas <strong>un tamaño: 180×180 píxeles</strong>. Aquí te explicamos por qué:</p>
+            <ul>
+                <li><strong>iPhone (Retina)</strong> — Usa 120×120 o 180×180 (iOS escala 180 a 120 si es necesario)</li>
+                <li><strong>iPad Pro</strong> — Usa 167×167 (iOS escala 180 hacia abajo)</li>
+                <li><strong>iPad</strong> — Usa 152×152 (iOS escala 180 hacia abajo)</li>
+            </ul>
+            <p>Dado que iOS puede escalar hacia abajo pero no puede escalar hacia arriba bien, proporcionar el tamaño más grande (180×180) es el enfoque más seguro. Un solo archivo cubre todos los dispositivos.</p>
+            <div class="info-box"><p><strong>Nota histórica:</strong> En el pasado, necesitabas tamaños separados para cada dispositivo (57, 60, 72, 76, 114, 120, 144, 152, 167, 180). El iOS moderno maneja el escalado lo suficientemente bien como para que 180×180 por sí solo funcione perfectamente.</p></div>
+
+            <h2>Requisitos del Formato de Archivo</h2>
+            <ul>
+                <li><strong>Formato:</strong> Solo PNG (JPEG funciona, pero PNG es el estándar)</li>
+                <li><strong>Forma:</strong> Cuadrado (iOS aplica esquinas redondeadas automáticamente)</li>
+                <li><strong>Transparencia:</strong> Evítala — iOS reemplaza las áreas transparentes con negro</li>
+                <li><strong>Nombre de archivo:</strong> La convención es <code>apple-touch-icon.png</code> (iOS también busca este nombre automáticamente)</li>
+            </ul>
+
+            <h2>Implementación HTML</h2>
+            <h3>Básico (una línea)</h3>
+            <pre><code>&lt;link rel="apple-touch-icon" href="/apple-touch-icon.png"&gt;</code></pre>
+
+            <h3>Con tamaño explícito</h3>
+            <pre><code>&lt;link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"&gt;</code></pre>
+
+            <h3>Descubrimiento automático (no se necesita HTML)</h3>
+            <p>Si colocas un archivo llamado <code>apple-touch-icon.png</code> en el directorio raíz de tu sitio web, iOS lo encontrará automáticamente, incluso sin ninguna declaración HTML. Sin embargo, se sigue recomendando declararlo explícitamente en HTML para mayor fiabilidad.</p>
+
+            <h2>apple-touch-icon vs apple-touch-icon-precomposed</h2>
+            <table>
+                <thead><tr><th>Atributo</th><th>apple-touch-icon</th><th>apple-touch-icon-precomposed</th></tr></thead>
+                <tbody>
+                    <tr><td>Efecto de brillo</td><td>iOS añade brillo (iOS 6 y anteriores)</td><td>No se añade brillo</td></tr>
+                    <tr><td>iOS moderno (7+)</td><td>Sin brillo (mismo comportamiento)</td><td>Sin brillo (mismo comportamiento)</td></tr>
+                    <tr><td>Recomendación</td><td><strong>Usa este</strong></td><td>Obsoleto, no necesario</td></tr>
+                </tbody>
+            </table>
+            <p>Dado que iOS 7+ ya no añade el efecto de brillo, <code>apple-touch-icon</code> y <code>apple-touch-icon-precomposed</code> se comportan de forma idéntica. Simplemente usa <code>apple-touch-icon</code>.</p>
+
+            <h2>Consejos de Diseño</h2>
+            <ul>
+                <li><strong>No añadas esquinas redondeadas</strong> — iOS las aplica automáticamente. Si las redondeas tú mismo, obtendrás esquinas doblemente redondeadas.</li>
+                <li><strong>Evita la transparencia</strong> — Usa un color de fondo sólido. Las áreas transparentes se vuelven negras en iOS.</li>
+                <li><strong>Mantenlo simple</strong> — El icono se muestra a ~60px en pantalla. Los detalles finos no serán visibles.</li>
+                <li><strong>Usa el color de tu marca como fondo</strong> — Esto asegura que el icono destaque en cualquier fondo de pantalla.</li>
+                <li><strong>Prueba en un dispositivo real</strong> — El simulador de iOS no siempre coincide con los dispositivos reales.</li>
+            </ul>
+
+            <h2>Errores Comunes</h2>
+            <ol>
+                <li><strong>Usar transparencia</strong> → Fondo negro en la pantalla de inicio de iOS</li>
+                <li><strong>Añadir esquinas redondeadas manualmente</strong> → Efecto de doble redondeo</li>
+                <li><strong>Formato de archivo incorrecto</strong> → SVG no es compatible; usa PNG</li>
+                <li><strong>Demasiado pequeño</strong> → Proporcionar 57×57 se ve borroso en pantallas Retina modernas</li>
+                <li><strong>Olvidar probar</strong> → Siempre prueba añadiéndolo a la pantalla de inicio en un iPhone real</li>
+            </ol>
+
+            <h2>Mira cómo lo hacen otros sitios</h2>
+            <p>¿Tienes curiosidad por saber cómo manejan los sitios web importantes sus Apple Touch Icons? Usa <a href="/es/index.html">Mzu favicondl</a> para verificar la configuración de favicon de cualquier sitio web, incluido el Apple Touch Icon.</p>
+        </div>
+<div class="cta-box">
             <h3 data-en="Generate your Apple Touch Icon" data-zh="生成你的 Apple Touch Icon">Generate your Apple Touch Icon</h3>
             <p data-en="Upload any image and get a properly sized apple-touch-icon.png instantly." data-zh="上传任意图片，即刻获得正确尺寸的 apple-touch-icon.png。">Upload any image and get a properly sized apple-touch-icon.png instantly.</p>
             <a href="/es/tools.html" class="cta-btn" data-en="Create Apple Touch Icon →" data-zh="创建 Apple Touch Icon →">Create Apple Touch Icon →</a>

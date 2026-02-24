@@ -108,6 +108,12 @@
     
     
     
+    
+    
+    
+    
+    
+    
 
     <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
@@ -358,7 +364,284 @@
             </ul>
         </div>
 
-        <div class="cta-box">
+        
+
+        <div class="article-body" data-lang="ja" style="display:none">
+            <p>ウェブサイトにfaviconを追加することは、最もシンプルでありながら、非常に効果的な改善の一つです。ここでは、最低限の設定からプロフェッショナルな完全設定まで、HTMLコードの完全ガイドをご紹介します。</p>
+
+            <h2>ステップ1：Faviconファイルを準備する</h2>
+            <p>HTMLを記述する前に、実際のアイコンファイルが必要です。選択肢は2つあります。</p>
+            <ul>
+                <li><strong>ゼロから作成する</strong> — <a href="/ja/tools.html">Image to Favicon</a>ツールを使用して、任意のPNG/JPG画像を完全なfaviconパッケージに変換します。</li>
+                <li><strong>既存のアイコンを使用する</strong> — 気に入ったウェブサイトから<a href="/ja/index.html">faviconをダウンロード</a>して、インスピレーションを得ましょう。</li>
+            </ul>
+            <p>最低限、以下のものが必要です。</p>
+            <ul>
+                <li><code>favicon.ico</code> (32×32) — レガシーフォーマットです</li>
+                <li><code>apple-touch-icon.png</code> (180×180) — iOSデバイス用です</li>
+            </ul>
+
+            <h2>ステップ2：ファイルをルートディレクトリに配置する</h2>
+            <p>faviconファイルをウェブサイトの<strong>ルート</strong>（<code>index.html</code>と同じ階層）にアップロードしてください。ブラウザは、HTML宣言がなくても、ルートにある<code>/favicon.ico</code>を自動的に探します。</p>
+            <pre><code>your-website/
+├── index.html
+├── favicon.ico
+├── favicon-32x32.png
+├── favicon-16x16.png
+├── apple-touch-icon.png
+├── android-chrome-192x192.png
+├── android-chrome-512x512.png
+└── site.webmanifest</code></pre>
+
+            <h2>ステップ3：&lt;head&gt;にHTMLを追加する</h2>
+            <h3>最小限の設定（2行）</h3>
+            <pre><code>&lt;link rel="icon" href="/favicon.ico" sizes="32x32"&gt;
+&lt;link rel="apple-touch-icon" href="/apple-touch-icon.png"&gt;</code></pre>
+            <p>これはブラウザのタブとiOSのホーム画面に対応します。ほとんどの個人プロジェクトにはこれで十分です。</p>
+
+            <h3>推奨設定（5行）</h3>
+            <pre><code>&lt;link rel="icon" type="image/x-icon" href="/favicon.ico"&gt;
+&lt;link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"&gt;
+&lt;link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"&gt;
+&lt;link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"&gt;
+&lt;link rel="manifest" href="/site.webmanifest"&gt;</code></pre>
+            <p>これは、すべてのモダンブラウザ、iOS、Android、およびPWAに対応します。<strong>本番環境のウェブサイトには、この設定を推奨します。</strong></p>
+
+            <h3>完全なプロフェッショナル設定（テーマカラー付き）</h3>
+            <pre><code>&lt;link rel="icon" type="image/x-icon" href="/favicon.ico"&gt;
+&lt;link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"&gt;
+&lt;link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"&gt;
+&lt;link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"&gt;
+&lt;link rel="manifest" href="/site.webmanifest"&gt;
+&lt;meta name="theme-color" content="#ffffff"&gt;
+&lt;meta name="msapplication-TileColor" content="#ffffff"&gt;</code></pre>
+
+            <h2>site.webmanifestファイル</h2>
+            <p>このJSONファイルは、AndroidとPWAにアイコンについて伝えます。</p>
+            <pre><code>{
+  "name": "Your Site Name",
+  "short_name": "Site",
+  "icons": [
+    { "src": "/android-chrome-192x192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/android-chrome-512x512.png", "sizes": "512x512", "type": "image/png" }
+  ],
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff",
+  "display": "standalone"
+}</code></pre>
+
+            <h2>フレームワーク別の手順</h2>
+            <h3>React (Create React App / Vite)</h3>
+            <p>faviconファイルを<code>public/</code>フォルダに配置し、<code>public/index.html</code> (CRA) または <code>index.html</code> (Vite) にリンクタグを追加してください。</p>
+
+            <h3>Next.js (App Router)</h3>
+            <p><code>favicon.ico</code>を<code>app/</code>ディレクトリに配置してください。Next.js 13以降は自動的にこれを配信します。他のフォーマットについては、<code>layout.tsx</code>の<code>metadata</code>エクスポートを使用してください。</p>
+
+            <h3>WordPress</h3>
+            <p><strong>外観 → カスタマイズ → サイト基本情報 → サイトアイコン</strong>に移動してください。512×512のPNGをアップロードすると、WordPressがすべてのサイズを自動的に生成します。</p>
+
+            <h2>Faviconのテスト</h2>
+            <p>コードを追加した後：</p>
+            <ol>
+                <li>ブラウザを<strong>ハードリフレッシュ</strong>してください（<code>Ctrl+Shift+R</code>または<code>Cmd+Shift+R</code>）— faviconは強力にキャッシュされます。</li>
+                <li>キャッシュを完全にバイパスするために、<strong>シークレット/プライベートモード</strong>で開いてください。</li>
+                <li><strong>Googleリッチリザルトテスト</strong>で、検索結果にfaviconがどのように表示されるかを確認してください。</li>
+                <li>実際の<strong>iPhone/iPad</strong>で、ホーム画面に追加してテストしてください。</li>
+            </ol>
+
+            <h2>避けるべき一般的な間違い</h2>
+            <ul>
+                <li><strong>パスの間違い</strong> — すべてのページで機能するように、相対パス（<code>favicon.ico</code>）ではなく、絶対パス（<code>/favicon.ico</code>）を使用してください。</li>
+                <li><strong>type属性の欠落</strong> — 最高の互換性のために、常に<code>type="image/png"</code>または<code>type="image/x-icon"</code>を指定してください。</li>
+                <li><strong>Apple Touch Iconの忘れ</strong> — これがないと、iOSはページのスクリーンショットを撮ってしまい、見栄えが悪くなります。</li>
+                <li><strong>キャッシュのクリア忘れ</strong> — faviconは積極的にキャッシュされます。変更後は常にハードリフレッシュを行ってください。</li>
+            </ul>
+        </div>
+
+        <div class="article-body" data-lang="ko" style="display:none">
+            <p>웹사이트에 favicon을 추가하는 것은 가장 간단하면서도 가장 영향력 있는 작업 중 하나입니다. 여기 최소한의 설정부터 완벽한 전문가 설정까지, 전체 HTML 코드 가이드가 있습니다.</p>
+
+            <h2>1단계: Favicon 파일 준비하기</h2>
+            <p>HTML을 작성하기 전에 실제 아이콘 파일이 필요합니다. 두 가지 옵션이 있습니다.</p>
+            <ul>
+                <li><strong>처음부터 만들기</strong> — <a href="/ja/tools.html">Image to Favicon</a> 도구를 사용하여 모든 PNG/JPG 이미지를 완전한 favicon 패키지로 변환합니다.</li>
+                <li><strong>기존 아이콘 사용하기</strong> — 마음에 드는 웹사이트에서 <a href="/ja/index.html">favicons를 다운로드</a>하여 영감을 얻을 수 있습니다.</li>
+            </ul>
+            <p>최소한 다음이 필요합니다.</p>
+            <ul>
+                <li><code>favicon.ico</code> (32×32) — 레거시 형식입니다.</li>
+                <li><code>apple-touch-icon.png</code> (180×180) — iOS 기기용입니다.</li>
+            </ul>
+
+            <h2>2단계: 파일을 루트 디렉토리에 배치하기</h2>
+            <p>favicon 파일을 웹사이트의 <strong>루트</strong>(<code>index.html</code>과 동일한 수준)에 업로드하십시오. 브라우저는 HTML 선언 없이도 루트에서 <code>/favicon.ico</code>를 자동으로 찾습니다.</p>
+            <pre><code>your-website/
+├── index.html
+├── favicon.ico
+├── favicon-32x32.png
+├── favicon-16x16.png
+├── apple-touch-icon.png
+├── android-chrome-192x192.png
+├── android-chrome-512x512.png
+└── site.webmanifest</code></pre>
+
+            <h2>3단계: &lt;head&gt;에 HTML 추가하기</h2>
+            <h3>최소 설정 (2줄)</h3>
+            <pre><code>&lt;link rel="icon" href="/favicon.ico" sizes="32x32"&gt;
+&lt;link rel="apple-touch-icon" href="/apple-touch-icon.png"&gt;</code></pre>
+            <p>이것은 브라우저 탭과 iOS 홈 화면을 처리합니다. 대부분의 개인 프로젝트에 충분합니다.</p>
+
+            <h3>권장 설정 (5줄)</h3>
+            <pre><code>&lt;link rel="icon" type="image/x-icon" href="/favicon.ico"&gt;
+&lt;link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"&gt;
+&lt;link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"&gt;
+&lt;link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"&gt;
+&lt;link rel="manifest" href="/site.webmanifest"&gt;</code></pre>
+            <p>이것은 모든 최신 브라우저, iOS, Android 및 PWA를 지원합니다. <strong>이것이 프로덕션 웹사이트에 권장하는 설정입니다.</strong></p>
+
+            <h3>완벽한 전문가 설정 (테마 색상 포함)</h3>
+            <pre><code>&lt;link rel="icon" type="image/x-icon" href="/favicon.ico"&gt;
+&lt;link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"&gt;
+&lt;link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"&gt;
+&lt;link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"&gt;
+&lt;link rel="manifest" href="/site.webmanifest"&gt;
+&lt;meta name="theme-color" content="#ffffff"&gt;
+&lt;meta name="msapplication-TileColor" content="#ffffff"&gt;</code></pre>
+
+            <h2>site.webmanifest 파일</h2>
+            <p>이 JSON 파일은 Android 및 PWA에 아이콘에 대한 정보를 알려줍니다.</p>
+            <pre><code>{
+  "name": "Your Site Name",
+  "short_name": "Site",
+  "icons": [
+    { "src": "/android-chrome-192x192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/android-chrome-512x512.png", "sizes": "512x512", "type": "image/png" }
+  ],
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff",
+  "display": "standalone"
+}</code></pre>
+
+            <h2>프레임워크별 지침</h2>
+            <h3>React (Create React App / Vite)</h3>
+            <p>favicon 파일을 <code>public/</code> 폴더에 배치하고, <code>public/index.html</code> (CRA) 또는 <code>index.html</code> (Vite)에 링크 태그를 추가하십시오.</p>
+
+            <h3>Next.js (App Router)</h3>
+            <p><code>favicon.ico</code>를 <code>app/</code> 디렉토리에 배치하십시오. Next.js 13+는 이를 자동으로 제공합니다. 다른 형식의 경우 <code>layout.tsx</code>의 <code>metadata</code> export를 사용하십시오.</p>
+
+            <h3>WordPress</h3>
+            <p><strong>외모 → 사용자 정의 → 사이트 아이덴티티 → 사이트 아이콘</strong>으로 이동하십시오. 512×512 PNG를 업로드하면 WordPress가 모든 크기를 자동으로 생성합니다.</p>
+
+            <h2>Favicon 테스트하기</h2>
+            <p>코드를 추가한 후:</p>
+            <ol>
+                <li>브라우저를 <strong>하드 새로고침</strong>하십시오 (<code>Ctrl+Shift+R</code> 또는 <code>Cmd+Shift+R</code>) — favicons는 강력하게 캐시됩니다.</li>
+                <li>캐시를 완전히 우회하려면 <strong>시크릿/개인 모드</strong>로 여십시오.</li>
+                <li><strong>Google 리치 결과 테스트</strong>를 확인하여 검색 결과에 favicon이 어떻게 나타나는지 확인하십시오.</li>
+                <li>실제 <strong>iPhone/iPad</strong>에서 홈 화면에 추가하여 테스트하십시오.</li>
+            </ol>
+
+            <h2>피해야 할 일반적인 실수</h2>
+            <ul>
+                <li><strong>잘못된 경로</strong> — 모든 페이지에서 작동하도록 상대 경로(<code>favicon.ico</code>) 대신 절대 경로(<code>/favicon.ico</code>)를 사용하십시오.</li>
+                <li><strong>type 속성 누락</strong> — 최상의 호환성을 위해 항상 <code>type="image/png"</code> 또는 <code>type="image/x-icon"</code>을 지정하십시오.</li>
+                <li><strong>Apple Touch Icon 누락</strong> — 이것이 없으면 iOS는 페이지의 스크린샷을 찍게 되어 보기가 좋지 않습니다.</li>
+                <li><strong>캐시 지우기 누락</strong> — Favicons는 적극적으로 캐시됩니다. 변경 후에는 항상 하드 새로고침을 하십시오.</li>
+            </ul>
+        </div>
+
+        <div class="article-body" data-lang="es" style="display:none">
+            <p>Añadir un favicon a tu sitio web es una de las cosas más sencillas pero con mayor impacto que puedes hacer. Aquí tienes la guía completa de código HTML, desde lo mínimo indispensable hasta la configuración profesional completa.</p>
+
+            <h2>Paso 1: Prepara tus archivos de Favicon</h2>
+            <p>Antes de escribir cualquier HTML, necesitas los archivos de icono reales. Tienes dos opciones:</p>
+            <ul>
+                <li><strong>Crear desde cero</strong> — Usa la herramienta <a href="/ja/tools.html">Image to Favicon</a> para convertir cualquier imagen PNG/JPG en un paquete completo de favicon.</li>
+                <li><strong>Usar un icono existente</strong> — Encuentra inspiración <a href="/ja/index.html">descargando favicons</a> de sitios web que admires.</li>
+            </ul>
+            <p>Como mínimo, necesitarás:</p>
+            <ul>
+                <li><code>favicon.ico</code> (32×32) — El formato heredado.</li>
+                <li><code>apple-touch-icon.png</code> (180×180) — Para dispositivos iOS.</li>
+            </ul>
+
+            <h2>Paso 2: Coloca los archivos en tu directorio raíz</h2>
+            <p>Sube tus archivos de favicon a la <strong>raíz</strong> de tu sitio web (al mismo nivel que <code>index.html</code>). Los navegadores buscan automáticamente <code>/favicon.ico</code> en la raíz, incluso sin ninguna declaración HTML.</p>
+            <pre><code>your-website/
+├── index.html
+├── favicon.ico
+├── favicon-32x32.png
+├── favicon-16x16.png
+├── apple-touch-icon.png
+├── android-chrome-192x192.png
+├── android-chrome-512x512.png
+└── site.webmanifest</code></pre>
+
+            <h2>Paso 3: Añade HTML a tu &lt;head&gt;</h2>
+            <h3>Configuración mínima (2 líneas)</h3>
+            <pre><code>&lt;link rel="icon" href="/favicon.ico" sizes="32x32"&gt;
+&lt;link rel="apple-touch-icon" href="/apple-touch-icon.png"&gt;</code></pre>
+            <p>Esto gestiona las pestañas del navegador y la pantalla de inicio de iOS. Suficiente para la mayoría de los proyectos personales.</p>
+
+            <h3>Configuración recomendada (5 líneas)</h3>
+            <pre><code>&lt;link rel="icon" type="image/x-icon" href="/favicon.ico"&gt;
+&lt;link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"&gt;
+&lt;link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"&gt;
+&lt;link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"&gt;
+&lt;link rel="manifest" href="/site.webmanifest"&gt;</code></pre>
+            <p>Esto cubre todos los navegadores modernos, iOS, Android y PWA. <strong>Esto es lo que recomendamos para sitios web en producción.</strong></p>
+
+            <h3>Configuración profesional completa (con color de tema)</h3>
+            <pre><code>&lt;link rel="icon" type="image/x-icon" href="/favicon.ico"&gt;
+&lt;link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"&gt;
+&lt;link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"&gt;
+&lt;link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"&gt;
+&lt;link rel="manifest" href="/site.webmanifest"&gt;
+&lt;meta name="theme-color" content="#ffffff"&gt;
+&lt;meta name="msapplication-TileColor" content="#ffffff"&gt;</code></pre>
+
+            <h2>El archivo site.webmanifest</h2>
+            <p>Este archivo JSON informa a Android y a las PWA sobre tus iconos:</p>
+            <pre><code>{
+  "name": "Your Site Name",
+  "short_name": "Site",
+  "icons": [
+    { "src": "/android-chrome-192x192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/android-chrome-512x512.png", "sizes": "512x512", "type": "image/png" }
+  ],
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff",
+  "display": "standalone"
+}</code></pre>
+
+            <h2>Instrucciones específicas por Framework</h2>
+            <h3>React (Create React App / Vite)</h3>
+            <p>Coloca los archivos de favicon en la carpeta <code>public/</code> y añade las etiquetas de enlace a <code>public/index.html</code> (CRA) o <code>index.html</code> (Vite).</p>
+
+            <h3>Next.js (App Router)</h3>
+            <p>Coloca <code>favicon.ico</code> en el directorio <code>app/</code>. Next.js 13+ lo sirve automáticamente. Para otros formatos, usa la exportación <code>metadata</code> en <code>layout.tsx</code>.</p>
+
+            <h3>WordPress</h3>
+            <p>Ve a <strong>Apariencia → Personalizar → Identidad del sitio → Icono del sitio</strong>. Sube un PNG de 512×512 y WordPress generará todos los tamaños automáticamente.</p>
+
+            <h2>Probando tu Favicon</h2>
+            <p>Después de añadir el código:</p>
+            <ol>
+                <li><strong>Actualiza forzadamente</strong> tu navegador (<code>Ctrl+Shift+R</code> o <code>Cmd+Shift+R</code>) — los favicons se almacenan en caché de forma intensiva.</li>
+                <li>Abre en <strong>modo Incógnito/Privado</strong> para omitir la caché por completo.</li>
+                <li>Verifica la <strong>prueba de resultados enriquecidos de Google</strong> para ver cómo aparece tu favicon en los resultados de búsqueda.</li>
+                <li>Prueba en un <strong>iPhone/iPad</strong> real añadiéndolo a la pantalla de inicio.</li>
+            </ol>
+
+            <h2>Errores comunes a evitar</h2>
+            <ul>
+                <li><strong>Ruta incorrecta</strong> — Usa rutas absolutas (<code>/favicon.ico</code>) en lugar de relativas (<code>favicon.ico</code>) para que funcione en todas las páginas.</li>
+                <li><strong>Atributo type faltante</strong> — Siempre especifica <code>type="image/png"</code> o <code>type="image/x-icon"</code> para la mejor compatibilidad.</li>
+                <li><strong>Olvidar el Apple Touch Icon</strong> — Sin él, iOS tomará una captura de pantalla de tu página en su lugar, lo cual se ve terrible.</li>
+                <li><strong>No limpiar la caché</strong> — Los favicons se almacenan en caché de forma agresiva. Siempre actualiza forzadamente después de los cambios.</li>
+            </ul>
+        </div>
+<div class="cta-box">
             <h3 data-en="Generate all favicon files automatically" data-zh="自动生成所有 Favicon 文件">Generate all favicon files automatically</h3>
             <p data-en="Upload one image, get a complete favicon package with all sizes and the HTML code." data-zh="上传一张图片，获得包含所有尺寸和 HTML 代码的完整 Favicon 包。">Upload one image, get a complete favicon package with all sizes and the HTML code.</p>
             <a href="/ja/tools.html" class="cta-btn" data-en="Image to Favicon Tool →" data-zh="图片转 Favicon 工具 →">Image to Favicon Tool →</a>

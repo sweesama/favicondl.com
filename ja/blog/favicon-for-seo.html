@@ -108,6 +108,12 @@
     
     
     
+    
+    
+    
+    
+    
+    
 
     <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
@@ -323,7 +329,248 @@
             <p>想看看竞争对手使用什么 Favicon？<a href="/ja/index.html">Mzu favicondl</a> 可以输入任何域名，即时查看其多种尺寸的 Favicon。快速审核竞争对手的好方法，确保你的 Favicon 在搜索结果中脱颖而出。</p>
         </div>
 
-        <div class="cta-box">
+        
+
+        <div class="article-body" data-lang="ja" style="display:none">
+            <p>2019年、Googleはモバイル検索結果にfaviconを表示し始めました。2023年までには、デスクトップでもfaviconが表示されるようになりました。現在、あなたのfaviconは<strong>すべてのGoogle検索リスティングで目に見える部分</strong>となっています。なぜそれが重要なのか、そしてどのように正しく設定するかを説明します。</p>
+
+            <h2>Google検索でのfaviconの表示方法</h2>
+            <p>Google検索結果では、あなたのfaviconは以下のように表示されます。</p>
+            <ul>
+                <li><strong>モバイル:</strong> サイト名とURLの隣、タイトルリンクの上に表示されます。</li>
+                <li><strong>デスクトップ:</strong> タイトルの下にあるパンくずリスト/URLの隣に表示されます。</li>
+            </ul>
+            <p>faviconがない場合（またはGoogleの要件を満たしていない場合）、Googleは代わりに<strong>一般的な灰色の地球儀アイコン</strong>を表示します。これにより、ブランドのfaviconを持つ競合他社と比較して、あなたのリスティングはすぐに信頼性が低いように見えてしまいます。</p>
+
+            <h2>CTRへの影響</h2>
+            <p>クリック率（CTR）は、最も重要なSEO指標の一つです。これは、検索結果であなたのリスティングを見た後、人々がどれだけ頻繁にクリックするかを測定します。</p>
+            <p>Hostiserverの調査によると、faviconを持つウェブサイトは、持たないウェブサイトと比較して<strong>CTRが最大20%向上する</strong>ことがわかりました。その理由は？</p>
+            <ul>
+                <li><strong>視覚的な差別化</strong> — あなたのリスティングがテキストの壁から際立ちます。</li>
+                <li><strong>ブランド認知</strong> — リピーターはタイトルを読む前にあなたのアイコンを認識します。</li>
+                <li><strong>プロフェッショナリズムの認識</strong> — ブランドアイコンは、正当で維持管理されたウェブサイトであることを示します。</li>
+                <li><strong>信頼のシグナル</strong> — 一般的な地球儀アイコンは、スパムや放棄されたサイトと関連付けられることが多いです。</li>
+            </ul>
+
+            <h2>Googleの技術要件</h2>
+            <p>Googleは、検索結果にfaviconを表示するための特定の要件を設けています。</p>
+            <table>
+                <thead><tr><th>要件</th><th>詳細</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>サイズ</strong></td><td>48pxの倍数（例：48×48、96×96、144×144）。Googleは表示用に16×16にリサイズします。</td></tr>
+                    <tr><td><strong>形状</strong></td><td>正方形である必要があります。正方形でない画像は拒否される場合があります。</td></tr>
+                    <tr><td><strong>URL</strong></td><td>クロール可能であること — robots.txtでブロックされていないこと。</td></tr>
+                    <tr><td><strong>安定性</strong></td><td>URLは頻繁に変更されないようにしてください。</td></tr>
+                    <tr><td><strong>コンテンツ</strong></td><td>ウェブサイトのブランドを表現している必要があります。不快な、不適切な、または一般的なコンテンツは避けてください。</td></tr>
+                    <tr><td><strong>ドメイン</strong></td><td>ウェブサイトと同じドメイン（またはサブドメイン）から提供される必要があります。</td></tr>
+                </tbody>
+            </table>
+
+            <h2>Googleがあなたのfaviconを表示しない一般的な理由</h2>
+            <ol>
+                <li><strong>robots.txtによるブロック</strong> — faviconファイルがブロックされていないか確認してください。</li>
+                <li><strong>サイズが間違っている</strong> — 少なくとも48×48で、48の倍数であることを確認してください。</li>
+                <li><strong>正方形ではない</strong> — Googleは正方形でない画像を拒否します。</li>
+                <li><strong>低品質</strong> — ぼやけていたり、ピクセル化されていたり、一般的なアイコンは無視されることがあります。</li>
+                <li><strong>新しすぎる</strong> — Googleが新しいfaviconを処理するには数日から数週間かかります。</li>
+                <li><strong>異なるドメイン</strong> — 異なるドメインのCDNでホストされているfaviconは機能しない場合があります。</li>
+            </ol>
+
+            <h2>Googleであなたのfaviconを確認する方法</h2>
+            <ol>
+                <li><strong>Google Search Console</strong>を開きます。</li>
+                <li><strong>URL検査</strong>に移動します。</li>
+                <li>ホームページのURLを入力します。</li>
+                <li><strong>「インデックス登録をリクエスト」</strong>をクリックして、再クロールをトリガーします。</li>
+                <li>数日待ってから、<code>site:yourdomain.com</code>で検索結果を確認します。</li>
+            </ol>
+
+            <h2>favicon SEOチェックリスト</h2>
+            <ul>
+                <li><strong>48×48以上</strong>のfaviconを提供します（48の倍数）。</li>
+                <li><strong>PNGまたはICO</strong>形式を使用します（SVGはGoogleが処理しない場合があります）。</li>
+                <li>HTMLで<code>&lt;link rel="icon"&gt;</code>タグを使って宣言します。</li>
+                <li>フォールバックとして、ルートに<code>favicon.ico</code>も配置します。</li>
+                <li><code>robots.txt</code>でブロックしないでください。</li>
+                <li>ウェブサイトと<strong>同じドメイン</strong>でホストします。</li>
+                <li><strong>正方形のブランドイメージ</strong>にします。</li>
+                <li>サイトを<strong>Google Search Console</strong>に送信し、インデックス登録をリクエストします。</li>
+            </ul>
+
+            <h2>Google以外でのfavicon：その他のコンテキスト</h2>
+            <p>faviconは以下の場所にも表示されます。</p>
+            <ul>
+                <li><strong>Bing検索結果</strong> — Googleの実装と同様です。</li>
+                <li><strong>ソーシャルメディアのプレビュー</strong> — 一部のプラットフォームでは、リンクカードにfaviconが表示されます。</li>
+                <li><strong>ブラウザの履歴とブックマーク</strong> — ユーザーがあなたのサイトを再度見つけるのに役立ちます。</li>
+                <li><strong>パスワードマネージャー</strong> — 保存された認証情報の隣にfaviconが表示されます。</li>
+                <li><strong>リンクアグリゲーター</strong> — Reddit、Hacker Newsのようなサイトでは、リンクの隣にfaviconが表示されます。</li>
+            </ul>
+
+            <h2>競合分析</h2>
+            <p>競合他社がどのようなfaviconを使用しているか知りたいですか？ <a href="/ja/index.html">Mzu favicondl</a>を使えば、任意のドメインを入力するだけで、そのfaviconを複数のサイズで即座に確認できます。これは、競合を監査し、あなたのfaviconが検索結果で際立つようにするための迅速な方法です。</p>
+        </div>
+
+        <div class="article-body" data-lang="ko" style="display:none">
+            <p>2019년, Google은 모바일 검색 결과에 favicon을 표시하기 시작했습니다. 2023년에는 데스크톱에서도 favicon이 나타났습니다. 오늘날, 당신의 favicon은 <strong>모든 Google 검색 목록에서 눈에 띄는 부분</strong>입니다. 이것이 왜 중요한지, 그리고 올바르게 설정하는 방법을 알려드립니다.</p>
+
+            <h2>Google 검색에서 favicon이 표시되는 방식</h2>
+            <p>Google 검색 결과에서 당신의 favicon은 다음과 같이 표시됩니다:</p>
+            <ul>
+                <li><strong>모바일:</strong> 사이트 이름 및 URL 옆, 제목 링크 위에 표시됩니다.</li>
+                <li><strong>데스크톱:</strong> 제목 아래의 breadcrumb/URL 옆에 표시됩니다.</li>
+            </ul>
+            <p>favicon이 없거나 Google의 요구사항을 충족하지 못하는 경우, Google은 대신 <strong>일반적인 회색 지구본 아이콘</strong>을 표시합니다. 이는 브랜드 favicon을 가진 경쟁업체와 비교하여 당신의 목록이 즉시 덜 신뢰할 수 있게 보이게 만듭니다.</p>
+
+            <h2>CTR 영향</h2>
+            <p>클릭률(CTR)은 가장 중요한 SEO 지표 중 하나입니다. 이는 검색 결과에서 당신의 목록을 본 후 사람들이 얼마나 자주 클릭하는지를 측정합니다.</p>
+            <p>Hostiserver의 연구에 따르면, favicon이 있는 웹사이트는 없는 웹사이트에 비해 <strong>CTR이 최대 20% 향상</strong>되는 것으로 나타났습니다. 왜 그럴까요?</p>
+            <ul>
+                <li><strong>시각적 차별화</strong> — 당신의 목록이 텍스트의 벽에서 돋보입니다.</li>
+                <li><strong>브랜드 인지</strong> — 재방문 사용자는 제목을 읽기 전에 당신의 아이콘을 알아봅니다.</li>
+                <li><strong>인식된 전문성</strong> — 브랜드 아이콘은 합법적이고 관리되는 웹사이트임을 나타냅니다.</li>
+                <li><strong>신뢰 신호</strong> — 일반적인 지구본 아이콘은 종종 스팸 또는 방치된 사이트와 연관됩니다.</li>
+            </ul>
+
+            <h2>Google의 기술 요구사항</h2>
+            <p>Google은 검색 결과에 favicon을 표시하기 위한 특정 요구사항을 가지고 있습니다:</p>
+            <table>
+                <thead><tr><th>요구사항</th><th>세부사항</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>크기</strong></td><td>48px의 배수(예: 48×48, 96×96, 144×144). Google은 표시를 위해 16×16으로 크기를 조정합니다.</td></tr>
+                    <tr><td><strong>모양</strong></td><td>정사각형이어야 합니다. 정사각형이 아닌 이미지는 거부될 수 있습니다.</td></tr>
+                    <tr><td><strong>URL</strong></td><td>크롤링 가능해야 합니다 — robots.txt에 의해 차단되지 않아야 합니다.</td></tr>
+                    <tr><td><strong>안정성</strong></td><td>URL은 자주 변경되지 않아야 합니다.</td></tr>
+                    <tr><td><strong>콘텐츠</strong></td><td>웹사이트의 브랜드를 대표해야 합니다. 불쾌하거나 부적절하거나 일반적인 콘텐츠는 허용되지 않습니다.</td></tr>
+                    <tr><td><strong>도메인</strong></td><td>웹사이트와 동일한 도메인(또는 서브도메인)에서 제공되어야 합니다.</td></tr>
+                </tbody>
+            </table>
+
+            <h2>Google이 당신의 favicon을 표시하지 않는 일반적인 이유</h2>
+            <ol>
+                <li><strong>robots.txt 차단</strong> — 당신의 favicon 파일이 차단되지 않았는지 확인하십시오.</li>
+                <li><strong>잘못된 크기</strong> — 최소 48×48이며 48의 배수인지 확인하십시오.</li>
+                <li><strong>정사각형이 아님</strong> — Google은 정사각형이 아닌 이미지를 거부합니다.</li>
+                <li><strong>낮은 품질</strong> — 흐릿하거나 픽셀화되었거나 일반적인 아이콘은 무시될 수 있습니다.</li>
+                <li><strong>너무 최신</strong> — Google이 새로운 favicon을 처리하는 데 며칠에서 몇 주가 걸립니다.</li>
+                <li><strong>다른 도메인</strong> — 다른 도메인의 CDN에 호스팅된 favicon은 작동하지 않을 수 있습니다.</li>
+            </ol>
+
+            <h2>Google에서 당신의 favicon을 확인하는 방법</h2>
+            <ol>
+                <li><strong>Google Search Console</strong>을 엽니다.</li>
+                <li><strong>URL 검사</strong>로 이동합니다.</li>
+                <li>당신의 홈페이지 URL을 입력합니다.</li>
+                <li><strong>"색인 생성 요청"</strong>을 클릭하여 재크롤링을 트리거합니다.</li>
+                <li>며칠 기다린 후 <code>site:yourdomain.com</code>으로 검색 결과를 확인합니다.</li>
+            </ol>
+
+            <h2>favicon SEO 체크리스트</h2>
+            <ul>
+                <li><strong>48×48 이상</strong>의 favicon을 제공합니다(48의 배수).</li>
+                <li><strong>PNG 또는 ICO</strong> 형식을 사용합니다(SVG는 Google이 처리하지 않을 수 있습니다).</li>
+                <li>HTML에서 <code>&lt;link rel="icon"&gt;</code> 태그로 선언합니다.</li>
+                <li>또한, 대체(fallback)로 루트에 <code>favicon.ico</code>를 배치합니다.</li>
+                <li><code>robots.txt</code>에서 차단하지 마십시오.</li>
+                <li>웹사이트와 <strong>동일한 도메인</strong>에 호스팅합니다.</li>
+                <li><strong>정사각형의 브랜드 이미지</strong>로 만듭니다.</li>
+                <li>사이트를 <strong>Google Search Console</strong>에 제출하고 색인 생성을 요청합니다.</li>
+            </ul>
+
+            <h2>Google 외: 다른 환경에서의 favicon</h2>
+            <p>favicon은 다음에도 나타납니다:</p>
+            <ul>
+                <li><strong>Bing 검색 결과</strong> — Google의 구현과 유사합니다.</li>
+                <li><strong>소셜 미디어 미리보기</strong> — 일부 플랫폼은 링크 카드에 favicon을 표시합니다.</li>
+                <li><strong>브라우저 기록 및 북마크</strong> — 사용자가 당신의 사이트를 다시 찾는 데 도움이 됩니다.</li>
+                <li><strong>비밀번호 관리자</strong> — 저장된 자격 증명 옆에 favicon을 표시합니다.</li>
+                <li><strong>링크 애그리게이터</strong> — Reddit, Hacker News와 같은 사이트는 링크 옆에 favicon을 표시합니다.</li>
+            </ul>
+
+            <h2>경쟁 분석</h2>
+            <p>경쟁업체가 어떤 favicon을 사용하는지 보고 싶으신가요? <a href="/ja/index.html">Mzu favicondl</a>을 사용하면 어떤 도메인이든 입력하여 여러 크기로 해당 favicon을 즉시 확인할 수 있습니다. 이는 경쟁업체를 감사하고 당신의 favicon이 검색 결과에서 돋보이도록 하는 빠른 방법입니다.</p>
+        </div>
+
+        <div class="article-body" data-lang="es" style="display:none">
+            <p>En 2019, Google empezó a mostrar favicons en los resultados de búsqueda móvil. Para 2023, los favicons también aparecieron en el escritorio. Hoy, tu favicon es una <strong>parte visible de cada listado de búsqueda de Google</strong>. Aquí te explicamos por qué es importante y cómo hacerlo bien.</p>
+
+            <h2>Cómo aparecen los Favicons en la Búsqueda de Google</h2>
+            <p>En los resultados de búsqueda de Google, tu favicon aparece:</p>
+            <ul>
+                <li><strong>Móvil:</strong> Junto al nombre de tu sitio y la URL, encima del enlace del título.</li>
+                <li><strong>Escritorio:</strong> Junto a la ruta de navegación (breadcrumb)/URL debajo del título.</li>
+            </ul>
+            <p>Si no tienes un favicon (o no cumple con los requisitos de Google), Google muestra un <strong>icono genérico de globo gris</strong> en su lugar. Esto hace que tu listado parezca inmediatamente menos fiable en comparación con los competidores que tienen favicons de marca.</p>
+
+            <h2>El Impacto en el CTR</h2>
+            <p>La tasa de clics (CTR) es una de las métricas SEO más importantes. Mide la frecuencia con la que las personas hacen clic en tu listado después de verlo en los resultados de búsqueda.</p>
+            <p>Un estudio de Hostiserver encontró que los sitios web <strong>con un favicon experimentaron mejoras en el CTR de hasta un 20%</strong> en comparación con aquellos que no lo tenían. ¿Por qué?</p>
+            <ul>
+                <li><strong>Distinción visual</strong> — Tu listado se destaca del muro de texto.</li>
+                <li><strong>Reconocimiento de marca</strong> — Los usuarios recurrentes reconocen tu icono antes de leer el título.</li>
+                <li><strong>Profesionalismo percibido</strong> — Un icono de marca indica un sitio web legítimo y mantenido.</li>
+                <li><strong>Señal de confianza</strong> — El icono genérico de globo a menudo se asocia con spam o sitios abandonados.</li>
+            </ul>
+
+            <h2>Requisitos Técnicos de Google</h2>
+            <p>Google tiene requisitos específicos para que los favicons aparezcan en los resultados de búsqueda:</p>
+            <table>
+                <thead><tr><th>Requisito</th><th>Detalles</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>Tamaño</strong></td><td>Múltiplo de 48px (ej., 48×48, 96×96, 144×144). Google lo redimensiona a 16×16 para mostrarlo.</td></tr>
+                    <tr><td><strong>Forma</strong></td><td>Debe ser cuadrado. Las imágenes no cuadradas pueden ser rechazadas.</td></tr>
+                    <tr><td><strong>URL</strong></td><td>Debe ser rastreable — no bloqueado por robots.txt.</td></tr>
+                    <tr><td><strong>Estabilidad</strong></td><td>La URL no debe cambiar con frecuencia.</td></tr>
+                    <tr><td><strong>Contenido</strong></td><td>Debe representar la marca del sitio web. No se permite contenido ofensivo, inapropiado o genérico.</td></tr>
+                    <tr><td><strong>Dominio</strong></td><td>Debe servirse desde el mismo dominio que el sitio web (o un subdominio).</td></tr>
+                </tbody>
+            </table>
+
+            <h2>Razones Comunes por las que Google No Muestra Tu Favicon</h2>
+            <ol>
+                <li><strong>Bloqueo por robots.txt</strong> — Verifica que tu archivo favicon no esté bloqueado.</li>
+                <li><strong>Tamaño incorrecto</strong> — Asegúrate de que sea al menos 48×48 y un múltiplo de 48.</li>
+                <li><strong>No es cuadrado</strong> — Google rechaza las imágenes no cuadradas.</li>
+                <li><strong>Baja calidad</strong> — Los iconos borrosos, pixelados o genéricos pueden ser ignorados.</li>
+                <li><strong>Demasiado nuevo</strong> — Google tarda días o semanas en procesar nuevos favicons.</li>
+                <li><strong>Dominio diferente</strong> — Un favicon alojado en un CDN con un dominio diferente podría no funcionar.</li>
+            </ol>
+
+            <h2>Cómo Verificar Tu Favicon en Google</h2>
+            <ol>
+                <li>Abre <strong>Google Search Console</strong>.</li>
+                <li>Ve a <strong>Inspección de URL</strong>.</li>
+                <li>Introduce la URL de tu página de inicio.</li>
+                <li>Haz clic en <strong>"Solicitar indexación"</strong> para activar un nuevo rastreo.</li>
+                <li>Espera unos días y verifica los resultados de búsqueda para <code>site:yourdomain.com</code>.</li>
+            </ol>
+
+            <h2>Lista de Verificación SEO para Favicons</h2>
+            <ul>
+                <li>Proporciona un favicon de <strong>48×48 o más grande</strong> (múltiplo de 48).</li>
+                <li>Usa formato <strong>PNG o ICO</strong> (no SVG — Google podría no procesarlo).</li>
+                <li>Decláralo en tu HTML con una etiqueta <code>&lt;link rel="icon"&gt;</code>.</li>
+                <li>También coloca <code>favicon.ico</code> en la raíz como respaldo.</li>
+                <li>No lo bloquees en <code>robots.txt</code>.</li>
+                <li>Alójalo en el <strong>mismo dominio</strong> que tu sitio web.</li>
+                <li>Haz que sea una <strong>imagen cuadrada y de marca</strong>.</li>
+                <li>Envía tu sitio a <strong>Google Search Console</strong> y solicita la indexación.</li>
+            </ul>
+
+            <h2>Más Allá de Google: Favicons en Otros Contextos</h2>
+            <p>Los favicons también aparecen en:</p>
+            <ul>
+                <li><strong>Resultados de búsqueda de Bing</strong> — Similar a la implementación de Google.</li>
+                <li><strong>Vistas previas en redes sociales</strong> — Algunas plataformas muestran favicons en las tarjetas de enlace.</li>
+                <li><strong>Historial del navegador y marcadores</strong> — Ayuda a los usuarios a encontrar tu sitio de nuevo.</li>
+                <li><strong>Gestores de contraseñas</strong> — Muestran favicons junto a las credenciales guardadas.</li>
+                <li><strong>Agregadores de enlaces</strong> — Sitios como Reddit, Hacker News muestran favicons junto a los enlaces.</li>
+            </ul>
+
+            <h2>Análisis Competitivo</h2>
+            <p>¿Quieres ver qué favicons usan tus competidores? <a href="/ja/index.html">Mzu favicondl</a> te permite introducir cualquier dominio y ver al instante su favicon en varios tamaños. Es una forma rápida de auditar a tu competencia y asegurarte de que tu favicon destaque en los resultados de búsqueda.</p>
+        </div>
+<div class="cta-box">
             <h3 data-en="Audit your competitor's favicons" data-zh="审核竞争对手的 Favicon">Audit your competitor's favicons</h3>
             <p data-en="Enter any domain and see how their favicon looks at every size." data-zh="输入任意域名，查看其 Favicon 在各种尺寸下的表现。">Enter any domain and see how their favicon looks at every size.</p>
             <a href="/ja/index.html" class="cta-btn" data-en="Check Any Favicon →" data-zh="检查任意 Favicon →">Check Any Favicon →</a>

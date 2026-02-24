@@ -108,6 +108,12 @@
     
     
     
+    
+    
+    
+    
+    
+    
 
     <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
@@ -357,7 +363,302 @@
             <p>想看看竞争对手怎么处理 Favicon？使用 <a href="/ko/index.html">Mzu favicondl</a> 即时检查任何网站的 Favicon 配置。</p>
         </div>
 
-        <div class="cta-box">
+        
+
+        <div class="article-body" data-lang="ja" style="display:none">
+            <p>2026年にfaviconを適切に設定するには、最新の機能と後方互換性のバランスを取る必要があります。このガイドでは、すべてを実用的なチェックリストにまとめました。</p>
+
+            <h2>2026年版 Faviconチェックリスト</h2>
+            <ol>
+                <li><strong>favicon.ico</strong> (32×32) — ルートに配置します。普遍的なフォールバックです。</li>
+                <li><strong>favicon-32x32.png</strong> — 最新のブラウザタブ用（Retina対応）。</li>
+                <li><strong>favicon-16x16.png</strong> — 標準DPIのブラウザタブ用。</li>
+                <li><strong>apple-touch-icon.png</strong> (180×180) — iOSホーム画面用。</li>
+                <li><strong>android-chrome-192x192.png</strong> — AndroidおよびPWA用。</li>
+                <li><strong>android-chrome-512x512.png</strong> — PWAスプラッシュスクリーン用。</li>
+                <li><strong>site.webmanifest</strong> — Androidアイコンを参照するPWA manifest。</li>
+                <li><strong>HTML &lt;link&gt; tags</strong> — すべてのページの<code>&lt;head&gt;</code>内に記述します。</li>
+            </ol>
+
+            <h2>デザインのベストプラクティス</h2>
+
+            <h3>シンプルに保つ</h3>
+            <p>16×16ピクセルでは、細かいディテールは完全に消えてしまいます。最適なfaviconは次のとおりです。</p>
+            <ul>
+                <li>一文字または記号</li>
+                <li>前景と背景のコントラストが高い</li>
+                <li>グラデーションや細い線がない、太くクリーンな形状</li>
+            </ul>
+
+            <h3>透明な背景を使用する</h3>
+            <p>単色の背景は、最新のブラウザUIでは古く見えます。透明なPNGは、ライトモード、ダークモード、カスタムテーマなど、あらゆるブラウザテーマに自然に溶け込みます。</p>
+            <p><strong>例外:</strong> Apple Touch Iconsは、iOSが透明な領域を黒で埋めるため、単色の背景を持つ必要があります。</p>
+
+            <h3>ライトモードとダークモードの両方に対応してデザインする</h3>
+            <p>ダークモードが標準になりつつあるため、ライトとダークの両方の背景でfaviconをテストしてください。暗いfaviconが暗いブラウザタブにあると見えません。<code>prefers-color-scheme</code>をサポートするSVG faviconの使用を検討してください（当社の<a href="/ko/blog/svg-favicon.html">SVG faviconガイド</a>を参照してください）。</p>
+
+            <h3>大きなサイズから始めて、縮小する</h3>
+            <p>常に512×512ピクセル以上でデザインし、必要な各サイズでエクスポートしてください。必要に応じて16×16バージョンを手動で最適化してください。自動縮小では、ぼやけた結果になることがあります。</p>
+
+            <h2>技術的なベストプラクティス</h2>
+
+            <h3>ファイルの配置</h3>
+            <ul>
+                <li><code>favicon.ico</code>はドメインの<strong>ルート</strong>に配置してください。ブラウザは自動的にそこを探します。</li>
+                <li>他のファイルは、整理のために<code>/favicons/</code>サブディレクトリに配置しても構いません。</li>
+                <li>HTMLでは<strong>絶対パス</strong>を使用してください（<code>/favicon.ico</code>であり、<code>favicon.ico</code>ではありません）。</li>
+            </ul>
+
+            <h3>キャッシュ戦略</h3>
+            <ul>
+                <li>faviconファイルには長いキャッシュヘッダー（1年）を設定してください。これらはめったに変更されません。</li>
+                <li>更新する際は、<strong>キャッシュを無効にするクエリ文字列</strong>を使用してください: <code>href="/favicon.ico?v=2"</code></li>
+                <li>またはファイルをリネームしてください: <code>href="/favicon-v2.ico"</code></li>
+            </ul>
+
+            <h3>パフォーマンス</h3>
+            <ul>
+                <li><a href="https://tinypng.com" rel="noopener">TinyPNG</a>や<code>pngquant</code>のようなツールでPNGファイルを最適化してください。</li>
+                <li>32×32のPNGは2KB未満であるべきです。</li>
+                <li>ブラウザが32×32しか必要としないときに、512×512の画像を提供しないでください。</li>
+            </ul>
+
+            <h2>SEOのベストプラクティス</h2>
+
+            <h3>Google検索結果</h3>
+            <p>Googleは検索結果にfaviconを表示します。あなたのfaviconが表示されるようにするには：</p>
+            <ul>
+                <li><strong>48pxの倍数</strong>（48×48、96×96など）のfaviconを提供してください。</li>
+                <li><code>robots.txt</code>でfaviconファイルをブロックしないでください。</li>
+                <li>faviconはウェブサイトと<strong>同じドメイン</strong>にある必要があります。</li>
+                <li><strong>正方形の画像</strong>である必要があります。</li>
+                <li><strong>不適切、攻撃的、または一般的なアイコン</strong>であってはなりません。</li>
+            </ul>
+
+            <h3>ページ間の一貫性</h3>
+            <p>サイトのすべてのページで同じfaviconを使用してください。ページごとに異なるfaviconを使用すると、ユーザーを混乱させ、ブランド認知度を低下させます。</p>
+
+            <h2>避けるべき一般的なアンチパターン</h2>
+            <table>
+                <thead><tr><th>アンチパターン</th><th>なぜ悪いのか</th><th>代わりにすべきこと</th></tr></thead>
+                <tbody>
+                    <tr><td>favicon.icoのみ提供</td><td>iOS/Android/PWAのサポートが不足</td><td>すべてのサイズを提供</td></tr>
+                    <tr><td>テキスト付きのフルロゴを使用</td><td>16pxでは判読不能</td><td>記号またはモノグラムを使用</td></tr>
+                    <tr><td>JPEGを.icoにリネーム</td><td>ブラウザが拒否する可能性あり</td><td>適切な形式変換を使用</td></tr>
+                    <tr><td>CDNからのみfaviconを提供</td><td>Googleがインデックスしない可能性あり</td><td>同じドメインでホスト</td></tr>
+                    <tr><td>アニメーションfavicon</td><td>気が散る、サポートが不十分</td><td>静的アイコンを使用</td></tr>
+                    <tr><td>faviconがまったくない</td><td>プロフェッショナルではない、SEOに悪影響</td><td>追加する — 5分でできます</td></tr>
+                </tbody>
+            </table>
+
+            <h2>Favicon設定のテスト</h2>
+            <ol>
+                <li><strong>ブラウザタブ</strong> — Chrome、Firefox、Safari、Edgeで確認します。</li>
+                <li><strong>ブックマーク</strong> — ページをブックマークしてアイコンを確認します。</li>
+                <li><strong>iOSホーム画面</strong> — iPhoneのホーム画面に追加します。</li>
+                <li><strong>Androidホーム画面</strong> — Androidのホーム画面に追加します。</li>
+                <li><strong>Google検索</strong> — Search Consoleを使用してfaviconのインデックス登録を確認します。</li>
+                <li><strong>ソーシャルシェア</strong> — リンクプレビューのOG imageを確認します。</li>
+            </ol>
+            <p>競合他社がどのようにfaviconを扱っているか知りたいですか？<a href="/ko/index.html">Mzu favicondl</a>を使用して、任意のウェブサイトのfavicon設定を即座に確認できます。</p>
+        </div>
+
+        <div class="article-body" data-lang="ko" style="display:none">
+            <p>2026년에 favicon을 올바르게 설정하려면 최신 기능과 이전 버전과의 호환성 사이에서 균형을 맞춰야 합니다. 이 가이드는 모든 것을 실행 가능한 체크리스트로 정리했습니다.</p>
+
+            <h2>2026년 Favicon 체크리스트</h2>
+            <ol>
+                <li><strong>favicon.ico</strong> (32×32) — 루트에 배치합니다. 보편적인 대체 아이콘입니다.</li>
+                <li><strong>favicon-32x32.png</strong> — 최신 브라우저 탭용(Retina).</li>
+                <li><strong>favicon-16x16.png</strong> — 표준 DPI 브라우저 탭용.</li>
+                <li><strong>apple-touch-icon.png</strong> (180×180) — iOS 홈 화면용.</li>
+                <li><strong>android-chrome-192x192.png</strong> — Android 및 PWA용.</li>
+                <li><strong>android-chrome-512x512.png</strong> — PWA 스플래시 화면용.</li>
+                <li><strong>site.webmanifest</strong> — Android 아이콘을 참조하는 PWA manifest.</li>
+                <li><strong>HTML &lt;link&gt; tags</strong> — 모든 페이지의 <code>&lt;head&gt;</code> 안에 포함합니다.</li>
+            </ol>
+
+            <h2>디자인 모범 사례</h2>
+
+            <h3>단순하게 유지하기</h3>
+            <p>16×16 픽셀에서는 미세한 디테일이 완전히 사라집니다. 최고의 favicon은 다음과 같습니다.</p>
+            <ul>
+                <li>단일 문자 또는 기호</li>
+                <li>전경과 배경 간의 높은 대비</li>
+                <li>그라데이션이나 얇은 선이 없는 굵고 깔끔한 모양</li>
+            </ul>
+
+            <h3>투명 배경 사용하기</h3>
+            <p>단색 배경은 최신 브라우저 UI에서 구식으로 보입니다. 투명 PNG는 라이트 모드, 다크 모드 또는 사용자 지정 테마 등 모든 브라우저 테마와 자연스럽게 어울립니다.</p>
+            <p><strong>예외:</strong> Apple Touch Icon은 iOS가 투명한 영역을 검은색으로 채우기 때문에 단색 배경을 가져야 합니다.</p>
+
+            <h3>라이트 모드와 다크 모드 모두를 위해 디자인하기</h3>
+            <p>다크 모드가 표준이 됨에 따라, 밝은 배경과 어두운 배경 모두에서 favicon을 테스트하십시오. 어두운 브라우저 탭에 어두운 favicon이 있으면 보이지 않습니다.<code>prefers-color-scheme</code> 지원이 있는 SVG favicon 사용을 고려해 보십시오 (저희 <a href="/ko/blog/svg-favicon.html">SVG favicon 가이드</a>를 참조하십시오).</p>
+
+            <h3>크게 시작하여 축소하기</h3>
+            <p>항상 512×512 이상으로 디자인한 다음, 필요한 각 크기로 내보내십시오. 필요한 경우 16×16 버전을 수동으로 최적화하십시오. 자동 축소는 때때로 흐릿한 결과를 초래할 수 있습니다.</p>
+
+            <h2>기술 모범 사례</h2>
+
+            <h3>파일 배치</h3>
+            <ul>
+                <li><code>favicon.ico</code>는 도메인의 <strong>루트</strong>에 배치하십시오. 브라우저가 자동으로 그곳을 찾습니다.</li>
+                <li>다른 파일은 정리를 위해 <code>/favicons/</code> 하위 디렉토리에 넣을 수 있습니다.</li>
+                <li>HTML에서 <strong>절대 경로</strong>를 사용하십시오 (<code>/favicon.ico</code>, <code>favicon.ico</code>가 아님).</li>
+            </ul>
+
+            <h3>캐싱 전략</h3>
+            <ul>
+                <li>favicon 파일에 긴 캐시 헤더(1년)를 설정하십시오. 이 파일들은 거의 변경되지 않습니다.</li>
+                <li>업데이트할 때는 <strong>캐시 무효화 쿼리 문자열</strong>을 사용하십시오: <code>href="/favicon.ico?v=2"</code></li>
+                <li>또는 파일 이름을 변경하십시오: <code>href="/favicon-v2.ico"</code></li>
+            </ul>
+
+            <h3>성능</h3>
+            <ul>
+                <li><a href="https://tinypng.com" rel="noopener">TinyPNG</a> 또는 <code>pngquant</code>와 같은 도구로 PNG 파일을 최적화하십시오.</li>
+                <li>32×32 PNG는 2KB 미만이어야 합니다.</li>
+                <li>브라우저가 32×32만 필요할 때 512×512 이미지를 제공하지 마십시오.</li>
+            </ul>
+
+            <h2>SEO 모범 사례</h2>
+
+            <h3>Google 검색 결과</h3>
+            <p>Google은 검색 결과에 favicon을 표시합니다. 당신의 favicon이 나타나도록 하려면:</p>
+            <ul>
+                <li><strong>48px의 배수</strong>(48×48, 96×96 등)인 favicon을 제공하십시오.</li>
+                <li><code>robots.txt</code>에서 favicon 파일을 차단하지 마십시오.</li>
+                <li>favicon은 웹사이트와 <strong>동일한 도메인</strong>에 있어야 합니다.</li>
+                <li><strong>정사각형 이미지</strong>여야 합니다.</li>
+                <li><strong>부적절하거나, 불쾌하거나, 일반적인 아이콘</strong>이 아니어야 합니다.</li>
+            </ul>
+
+            <h3>페이지 간 일관성</h3>
+            <p>사이트의 모든 페이지에서 동일한 favicon을 사용하십시오. 페이지마다 다른 favicon을 사용하면 사용자를 혼란스럽게 하고 브랜드 인지도를 희석시킵니다.</p>
+
+            <h2>피해야 할 일반적인 안티패턴</h2>
+            <table>
+                <thead><tr><th>안티패턴</th><th>나쁜 이유</th><th>대신해야 할 것</th></tr></thead>
+                <tbody>
+                    <tr><td>favicon.ico만 제공</td><td>iOS/Android/PWA 지원 부족</td><td>모든 크기 제공</td></tr>
+                    <tr><td>텍스트가 있는 전체 로고 사용</td><td>16px에서 읽기 어려움</td><td>기호 또는 모노그램 사용</td></tr>
+                    <tr><td>JPEG를 .ico로 이름 변경</td><td>브라우저가 거부할 수 있음</td><td>올바른 형식 변환 사용</td></tr>
+                    <tr><td>CDN에서만 favicon 제공</td><td>Google이 색인하지 않을 수 있음</td><td>동일 도메인에서 호스팅</td></tr>
+                    <tr><td>애니메이션 favicon</td><td>산만하고 지원이 미흡함</td><td>정적 아이콘 사용</td></tr>
+                    <tr><td>favicon이 전혀 없음</td><td>비전문적이며 SEO에 해로움</td><td>추가하십시오 — 5분이면 됩니다</td></tr>
+                </tbody>
+            </table>
+
+            <h2>Favicon 설정 테스트하기</h2>
+            <ol>
+                <li><strong>브라우저 탭</strong> — Chrome, Firefox, Safari, Edge에서 확인하십시오.</li>
+                <li><strong>북마크</strong> — 페이지를 북마크하고 아이콘을 확인하십시오.</li>
+                <li><strong>iOS 홈 화면</strong> — iPhone 홈 화면에 추가하십시오.</li>
+                <li><strong>Android 홈 화면</strong> — Android 홈 화면에 추가하십시오.</li>
+                <li><strong>Google 검색</strong> — Search Console을 사용하여 favicon 색인 생성을 확인하십시오.</li>
+                <li><strong>소셜 공유</strong> — 링크 미리보기를 위해 OG image를 확인하십시오.</li>
+            </ol>
+            <p>경쟁업체가 favicon을 어떻게 처리하는지 알고 싶으십니까? <a href="/ko/index.html">Mzu favicondl</a>을 사용하여 모든 웹사이트의 favicon 설정을 즉시 확인할 수 있습니다.</p>
+        </div>
+
+        <div class="article-body" data-lang="es" style="display:none">
+            <p>Configurar los favicons correctamente en 2026 significa equilibrar las características modernas con la compatibilidad con versiones anteriores. Esta guía resume todo en una lista de verificación práctica.</p>
+
+            <h2>La lista de verificación de Favicon para 2026</h2>
+            <ol>
+                <li><strong>favicon.ico</strong> (32×32) — Colócalo en la raíz. Es el respaldo universal.</li>
+                <li><strong>favicon-32x32.png</strong> — Para pestañas de navegadores modernos (Retina).</li>
+                <li><strong>favicon-16x16.png</strong> — Para pestañas de navegadores con DPI estándar.</li>
+                <li><strong>apple-touch-icon.png</strong> (180×180) — Para la pantalla de inicio de iOS.</li>
+                <li><strong>android-chrome-192x192.png</strong> — Para Android y PWA.</li>
+                <li><strong>android-chrome-512x512.png</strong> — Para pantallas de bienvenida de PWA.</li>
+                <li><strong>site.webmanifest</strong> — El manifest de PWA que referencia los iconos de Android.</li>
+                <li><strong>HTML &lt;link&gt; tags</strong> — En el <code>&lt;head&gt;</code> de cada página.</li>
+            </ol>
+
+            <h2>Mejores prácticas de diseño</h2>
+
+            <h3>Mantenlo simple</h3>
+            <p>Con 16×16 píxeles, los detalles finos desaparecen por completo. Los mejores favicons son:</p>
+            <ul>
+                <li>Una sola letra o símbolo</li>
+                <li>Alto contraste entre el primer plano y el fondo</li>
+                <li>Formas audaces y limpias sin degradados ni líneas finas</li>
+            </ul>
+
+            <h3>Usa fondos transparentes</h3>
+            <p>Los fondos de color sólido se ven anticuados en las interfaces de usuario de los navegadores modernos. Los PNG transparentes se integran naturalmente con cualquier tema del navegador, ya sea modo claro, modo oscuro o temas personalizados.</p>
+            <p><strong>Excepción:</strong> Los Apple Touch Icons deben tener un fondo sólido porque iOS rellena las áreas transparentes con negro.</p>
+
+            <h3>Diseña para claro y oscuro</h3>
+            <p>Con el modo oscuro convirtiéndose en estándar, prueba tu favicon tanto en fondos claros como oscuros. Un favicon oscuro en una pestaña de navegador oscura es invisible. Considera usar un favicon SVG con soporte para <code>prefers-color-scheme</code> (consulta nuestra <a href="/ko/blog/svg-favicon.html">guía de favicons SVG</a>).</p>
+
+            <h3>Empieza grande, escala hacia abajo</h3>
+            <p>Diseña siempre a 512×512 o más grande, luego exporta a cada tamaño requerido. Optimiza manualmente la versión de 16×16 si es necesario; la reducción automática a veces produce resultados borrosos.</p>
+
+            <h2>Mejores prácticas técnicas</h2>
+
+            <h3>Ubicación de archivos</h3>
+            <ul>
+                <li>Coloca <code>favicon.ico</code> en la <strong>raíz</strong> de tu dominio; los navegadores lo buscan automáticamente.</li>
+                <li>Otros archivos pueden ir en un subdirectorio <code>/favicons/</code> si prefieres organización.</li>
+                <li>Usa <strong>rutas absolutas</strong> en tu HTML (<code>/favicon.ico</code>, no <code>favicon.ico</code>).</li>
+            </ul>
+
+            <h3>Estrategia de caché</h3>
+            <ul>
+                <li>Establece encabezados de caché largos (1 año) para los archivos de favicon; rara vez cambian.</li>
+                <li>Cuando actualices, usa una <strong>cadena de consulta para invalidar la caché</strong>: <code>href="/favicon.ico?v=2"</code></li>
+                <li>O renombra el archivo: <code>href="/favicon-v2.ico"</code></li>
+            </ul>
+
+            <h3>Rendimiento</h3>
+            <ul>
+                <li>Optimiza los archivos PNG con herramientas como <a href="https://tinypng.com" rel="noopener">TinyPNG</a> o <code>pngquant</code>.</li>
+                <li>Un PNG de 32×32 debería pesar menos de 2KB.</li>
+                <li>No sirvas una imagen de 512×512 cuando el navegador solo necesita 32×32.</li>
+            </ul>
+
+            <h2>Mejores prácticas de SEO</h2>
+
+            <h3>Resultados de búsqueda de Google</h3>
+            <p>Google muestra favicons en los resultados de búsqueda. Para asegurarte de que el tuyo aparezca:</p>
+            <ul>
+                <li>Proporciona un favicon que sea un <strong>múltiplo de 48px</strong> (48×48, 96×96, etc.).</li>
+                <li>No bloquees los archivos de favicon en <code>robots.txt</code>.</li>
+                <li>El favicon debe estar en el <strong>mismo dominio</strong> que el sitio web.</li>
+                <li>Debe ser una <strong>imagen cuadrada</strong>.</li>
+                <li>No debe ser <strong>inapropiado, ofensivo o un icono genérico</strong>.</li>
+            </ul>
+
+            <h3>Consistencia entre páginas</h3>
+            <p>Usa el mismo favicon en todas las páginas de tu sitio. Favicons diferentes por página confunden a los usuarios y diluyen el reconocimiento de la marca.</p>
+
+            <h2>Antipatrones comunes a evitar</h2>
+            <table>
+                <thead><tr><th>Antipatrón</th><th>Por qué es malo</th><th>Qué hacer en su lugar</th></tr></thead>
+                <tbody>
+                    <tr><td>Solo proporcionar favicon.ico</td><td>Falta de soporte para iOS/Android/PWA</td><td>Proporciona el conjunto completo de tamaños</td></tr>
+                    <tr><td>Usar un logo completo con texto</td><td>Ilegible a 16px</td><td>Usa un símbolo o monograma</td></tr>
+                    <tr><td>Renombrar JPEG a .ico</td><td>El navegador podría rechazarlo</td><td>Usa una conversión de formato adecuada</td></tr>
+                    <tr><td>Servir favicon solo desde CDN</td><td>Google podría no indexarlo</td><td>Aloja en el mismo dominio</td></tr>
+                    <tr><td>Favicons animados</td><td>Distraen, soporte deficiente</td><td>Usa un icono estático</td></tr>
+                    <tr><td>Ningún favicon en absoluto</td><td>Poco profesional, perjudica el SEO</td><td>Añade uno — toma 5 minutos</td></tr>
+                </tbody>
+            </table>
+
+            <h2>Probando tu configuración de Favicon</h2>
+            <ol>
+                <li><strong>Pestaña del navegador</strong> — Verifica en Chrome, Firefox, Safari, Edge.</li>
+                <li><strong>Marcadores</strong> — Marca la página y verifica el icono.</li>
+                <li><strong>Pantalla de inicio de iOS</strong> — Añade a la pantalla de inicio en iPhone.</li>
+                <li><strong>Pantalla de inicio de Android</strong> — Añade a la pantalla de inicio en Android.</li>
+                <li><strong>Búsqueda de Google</strong> — Usa Search Console para verificar la indexación del favicon.</li>
+                <li><strong>Compartir en redes sociales</strong> — Verifica la imagen OG para las vistas previas de enlaces.</li>
+            </ol>
+            <p>¿Quieres ver cómo tu competidor maneja su favicon? Usa <a href="/ko/index.html">Mzu favicondl</a> para verificar instantáneamente la configuración de favicon de cualquier sitio web.</p>
+        </div>
+<div class="cta-box">
             <h3 data-en="Get your favicon setup right" data-zh="做好你的 Favicon 配置">Get your favicon setup right</h3>
             <p data-en="Generate a complete, best-practice favicon package from any image." data-zh="从任何图片生成完整的、符合最佳实践的 Favicon 包。">Generate a complete, best-practice favicon package from any image.</p>
             <a href="/ko/tools.html" class="cta-btn" data-en="Create Favicon Package →" data-zh="创建 Favicon 包 →">Create Favicon Package →</a>

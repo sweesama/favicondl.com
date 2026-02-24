@@ -108,6 +108,12 @@
     
     
     
+    
+    
+    
+    
+    
+    
 
     <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
@@ -317,7 +323,215 @@ curl -o favicon.ico "https://github.com/favicon.ico"</code></pre>
             <p>很多网站只提供 16×16 或 32×32 像素的 Favicon。试试找 Apple Touch Icon（180×180）或 Android Chrome 图标（192×192 或 512×512）来获得更高质量。<a href="/zh/index.html">Mzu favicondl</a> 会自动获取多种尺寸，让你选择最佳的。</p>
         </div>
 
-        <div class="cta-box">
+        
+
+        <div class="article-body" data-lang="ja" style="display:none">
+            <p>プロジェクト、プレゼンテーション、競合分析のためにウェブサイトの favicon を取得する必要がありますか？ここでは、最もシンプルな方法から最も強力な方法まで、<strong>3つの信頼できる方法</strong>をご紹介します。</p>
+
+            <h2>方法1：ブラウザのアドレスバーを使う裏技</h2>
+            <p>最もシンプルなアプローチは、URLをブラウザに直接入力することです。</p>
+            <pre><code>https://www.google.com/s2/favicons?domain=example.com&amp;sz=64</code></pre>
+            <p>これはGoogleの公開 favicon サービスを利用してアイコンを取得します。<code>sz</code> パラメータを変更することで、異なるサイズ（16、32、64、128、256）を取得できます。</p>
+            <p><strong>長所:</strong> ツール不要、どのブラウザでも動作します。<br>
+            <strong>短所:</strong> サイズが限定的で、低品質またはデフォルトのアイコンが返されることがあります。一括ダウンロードはできません。</p>
+
+            <h2>方法2：ウェブサイトのHTMLソースを確認する</h2>
+            <p>すべてのウェブサイトは、HTMLの <code>&lt;head&gt;</code> セクションで favicon を宣言しています。見つけ方は以下の通りです。</p>
+            <ol>
+                <li>ターゲットのウェブサイトをブラウザで開きます。</li>
+                <li>右クリックして<strong>「ページのソースを表示」</strong>を選択します（または <code>Ctrl+U</code> を押します）。</li>
+                <li><code>rel="icon"</code> または <code>rel="shortcut icon"</code> を検索します。</li>
+                <li><code>href</code> の値をコピーします。それが favicon のURLです。</li>
+                <li>新しいタブでURLを開き、画像を保存します。</li>
+            </ol>
+            <p>異なるサイズや形式を指す複数の favicon 宣言が見つかるかもしれません。一般的なパターンは以下の通りです。</p>
+            <pre><code>&lt;link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"&gt;
+&lt;link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"&gt;
+&lt;link rel="manifest" href="/site.webmanifest"&gt;</code></pre>
+            <p><strong>長所:</strong> サイトが実際に使用している正確なアイコンを取得できます。<br>
+            <strong>短所:</strong> 手動で時間がかかります。一部のサイトでは、見つけにくい複雑なパスや CDN のURLを使用しています。</p>
+
+            <h2>方法3：専用の Favicon ツールを使用する（推奨）</h2>
+            <p>最も効率的な方法は、<a href="/zh/index.html"><strong>Mzu favicondl</strong></a> のような専用の favicon ダウンローダーを使用することです。</p>
+            <ol>
+                <li><a href="/zh/index.html">favicondl.com</a> にアクセスします。</li>
+                <li>任意のドメイン名（例: <code>github.com</code>）を入力します。</li>
+                <li>複数のサイズ（32pxと128px）で favicon のプレビューを確認します。</li>
+                <li><strong>ダウンロード</strong>をクリックして、すぐにアイコンを保存します。</li>
+            </ol>
+            <div class="info-box">
+                <p><strong>プロのヒント:</strong> 複数のサイトの favicon が必要ですか？ツールセクションの<a href="/zh/tools.html">一括処理</a>ツールを使用して、ドメインリストから一度に favicon をダウンロードできます。</p>
+            </div>
+            <p><strong>長所:</strong> 即時、複数サイズ、一括処理、コーディング不要。<br>
+            <strong>短所:</strong> なし — 無料です！</p>
+
+            <h2>方法4（ボーナス）：コマンドラインを使用する</h2>
+            <p>ターミナルを好む開発者向けに、<code>curl</code> を使用できます。</p>
+            <pre><code># Download via Google's favicon API
+curl -o favicon.png "https://www.google.com/s2/favicons?domain=github.com&amp;sz=128"
+
+# Or download directly from the website
+curl -o favicon.ico "https://github.com/favicon.ico"</code></pre>
+
+            <h2>どの方法を使用すべきですか？</h2>
+            <table>
+                <thead>
+                    <tr><th>方法</th><th>速度</th><th>品質</th><th>最適な用途</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Google URLトリック</td><td>速い</td><td>中</td><td>素早い単発取得</td></tr>
+                    <tr><td>HTMLソース</td><td>遅い</td><td>高い</td><td>正確なアイコンファイルを見つける</td></tr>
+                    <tr><td><strong>Mzu favicondl</strong></td><td><strong>最速</strong></td><td><strong>高い</strong></td><td><strong>すべて — 単一＆一括</strong></td></tr>
+                    <tr><td>コマンドライン</td><td>中</td><td>中</td><td>自動化スクリプト</td></tr>
+                </tbody>
+            </table>
+
+            <h2>よくある質問</h2>
+            <h3>favicon をダウンロードするのは合法ですか？</h3>
+            <p>Favicon はウェブサイトによって公開されており、ブラウザに表示されることを意図しています。個人的な使用、調査、または参照のためにダウンロードすることは一般的に問題ありません。ただし、他人の favicon を自分のブランドアイコンとして使用すると、商標の問題が発生する可能性があります。</p>
+
+            <h3>ダウンロードした favicon がぼやけているのはなぜですか？</h3>
+            <p>多くのウェブサイトは16×16または32×32ピクセルの favicon しか提供していません。より高品質なものを探すには、Apple Touch Icon（180×180）または Android Chrome icon（192×192または512×512）を探してみてください。<a href="/zh/index.html">Mzu favicondl</a> は複数のサイズを自動的に取得するため、最適なものを選択できます。</p>
+        </div>
+
+        <div class="article-body" data-lang="ko" style="display:none">
+            <p>프로젝트, 프레젠테이션 또는 경쟁 분석을 위해 웹사이트의 favicon을 가져와야 합니까? 가장 간단한 방법부터 가장 강력한 방법까지, <strong>3가지 신뢰할 수 있는 방법</strong>을 소개합니다.</p>
+
+            <h2>방법 1: 브라우저 주소 표시줄 트릭</h2>
+            <p>가장 간단한 접근 방식은 URL을 브라우저에 직접 입력하는 것입니다.</p>
+            <pre><code>https://www.google.com/s2/favicons?domain=example.com&amp;sz=64</code></pre>
+            <p>이 방법은 Google의 공개 favicon 서비스를 사용하여 아이콘을 가져옵니다. <code>sz</code> 매개변수를 변경하여 다른 크기(16, 32, 64, 128, 256)를 얻을 수 있습니다.</p>
+            <p><strong>장점:</strong> 도구 필요 없음, 모든 브라우저에서 작동합니다.<br>
+            <strong>단점:</strong> 크기가 제한적이며, 때로는 저품질 또는 기본 아이콘을 반환합니다. 일괄 다운로드는 불가능합니다.</p>
+
+            <h2>방법 2: 웹사이트의 HTML 소스 확인</h2>
+            <p>모든 웹사이트는 HTML의 <code>&lt;head&gt;</code> 섹션에 favicon을 선언합니다. 찾는 방법은 다음과 같습니다.</p>
+            <ol>
+                <li>대상 웹사이트를 브라우저에서 엽니다.</li>
+                <li>마우스 오른쪽 버튼을 클릭하고 <strong>"페이지 소스 보기"</strong>를 선택합니다 (또는 <code>Ctrl+U</code>를 누릅니다).</li>
+                <li><code>rel="icon"</code> 또는 <code>rel="shortcut icon"</code>을 검색합니다.</li>
+                <li><code>href</code> 값을 복사합니다. 이것이 favicon URL입니다.</li>
+                <li>새 탭에서 URL을 열고 이미지를 저장합니다.</li>
+            </ol>
+            <p>다른 크기 및 형식을 가리키는 여러 favicon 선언을 찾을 수 있습니다. 일반적인 패턴은 다음과 같습니다.</p>
+            <pre><code>&lt;link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"&gt;
+&lt;link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"&gt;
+&lt;link rel="manifest" href="/site.webmanifest"&gt;</code></pre>
+            <p><strong>장점:</strong> 사이트가 실제로 사용하는 정확한 아이콘을 얻을 수 있습니다.<br>
+            <strong>단점:</strong> 수동적이고 시간이 많이 소요됩니다. 일부 사이트는 찾기 어려운 복잡한 경로 또는 CDN URL을 사용합니다.</p>
+
+            <h2>방법 3: 전용 Favicon 도구 사용 (권장)</h2>
+            <p>가장 효율적인 방법은 <a href="/zh/index.html"><strong>Mzu favicondl</strong></a>과 같은 전용 favicon 다운로더를 사용하는 것입니다.</p>
+            <ol>
+                <li><a href="/zh/index.html">favicondl.com</a>으로 이동합니다.</li>
+                <li>모든 도메인 이름(예: <code>github.com</code>)을 입력합니다.</li>
+                <li>여러 크기(32px 및 128px)로 favicon 미리보기를 확인합니다.</li>
+                <li><strong>다운로드</strong>를 클릭하여 아이콘을 즉시 저장합니다.</li>
+            </ol>
+            <div class="info-box">
+                <p><strong>전문가 팁:</strong> 여러 사이트의 favicon이 필요합니까? 도구 섹션의 <a href="/zh/tools.html">일괄 처리</a> 도구를 사용하여 도메인 목록에서 한 번에 favicon을 다운로드할 수 있습니다.</p>
+            </div>
+            <p><strong>장점:</strong> 즉시, 여러 크기, 일괄 처리, 코딩 필요 없음.<br>
+            <strong>단점:</strong> 없음 — 무료입니다!</p>
+
+            <h2>방법 4 (보너스): 명령줄 사용</h2>
+            <p>터미널을 선호하는 개발자를 위해 <code>curl</code>을 사용할 수 있습니다.</p>
+            <pre><code># Download via Google's favicon API
+curl -o favicon.png "https://www.google.com/s2/favicons?domain=github.com&amp;sz=128"
+
+# Or download directly from the website
+curl -o favicon.ico "https://github.com/favicon.ico"</code></pre>
+
+            <h2>어떤 방법을 사용해야 합니까?</h2>
+            <table>
+                <thead>
+                    <tr><th>방법</th><th>속도</th><th>품질</th><th>최적의 용도</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Google URL 트릭</td><td>빠름</td><td>중간</td><td>빠른 일회성 가져오기</td></tr>
+                    <tr><td>HTML 소스</td><td>느림</td><td>높음</td><td>정확한 아이콘 파일 찾기</td></tr>
+                    <tr><td><strong>Mzu favicondl</strong></td><td><strong>가장 빠름</strong></td><td><strong>높음</strong></td><td><strong>모든 경우 — 단일 및 일괄</strong></td></tr>
+                    <tr><td>명령줄</td><td>중간</td><td>중간</td><td>자동화 스크립트</td></tr>
+                </tbody>
+            </table>
+
+            <h2>자주 묻는 질문</h2>
+            <h3>favicon을 다운로드하는 것이 합법적입니까?</h3>
+            <p>Favicon은 웹사이트에서 공개적으로 제공되며 브라우저에 표시되도록 의도되었습니다. 개인적인 사용, 연구 또는 참조를 위해 다운로드하는 것은 일반적으로 괜찮습니다. 그러나 다른 사람의 favicon을 자신의 브랜드 아이콘으로 사용하는 것은 상표 문제를 일으킬 수 있습니다.</p>
+
+            <h3>다운로드한 favicon이 흐릿한 이유는 무엇입니까?</h3>
+            <p>많은 웹사이트는 16×16 또는 32×32 픽셀 favicon만 제공합니다. 더 높은 품질을 원한다면 Apple Touch Icon(180×180) 또는 Android Chrome icon(192×192 또는 512×512)을 찾아보십시오. <a href="/zh/index.html">Mzu favicondl</a>은 여러 크기를 자동으로 가져오므로 가장 좋은 것을 선택할 수 있습니다.</p>
+        </div>
+
+        <div class="article-body" data-lang="es" style="display:none">
+            <p>¿Necesitas obtener el favicon de un sitio web para un proyecto, presentación o análisis competitivo? Aquí tienes <strong>3 métodos confiables</strong>, desde el más simple hasta el más potente.</p>
+
+            <h2>Método 1: El truco de la barra de direcciones del navegador</h2>
+            <p>El enfoque más simple: solo escribe una URL directamente en tu navegador:</p>
+            <pre><code>https://www.google.com/s2/favicons?domain=example.com&amp;sz=64</code></pre>
+            <p>Esto utiliza el servicio público de favicon de Google para obtener el icono. Puedes cambiar el parámetro <code>sz</code> para obtener diferentes tamaños (16, 32, 64, 128, 256).</p>
+            <p><strong>Ventajas:</strong> No necesitas herramientas, funciona en cualquier navegador.<br>
+            <strong>Desventajas:</strong> Tamaños limitados, a veces devuelve iconos de baja calidad o predeterminados. No permite descargas por lotes.</p>
+
+            <h2>Método 2: Revisa el código fuente HTML del sitio web</h2>
+            <p>Cada sitio web declara sus favicons en la sección <code>&lt;head&gt;</code> de su HTML. Así es como puedes encontrarlos:</p>
+            <ol>
+                <li>Abre el sitio web objetivo en tu navegador.</li>
+                <li>Haz clic derecho y selecciona <strong>"Ver código fuente de la página"</strong> (o presiona <code>Ctrl+U</code>).</li>
+                <li>Busca <code>rel="icon"</code> o <code>rel="shortcut icon"</code>.</li>
+                <li>Copia el valor <code>href</code> — esa es la URL del favicon.</li>
+                <li>Abre la URL en una nueva pestaña y guarda la imagen.</li>
+            </ol>
+            <p>Podrías encontrar múltiples declaraciones de favicon que apuntan a diferentes tamaños y formatos. Patrones comunes:</p>
+            <pre><code>&lt;link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"&gt;
+&lt;link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"&gt;
+&lt;link rel="manifest" href="/site.webmanifest"&gt;</code></pre>
+            <p><strong>Ventajas:</strong> Obtiene los iconos exactos que el sitio realmente utiliza.<br>
+            <strong>Desventajas:</strong> Manual, consume tiempo. Algunos sitios usan rutas complejas o URLs de CDN que son difíciles de encontrar.</p>
+
+            <h2>Método 3: Usa una herramienta dedicada para Favicons (Recomendado)</h2>
+            <p>El método más eficiente es usar un descargador de favicons diseñado específicamente como <a href="/zh/index.html"><strong>Mzu favicondl</strong></a>:</p>
+            <ol>
+                <li>Ve a <a href="/zh/index.html">favicondl.com</a>.</li>
+                <li>Introduce cualquier nombre de dominio (ej., <code>github.com</code>).</li>
+                <li>Verás la vista previa del favicon en múltiples tamaños (32px y 128px).</li>
+                <li>Haz clic en <strong>Descargar</strong> para guardar el icono inmediatamente.</li>
+            </ol>
+            <div class="info-box">
+                <p><strong>Consejo profesional:</strong> ¿Necesitas favicons para varios sitios? Usa nuestra herramienta de <a href="/zh/tools.html">Procesamiento por lotes</a> en la sección de Herramientas para descargar favicons de una lista de dominios a la vez.</p>
+            </div>
+            <p><strong>Ventajas:</strong> Instantáneo, múltiples tamaños, procesamiento por lotes, no requiere codificación.<br>
+            <strong>Desventajas:</strong> Ninguna — ¡es gratis!</p>
+
+            <h2>Método 4 (Extra): Usando la línea de comandos</h2>
+            <p>Para los desarrolladores que prefieren la terminal, puedes usar <code>curl</code>:</p>
+            <pre><code># Download via Google's favicon API
+curl -o favicon.png "https://www.google.com/s2/favicons?domain=github.com&amp;sz=128"
+
+# Or download directly from the website
+curl -o favicon.ico "https://github.com/favicon.ico"</code></pre>
+
+            <h2>¿Qué método deberías usar?</h2>
+            <table>
+                <thead>
+                    <tr><th>Método</th><th>Velocidad</th><th>Calidad</th><th>Mejor para</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Truco de URL de Google</td><td>Rápido</td><td>Medio</td><td>Obtenciones rápidas y únicas</td></tr>
+                    <tr><td>Código fuente HTML</td><td>Lento</td><td>Alta</td><td>Encontrar archivos de iconos exactos</td></tr>
+                    <tr><td><strong>Mzu favicondl</strong></td><td><strong>Más rápido</strong></td><td><strong>Alta</strong></td><td><strong>Todo — individual y por lotes</strong></td></tr>
+                    <tr><td>Línea de comandos</td><td>Medio</td><td>Medio</td><td>Scripts de automatización</td></tr>
+                </tbody>
+            </table>
+
+            <h2>Preguntas frecuentes</h2>
+            <h3>¿Es legal descargar favicons?</h3>
+            <p>Los favicons son servidos públicamente por los sitios web y están destinados a ser mostrados por los navegadores. Descargarlos para uso personal, investigación o referencia generalmente está bien. Sin embargo, usar el favicon de otra persona como tu propio icono de marca podría generar problemas de marca registrada.</p>
+
+            <h3>¿Por qué el favicon que descargué está borroso?</h3>
+            <p>Muchos sitios web solo proporcionan un favicon de 16×16 o 32×32 píxeles. Intenta buscar el Apple Touch Icon (180×180) o el Android Chrome icon (192×192 o 512×512) para una mayor calidad. <a href="/zh/index.html">Mzu favicondl</a> obtiene automáticamente múltiples tamaños para que puedas elegir el mejor.</p>
+        </div>
+<div class="cta-box">
             <h3 data-en="Ready to download favicons?" data-zh="准备好下载 Favicon 了吗？">准备好下载 Favicon 了吗？</h3>
             <p data-en="Enter any domain and get favicons in seconds. Free, no sign-up required." data-zh="输入任意域名，几秒钟内获取 Favicon。免费，无需注册。">输入任意域名，几秒钟内获取 Favicon。免费，无需注册。</p>
             <a href="/zh/index.html" class="cta-btn" data-en="Try Mzu favicondl Free →" data-zh="免费试用 Mzu favicondl →">免费试用 Mzu favicondl →</a>
