@@ -437,5 +437,24 @@
       "comparison",
       "format"
     ]
+  },
+  {
+    "slug": "extract-favicon-from-app",
+    "publishDate": "2026-02-24",
+    "titleEn": "How to Extract Favicons from Web Apps: A Dev's Guide (2026)",
+    "titleZh": "如何从Web应用中提取Favicon：开发者指南 (2026)",
+    "titleJa": "Webアプリからファビコンを抽出する方法：開発者ガイド (2026年版)",
+    "titleKo": "웹 앱에서 파비콘 추출 방법: 개발자 가이드 (2026)",
+    "titleEs": "Cómo Extraer Favicons de Web Apps: Guía para Desarrolladores (2026)",
+    "descEn": "Need to extract favicons and app icons from a Progressive Web App (PWA)? Mzu favicondl simplifies finding and downloading all manifest, Apple Touch, and HTML icons.",
+    "descZh": "需要从渐进式Web应用 (PWA) 中提取favicon和应用图标吗？Mzu favicondl能帮你轻松找到并下载所有Manifest、Apple Touch和HTML图标。",
+    "descJa": "プログレッシブウェブアプリ (PWA) からファビコンやアプリアイコンを抽出したいですか？Mzu favicondlを使えば、マニフェスト、Apple Touch、HTMLの全アイコンを簡単に見つけてダウンロードできます。",
+    "descKo": "PWA(Progressive Web App)에서 파비콘과 앱 아이콘을 추출해야 하시나요? Mzu favicondl은 모든 Manifest, Apple Touch, HTML 아이콘을 쉽게 찾아 다운로드할 수 있도록 도와줍니다.",
+    "descEs": "¿Necesitas extraer favicons e iconos de aplicaciones de una PWA? Mzu favicondl simplifica la búsqueda y descarga de todos los iconos del manifest, Apple Touch y HTML.",
+    "keyword": "how to extract favicon from app",
+    "tags": [
+      "how-to",
+      "extraction"
+    ]
   }
 ]
