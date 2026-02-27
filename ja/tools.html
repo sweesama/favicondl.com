@@ -4,6 +4,7 @@
     <title>ツール - Mzu favicondl</title>
     <meta name="description" content="Mzu favicondl ツール - 画像からファビコン変換、一括処理、フォーマット変換">
     <meta name="keywords" content="image to favicon, favicon generator, batch favicon, format converter, PNG to ICO, favicon maker, free favicon tool">
+    <meta name="baidu-site-verification" content="codeva-TQEbMwU84J">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://favicondl.com/ja/tools.html">
     <link rel="alternate" hreflang="en" href="https://favicondl.com/tools.html">
@@ -18,156 +19,162 @@
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
@@ -201,14 +208,14 @@
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
+
     <!-- Anime.js for animations -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
-    
+
     <!-- Custom styles -->
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-        
+
         * {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             -webkit-font-smoothing: antialiased;
@@ -231,7 +238,10 @@
         }
 
         /* Language Dropdown */
-        .lang-dropdown { position: relative; }
+        .lang-dropdown {
+            position: relative;
+        }
+
         .lang-btn {
             display: flex;
             align-items: center;
@@ -246,7 +256,11 @@
             font-weight: 500;
             color: #1d1d1f;
         }
-        .lang-btn:hover { background: #f5f5f7; }
+
+        .lang-btn:hover {
+            background: #f5f5f7;
+        }
+
         .lang-menu {
             position: absolute;
             right: 0;
@@ -254,8 +268,8 @@
             min-width: 140px;
             background: #fff;
             border-radius: 12px;
-            box-shadow: 0 4px 24px rgba(0,0,0,0.12);
-            border: 1px solid rgba(0,0,0,0.06);
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
+            border: 1px solid rgba(0, 0, 0, 0.06);
             padding: 4px;
             z-index: 60;
             opacity: 0;
@@ -263,11 +277,13 @@
             transition: opacity 0.15s ease, transform 0.15s ease;
             pointer-events: none;
         }
+
         .lang-menu.show {
             opacity: 1;
             transform: translateY(0) scale(1);
             pointer-events: auto;
         }
+
         .lang-option {
             display: flex;
             align-items: center;
@@ -282,14 +298,23 @@
             border-radius: 8px;
             transition: background 0.15s;
         }
-        .lang-option:hover { background: #f5f5f7; }
-        .lang-option.active { color: #0071e3; font-weight: 600; }
+
+        .lang-option:hover {
+            background: #f5f5f7;
+        }
+
+        .lang-option.active {
+            color: #0071e3;
+            font-weight: 600;
+        }
+
         .lang-mobile-group {
             display: flex;
             align-items: center;
             gap: 4px;
             padding: 4px 12px;
         }
+
         .lang-mobile-btn {
             display: flex;
             align-items: center;
@@ -303,10 +328,14 @@
             cursor: pointer;
             transition: all 0.2s;
         }
-        .lang-mobile-btn:hover { background: #f5f5f7; }
+
+        .lang-mobile-btn:hover {
+            background: #f5f5f7;
+        }
+
         .lang-mobile-btn.active {
             background: #f0f5ff;
-            border-color: rgba(0,113,227,0.3);
+            border-color: rgba(0, 113, 227, 0.3);
             color: #0071e3;
             font-weight: 500;
         }
@@ -342,62 +371,74 @@
         .btn-secondary:hover {
             background: rgba(0, 113, 227, 0.08);
         }
-        
+
         .gradient-bg {
             background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
         }
-        
+
         .glass-effect {
             backdrop-filter: blur(10px);
             background: rgba(255, 255, 255, 0.1);
             border: 1px solid rgba(255, 255, 255, 0.2);
         }
-        
+
         .drop-zone {
             border: 2px dashed #d1d5db;
             border-radius: 12px;
             transition: all 0.3s ease;
         }
-        
+
         .drop-zone.drag-over {
             border-color: #3b82f6;
             background-color: #eff6ff;
         }
-        
+
         .tool-card {
             transition: all 0.3s ease;
             cursor: pointer;
         }
-        
+
         .tool-card:hover {
             transform: translateY(-4px);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
         }
-        
+
         .loading-spinner {
             animation: spin 1s linear infinite;
         }
-        
+
         @keyframes spin {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
         }
-        
+
         .fade-in {
             animation: fadeIn 0.3s ease-in-out;
         }
-        
+
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
-        
+
         .preview-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
             gap: 1rem;
         }
-        
+
         .size-preview {
             text-align: center;
             padding: 1rem;
@@ -406,12 +447,12 @@
             border: 2px solid transparent;
             transition: all 0.2s ease;
         }
-        
+
         .size-preview:hover {
             border-color: #3b82f6;
             background: #eff6ff;
         }
-        
+
         .size-preview.selected {
             border-color: #3b82f6;
             background: #eff6ff;
@@ -420,12 +461,13 @@
     <!-- Google tag (gtag.js) -->
     <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-7QLC8QV609');
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-7QLC8QV609');
     </script>
 </head>
+
 <body class="text-gray-900">
     <!-- Navigation -->
     <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
@@ -452,13 +494,13 @@
             </div>
             <div class="md:hidden">
                 <button id="mobile-menu-button" class="nav-link p-2">
-                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                        </svg>
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
                 </button>
             </div>
         </div>
-        
+
         <!-- Mobile menu -->
         <div id="mobile-menu" class="md:hidden hidden">
             <div class="px-4 pt-3 pb-4 space-y-2 bg-white/90 backdrop-blur-xl border-t border-gray-200/50">
@@ -491,7 +533,8 @@
                 <div class="tool-card bg-white rounded-xl shadow-lg p-8" onclick="openTool('image-converter')">
                     <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
                         <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z">
+                            </path>
                         </svg>
                     </div>
                     <h3 class="text-xl font-bold text-center mb-4" data-en="Image to Favicon" data-zh="图片转Favicon">画像→ファビコン</h3>
@@ -500,7 +543,8 @@
                         <span class="inline-flex items-center text-blue-600 font-medium">
                             <span data-en="Get started" data-zh="开始使用">始める</span>
                             <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7">
+                                </path>
                             </svg>
                         </span>
                     </div>
@@ -510,7 +554,8 @@
                 <div class="tool-card bg-white rounded-xl shadow-lg p-8" onclick="openTool('batch-processor')">
                     <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
                         <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10">
+                            </path>
                         </svg>
                     </div>
                     <h3 class="text-xl font-bold text-center mb-4" data-en="Batch Processing" data-zh="批量处理">一括処理</h3>
@@ -519,7 +564,8 @@
                         <span class="inline-flex items-center text-green-600 font-medium">
                             <span data-en="Get started" data-zh="开始使用">始める</span>
                             <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7">
+                                </path>
                             </svg>
                         </span>
                     </div>
@@ -529,7 +575,8 @@
                 <div class="tool-card bg-white rounded-xl shadow-lg p-8" onclick="openTool('format-converter')">
                     <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-6">
                         <svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10">
+                            </path>
                         </svg>
                     </div>
                     <h3 class="text-xl font-bold text-center mb-4" data-en="Format Converter" data-zh="格式转换">フォーマット変換</h3>
@@ -538,7 +585,8 @@
                         <span class="inline-flex items-center text-purple-600 font-medium">
                             <span data-en="Get started" data-zh="开始使用">始める</span>
                             <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7">
+                                </path>
                             </svg>
                         </span>
                     </div>
@@ -560,7 +608,8 @@
                 <div id="drop-zone" class="drop-zone p-12 text-center mb-8">
                     <div id="upload-content">
                         <svg class="w-16 h-16 text-gray-400 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10">
+                            </path>
                         </svg>
                         <h3 class="text-lg font-medium text-gray-900 mb-2" data-en="Drag and drop an image here" data-zh="拖拽图片到此处">ここに画像をドラッグ＆ドロップ</h3>
                         <p class="text-gray-600 mb-4" data-en="Or click to choose a file" data-zh="或点击选择文件">またはクリックしてファイルを選択</p>
@@ -570,7 +619,8 @@
                         </button>
                     </div>
                     <div id="loading-content" class="hidden">
-                        <div class="loading-spinner w-12 h-12 border-4 border-blue-500 border-t-transparent rounded-full mx-auto mb-4"></div>
+                        <div class="loading-spinner w-12 h-12 border-4 border-blue-500 border-t-transparent rounded-full mx-auto mb-4">
+                        </div>
                         <p class="text-gray-600" data-en="Processing..." data-zh="正在处理图片...">処理中...</p>
                     </div>
                 </div>
@@ -761,7 +811,8 @@ stackoverflow.com" class="w-full px-4 py-3 border border-gray-300 rounded-lg foc
                         <h3 class="text-lg font-medium mb-4" data-en="Input" data-zh="输入图标">入力</h3>
                         <div class="drop-zone p-8 text-center mb-4">
                             <svg class="w-12 h-12 text-gray-400 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10">
+                                </path>
                             </svg>
                             <p class="text-gray-600 mb-2" data-en="Drag and drop a file here" data-zh="拖拽图标文件到此处">ここにファイルをドラッグ＆ドロップ</p>
                             <p class="text-sm text-gray-500 mb-4" data-en="Supports ICO, PNG, JPG, SVG" data-zh="支持 ICO, PNG, JPG, SVG 格式">ICO, PNG, JPG, SVG対応</p>
@@ -858,7 +909,8 @@ stackoverflow.com" class="w-full px-4 py-3 border border-gray-300 rounded-lg foc
     <div id="back-to-tools" class="fixed bottom-8 right-8 hidden">
         <button onclick="showToolsGrid()" class="btn-primary" style="box-shadow: 0 8px 24px rgba(0,0,0,0.12);">
             <svg class="w-5 h-5 inline mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18">
+                </path>
             </svg>
             <span data-en="Back to tools" data-zh="返回工具列表">ツール一覧に戻る</span>
         </button>
@@ -867,7 +919,9 @@ stackoverflow.com" class="w-full px-4 py-3 border border-gray-300 rounded-lg foc
     <!-- Footer -->
     <footer class="py-8 px-6 border-t border-gray-200">
         <div class="max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
-            <p class="text-gray-400 text-sm">© <script>document.write(new Date().getFullYear())</script> Mzu favicondl</p>
+            <p class="text-gray-400 text-sm">©
+                <script>document.write(new Date().getFullYear())</script> Mzu favicondl
+            </p>
             <div class="flex gap-6">
                 <a href="/ja/index.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Home" data-zh="首页">ホーム</a>
                 <a href="/ja/documentation.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Docs" data-zh="文档">ドキュメント</a>
@@ -887,5 +941,7 @@ stackoverflow.com" class="w-full px-4 py-3 border border-gray-300 rounded-lg foc
     </div>
 
     <script src="/tools.js?v=20260211b"></script>
+
+
 
 </body></html>

@@ -4,6 +4,7 @@
     <title>文档 - Mzu favicondl</title>
     <meta name="description" content="Mzu favicondl 文档 - Favicon URL 模板与使用指南">
     <meta name="keywords" content="favicon API, favicon URL, Google favicon service, favicon documentation, favicon guide">
+    <meta name="baidu-site-verification" content="codeva-TQEbMwU84J">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://favicondl.com/zh/documentation.html">
     <link rel="alternate" hreflang="en" href="https://favicondl.com/documentation.html">
@@ -18,156 +19,162 @@
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
@@ -201,7 +208,7 @@
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
+
     <!-- Syntax highlighting -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
@@ -209,11 +216,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-php.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-java.min.js"></script>
-    
+
     <!-- Custom styles -->
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-        
+
         * {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             -webkit-font-smoothing: antialiased;
@@ -236,7 +243,10 @@
         }
 
         /* Language Dropdown */
-        .lang-dropdown { position: relative; }
+        .lang-dropdown {
+            position: relative;
+        }
+
         .lang-btn {
             display: flex;
             align-items: center;
@@ -251,7 +261,11 @@
             font-weight: 500;
             color: #1d1d1f;
         }
-        .lang-btn:hover { background: #f5f5f7; }
+
+        .lang-btn:hover {
+            background: #f5f5f7;
+        }
+
         .lang-menu {
             position: absolute;
             right: 0;
@@ -259,8 +273,8 @@
             min-width: 140px;
             background: #fff;
             border-radius: 12px;
-            box-shadow: 0 4px 24px rgba(0,0,0,0.12);
-            border: 1px solid rgba(0,0,0,0.06);
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
+            border: 1px solid rgba(0, 0, 0, 0.06);
             padding: 4px;
             z-index: 60;
             opacity: 0;
@@ -268,11 +282,13 @@
             transition: opacity 0.15s ease, transform 0.15s ease;
             pointer-events: none;
         }
+
         .lang-menu.show {
             opacity: 1;
             transform: translateY(0) scale(1);
             pointer-events: auto;
         }
+
         .lang-option {
             display: flex;
             align-items: center;
@@ -287,14 +303,23 @@
             border-radius: 8px;
             transition: background 0.15s;
         }
-        .lang-option:hover { background: #f5f5f7; }
-        .lang-option.active { color: #0071e3; font-weight: 600; }
+
+        .lang-option:hover {
+            background: #f5f5f7;
+        }
+
+        .lang-option.active {
+            color: #0071e3;
+            font-weight: 600;
+        }
+
         .lang-mobile-group {
             display: flex;
             align-items: center;
             gap: 4px;
             padding: 4px 12px;
         }
+
         .lang-mobile-btn {
             display: flex;
             align-items: center;
@@ -308,24 +333,28 @@
             cursor: pointer;
             transition: all 0.2s;
         }
-        .lang-mobile-btn:hover { background: #f5f5f7; }
+
+        .lang-mobile-btn:hover {
+            background: #f5f5f7;
+        }
+
         .lang-mobile-btn.active {
             background: #f0f5ff;
-            border-color: rgba(0,113,227,0.3);
+            border-color: rgba(0, 113, 227, 0.3);
             color: #0071e3;
             font-weight: 500;
         }
-        
+
         .gradient-bg {
             background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
         }
-        
+
         .code-block {
             background: #1a1a1a;
             border-radius: 8px;
             overflow: hidden;
         }
-        
+
         .code-header {
             background: #2d2d2d;
             padding: 12px 16px;
@@ -334,7 +363,7 @@
             justify-content: between;
             align-items: center;
         }
-        
+
         .copy-button {
             background: #3b82f6;
             color: white;
@@ -345,11 +374,11 @@
             cursor: pointer;
             transition: background-color 0.2s;
         }
-        
+
         .copy-button:hover {
             background: #2563eb;
         }
-        
+
         .api-endpoint {
             background: #f8fafc;
             border: 1px solid #e2e8f0;
@@ -357,7 +386,7 @@
             padding: 16px;
             margin: 16px 0;
         }
-        
+
         .method-get {
             background: #10b981;
             color: white;
@@ -366,43 +395,51 @@
             font-size: 12px;
             font-weight: 600;
         }
-        
+
         .parameter-table {
             width: 100%;
             border-collapse: collapse;
             margin: 16px 0;
         }
-        
+
         .parameter-table th,
         .parameter-table td {
             padding: 12px;
             text-align: left;
             border-bottom: 1px solid #e2e8f0;
         }
-        
+
         .parameter-table th {
             background: #f8fafc;
             font-weight: 600;
         }
-        
+
         .fade-in {
             animation: fadeIn 0.3s ease-in-out;
         }
-        
+
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
     </style>
     <!-- Google tag (gtag.js) -->
     <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-7QLC8QV609');
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-7QLC8QV609');
     </script>
 </head>
+
 <body class="text-gray-900">
     <!-- Navigation -->
     <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
@@ -429,13 +466,13 @@
             </div>
             <div class="md:hidden">
                 <button id="mobile-menu-button" class="nav-link p-2">
-                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                        </svg>
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
                 </button>
             </div>
         </div>
-        
+
         <!-- Mobile menu -->
         <div id="mobile-menu" class="md:hidden hidden">
             <div class="px-4 pt-3 pb-4 space-y-2 bg-white/90 backdrop-blur-xl border-t border-gray-200/50">
@@ -507,7 +544,7 @@
                         <p class="text-gray-600 mb-6">
                             <span data-en="Mzu favicondl provides copy-ready favicon URL templates and a favicon extractor UI. By default, it uses a Cloudflare Worker to discover real icons and proxy images for downloads." data-zh="Mzu favicondl 提供可直接复制的 favicon URL 模板与图标提取页面。默认启用 Cloudflare Worker 来发现更真实的图标来源，并通过图片代理支持下载。">Mzu favicondl 提供可直接复制的 favicon URL 模板与图标提取页面。默认启用 Cloudflare Worker 来发现更真实的图标来源，并通过图片代理支持下载。</span>
                         </p>
-                        
+
                         <div class="grid md:grid-cols-3 gap-6 mb-6">
                             <div class="text-center p-4 bg-blue-50 rounded-lg">
                                 <svg class="w-8 h-8 text-blue-600 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -525,7 +562,8 @@
                             </div>
                             <div class="text-center p-4 bg-purple-50 rounded-lg">
                                 <svg class="w-8 h-8 text-purple-600 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z">
+                                    </path>
                                 </svg>
                                 <h3 class="font-semibold text-purple-900" data-en="Reliable" data-zh="稳定可靠">稳定可靠</h3>
                                 <p class="text-sm text-purple-700" data-en="Designed for high availability" data-zh="99.9% 可用性保障">99.9% 可用性保障</p>
@@ -556,7 +594,7 @@
                 <section id="endpoints" class="mb-12">
                     <div class="bg-white rounded-lg shadow-sm p-8">
                         <h2 class="text-2xl font-bold text-gray-900 mb-6" data-en="Endpoints" data-zh="接口端点">接口端点</h2>
-                        
+
                         <div class="api-endpoint">
                             <div class="flex items-center justify-between mb-4">
                                 <div class="flex items-center space-x-3">
@@ -566,10 +604,10 @@
                                 <button class="copy-button" onclick="copyToClipboard('https://www.google.com/s2/favicons?domain=example.com&amp;sz=32')" data-en="Copy" data-zh="复制">复制</button>
                             </div>
                             <p class="text-gray-600 mb-4" data-en="Get the favicon of a specified domain" data-zh="获取指定域名的favicon图标">获取指定域名的favicon图标</p>
-                            
+
                             <h4 class="font-semibold mb-2" data-en="Base URL:" data-zh="基础URL：">基础URL：</h4>
                             <code class="block bg-gray-100 p-3 rounded text-sm mb-4">https://www.google.com/s2/favicons</code>
-                            
+
                             <h4 class="font-semibold mb-2" data-en="Full Example:" data-zh="完整示例：">完整示例：</h4>
                             <code class="block bg-gray-100 p-3 rounded text-sm">https://www.google.com/s2/favicons?domain=example.com&amp;sz=128</code>
                         </div>
@@ -580,7 +618,7 @@
                 <section id="parameters" class="mb-12">
                     <div class="bg-white rounded-lg shadow-sm p-8">
                         <h2 class="text-2xl font-bold text-gray-900 mb-6" data-en="Parameters" data-zh="参数说明">参数说明</h2>
-                        
+
                         <table class="parameter-table">
                             <thead>
                                 <tr>
@@ -608,10 +646,10 @@
                                 </tr>
                             </tbody>
                         </table>
-                        
+
                         <div class="mt-6">
                             <h4 class="font-semibold mb-3" data-en="Parameter Details:" data-zh="参数详情：">参数详情：</h4>
-                            
+
                             <div class="space-y-4">
                                 <div class="border-l-4 border-blue-500 pl-4">
                                     <h5 class="font-medium" data-en="domain" data-zh="域名">域名</h5>
@@ -623,7 +661,7 @@
                                         <li>• sub.example.com</li>
                                     </ul>
                                 </div>
-                                
+
                                 <div class="border-l-4 border-green-500 pl-4">
                                     <h5 class="font-medium" data-en="sz" data-zh="尺寸">尺寸</h5>
                                     <p class="text-gray-600 text-sm" data-en="Favicon size options:" data-zh="图标尺寸选项：">图标尺寸选项：</p>
@@ -643,7 +681,7 @@
                 <section id="responses" class="mb-12">
                     <div class="bg-white rounded-lg shadow-sm p-8">
                         <h2 class="text-2xl font-bold text-gray-900 mb-6" data-en="Responses" data-zh="响应格式">响应格式</h2>
-                        
+
                         <h3 class="text-lg font-semibold mb-4" data-en="Successful Response (JSON format)" data-zh="成功响应 (JSON格式)">成功响应 (JSON格式)</h3>
                         <div class="code-block mb-6">
                             <div class="code-header">
@@ -661,7 +699,7 @@
   "timestamp": "2026-01-15T10:30:00Z"
 }</code></pre>
                         </div>
-                        
+
                         <h3 class="text-lg font-semibold mb-4" data-en="Error Response" data-zh="错误响应">错误响应</h3>
                         <div class="code-block mb-6">
                             <div class="code-header">
@@ -676,7 +714,7 @@
   "timestamp": "2026-01-15T10:30:00Z"
 }</code></pre>
                         </div>
-                        
+
                         <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
                             <div class="flex items-center">
                                 <svg class="w-5 h-5 text-yellow-400 mr-2" fill="currentColor" viewBox="0 0 20 20">
@@ -694,7 +732,7 @@
                 <section id="examples" class="mb-12">
                     <div class="bg-white rounded-lg shadow-sm p-8">
                         <h2 class="text-2xl font-bold text-gray-900 mb-6" data-en="Examples" data-zh="使用示例">使用示例</h2>
-                        
+
                         <!-- JavaScript Example -->
                         <div class="mb-8">
                             <h3 class="text-lg font-semibold mb-4" data-en="JavaScript (Fetch)" data-zh="JavaScript (Fetch)">JavaScript (Fetch)</h3>
@@ -717,7 +755,7 @@ img.height = 32;
 document.body.appendChild(img);</code></pre>
                             </div>
                         </div>
-                        
+
                         <!-- Python Example -->
                         <div class="mb-8">
                             <h3 class="text-lg font-semibold mb-4" data-en="Python (Requests)" data-zh="Python (Requests)">Python (Requests)</h3>
@@ -733,7 +771,7 @@ url = get_favicon_url('example.com', 128)
 print(url)</code></pre>
                             </div>
                         </div>
-                        
+
                         <!-- PHP Example -->
                         <div class="mb-8">
                             <h3 class="text-lg font-semibold mb-4" data-en="PHP (cURL)" data-zh="PHP (cURL)">PHP (cURL)</h3>
@@ -752,7 +790,7 @@ echo $url;
 ?--></code></pre>
                             </div>
                         </div>
-                        
+
                         <!-- HTML Example -->
                         <div class="mb-8">
                             <h3 class="text-lg font-semibold mb-4" data-en="HTML Direct Reference" data-zh="HTML 直接引用">HTML 直接引用</h3>
@@ -778,9 +816,9 @@ echo $url;
                 <section id="errors" class="mb-12">
                     <div class="bg-white rounded-lg shadow-sm p-8">
                         <h2 class="text-2xl font-bold text-gray-900 mb-6" data-en="Errors" data-zh="错误处理">错误处理</h2>
-                        
+
                         <p class="text-gray-600 mb-6" data-en="The API returns the corresponding HTTP status code and error message when an error occurs." data-zh="API在遇到错误时会返回相应的HTTP状态码和错误信息。">API在遇到错误时会返回相应的HTTP状态码和错误信息。</p>
-                        
+
                         <table class="parameter-table">
                             <thead>
                                 <tr>
@@ -830,7 +868,7 @@ echo $url;
                 <section id="rate-limits" class="mb-12">
                     <div class="bg-white rounded-lg shadow-sm p-8">
                         <h2 class="text-2xl font-bold text-gray-900 mb-6" data-en="Rate Limits" data-zh="使用限制">使用限制</h2>
-                        
+
                         <div class="space-y-6">
                             <div class="bg-green-50 border border-green-200 rounded-lg p-4">
                                 <div class="flex items-center mb-2">
@@ -841,7 +879,7 @@ echo $url;
                                 </div>
                                 <p class="text-green-700 text-sm" data-en="No registration required, completely free to use all features" data-zh="无需注册，完全免费使用所有功能">无需注册，完全免费使用所有功能</p>
                             </div>
-                            
+
                             <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
                                 <div class="flex items-center mb-2">
                                     <svg class="w-5 h-5 text-yellow-400 mr-2" fill="currentColor" viewBox="0 0 20 20">
@@ -855,7 +893,7 @@ echo $url;
                                     <li>• <span data-en="Up to 10000 requests per day" data-zh="每日最多 10000 个请求">每日最多 10000 个请求</span></li>
                                 </ul>
                             </div>
-                            
+
                             <div class="bg-blue-50 border border-blue-200 rounded-lg p-4">
                                 <div class="flex items-center mb-2">
                                     <svg class="w-5 h-5 text-blue-400 mr-2" fill="currentColor" viewBox="0 0 20 20">
@@ -875,7 +913,9 @@ echo $url;
     <!-- Footer -->
     <footer class="py-8 px-6 border-t border-gray-200">
         <div class="max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
-            <p class="text-gray-400 text-sm">© <script>document.write(new Date().getFullYear())</script> Mzu favicondl</p>
+            <p class="text-gray-400 text-sm">©
+                <script>document.write(new Date().getFullYear())</script> Mzu favicondl
+            </p>
             <div class="flex gap-6">
                 <a href="/zh/index.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Home" data-zh="首页">首页</a>
                 <a href="/zh/documentation.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Docs" data-zh="文档">文档</a>
@@ -906,19 +946,19 @@ echo $url;
             try {
                 const pathMatch = window.location.pathname.match(/^\/(zh|ja|ko|es)(\/|$)/);
                 if (pathMatch) return pathMatch[1];
-            } catch {}
+            } catch { }
             // 2. 查询参数
             try {
                 const url = new URL(window.location.href);
                 const fromQuery = String(url.searchParams.get('lang') || '').trim();
                 if (SUPPORTED.includes(fromQuery)) return fromQuery;
-            } catch {}
+            } catch { }
             // 3. localStorage
             const STORAGE_KEY = 'mzu_favicondl_lang';
             try {
                 const saved = String(localStorage.getItem(STORAGE_KEY) || '').trim();
                 if (saved === 'zh' || saved === 'en') return saved;
-            } catch {}
+            } catch { }
             return 'en';
         }
 
@@ -940,7 +980,7 @@ echo $url;
                     try {
                         const w = new URL(window.location.href).searchParams.get('worker');
                         if (w) url.searchParams.set('worker', w);
-                    } catch {}
+                    } catch { }
                     window.location.href = url.href;
                 } catch {
                     window.location.href = a.href;
@@ -1061,10 +1101,10 @@ echo $url;
         function showToast(message) {
             const toast = document.getElementById('success-toast');
             const toastMessage = document.getElementById('toast-message');
-            
+
             toastMessage.textContent = message;
             toast.classList.remove('translate-x-[200%]');
-            
+
             setTimeout(() => {
                 toast.classList.add('translate-x-[200%]');
             }, 3000);
@@ -1078,5 +1118,7 @@ echo $url;
             Prism.highlightAll();
         });
     </script>
+
+
 
 </body></html>

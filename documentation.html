@@ -4,6 +4,7 @@
     <title>Docs - Mzu favicondl</title>
     <meta name="description" content="Favicon URL usage guide (based on free services).">
     <meta name="keywords" content="favicon API, favicon URL, Google favicon service, favicon documentation, favicon guide">
+    <meta name="baidu-site-verification" content="codeva-TQEbMwU84J">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://favicondl.com/documentation.html">
     <link rel="alternate" hreflang="en" href="https://favicondl.com/documentation.html">
@@ -18,156 +19,162 @@
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
@@ -201,7 +208,7 @@
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
+
     <!-- Syntax highlighting -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
@@ -209,11 +216,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-php.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-java.min.js"></script>
-    
+
     <!-- Custom styles -->
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-        
+
         * {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             -webkit-font-smoothing: antialiased;
@@ -236,7 +243,10 @@
         }
 
         /* Language Dropdown */
-        .lang-dropdown { position: relative; }
+        .lang-dropdown {
+            position: relative;
+        }
+
         .lang-btn {
             display: flex;
             align-items: center;
@@ -251,7 +261,11 @@
             font-weight: 500;
             color: #1d1d1f;
         }
-        .lang-btn:hover { background: #f5f5f7; }
+
+        .lang-btn:hover {
+            background: #f5f5f7;
+        }
+
         .lang-menu {
             position: absolute;
             right: 0;
@@ -259,8 +273,8 @@
             min-width: 140px;
             background: #fff;
             border-radius: 12px;
-            box-shadow: 0 4px 24px rgba(0,0,0,0.12);
-            border: 1px solid rgba(0,0,0,0.06);
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
+            border: 1px solid rgba(0, 0, 0, 0.06);
             padding: 4px;
             z-index: 60;
             opacity: 0;
@@ -268,11 +282,13 @@
             transition: opacity 0.15s ease, transform 0.15s ease;
             pointer-events: none;
         }
+
         .lang-menu.show {
             opacity: 1;
             transform: translateY(0) scale(1);
             pointer-events: auto;
         }
+
         .lang-option {
             display: flex;
             align-items: center;
@@ -287,14 +303,23 @@
             border-radius: 8px;
             transition: background 0.15s;
         }
-        .lang-option:hover { background: #f5f5f7; }
-        .lang-option.active { color: #0071e3; font-weight: 600; }
+
+        .lang-option:hover {
+            background: #f5f5f7;
+        }
+
+        .lang-option.active {
+            color: #0071e3;
+            font-weight: 600;
+        }
+
         .lang-mobile-group {
             display: flex;
             align-items: center;
             gap: 4px;
             padding: 4px 12px;
         }
+
         .lang-mobile-btn {
             display: flex;
             align-items: center;
@@ -308,24 +333,28 @@
             cursor: pointer;
             transition: all 0.2s;
         }
-        .lang-mobile-btn:hover { background: #f5f5f7; }
+
+        .lang-mobile-btn:hover {
+            background: #f5f5f7;
+        }
+
         .lang-mobile-btn.active {
             background: #f0f5ff;
-            border-color: rgba(0,113,227,0.3);
+            border-color: rgba(0, 113, 227, 0.3);
             color: #0071e3;
             font-weight: 500;
         }
-        
+
         .gradient-bg {
             background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
         }
-        
+
         .code-block {
             background: #1a1a1a;
             border-radius: 8px;
             overflow: hidden;
         }
-        
+
         .code-header {
             background: #2d2d2d;
             padding: 12px 16px;
@@ -334,7 +363,7 @@
             justify-content: between;
             align-items: center;
         }
-        
+
         .copy-button {
             background: #3b82f6;
             color: white;
@@ -345,11 +374,11 @@
             cursor: pointer;
             transition: background-color 0.2s;
         }
-        
+
         .copy-button:hover {
             background: #2563eb;
         }
-        
+
         .api-endpoint {
             background: #f8fafc;
             border: 1px solid #e2e8f0;
@@ -357,7 +386,7 @@
             padding: 16px;
             margin: 16px 0;
         }
-        
+
         .method-get {
             background: #10b981;
             color: white;
@@ -366,43 +395,51 @@
             font-size: 12px;
             font-weight: 600;
         }
-        
+
         .parameter-table {
             width: 100%;
             border-collapse: collapse;
             margin: 16px 0;
         }
-        
+
         .parameter-table th,
         .parameter-table td {
             padding: 12px;
             text-align: left;
             border-bottom: 1px solid #e2e8f0;
         }
-        
+
         .parameter-table th {
             background: #f8fafc;
             font-weight: 600;
         }
-        
+
         .fade-in {
             animation: fadeIn 0.3s ease-in-out;
         }
-        
+
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
     </style>
     <!-- Google tag (gtag.js) -->
     <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-7QLC8QV609');
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-7QLC8QV609');
     </script>
 </head>
+
 <body class="text-gray-900">
     <!-- Navigation -->
     <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
@@ -429,13 +466,13 @@
             </div>
             <div class="md:hidden">
                 <button id="mobile-menu-button" class="nav-link p-2">
-                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                        </svg>
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
                 </button>
             </div>
         </div>
-        
+
         <!-- Mobile menu -->
         <div id="mobile-menu" class="md:hidden hidden">
             <div class="px-4 pt-3 pb-4 space-y-2 bg-white/90 backdrop-blur-xl border-t border-gray-200/50">
@@ -456,7 +493,8 @@
     <section class="pt-16 pb-10 px-6">
         <div class="max-w-3xl mx-auto text-center">
             <h1 class="text-5xl font-semibold text-gray-900 tracking-tight mb-4" data-en="Docs" data-zh="文档">Docs</h1>
-            <p class="text-xl text-gray-500" data-en="Copy-ready favicon URL templates (based on free services)." data-zh="可直接复制使用的 favicon URL 模板（基于免费服务）。">Copy-ready favicon URL templates (based on free services).</p>
+            <p class="text-xl text-gray-500" data-en="Copy-ready favicon URL templates (based on free services)." data-zh="可直接复制使用的 favicon URL 模板（基于免费服务）。">Copy-ready favicon URL templates (based on free services).
+            </p>
         </div>
     </section>
 
@@ -467,7 +505,8 @@
             <div class="lg:col-span-1">
                 <div class="sticky top-24">
                     <nav class="bg-white rounded-lg shadow-sm p-6">
-                        <h3 class="font-semibold text-gray-900 mb-4" data-en="On this page" data-zh="文档导航">On this page</h3>
+                        <h3 class="font-semibold text-gray-900 mb-4" data-en="On this page" data-zh="文档导航">On this page
+                        </h3>
                         <ul class="space-y-2">
                             <li>
                                 <a href="#overview" class="text-blue-600 hover:text-blue-800 text-sm block py-1" data-en="Overview" data-zh="概述">Overview</a>
@@ -505,9 +544,12 @@
                     <div class="bg-white rounded-lg shadow-sm p-8">
                         <h2 class="text-2xl font-bold text-gray-900 mb-6" data-en="Overview" data-zh="概述">Overview</h2>
                         <p class="text-gray-600 mb-6">
-                            <span data-en="Mzu favicondl provides copy-ready favicon URL templates and a favicon extractor UI. By default, it uses a Cloudflare Worker to discover real icons and proxy images for downloads." data-zh="Mzu favicondl 提供可直接复制的 favicon URL 模板与图标提取页面。默认启用 Cloudflare Worker 来发现更真实的图标来源，并通过图片代理支持下载。">Mzu favicondl provides copy-ready favicon URL templates and a favicon extractor UI. By default, it uses a Cloudflare Worker to discover real icons and proxy images for downloads.</span>
+                            <span data-en="Mzu favicondl provides copy-ready favicon URL templates and a favicon extractor UI. By default, it uses a Cloudflare Worker to discover real icons and proxy images for downloads." data-zh="Mzu favicondl 提供可直接复制的 favicon URL 模板与图标提取页面。默认启用 Cloudflare Worker 来发现更真实的图标来源，并通过图片代理支持下载。">Mzu
+                                favicondl provides copy-ready favicon URL templates and a favicon extractor UI. By
+                                default, it uses a Cloudflare Worker to discover real icons and proxy images for
+                                downloads.</span>
                         </p>
-                        
+
                         <div class="grid md:grid-cols-3 gap-6 mb-6">
                             <div class="text-center p-4 bg-blue-50 rounded-lg">
                                 <svg class="w-8 h-8 text-blue-600 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -521,13 +563,16 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                                 </svg>
                                 <h3 class="font-semibold text-green-900" data-en="Free" data-zh="免费使用">Free</h3>
-                                <p class="text-sm text-green-700" data-en="No signup required" data-zh="完全免费，无需注册">No signup required</p>
+                                <p class="text-sm text-green-700" data-en="No signup required" data-zh="完全免费，无需注册">No
+                                    signup required</p>
                             </div>
                             <div class="text-center p-4 bg-purple-50 rounded-lg">
                                 <svg class="w-8 h-8 text-purple-600 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z">
+                                    </path>
                                 </svg>
-                                <h3 class="font-semibold text-purple-900" data-en="Reliable" data-zh="稳定可靠">Reliable</h3>
+                                <h3 class="font-semibold text-purple-900" data-en="Reliable" data-zh="稳定可靠">Reliable
+                                </h3>
                                 <p class="text-sm text-purple-700" data-en="Designed for high availability" data-zh="99.9% 可用性保障">Designed for high availability</p>
                             </div>
                         </div>
@@ -537,15 +582,18 @@
                 <!-- Authentication Section -->
                 <section id="authentication" class="mb-12">
                     <div class="bg-white rounded-lg shadow-sm p-8">
-                        <h2 class="text-2xl font-bold text-gray-900 mb-6" data-en="Authentication" data-zh="认证">Authentication</h2>
-                        <p class="text-gray-600 mb-4" data-en="This project uses free Favicon services URL templates, no authentication or API Key is required." data-zh="本项目使用免费的 Favicon 服务 URL 模板，不需要任何认证或 API Key。">This project uses free Favicon services URL templates, no authentication or API Key is required.</p>
+                        <h2 class="text-2xl font-bold text-gray-900 mb-6" data-en="Authentication" data-zh="认证">
+                            Authentication</h2>
+                        <p class="text-gray-600 mb-4" data-en="This project uses free Favicon services URL templates, no authentication or API Key is required." data-zh="本项目使用免费的 Favicon 服务 URL 模板，不需要任何认证或 API Key。">This project uses free Favicon
+                            services URL templates, no authentication or API Key is required.</p>
                         <div class="bg-blue-50 border border-blue-200 rounded-lg p-4">
                             <div class="flex items-center">
                                 <svg class="w-5 h-5 text-blue-400 mr-2" fill="currentColor" viewBox="0 0 20 20">
                                     <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path>
                                 </svg>
                                 <p class="text-blue-700">
-                                    <strong data-en="Note:" data-zh="注意：">Note:</strong> <span data-en="Although we don't require an API Key, please use the service reasonably to avoid excessive requests." data-zh="虽然我们不需要API Key，但请合理使用服务，避免过度请求。">Although we don't require an API Key, please use the service reasonably to avoid excessive requests.</span>
+                                    <strong data-en="Note:" data-zh="注意：">Note:</strong> <span data-en="Although we don't require an API Key, please use the service reasonably to avoid excessive requests." data-zh="虽然我们不需要API Key，但请合理使用服务，避免过度请求。">Although we don't require an API Key,
+                                        please use the service reasonably to avoid excessive requests.</span>
                                 </p>
                             </div>
                         </div>
@@ -555,8 +603,9 @@
                 <!-- Endpoints Section -->
                 <section id="endpoints" class="mb-12">
                     <div class="bg-white rounded-lg shadow-sm p-8">
-                        <h2 class="text-2xl font-bold text-gray-900 mb-6" data-en="Endpoints" data-zh="接口端点">Endpoints</h2>
-                        
+                        <h2 class="text-2xl font-bold text-gray-900 mb-6" data-en="Endpoints" data-zh="接口端点">Endpoints
+                        </h2>
+
                         <div class="api-endpoint">
                             <div class="flex items-center justify-between mb-4">
                                 <div class="flex items-center space-x-3">
@@ -566,10 +615,10 @@
                                 <button class="copy-button" onclick="copyToClipboard('https://www.google.com/s2/favicons?domain=example.com&amp;sz=32')" data-en="Copy" data-zh="复制">Copy</button>
                             </div>
                             <p class="text-gray-600 mb-4" data-en="Get the favicon of a specified domain" data-zh="获取指定域名的favicon图标">Get the favicon of a specified domain</p>
-                            
+
                             <h4 class="font-semibold mb-2" data-en="Base URL:" data-zh="基础URL：">Base URL:</h4>
                             <code class="block bg-gray-100 p-3 rounded text-sm mb-4">https://www.google.com/s2/favicons</code>
-                            
+
                             <h4 class="font-semibold mb-2" data-en="Full Example:" data-zh="完整示例：">Full Example:</h4>
                             <code class="block bg-gray-100 p-3 rounded text-sm">https://www.google.com/s2/favicons?domain=example.com&amp;sz=128</code>
                         </div>
@@ -579,8 +628,9 @@
                 <!-- Parameters Section -->
                 <section id="parameters" class="mb-12">
                     <div class="bg-white rounded-lg shadow-sm p-8">
-                        <h2 class="text-2xl font-bold text-gray-900 mb-6" data-en="Parameters" data-zh="参数说明">Parameters</h2>
-                        
+                        <h2 class="text-2xl font-bold text-gray-900 mb-6" data-en="Parameters" data-zh="参数说明">Parameters
+                        </h2>
+
                         <table class="parameter-table">
                             <thead>
                                 <tr>
@@ -597,21 +647,24 @@
                                     <td>string</td>
                                     <td data-en="Yes" data-zh="是">Yes</td>
                                     <td>-</td>
-                                    <td data-en="The domain to get the favicon for, e.g. example.com" data-zh="要获取favicon的域名，如：example.com">The domain to get the favicon for, e.g. example.com</td>
+                                    <td data-en="The domain to get the favicon for, e.g. example.com" data-zh="要获取favicon的域名，如：example.com">The domain to get the favicon for, e.g.
+                                        example.com</td>
                                 </tr>
                                 <tr>
                                     <td><code>sz</code></td>
                                     <td>number</td>
                                     <td data-en="No" data-zh="否">No</td>
                                     <td>32</td>
-                                    <td data-en="The size of the favicon, e.g. 16, 32, 64, 128" data-zh="图标尺寸（像素），常用：16、32、64、128 等">The size of the favicon, e.g. 16, 32, 64, 128</td>
+                                    <td data-en="The size of the favicon, e.g. 16, 32, 64, 128" data-zh="图标尺寸（像素），常用：16、32、64、128 等">The size of the favicon, e.g. 16, 32, 64,
+                                        128</td>
                                 </tr>
                             </tbody>
                         </table>
-                        
+
                         <div class="mt-6">
-                            <h4 class="font-semibold mb-3" data-en="Parameter Details:" data-zh="参数详情：">Parameter Details:</h4>
-                            
+                            <h4 class="font-semibold mb-3" data-en="Parameter Details:" data-zh="参数详情：">Parameter
+                                Details:</h4>
+
                             <div class="space-y-4">
                                 <div class="border-l-4 border-blue-500 pl-4">
                                     <h5 class="font-medium" data-en="domain" data-zh="域名">domain</h5>
@@ -623,10 +676,11 @@
                                         <li>• sub.example.com</li>
                                     </ul>
                                 </div>
-                                
+
                                 <div class="border-l-4 border-green-500 pl-4">
                                     <h5 class="font-medium" data-en="sz" data-zh="尺寸">sz</h5>
-                                    <p class="text-gray-600 text-sm" data-en="Favicon size options:" data-zh="图标尺寸选项：">Favicon size options:</p>
+                                    <p class="text-gray-600 text-sm" data-en="Favicon size options:" data-zh="图标尺寸选项：">
+                                        Favicon size options:</p>
                                     <ul class="text-sm text-gray-600 mt-1 space-y-1">
                                         <li>• <code>16</code> - 16x16</li>
                                         <li>• <code>32</code> - 32x32</li>
@@ -642,12 +696,14 @@
                 <!-- Responses Section -->
                 <section id="responses" class="mb-12">
                     <div class="bg-white rounded-lg shadow-sm p-8">
-                        <h2 class="text-2xl font-bold text-gray-900 mb-6" data-en="Responses" data-zh="响应格式">Responses</h2>
-                        
+                        <h2 class="text-2xl font-bold text-gray-900 mb-6" data-en="Responses" data-zh="响应格式">Responses
+                        </h2>
+
                         <h3 class="text-lg font-semibold mb-4" data-en="Successful Response (JSON format)" data-zh="成功响应 (JSON格式)">Successful Response (JSON format)</h3>
                         <div class="code-block mb-6">
                             <div class="code-header">
-                                <span class="text-gray-300 text-sm" data-en="JSON Response" data-zh="JSON响应">JSON Response</span>
+                                <span class="text-gray-300 text-sm" data-en="JSON Response" data-zh="JSON响应">JSON
+                                    Response</span>
                                 <button class="copy-button" onclick="copyCode('success-response')" data-en="Copy" data-zh="复制代码">Copy</button>
                             </div>
                             <pre class="p-4 text-sm"><code id="success-response" class="language-json">{
@@ -661,11 +717,13 @@
   "timestamp": "2026-01-15T10:30:00Z"
 }</code></pre>
                         </div>
-                        
-                        <h3 class="text-lg font-semibold mb-4" data-en="Error Response" data-zh="错误响应">Error Response</h3>
+
+                        <h3 class="text-lg font-semibold mb-4" data-en="Error Response" data-zh="错误响应">Error Response
+                        </h3>
                         <div class="code-block mb-6">
                             <div class="code-header">
-                                <span class="text-gray-300 text-sm" data-en="Error Response" data-zh="错误响应">Error Response</span>
+                                <span class="text-gray-300 text-sm" data-en="Error Response" data-zh="错误响应">Error
+                                    Response</span>
                                 <button class="copy-button" onclick="copyCode('error-response')" data-en="Copy" data-zh="复制代码">Copy</button>
                             </div>
                             <pre class="p-4 text-sm"><code id="error-response" class="language-json">{
@@ -676,14 +734,16 @@
   "timestamp": "2026-01-15T10:30:00Z"
 }</code></pre>
                         </div>
-                        
+
                         <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
                             <div class="flex items-center">
                                 <svg class="w-5 h-5 text-yellow-400 mr-2" fill="currentColor" viewBox="0 0 20 20">
                                     <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path>
                                 </svg>
                                 <p class="text-yellow-700">
-                                    <strong data-en="Note:" data-zh="注意：">Note:</strong> <span data-en="When using format=redirect, the API will directly redirect to the favicon URL without returning a JSON response." data-zh="当使用 format=redirect 时，API会直接重定向到图标URL，不返回JSON响应。">When using format=redirect, the API will directly redirect to the favicon URL without returning a JSON response.</span>
+                                    <strong data-en="Note:" data-zh="注意：">Note:</strong> <span data-en="When using format=redirect, the API will directly redirect to the favicon URL without returning a JSON response." data-zh="当使用 format=redirect 时，API会直接重定向到图标URL，不返回JSON响应。">When using
+                                        format=redirect, the API will directly redirect to the favicon URL without
+                                        returning a JSON response.</span>
                                 </p>
                             </div>
                         </div>
@@ -693,8 +753,9 @@
                 <!-- Examples Section -->
                 <section id="examples" class="mb-12">
                     <div class="bg-white rounded-lg shadow-sm p-8">
-                        <h2 class="text-2xl font-bold text-gray-900 mb-6" data-en="Examples" data-zh="使用示例">Examples</h2>
-                        
+                        <h2 class="text-2xl font-bold text-gray-900 mb-6" data-en="Examples" data-zh="使用示例">Examples
+                        </h2>
+
                         <!-- JavaScript Example -->
                         <div class="mb-8">
                             <h3 class="text-lg font-semibold mb-4" data-en="JavaScript (Fetch)" data-zh="JavaScript (Fetch)">JavaScript (Fetch)</h3>
@@ -717,7 +778,7 @@ img.height = 32;
 document.body.appendChild(img);</code></pre>
                             </div>
                         </div>
-                        
+
                         <!-- Python Example -->
                         <div class="mb-8">
                             <h3 class="text-lg font-semibold mb-4" data-en="Python (Requests)" data-zh="Python (Requests)">Python (Requests)</h3>
@@ -733,10 +794,11 @@ url = get_favicon_url('example.com', 128)
 print(url)</code></pre>
                             </div>
                         </div>
-                        
+
                         <!-- PHP Example -->
                         <div class="mb-8">
-                            <h3 class="text-lg font-semibold mb-4" data-en="PHP (cURL)" data-zh="PHP (cURL)">PHP (cURL)</h3>
+                            <h3 class="text-lg font-semibold mb-4" data-en="PHP (cURL)" data-zh="PHP (cURL)">PHP (cURL)
+                            </h3>
                             <div class="code-block">
                                 <div class="code-header">
                                     <span class="text-gray-300 text-sm" data-en="PHP" data-zh="PHP">PHP</span>
@@ -752,10 +814,11 @@ echo $url;
 ?--></code></pre>
                             </div>
                         </div>
-                        
+
                         <!-- HTML Example -->
                         <div class="mb-8">
-                            <h3 class="text-lg font-semibold mb-4" data-en="HTML Direct Reference" data-zh="HTML 直接引用">HTML Direct Reference</h3>
+                            <h3 class="text-lg font-semibold mb-4" data-en="HTML Direct Reference" data-zh="HTML 直接引用">
+                                HTML Direct Reference</h3>
                             <div class="code-block">
                                 <div class="code-header">
                                     <span class="text-gray-300 text-sm" data-en="HTML" data-zh="HTML">HTML</span>
@@ -778,9 +841,10 @@ echo $url;
                 <section id="errors" class="mb-12">
                     <div class="bg-white rounded-lg shadow-sm p-8">
                         <h2 class="text-2xl font-bold text-gray-900 mb-6" data-en="Errors" data-zh="错误处理">Errors</h2>
-                        
-                        <p class="text-gray-600 mb-6" data-en="The API returns the corresponding HTTP status code and error message when an error occurs." data-zh="API在遇到错误时会返回相应的HTTP状态码和错误信息。">The API returns the corresponding HTTP status code and error message when an error occurs.</p>
-                        
+
+                        <p class="text-gray-600 mb-6" data-en="The API returns the corresponding HTTP status code and error message when an error occurs." data-zh="API在遇到错误时会返回相应的HTTP状态码和错误信息。">The API returns the corresponding HTTP status code
+                            and error message when an error occurs.</p>
+
                         <table class="parameter-table">
                             <thead>
                                 <tr>
@@ -795,19 +859,22 @@ echo $url;
                                     <td>400</td>
                                     <td>invalid_domain</td>
                                     <td data-en="Invalid domain format" data-zh="域名格式不正确">Invalid domain format</td>
-                                    <td data-en="Check the domain format, ensure it is a valid domain" data-zh="检查域名格式，确保是有效的域名">Check the domain format, ensure it is a valid domain</td>
+                                    <td data-en="Check the domain format, ensure it is a valid domain" data-zh="检查域名格式，确保是有效的域名">Check the domain format, ensure it is a valid domain
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>404</td>
                                     <td>domain_not_found</td>
                                     <td data-en="Domain not found" data-zh="找不到指定的域名">Domain not found</td>
-                                    <td data-en="Confirm the domain is correct and the website is accessible" data-zh="确认域名是否正确，网站是否可访问">Confirm the domain is correct and the website is accessible</td>
+                                    <td data-en="Confirm the domain is correct and the website is accessible" data-zh="确认域名是否正确，网站是否可访问">Confirm the domain is correct and the website is
+                                        accessible</td>
                                 </tr>
                                 <tr>
                                     <td>404</td>
                                     <td>favicon_not_found</td>
                                     <td data-en="Favicon not found" data-zh="网站没有favicon图标">Favicon not found</td>
-                                    <td data-en="The website may not have set a favicon" data-zh="该网站可能没有设置favicon图标">The website may not have set a favicon</td>
+                                    <td data-en="The website may not have set a favicon" data-zh="该网站可能没有设置favicon图标">
+                                        The website may not have set a favicon</td>
                                 </tr>
                                 <tr>
                                     <td>429</td>
@@ -819,7 +886,8 @@ echo $url;
                                     <td>500</td>
                                     <td>internal_error</td>
                                     <td data-en="Internal server error" data-zh="服务器内部错误">Internal server error</td>
-                                    <td data-en="The service is temporarily unavailable, please try again later" data-zh="服务暂时不可用，请稍后重试">The service is temporarily unavailable, please try again later</td>
+                                    <td data-en="The service is temporarily unavailable, please try again later" data-zh="服务暂时不可用，请稍后重试">The service is temporarily unavailable, please try again
+                                        later</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -829,8 +897,9 @@ echo $url;
                 <!-- Rate Limits Section -->
                 <section id="rate-limits" class="mb-12">
                     <div class="bg-white rounded-lg shadow-sm p-8">
-                        <h2 class="text-2xl font-bold text-gray-900 mb-6" data-en="Rate Limits" data-zh="使用限制">Rate Limits</h2>
-                        
+                        <h2 class="text-2xl font-bold text-gray-900 mb-6" data-en="Rate Limits" data-zh="使用限制">Rate
+                            Limits</h2>
+
                         <div class="space-y-6">
                             <div class="bg-green-50 border border-green-200 rounded-lg p-4">
                                 <div class="flex items-center mb-2">
@@ -839,31 +908,38 @@ echo $url;
                                     </svg>
                                     <h3 class="font-semibold text-green-900" data-en="Free" data-zh="免费使用">Free</h3>
                                 </div>
-                                <p class="text-green-700 text-sm" data-en="No registration required, completely free to use all features" data-zh="无需注册，完全免费使用所有功能">No registration required, completely free to use all features</p>
+                                <p class="text-green-700 text-sm" data-en="No registration required, completely free to use all features" data-zh="无需注册，完全免费使用所有功能">No registration required, completely free to use all
+                                    features</p>
                             </div>
-                            
+
                             <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
                                 <div class="flex items-center mb-2">
                                     <svg class="w-5 h-5 text-yellow-400 mr-2" fill="currentColor" viewBox="0 0 20 20">
                                         <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path>
                                     </svg>
-                                    <h3 class="font-semibold text-yellow-900" data-en="Rate Limit" data-zh="请求限制">Rate Limit</h3>
+                                    <h3 class="font-semibold text-yellow-900" data-en="Rate Limit" data-zh="请求限制">Rate
+                                        Limit</h3>
                                 </div>
                                 <ul class="text-yellow-700 text-sm space-y-1">
-                                    <li>• <span data-en="Up to 100 requests per minute" data-zh="每分钟最多 100 个请求">Up to 100 requests per minute</span></li>
-                                    <li>• <span data-en="Up to 1000 requests per hour" data-zh="每小时最多 1000 个请求">Up to 1000 requests per hour</span></li>
-                                    <li>• <span data-en="Up to 10000 requests per day" data-zh="每日最多 10000 个请求">Up to 10000 requests per day</span></li>
+                                    <li>• <span data-en="Up to 100 requests per minute" data-zh="每分钟最多 100 个请求">Up to
+                                            100 requests per minute</span></li>
+                                    <li>• <span data-en="Up to 1000 requests per hour" data-zh="每小时最多 1000 个请求">Up to
+                                            1000 requests per hour</span></li>
+                                    <li>• <span data-en="Up to 10000 requests per day" data-zh="每日最多 10000 个请求">Up to
+                                            10000 requests per day</span></li>
                                 </ul>
                             </div>
-                            
+
                             <div class="bg-blue-50 border border-blue-200 rounded-lg p-4">
                                 <div class="flex items-center mb-2">
                                     <svg class="w-5 h-5 text-blue-400 mr-2" fill="currentColor" viewBox="0 0 20 20">
                                         <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path>
                                     </svg>
-                                    <h3 class="font-semibold text-blue-900" data-en="Commercial Use" data-zh="商业使用">Commercial Use</h3>
+                                    <h3 class="font-semibold text-blue-900" data-en="Commercial Use" data-zh="商业使用">
+                                        Commercial Use</h3>
                                 </div>
-                                <p class="text-blue-700 text-sm" data-en="Commercial users are recommended to contact us for a higher usage quota and priority support" data-zh="商业用户建议联系我们获取更高的使用配额和优先支持">Commercial users are recommended to contact us for a higher usage quota and priority support</p>
+                                <p class="text-blue-700 text-sm" data-en="Commercial users are recommended to contact us for a higher usage quota and priority support" data-zh="商业用户建议联系我们获取更高的使用配额和优先支持">Commercial users are recommended to contact us
+                                    for a higher usage quota and priority support</p>
                             </div>
                         </div>
                     </div>
@@ -875,7 +951,9 @@ echo $url;
     <!-- Footer -->
     <footer class="py-8 px-6 border-t border-gray-200">
         <div class="max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
-            <p class="text-gray-400 text-sm">© <script>document.write(new Date().getFullYear())</script> Mzu favicondl</p>
+            <p class="text-gray-400 text-sm">©
+                <script>document.write(new Date().getFullYear())</script> Mzu favicondl
+            </p>
             <div class="flex gap-6">
                 <a href="index.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Home" data-zh="首页">Home</a>
                 <a href="documentation.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Docs" data-zh="文档">Docs</a>
@@ -906,19 +984,19 @@ echo $url;
             try {
                 const pathMatch = window.location.pathname.match(/^\/(zh|ja|ko|es)(\/|$)/);
                 if (pathMatch) return pathMatch[1];
-            } catch {}
+            } catch { }
             // 2. 查询参数
             try {
                 const url = new URL(window.location.href);
                 const fromQuery = String(url.searchParams.get('lang') || '').trim();
                 if (SUPPORTED.includes(fromQuery)) return fromQuery;
-            } catch {}
+            } catch { }
             // 3. localStorage
             const STORAGE_KEY = 'mzu_favicondl_lang';
             try {
                 const saved = String(localStorage.getItem(STORAGE_KEY) || '').trim();
                 if (saved === 'zh' || saved === 'en') return saved;
-            } catch {}
+            } catch { }
             return 'en';
         }
 
@@ -940,7 +1018,7 @@ echo $url;
                     try {
                         const w = new URL(window.location.href).searchParams.get('worker');
                         if (w) url.searchParams.set('worker', w);
-                    } catch {}
+                    } catch { }
                     window.location.href = url.href;
                 } catch {
                     window.location.href = a.href;
@@ -1061,10 +1139,10 @@ echo $url;
         function showToast(message) {
             const toast = document.getElementById('success-toast');
             const toastMessage = document.getElementById('toast-message');
-            
+
             toastMessage.textContent = message;
             toast.classList.remove('translate-x-[200%]');
-            
+
             setTimeout(() => {
                 toast.classList.add('translate-x-[200%]');
             }, 3000);
@@ -1078,5 +1156,7 @@ echo $url;
             Prism.highlightAll();
         });
     </script>
+
+
 
 </body></html>

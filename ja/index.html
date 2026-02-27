@@ -3,7 +3,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mzu favicondl - ファビコンダウンローダー＆エクストラクター</title>
     <meta name="description" content="あらゆるウェブサイトのファビコンを即座にダウンロード・抽出。コピー可能なURLとHTMLスニペット。無料・高速・安心。">
-    <meta name="keywords" content="favicon downloader, favicon extractor, website icon, download favicon, favicon generator, favicon converter, batch favicon, free favicon tool">
+    <meta name="keywords" content="favicon downloader, extract website icon, download favicon, free favicon generator">
+    <meta name="baidu-site-verification" content="codeva-TQEbMwU84J">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://favicondl.com/ja/">
     <link rel="alternate" hreflang="en" href="https://favicondl.com/">
@@ -18,156 +19,162 @@
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
@@ -201,20 +208,20 @@
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
+
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-        
+
         * {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif;
             -webkit-font-smoothing: antialiased;
         }
-        
+
         /* 苹果风格 - 简洁干净 */
         body {
             background: #fafafa;
         }
-        
+
         /* 输入框 */
         .search-input {
             width: 100%;
@@ -226,17 +233,17 @@
             color: #1d1d1f;
             transition: all 0.2s ease;
         }
-        
+
         .search-input::placeholder {
             color: #86868b;
         }
-        
+
         .search-input:focus {
             outline: none;
             background: #fff;
             box-shadow: 0 0 0 4px rgba(0, 125, 250, 0.1), 0 2px 8px rgba(0, 0, 0, 0.08);
         }
-        
+
         /* 按钮 */
         .btn-primary {
             background: #0071e3;
@@ -249,11 +256,11 @@
             cursor: pointer;
             transition: all 0.2s ease;
         }
-        
+
         .btn-primary:hover {
             background: #0077ed;
         }
-        
+
         .btn-secondary {
             background: transparent;
             color: #0071e3;
@@ -265,11 +272,11 @@
             cursor: pointer;
             transition: all 0.2s ease;
         }
-        
+
         .btn-secondary:hover {
             background: rgba(0, 113, 227, 0.1);
         }
-        
+
         /* 网站卡片 */
         .site-pill {
             display: inline-flex;
@@ -284,18 +291,18 @@
             transition: all 0.2s ease;
             border: 1px solid #d2d2d7;
         }
-        
+
         .site-pill:hover {
             background: #f5f5f7;
             border-color: #86868b;
         }
-        
+
         .site-pill img {
             width: 20px;
             height: 20px;
             border-radius: 4px;
         }
-        
+
         /* 代码块 */
         .code-block {
             background: #1d1d1f;
@@ -307,7 +314,7 @@
             position: relative;
             overflow-x: auto;
         }
-        
+
         .code-block .copy-btn {
             position: absolute;
             right: 12px;
@@ -323,12 +330,12 @@
             border: none;
             font-family: 'Inter', sans-serif;
         }
-        
+
         .code-block .copy-btn:hover {
             background: rgba(255, 255, 255, 0.2);
             color: #fff;
         }
-        
+
         .segmented {
             display: inline-flex;
             align-items: center;
@@ -358,7 +365,7 @@
             min-width: 84px;
         }
 
-        .segmented .segmented-item input:checked + span {
+        .segmented .segmented-item input:checked+span {
             background: #ffffff;
             color: #111827;
             box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
@@ -367,7 +374,7 @@
         .segmented .segmented-item:focus-within span {
             box-shadow: 0 0 0 4px rgba(0, 125, 250, 0.12), 0 1px 2px rgba(0, 0, 0, 0.06);
         }
-        
+
         /* 预览卡片 */
         .preview-card {
             background: white;
@@ -375,7 +382,7 @@
             padding: 32px;
             box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
         }
-        
+
         /* 特性卡片 */
         .feature-card {
             background: #fff;
@@ -384,30 +391,39 @@
             text-align: center;
             transition: all 0.3s ease;
         }
-        
+
         .feature-card:hover {
             transform: translateY(-4px);
             box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
         }
-        
+
         /* 动画 */
         .fade-in {
             animation: fadeIn 0.3s ease-out;
         }
-        
+
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
-        
+
         .loading-spinner {
             animation: spin 1s linear infinite;
         }
-        
+
         @keyframes spin {
-            to { transform: rotate(360deg); }
+            to {
+                transform: rotate(360deg);
+            }
         }
-        
+
         /* 导航链接 */
         .nav-link {
             color: #1d1d1f;
@@ -416,13 +432,16 @@
             text-decoration: none;
             transition: color 0.2s;
         }
-        
+
         .nav-link:hover {
             color: #0071e3;
         }
 
         /* Language Dropdown */
-        .lang-dropdown { position: relative; }
+        .lang-dropdown {
+            position: relative;
+        }
+
         .lang-btn {
             display: flex;
             align-items: center;
@@ -437,7 +456,11 @@
             font-weight: 500;
             color: #1d1d1f;
         }
-        .lang-btn:hover { background: #f5f5f7; }
+
+        .lang-btn:hover {
+            background: #f5f5f7;
+        }
+
         .lang-menu {
             position: absolute;
             right: 0;
@@ -445,8 +468,8 @@
             min-width: 140px;
             background: #fff;
             border-radius: 12px;
-            box-shadow: 0 4px 24px rgba(0,0,0,0.12);
-            border: 1px solid rgba(0,0,0,0.06);
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
+            border: 1px solid rgba(0, 0, 0, 0.06);
             padding: 4px;
             z-index: 60;
             opacity: 0;
@@ -454,11 +477,13 @@
             transition: opacity 0.15s ease, transform 0.15s ease;
             pointer-events: none;
         }
+
         .lang-menu.show {
             opacity: 1;
             transform: translateY(0) scale(1);
             pointer-events: auto;
         }
+
         .lang-option {
             display: flex;
             align-items: center;
@@ -473,14 +498,23 @@
             border-radius: 8px;
             transition: background 0.15s;
         }
-        .lang-option:hover { background: #f5f5f7; }
-        .lang-option.active { color: #0071e3; font-weight: 600; }
+
+        .lang-option:hover {
+            background: #f5f5f7;
+        }
+
+        .lang-option.active {
+            color: #0071e3;
+            font-weight: 600;
+        }
+
         .lang-mobile-group {
             display: flex;
             align-items: center;
             gap: 4px;
             padding: 4px 12px;
         }
+
         .lang-mobile-btn {
             display: flex;
             align-items: center;
@@ -494,10 +528,14 @@
             cursor: pointer;
             transition: all 0.2s;
         }
-        .lang-mobile-btn:hover { background: #f5f5f7; }
+
+        .lang-mobile-btn:hover {
+            background: #f5f5f7;
+        }
+
         .lang-mobile-btn.active {
             background: #f0f5ff;
-            border-color: rgba(0,113,227,0.3);
+            border-color: rgba(0, 113, 227, 0.3);
             color: #0071e3;
             font-weight: 500;
         }
@@ -505,12 +543,13 @@
     <!-- Google tag (gtag.js) -->
     <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-7QLC8QV609');
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-7QLC8QV609');
     </script>
 </head>
+
 <body>
     <!-- Navigation -->
     <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
@@ -536,19 +575,20 @@
             </div>
         </div>
     </nav>
-    
+
     <!-- Hero Section -->
     <section class="pt-20 pb-16 px-6">
         <div class="max-w-3xl mx-auto text-center">
             <h1 class="text-5xl font-semibold text-gray-900 tracking-tight mb-4" data-en="Download any website favicon. Instantly." data-zh="一键下载任意网站图标。">あらゆるウェブサイトのファビコンを即座にダウンロード。</h1>
             <p class="text-xl text-gray-500 mb-12" data-en="Enter a domain or URL to extract the favicon, copy the link, or download as PNG." data-zh="输入域名或网址，提取图标并复制链接或下载 PNG。">ドメインまたはURLを入力してファビコンを抽出、リンクをコピー、PNGでダウンロード。</p>
-            
+
             <!-- Search Box -->
             <div class="max-w-xl mx-auto mb-6">
                 <div class="relative">
                     <input type="text" id="domain-input" class="search-input pr-12" placeholder="github.com">
                     <div id="loading-indicator" class="absolute right-4 top-1/2 -translate-y-1/2 hidden">
-                        <div class="loading-spinner w-5 h-5 border-2 border-blue-500 border-t-transparent rounded-full"></div>
+                        <div class="loading-spinner w-5 h-5 border-2 border-blue-500 border-t-transparent rounded-full">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -562,7 +602,7 @@
                     <button class="px-3 py-1.5 rounded-full bg-gray-100 text-gray-600 text-sm border border-gray-200" onclick="window.faviconTool.selectDomain('wikipedia.org')">wikipedia.org</button>
                 </div>
             </div>
-            
+
             <!-- Size Options -->
             <div class="flex justify-center flex-wrap gap-x-6 gap-y-3 mb-8">
                 <label class="flex items-center gap-2 text-gray-600 cursor-pointer">
@@ -588,7 +628,7 @@
             </div>
         </div>
     </section>
-    
+
     <!-- Preview Section -->
     <section id="preview-section" class="hidden fade-in pb-16 px-6">
         <div class="max-w-2xl mx-auto">
@@ -603,7 +643,7 @@
                         <p id="preview-domain" class="text-2xl font-semibold text-gray-900"></p>
                     </div>
                 </div>
-                
+
                 <!-- Code Snippets -->
                 <div class="space-y-4 mb-8">
                     <div>
@@ -615,7 +655,7 @@
                             <code id="html-code"></code>
                         </div>
                     </div>
-                    
+
                     <div>
                         <div class="flex items-center justify-between mb-2">
                             <p class="text-sm text-gray-500" data-en="Direct URL" data-zh="直接链接">ダイレクトURL</p>
@@ -626,7 +666,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="flex flex-col gap-3 mb-6">
                     <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
                         <div class="flex flex-col gap-2">
@@ -669,7 +709,7 @@
             </div>
         </div>
     </section>
-    
+
     <!-- Error Message -->
     <div id="error-message" class="hidden px-6 pb-8">
         <div class="max-w-2xl mx-auto bg-red-50 border border-red-100 rounded-xl p-4 flex items-center gap-3">
@@ -679,7 +719,7 @@
             <p id="error-text" class="text-red-700 text-sm"></p>
         </div>
     </div>
-    
+
     <!-- Popular Sites -->
     <section class="py-16 px-6 bg-white">
         <div class="max-w-4xl mx-auto">
@@ -838,13 +878,13 @@
             </details>
         </div>
     </section>
-    
+
     <!-- Features -->
     <section class="py-20 px-6">
         <div class="max-w-5xl mx-auto">
             <h2 class="text-3xl font-semibold text-gray-900 text-center mb-4" data-en="Why Mzu favicondl?" data-zh="为什么选择 Mzu favicondl？">なぜ Mzu favicondl？</h2>
             <p class="text-gray-500 text-center mb-16" data-en="Simple, fast, and reliable favicon fetching." data-zh="简单、快速、可靠的图标获取服务。">シンプル、高速、信頼性の高いファビコン取得。</p>
-            
+
             <div class="grid md:grid-cols-3 gap-6">
                 <div class="feature-card">
                     <div class="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center mx-auto mb-5">
@@ -855,17 +895,18 @@
                     <h3 class="text-lg font-semibold text-gray-900 mb-2" data-en="Lightning Fast" data-zh="闪电般快速">超高速</h3>
                     <p class="text-gray-500 text-sm" data-en="Get favicons in milliseconds with our optimized service." data-zh="毫秒级响应，即时获取图标。">最適化されたサービスでミリ秒単位でファビコンを取得。</p>
                 </div>
-                
+
                 <div class="feature-card">
                     <div class="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center mx-auto mb-5">
                         <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z">
+                            </path>
                         </svg>
                     </div>
                     <h3 class="text-lg font-semibold text-gray-900 mb-2" data-en="Multiple Sizes" data-zh="多种尺寸">複数サイズ</h3>
                     <p class="text-gray-500 text-sm" data-en="Fetch 32px &amp; 128px on the homepage. Generate 16–512px in Tools." data-zh="主页支持 32/128 获取；工具页可生成 16–512 多尺寸。">ホームで32/128pxを取得。ツールで16〜512pxを生成。</p>
                 </div>
-                
+
                 <div class="feature-card">
                     <div class="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center mx-auto mb-5">
                         <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -878,7 +919,7 @@
             </div>
         </div>
     </section>
-    
+
     <!-- About / SEO Content -->
     <section class="py-16 px-6 bg-white border-t border-gray-100">
         <div class="max-w-3xl mx-auto">
@@ -902,16 +943,19 @@
             <a href="/ja/tools.html" class="btn-primary inline-flex items-center gap-2">
                 <span data-en="Explore Tools" data-zh="探索工具">ツールを見る</span>
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3">
+                    </path>
                 </svg>
             </a>
         </div>
     </section>
-    
+
     <!-- Footer -->
     <footer class="py-8 px-6 border-t border-gray-200">
         <div class="max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
-            <p class="text-gray-400 text-sm">© <script>document.write(new Date().getFullYear())</script> Mzu favicondl</p>
+            <p class="text-gray-400 text-sm">©
+                <script>document.write(new Date().getFullYear())</script> Mzu favicondl
+            </p>
             <div class="flex gap-6">
                 <a href="/ja/index.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Home" data-zh="首页">ホーム</a>
                 <a href="/ja/documentation.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Docs" data-zh="文档">ドキュメント</a>
@@ -921,7 +965,7 @@
             </div>
         </div>
     </footer>
-    
+
     <!-- Toast -->
     <div id="success-toast" class="fixed top-20 right-6 bg-gray-900 text-white px-5 py-3 rounded-xl shadow-lg transform translate-x-[200%] transition-transform duration-300 z-50 flex items-center gap-2 text-sm">
         <svg class="w-4 h-4 text-green-400" fill="currentColor" viewBox="0 0 20 20">
@@ -929,8 +973,10 @@
         </svg>
         <span id="toast-message" data-en="Copied!" data-zh="已复制！">コピーしました！</span>
     </div>
-    
+
     <script src="/main.js?v=20260211c"></script>
+
+
 
 
 </body></html>

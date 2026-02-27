@@ -50,9 +50,9 @@ const RETRY_DELAY_MS = 50000;
 
 // 按 depth 字段对应的词数范围（英文词数）
 const DEPTH_CONFIG = {
-  brief:    { minWords: 300,  maxWords: 500,  label: '简短' },
-  standard: { minWords: 600,  maxWords: 900,  label: '标准' },
-  deep:     { minWords: 1000, maxWords: 1500, label: '深度' },
+  brief: { minWords: 300, maxWords: 500, label: '简短' },
+  standard: { minWords: 600, maxWords: 900, label: '标准' },
+  deep: { minWords: 1000, maxWords: 1500, label: '深度' },
 };
 
 // 禁止出现的危险 HTML 标签
@@ -329,7 +329,7 @@ ${avoidSection}
 - Include the keyword naturally in: the title, the opening paragraph, and at least one <h2>.
 - Use semantic variations throughout.
 - Title: 50-60 chars. Description: 140-160 chars.
-- meta keywords: 5-8 comma-separated terms.
+- meta keywords: 3-5 terms. MUST BE UNDER 90 CHARACTERS.
 
 === HTML RULES ===
 - <h2> for sections, <h3> for sub-sections. NEVER <h1>.
@@ -527,12 +527,12 @@ function parseAIResponse(responseText) {
         console.error('...AI 原始输出 (末尾 800 字符):');
         console.error(cleaned.substring(cleaned.length - 800));
       }
-      
+
       try {
         const debugFile = path.join(BLOG_DIR, 'failed_response_debug.txt');
         fs.writeFileSync(debugFile, responseText, 'utf-8');
         console.error(`已将完整错误响应写入到: ${debugFile}`);
-      } catch(ex) { /* ignore */ }
+      } catch (ex) { /* ignore */ }
 
       throw new Error('AI 返回了无效的 JSON，请重试');
     }
