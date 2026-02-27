@@ -95,6 +95,7 @@ jobs:
           echo "🔔 通知搜索引擎 sitemap 更新..."
           curl -s "https://www.google.com/ping?sitemap=https://favicondl.com/sitemap.xml" -o /dev/null -w "Google: HTTP %{http_code}\n"
           curl -s "https://www.bing.com/ping?sitemap=https://favicondl.com/sitemap.xml" -o /dev/null -w "Bing: HTTP %{http_code}\n"
+          node blog/scripts/ping-indexnow.js
           echo "✅ 搜索引擎已通知"
 
       - name: Summary
