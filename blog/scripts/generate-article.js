@@ -475,26 +475,67 @@ function parseAIResponse(responseText) {
   cleaned = cleaned.replace(/\n?```\s*$/i, '');
   cleaned = cleaned.trim();
 
-  // 尝试直接解析
   try {
     return JSON.parse(cleaned);
   } catch (e) {
-    // 如果失败，尝试提取第一个 { 到最后一个 } 之间的内容
-    const firstBrace = cleaned.indexOf('{');
-    const lastBrace = cleaned.lastIndexOf('}');
-    if (firstBrace !== -1 && lastBrace > firstBrace) {
-      const extracted = cleaned.substring(firstBrace, lastBrace + 1);
-      try {
-        return JSON.parse(extracted);
-      } catch (e2) {
-        // 忽略，继续到下面的错误处理
+    // 尝试直接修复 JSON 字符串中常见的特殊字符（例如字面量换行符）
+    let fixed = '';
+    let inString = false;
+    let escapeNext = false;
+    for (let i = 0; i < cleaned.length; i++) {
+      const char = cleaned[i];
+      if (escapeNext) {
+        fixed += char;
+        escapeNext = false;
+      } else if (char === '\\') {
+        escapeNext = true;
+        fixed += char;
+      } else if (char === '"') {
+        inString = !inString;
+        fixed += char;
+      } else if (inString && char === '\n') {
+        fixed += '\\n';
+      } else if (inString && char === '\r') {
+        fixed += '\\r';
+      } else if (inString && char === '\t') {
+        fixed += '\\t';
+      } else {
+        fixed += char;
       }
     }
 
-    console.error('❌ JSON 解析失败');
-    console.error('AI 原始输出 (前 800 字符):');
-    console.error(cleaned.substring(0, 800));
-    throw new Error('AI 返回了无效的 JSON，请重试');
+    try {
+      return JSON.parse(fixed);
+    } catch (e2) {
+      // 如果还失败，尝试提取首尾大括号
+      const firstBrace = fixed.indexOf('{');
+      const lastBrace = fixed.lastIndexOf('}');
+      if (firstBrace !== -1 && lastBrace > firstBrace) {
+        const extracted = fixed.substring(firstBrace, lastBrace + 1);
+        try {
+          return JSON.parse(extracted);
+        } catch (e3) {
+          console.error('❌ JSON 提取解析失败:', e3.message);
+        }
+      }
+
+      console.error('❌ JSON 解析失败 (首次尝试):', e.message);
+      console.error('❌ JSON 解析失败 (修复尝试):', e2.message);
+      console.error('AI 原始输出 (前 800 字符):');
+      console.error(cleaned.substring(0, 800));
+      if (cleaned.length > 800) {
+        console.error('...AI 原始输出 (末尾 800 字符):');
+        console.error(cleaned.substring(cleaned.length - 800));
+      }
+      
+      try {
+        const debugFile = path.join(BLOG_DIR, 'failed_response_debug.txt');
+        fs.writeFileSync(debugFile, responseText, 'utf-8');
+        console.error(`已将完整错误响应写入到: ${debugFile}`);
+      } catch(ex) { /* ignore */ }
+
+      throw new Error('AI 返回了无效的 JSON，请重试');
+    }
   }
 }
 
