@@ -358,6 +358,7 @@ Provide FULL translations for Japanese, Korean, and Spanish — both metadata AN
 
 === OUTPUT FORMAT ===
 Return ONLY valid JSON.
+CRITICAL: Do NOT use literal newlines inside string values. Export strings as single continuous lines and use \\n for line breaks. Do NOT leave unescaped double quotes inside strings.
 
 {
   "titleEn": "Engaging title with keyword (50-60 chars)",
@@ -409,7 +410,6 @@ async function generateArticleContent(keyword, slug, tags, existingArticles, int
 
   console.log('🤖 正在调用 Gemini API 生成文章...');
 
-  let responseText = null;
   let usedModel = '';
 
   for (const modelName of MODEL_LIST) {
@@ -433,34 +433,35 @@ async function generateArticleContent(keyword, slug, tags, existingArticles, int
           }),
           timeoutPromise
         ]);
-        responseText = result.text;
+
+        const responseText = result.text;
         usedModel = modelName;
         console.log(`  ✅ ${modelName} 响应成功 (${responseText.length} 字符)`);
-        break;
+
+        // --- 解析 JSON ---
+        const data = parseAIResponse(responseText);
+        console.log(`✅ AI 生成完成 [${usedModel}]: "${data.titleEn}"`);
+        return data;
+
       } catch (err) {
         const isRateLimit = err.message?.includes('429') || err.message?.includes('quota') || err.message?.includes('RESOURCE_EXHAUSTED');
-        const errSummary = isRateLimit ? '配额限制' : err.message?.substring(0, 100);
+        const isJsonError = err.message?.includes('JSON');
+        const errSummary = isRateLimit ? '配额限制' : isJsonError ? '返回了无效的 JSON' : err.message?.substring(0, 100);
+
         console.log(`  ⚠️ ${modelName} 失败: ${errSummary}`);
 
-        if (isRateLimit && attempt < MAX_RETRIES) {
-          console.log(`  ⏳ 等待 ${RETRY_DELAY_MS / 1000} 秒后重试...`);
-          await new Promise(r => setTimeout(r, RETRY_DELAY_MS));
-        } else if (!isRateLimit) {
-          break; // 非限流错误 → 换下一个模型
+        if ((isRateLimit || isJsonError) && attempt < MAX_RETRIES) {
+          const delay = isRateLimit ? RETRY_DELAY_MS : 3000;
+          console.log(`  ⏳ 等待 ${delay / 1000} 秒后重试...`);
+          await new Promise(r => setTimeout(r, delay));
+        } else if (!isRateLimit && !isJsonError) {
+          break; // 非限流且非JSON格式错误 → 换下一个模型
         }
       }
     }
-    if (responseText) break;
   }
 
-  if (!responseText) {
-    throw new Error('所有模型均调用失败，请检查 API Key 和配额');
-  }
-
-  // --- 解析 JSON ---
-  const data = parseAIResponse(responseText);
-  console.log(`✅ AI 生成完成 [${usedModel}]: "${data.titleEn}"`);
-  return data;
+  throw new Error('所有模型均调用失败，请检查 API Key 和配额');
 }
 
 // ============================================================
