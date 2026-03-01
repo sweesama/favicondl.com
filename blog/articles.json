@@ -475,5 +475,24 @@
       "how-to",
       "shopify"
     ]
+  },
+  {
+    "slug": "dynamic-favicon-javascript",
+    "publishDate": "2026-03-01",
+    "titleEn": "Dynamic Favicon JavaScript: Real-Time Updates for Your Tabs",
+    "titleZh": "动态 Favicon JavaScript：让你的浏览器标签实时更新",
+    "titleJa": "動的ファビコンJavaScript：タブをリアルタイムで更新する方法",
+    "titleKo": "동적 파비콘 JavaScript: 탭을 실시간으로 업데이트하는 방법",
+    "titleEs": "Favicon Dinámico con JavaScript: Actualizaciones en Tiempo Real para Tus Pestañas",
+    "descEn": "Learn how to implement dynamic favicons using JavaScript. This 2026 guide covers real-time updates, notification badges, and user status changes for a more interactive web experience.",
+    "descZh": "学习如何使用 JavaScript 实现动态 favicon。这篇 2026 年指南涵盖了实时更新、通知徽章和用户状态变化，为用户提供更具交互性的网页体验。",
+    "descJa": "JavaScriptを使って動的なファビコンを実装する方法を学びましょう。2026年版のこのガイドでは、リアルタイム更新、通知バッジ、ユーザーの状態変化をカバーし、よりインタラクティブなウェブ体験を提供します。",
+    "descKo": "JavaScript를 사용하여 동적 파비콘을 구현하는 방법을 알아보세요. 2026년 가이드에서는 실시간 업데이트, 알림 배지, 사용자 상태 변경을 다루어 더욱 인터랙티브한 웹 경험을 제공합니다.",
+    "descEs": "Aprende a implementar favicons dinámicos con JavaScript. Esta guía de 2026 cubre actualizaciones en tiempo real, insignias de notificación y cambios de estado de usuario para una experiencia web más interactiva.",
+    "keyword": "dynamic favicon javascript",
+    "tags": [
+      "advanced",
+      "javascript"
+    ]
   }
 ]
