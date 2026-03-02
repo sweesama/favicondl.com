@@ -494,5 +494,24 @@
       "advanced",
       "javascript"
     ]
+  },
+  {
+    "slug": "safari-pinned-tab-icon",
+    "publishDate": "2026-03-02",
+    "titleEn": "Your Guide to the Safari Pinned Tab Icon in 2026",
+    "titleZh": "2026 年 Safari 固定标签页图标设置指南",
+    "titleJa": "2026年版 Safariピン留めタブアイコン設定ガイド",
+    "titleKo": "2026년 Safari 고정 탭 아이콘 설정 가이드",
+    "titleEs": "Tu guía para el icono de pestaña fijada de Safari en 2026",
+    "descEn": "Tired of Safari showing a generic initial for your pinned tab? Learn how to create the required monochrome SVG for a sharp, professional safari pinned tab icon.",
+    "descZh": "厌倦了 Safari 固定标签页上显示的通用字母缩写吗？学习如何创建所需的单色 SVG，打造一个清晰、专业的 Safari 固定标签页图标。",
+    "descJa": "Safariのピン留めタブに素っ気ないイニシャルが表示されるのにお困りですか？プロフェッショナルでシャープなSafariピン留めタブアイコンに必要な、単色SVGの作り方を解説します。",
+    "descKo": "Safari 고정 탭에 일반 이니셜만 표시되는 것이 지겨우신가요? 선명하고 전문적인 Safari 고정 탭 아이콘에 필요한 흑백 SVG를 만드는 방법을 알아보세요.",
+    "descEs": "¿Cansado de que Safari muestre una inicial genérica en tus pestañas fijadas? Aprende a crear el SVG monocromático necesario para un icono de pestaña fijada nítido y profesional.",
+    "keyword": "safari pinned tab icon",
+    "tags": [
+      "guide",
+      "safari"
+    ]
   }
 ]
