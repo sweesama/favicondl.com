@@ -513,5 +513,24 @@
       "guide",
       "safari"
     ]
+  },
+  {
+    "slug": "favicon-cache-clear",
+    "publishDate": "2026-03-03",
+    "titleEn": "Favicon Cache Clear: How to Force Your Browser to Update",
+    "titleZh": "Favicon 缓存清理：如何强制浏览器更新你的网站图标",
+    "titleJa": "ファビコンのキャッシュクリア：ブラウザにアイコン更新を強制させる方法",
+    "titleKo": "파비콘 캐시 지우기: 브라우저가 아이콘을 강제로 업데이트하게 하는 방법",
+    "titleEs": "Borrar Caché de Favicon: Cómo Forzar a Tu Navegador a Actualizarlo",
+    "descEn": "Updated your favicon but still seeing the old one? Learn how to force a favicon cache clear in Chrome, Firefox, and Safari, and prevent future issues with cache-busting.",
+    "descZh": "更新了你的 favicon 但仍然看到旧的？了解如何在 Chrome、Firefox 和 Safari 中强制清理 favicon 缓存，并使用缓存清除技术预防未来问题。",
+    "descJa": "ファビコンを更新したのに古いものが表示される？Chrome、Firefox、Safariでファビコンのキャッシュを強制的にクリアし、キャッシュバスティングで将来の問題を防ぐ方法を学びましょう。",
+    "descKo": "파비콘을 업데이트했는데도 이전 아이콘이 보이나요? Chrome, Firefox, Safari에서 파비콘 캐시를 강제로 지우는 방법과 캐시 버스팅으로 향후 문제를 예방하는 방법을 알아보세요.",
+    "descEs": "¿Actualizaste tu favicon pero sigues viendo el antiguo? Aprende a forzar un borrado de caché de favicon en Chrome, Firefox y Safari, y previene problemas futuros con técnicas de cache-busting.",
+    "keyword": "favicon cache clear",
+    "tags": [
+      "troubleshooting",
+      "fix"
+    ]
   }
 ]
