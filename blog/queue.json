@@ -212,7 +212,7 @@
     "intent": "how-to",
     "depth": "deep",
     "avoidOverlap": [],
-    "status": "pending"
+    "status": "done"
   },
   {
     "keyword": "safari pinned tab icon",
@@ -226,7 +226,7 @@
     "avoidOverlap": [
       "apple-touch-icon-guide"
     ],
-    "status": "pending"
+    "status": "done"
   },
   {
     "keyword": "favicon cache clear",
@@ -240,7 +240,7 @@
     "avoidOverlap": [
       "favicon-not-showing"
     ],
-    "status": "pending"
+    "status": "done"
   },
   {
     "keyword": "favicon design tips",
@@ -254,7 +254,7 @@
     "avoidOverlap": [
       "favicon-best-practices"
     ],
-    "status": "pending"
+    "status": "done"
   },
   {
     "keyword": "nextjs favicon",
@@ -269,7 +269,7 @@
       "react-favicon",
       "how-to-add-favicon-to-website"
     ],
-    "status": "pending"
+    "status": "done"
   },
   {
     "keyword": "favicon accessibility",

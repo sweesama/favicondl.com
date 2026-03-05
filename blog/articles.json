@@ -475,5 +475,100 @@
       "how-to",
       "shopify"
     ]
+  },
+  {
+    "slug": "dynamic-favicon-javascript",
+    "publishDate": "2026-03-01",
+    "titleEn": "Dynamic Favicon JavaScript: Real-Time Updates for Your Tabs",
+    "titleZh": "动态 Favicon JavaScript：让你的浏览器标签实时更新",
+    "titleJa": "動的ファビコンJavaScript：タブをリアルタイムで更新する方法",
+    "titleKo": "동적 파비콘 JavaScript: 탭을 실시간으로 업데이트하는 방법",
+    "titleEs": "Favicon Dinámico con JavaScript: Actualizaciones en Tiempo Real para Tus Pestañas",
+    "descEn": "Learn how to implement dynamic favicons using JavaScript. This 2026 guide covers real-time updates, notification badges, and user status changes for a more interactive web experience.",
+    "descZh": "学习如何使用 JavaScript 实现动态 favicon。这篇 2026 年指南涵盖了实时更新、通知徽章和用户状态变化，为用户提供更具交互性的网页体验。",
+    "descJa": "JavaScriptを使って動的なファビコンを実装する方法を学びましょう。2026年版のこのガイドでは、リアルタイム更新、通知バッジ、ユーザーの状態変化をカバーし、よりインタラクティブなウェブ体験を提供します。",
+    "descKo": "JavaScript를 사용하여 동적 파비콘을 구현하는 방법을 알아보세요. 2026년 가이드에서는 실시간 업데이트, 알림 배지, 사용자 상태 변경을 다루어 더욱 인터랙티브한 웹 경험을 제공합니다.",
+    "descEs": "Aprende a implementar favicons dinámicos con JavaScript. Esta guía de 2026 cubre actualizaciones en tiempo real, insignias de notificación y cambios de estado de usuario para una experiencia web más interactiva.",
+    "keyword": "dynamic favicon javascript",
+    "tags": [
+      "advanced",
+      "javascript"
+    ]
+  },
+  {
+    "slug": "safari-pinned-tab-icon",
+    "publishDate": "2026-03-02",
+    "titleEn": "Your Guide to the Safari Pinned Tab Icon in 2026",
+    "titleZh": "2026 年 Safari 固定标签页图标设置指南",
+    "titleJa": "2026年版 Safariピン留めタブアイコン設定ガイド",
+    "titleKo": "2026년 Safari 고정 탭 아이콘 설정 가이드",
+    "titleEs": "Tu guía para el icono de pestaña fijada de Safari en 2026",
+    "descEn": "Tired of Safari showing a generic initial for your pinned tab? Learn how to create the required monochrome SVG for a sharp, professional safari pinned tab icon.",
+    "descZh": "厌倦了 Safari 固定标签页上显示的通用字母缩写吗？学习如何创建所需的单色 SVG，打造一个清晰、专业的 Safari 固定标签页图标。",
+    "descJa": "Safariのピン留めタブに素っ気ないイニシャルが表示されるのにお困りですか？プロフェッショナルでシャープなSafariピン留めタブアイコンに必要な、単色SVGの作り方を解説します。",
+    "descKo": "Safari 고정 탭에 일반 이니셜만 표시되는 것이 지겨우신가요? 선명하고 전문적인 Safari 고정 탭 아이콘에 필요한 흑백 SVG를 만드는 방법을 알아보세요.",
+    "descEs": "¿Cansado de que Safari muestre una inicial genérica en tus pestañas fijadas? Aprende a crear el SVG monocromático necesario para un icono de pestaña fijada nítido y profesional.",
+    "keyword": "safari pinned tab icon",
+    "tags": [
+      "guide",
+      "safari"
+    ]
+  },
+  {
+    "slug": "favicon-cache-clear",
+    "publishDate": "2026-03-03",
+    "titleEn": "Favicon Cache Clear: How to Force Your Browser to Update",
+    "titleZh": "Favicon 缓存清理：如何强制浏览器更新你的网站图标",
+    "titleJa": "ファビコンのキャッシュクリア：ブラウザにアイコン更新を強制させる方法",
+    "titleKo": "파비콘 캐시 지우기: 브라우저가 아이콘을 강제로 업데이트하게 하는 방법",
+    "titleEs": "Borrar Caché de Favicon: Cómo Forzar a Tu Navegador a Actualizarlo",
+    "descEn": "Updated your favicon but still seeing the old one? Learn how to force a favicon cache clear in Chrome, Firefox, and Safari, and prevent future issues with cache-busting.",
+    "descZh": "更新了你的 favicon 但仍然看到旧的？了解如何在 Chrome、Firefox 和 Safari 中强制清理 favicon 缓存，并使用缓存清除技术预防未来问题。",
+    "descJa": "ファビコンを更新したのに古いものが表示される？Chrome、Firefox、Safariでファビコンのキャッシュを強制的にクリアし、キャッシュバスティングで将来の問題を防ぐ方法を学びましょう。",
+    "descKo": "파비콘을 업데이트했는데도 이전 아이콘이 보이나요? Chrome, Firefox, Safari에서 파비콘 캐시를 강제로 지우는 방법과 캐시 버스팅으로 향후 문제를 예방하는 방법을 알아보세요.",
+    "descEs": "¿Actualizaste tu favicon pero sigues viendo el antiguo? Aprende a forzar un borrado de caché de favicon en Chrome, Firefox y Safari, y previene problemas futuros con técnicas de cache-busting.",
+    "keyword": "favicon cache clear",
+    "tags": [
+      "troubleshooting",
+      "fix"
+    ]
+  },
+  {
+    "slug": "favicon-design-tips",
+    "publishDate": "2026-03-04",
+    "titleEn": "Mastering Favicon Design: Tips for a Polished Web Presence",
+    "titleZh": "精通 Favicon 设计：打造专业网站形象的秘诀",
+    "titleJa": "ファビコンデザインを極める：洗練されたウェブプレゼンスのためのヒント",
+    "titleKo": "파비콘 디자인 마스터하기: 세련된 웹 존재감을 위한 팁",
+    "titleEs": "Dominando el Diseño de Favicon: Consejos para una Presencia Web Pulcra",
+    "descEn": "Elevate your website's brand identity with these essential favicon design tips. Learn to create simple, scalable, and recognizable icons for 2026.",
+    "descZh": "通过这些必备的 favicon 设计技巧，提升您网站的品牌形象。学习如何在2026年创建简洁、可扩展且易于识别的图标。",
+    "descJa": "これらの重要なファビコンデザインのヒントで、ウェブサイトのブランドアイデンティティを高めましょう。2026年に向けて、シンプルでスケーラブル、そして認識しやすいアイコンを作成する方法を学びます。",
+    "descKo": "이 필수 파비콘 디자인 팁으로 웹사이트의 브랜드 아이덴티티를 높이세요. 2026년을 위한 간단하고 확장 가능하며 인식하기 쉬운 아이콘을 만드는 방법을 배우십시오.",
+    "descEs": "Eleva la identidad de marca de tu sitio web con estos consejos esenciales de diseño de favicon. Aprende a crear iconos simples, escalables y reconocibles para 2026.",
+    "keyword": "favicon design tips",
+    "tags": [
+      "design",
+      "tips"
+    ]
+  },
+  {
+    "slug": "nextjs-favicon",
+    "publishDate": "2026-03-05",
+    "titleEn": "Next.js Favicon: The Modern App Router Guide (2026)",
+    "titleZh": "Next.js Favicon：2026 年现代 App Router 指南",
+    "titleJa": "Next.jsのファビコン設定：2026年版App Router完全ガイド",
+    "titleKo": "Next.js 파비콘: 2026년 최신 앱 라우터 가이드",
+    "titleEs": "Favicon en Next.js: La guía moderna para el App Router (2026)",
+    "descEn": "Stop fighting with favicons in Next.js. Learn the official file-based metadata approach for the App Router to add your nextjs favicon correctly.",
+    "descZh": "别再为 Next.js 的 favicon 费神了。学习 App Router 官方推荐的基于文件的元数据方法，正确添加你的 nextjs favicon。",
+    "descJa": "Next.jsでのファビコン設定に悩むのはもうやめましょう。App Routerの公式なファイルベースのメタデータアプローチを学び、Next.jsファビコンを正しく追加する方法を解説します。",
+    "descKo": "Next.js 파비콘 문제로 더 이상 골치 아프지 마세요. 앱 라우터의 공식 파일 기반 메타데이터 접근법을 배워 nextjs 파비콘을 올바르게 추가하는 방법을 알아보세요.",
+    "descEs": "Deja de pelearte con los favicons en Next.js. Aprende el método oficial de metadatos basados en archivos para el App Router y añade tu favicon de Next.js correctamente.",
+    "keyword": "nextjs favicon",
+    "tags": [
+      "framework",
+      "nextjs"
+    ]
   }
 ]
