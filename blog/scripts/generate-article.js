@@ -346,15 +346,15 @@ ${avoidSection}
 - Apply the same anti-AI writing rules: no 套话 like "在当今数字化时代", "众所周知", "不言而喻". Write like a Chinese developer blogging, not a textbook.
 
 === MULTI-LANGUAGE (ja/ko/es) ===
-Provide FULL translations for Japanese, Korean, and Spanish — both metadata AND article body:
-- titleJa/Ko/Es: Natural, localized titles (NOT literal translations)
-- descJa/Ko/Es: Meta descriptions adapted for each language
-- breadcrumbJa/Ko/Es: Short breadcrumb text
-- contentJa/Ko/Es: Full HTML article body translated from the English version. NOT literal word-by-word — adapt naturally for each language's readers. Same HTML structure (h2/h3/p/code/table/etc.)
-- ctaTitleJa/Ko/Es, ctaDescJa/Ko/Es, ctaBtnJa/Ko/Es: CTA section translations
-- Keep technical terms (favicon, ICO, PNG, SVG, etc.) in English across all languages.
-- Japanese: use です/ます style, natural dev blog tone. Korean: use 합니다 style. Spanish: use "tú" form.
-- Apply the same anti-AI writing rules to all languages — no clichés, no filler.
+CRITICAL SEO REQUIREMENT: DO NOT provide literal word-for-word translations. Google flags literal translations as "Duplicate without user-selected canonical". You MUST provide hyper-localized, culturally adapted content that feels like an independent article written by a native.
+- Re-write the intro and examples to fit local context (e.g., use regional brand examples instead of US-only).
+- Structure can vary slightly if it makes more sense in the target language.
+- titleJa/Ko/Es: Highly optimized, native-sounding titles. Use local search habits.
+- descJa/Ko/Es: Compelling meta descriptions adapted for each language.
+- contentJa/Ko/Es: Full HTML article body. KEEP HTML STRUCTURE IN TACT but completely rewrite the narrative so it isn't an exact replica of the English version.
+- ctaTitleJa/Ko/Es, ctaDescJa/Ko/Es, ctaBtnJa/Ko/Es: Native, persuasive CTA copy.
+- Keep technical terms (favicon, ICO, PNG, SVG) in English.
+- Japanese: use です/ます style, active tech blogger tone. Korean: use 합니다 style. Spanish: use "tú" form, casual tech instructor tone.
 
 === OUTPUT FORMAT ===
 Return ONLY valid JSON.
