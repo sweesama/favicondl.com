@@ -98,9 +98,23 @@ jobs:
           node blog/scripts/ping-indexnow.js
           echo "✅ 搜索引擎已通知"
 
-      - name: Summary
+      - name: Send Feishu Notification
         if: steps.check-queue.outputs.pending != '0'
-        run: echo "✅ Article published successfully!"
+        env:
+          FEISHU_WEBHOOK: ${{ secrets.FEISHU_WEBHOOK_URL }}
+        run: |
+          if [ -n "$FEISHU_WEBHOOK" ]; then
+            SLUG=$(node -e "
+              const q = JSON.parse(require('fs').readFileSync('blog/queue.json','utf-8'));
+              const done = q.filter(i => i.status === 'done');
+              console.log(done[done.length-1]?.slug || '未知文章');
+            ")
+            curl -X POST -H "Content-Type: application/json" \
+                 -d "{\"msg_type\":\"text\",\"content\":{\"text\":\"✅ Mzu favicondl 每日博客自动生成并发布成功！\n\n🔗 前往查看：https://favicondl.com/blog/$SLUG.html\n🌍 五国语言(en/zh/ja/ko/es)已上线\n📡 IndexNow/Sitemap 爬虫抓取信号已发送\"}}" \
+                 $FEISHU_WEBHOOK
+          else
+            echo "ℹ️ FEISHU_WEBHOOK_URL secret not found, skipping notification."
+          fi
 
       - name: No articles to publish
         if: steps.check-queue.outputs.pending == '0'
