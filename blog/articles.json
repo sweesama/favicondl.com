@@ -551,5 +551,24 @@
       "design",
       "tips"
     ]
+  },
+  {
+    "slug": "nextjs-favicon",
+    "publishDate": "2026-03-05",
+    "titleEn": "Next.js Favicon: The Modern App Router Guide (2026)",
+    "titleZh": "Next.js Favicon：2026 年现代 App Router 指南",
+    "titleJa": "Next.jsのファビコン設定：2026年版App Router完全ガイド",
+    "titleKo": "Next.js 파비콘: 2026년 최신 앱 라우터 가이드",
+    "titleEs": "Favicon en Next.js: La guía moderna para el App Router (2026)",
+    "descEn": "Stop fighting with favicons in Next.js. Learn the official file-based metadata approach for the App Router to add your nextjs favicon correctly.",
+    "descZh": "别再为 Next.js 的 favicon 费神了。学习 App Router 官方推荐的基于文件的元数据方法，正确添加你的 nextjs favicon。",
+    "descJa": "Next.jsでのファビコン設定に悩むのはもうやめましょう。App Routerの公式なファイルベースのメタデータアプローチを学び、Next.jsファビコンを正しく追加する方法を解説します。",
+    "descKo": "Next.js 파비콘 문제로 더 이상 골치 아프지 마세요. 앱 라우터의 공식 파일 기반 메타데이터 접근법을 배워 nextjs 파비콘을 올바르게 추가하는 방법을 알아보세요.",
+    "descEs": "Deja de pelearte con los favicons en Next.js. Aprende el método oficial de metadatos basados en archivos para el App Router y añade tu favicon de Next.js correctamente.",
+    "keyword": "nextjs favicon",
+    "tags": [
+      "framework",
+      "nextjs"
+    ]
   }
 ]

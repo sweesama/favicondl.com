@@ -1,0 +1,455 @@
+<!DOCTYPE html><html lang="ja"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Next.js Favicon: The Modern App Router Guide (2026) - Mzu favicondl</title>
+    <meta name="description" content="Stop fighting with favicons in Next.js. Learn the official file-based metadata approach for the App Router to add your nextjs favicon correctly.">
+    <meta name="keywords" content="nextjs favicon, nextjs app router favicon, add favicon nextjs, nextjs icon">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/ja/blog/nextjs-favicon.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/nextjs-favicon.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/nextjs-favicon.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/nextjs-favicon.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/nextjs-favicon.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/nextjs-favicon.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/nextjs-favicon.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/ja/blog/nextjs-favicon.html">
+    <meta property="og:title" content="Next.js Favicon: The Modern App Router Guide (2026)">
+    <meta property="og:description" content="Stop fighting with favicons in Next.js. Learn the official file-based metadata approach for the App Router to add your nextjs favicon correctly.">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Next.js Favicon: The Modern App Router Guide (2026)">
+    <meta name="twitter:description" content="Stop fighting with favicons in Next.js. Learn the official file-based metadata approach for the App Router to add your nextjs favicon correctly.">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Next.js Favicon: The Modern App Router Guide (2026)",
+      "description": "Stop fighting with favicons in Next.js. Learn the official file-based metadata approach for the App Router to add your nextjs favicon correctly.",
+      "datePublished": "2026-03-05",
+      "dateModified": "2026-03-05",
+      "author": {
+            "@type": "Organization",
+            "name": "Mzu favicondl",
+            "url": "https://favicondl.com"
+      },
+      "publisher": {
+            "@type": "Organization",
+            "name": "Mzu favicondl",
+            "url": "https://favicondl.com"
+      },
+      "mainEntityOfPage": "https://favicondl.com/blog/nextjs-favicon.html",
+      "inLanguage": "en"
+}
+    </script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/ja/index.html" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/ja/documentation.html" class="nav-link" data-en="Docs" data-zh="文档">ドキュメント</a>
+                <a href="/ja/tools.html" class="nav-link" data-en="Tools" data-zh="工具">ツール</a>
+                <a href="/ja/blog/" class="nav-link" data-en="Blog" data-zh="博客">ブログ</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/nextjs-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/nextjs-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/nextjs-favicon.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/nextjs-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/nextjs-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/ja/index.html" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/ja/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600" data-en="Next.js Favicon Guide" data-zh="Next.js Favicon 指南">Next.js Favicon Guide</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">framework</span><time class="text-sm text-gray-400">2026-03-05</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight" data-en="Next.js Favicon: The Modern App Router Guide (2026)" data-zh="Next.js Favicon：2026 年现代 App Router 指南">Next.js Favicon: The Modern App Router Guide (2026)</h1>
+        </header>
+
+        <div class="article-body" data-lang="en">
+            <h2>Next.js Favicon: The Modern App Router Guide</h2>
+<p>So you’ve spun up a new Next.js project, dropped a <code>favicon.ico</code> in the <code>public</code> folder, and... nothing. Or worse, it works locally but breaks in production. What gives?</p>
+<p>If this sounds familiar, you've likely stumbled upon the difference between the old <code>pages</code> router and the modern <strong>App Router</strong>. The good news is the new way is much simpler and more powerful once you know the convention.</p>
+
+<h2>The Official Way: File-Based Metadata</h2>
+<p>Forget manually adding <code>&lt;link&gt;</code> tags to your <code>layout.tsx</code>. The Next.js App Router uses a special file-based system. You place specifically named icon files in your <code>app</code> directory, and Next.js automatically generates the necessary HTML head tags for you.</p>
+<p>This is my recommended approach. It’s cleaner, less error-prone, and leverages the framework's built-in optimizations.</p>
+
+<h2>Step-by-Step: Adding Your Favicon</h2>
+<p>Let's get this done in under five minutes. No prerequisites needed, other than a Next.js project running the App Router.</p>
+
+<h3>Step 1: Prepare Your Icon Files</h3>
+<p>You need a few key files for broad compatibility. While you can create these yourself, a generator ensures they're correctly sized and formatted. (Shameless plug: our <a href="/ja/blog/favicon-generator-free.html">free favicon generator</a> handles this perfectly).</p>
+<ul>
+    <li><code>favicon.ico</code>: The classic. Required for older browsers.</li>
+    <li><code>icon.png</code> or <code>icon.svg</code>: The modern, high-resolution icon. I strongly recommend using an SVG. We have a whole guide on the <a href="/ja/blog/svg-favicon.html">benefits of SVG favicons</a>.</li>
+    <li><code>apple-icon.png</code>: For when users add your site to their iOS home screen. Check out our <a href="/ja/blog/apple-touch-icon-guide.html">Apple Touch Icon guide</a> for specifics.</li>
+</ul>
+
+<h3>Step 2: Place Icons in the Root of the `app` Directory</h3>
+<p>This is the most important step. Move your generated icons directly into the <code>/app</code> folder. Do <strong>not</strong> put them in the <code>/public</code> folder.</p>
+<p>Your project structure should look like this:</p>
+<pre><code>app/
+├── layout.tsx
+├── page.tsx
+├── favicon.ico       &lt;-- For legacy browsers
+├── icon.svg          &lt;-- For modern browsers (recommended)
+└── apple-icon.png    &lt;-- For iOS home screen
+public/
+└── ... (your other static assets)</code></pre>
+<p>Next.js will automatically detect these files and generate the corresponding <code>&lt;link&gt;</code> tags in your site's <code>&lt;head&gt;</code>.</p>
+
+<h3>Step 3: Remove Any Old or Manual Declarations</h3>
+<p>If you have an old <code>favicon.ico</code> in your <code>public</code> folder, <strong>delete it</strong>. The file in <code>/app</code> takes precedence, but it's best to avoid confusion.</p>
+<p>Also, check your root <code>layout.tsx</code> and remove any manually added <code>&lt;link rel="icon" ...&gt;</code> tags. The file-based method makes them redundant.</p>
+
+<h3>Step 4: Verify the Result</h3>
+<p>Run your dev server (<code>npm run dev</code>) and inspect the source code of your page. You should see that Next.js has generated the tags for you, something like this:</p>
+<pre><code>&lt;head&gt;
+  ...
+  &lt;link rel="icon" href="/favicon.ico" type="image/x-icon" sizes="any"&gt;
+  &lt;link rel="icon" href="/icon.svg" type="image/svg+xml" sizes="any"&gt;
+  &lt;link rel="apple-touch-icon" href="/apple-icon.png" type="image/png" sizes="any"&gt;
+  ...
+&lt;/head&gt;</code></pre>
+<p>Seeing these tags means it's working. The framework handled everything.</p>
+
+<h2>Real-World Example: How GitHub Does It</h2>
+<p>Curious how the pros handle this? Take a look at GitHub. They serve a <code>favicon.ico</code>, multiple PNG sizes for different devices, and a special monochrome SVG for the Safari Pinned Tab icon. The Next.js file-based approach is designed to build this kind of robust, multi-device support automatically, saving you from writing all those <code>&lt;link&gt;</code> tags by hand.</p>
+
+<h2>Common Pitfalls to Avoid</h2>
+<p>If your icon isn't showing up, it's usually one of these three things.</p>
+<h3>1. The `public` Folder Trap</h3>
+<p>Again, for metadata files like favicons, the <code>app</code> directory is the correct place in modern Next.js. While the <code>public</code> folder still works for general static assets, icons placed in <code>/app</code> have special meaning and take priority.</p>
+
+<h3>2. Aggressive Browser Caching</h3>
+<p>Your code is perfect, but you still see the old icon (or no icon). This is almost always the browser's fault. Browsers cache favicons very aggressively.</p>
+<p>A simple page refresh often isn't enough. You'll need to do a hard refresh or clear your browser's cache. We wrote a detailed guide on how to <a href="/ja/blog/favicon-cache-clear.html">force a favicon cache clear</a> if you get stuck.</p>
+
+<h3>3. Incorrect File Names</h3>
+<p>The names <code>favicon.ico</code>, <code>icon.png</code>, <code>icon.svg</code>, and <code>apple-icon.png</code> are not arbitrary. They are conventions Next.js specifically looks for. A typo like <code>my-icon.svg</code> won't be picked up automatically.</p>
+
+<p>And that’s it. By embracing the file-based convention, you're working <em>with</em> the framework, not against it. You get optimized, correct HTML for free, and your project stays clean. No more wrestling with <code>&lt;head&gt;</code> tags just to get your brand to show up in a browser tab.</p>
+        </div>
+
+        <div class="article-body" data-lang="zh" style="display:none">
+            <h2>Next.js Favicon：现代 App Router 指南</h2>
+<p>你刚启动了一个全新的 Next.js 项目，把一个 <code>favicon.ico</code> 文件扔进了 <code>public</code> 文件夹，然后……什么也没发生。或者更糟，它在本地能用，但在生产环境就坏了。这是怎么回事？</p>
+<p>如果这听起来很耳熟，你可能正巧碰上了旧的 <code>pages</code> router 和现代 <strong>App Router</strong> 之间的差异。好消息是，一旦你了解了它的约定，新的方式其实更简单、更强大。</p>
+
+<h2>官方方式：基于文件的元数据</h2>
+<p>忘了手动在你的 <code>layout.tsx</code> 文件里添加 <code>&lt;link&gt;</code> 标签吧。Next.js App Router 使用一种特殊的基于文件的系统。你只需将特定命名的图标文件放在你的 <code>app</code> 目录下，Next.js 就会自动为你生成必要的 HTML head 标签。</p>
+<p>这是我推荐的方法。它更整洁，不易出错，并且利用了框架的内置优化。</p>
+
+<h2>分步指南：添加你的 Favicon</h2>
+<p>我们用不到五分钟的时间搞定它。除了一个正在运行 App Router 的 Next.js 项目外，不需要任何先决条件。</p>
+
+<h3>第一步：准备你的图标文件</h3>
+<p>为了实现广泛的兼容性，你需要几个关键文件。虽然你可以自己创建这些文件，但使用生成器能确保它们的尺寸和格式都正确无误。（不害臊地插播一句：我们的<a href="/ja/blog/favicon-generator-free.html">免费 favicon 生成器</a>能完美处理这一切）。</p>
+<ul>
+    <li><code>favicon.ico</code>：经典格式。旧版浏览器需要它。</li>
+    <li><code>icon.png</code> 或 <code>icon.svg</code>：现代高分辨率图标。我强烈推荐使用 SVG。我们有一整篇关于 <a href="/ja/blog/svg-favicon.html">SVG favicon 优势</a>的指南。</li>
+    <li><code>apple-icon.png</code>：当用户将你的网站添加到他们的 iOS 主屏幕时使用。可以查看我们的 <a href="/ja/blog/apple-touch-icon-guide.html">Apple Touch Icon 指南</a>了解具体细节。</li>
+</ul>
+
+<h3>第二步：将图标放在 `app` 目录的根路径下</h3>
+<p>这是最重要的一步。将你生成的图标直接移动到 <code>/app</code> 文件夹中。<strong>不要</strong>把它们放在 <code>/public</code> 文件夹里。</p>
+<p>你的项目结构应该看起来像这样：</p>
+<pre><code>app/
+├── layout.tsx
+├── page.tsx
+├── favicon.ico       &lt;-- 用于旧版浏览器
+├── icon.svg          &lt;-- 用于现代浏览器 (推荐)
+└── apple-icon.png    &lt;-- 用于 iOS 主屏幕
+public/
+└── ... (你的其他静态资源)</code></pre>
+<p>Next.js 会自动检测这些文件，并在你网站的 <code>&lt;head&gt;</code> 中生成相应的 <code>&lt;link&gt;</code> 标签。</p>
+
+<h3>第三步：移除任何旧的或手动的声明</h3>
+<p>如果你的 <code>public</code> 文件夹里有一个旧的 <code>favicon.ico</code>，<strong>请删除它</strong>。虽然 <code>/app</code> 目录下的文件会优先使用，但最好还是避免混淆。</p>
+<p>另外，检查你的根 <code>layout.tsx</code> 文件，移除任何手动添加的 <code>&lt;link rel="icon" ...&gt;</code> 标签。基于文件的方法使它们变得多余。</p>
+
+<h3>第四步：验证结果</h3>
+<p>运行你的开发服务器 (<code>npm run dev</code>)，并检查页面的源代码。你应该能看到 Next.js 已经为你生成了这些标签，大概是这样：</p>
+<pre><code>&lt;head&gt;
+  ...
+  &lt;link rel="icon" href="/favicon.ico" type="image/x-icon" sizes="any"&gt;
+  &lt;link rel="icon" href="/icon.svg" type="image/svg+xml" sizes="any"&gt;
+  &lt;link rel="apple-touch-icon" href="/apple-icon.png" type="image/png" sizes="any"&gt;
+  ...
+&lt;/head&gt;</code></pre>
+<p>看到这些标签就意味着它成功了。框架已经处理好了一切。</p>
+
+<h2>真实案例：GitHub 是怎么做的</h2>
+<p>好奇大公司是怎么处理这个问题的吗？看看 GitHub。他们提供了一个 <code>favicon.ico</code>，为不同设备提供了多种尺寸的 PNG，还有一个用于 Safari 固定标签页的特殊单色 SVG。Next.js 基于文件的方法就是为了能自动构建这种强大的、支持多设备的方案，让你不必手动编写所有这些 <code>&lt;link&gt;</code> 标签。</p>
+
+<h2>需要避免的常见陷阱</h2>
+<p>如果你的图标没有显示出来，通常是以下三个原因之一。</p>
+<h3>1. `public` 文件夹的陷阱</h3>
+<p>再次强调，对于像 favicon 这样的元数据文件，在现代 Next.js 中，<code>app</code> 目录才是正确的位置。虽然 <code>public</code> 文件夹仍然可以用于存放通用静态资源，但放在 <code>/app</code> 目录下的图标有特殊含义并拥有更高优先级。</p>
+
+<h3>2. 顽固的浏览器缓存</h3>
+<p>你的代码完美无缺，但你看到的仍然是旧图标（或者没有图标）。这几乎总是浏览器的锅。浏览器会非常积极地缓存 favicon。</p>
+<p>简单的页面刷新通常是不够的。你需要进行硬刷新或清除浏览器缓存。如果你卡住了，我们写了一篇关于如何<a href="/ja/blog/favicon-cache-clear.html">强制清除 favicon 缓存</a>的详细指南。</p>
+
+<h3>3. 不正确的文件名</h3>
+<p><code>favicon.ico</code>、<code>icon.png</code>、<code>icon.svg</code> 和 <code>apple-icon.png</code> 这些名字不是随便起的。它们是 Next.js 特意寻找的约定。像 <code>my-icon.svg</code> 这样的拼写错误是不会被自动识别的。</p>
+
+<p>就是这样。通过遵循基于文件的约定，你是<em>顺应</em>框架而行，而不是与之对抗。你可以免费获得优化且正确的 HTML，并且你的项目能保持整洁。再也不用为了在浏览器标签页上显示一个小小的品牌标志而和 <code>&lt;head&gt;</code> 标签搏斗了。</p>
+        </div>
+
+        <div class="article-body" data-lang="ja" style="display:none">
+            <h2>Next.jsのファビコン設定：現代のApp Routerガイド</h2>
+<p>新しいNext.jsプロジェクトを立ち上げ、<code>public</code>フォルダに<code>favicon.ico</code>を置いてみたものの…何も表示されない。あるいは、ローカルでは動くのに本番環境で壊れてしまう。一体どうしてでしょう？</p>
+<p>もし心当たりがあるなら、それはおそらく古い<code>pages</code>ルーターと現代的な<strong>App Router</strong>の違いにつまずいているのです。良いニュースは、一度ルールを覚えてしまえば、新しい方法はずっとシンプルで強力だということです。</p>
+
+<h2>公式な方法：ファイルベースのメタデータ</h2>
+<p><code>layout.tsx</code>に手動で<code>&lt;link&gt;</code>タグを追加するのはもう忘れましょう。Next.jsのApp Routerは、特別なファイルベースのシステムを使用します。特定の名前のアイコンファイルを<code>app</code>ディレクトリに配置するだけで、Next.jsが必要なHTML headタグを自動的に生成してくれます。</p>
+<p>これが私のおすすめする方法です。コードがクリーンになり、エラーが起きにくく、フレームワークに組み込まれた最適化を活用できます。</p>
+
+<h2>ステップバイステップ：ファビコンの追加方法</h2>
+<p>5分以内に終わらせましょう。App Routerで実行されているNext.jsプロジェクト以外、特に必要なものはありません。</p>
+
+<h3>ステップ1：アイコンファイルを準備する</h3>
+<p>幅広い互換性のために、いくつかの主要なファイルが必要です。自分で作成することもできますが、ジェネレーターを使えば、正しいサイズとフォーマットが保証されます。（宣伝になりますが、当社の<a href="/ja/blog/favicon-generator-free.html">無料ファビコンジェネレーター</a>はこの作業を完璧にこなします）。</p>
+<ul>
+    <li><code>favicon.ico</code>：クラシックな形式。古いブラウザに必要です。</li>
+    <li><code>icon.png</code> または <code>icon.svg</code>：現代的な高解像度アイコン。私はSVGの使用を強く推奨します。<a href="/ja/blog/svg-favicon.html">SVGファビコンの利点</a>については、詳しいガイドを用意しています。</li>
+    <li><code>apple-icon.png</code>：ユーザーがあなたのサイトをiOSのホーム画面に追加したときに使われます。詳細は<a href="/ja/blog/apple-touch-icon-guide.html">Apple Touch Iconガイド</a>をご覧ください。</li>
+</ul>
+
+<h3>ステップ2：アイコンを`app`ディレクトリのルートに配置する</h3>
+<p>これが最も重要なステップです。生成したアイコンを<code>/app</code>フォルダに直接移動させてください。<strong><code>/public</code>フォルダには置かないでください。</strong></p>
+<p>プロジェクトの構造は次のようになります：</p>
+<pre><code>app/
+├── layout.tsx
+├── page.tsx
+├── favicon.ico       &lt;-- レガシーブラウザ用
+├── icon.svg          &lt;-- モダンブラウザ用（推奨）
+└── apple-icon.png    &lt;-- iOSホーム画面用
+public/
+└── ... (その他の静的アセット)</code></pre>
+<p>Next.jsはこれらのファイルを自動的に検出し、サイトの<code>&lt;head&gt;</code>に対応する<code>&lt;link&gt;</code>タグを生成します。</p>
+
+<h3>ステップ3：古い宣言や手動の宣言を削除する</h3>
+<p>もし<code>public</code>フォルダに古い<code>favicon.ico</code>があるなら、<strong>削除してください</strong>。<code>/app</code>内のファイルが優先されますが、混乱を避けるのが最善です。</p>
+<p>また、ルートの<code>layout.tsx</code>を確認し、手動で追加した<code>&lt;link rel="icon" ...&gt;</code>タグを削除してください。ファイルベースの方法を使えば、それらは不要になります。</p>
+
+<h3>ステップ4：生成された結果を確認する</h3>
+<p>開発サーバーを実行し（<code>npm run dev</code>）、ページのソースコードを確認してください。Next.jsが次のようなタグを生成しているはずです：</p>
+<pre><code>&lt;head&gt;
+  ...
+  &lt;link rel="icon" href="/favicon.ico" type="image/x-icon" sizes="any"&gt;
+  &lt;link rel="icon" href="/icon.svg" type="image/svg+xml" sizes="any"&gt;
+  &lt;link rel="apple-touch-icon" href="/apple-icon.png" type="image/png" sizes="any"&gt;
+  ...
+&lt;/head&gt;</code></pre>
+<p>これらのタグが表示されていれば、正しく機能しています。フレームワークがすべてを処理してくれたのです。</p>
+
+<h2>実例：GitHubはどのようにしているか</h2>
+<p>プロがこれをどう扱っているか気になりますか？GitHubを見てみましょう。彼らは<code>favicon.ico</code>、さまざまなデバイス向けの複数のPNGサイズ、そしてSafariのピン留めタブ用の特別なモノクロSVGを提供しています。Next.jsのファイルベースのアプローチは、このような堅牢でマルチデバイス対応のサポートを自動的に構築するように設計されており、手動でたくさんの<code>&lt;link&gt;</code>タグを書く手間を省いてくれます。</p>
+
+<h2>よくある落とし穴と回避策</h2>
+<p>アイコンが表示されない場合、原因は通常これら3つのうちの1つです。</p>
+<h3>1. `public`フォルダの罠</h3>
+<p>繰り返しますが、ファビコンのようなメタデータファイルの場合、現代のNext.jsでは<code>app</code>ディレクトリが正しい場所です。<code>public</code>フォルダは一般的な静的アセットには引き続き使えますが、<code>/app</code>に置かれたアイコンは特別な意味を持ち、優先されます。</p>
+
+<h3>2. 強力なブラウザのキャッシュ</h3>
+<p>コードは完璧なのに、古いアイコン（またはアイコンなし）が表示され続ける。これはほとんどの場合、ブラウザのせいです。ブラウザはファビコンを非常に積極的にキャッシュします。</p>
+<p>単純なページリロードでは不十分なことがよくあります。ハードリフレッシュを行うか、ブラウザのキャッシュをクリアする必要があります。もし行き詰まったら、<a href="/ja/blog/favicon-cache-clear.html">ファビコンのキャッシュを強制的にクリアする方法</a>についての詳細なガイドを参考にしてください。</p>
+
+<h3>3. 不正確なファイル名</h3>
+<p><code>favicon.ico</code>、<code>icon.png</code>、<code>icon.svg</code>、<code>apple-icon.png</code>という名前は適当に付けられたものではありません。これらはNext.jsが特別に探す規約です。<code>my-icon.svg</code>のようなタイプミスは自動的に認識されません。</p>
+
+<p>以上です。ファイルベースの規約に従うことで、フレームワークに<em>逆らう</em>のではなく、<em>協力して</em>作業を進めることができます。最適化された正しいHTMLを無料で手に入れ、プロジェクトをクリーンに保つことができます。ブラウザのタブにブランドを表示させるためだけに<code>&lt;head&gt;</code>タグと格闘する必要はもうありません。</p>
+        </div>
+
+        <div class="article-body" data-lang="ko" style="display:none">
+            <h2>Next.js 파비콘: 최신 앱 라우터 가이드</h2>
+<p>새로운 Next.js 프로젝트를 시작하고 <code>public</code> 폴더에 <code>favicon.ico</code> 파일을 넣었는데... 아무것도 나타나지 않나요? 혹은 더 나쁘게, 로컬에서는 잘 되는데 배포 환경에서는 깨지나요? 대체 왜 그럴까요?</p>
+<p>이런 경험이 있다면, 오래된 <code>pages</code> 라우터와 현대적인 <strong>앱 라우터(App Router)</strong>의 차이점에 부딪혔을 가능성이 높습니다. 좋은 소식은, 일단 규칙을 알고 나면 새로운 방식이 훨씬 더 간단하고 강력하다는 것입니다.</p>
+
+<h2>공식적인 방법: 파일 기반 메타데이터</h2>
+<p><code>layout.tsx</code>에 수동으로 <code>&lt;link&gt;</code> 태그를 추가하는 것은 잊어버리세요. Next.js 앱 라우터는 특별한 파일 기반 시스템을 사용합니다. 특정 이름의 아이콘 파일들을 <code>app</code> 디렉토리에 넣기만 하면, Next.js가 필요한 HTML head 태그를 자동으로 생성해 줍니다.</p>
+<p>이것이 제가 추천하는 접근 방식입니다. 더 깔끔하고, 오류 발생 가능성이 적으며, 프레임워크에 내장된 최적화 기능을 활용할 수 있습니다.</p>
+
+<h2>단계별 파비콘 추가하기</h2>
+<p>5분 안에 이 작업을 끝내봅시다. 앱 라우터를 사용하는 Next.js 프로젝트 외에는 다른 준비물은 필요 없습니다.</p>
+
+<h3>1단계: 아이콘 파일 준비하기</h3>
+<p>폭넓은 호환성을 위해 몇 가지 핵심 파일이 필요합니다. 직접 만들 수도 있지만, 생성기를 사용하면 정확한 크기와 형식으로 만들 수 있습니다. (뻔뻔한 광고지만, 저희 <a href="/ja/blog/favicon-generator-free.html">무료 파비콘 생성기</a>가 이 작업을 완벽하게 처리해 드립니다).</p>
+<ul>
+    <li><code>favicon.ico</code>: 고전적인 파일입니다. 오래된 브라우저에 필요합니다.</li>
+    <li><code>icon.png</code> 또는 <code>icon.svg</code>: 현대적인 고해상도 아이콘입니다. SVG 사용을 강력히 추천합니다. 저희는 <a href="/ja/blog/svg-favicon.html">SVG 파비콘의 장점</a>에 대한 전체 가이드를 제공합니다.</li>
+    <li><code>apple-icon.png</code>: 사용자가 사이트를 iOS 홈 화면에 추가할 때 사용됩니다. 자세한 내용은 <a href="/ja/blog/apple-touch-icon-guide.html">Apple Touch Icon 가이드</a>를 확인하세요.</li>
+</ul>
+
+<h3>2단계: `app` 디렉토리의 루트에 아이콘 배치하기</h3>
+<p>이것이 가장 중요한 단계입니다. 생성된 아이콘들을 <code>/app</code> 폴더로 직접 옮기세요. <strong><code>/public</code> 폴더에 넣지 마세요.</strong></p>
+<p>프로젝트 구조는 다음과 같아야 합니다:</p>
+<pre><code>app/
+├── layout.tsx
+├── page.tsx
+├── favicon.ico       &lt;-- 레거시 브라우저용
+├── icon.svg          &lt;-- 최신 브라우저용 (권장)
+└── apple-icon.png    &lt;-- iOS 홈 화면용
+public/
+└── ... (기타 정적 자산)</code></pre>
+<p>Next.js는 이 파일들을 자동으로 감지하고 사이트의 <code>&lt;head&gt;</code>에 해당하는 <code>&lt;link&gt;</code> 태그를 생성합니다.</p>
+
+<h3>3단계: 오래되거나 수동으로 추가한 선언 제거하기</h3>
+<p>만약 <code>public</code> 폴더에 오래된 <code>favicon.ico</code> 파일이 있다면, <strong>삭제하세요</strong>. <code>/app</code>에 있는 파일이 우선 적용되지만, 혼동을 피하는 것이 가장 좋습니다.</p>
+<p>또한, 루트 <code>layout.tsx</code> 파일을 확인하고 수동으로 추가한 <code>&lt;link rel="icon" ...&gt;</code> 태그를 제거하세요. 파일 기반 방식을 사용하면 이 태그들은 불필요해집니다.</p>
+
+<h3>4단계: 결과 확인하기</h3>
+<p>개발 서버를 실행하고(<code>npm run dev</code>) 페이지의 소스 코드를 검사해 보세요. Next.js가 다음과 같이 태그를 생성한 것을 볼 수 있을 것입니다:</p>
+<pre><code>&lt;head&gt;
+  ...
+  &lt;link rel="icon" href="/favicon.ico" type="image/x-icon" sizes="any"&gt;
+  &lt;link rel="icon" href="/icon.svg" type="image/svg+xml" sizes="any"&gt;
+  &lt;link rel="apple-touch-icon" href="/apple-icon.png" type="image/png" sizes="any"&gt;
+  ...
+&lt;/head&gt;</code></pre>
+<p>이 태그들이 보인다면 제대로 작동하고 있다는 뜻입니다. 프레임워크가 모든 것을 처리해 준 것입니다.</p>
+
+<h2>실제 사례: GitHub는 어떻게 할까?</h2>
+<p>전문가들은 이 문제를 어떻게 다루는지 궁금하신가요? GitHub를 살펴보세요. 그들은 <code>favicon.ico</code>, 다양한 기기를 위한 여러 크기의 PNG, 그리고 Safari 고정 탭 아이콘을 위한 특별한 단색 SVG를 제공합니다. Next.js의 파일 기반 접근 방식은 바로 이런 견고한 멀티 디바이스 지원을 자동으로 구축하도록 설계되어, 여러분이 그 많은 <code>&lt;link&gt;</code> 태그를 직접 작성하는 수고를 덜어줍니다.</p>
+
+<h2>피해야 할 흔한 실수들</h2>
+<p>아이콘이 나타나지 않는다면, 보통 다음 세 가지 중 하나가 원인입니다.</p>
+<h3>1. `public` 폴더의 함정</h3>
+<p>다시 말하지만, 파비콘과 같은 메타데이터 파일의 경우, 최신 Next.js에서는 <code>app</code> 디렉토리가 올바른 위치입니다. <code>public</code> 폴더는 여전히 일반적인 정적 자산에 사용할 수 있지만, <code>/app</code>에 위치한 아이콘은 특별한 의미를 가지며 우선순위가 더 높습니다.</p>
+
+<h3>2. 공격적인 브라우저 캐싱</h3>
+<p>코드는 완벽한데 여전히 오래된 아이콘(또는 아이콘 없음)이 보인다면, 이것은 거의 항상 브라우저 탓입니다. 브라우저는 파비콘을 매우 공격적으로 캐시합니다.</p>
+<p>단순한 페이지 새로고침으로는 충분하지 않을 때가 많습니다. 강력 새로고침을 하거나 브라우저 캐시를 지워야 합니다. 만약 문제가 해결되지 않는다면, <a href="/ja/blog/favicon-cache-clear.html">파비콘 캐시를 강제로 지우는 방법</a>에 대한 상세 가이드를 참고하세요.</p>
+
+<h3>3. 잘못된 파일 이름</h3>
+<p><code>favicon.ico</code>, <code>icon.png</code>, <code>icon.svg</code>, <code>apple-icon.png</code>라는 이름은 임의로 정해진 것이 아닙니다. 이것들은 Next.js가 특별히 찾는 규칙입니다. <code>my-icon.svg</code>와 같은 오타는 자동으로 인식되지 않습니다.</p>
+
+<p>이것으로 끝입니다. 파일 기반 규칙을 따름으로써, 여러분은 프레임워크에 <em>맞서는</em> 것이 아니라 <em>함께</em> 일하게 됩니다. 최적화되고 정확한 HTML을 무료로 얻고, 프로젝트는 깔끔하게 유지됩니다. 더 이상 브라우저 탭에 브랜드를 표시하기 위해 <code>&lt;head&gt;</code> 태그와 씨름할 필요가 없습니다.</p>
+        </div>
+
+        <div class="article-body" data-lang="es" style="display:none">
+            <h2>Favicon en Next.js: La guía moderna para el App Router</h2>
+<p>Acabas de crear un nuevo proyecto en Next.js, pones un <code>favicon.ico</code> en la carpeta <code>public</code> y... nada. O peor, funciona en local pero se rompe en producción. ¿Qué está pasando?</p>
+<p>Si esto te suena, probablemente te has topado con la diferencia entre el antiguo <code>pages</code> router y el moderno <strong>App Router</strong>. La buena noticia es que la nueva forma es mucho más simple y potente una vez que conoces la convención.</p>
+
+<h2>El método oficial: metadatos basados en archivos</h2>
+<p>Olvídate de añadir manualmente etiquetas <code>&lt;link&gt;</code> a tu <code>layout.tsx</code>. El App Router de Next.js utiliza un sistema especial basado en archivos. Colocas archivos de icono con nombres específicos en tu directorio <code>app</code>, y Next.js genera automáticamente las etiquetas HTML necesarias en el head por ti.</p>
+<p>Este es mi enfoque recomendado. Es más limpio, menos propenso a errores y aprovecha las optimizaciones integradas del framework.</p>
+
+<h2>Paso a paso: Añadiendo tu favicon</h2>
+<p>Hagamos esto en menos de cinco minutos. No se necesitan requisitos previos, más allá de un proyecto Next.js que utilice el App Router.</p>
+
+<h3>Paso 1: Prepara tus archivos de icono</h3>
+<p>Necesitas algunos archivos clave para una amplia compatibilidad. Aunque puedes crearlos tú mismo, un generador asegura que tengan el tamaño y formato correctos. (Autopromoción descarada: nuestro <a href="/ja/blog/favicon-generator-free.html">generador de favicons gratuito</a> se encarga de esto perfectamente).</p>
+<ul>
+    <li><code>favicon.ico</code>: El clásico. Requerido para navegadores antiguos.</li>
+    <li><code>icon.png</code> o <code>icon.svg</code>: El icono moderno de alta resolución. Recomiendo encarecidamente usar un SVG. Tenemos una guía completa sobre los <a href="/ja/blog/svg-favicon.html">beneficios de los favicons SVG</a>.</li>
+    <li><code>apple-icon.png</code>: Para cuando los usuarios añaden tu sitio a su pantalla de inicio de iOS. Echa un vistazo a nuestra <a href="/ja/blog/apple-touch-icon-guide.html">guía de Apple Touch Icon</a> para más detalles.</li>
+</ul>
+
+<h3>Paso 2: Coloca los iconos en la raíz del directorio `app`</h3>
+<p>Este es el paso más importante. Mueve tus iconos generados directamente a la carpeta <code>/app</code>. <strong>No</strong> los pongas en la carpeta <code>/public</code>.</p>
+<p>La estructura de tu proyecto debería verse así:</p>
+<pre><code>app/
+├── layout.tsx
+├── page.tsx
+├── favicon.ico       &lt;-- Para navegadores antiguos
+├── icon.svg          &lt;-- Para navegadores modernos (recomendado)
+└── apple-icon.png    &lt;-- Para la pantalla de inicio de iOS
+public/
+└── ... (tus otros archivos estáticos)</code></pre>
+<p>Next.js detectará automáticamente estos archivos y generará las etiquetas <code>&lt;link&gt;</code> correspondientes en el <code>&lt;head&gt;</code> de tu sitio.</p>
+
+<h3>Paso 3: Elimina cualquier declaración antigua o manual</h3>
+<p>Si tienes un <code>favicon.ico</code> antiguo en tu carpeta <code>public</code>, <strong>bórralo</strong>. El archivo en <code>/app</code> tiene prioridad, pero es mejor evitar confusiones.</p>
+<p>Además, revisa tu <code>layout.tsx</code> raíz y elimina cualquier etiqueta <code>&lt;link rel="icon" ...&gt;</code> que hayas añadido manualmente. El método basado en archivos las hace redundantes.</p>
+
+<h3>Paso 4: Verifica el resultado</h3>
+<p>Ejecuta tu servidor de desarrollo (<code>npm run dev</code>) e inspecciona el código fuente de tu página. Deberías ver que Next.js ha generado las etiquetas por ti, algo como esto:</p>
+<pre><code>&lt;head&gt;
+  ...
+  &lt;link rel="icon" href="/favicon.ico" type="image/x-icon" sizes="any"&gt;
+  &lt;link rel="icon" href="/icon.svg" type="image/svg+xml" sizes="any"&gt;
+  &lt;link rel="apple-touch-icon" href="/apple-icon.png" type="image/png" sizes="any"&gt;
+  ...
+&lt;/head&gt;</code></pre>
+<p>Ver estas etiquetas significa que está funcionando. El framework se encargó de todo.</p>
+
+<h2>Ejemplo real: Cómo lo hace GitHub</h2>
+<p>¿Tienes curiosidad por saber cómo lo manejan los profesionales? Echa un vistazo a GitHub. Sirven un <code>favicon.ico</code>, múltiples tamaños de PNG para diferentes dispositivos y un SVG monocromático especial para el icono de pestaña fijada de Safari. El enfoque basado en archivos de Next.js está diseñado para construir este tipo de soporte robusto y multidispositivo automáticamente, ahorrándote el tener que escribir todas esas etiquetas <code>&lt;link&gt;</code> a mano.</p>
+
+<h2>Errores comunes que debes evitar</h2>
+<p>Si tu icono no aparece, normalmente es por una de estas tres cosas.</p>
+<h3>1. La trampa de la carpeta `public`</h3>
+<p>De nuevo, para archivos de metadatos como los favicons, el directorio <code>app</code> es el lugar correcto en el Next.js moderno. Aunque la carpeta <code>public</code> sigue funcionando para archivos estáticos generales, los iconos colocados en <code>/app</code> tienen un significado especial y tienen prioridad.</p>
+
+<h3>2. El caché agresivo del navegador</h3>
+<p>Tu código es perfecto, pero sigues viendo el icono antiguo (o ningún icono). Esto es casi siempre culpa del navegador. Los navegadores guardan en caché los favicons de forma muy agresiva.</p>
+<p>Una simple recarga de la página a menudo no es suficiente. Necesitarás hacer una recarga forzada o limpiar la caché de tu navegador. Escribimos una guía detallada sobre cómo <a href="/ja/blog/favicon-cache-clear.html">forzar la limpieza de la caché del favicon</a> si te quedas atascado.</p>
+
+<h3>3. Nombres de archivo incorrectos</h3>
+<p>Los nombres <code>favicon.ico</code>, <code>icon.png</code>, <code>icon.svg</code> y <code>apple-icon.png</code> no son arbitrarios. Son convenciones que Next.js busca específicamente. Un error tipográfico como <code>mi-icono.svg</code> no será detectado automáticamente.</p>
+
+<p>Y eso es todo. Al adoptar la convención basada en archivos, estás trabajando <em>con</em> el framework, no contra él. Obtienes HTML optimizado y correcto de forma gratuita, y tu proyecto se mantiene limpio. No más peleas con las etiquetas del <code>&lt;head&gt;</code> solo para que tu marca aparezca en la pestaña de un navegador.</p>
+        </div>
+
+        <div class="cta-box">
+            <h3 data-en="Generate your complete favicon set instantly." data-zh="立即生成你完整的 favicon 图标集。" data-ja="ファビコンセット一式を瞬時に生成。" data-ko="지금 바로 전체 파비콘 세트를 생성하세요." data-es="Genera tu conjunto completo de favicons al instante.">Generate your complete favicon set instantly.</h3>
+            <p data-en="Stop wrestling with image sizes and formats. Mzu favicondl creates every icon you need for modern web development, from a single image." data-zh="别再纠结于图像尺寸和格式了。Mzu favicondl 从单张图片为你创建现代 Web 开发所需的所有图标。" data-ja="画像のサイズやフォーマットに悩むのはもうやめましょう。Mzu favicondlは、1枚の画像から現代のWeb開発に必要なすべてのアイコンを作成します。" data-ko="이미지 크기와 형식 문제로 더 이상 씨름하지 마세요. Mzu favicondl은 단일 이미지 파일 하나로 최신 웹 개발에 필요한 모든 아이콘을 만들어 드립니다." data-es="Deja de pelearte con los tamaños y formatos de imagen. Mzu favicondl crea todos los iconos que necesitas para el desarrollo web moderno a partir de una sola imagen.">Stop wrestling with image sizes and formats. Mzu favicondl creates every icon you need for modern web development, from a single image.</p>
+            <a href="/ja/index.html" class="cta-btn" data-en="Try It Free →" data-zh="免费试用 →" data-ja="無料で試す →" data-ko="무료로 사용해보기 →" data-es="Pruébalo gratis →">Try It Free →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/ja/index.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Home" data-zh="首页">ホーム</a>
+                <a href="/ja/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Blog" data-zh="博客">ブログ</a>
+                <a href="/ja/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Privacy" data-zh="隐私政策">プライバシー</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js?v=20260211"></script>
+
+
+</body></html>
