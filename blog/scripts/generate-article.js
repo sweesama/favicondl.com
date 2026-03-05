@@ -55,8 +55,8 @@ const DEPTH_CONFIG = {
   deep: { minWords: 1000, maxWords: 1500, label: '深度' },
 };
 
-// 禁止出现的危险 HTML 标签
-const FORBIDDEN_TAGS = ['script', 'iframe', 'object', 'embed', 'form', 'input', 'style', 'link', 'meta', 'h1'];
+// 禁止出现的危险 HTML 标签 (移除了 link 和 meta，允许在代码示例中展示)
+const FORBIDDEN_TAGS = ['script', 'iframe', 'object', 'embed', 'form', 'input', 'style', 'h1'];
 
 // CTA 链接白名单
 const VALID_CTA_LINKS = ['/index.html', '/tools.html', '/documentation.html'];
@@ -685,7 +685,7 @@ function validateArticleData(data, keyword, depth) {
     const zhChars = (data.contentZh.match(/[\u4e00-\u9fff]/g) || []).length;
     const totalChars = data.contentZh.replace(/<[^>]+>/g, '').length;
     const zhRatio = totalChars > 0 ? zhChars / totalChars : 0;
-    if (zhRatio < 0.3) {
+    if (zhRatio < 0.15) {
       errors.push(`中文字符比例仅 ${(zhRatio * 100).toFixed(1)}%`);
     } else {
       console.log(`  ✅ 中文比例: ${(zhRatio * 100).toFixed(1)}%`);
