@@ -589,5 +589,24 @@
       "best-practices",
       "a11y"
     ]
+  },
+  {
+    "slug": "pwa-icon-requirements",
+    "publishDate": "2026-03-07",
+    "titleEn": "Mastering Progressive Web App Icon Requirements (2026)",
+    "titleZh": "2026年掌握渐进式Web应用图标要求",
+    "titleJa": "2026年版：プログレッシブウェブアプリのアイコン要件をマスターする",
+    "titleKo": "2026년 프로그레시브 웹 앱 아이콘 요구사항 완벽 가이드",
+    "titleEs": "Dominando los Requisitos de Iconos para Progressive Web Apps (2026)",
+    "descEn": "Learn the essential progressive web app icon requirements for 2026. Ensure your PWA looks native on every device with maskable icons and optimal sizes.",
+    "descZh": "了解2026年渐进式Web应用图标的基本要求。通过可遮罩图标和最佳尺寸，确保您的PWA在所有设备上都具有原生应用外观。",
+    "descJa": "2026年のプログレッシブウェブアプリのアイコン要件を徹底解説。マスク可能なアイコンと最適なサイズで、PWAがあらゆるデバイスでネイティブアプリのように見えるようにしましょう。",
+    "descKo": "2026년 필수 프로그레시브 웹 앱 아이콘 요구사항을 알아보세요. 마스커블 아이콘과 최적의 크기로 모든 기기에서 PWA가 네이티브 앱처럼 보이도록 만드세요.",
+    "descEs": "Descubre los requisitos esenciales de iconos para Progressive Web Apps en 2026. Asegura que tu PWA se vea nativa en cada dispositivo con iconos enmascarables y tamaños óptimos.",
+    "keyword": "progressive web app icon requirements",
+    "tags": [
+      "pwa",
+      "requirements"
+    ]
   }
 ]
