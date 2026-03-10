@@ -30,11 +30,13 @@
 - ✅ `i18n/build.js` 一键构建所有语言版本
 
 ### 📝 博客自动发布系统
-- ✅ **AI 生成文章**：Gemini API 单次调用生成 5 语言元数据（标题/描述/CTA）+ 英文和中文正文
+- ✅ **AI 生成文章**：Gemini API 单次调用生成 5 语言元数据（标题/描述/CTA）+ 五国语言正文
 - ✅ **GitHub Actions 自动化**：每天 UTC 00:00 自动生成 + i18n 构建 + commit & push
 - ✅ **关键词队列**：`blog/queue.json` 管理待发布关键词
-- ✅ **质量检查**：词数/字符比例/SEO 位置/AI 套话检测/禁止标签
-- ✅ **多模型降级**：Gemini 3 Flash → 2.5 Flash → 2.5 Pro
+- ✅ **8 维度质量评分**：词数/代码示例/FAQ/内链/AI套话/标题/列表/多语言平衡 → A/B/C 自动评级
+- ✅ **多模型降级**：Gemini 3.1 Flash Lite → 3.0 Flash → 2.5 Flash
+- ✅ **飞书通知**：每日发布结果 + 质量评级推送到飞书群
+- ✅ **IndexNow 推送**：自动通知 Google/Bing 抓取新页面
 
 ### 📊 数据分析
 - ✅ Google Analytics（G-7QLC8QV609）全站部署
@@ -63,7 +65,7 @@
 | Favicon API | Google Favicon Service | **$0** |
 | 图片处理 | 前端 Canvas | **$0** |
 | CDN/代理 | Cloudflare Worker (免费额度) | **$0** |
-| AI 文章 | Gemini API (免费额度 20 RPD) | **$0** |
+| AI 文章 | Gemini 3.1 Flash Lite (免费额度 150K RPD) | **$0** |
 | 数据分析 | Google Analytics 4 | **$0** |
 | **总计** | | **$0/月** |
 
@@ -170,6 +172,14 @@ https://www.google.com/s2/favicons?domain={域名}&sz={尺寸}
 ```
 
 ## 📝 更新日志
+
+### v1.4.0 (2026-03-10)
+- ✅ **8 维度质量评分器**：自动评估文章质量（A/B/C 评级），评分记录到 articles.json
+- ✅ **模型升级**：主力模型升级为 Gemini 3.1 Flash Lite（速度快 64%，质量持平）
+- ✅ **飞书通知升级**：每日通知包含文章质量评级和分数
+- ✅ **IndexNow 自动推送**：发布后主动通知 Google/Bing 抓取
+- ✅ **多语言深度本地化**：AI Prompt 从直译升级为文化适配改写
+- ✅ **反 AI 八股文**：20+ 条套话黑名单 + 中英文双语检测
 
 ### v1.3.0 (2026-02-12)
 - ✅ **5 语言支持**：新增日本語、한국어、Español（URL 路径路由）
