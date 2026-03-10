@@ -142,15 +142,15 @@ async function main() {
     articleData.contentKo = sanitizeHTML(articleData.contentKo);
     articleData.contentEs = sanitizeHTML(articleData.contentEs);
 
-    // --- 动态更新内部链接池（新文章可以被后续文章引用）---
-    // (pool 在下一次运行时自动生效，因为我们读取 articles.json)
+    // --- 质量评分 ---
+    const { score: qualityScore, grade: qualityGrade } = scoreArticleQuality(articleData, nextItem.keyword, depth);
 
     // --- 写入文件 ---
     const htmlContent = buildHTML(articleData, nextItem, today);
     fs.writeFileSync(htmlPath, htmlContent, 'utf-8');
     console.log(`✅ 已生成 HTML: ${nextItem.slug}.html`);
 
-    // 更新 articles.json
+    // 更新 articles.json（含评分）
     articles.push({
       slug: nextItem.slug,
       publishDate: today,
@@ -165,7 +165,9 @@ async function main() {
       descKo: articleData.descKo,
       descEs: articleData.descEs,
       keyword: nextItem.keyword,
-      tags: nextItem.tags
+      tags: nextItem.tags,
+      qualityScore,
+      qualityGrade
     });
     fs.writeFileSync(ARTICLES_PATH, JSON.stringify(articles, null, 2) + '\n', 'utf-8');
     console.log('✅ 已更新 articles.json');
@@ -174,14 +176,17 @@ async function main() {
     updateSitemap(nextItem.slug, today);
     console.log('✅ 已更新 sitemap.xml');
 
-    // 标记队列项为已完成
+    // 标记队列项为已完成（含评分）
     nextItem.status = 'done';
+    nextItem.qualityScore = qualityScore;
+    nextItem.qualityGrade = qualityGrade;
     fs.writeFileSync(QUEUE_PATH, JSON.stringify(queue, null, 2) + '\n', 'utf-8');
     console.log('✅ 已更新 queue.json');
 
     // --- 最终输出 ---
+    const gradeEmoji = qualityGrade === 'A' ? '🏆' : qualityGrade === 'B' ? '👍' : '⚠️';
     console.log('\n' + '='.repeat(50));
-    console.log(`🎉 文章发布成功!`);
+    console.log(`🎉 文章发布成功! ${gradeEmoji} 质量 ${qualityGrade}级 (${qualityScore}/100)`);
     console.log(`   EN: ${articleData.titleEn}`);
     console.log(`   ZH: ${articleData.titleZh}`);
     console.log(`   JA: ${articleData.titleJa}`);
@@ -703,6 +708,148 @@ function validateArticleData(data, keyword, depth) {
     throw new Error(`质量检查失败（${errors.length} 个错误）:\n${errors.join('\n')}`);
   }
   console.log('  ✅ 质量检查通过\n');
+}
+
+// ============================================================
+// 文章质量评分 — 8 维度自动打分 (满分 100)
+// ============================================================
+
+function scoreArticleQuality(data, keyword, depth) {
+  console.log('\n📊 正在评估文章质量...');
+  let score = 0;
+  const details = [];
+  const depthCfg = DEPTH_CONFIG[depth] || DEPTH_CONFIG.standard;
+
+  // --- 1. 英文词数是否在目标范围 (20分) ---
+  if (data.contentEn) {
+    const plainText = data.contentEn.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+    const wordCount = plainText.split(' ').filter(w => w.length > 0).length;
+    if (wordCount >= depthCfg.minWords && wordCount <= depthCfg.maxWords) {
+      score += 20;
+      details.push('词数达标 +20');
+    } else if (wordCount >= depthCfg.minWords * 0.8) {
+      score += 12;
+      details.push(`词数偏少(${wordCount}) +12`);
+    } else {
+      score += 5;
+      details.push(`词数不足(${wordCount}) +5`);
+    }
+  }
+
+  // --- 2. 有无代码示例 <code> 或 <pre> (15分) ---
+  if (data.contentEn) {
+    const hasPre = /<pre[\s>]/i.test(data.contentEn);
+    const hasCode = /<code[\s>]/i.test(data.contentEn);
+    if (hasPre) {
+      score += 15;
+      details.push('有代码块 +15');
+    } else if (hasCode) {
+      score += 8;
+      details.push('有行内代码 +8');
+    } else {
+      details.push('无代码示例 +0');
+    }
+  }
+
+  // --- 3. FAQ / H3 小节数量 (15分) ---
+  if (data.contentEn) {
+    const h3Count = (data.contentEn.match(/<h3[\s>]/gi) || []).length;
+    if (h3Count >= 3) {
+      score += 15;
+      details.push(`${h3Count}个H3小节 +15`);
+    } else if (h3Count >= 1) {
+      score += 7;
+      details.push(`${h3Count}个H3小节 +7`);
+    } else {
+      details.push('无H3小节 +0');
+    }
+  }
+
+  // --- 4. 内部链接数量 (10分) ---
+  if (data.contentEn) {
+    const internalLinks = (data.contentEn.match(/<a\s+href="\/blog\//gi) || []).length;
+    if (internalLinks >= 2) {
+      score += 10;
+      details.push(`${internalLinks}条内链 +10`);
+    } else if (internalLinks === 1) {
+      score += 5;
+      details.push('1条内链 +5');
+    } else {
+      details.push('无内链 +0');
+    }
+  }
+
+  // --- 5. AI 套话命中数 (15分, 0命中=满分) ---
+  if (data.contentEn) {
+    const enLower = data.contentEn.toLowerCase();
+    const AI_CLICHES = [
+      "in today's digital", "in the ever-evolving", "it's important to note",
+      "it's worth mentioning", "without further ado", "let's dive in",
+      "this comprehensive guide", "whether you're a beginner",
+      "first and foremost", "last but not least", "at the end of the day",
+      "plays a key role", "plays an important role", "crucial role",
+      "let's explore", "let's take a look",
+    ];
+    const hitCount = AI_CLICHES.filter(c => enLower.includes(c)).length;
+    const clicheScore = Math.max(0, 15 - hitCount * 4);
+    score += clicheScore;
+    details.push(`AI套话${hitCount}处 +${clicheScore}`);
+  }
+
+  // --- 6. 标题长度 40-65 字符 (10分) ---
+  if (data.titleEn) {
+    const len = data.titleEn.length;
+    if (len >= 40 && len <= 65) {
+      score += 10;
+      details.push(`标题${len}字符 +10`);
+    } else if (len >= 30 && len <= 80) {
+      score += 5;
+      details.push(`标题${len}字符 +5`);
+    } else {
+      details.push(`标题${len}字符 +0`);
+    }
+  }
+
+  // --- 7. 有无列表 <ul>/<ol> (10分) ---
+  if (data.contentEn) {
+    const hasList = /<[uo]l[\s>]/i.test(data.contentEn);
+    if (hasList) {
+      score += 10;
+      details.push('有列表 +10');
+    } else {
+      details.push('无列表 +0');
+    }
+  }
+
+  // --- 8. 多语言内容长度平衡度 (5分) ---
+  const langs = ['contentEn', 'contentZh', 'contentJa', 'contentKo', 'contentEs'];
+  const lengths = langs.map(l => (data[l] || '').replace(/<[^>]+>/g, '').length).filter(l => l > 0);
+  if (lengths.length >= 3) {
+    const avg = lengths.reduce((a, b) => a + b, 0) / lengths.length;
+    const maxDev = Math.max(...lengths.map(l => Math.abs(l - avg) / avg));
+    if (maxDev <= 0.4) {
+      score += 5;
+      details.push('多语言均衡 +5');
+    } else {
+      details.push(`多语言偏差${(maxDev * 100).toFixed(0)}% +0`);
+    }
+  }
+
+  // --- 评级 ---
+  let grade;
+  if (score >= 80) grade = 'A';
+  else if (score >= 60) grade = 'B';
+  else grade = 'C';
+
+  const gradeEmoji = grade === 'A' ? '🏆' : grade === 'B' ? '👍' : '⚠️';
+  console.log(`  ${gradeEmoji} 质量评分: ${score}/100 (${grade}级)`);
+  details.forEach(d => console.log(`     - ${d}`));
+
+  if (grade === 'C') {
+    console.log('  ⚠️ C级文章：质量偏低，建议关注后续 SEO 表现');
+  }
+
+  return { score, grade, details };
 }
 
 // ============================================================
