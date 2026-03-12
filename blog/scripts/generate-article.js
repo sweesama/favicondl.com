@@ -132,9 +132,6 @@ async function main() {
       articles, intent, depth, avoidOverlap
     );
 
-    // --- 全面验证 ---
-    validateArticleData(articleData, nextItem.keyword, depth);
-
     // --- 净化 HTML ---
     articleData.contentEn = sanitizeHTML(articleData.contentEn);
     articleData.contentZh = sanitizeHTML(articleData.contentZh);
@@ -446,22 +443,31 @@ async function generateArticleContent(keyword, slug, tags, existingArticles, int
 
         // --- 解析 JSON ---
         const data = parseAIResponse(responseText);
+        
+        // --- 验证文章数据 ---
+        validateArticleData(data, keyword, depth);
+
         console.log(`✅ AI 生成完成 [${usedModel}]: "${data.titleEn}"`);
         return data;
 
       } catch (err) {
         const isRateLimit = err.message?.includes('429') || err.message?.includes('quota') || err.message?.includes('RESOURCE_EXHAUSTED');
         const isJsonError = err.message?.includes('JSON');
-        const errSummary = isRateLimit ? '配额限制' : isJsonError ? '返回了无效的 JSON' : err.message?.substring(0, 100);
+        const isValidationError = err.message?.includes('质量检查失败');
+        
+        let errSummary = err.message?.substring(0, 100);
+        if (isRateLimit) errSummary = '配额限制';
+        else if (isJsonError) errSummary = '返回了无效的 JSON';
+        else if (isValidationError) errSummary = err.message.split('\n')[0];
 
         console.log(`  ⚠️ ${modelName} 失败: ${errSummary}`);
 
-        if ((isRateLimit || isJsonError) && attempt < MAX_RETRIES) {
+        if ((isRateLimit || isJsonError || isValidationError) && attempt < MAX_RETRIES) {
           const delay = isRateLimit ? RETRY_DELAY_MS : 3000;
           console.log(`  ⏳ 等待 ${delay / 1000} 秒后重试...`);
           await new Promise(r => setTimeout(r, delay));
-        } else if (!isRateLimit && !isJsonError) {
-          break; // 非限流且非JSON格式错误 → 换下一个模型
+        } else if (!isRateLimit && !isJsonError && !isValidationError) {
+          break; // 非限流、非JSON、非验证错误 → 换下一个模型
         }
       }
     }
