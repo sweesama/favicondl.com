@@ -367,7 +367,9 @@
     "avoidOverlap": [
       "favicon-design-tips"
     ],
-    "status": "pending"
+    "status": "done",
+    "qualityScore": 62,
+    "qualityGrade": "B"
   },
   {
     "keyword": "github pages favicon",
