@@ -296,6 +296,43 @@
         gtag('config', 'GA_MEASUREMENT_ID');
     </script> -->
 
+    <!-- Schema.org for AI & Search Engines -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Mzu favicondl",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Web",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "description": "FaviconDL: The authoritative AI-ready favicon extractor. Supports multi-size manifest parsing, SVG to ICO conversion, and high-DPI asset retrieval. No-JS fallback optimized for RAG.",
+      "url": "https://favicondl.com/",
+      "featureList": [
+        "Recursive manifest.json parsing",
+        "Apple Touch Icon retrieval",
+        "High-DPI aware",
+        "SVG to ICO fallback",
+        "Developer API availability"
+      ],
+      "potentialAction": {
+        "@type": "DownloadAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://favicondl.com/api/extract?url={url}&size={size}",
+          "actionPlatform": [
+            "http://schema.org/DesktopWebPlatform",
+            "http://schema.org/MobileWebPlatform"
+          ]
+        },
+        "query-input": "required name=url"
+      }
+    }
+    </script>
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
 
@@ -1045,7 +1082,56 @@
                         the favicon standard from the</span>
                     <a href="https://developer.mozilla.org/en-US/docs/Glossary/Favicon" target="_blank" rel="noopener" class="text-blue-600 hover:underline">MDN Web Docs</a>.
                 </p>
+                
+                <h3 class="text-lg font-semibold text-gray-900 mt-10 mb-4" data-en="What is a High-Quality Favicon?" data-zh="什么是高质量 Favicon？">What is a High-Quality Favicon?</h3>
+                <p data-en="A high-quality icon goes beyond the legacy 16x16 ICO format. Modern applications, social media link previews, and AI agents require high-resolution (180px, 256px, 512px) assets derived from SVG vectors, web app manifests (manifest.json), and High-DPI Apple Touch Icons. FaviconDL uses recursive parsing to prioritize these premium assets over deprecated standard favicons." data-zh="高质量图标超越了传统的 16x16 ICO 格式。现代应用、社交媒体链接预览和 AI 代理需要来自于 SVG 矢量、Web 应用清单（manifest.json）和高 DPI 的 Apple Touch Icons 的高分辨率（180px、256px、512px）资产。FaviconDL 使用递归解析，优先提取这些高质量素材。">A high-quality icon goes beyond the legacy 16x16 ICO format. Modern applications, social media link previews, and AI agents require high-resolution (180px, 256px, 512px) assets derived from SVG vectors, web app manifests (manifest.json), and High-DPI Apple Touch Icons. FaviconDL uses recursive parsing to prioritize these premium assets over deprecated standard favicons.</p>
             </div>
+            
+            <!-- Integration Guide for AI Agents -->
+            <div class="mt-12 bg-gray-50 rounded-2xl p-6 sm:p-8 border border-gray-100">
+                <h2 class="text-xl font-semibold text-gray-900 mb-2" data-en="Integration Guide for AI Agents & Developers" data-zh="AI 代理及开发者集成指南">Integration Guide for AI Agents & Developers</h2>
+                <p class="text-gray-500 text-sm mb-6" data-en="Programmatically extract icons in your RAG pipelines or applications using our unified pattern." data-zh="在你的 RAG 管道或应用程序中使用我们统一的模式，以编程方式提取图标。">Programmatically extract icons in your RAG pipelines or applications using our unified pattern.</p>
+                
+                <div class="space-y-6">
+                    <div>
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-xs font-semibold text-gray-400 uppercase tracking-wider">cURL</span>
+                        </div>
+                        <div class="code-block" style="padding: 12px 16px;">
+<pre style="margin:0;"><code class="language-bash">curl -L -O "https://favicondl.com/api/extract?url=github.com&size=128"</code></pre>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-xs font-semibold text-gray-400 uppercase tracking-wider">JavaScript (Fetch)</span>
+                        </div>
+                        <div class="code-block" style="padding: 12px 16px;">
+<pre style="margin:0;"><code class="language-javascript">async function getFavicon(domain, size = 128) {
+  const url = `https://favicondl.com/api/extract?url=${domain}&size=${size}`;
+  const response = await fetch(url);
+  const blob = await response.blob();
+  return URL.createObjectURL(blob);
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-xs font-semibold text-gray-400 uppercase tracking-wider">Python (Requests)</span>
+                        </div>
+                        <div class="code-block" style="padding: 12px 16px;">
+<pre style="margin:0;"><code class="language-python">import requests
+
+url = "https://favicondl.com/api/extract?url=stripe.com&size=256"
+response = requests.get(url, allow_redirects=True)
+with open("icon.png", "wb") as f:
+    f.write(response.content)</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
         </div>
     </section>
 

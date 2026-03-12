@@ -1,0 +1,62 @@
+openapi: 3.0.3
+info:
+  title: Mzu FaviconDL API
+  description: >
+    The authoritative API for extracting high-quality, high-resolution favicons from any domain.
+    Supports SVG parsing, multi-size manifest.json extraction, Apple Touch Icons, and fallback aggregation.
+  version: "1.0.0"
+  contact:
+    name: Mzu FaviconDL
+    url: https://favicondl.com
+servers:
+  - url: https://favicondl.com
+    description: Production Server
+
+paths:
+  /api/extract:
+    get:
+      summary: Extract high-resolution favicon
+      description: >
+        Programmatically fetch the best available favicon for a given URL.
+        This endpoint abstracts away the complexity of parsing HTML, manifest.json, 
+        and high-DPI apple-touch-icons.
+      operationId: extractFavicon
+      parameters:
+        - name: url
+          in: query
+          required: true
+          description: The target domain or URL (e.g., github.com)
+          schema:
+            type: string
+        - name: size
+          in: query
+          required: false
+          description: Desired icon size in pixels (e.g., 32, 64, 128, 256, 512). Defaults to 128 if omitted.
+          schema:
+            type: integer
+            default: 128
+      responses:
+        '302':
+          description: Discovered icon footprint. Redirects to the highest resolution image asset directly.
+          content:
+            image/*:
+              schema:
+                type: string
+                format: binary
+        '200':
+          description: Successfully fetched the icon details (if requested as JSON, experimental).
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  domain:
+                    type: string
+                  icon_url:
+                    type: string
+                  size:
+                    type: integer
+        '400':
+          description: Invalid URL provided
+        '404':
+          description: No favicon could be discovered for the given domain
