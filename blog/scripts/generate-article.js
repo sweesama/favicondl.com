@@ -44,7 +44,7 @@ if (!API_KEY) {
 const ai = new GoogleGenAI({ apiKey: API_KEY });
 
 // 模型优先级列表（最新 → 备选 → 兜底）
-const MODEL_LIST = ['gemini-3.1-flash-lite', 'gemini-3.0-flash', 'gemini-2.5-flash'];
+const MODEL_LIST = ['gemini-3.1-flash-lite-preview', 'gemini-3-flash-preview', 'gemini-2.5-flash'];
 const MAX_RETRIES = 3;
 const RETRY_DELAY_MS = 50000;
 
@@ -337,6 +337,7 @@ ${avoidSection}
 - meta keywords: 3-5 terms. MUST BE UNDER 90 CHARACTERS.
 
 === HTML RULES ===
+- 🛠️ CRITICAL: You MUST use single quotes for all HTML attributes (e.g., <a href='/link' class='btn'>). Do NOT use double quotes. This is mandatory to prevent breaking the JSON string escaping.
 - <h2> for sections, <h3> for sub-sections. NEVER <h1>.
 - <p> for paragraphs. <strong> for key terms. <code> for inline code.
 - Code blocks: <pre><code>...</code></pre>.
@@ -421,9 +422,9 @@ async function generateArticleContent(keyword, slug, tags, existingArticles, int
     for (let attempt = 1; attempt <= MAX_RETRIES; attempt++) {
       try {
         console.log(`  → 模型 ${modelName} (第 ${attempt}/${MAX_RETRIES} 次)...`);
-        // 120 秒超时，防止 API 挂起
+        // 240 秒超时，防止 API 挂起
         const timeoutPromise = new Promise((_, reject) =>
-          setTimeout(() => reject(new Error('API 调用超时(120s)')), 120000)
+          setTimeout(() => reject(new Error('API 调用超时(240s)')), 240000)
         );
         const result = await Promise.race([
           ai.models.generateContent({
