@@ -109,6 +109,12 @@
     
     
     
+    
+    
+    
+    
+    
+    
 
 
 
@@ -1103,7 +1109,7 @@
             
             <!-- Integration Guide for AI Agents -->
             <div class="mt-12 bg-gray-50 rounded-2xl p-6 sm:p-8 border border-gray-100">
-                <h2 class="text-xl font-semibold text-gray-900 mb-2" data-en="Integration Guide for AI Agents & Developers" data-zh="AI 代理及开发者集成指南">Integration Guide for AI Agents & Developers</h2>
+                <h2 class="text-xl font-semibold text-gray-900 mb-2" data-en="Integration Guide for AI Agents &amp; Developers" data-zh="AI 代理及开发者集成指南">Integration Guide for AI Agents &amp; Developers</h2>
                 <p class="text-gray-500 text-sm mb-6" data-en="Programmatically extract icons in your RAG pipelines or applications using our unified pattern." data-zh="在你的 RAG 管道或应用程序中使用我们统一的模式，以编程方式提取图标。">Programmatically extract icons in your RAG pipelines or applications using our unified pattern.</p>
                 
                 <div class="space-y-6">
@@ -1112,7 +1118,7 @@
                             <span class="text-xs font-semibold text-gray-400 uppercase tracking-wider">cURL</span>
                         </div>
                         <div class="code-block" style="padding: 12px 16px;">
-<pre style="margin:0;"><code class="language-bash">curl -L -O "https://favicondl.com/api/extract?url=github.com&size=128"</code></pre>
+<pre style="margin:0;"><code class="language-bash">curl -L -O "https://favicondl.com/api/extract?url=github.com&amp;size=128"</code></pre>
                         </div>
                     </div>
                     
@@ -1122,7 +1128,7 @@
                         </div>
                         <div class="code-block" style="padding: 12px 16px;">
 <pre style="margin:0;"><code class="language-javascript">async function getFavicon(domain, size = 128) {
-  const url = `https://favicondl.com/api/extract?url=${domain}&size=${size}`;
+  const url = `https://favicondl.com/api/extract?url=${domain}&amp;size=${size}`;
   const response = await fetch(url);
   const blob = await response.blob();
   return URL.createObjectURL(blob);
@@ -1137,7 +1143,7 @@
                         <div class="code-block" style="padding: 12px 16px;">
 <pre style="margin:0;"><code class="language-python">import requests
 
-url = "https://favicondl.com/api/extract?url=stripe.com&size=256"
+url = "https://favicondl.com/api/extract?url=stripe.com&amp;size=256"
 response = requests.get(url, allow_redirects=True)
 with open("icon.png", "wb") as f:
     f.write(response.content)</code></pre>

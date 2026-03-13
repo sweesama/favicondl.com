@@ -109,6 +109,12 @@
     
     
     
+    
+    
+    
+    
+    
+    
 
 
 
@@ -295,6 +301,46 @@
         gtag('js', new Date());
         gtag('config', 'GA_MEASUREMENT_ID');
     </script> -->
+
+    <!-- Schema.org for AI & Search Engines -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Mzu favicondl",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Web",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "description": "FaviconDL: The authoritative AI-ready favicon extractor. Supports multi-size manifest parsing, SVG to ICO conversion, and high-DPI asset retrieval. No-JS fallback optimized for RAG.",
+      "url": "https://favicondl.com/",
+      "sameAs": [
+        "https://github.com/sweesama/favicondl.com"
+      ],
+      "featureList": [
+        "Recursive manifest.json parsing",
+        "Apple Touch Icon retrieval",
+        "High-DPI aware",
+        "SVG to ICO fallback",
+        "Developer API availability"
+      ],
+      "potentialAction": {
+        "@type": "DownloadAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://favicondl.com/api/extract?url={url}&size={size}",
+          "actionPlatform": [
+            "http://schema.org/DesktopWebPlatform",
+            "http://schema.org/MobileWebPlatform"
+          ]
+        },
+        "query-input": "required name=url"
+      }
+    }
+    </script>
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -672,6 +718,17 @@
             <h1 class="text-5xl font-semibold text-gray-900 tracking-tight mb-4" data-en="Download any website favicon. Instantly." data-zh="一键下载任意网站图标。">Descarga el favicon de cualquier sitio web. Al instante.</h1>
             <p class="text-xl text-gray-500 mb-12" data-en="Enter a domain or URL to extract the favicon, copy the link, or download as PNG." data-zh="输入域名或网址，提取图标并复制链接或下载 PNG。">Ingresa un dominio o URL para extraer el favicon, copiar el enlace o descargar como PNG.</p>
 
+            <!-- Social Proof Badge -->
+            <div class="flex justify-center mb-8 fade-in" style="animation-delay: 0.1s;">
+                <div class="inline-flex items-center gap-2 px-3 py-1.5 bg-green-50 border border-green-100 rounded-full">
+                    <span class="relative flex h-2.5 w-2.5">
+                      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                      <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
+                    </span>
+                    <span class="text-xs font-medium text-green-700" data-en="Processed 10,000+ icons in the last 24h" data-zh="过去 24 小时已处理 10,000+ 个图标">Processed 10,000+ icons in the last 24h</span>
+                </div>
+            </div>
+
             <!-- Search Box -->
             <div class="max-w-xl mx-auto mb-6">
                 <div class="relative">
@@ -1021,7 +1078,56 @@
                     <span data-en="Favicons (short for &quot;favorite icons&quot;) are the small icons displayed in browser tabs, bookmarks, and search results. They play a key role in brand recognition and user experience. Learn more about the favicon standard from the" data-zh="Favicon（&quot;收藏夹图标&quot; 的缩写）是显示在浏览器标签页、书签栏和搜索结果中的小图标，在品牌识别和用户体验中起着关键作用。了解更多关于 Favicon 标准的信息，请访问">Los favicons (abreviatura de "iconos favoritos") son los pequeños iconos que se muestran en las pestañas del navegador, marcadores y resultados de búsqueda. Juegan un papel clave en el reconocimiento de marca y la experiencia del usuario. Aprende más sobre el estándar de favicons en</span>
                     <a href="https://developer.mozilla.org/en-US/docs/Glossary/Favicon" target="_blank" rel="noopener" class="text-blue-600 hover:underline">MDN Web Docs</a>.
                 </p>
+                
+                <h3 class="text-lg font-semibold text-gray-900 mt-10 mb-4" data-en="What is a High-Quality Favicon?" data-zh="什么是高质量 Favicon？">What is a High-Quality Favicon?</h3>
+                <p data-en="A high-quality icon goes beyond the legacy 16x16 ICO format. Modern applications, social media link previews, and AI agents require high-resolution (180px, 256px, 512px) assets derived from SVG vectors, web app manifests (manifest.json), and High-DPI Apple Touch Icons. FaviconDL uses recursive parsing to prioritize these premium assets over deprecated standard favicons." data-zh="高质量图标超越了传统的 16x16 ICO 格式。现代应用、社交媒体链接预览和 AI 代理需要来自于 SVG 矢量、Web 应用清单（manifest.json）和高 DPI 的 Apple Touch Icons 的高分辨率（180px、256px、512px）资产。FaviconDL 使用递归解析，优先提取这些高质量素材。">A high-quality icon goes beyond the legacy 16x16 ICO format. Modern applications, social media link previews, and AI agents require high-resolution (180px, 256px, 512px) assets derived from SVG vectors, web app manifests (manifest.json), and High-DPI Apple Touch Icons. FaviconDL uses recursive parsing to prioritize these premium assets over deprecated standard favicons.</p>
             </div>
+            
+            <!-- Integration Guide for AI Agents -->
+            <div class="mt-12 bg-gray-50 rounded-2xl p-6 sm:p-8 border border-gray-100">
+                <h2 class="text-xl font-semibold text-gray-900 mb-2" data-en="Integration Guide for AI Agents &amp; Developers" data-zh="AI 代理及开发者集成指南">Integration Guide for AI Agents &amp; Developers</h2>
+                <p class="text-gray-500 text-sm mb-6" data-en="Programmatically extract icons in your RAG pipelines or applications using our unified pattern." data-zh="在你的 RAG 管道或应用程序中使用我们统一的模式，以编程方式提取图标。">Programmatically extract icons in your RAG pipelines or applications using our unified pattern.</p>
+                
+                <div class="space-y-6">
+                    <div>
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-xs font-semibold text-gray-400 uppercase tracking-wider">cURL</span>
+                        </div>
+                        <div class="code-block" style="padding: 12px 16px;">
+<pre style="margin:0;"><code class="language-bash">curl -L -O "https://favicondl.com/api/extract?url=github.com&amp;size=128"</code></pre>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-xs font-semibold text-gray-400 uppercase tracking-wider">JavaScript (Fetch)</span>
+                        </div>
+                        <div class="code-block" style="padding: 12px 16px;">
+<pre style="margin:0;"><code class="language-javascript">async function getFavicon(domain, size = 128) {
+  const url = `https://favicondl.com/api/extract?url=${domain}&amp;size=${size}`;
+  const response = await fetch(url);
+  const blob = await response.blob();
+  return URL.createObjectURL(blob);
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-xs font-semibold text-gray-400 uppercase tracking-wider">Python (Requests)</span>
+                        </div>
+                        <div class="code-block" style="padding: 12px 16px;">
+<pre style="margin:0;"><code class="language-python">import requests
+
+url = "https://favicondl.com/api/extract?url=stripe.com&amp;size=256"
+response = requests.get(url, allow_redirects=True)
+with open("icon.png", "wb") as f:
+    f.write(response.content)</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
         </div>
     </section>
 

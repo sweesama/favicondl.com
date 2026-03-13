@@ -383,7 +383,9 @@
     "avoidOverlap": [
       "how-to-add-favicon-to-website"
     ],
-    "status": "pending"
+    "status": "done",
+    "qualityScore": 60,
+    "qualityGrade": "B"
   },
   {
     "keyword": "favicon cdn hosting",
