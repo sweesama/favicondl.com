@@ -397,7 +397,9 @@
     "intent": "informational",
     "depth": "standard",
     "avoidOverlap": [],
-    "status": "pending"
+    "status": "done",
+    "qualityScore": 67,
+    "qualityGrade": "B"
   },
   {
     "keyword": "maskable icon favicon",
