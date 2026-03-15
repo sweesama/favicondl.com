@@ -44,7 +44,7 @@ if (!API_KEY) {
 const ai = new GoogleGenAI({ apiKey: API_KEY });
 
 // 模型优先级列表（最新 → 备选 → 兜底）
-const MODEL_LIST = ['gemini-3.1-flash-lite-preview', 'gemini-3-flash-preview', 'gemini-2.5-flash'];
+const MODEL_LIST = ['gemini-3-flash-preview', 'gemini-2.5-flash', 'gemini-3.1-flash-lite-preview'];
 const MAX_RETRIES = 3;
 const RETRY_DELAY_MS = 50000;
 
@@ -343,6 +343,14 @@ ${avoidSection}
 - FORBIDDEN: <script>, <style>, <iframe>, <form>, <input>, <h1>, <meta>, <img>.
 - HTML only, no markdown.
 
+=== 🏆 QUALITY SCORING CRITERIA (MANDATORY) ===
+Your article will be graded automatically. To get an 'A' grade (100/100), you MUST include:
+1. LONG FORM CONTENT: The English version MUST exceed the minimum word count specified above. Expand on examples, case studies, and common pitfalls to ensure depth.
+2. CODE EXAMPLES: You MUST include at least one \`<pre><code>...</code></pre>\` block demonstrating a code snippet or configuration.
+3. SUB-SECTIONS: You MUST break down your concepts using multiple \`<h3>\` headers. A high-scoring article has at least three \`<h3>\` sub-sections.
+4. LISTS: You MUST include at least one bulleted list \`<ul>\` or numbered list \`<ol>\` to organize steps or features.
+5. INTERNAL LINKS: You MUST include 1 or 2 internal links (e.g., \`<a href='/blog/example.html'>\`) using the existing articles provided above.
+
 === CHINESE CONTENT ===
 - Full natural Chinese version — NOT literal translation.
 - Adapt idioms and examples for Chinese readers. Keep technical terms in English.
@@ -466,8 +474,14 @@ async function generateArticleContent(keyword, slug, tags, existingArticles, int
           const delay = isRateLimit ? RETRY_DELAY_MS : 3000;
           console.log(`  ⏳ 等待 ${delay / 1000} 秒后重试...`);
           await new Promise(r => setTimeout(r, delay));
+        } else if ((isJsonError || isValidationError) && attempt === MAX_RETRIES) {
+          console.log(`  ⏭️ ${modelName} 已达最大重试次数，切换下一个模型...`);
+          break; // 当前模型已用完机会，换下一个模型
         } else if (!isRateLimit && !isJsonError && !isValidationError) {
-          break; // 非限流、非JSON、非验证错误 → 换下一个模型
+          break; // 非限流、非JSON、非验证错误 → 直接换下一个模型
+        } else if (isRateLimit && attempt === MAX_RETRIES) {
+          console.log(`  ⏭️ ${modelName} 限流重试已达上限，尝试下一个模型...`);
+          break;
         }
       }
     }
