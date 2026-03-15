@@ -414,7 +414,9 @@
       "pwa-icon-requirements",
       "web-app-manifest-favicon"
     ],
-    "status": "pending"
+    "status": "done",
+    "qualityScore": 60,
+    "qualityGrade": "B"
   },
   {
     "keyword": "favicon color palette",

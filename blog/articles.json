@@ -749,5 +749,26 @@
     ],
     "qualityScore": 67,
     "qualityGrade": "B"
+  },
+  {
+    "slug": "maskable-icon",
+    "publishDate": "2026-03-15",
+    "titleEn": "How to Master the Maskable Icon Favicon in 2026",
+    "titleZh": "2026年 PWA 进阶：手把手教你配置自适应图标 (Maskable Icon)",
+    "titleJa": "2026年版：PWAのアイコンを美しく見せる「Maskable Icon」完全攻略ガイド",
+    "titleKo": "2026년 PWA 마스터하기: 잘리지 않는 'Maskable Icon' 설정 가이드",
+    "titleEs": "Cómo dominar el Maskable Icon Favicon para tu PWA en 2026",
+    "descEn": "Stop letting Android ruin your PWA's look. Learn how to create a maskable icon favicon that fits every shape perfectly with this dev-to-dev guide.",
+    "descZh": "别让 Android 默认的白边毁了你的网页应用。这篇开发者指南将教你如何制作完美的自适应图标 (Maskable Icon)，让图标在任何形状下都显得专业。",
+    "descJa": "AndroidでPWAのアイコンが白枠で囲まれていませんか？このガイドでは、あらゆる形状にフィットする「Maskable Icon」の作成方法と実装手順を解説します。",
+    "descKo": "안드로이드에서 PWA 아이콘이 하얀 상자 안에 갇혀 있나요? 모든 모양에 완벽하게 적응하는 Maskable Icon 제작 및 설정 방법을 개발자 관점에서 설명합니다.",
+    "descEs": "No dejes que Android arruine el aspecto de tu PWA. Aprende a crear un maskable icon favicon que se adapte a cualquier forma con esta guía para desarrolladores.",
+    "keyword": "maskable icon favicon",
+    "tags": [
+      "pwa",
+      "advanced"
+    ],
+    "qualityScore": 60,
+    "qualityGrade": "B"
   }
 ]
