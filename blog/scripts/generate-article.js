@@ -44,7 +44,8 @@ if (!API_KEY) {
 const ai = new GoogleGenAI({ apiKey: API_KEY });
 
 // 模型优先级列表（最新 → 备选 → 兜底）
-const MODEL_LIST = ['gemini-3-flash-preview', 'gemini-2.5-flash', 'gemini-3.1-flash-lite-preview'];
+// 应对新模型名字不确定性，我们将可能的名字按顺位置入数组，自动 failover
+const MODEL_LIST = ['gemini-3-flash', 'gemini-3.0-flash', 'gemini-3-flash-preview', 'gemini-2.5-flash', 'gemini-3.1-flash-lite', 'gemini-3.1-flash-lite-preview'];
 const MAX_RETRIES = 3;
 const RETRY_DELAY_MS = 50000;
 
