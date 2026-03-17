@@ -791,5 +791,26 @@
     ],
     "qualityScore": 75,
     "qualityGrade": "B"
+  },
+  {
+    "slug": "vue-favicon",
+    "publishDate": "2026-03-17",
+    "titleEn": "Vue Favicon Setup: The Definitive 2026 Guide for Vite Apps",
+    "titleZh": "Vue Favicon 设置：2026 年 Vite 项目终极指南",
+    "titleJa": "Vue Favicon 設定：2026 年の Vite アプリ向け完全ガイド",
+    "titleKo": "Vue 파비콘 설정: 2026년 Vite 앱을 위한 완벽 가이드",
+    "titleEs": "Configuración de Favicon en Vue: Guía Definitiva 2026 para Vite",
+    "descEn": "Learn the professional way to handle Vue favicon setup in 2026. From Vite's public folder to dynamic notification badges, master your app's tab presence.",
+    "descZh": "学习 2026 年 Vue 项目中设置 Favicon 的专业方法。从 Vite 的 public 目录到动态通知图标，全面提升应用的浏览器标签体验。",
+    "descJa": "2026 年の Vue プロジェクトにおける Favicon 設定のプロフェッショナルな手法を解説。Vite の public フォルダから動的な通知バッジまで、タブの存在感を高めます。",
+    "descKo": "2026년 Vue 프로젝트에서 파비콘을 설정하는 전문적인 방법을 알아보세요. Vite의 public 폴더 활용부터 동적 알림 배지까지, 앱의 탭 존재감을 마스터하세요.",
+    "descEs": "Aprende la forma profesional de configurar el favicon en Vue en 2026. Desde la carpeta public de Vite hasta insignias dinámicas, domina la presencia de tu app.",
+    "keyword": "vue favicon setup",
+    "tags": [
+      "framework",
+      "vue"
+    ],
+    "qualityScore": 81,
+    "qualityGrade": "A"
   }
 ]

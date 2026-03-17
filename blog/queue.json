@@ -447,7 +447,9 @@
       "react-favicon",
       "how-to-add-favicon-to-website"
     ],
-    "status": "pending"
+    "status": "done",
+    "qualityScore": 81,
+    "qualityGrade": "A"
   },
   {
     "keyword": "favicon testing tools",
