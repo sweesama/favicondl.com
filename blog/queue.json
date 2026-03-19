@@ -480,7 +480,9 @@
       "favicon-not-showing",
       "favicon-cache-clear"
     ],
-    "status": "pending"
+    "status": "done",
+    "qualityScore": 71,
+    "qualityGrade": "B"
   },
   {
     "keyword": "wix favicon setup",
