@@ -496,7 +496,9 @@
     "avoidOverlap": [
       "how-to-add-favicon-to-website"
     ],
-    "status": "pending"
+    "status": "done",
+    "qualityScore": 85,
+    "qualityGrade": "A"
   },
   {
     "keyword": "retina favicon high dpi",
