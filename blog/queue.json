@@ -512,7 +512,9 @@
     "avoidOverlap": [
       "favicon-sizes-guide"
     ],
-    "status": "pending"
+    "status": "done",
+    "qualityScore": 81,
+    "qualityGrade": "A"
   },
   {
     "keyword": "multi size favicon ico",

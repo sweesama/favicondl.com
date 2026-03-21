@@ -875,5 +875,26 @@
     ],
     "qualityScore": 85,
     "qualityGrade": "A"
+  },
+  {
+    "slug": "retina-favicon-high-dpi",
+    "publishDate": "2026-03-21",
+    "titleEn": "Retina Favicon & High DPI: Stop Serving Blurry Icons",
+    "titleZh": "Retina 视网膜图标与高 DPI：别再让你的 Favicon 模糊不清了",
+    "titleJa": "Retina Favicon と高 DPI：ぼやけたアイコンを卒業する 2026 年版ガイド",
+    "titleKo": "레티나 파비콘 및 고해상도 DPI: 흐릿한 아이콘을 해결하는 방법",
+    "titleEs": "Favicon Retina y High DPI: Deja de servir iconos borrosos",
+    "descEn": "Learn how to implement a retina favicon for high DPI displays. Master SVG, multi-size PNGs, and the math behind crisp browser icons in 2026.",
+    "descZh": "了解如何为高 DPI 屏幕实现 Retina 视网膜 Favicon。掌握 SVG、多尺寸 PNG 以及 2026 年保持图标清晰的技术细节。",
+    "descJa": "高 DPI ディスプレイ向けの Retina Favicon 実装方法を解説。SVG やマルチサイズ PNG を活用し、2026 年のブラウザでアイコンを鮮明に保つ秘訣。",
+    "descKo": "고해상도 DPI 디스플레이를 위한 레티나 파비콘 구현 방법을 알아보세요. 2026년 기준 SVG 및 다중 크기 PNG 마스터 가이드.",
+    "descEs": "Aprende a implementar un favicon retina para pantallas de alta densidad. Domina el uso de SVG y PNG de varios tamaños para iconos nítidos en 2026.",
+    "keyword": "retina favicon high dpi",
+    "tags": [
+      "advanced",
+      "display"
+    ],
+    "qualityScore": 81,
+    "qualityGrade": "A"
   }
 ]
