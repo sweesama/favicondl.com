@@ -896,5 +896,26 @@
     ],
     "qualityScore": 81,
     "qualityGrade": "A"
+  },
+  {
+    "slug": "multi-size-favicon-ico",
+    "publishDate": "2026-03-22",
+    "titleEn": "How to Create a Multi Size Favicon ICO for 2026",
+    "titleZh": "2026 专家指南：如何制作多尺寸 ICO 网站图标",
+    "titleJa": "2026年版：マルチサイズ ICO ファビコンの作成と実装ガイド",
+    "titleKo": "2026년 전문가 가이드: 멀티 사이즈 ICO 파비콘 제작 및 구현",
+    "titleEs": "Cómo crear un favicon ICO multiresolución en 2026",
+    "descEn": "Learn how to build a professional multi size favicon ico. Master the 16x16, 32x32, and 48x48 container format to ensure your site looks crisp on all browsers.",
+    "descZh": "学习如何制作专业的多尺寸 ICO 图标。掌握 16x16、32x32 和 48x48 容器格式，确保您的网站在所有浏览器和 Windows 桌面中都能清晰显示。",
+    "descJa": "プロ仕様のマルチサイズ ICO ファビコンの作成方法を解説。16x16、32x32、48x48 を 1 つのコンテナにまとめ、あらゆるブラウザで鮮明に表示させる技術をマスターしましょう。",
+    "descKo": "전문적인 멀티 사이즈 ICO 파비콘 제작 방법을 알아보세요. 16x16, 32x32, 48x48 컨테이너 형식을 마스터하여 모든 브라우저에서 사이트 아이콘을 선명하게 유지하세요.",
+    "descEs": "Aprende a crear un favicon ICO multiresolución profesional. Domina el formato de contenedor con tamaños 16x16, 32x32 y 48x48 para que tu sitio se vea perfecto.",
+    "keyword": "multi size favicon ico",
+    "tags": [
+      "advanced",
+      "format"
+    ],
+    "qualityScore": 85,
+    "qualityGrade": "A"
   }
 ]
