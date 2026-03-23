@@ -546,7 +546,9 @@
       "react-favicon",
       "how-to-add-favicon-to-website"
     ],
-    "status": "pending"
+    "status": "done",
+    "qualityScore": 71,
+    "qualityGrade": "B"
   },
   {
     "keyword": "favicon security concerns",
