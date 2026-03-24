@@ -560,7 +560,9 @@
     "intent": "informational",
     "depth": "standard",
     "avoidOverlap": [],
-    "status": "pending"
+    "status": "done",
+    "qualityScore": 81,
+    "qualityGrade": "A"
   },
   {
     "keyword": "favicon site.webmanifest",
