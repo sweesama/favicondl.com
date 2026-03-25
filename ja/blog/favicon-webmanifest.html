@@ -1,0 +1,265 @@
+<!DOCTYPE html><html lang="ja"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mastering favicon site.webmanifest: A Developer's Guide (2026) - Mzu favicondl</title>
+    <meta name="description" content="Learn how to correctly implement favicon site.webmanifest in 2026. Step-by-step tutorial on JSON configuration, maskable icons, and cross-browser support.">
+    <meta name="keywords" content="favicon site.webmanifest, web manifest tutorial, pwa icons 2026, manifest.json favicon">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/ja/blog/favicon-webmanifest.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/favicon-webmanifest.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/favicon-webmanifest.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/favicon-webmanifest.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/favicon-webmanifest.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/favicon-webmanifest.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/favicon-webmanifest.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/ja/blog/favicon-webmanifest.html">
+    <meta property="og:title" content="Mastering favicon site.webmanifest: A Developer's Guide (2026)">
+    <meta property="og:description" content="Learn how to correctly implement favicon site.webmanifest in 2026. Step-by-step tutorial on JSON configuration, maskable icons, and cross-browser support.">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Mastering favicon site.webmanifest: A Developer's Guide (2026)">
+    <meta name="twitter:description" content="Learn how to correctly implement favicon site.webmanifest in 2026. Step-by-step tutorial on JSON configuration, maskable icons, and cross-browser support.">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Mastering favicon site.webmanifest: A Developer's Guide (2026)",
+      "description": "Learn how to correctly implement favicon site.webmanifest in 2026. Step-by-step tutorial on JSON configuration, maskable icons, and cross-browser support.",
+      "datePublished": "2026-03-25",
+      "dateModified": "2026-03-25",
+      "author": {
+            "@type": "Organization",
+            "name": "Mzu favicondl",
+            "url": "https://favicondl.com"
+      },
+      "publisher": {
+            "@type": "Organization",
+            "name": "Mzu favicondl",
+            "url": "https://favicondl.com"
+      },
+      "mainEntityOfPage": "https://favicondl.com/blog/favicon-webmanifest.html",
+      "inLanguage": "en"
+}
+    </script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/ja/index.html" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/ja/documentation.html" class="nav-link" data-en="Docs" data-zh="文档">ドキュメント</a>
+                <a href="/ja/tools.html" class="nav-link" data-en="Tools" data-zh="工具">ツール</a>
+                <a href="/ja/blog/" class="nav-link" data-en="Blog" data-zh="博客">ブログ</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/favicon-webmanifest.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/favicon-webmanifest.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/favicon-webmanifest.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/favicon-webmanifest.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/favicon-webmanifest.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/ja/index.html" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/ja/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600" data-en="Favicon Site Webmanifest Guide" data-zh="Webmanifest 指南">Favicon Site Webmanifest Guide</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">pwa</span><time class="text-sm text-gray-400">2026-03-25</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight" data-en="Mastering favicon site.webmanifest: A Developer's Guide (2026)" data-zh="玩转 favicon site.webmanifest：2026 开发者实战指南">Mastering favicon site.webmanifest: A Developer's Guide (2026)</h1>
+        </header>
+
+        <div class="article-body" data-lang="en">
+            <p>Ever noticed how a site like GitHub or Stripe looks absolutely flawless when you save it to your Android home screen, while your own project shows up as a tiny, sad icon inside a generic white circle? That visual gap is usually caused by a missing or poorly configured <strong>favicon site.webmanifest</strong> file. It is the invisible bridge between your website and the mobile OS.</p><p>In 2026, simply dropping a <code>favicon.ico</code> into your root directory is the equivalent of showing up to a black-tie event in flip-flops. It works, but everyone knows you missed the memo. The web manifest is a simple JSON file that tells the browser how your 'app' should look on a user's device. While we have covered the broader <a href="/ja/blog/web-app-manifest-favicon.html">Web App Manifest Favicon Guide</a> previously, today we are focusing specifically on the technical implementation of the <code>site.webmanifest</code> file for favicon optimization.</p><h3>The Anatomy of a Perfect site.webmanifest</h3><p>Before we write a single line of code, you need your assets ready. You cannot just use one 16x16 icon and hope for the best. Modern mobile devices have high pixel densities that demand larger, sharper images. (Trust me, a blurry icon is worse than no icon at all). You will typically need a 192x192 PNG and a 512x512 PNG as your baseline.</p><p>Create a file named <code>site.webmanifest</code> in your root folder. Here is the standard structure I recommend for 2026:</p><pre><code>{
+  'name': 'My Awesome Project',
+  'short_name': 'Project',
+  'icons': [
+    {
+      'src': '/android-chrome-192x192.png',
+      'sizes': '192x192',
+      'type': 'image/png'
+    },
+    {
+      'src': '/android-chrome-512x512.png',
+      'sizes': '512x512',
+      'type': 'image/png'
+    },
+    {
+      'src': '/maskable-icon-512x512.png',
+      'sizes': '512x512',
+      'type': 'image/png',
+      'purpose': 'maskable'
+    }
+  ],
+  'theme_color': '#ffffff',
+  'background_color': '#ffffff',
+  'display': 'standalone'
+}</code></pre><h3>Step 1: Defining Your Icons Correcty</h3><p>The <code>icons</code> array is where the magic happens. Notice the <code>purpose: 'maskable'</code> entry? This is non-negotiable in 2026. Android uses different shapes for icons (circles, squares, squircles). If you do not provide a maskable icon, the OS will 'safe-area' your logo, often resulting in that ugly white border you see on amateur sites. A maskable icon should have some padding around the logo so it can be cropped without losing its identity.</p><h3>Step 2: Linking the Manifest in HTML</h3><p>Your browser is not a mind reader. You have to tell it where to find this configuration. Add this line inside the <code>&lt;head&gt;</code> of your HTML documents:</p><pre><code>&lt;link rel='manifest' href='/site.webmanifest'&gt;</code></pre><p>I have seen developers put this at the very bottom of the head, but I prefer placing it near the top, right after the character set and viewport meta tags. This ensures the browser starts fetching the manifest as early as possible. If you are still confused about where this fits with other tags, check out our <a href="/ja/blog/favicon-best-practices.html">Favicon Best Practices in 2026</a>.</p><h3>Step 3: Theme and Background Colors</h3><p>The <code>theme_color</code> property controls the color of the browser's address bar or the status bar on mobile. The <code>background_color</code> is used for the splash screen that appears when your site is launched from the home screen. Make sure these match your brand's primary palette. If your logo is dark, a white background color is a safe bet to keep things legible.</p><h3>Common Pitfalls to Avoid</h3><ul><li><strong>Trailing Commas:</strong> JSON is notoriously picky. A single trailing comma in your <code>icons</code> array will break the entire manifest in many browsers, and you will spend an hour wondering why your icons aren't showing up.</li><li><strong>Incorrect MIME Types:</strong> Ensure your server is serving the <code>.webmanifest</code> file with the <code>application/manifest+json</code> header. Most modern hosts handle this automatically, but custom Nginx setups might need a manual tweak.</li><li><strong>Relative Path Confusion:</strong> I always recommend using absolute paths (starting with a <code>/</code>) for the <code>src</code> in your manifest. It prevents issues when the manifest is accessed from subdirectories.</li></ul><p>Setting up a <strong>favicon site.webmanifest</strong> might feel like extra work for a 'small' detail, but it is exactly these details that separate professional products from weekend projects. It takes five minutes to set up, but it ensures your brand looks consistent whether it is sitting in a Chrome tab or pinned to a user's home screen. If you are struggling to generate the right sizes, tools like Mzu favicondl can handle the heavy lifting of resizing and formatting so you can focus on the code.</p>
+        </div>
+
+        <div class="article-body" data-lang="zh" style="display:none">
+            <p>你有没有注意到，像 GitHub 或 Stripe 这样的网站，当你把它们保存到 Android 主屏幕时，图标看起来完美无缺，而你自己的项目却只是一个缩在白色圆圈里的小图标？这种视觉上的差距通常是由缺失或配置错误的 <strong>favicon site.webmanifest</strong> 文件造成的。它是连接你的网站与移动操作系统之间的无形桥梁。</p><p>在 2026 年，仅仅在根目录丢一个 <code>favicon.ico</code> 就像是穿着人字拖去参加晚宴。虽然能进去，但大家都知道你没看邀请函。Web Manifest 是一个简单的 JSON 文件，告诉浏览器你的“应用”在用户设备上应该长什么样。虽然我们之前讨论过 <a href="/ja/blog/web-app-manifest-favicon.html">Web App Manifest Favicon 指南</a>，但今天我们将专门探讨用于 favicon 优化的 <code>site.webmanifest</code> 文件的技术实现。</p><h3>一个完美的 site.webmanifest 的解构</h3><p>在编写代码之前，你需要准备好素材。你不能只用一个 16x16 的图标就指望万事大吉。现代移动设备拥有极高的像素密度，需要更大、更清晰的图像。（相信我，模糊的图标比没有图标更糟糕）。通常，你需要 192x192 和 512x512 的 PNG 图片作为基准。</p><p>在根目录下创建一个名为 <code>site.webmanifest</code> 的文件。这是我为 2026 年推荐的标准结构：</p><pre><code>{
+  'name': '我的酷炫项目',
+  'short_name': '项目',
+  'icons': [
+    {
+      'src': '/android-chrome-192x192.png',
+      'sizes': '192x192',
+      'type': 'image/png'
+    },
+    {
+      'src': '/android-chrome-512x512.png',
+      'sizes': '512x512',
+      'type': 'image/png'
+    },
+    {
+      'src': '/maskable-icon-512x512.png',
+      'sizes': '512x512',
+      'type': 'image/png',
+      'purpose': 'maskable'
+    }
+  ],
+  'theme_color': '#ffffff',
+  'background_color': '#ffffff',
+  'display': 'standalone'
+}</code></pre><h3>第一步：正确定义你的图标</h3><p><code>icons</code> 数组是奇迹发生的地方。注意到 <code>purpose: 'maskable'</code> 了吗？这在 2026 年是必须的。Android 使用不同的形状（圆形、方形、圆角矩形）来显示图标。如果你不提供可遮罩图标（maskable icon），系统会强制给你的 logo 套上一个丑陋的白边。可遮罩图标应该在 logo 周围留出一定的安全边距，以便被裁剪时不会丢失核心部分。</p><h3>第二步：在 HTML 中链接 Manifest</h3><p>浏览器不会读心术。你必须告诉它在哪里可以找到这个配置。在 HTML 文档的 <code>&lt;head&gt;</code> 中添加这一行：</p><pre><code>&lt;link rel='manifest' href='/site.webmanifest'&gt;</code></pre><p>我见过一些开发者把它放在 head 的最底部，但我更喜欢把它放在靠近顶部的地方，紧跟在字符集和 viewport 标签之后。这确保了浏览器能尽早开始获取清单。如果你对它与其他标签的配合仍感困惑，可以参考我们的 <a href="/ja/blog/favicon-best-practices.html">2026 Favicon 最佳实践</a>。</p><h3>第三步：主题色与背景色</h3><p><code>theme_color</code> 属性控制移动端浏览器地址栏或状态栏的颜色。<code>background_color</code> 则用于从主屏幕启动网站时显示的启动页（splash screen）。确保这些颜色符合你的品牌主色调。如果你的 logo 是深色的，白色背景通常是最稳妥的选择。</p><h3>常见坑点</h3><ul><li><strong>多余的逗号：</strong> JSON 对语法非常挑剔。在 <code>icons</code> 数组末尾多加一个逗号会让清单在许多浏览器中失效，你会花一个小时纠结为什么图标死活不出来。</li><li><strong>错误的 MIME 类型：</strong> 确保你的服务器在返回 <code>.webmanifest</code> 文件时带有 <code>application/manifest+json</code> 的响应头。大多数现代托管平台会自动处理，但自定义的 Nginx 配置可能需要手动调整。</li><li><strong>相对路径困惑：</strong> 我始终建议在清单的 <code>src</code> 中使用绝对路径（以 <code>/</code> 开头）。这可以防止从子目录访问清单时出现路径错误。</li></ul><p>配置 <strong>favicon site.webmanifest</strong> 看起来像是为了一个小细节在做额外工作，但正是这些细节区分了专业产品和业余项目。它只需要五分钟配置，却能确保你的品牌在 Chrome 标签页或用户主屏幕上始终如一。如果你觉得调整各种尺寸太麻烦，Mzu favicondl 这样的工具可以帮你搞定缩放和格式转换，让你专注于代码本身。</p>
+        </div>
+
+        <div class="article-body" data-lang="ja" style="display:none">
+            <p>GitHubやStripeのようなサイトをAndroidのホーム画面に保存したとき、アイコンが完璧に表示されるのに、自分のプロジェクトでは白い円の中に小さなアイコンが寂しく表示されてしまうことに気づいたことはありませんか？その差は、<strong>favicon site.webmanifest</strong> ファイルが正しく設定されていないことが原因です。これはウェブサイトとモバイルOSをつなぐ目に見えない架け橋です。</p><p>2026年において、ルートディレクトリに <code>favicon.ico</code> を置くだけで済ませるのは、タキシード指定のパーティーにビーチサンダルで行くようなものです。動くには動きますが、マナーを知らないと思われてしまいます。ウェブマニフェストは、ユーザーのデバイス上で「アプリ」がどのように見えるかをブラウザに伝えるシンプルなJSONファイルです。以前 <a href="/ja/blog/web-app-manifest-favicon.html">Web App Manifest Favicon ガイド</a> でPWA全般について触れましたが、今回は特にfavicon最適化のための <code>site.webmanifest</code> 実装に焦点を当てます。</p><h3>完璧な site.webmanifest の構造</h3><p>コードを書く前に、アセットを準備する必要があります。16x16のアイコン一つで済ませようとしてはいけません。現代のデバイスは高解像度であり、より大きく鮮明な画像を求めています。192x192と512x512のPNG画像を用意しましょう。</p><p>ルートフォルダに <code>site.webmanifest</code> という名前でファイルを作成します。2026年におすすめの標準的な構造は以下の通りです：</p><pre><code>{
+  'name': 'マイプロジェクト',
+  'short_name': 'プロジェクト',
+  'icons': [
+    {
+      'src': '/android-chrome-192x192.png',
+      'sizes': '192x192',
+      'type': 'image/png'
+    },
+    {
+      'src': '/android-chrome-512x512.png',
+      'sizes': '512x512',
+      'type': 'image/png'
+    },
+    {
+      'src': '/maskable-icon-512x512.png',
+      'sizes': '512x512',
+      'type': 'image/png',
+      'purpose': 'maskable'
+    }
+  ],
+  'theme_color': '#ffffff',
+  'background_color': '#ffffff',
+  'display': 'standalone'
+}</code></pre><h3>ステップ1：アイコンを正しく定義する</h3><p><code>icons</code> 配列が最も重要な部分です。<code>purpose: 'maskable'</code> という記述に注目してください。2026年ではこれは必須です。Androidはアイコンを丸や四角など様々な形で表示します。マスカブルアイコンを提供しないと、ロゴの周りに不格好な余白が強制的に追加されてしまいます。マスカブルアイコンは、切り抜かれてもロゴが欠けないように周囲に十分な余白を持たせる必要があります。</p><h3>ステップ2：HTMLでマニフェストをリンクする</h3><p>ブラウザに設定ファイルの場所を教える必要があります。HTMLの <code>&lt;head&gt;</code> 内に以下の行を追加してください：</p><pre><code>&lt;link rel='manifest' href='/site.webmanifest'&gt;</code></pre><p>このタグは、文字コードやビューポートの設定のすぐ後に置くのがベストです。ブラウザができるだけ早くマニフェストを読み込めるようにするためです。他のタグとの兼ね合いについては、<a href="/ja/blog/favicon-best-practices.html">2026年のFaviconベストプラクティス</a> を参照してください。</p><h3>よくある落とし穴</h3><ul><li><strong>末尾のカンマ:</strong> JSONは非常に厳格です。配列の最後に余計なカンマがあると、多くのブラウザで読み込みに失敗します。</li><li><strong>MIMEタイプ:</strong> サーバーが <code>.webmanifest</code> ファイルを <code>application/manifest+json</code> として返しているか確認してください。</li><li><strong>パスの指定:</strong> <code>src</code> には常に <code>/</code> から始まる絶対パスを使用することをお勧めします。</li></ul><p><strong>favicon site.webmanifest</strong> の設定は細かい作業に見えるかもしれませんが、プロフェッショナルな製品とそうでないものを分けるのは、まさにこうしたディテールです。Mzu favicondl のようなツールを使えば、面倒なリサイズ作業を自動化し、本来のコーディングに集中できます。</p>
+        </div>
+
+        <div class="article-body" data-lang="ko" style="display:none">
+            <p>GitHub이나 Stripe 같은 사이트를 안드로이드 홈 화면에 추가했을 때 아이콘이 완벽하게 보이는 반면, 여러분의 프로젝트는 흰색 원 안의 작은 점처럼 보인 적이 있나요? 그 차이는 바로 <strong>favicon site.webmanifest</strong> 파일의 유무에서 옵니다. 이 파일은 웹사이트와 모바일 OS를 연결하는 보이지 않는 다리 역할을 합니다.</p><p>2026년에 단순히 <code>favicon.ico</code> 파일 하나만 루트에 던져두는 것은 정장 파티에 슬리퍼를 신고 가는 것과 같습니다. 작동은 하겠지만, 프로답지 못하다는 인상을 주죠. 웹 매니페스트는 브라우저에게 사용자의 기기에서 이 '앱'이 어떻게 보여야 하는지 알려주는 간단한 JSON 파일입니다. 이전에 <a href="/ja/blog/web-app-manifest-favicon.html">웹 앱 매니페스트 파비콘 가이드</a>에서 다루었지만, 오늘은 파비콘 최적화를 위한 <code>site.webmanifest</code> 구현에 집중해 보겠습니다.</p><h3>완벽한 site.webmanifest의 구조</h3><p>코드를 작성하기 전에 자산이 준비되어야 합니다. 16x16 아이콘 하나로는 부족합니다. 현대의 모바일 기기는 높은 픽셀 밀도를 가지고 있어 더 크고 선명한 이미지를 요구합니다. 기본적으로 192x192 및 512x512 PNG 파일이 필요합니다.</p><p>루트 폴더에 <code>site.webmanifest</code> 파일을 생성하세요. 2026년 권장 구조는 다음과 같습니다:</p><pre><code>{
+  'name': '나의 멋진 프로젝트',
+  'short_name': '프로젝트',
+  'icons': [
+    {
+      'src': '/android-chrome-192x192.png',
+      'sizes': '192x192',
+      'type': 'image/png'
+    },
+    {
+      'src': '/android-chrome-512x512.png',
+      'sizes': '512x512',
+      'type': 'image/png'
+    },
+    {
+      'src': '/maskable-icon-512x512.png',
+      'sizes': '512x512',
+      'type': 'image/png',
+      'purpose': 'maskable'
+    }
+  ],
+  'theme_color': '#ffffff',
+  'background_color': '#ffffff',
+  'display': 'standalone'
+}</code></pre><h3>1단계: 아이콘의 올바른 정의</h3><p><code>icons</code> 배열이 핵심입니다. <code>purpose: 'maskable'</code> 설정을 확인하세요. 2026년에는 필수입니다. 안드로이드는 아이콘을 원형, 사각형 등 다양한 모양으로 표시하는데, 마스커블 아이콘이 없으면 로고 주변에 못생긴 흰색 테두리가 생깁니다. 마스커블 아이콘은 로고 주변에 충분한 여백을 두어 잘려도 로고가 유지되도록 설계해야 합니다.</p><h3>2단계: HTML에서 매니페스트 연결</h3><p>브라우저에게 이 설정 파일의 위치를 알려줘야 합니다. HTML의 <code>&lt;head&gt;</code> 섹션에 다음 코드를 추가하세요:</p><pre><code>&lt;link rel='manifest' href='/site.webmanifest'&gt;</code></pre><p>이 태그는 브라우저가 가능한 빨리 정보를 가져올 수 있도록 상단에 배치하는 것이 좋습니다. 더 자세한 배치 방법은 <a href="/ja/blog/favicon-best-practices.html">2026년 파비콘 베스트 프랙티스</a>를 참고하세요.</p><h3>주의해야 할 실수들</h3><ul><li><strong>마지막 쉼표:</strong> JSON은 매우 엄격합니다. 배열 끝에 쉼표 하나만 잘못 찍어도 전체 매니페스트가 작동하지 않습니다.</li><li><strong>MIME 타입:</strong> 서버가 <code>.webmanifest</code> 파일을 <code>application/manifest+json</code> 헤더와 함께 제공하는지 확인하세요.</li><li><strong>경로 설정:</strong> <code>src</code> 경로에는 항상 <code>/</code>로 시작하는 절대 경로를 사용하는 것이 안전합니다.</li></ul><p><strong>favicon site.webmanifest</strong>를 설정하는 것이 번거롭게 느껴질 수 있지만, 이런 디테일이 전문적인 제품을 만듭니다. Mzu favicondl 같은 도구를 사용하면 리사이징과 포맷 변환을 쉽게 처리할 수 있어 개발 시간을 단축할 수 있습니다.</p>
+        </div>
+
+        <div class="article-body" data-lang="es" style="display:none">
+            <p>¿Alguna vez has notado cómo sitios como GitHub o Stripe se ven impecables cuando los guardas en la pantalla de inicio de Android, mientras que tu propio proyecto aparece como un icono diminuto dentro de un círculo blanco genérico? Esa diferencia visual suele deberse a un archivo <strong>favicon site.webmanifest</strong> ausente o mal configurado.</p><p>En 2026, simplemente soltar un <code>favicon.ico</code> en tu directorio raíz es como ir a una boda en chanclas. Funciona, pero se nota que no seguiste el protocolo. El manifiesto web es un archivo JSON que le dice al navegador cómo debe verse tu 'app' en el dispositivo del usuario. Ya hablamos sobre la <a href="/ja/blog/web-app-manifest-favicon.html">Guía de Favicon para Web App Manifest</a>, pero hoy nos enfocaremos específicamente en la implementación técnica de <code>site.webmanifest</code>.</p><h3>Anatomía de un site.webmanifest perfecto</h3><p>Antes de escribir código, necesitas tus recursos. No puedes usar un icono de 16x16 y esperar milagros. Los dispositivos modernos exigen imágenes nítidas de 192x192 y 512x512 píxeles.</p><p>Crea un archivo llamado <code>site.webmanifest</code> en tu carpeta raíz con esta estructura recomendada para 2026:</p><pre><code>{
+  'name': 'Mi Proyecto Increíble',
+  'short_name': 'Proyecto',
+  'icons': [
+    {
+      'src': '/android-chrome-192x192.png',
+      'sizes': '192x192',
+      'type': 'image/png'
+    },
+    {
+      'src': '/android-chrome-512x512.png',
+      'sizes': '512x512',
+      'type': 'image/png'
+    },
+    {
+      'src': '/maskable-icon-512x512.png',
+      'sizes': '512x512',
+      'type': 'image/png',
+      'purpose': 'maskable'
+    }
+  ],
+  'theme_color': '#ffffff',
+  'background_color': '#ffffff',
+  'display': 'standalone'
+}</code></pre><h3>Paso 1: Define tus iconos correctamente</h3><p>La clave está en el array <code>icons</code>. Fíjate en <code>purpose: 'maskable'</code>. Esto es obligatorio en 2026. Android usa diferentes formas para los iconos (círculos, cuadrados). Si no proporcionas un icono adaptable (maskable), el sistema pondrá tu logo dentro de un borde blanco feo. Un icono adaptable debe tener margen alrededor del logo para que pueda recortarse sin perder su esencia.</p><h3>Paso 2: Enlaza el manifiesto en tu HTML</h3><p>Añade esta línea dentro del <code>&lt;head&gt;</code> de tu HTML:</p><pre><code>&lt;link rel='manifest' href='/site.webmanifest'&gt;</code></pre><p>Te recomiendo ponerlo cerca del principio para que el navegador lo detecte cuanto antes. Para más detalles sobre la estructura del head, mira nuestras <a href="/ja/blog/favicon-best-practices.html">Mejores Prácticas de Favicon en 2026</a>.</p><h3>Errores comunes a evitar</h3><ul><li><strong>Comas sobrantes:</strong> El formato JSON es estricto. Una coma extra al final de un array romperá el manifiesto.</li><li><strong>Tipos MIME:</strong> Asegúrate de que tu servidor sirva el archivo con la cabecera <code>application/manifest+json</code>.</li><li><strong>Rutas relativas:</strong> Usa siempre rutas absolutas (que empiecen con <code>/</code>) para evitar problemas en subdirectorios.</li></ul><p>Configurar el <strong>favicon site.webmanifest</strong> puede parecer un detalle menor, pero es lo que separa a los profesionales de los aficionados. Con herramientas como Mzu favicondl, puedes generar todos estos tamaños automáticamente y centrarte en lo que realmente importa: tu código.</p>
+        </div>
+
+        <div class="cta-box">
+            <h3 data-en="Generate Your Web Manifest Icons in Seconds" data-zh="秒级生成你的 Web Manifest 图标" data-ja="Webマニフェスト用アイコンを数秒で生成" data-ko="몇 초 만에 웹 매니페스트 아이콘 생성하기" data-es="Genera tus iconos para Web Manifest en segundos">Generate Your Web Manifest Icons in Seconds</h3>
+            <p data-en="Don't waste time resizing images manually. Use Mzu favicondl to create perfect, high-resolution icons and a ready-to-use site.webmanifest for your project." data-zh="不要浪费时间手动调整图像大小。使用 Mzu favicondl 为你的项目创建完美的高分辨率图标和开箱即用的 site.webmanifest。" data-ja="手動で画像サイズを変更する時間を無駄にしないでください。Mzu favicondl を使って、プロジェクトに最適な高解像度アイコンとすぐに使える site.webmanifest を作成しましょう。" data-ko="수동으로 이미지 크기를 조정하느라 시간을 낭비하지 마세요. Mzu favicondl을 사용하여 프로젝트를 위한 완벽한 고해상도 아이콘과 즉시 사용 가능한 site.webmanifest를 만드세요." data-es="No pierdas tiempo redimensionando imágenes a mano. Usa Mzu favicondl para crear iconos perfectos en alta resolución y un site.webmanifest listo para usar.">Don't waste time resizing images manually. Use Mzu favicondl to create perfect, high-resolution icons and a ready-to-use site.webmanifest for your project.</p>
+            <a href="/ja/index.html" class="cta-btn" data-en="Generate Icons Now →" data-zh="立即生成图标 →" data-ja="今すぐアイコンを生成 →" data-ko="지금 아이콘 생성하기 →" data-es="Generar iconos ahora →">Generate Icons Now →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/ja/index.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Home" data-zh="首页">ホーム</a>
+                <a href="/ja/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Blog" data-zh="博客">ブログ</a>
+                <a href="/ja/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Privacy" data-zh="隐私政策">プライバシー</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js?v=20260211"></script>
+
+
+</body></html>

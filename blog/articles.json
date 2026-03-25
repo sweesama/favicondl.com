@@ -959,5 +959,26 @@
     ],
     "qualityScore": 81,
     "qualityGrade": "A"
+  },
+  {
+    "slug": "favicon-webmanifest",
+    "publishDate": "2026-03-25",
+    "titleEn": "Mastering favicon site.webmanifest: A Developer's Guide (2026)",
+    "titleZh": "玩转 favicon site.webmanifest：2026 开发者实战指南",
+    "titleJa": "favicon site.webmanifest 完全ガイド：2026年のベストプラクティス",
+    "titleKo": "favicon site.webmanifest 마스터하기: 2026년 개발자 가이드",
+    "titleEs": "Domina el favicon site.webmanifest: Guía para desarrolladores en 2026",
+    "descEn": "Learn how to correctly implement favicon site.webmanifest in 2026. Step-by-step tutorial on JSON configuration, maskable icons, and cross-browser support.",
+    "descZh": "学习如何在 2026 年正确实现 favicon site.webmanifest。分步教程涵盖 JSON 配置、可遮罩图标和跨浏览器支持。",
+    "descJa": "2026年における favicon site.webmanifest の正しい実装方法を学びましょう。JSON設定、マスカブルアイコン、ブラウザ対応をステップバイステップで解説。",
+    "descKo": "2026년 favicon site.webmanifest를 올바르게 구현하는 방법을 알아보세요. JSON 설정, 마스커블 아이콘 및 브라우저 호환성에 대한 단계별 튜토리얼.",
+    "descEs": "Aprende a implementar correctamente favicon site.webmanifest en 2026. Tutorial paso a paso sobre configuración JSON, iconos adaptables y soporte de navegadores.",
+    "keyword": "favicon site.webmanifest",
+    "tags": [
+      "pwa",
+      "guide"
+    ],
+    "qualityScore": 85,
+    "qualityGrade": "A"
   }
 ]
