@@ -592,7 +592,9 @@
     "avoidOverlap": [
       "favicon-webmanifest"
     ],
-    "status": "pending"
+    "status": "done",
+    "qualityScore": 81,
+    "qualityGrade": "A"
   },
   {
     "keyword": "favicon for gatsby site",

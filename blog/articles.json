@@ -980,5 +980,26 @@
     ],
     "qualityScore": 85,
     "qualityGrade": "A"
+  },
+  {
+    "slug": "favicon-metadata-json",
+    "publishDate": "2026-03-26",
+    "titleEn": "Favicon Metadata JSON: Why Your Site Needs More Than an Icon",
+    "titleZh": "Favicon 元数据 JSON：为什么你的网站不只需要一个图标",
+    "titleJa": "Favicon メタデータ JSON：単なるアイコン以上の設定が必要な理由",
+    "titleKo": "Favicon 메타데이터 JSON: 단순한 아이콘 이상의 설정이 필요한 이유",
+    "titleEs": "JSON de Metadatos de Favicon: Por qué tu sitio necesita más que un icono",
+    "descEn": "Learn why favicon metadata JSON is the modern standard for 2026. Master site.webmanifest, maskable icons, and OS integration for a professional web presence.",
+    "descZh": "了解为什么 Favicon 元数据 JSON 是 2026 年的现代标准。掌握 site.webmanifest、可遮罩图标和操作系统集成，打造专业的网站形象。",
+    "descJa": "2026年のモダンな標準であるFaviconメタデータJSONについて解説します。site.webmanifestやマスカブルアイコンを使いこなし、プロフェッショナルなWebサイトを構築しましょう。",
+    "descKo": "2026년 현대적인 표준인 Favicon 메타데이터 JSON에 대해 알아보세요. site.webmanifest, 마스커블 아이콘, OS 통합을 마스터하여 전문적인 웹 사이트를 구축하세요.",
+    "descEs": "Descubre por qué el JSON de metadatos de favicon es el estándar moderno en 2026. Domina site.webmanifest, iconos adaptables e integración con el SO.",
+    "keyword": "favicon metadata json",
+    "tags": [
+      "advanced",
+      "metadata"
+    ],
+    "qualityScore": 81,
+    "qualityGrade": "A"
   }
 ]
