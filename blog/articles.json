@@ -1001,5 +1001,26 @@
     ],
     "qualityScore": 81,
     "qualityGrade": "A"
+  },
+  {
+    "slug": "gatsby-favicon",
+    "publishDate": "2026-03-27",
+    "titleEn": "How to Add a Favicon for Gatsby Site: The 2026 Pro Guide",
+    "titleZh": "Gatsby 网站添加 Favicon 指南：2026 开发者实战技巧",
+    "titleJa": "Gatsby サイトにファビコンを追加する方法：2026 年のプロ開発者向けガイド",
+    "titleKo": "Gatsby 사이트에 파비콘 추가하기: 2026년 개발자 가이드",
+    "titleEs": "Cómo añadir un favicon a tu sitio Gatsby: Guía Pro 2026",
+    "descEn": "Stop using the default Gatsby purple icon. Learn the best way to implement a favicon for Gatsby site using gatsby-plugin-manifest and the static folder method.",
+    "descZh": "别再用 Gatsby 默认的紫色图标了。本文教你如何通过 gatsby-plugin-manifest 或静态文件夹为 Gatsby 网站配置完美的 Favicon。",
+    "descJa": "Gatsby のデフォルトアイコンを使っていませんか？gatsby-plugin-manifest や static フォルダを使用した、2026 年最新のファビコン設定方法を解説します。",
+    "descKo": "기본 Gatsby 보라색 아이콘은 이제 그만! gatsby-plugin-manifest와 static 폴더를 사용하여 Gatsby 사이트에 파비콘을 추가하는 가장 좋은 방법을 배워보세요.",
+    "descEs": "Deja de usar el icono morado por defecto de Gatsby. Aprende la mejor forma de implementar un favicon para tu sitio Gatsby usando gatsby-plugin-manifest.",
+    "keyword": "favicon for gatsby site",
+    "tags": [
+      "framework",
+      "gatsby"
+    ],
+    "qualityScore": 81,
+    "qualityGrade": "A"
   }
 ]

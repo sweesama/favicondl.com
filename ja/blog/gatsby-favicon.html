@@ -1,0 +1,240 @@
+<!DOCTYPE html><html lang="ja"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Add a Favicon for Gatsby Site: The 2026 Pro Guide - Mzu favicondl</title>
+    <meta name="description" content="Stop using the default Gatsby purple icon. Learn the best way to implement a favicon for Gatsby site using gatsby-plugin-manifest and the static folder method.">
+    <meta name="keywords" content="favicon for gatsby site, gatsby-plugin-manifest, gatsby favicon setup">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/ja/blog/gatsby-favicon.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/gatsby-favicon.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/gatsby-favicon.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/gatsby-favicon.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/gatsby-favicon.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/gatsby-favicon.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/gatsby-favicon.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/ja/blog/gatsby-favicon.html">
+    <meta property="og:title" content="How to Add a Favicon for Gatsby Site: The 2026 Pro Guide">
+    <meta property="og:description" content="Stop using the default Gatsby purple icon. Learn the best way to implement a favicon for Gatsby site using gatsby-plugin-manifest and the static folder method.">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="How to Add a Favicon for Gatsby Site: The 2026 Pro Guide">
+    <meta name="twitter:description" content="Stop using the default Gatsby purple icon. Learn the best way to implement a favicon for Gatsby site using gatsby-plugin-manifest and the static folder method.">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "How to Add a Favicon for Gatsby Site: The 2026 Pro Guide",
+      "description": "Stop using the default Gatsby purple icon. Learn the best way to implement a favicon for Gatsby site using gatsby-plugin-manifest and the static folder method.",
+      "datePublished": "2026-03-27",
+      "dateModified": "2026-03-27",
+      "author": {
+            "@type": "Organization",
+            "name": "Mzu favicondl",
+            "url": "https://favicondl.com"
+      },
+      "publisher": {
+            "@type": "Organization",
+            "name": "Mzu favicondl",
+            "url": "https://favicondl.com"
+      },
+      "mainEntityOfPage": "https://favicondl.com/blog/gatsby-favicon.html",
+      "inLanguage": "en"
+}
+    </script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/ja/index.html" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/ja/documentation.html" class="nav-link" data-en="Docs" data-zh="文档">ドキュメント</a>
+                <a href="/ja/tools.html" class="nav-link" data-en="Tools" data-zh="工具">ツール</a>
+                <a href="/ja/blog/" class="nav-link" data-en="Blog" data-zh="博客">ブログ</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/gatsby-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/gatsby-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/gatsby-favicon.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/gatsby-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/gatsby-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/ja/index.html" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/ja/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600" data-en="Gatsby Favicon Guide" data-zh="Gatsby 图标指南">Gatsby Favicon Guide</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">framework</span><time class="text-sm text-gray-400">2026-03-27</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight" data-en="How to Add a Favicon for Gatsby Site: The 2026 Pro Guide" data-zh="Gatsby 网站添加 Favicon 指南：2026 开发者实战技巧">How to Add a Favicon for Gatsby Site: The 2026 Pro Guide</h1>
+        </header>
+
+        <div class="article-body" data-lang="en">
+            <p>If you've ever launched a new project and realized your browser tab still shows that generic purple Gatsby logo, you're not alone. It's the ultimate 'I just finished the tutorial' look. While Gatsby is incredibly powerful for performance, its file-based structure can make simple tasks like adding a <strong>favicon for gatsby site</strong> feel more complicated than they need to be.</p><p>We have all been there: you drop a <code>favicon.ico</code> into the root, refresh three times, and... nothing happens. That is because Gatsby's build process handles assets differently than a standard HTML site. To get a professional result like <strong>Stripe</strong> or <strong>GitHub</strong>, you need a strategy that handles multiple resolutions and PWA requirements automatically.</p><h2>The Best Way: Using gatsby-plugin-manifest</h2><p>In 2026, the gold standard is still <code>gatsby-plugin-manifest</code>. Why? Because it doesn't just add one icon; it generates a whole suite of sizes for Android, iOS, and desktop browsers. It also creates the <code>manifest.webmanifest</code> file, which is critical if you want your site to be installable as a web app. You can learn more about this in our guide on <a href="/ja/blog/favicon-webmanifest.html">mastering favicon site.webmanifest</a>.</p><h3>Step 1: Install the Plugin</h3><p>First, ensure you have the plugin installed in your project. Most Gatsby starters include it by default, but it's worth checking your <code>package.json</code>.</p><pre><code>npm install gatsby-plugin-manifest</code></pre><h3>Step 2: Configure gatsby-config.js</h3><p>This is where the magic happens. You need to point the plugin to a high-resolution source image (at least 512x512 pixels). The plugin will then downsample this image into all the required formats during the build process.</p><pre><code>module.exports = {
+  plugins: [
+    {
+      resolve: 'gatsby-plugin-manifest',
+      options: {
+        name: 'My Gatsby Site',
+        short_name: 'GatsbySite',
+        start_url: '/',
+        background_color: '#ffffff',
+        theme_color: '#663399',
+        display: 'minimal-ui',
+        icon: 'src/images/icon.png', // Path to your source icon
+      },
+    },
+  ],
+}</code></pre><h3>Step 3: Verify the Output</h3><p>When you run <code>gatsby build</code>, look in your <code>public</code> folder. You will see a dozen different PNG files and a manifest file. This automated approach ensures that whether a user is on a high-DPI Mac or an old Android phone, your icon looks crisp. (Pro tip: always use a square PNG for the source to avoid weird stretching).</p><h2>The Manual Method: Using the Static Folder</h2><p>Sometimes you don't want the plugin to touch your icons. Maybe you have a very specific, hand-optimized <code>.ico</code> file or an SVG that you want to serve directly. In this case, use the <code>static</code> folder at the root of your project.</p><h3>Why use the static folder?</h3><p>Anything placed in the <code>/static</code> folder is copied directly to the <code>/public</code> folder without being processed by Webpack. If you put <code>favicon.ico</code> in <code>/static/favicon.ico</code>, it will be available at <code>yourdomain.com/favicon.ico</code>. This is the 'old school' way, but it works perfectly for simple needs.</p><h3>Adding the Link Tag</h3><p>To make it official, you need to tell the browser where the icon is. Since Gatsby uses React, you'll likely use a SEO component or <code>Gatsby Head API</code> to inject the link tag into your HTML head.</p><pre><code>export const Head = () =&gt; (
+  &lt;&gt;
+    <link rel="icon" href="/favicon.ico">
+  
+)</code></pre><h2>Common Pitfalls to Avoid</h2><p>Even with these tools, things can go wrong. Here are the three most common issues I see in production environments:</p><ul><li><strong>The Cache Trap:</strong> Browsers are incredibly stubborn about caching favicons. If you change your icon and don't see the update, you likely need to <a href="/ja/blog/favicon-cache-clear.html">force a favicon cache clear</a>.</li><li><strong>Wrong Path:</strong> In the plugin config, the <code>icon</code> path is relative to the project root, not the <code>src</code> folder. Double-check your slashes!</li><li><strong>Transparency Issues:</strong> If your source image has a background color that matches the browser's dark mode, your icon might 'disappear'. Always test against both light and dark themes.</li></ul><p>At the end of the day, your favicon is the 'face' of your tab. Taking ten minutes to set up <code>gatsby-plugin-manifest</code> correctly makes the difference between a site that looks like a hobby project and one that looks like a professional brand. If you need to generate those high-res source images quickly, tools like <strong>Mzu favicondl</strong> can help you convert your logo into the perfect 512x512 PNG to start the process.</p>
+        </div>
+
+        <div class="article-body" data-lang="zh" style="display:none">
+            <p>如果你曾经上线了一个新项目，却发现浏览器标签页上还显示着那个通用的紫色 Gatsby 图标，别担心，你并不孤单。这简直是“我刚看完教程还没改配置”的终极标志。虽然 Gatsby 在性能上非常强大，但其基于文件的结构有时会让添加 <strong>favicon for gatsby site</strong> 这种简单的任务变得比预想中复杂。</p><p>我们都经历过：把 <code>favicon.ico</code> 扔进根目录，刷新三次，结果……什么都没发生。这是因为 Gatsby 的构建流程处理资源的方式与标准 HTML 网站不同。要获得像 <strong>Stripe</strong> 或 <strong>GitHub</strong> 那样专业的图标效果，你需要一套能自动处理多分辨率和 PWA 需求的策略。</p><h2>最佳方案：使用 gatsby-plugin-manifest</h2><p>在 2026 年，行业标准依然是 <code>gatsby-plugin-manifest</code>。为什么？因为它不只是添加一个图标，而是为 Android、iOS 和桌面浏览器生成一整套尺寸。它还会生成 <code>manifest.webmanifest</code> 文件，如果你想让网站支持 PWA，这至关重要。你可以在我们的 <a href="/ja/blog/favicon-webmanifest.html">manifest 指南</a> 中了解更多细节。</p><h3>第一步：安装插件</h3><p>首先，确保你的项目中安装了该插件。大多数 Gatsby starter 模板都会默认包含它，但最好检查一下 <code>package.json</code>。</p><pre><code>npm install gatsby-plugin-manifest</code></pre><h3>第二步：配置 gatsby-config.js</h3><p>这是关键步骤。你需要让插件指向一个高分辨率的源图片（至少 512x512 像素）。插件会在构建过程中自动将其缩放为所有需要的格式。</p><pre><code>module.exports = {
+  plugins: [
+    {
+      resolve: 'gatsby-plugin-manifest',
+      options: {
+        name: '我的 Gatsby 网站',
+        short_name: 'Gatsby站',
+        start_url: '/',
+        background_color: '#ffffff',
+        theme_color: '#663399',
+        display: 'minimal-ui',
+        icon: 'src/images/icon.png', // 源图标路径
+      },
+    },
+  ],
+}</code></pre><h3>第三步：验证输出</h3><p>运行 <code>gatsby build</code> 后，查看 <code>public</code> 文件夹。你会看到一堆不同尺寸的 PNG 文件。这种自动化方法确保了无论用户是在高分屏 Mac 还是旧安卓手机上，图标都非常清晰。（小贴士：源文件务必使用正方形 PNG，以防拉伸）。</p><h2>手动方法：使用 Static 文件夹</h2><p>有时候你不想让插件处理你的图标，比如你有一个精心优化的 <code>.ico</code> 文件或想直接使用 SVG。这时可以使用项目根目录下的 <code>static</code> 文件夹。</p><h3>为什么使用 static 文件夹？</h3><p>放入 <code>/static</code> 文件夹的任何内容都会被直接复制到 <code>/public</code>，不经过 Webpack 处理。如果你把 <code>favicon.ico</code> 放在 <code>/static/favicon.ico</code>，它就能通过 <code>yourdomain.com/favicon.ico</code> 直接访问。虽然这种方法比较“原始”，但对于简单需求非常有效。</p><h3>添加 Link 标签</h3><p>你需要告诉浏览器图标在哪。在 Gatsby 中，你可以使用 <code>Gatsby Head API</code> 将标签注入 HTML 头部。</p><pre><code>export const Head = () =&gt; (
+  &lt;&gt;
+    <link rel="icon" href="/favicon.ico">
+  
+)</code></pre><h2>常见坑点</h2><p>即使有了这些工具，也可能出问题。以下是生产环境中最常见的三个坑：</p><ul><li><strong>缓存陷阱：</strong> 浏览器对 Favicon 的缓存非常顽固。如果你更新了图标但没看到变化，通常需要 <a href="/ja/blog/favicon-cache-clear.html">强制清理 Favicon 缓存</a>。</li><li><strong>路径错误：</strong> 在插件配置中，<code>icon</code> 路径是相对于项目根目录的，而不是 <code>src</code> 文件夹。</li><li><strong>透明度问题：</strong> 如果你的源图标背景色与浏览器的深色模式冲突，图标可能会“消失”。务必在亮色和暗色主题下都测试一下。</li></ul><p>归根结底，Favicon 是你网站在标签页上的“脸面”。花十分钟配置好 <code>gatsby-plugin-manifest</code>，能让你的网站从“业余项目”瞬间提升到“专业品牌”的档次。如果你需要快速生成高分辨率源图，<strong>Mzu favicondl</strong> 可以帮你轻松搞定。</p>
+        </div>
+
+        <div class="article-body" data-lang="ja" style="display:none">
+            <p>新しいプロジェクトを立ち上げた際、ブラウザのタブにあの紫色の Gatsby ロゴが残っていることに気づいたことはありませんか？それは「チュートリアルを終えたばかりです」と宣伝しているようなものです。Gatsby は非常に優れたパフォーマンスを誇りますが、そのファイル構造ゆえに、<strong>favicon for gatsby site</strong> の設定という単純な作業が意外と面倒に感じることがあります。</p><p>誰もが経験することですが、<code>favicon.ico</code> をルートに置いてリロードを繰り返しても、何も変わらないことがあります。これは Gatsby のビルドプロセスが、標準的な HTML サイトとは異なる方法でアセットを処理するためです。<strong>Stripe</strong> や <strong>GitHub</strong> のようなプロフェッショナルな外観を実現するには、マルチ解像度や PWA の要件を自動で処理する戦略が必要です。</p><h2>推奨：gatsby-plugin-manifest を使う方法</h2><p>2026 年現在でも、ベストプラクティスは <code>gatsby-plugin-manifest</code> を使用することです。なぜなら、単にアイコンを追加するだけでなく、Android、iOS、デスクトップ向けに最適なサイズを自動生成してくれるからです。また、PWA に不可欠な <code>manifest.webmanifest</code> も作成されます。詳細は <a href="/ja/blog/favicon-webmanifest.html">manifest 設定ガイド</a> をご覧ください。</p><h3>ステップ 1: プラグインのインストール</h3><p>まず、プロジェクトにプラグインがインストールされているか確認しましょう。多くのスターターには標準装備されています。</p><pre><code>npm install gatsby-plugin-manifest</code></pre><h3>ステップ 2: gatsby-config.js の設定</h3><p>ここで、高解像度のソース画像（512x512 ピクセル以上）を指定します。ビルド時にプラグインが適切なサイズにリサイズしてくれます。</p><pre><code>module.exports = {
+  plugins: [
+    {
+      resolve: 'gatsby-plugin-manifest',
+      options: {
+        name: 'マイサイト',
+        short_name: 'サイト',
+        start_url: '/',
+        background_color: '#ffffff',
+        theme_color: '#663399',
+        display: 'minimal-ui',
+        icon: 'src/images/icon.png', // ソース画像のパス
+      },
+    },
+  ],
+}</code></pre><h3>ステップ 3: 出力の確認</h3><p><code>gatsby build</code> を実行すると、<code>public</code> フォルダ内に多数の PNG ファイルが生成されます。これにより、どのデバイスでもアイコンが鮮明に表示されます。（ヒント：歪みを防ぐため、必ず正方形の PNG を使用してください）。</p><h2>手動設定：static フォルダを使う方法</h2><p>プラグインに画像を処理させたくない場合（例：最適化済みの <code>.ico</code> や SVG をそのまま使いたい場合）は、<code>static</code> フォルダを利用します。</p><h3>static フォルダのメリット</h3><p><code>/static</code> 内のファイルは Webpack を通さず、そのまま <code>/public</code> にコピーされます。シンプルですが、特定のファイルをそのまま配信したい場合には確実な方法です。</p><h3>Link タグの追加</h3><p>Gatsby の <code>Head API</code> を使って、HTML の head に link タグを挿入します。</p><pre><code>export const Head = () =&gt; (
+  &lt;&gt;
+    <link rel="icon" href="/favicon.ico">
+  
+)</code></pre><h2>よくある落とし穴</h2><ul><li><strong>キャッシュの問題：</strong> ブラウザはファビコンを強力にキャッシュします。更新されない場合は <a href="/ja/blog/favicon-cache-clear.html">キャッシュクリア</a> を試してください。</li><li><strong>パスの指定ミス：</strong> 設定ファイル内の <code>icon</code> パスはプロジェクトルートからの相対パスです。</li><li><strong>ダークモード対応：</strong> 背景が透明でないアイコンは、ダークモードで見えなくなることがあります。</li></ul><p>ファビコンはサイトの「顔」です。<strong>Mzu favicondl</strong> のようなツールで高品質なソース画像を用意し、正しく設定することで、ブランドの信頼性を高めましょう。</p>
+        </div>
+
+        <div class="article-body" data-lang="ko" style="display:none">
+            <p>새 프로젝트를 배포했는데 브라우저 탭에 여전히 보라색 Gatsby 로고가 떠 있다면, 그건 마치 '방금 튜토리얼을 끝냈습니다'라고 광고하는 것과 같습니다. Gatsby는 성능 면에서 뛰어나지만, 파일 기반 구조 때문에 <strong>favicon for gatsby site</strong>를 설정하는 일이 생각보다 까다로울 수 있습니다.</p><p>우리는 모두 경험해 봤을 겁니다. <code>favicon.ico</code>를 루트에 넣고 새로고침을 연타해도 아무 변화가 없는 상황 말이죠. 이는 Gatsby의 빌드 프로세스가 일반적인 HTML 사이트와 자산을 처리하는 방식이 다르기 때문입니다. <strong>Stripe</strong>나 <strong>GitHub</strong>처럼 깔끔한 아이콘을 구현하려면 자동화된 전략이 필요합니다.</p><h2>가장 좋은 방법: gatsby-plugin-manifest 사용</h2><p>2026년에도 여전히 표준은 <code>gatsby-plugin-manifest</code>입니다. 단순히 아이콘 하나를 추가하는 게 아니라, 안드로이드, iOS, 데스크톱 브라우저에 맞는 다양한 크기를 자동으로 생성해주기 때문입니다. 또한 PWA에 필수적인 <code>manifest.webmanifest</code> 파일도 만들어줍니다. 자세한 내용은 <a href="/ja/blog/favicon-webmanifest.html">웹 매니페스트 가이드</a>를 참고하세요.</p><h3>1단계: 플러그인 설치</h3><p>대부분의 Gatsby 스타터에는 포함되어 있지만, <code>package.json</code>에서 확인해 보세요.</p><pre><code>npm install gatsby-plugin-manifest</code></pre><h3>2단계: gatsby-config.js 설정</h3><p>최소 512x512 픽셀의 고해상도 소스 이미지를 지정해야 합니다. 플러그인이 빌드 시 이를 적절한 크기로 리사이징합니다.</p><pre><code>module.exports = {
+  plugins: [
+    {
+      resolve: 'gatsby-plugin-manifest',
+      options: {
+        name: '나의 개츠비 사이트',
+        short_name: '개츠비',
+        start_url: '/',
+        background_color: '#ffffff',
+        theme_color: '#663399',
+        display: 'minimal-ui',
+        icon: 'src/images/icon.png', // 소스 아이콘 경로
+      },
+    },
+  ],
+}</code></pre><h3>3단계: 결과 확인</h3><p><code>gatsby build</code>를 실행하면 <code>public</code> 폴더에 수많은 PNG 파일이 생깁니다. 이 자동화 방식 덕분에 어떤 기기에서도 아이콘이 선명하게 보입니다. (팁: 왜곡을 피하려면 반드시 정사각형 PNG를 사용하세요).</p><h2>수동 방법: static 폴더 활용</h2><p>플러그인의 처리 과정을 거치지 않고 직접 최적화한 <code>.ico</code> 파일이나 SVG를 사용하고 싶다면 <code>static</code> 폴더를 사용하세요.</p><h3>static 폴더의 특징</h3><p><code>/static</code> 폴더에 있는 파일은 Webpack을 거치지 않고 <code>/public</code>으로 그대로 복사됩니다. 간단한 요구사항에는 이 방식이 가장 확실합니다.</p><h3>Link 태그 추가</h3><p>Gatsby의 <code>Head API</code>를 사용하여 HTML head에 링크 태그를 삽입합니다.</p><pre><code>export const Head = () =&gt; (
+  &lt;&gt;
+    <link rel="icon" href="/favicon.ico">
+  
+)</code></pre><h2>주의해야 할 실수</h2><ul><li><strong>캐시 지옥:</strong> 브라우저는 파비콘 캐시를 매우 오래 유지합니다. 변경 사항이 안 보인다면 <a href="/ja/blog/favicon-cache-clear.html">파비콘 캐시 삭제</a>가 필요합니다.</li><li><strong>잘못된 경로:</strong> 설정 파일의 <code>icon</code> 경로는 프로젝트 루트 기준입니다.</li><li><strong>다크 모드 대비:</strong> 배경이 투명하지 않으면 다크 모드에서 아이콘이 묻힐 수 있습니다.</li></ul><p>파비콘은 사이트의 첫인상입니다. <strong>Mzu favicondl</strong>을 통해 완벽한 소스 이미지를 준비하고 전문적인 브랜드 이미지를 구축해 보세요.</p>
+        </div>
+
+        <div class="article-body" data-lang="es" style="display:none">
+            <p>Si alguna vez has lanzado un proyecto y te has dado cuenta de que la pestaña del navegador sigue mostrando ese logo morado genérico de Gatsby, no estás solo. Es la señal definitiva de un sitio sin terminar. Aunque Gatsby es increíble para el rendimiento, su estructura puede hacer que añadir un <strong>favicon for gatsby site</strong> parezca más difícil de lo que debería.</p><p>A todos nos ha pasado: pones un <code>favicon.ico</code> en la raíz, refrescas tres veces y... nada. Esto ocurre porque el proceso de compilación de Gatsby maneja los archivos de forma distinta a un sitio HTML estándar. Para obtener un resultado profesional como el de <strong>Stripe</strong>, necesitas una estrategia que genere múltiples resoluciones automáticamente.</p><h2>La mejor forma: gatsby-plugin-manifest</h2><p>En 2026, el estándar sigue siendo <code>gatsby-plugin-manifest</code>. ¿Por qué? Porque no solo añade un icono; genera todo un conjunto de tamaños para Android, iOS y escritorio. Además, crea el archivo <code>manifest.webmanifest</code>, vital para las PWAs. Puedes leer más sobre esto en nuestra guía sobre <a href="/ja/blog/favicon-webmanifest.html">favicon site.webmanifest</a>.</p><h3>Paso 1: Instalar el plugin</h3><p>Asegúrate de tenerlo en tu <code>package.json</code>. La mayoría de los starters de Gatsby ya lo incluyen.</p><pre><code>npm install gatsby-plugin-manifest</code></pre><h3>Paso 2: Configurar gatsby-config.js</h3><p>Debes apuntar el plugin a una imagen de alta resolución (mínimo 512x512 px). El plugin se encargará de redimensionarla durante el build.</p><pre><code>module.exports = {
+  plugins: [
+    {
+      resolve: 'gatsby-plugin-manifest',
+      options: {
+        name: 'Mi Sitio Gatsby',
+        short_name: 'Gatsby',
+        start_url: '/',
+        background_color: '#ffffff',
+        theme_color: '#663399',
+        display: 'minimal-ui',
+        icon: 'src/images/icon.png', // Ruta a tu icono fuente
+      },
+    },
+  ],
+}</code></pre><h3>Paso 3: Verificar la salida</h3><p>Al ejecutar <code>gatsby build</code>, verás en la carpeta <code>public</code> varios archivos PNG. Esto asegura que tu icono se vea nítido en cualquier pantalla, desde un Mac Retina hasta un móvil Android antiguo. (Consejo: usa siempre un PNG cuadrado para evitar deformaciones).</p><h2>El método manual: Carpeta Static</h2><p>Si prefieres tener el control total y usar un archivo <code>.ico</code> optimizado a mano o un SVG, usa la carpeta <code>static</code> en la raíz de tu proyecto.</p><h3>¿Por qué usar la carpeta static?</h3><p>Cualquier cosa en <code>/static</code> se copia directamente a <code>/public</code> sin pasar por Webpack. Es ideal para archivos que no quieres que Gatsby procese.</p><h3>Añadir la etiqueta Link</h3><p>Usa la <code>Gatsby Head API</code> para inyectar la etiqueta en el head del HTML.</p><pre><code>export const Head = () =&gt; (
+  &lt;&gt;
+    <link rel="icon" href="/favicon.ico">
+  
+)</code></pre><h2>Errores comunes</h2><ul><li><strong>El caché del navegador:</strong> Los navegadores son tercos con los favicons. Si no ves los cambios, intenta <a href="/ja/blog/favicon-cache-clear.html">limpiar el caché del favicon</a>.</li><li><strong>Ruta incorrecta:</strong> En la configuración del plugin, la ruta es relativa a la raíz del proyecto, no a la carpeta <code>src</code>.</li><li><strong>Modo oscuro:</strong> Si tu icono no tiene buen contraste, podría desaparecer en temas oscuros.</li></ul><p>Tu favicon es la cara de tu sitio en las pestañas. Usar <strong>Mzu favicondl</strong> para preparar tu imagen fuente te ahorrará dolores de cabeza y dará a tu sitio Gatsby ese toque profesional que necesita.</p>
+        </div>
+
+        <div class="cta-box">
+            <h3 data-en="Generate Your Gatsby Favicon Now" data-zh="立即生成你的 Gatsby Favicon" data-ja="Gatsby 用ファビコンを今すぐ生成" data-ko="지금 바로 Gatsby 파비콘 생성하기" data-es="Genera tu favicon para Gatsby ahora">Generate Your Gatsby Favicon Now</h3>
+            <p data-en="Need a high-res 512x512 PNG for your Gatsby plugin? Create it in seconds with Mzu favicondl." data-zh="需要为 Gatsby 插件准备 512x512 的高分辨率 PNG？使用 Mzu favicondl 秒级搞定。" data-ja="Gatsby プラグイン用の 512x512 高解像度 PNG が必要ですか？Mzu favicondl なら数秒で作成できます。" data-ko="Gatsby 플러그인용 512x512 고해상도 PNG가 필요하신가요? Mzu favicondl로 몇 초 만에 만들어보세요." data-es="¿Necesitas un PNG de 512x512 para tu plugin de Gatsby? Créalo en segundos con Mzu favicondl.">Need a high-res 512x512 PNG for your Gatsby plugin? Create it in seconds with Mzu favicondl.</p>
+            <a href="/ja/index.html" class="cta-btn" data-en="Start Generating →" data-zh="开始生成 →" data-ja="生成を開始する →" data-ko="생성 시작하기 →" data-es="Empezar a generar →">Start Generating →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/ja/index.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Home" data-zh="首页">ホーム</a>
+                <a href="/ja/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Blog" data-zh="博客">ブログ</a>
+                <a href="/ja/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Privacy" data-zh="隐私政策">プライバシー</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js?v=20260211"></script>
+
+
+</body></html>

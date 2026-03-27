@@ -609,7 +609,9 @@
       "react-favicon",
       "nextjs-favicon"
     ],
-    "status": "pending"
+    "status": "done",
+    "qualityScore": 81,
+    "qualityGrade": "A"
   },
   {
     "keyword": "laravel favicon setup",
