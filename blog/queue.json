@@ -642,6 +642,8 @@
       "laravel-favicon",
       "how-to-add-favicon-to-website"
     ],
-    "status": "pending"
+    "status": "done",
+    "qualityScore": 67,
+    "qualityGrade": "B"
   }
 ]
