@@ -124,6 +124,28 @@ jobs:
             echo "ℹ️ FEISHU_WEBHOOK_URL secret not found, skipping notification."
           fi
 
+      - name: Check keyword stock & alert
+        if: always()
+        env:
+          FEISHU_WEBHOOK: ${{ secrets.FEISHU_WEBHOOK_URL }}
+        run: |
+          REMAINING=$(node -e "
+            const q = JSON.parse(require('fs').readFileSync('blog/queue.json','utf-8'));
+            console.log(q.filter(i => i.status === 'pending').length);
+          ")
+          echo "📦 剩余待发布关键词: $REMAINING"
+          if [ "$REMAINING" -le 5 ] && [ -n "$FEISHU_WEBHOOK" ]; then
+            if [ "$REMAINING" -eq 0 ]; then
+              MSG="🚨 Mzu favicondl 关键词已耗尽！\n\n📦 剩余: 0 篇\n⛔ 明天起将无新文章发布\n\n请尽快用 SEO 工具调研新关键词，补充到 blog/queue.json"
+            else
+              MSG="⚠️ Mzu favicondl 关键词库存不足！\n\n📦 剩余: ${REMAINING} 篇\n⏳ 预计 ${REMAINING} 天后耗尽\n\n请提前用 SEO 工具调研新关键词，补充到 blog/queue.json"
+            fi
+            curl -X POST -H "Content-Type: application/json" \
+                 -d "{\"msg_type\":\"text\",\"content\":{\"text\":\"$MSG\"}}" \
+                 $FEISHU_WEBHOOK
+            echo "📢 低库存预警已发送到飞书"
+          fi
+
       - name: No articles to publish
         if: steps.check-queue.outputs.pending == '0'
         run: echo "⏸️ No pending keywords in queue. Add more to blog/queue.json"

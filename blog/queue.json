@@ -645,5 +645,412 @@
     "status": "done",
     "qualityScore": 67,
     "qualityGrade": "B"
+  },
+
+  {
+    "keyword": "add to home screen icon favicon",
+    "slug": "home-screen-icon",
+    "tags": ["pwa", "mobile"],
+    "intent": "how-to",
+    "depth": "standard",
+    "avoidOverlap": ["pwa-icon-requirements", "web-app-manifest-favicon"],
+    "status": "pending"
+  },
+  {
+    "keyword": "website icon complete guide",
+    "slug": "website-icon-guide",
+    "tags": ["basics", "guide"],
+    "intent": "informational",
+    "depth": "deep",
+    "avoidOverlap": ["what-is-favicon"],
+    "status": "pending"
+  },
+  {
+    "keyword": "favicon for mobile devices",
+    "slug": "favicon-mobile",
+    "tags": ["mobile", "guide"],
+    "intent": "how-to",
+    "depth": "standard",
+    "avoidOverlap": ["home-screen-icon", "apple-touch-icon-guide"],
+    "status": "pending"
+  },
+  {
+    "keyword": "ico file format explained",
+    "slug": "ico-file-format",
+    "tags": ["format", "advanced"],
+    "intent": "informational",
+    "depth": "standard",
+    "avoidOverlap": ["ico-vs-png-favicon"],
+    "status": "pending"
+  },
+  {
+    "keyword": "favicon in address bar",
+    "slug": "address-bar-favicon",
+    "tags": ["basics", "browser"],
+    "intent": "informational",
+    "depth": "brief",
+    "avoidOverlap": ["what-is-favicon"],
+    "status": "pending"
+  },
+  {
+    "keyword": "convert png to favicon",
+    "slug": "png-to-favicon",
+    "tags": ["conversion", "how-to"],
+    "intent": "how-to",
+    "depth": "standard",
+    "avoidOverlap": ["png-to-ico", "make-favicon-from-image"],
+    "status": "pending"
+  },
+  {
+    "keyword": "favicon file formats comparison",
+    "slug": "favicon-file-formats",
+    "tags": ["format", "comparison"],
+    "intent": "comparison",
+    "depth": "deep",
+    "avoidOverlap": ["ico-vs-png-favicon", "svg-favicon"],
+    "status": "pending"
+  },
+  {
+    "keyword": "favicon html code examples",
+    "slug": "favicon-html-code",
+    "tags": ["code", "how-to"],
+    "intent": "how-to",
+    "depth": "standard",
+    "avoidOverlap": ["how-to-add-favicon-to-website"],
+    "status": "pending"
+  },
+  {
+    "keyword": "link rel shortcut icon explained",
+    "slug": "shortcut-icon",
+    "tags": ["html", "basics"],
+    "intent": "informational",
+    "depth": "standard",
+    "avoidOverlap": ["favicon-link-tag", "how-to-add-favicon-to-website"],
+    "status": "pending"
+  },
+  {
+    "keyword": "best free favicon resources 2026",
+    "slug": "favicon-free-resources",
+    "tags": ["tools", "resources"],
+    "intent": "tool-guide",
+    "depth": "standard",
+    "avoidOverlap": ["favicon-generator-free"],
+    "status": "pending"
+  },
+  {
+    "keyword": "favicon in browser tab",
+    "slug": "browser-tab-favicon",
+    "tags": ["basics", "browser"],
+    "intent": "informational",
+    "depth": "brief",
+    "avoidOverlap": ["what-is-favicon", "address-bar-favicon"],
+    "status": "pending"
+  },
+  {
+    "keyword": "favorite icon origin and history",
+    "slug": "favorite-icon-history",
+    "tags": ["basics", "history"],
+    "intent": "informational",
+    "depth": "standard",
+    "avoidOverlap": ["what-is-favicon"],
+    "status": "pending"
+  },
+  {
+    "keyword": "html link tag for favicon",
+    "slug": "favicon-link-tag",
+    "tags": ["html", "code"],
+    "intent": "how-to",
+    "depth": "standard",
+    "avoidOverlap": ["shortcut-icon", "how-to-add-favicon-to-website"],
+    "status": "pending"
+  },
+  {
+    "keyword": "favicon ico size optimization",
+    "slug": "favicon-ico-size",
+    "tags": ["optimization", "format"],
+    "intent": "how-to",
+    "depth": "standard",
+    "avoidOverlap": ["favicon-sizes-guide", "ico-file-format"],
+    "status": "pending"
+  },
+  {
+    "keyword": "apple touch icon sizes guide",
+    "slug": "apple-touch-icon-sizes",
+    "tags": ["apple", "sizes"],
+    "intent": "informational",
+    "depth": "standard",
+    "avoidOverlap": ["apple-touch-icon-guide", "favicon-sizes-guide"],
+    "status": "pending"
+  },
+  {
+    "keyword": "apple touch icon precomposed explained",
+    "slug": "apple-touch-icon-precomposed",
+    "tags": ["apple", "advanced"],
+    "intent": "informational",
+    "depth": "brief",
+    "avoidOverlap": ["apple-touch-icon-guide", "apple-touch-icon-sizes"],
+    "status": "pending"
+  },
+  {
+    "keyword": "wordpress theme favicon customization",
+    "slug": "wordpress-theme-favicon",
+    "tags": ["wordpress", "how-to"],
+    "intent": "how-to",
+    "depth": "standard",
+    "avoidOverlap": ["favicon-wordpress"],
+    "status": "pending"
+  },
+  {
+    "keyword": "how to copy a website favicon",
+    "slug": "copy-website-favicon",
+    "tags": ["how-to", "tools"],
+    "intent": "how-to",
+    "depth": "brief",
+    "avoidOverlap": ["how-to-download-favicon", "extract-favicon-from-app"],
+    "status": "pending"
+  },
+  {
+    "keyword": "create favicon online step by step",
+    "slug": "create-favicon-online",
+    "tags": ["tools", "how-to"],
+    "intent": "how-to",
+    "depth": "standard",
+    "avoidOverlap": ["favicon-generator-free", "make-favicon-from-image"],
+    "status": "pending"
+  },
+  {
+    "keyword": "favicon size squarespace",
+    "slug": "favicon-size-squarespace",
+    "tags": ["squarespace", "sizes"],
+    "intent": "how-to",
+    "depth": "brief",
+    "avoidOverlap": ["squarespace-favicon", "favicon-sizes-guide"],
+    "status": "pending"
+  },
+
+  {
+    "keyword": "favicon not showing in chrome",
+    "slug": "favicon-not-showing-chrome",
+    "tags": ["troubleshooting", "chrome"],
+    "intent": "troubleshooting",
+    "depth": "standard",
+    "avoidOverlap": ["favicon-not-showing", "favicon-cache-clear"],
+    "status": "pending"
+  },
+  {
+    "keyword": "favicon generator from text",
+    "slug": "favicon-generator-text",
+    "tags": ["tools", "generator"],
+    "intent": "tool-guide",
+    "depth": "standard",
+    "avoidOverlap": ["favicon-generator-free", "favicon-emoji"],
+    "status": "pending"
+  },
+  {
+    "keyword": "favicon best size 2026",
+    "slug": "favicon-best-size-2026",
+    "tags": ["sizes", "guide"],
+    "intent": "informational",
+    "depth": "standard",
+    "avoidOverlap": ["favicon-sizes-guide", "retina-favicon-high-dpi"],
+    "status": "pending"
+  },
+  {
+    "keyword": "favicon for chrome new tab",
+    "slug": "favicon-chrome-new-tab",
+    "tags": ["browser", "chrome"],
+    "intent": "informational",
+    "depth": "brief",
+    "avoidOverlap": ["browser-tab-favicon"],
+    "status": "pending"
+  },
+  {
+    "keyword": "how to make favicon from logo",
+    "slug": "favicon-from-logo",
+    "tags": ["design", "how-to"],
+    "intent": "how-to",
+    "depth": "standard",
+    "avoidOverlap": ["make-favicon-from-image", "favicon-vs-logo"],
+    "status": "pending"
+  },
+  {
+    "keyword": "favicon for ios safari",
+    "slug": "favicon-ios-safari",
+    "tags": ["apple", "safari"],
+    "intent": "how-to",
+    "depth": "standard",
+    "avoidOverlap": ["safari-pinned-tab-icon", "apple-touch-icon-guide"],
+    "status": "pending"
+  },
+  {
+    "keyword": "favicon base64 inline",
+    "slug": "favicon-base64",
+    "tags": ["advanced", "code"],
+    "intent": "how-to",
+    "depth": "brief",
+    "avoidOverlap": ["favicon-html-code"],
+    "status": "pending"
+  },
+  {
+    "keyword": "favicon for android chrome",
+    "slug": "favicon-android-chrome",
+    "tags": ["mobile", "chrome"],
+    "intent": "how-to",
+    "depth": "standard",
+    "avoidOverlap": ["favicon-mobile", "web-app-manifest-favicon"],
+    "status": "pending"
+  },
+  {
+    "keyword": "multiple favicons different pages",
+    "slug": "multiple-favicons",
+    "tags": ["advanced", "how-to"],
+    "intent": "how-to",
+    "depth": "standard",
+    "avoidOverlap": ["dynamic-favicon-javascript"],
+    "status": "pending"
+  },
+  {
+    "keyword": "favicon webp format support",
+    "slug": "favicon-webp",
+    "tags": ["format", "advanced"],
+    "intent": "informational",
+    "depth": "brief",
+    "avoidOverlap": ["favicon-file-formats", "svg-favicon"],
+    "status": "pending"
+  },
+  {
+    "keyword": "favicon resolution quality",
+    "slug": "favicon-resolution",
+    "tags": ["design", "quality"],
+    "intent": "informational",
+    "depth": "standard",
+    "avoidOverlap": ["retina-favicon-high-dpi", "favicon-sizes-guide"],
+    "status": "pending"
+  },
+  {
+    "keyword": "favicon bookmarks bar display",
+    "slug": "favicon-bookmarks",
+    "tags": ["browser", "basics"],
+    "intent": "informational",
+    "depth": "brief",
+    "avoidOverlap": ["browser-tab-favicon"],
+    "status": "pending"
+  },
+  {
+    "keyword": "tailwind css favicon setup",
+    "slug": "tailwind-favicon",
+    "tags": ["framework", "css"],
+    "intent": "how-to",
+    "depth": "brief",
+    "avoidOverlap": ["how-to-add-favicon-to-website"],
+    "status": "pending"
+  },
+  {
+    "keyword": "astro framework favicon",
+    "slug": "astro-favicon",
+    "tags": ["framework", "astro"],
+    "intent": "how-to",
+    "depth": "standard",
+    "avoidOverlap": ["nextjs-favicon", "how-to-add-favicon-to-website"],
+    "status": "pending"
+  },
+  {
+    "keyword": "remix favicon setup",
+    "slug": "remix-favicon",
+    "tags": ["framework", "remix"],
+    "intent": "how-to",
+    "depth": "standard",
+    "avoidOverlap": ["react-favicon", "nextjs-favicon"],
+    "status": "pending"
+  },
+  {
+    "keyword": "ruby on rails favicon",
+    "slug": "rails-favicon",
+    "tags": ["framework", "rails"],
+    "intent": "how-to",
+    "depth": "standard",
+    "avoidOverlap": ["laravel-favicon", "django-favicon"],
+    "status": "pending"
+  },
+  {
+    "keyword": "spring boot favicon",
+    "slug": "spring-boot-favicon",
+    "tags": ["framework", "java"],
+    "intent": "how-to",
+    "depth": "standard",
+    "avoidOverlap": ["how-to-add-favicon-to-website"],
+    "status": "pending"
+  },
+  {
+    "keyword": "wordpress favicon not showing fix",
+    "slug": "wordpress-favicon-fix",
+    "tags": ["wordpress", "troubleshooting"],
+    "intent": "troubleshooting",
+    "depth": "standard",
+    "avoidOverlap": ["favicon-wordpress", "favicon-not-showing"],
+    "status": "pending"
+  },
+  {
+    "keyword": "favicon seo impact study",
+    "slug": "favicon-seo-impact",
+    "tags": ["seo", "research"],
+    "intent": "informational",
+    "depth": "deep",
+    "avoidOverlap": ["favicon-for-seo", "favicon-google-search-console"],
+    "status": "pending"
+  },
+  {
+    "keyword": "favicon color scheme matching",
+    "slug": "favicon-color-matching",
+    "tags": ["design", "color"],
+    "intent": "informational",
+    "depth": "standard",
+    "avoidOverlap": ["favicon-color-palette", "favicon-design-tips"],
+    "status": "pending"
+  },
+  {
+    "keyword": "favicon performance optimization",
+    "slug": "favicon-performance",
+    "tags": ["performance", "advanced"],
+    "intent": "how-to",
+    "depth": "standard",
+    "avoidOverlap": ["favicon-cdn-hosting", "favicon-ico-size"],
+    "status": "pending"
+  },
+  {
+    "keyword": "drupal favicon setup guide",
+    "slug": "drupal-favicon",
+    "tags": ["cms", "drupal"],
+    "intent": "how-to",
+    "depth": "standard",
+    "avoidOverlap": ["favicon-wordpress", "how-to-add-favicon-to-website"],
+    "status": "pending"
+  },
+  {
+    "keyword": "webflow favicon setup",
+    "slug": "webflow-favicon",
+    "tags": ["cms", "webflow"],
+    "intent": "how-to",
+    "depth": "standard",
+    "avoidOverlap": ["squarespace-favicon", "wix-favicon"],
+    "status": "pending"
+  },
+  {
+    "keyword": "ghost cms favicon",
+    "slug": "ghost-favicon",
+    "tags": ["cms", "ghost"],
+    "intent": "how-to",
+    "depth": "brief",
+    "avoidOverlap": ["favicon-wordpress"],
+    "status": "pending"
+  },
+  {
+    "keyword": "favicon cors cross origin issues",
+    "slug": "favicon-cors",
+    "tags": ["troubleshooting", "advanced"],
+    "intent": "troubleshooting",
+    "depth": "standard",
+    "avoidOverlap": ["favicon-not-showing", "favicon-cdn-hosting"],
+    "status": "pending"
   }
 ]
