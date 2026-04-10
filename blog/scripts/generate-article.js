@@ -44,8 +44,16 @@ if (!API_KEY) {
 const ai = new GoogleGenAI({ apiKey: API_KEY });
 
 // 模型优先级列表（最新 → 备选 → 兜底）
-// 应对新模型名字不确定性，我们将可能的名字按顺位置入数组，自动 failover
-const MODEL_LIST = ['gemini-3-flash', 'gemini-3.0-flash', 'gemini-3-flash-preview', 'gemini-2.5-flash', 'gemini-3.1-flash-lite', 'gemini-3.1-flash-lite-preview'];
+// 2025-04: gemini-3-flash / 3.0-flash / 3.1-flash-lite 均已 404，移除
+// gemini-2.5-flash 经常 503 限流，保留但降级
+// 增加 gemini-2.0-flash（稳定可用）和 gemini-1.5-flash（终极兜底）
+const MODEL_LIST = [
+  'gemini-2.5-flash-preview-04-17',   // 最新可用预览版
+  'gemini-2.5-flash',                  // 稳定版（可能限流）
+  'gemini-2.0-flash',                  // 稳定可靠的主力模型
+  'gemini-2.0-flash-lite',             // 轻量但可用
+  'gemini-1.5-flash',                  // 终极兜底，老但稳
+];
 const MAX_RETRIES = 3;
 const RETRY_DELAY_MS = 50000;
 
