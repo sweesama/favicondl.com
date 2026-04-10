@@ -43,9 +43,15 @@ if (!API_KEY) {
 
 const ai = new GoogleGenAI({ apiKey: API_KEY });
 
-// 模型优先级列表（最新 → 备选 → 兜底）
-// 应对新模型名字不确定性，我们将可能的名字按顺位置入数组，自动 failover
-const MODEL_LIST = ['gemini-3-flash', 'gemini-3.0-flash', 'gemini-3-flash-preview', 'gemini-2.5-flash', 'gemini-3.1-flash-lite', 'gemini-3.1-flash-lite-preview'];
+// 模型优先级列表（质量优先 → 快速备选 → 兜底）
+// 2026-04: Gemini 3 系列仍为 preview，API 名称必须带 -preview 后缀
+// 付费层可用 gemini-3.1-pro-preview，质量最高，放首位
+const MODEL_LIST = [
+  'gemini-3.1-pro-preview',          // Pro 级，质量最高，5语言长文最稳
+  'gemini-3-flash-preview',          // Flash 快速模型
+  'gemini-2.5-flash',                // 稳定主力（已 GA）
+  'gemini-3.1-flash-lite-preview',   // 轻量兜底
+];
 const MAX_RETRIES = 3;
 const RETRY_DELAY_MS = 50000;
 
@@ -460,7 +466,7 @@ async function generateArticleContent(keyword, slug, tags, existingArticles, int
         return data;
 
       } catch (err) {
-        const isRateLimit = err.message?.includes('429') || err.message?.includes('quota') || err.message?.includes('RESOURCE_EXHAUSTED');
+        const isRateLimit = err.message?.includes('429') || err.message?.includes('quota') || err.message?.includes('RESOURCE_EXHAUSTED') || err.message?.includes('503') || err.message?.includes('high demand');
         const isJsonError = err.message?.includes('JSON');
         const isValidationError = err.message?.includes('质量检查失败');
         
