@@ -1064,5 +1064,26 @@
     ],
     "qualityScore": 67,
     "qualityGrade": "B"
+  },
+  {
+    "slug": "home-screen-icon",
+    "publishDate": "2026-04-10",
+    "titleEn": "How to Setup Your Add to Home Screen Icon Favicon (2026)",
+    "titleZh": "如何正确设置添加到主屏幕的 Favicon 图标 (2026指南)",
+    "titleJa": "ホーム画面に追加するFaviconアイコンの正しい設定方法",
+    "titleKo": "홈 화면에 추가하기 아이콘(Favicon) 완벽 설정 가이드",
+    "titleEs": "Cómo configurar el Favicon para Agregar a la Pantalla de Inicio",
+    "descEn": "Stop getting blurry webpage screenshots on mobile. Learn the exact HTML and manifest setup for a perfect add to home screen icon favicon in 2026.",
+    "descZh": "别再让手机主屏幕显示模糊的网页截图了。学习 2026 年最标准的 HTML 和 Manifest 配置，完美实现“添加到主屏幕”图标。",
+    "descJa": "スマホのホーム画面でウェブサイトのスクショが表示されるのを防ぐ、2026年版の正しいFaviconとマニフェスト設定手順。",
+    "descKo": "모바일 홈 화면에 흐릿한 웹페이지 스크린샷이 뜨는 것을 막으세요. 2026년 기준 완벽한 홈 화면 추가 아이콘 설정법을 알아봅니다.",
+    "descEs": "Evita capturas de pantalla borrosas en móviles. Aprende la configuración exacta de HTML y manifest para un ícono de pantalla de inicio perfecto.",
+    "keyword": "add to home screen icon favicon",
+    "tags": [
+      "pwa",
+      "mobile"
+    ],
+    "qualityScore": 85,
+    "qualityGrade": "A"
   }
 ]
