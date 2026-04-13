@@ -1127,5 +1127,26 @@
     ],
     "qualityScore": 85,
     "qualityGrade": "A"
+  },
+  {
+    "slug": "ico-file-format",
+    "publishDate": "2026-04-13",
+    "titleEn": "The ICO File Format Explained: Why We Still Use It in 2026",
+    "titleZh": "ICO文件格式详解：为什么2026年我们还在用它？",
+    "titleJa": "ICOファイルフォーマット解説：2026年でも必須な理由",
+    "titleKo": "ICO 파일 형식 설명: 2026년에도 여전히 사용하는 이유",
+    "titleEs": "Formato de archivo ICO explicado: Por qué sigue vivo en 2026",
+    "descEn": "Think the ICO file format is dead? Learn how this legacy container works, its internal byte structure, and why your web server still needs it in 2026.",
+    "descZh": "认为ICO格式已经过时？深入了解这个经典容器的内部字节结构，以及为什么你的Web服务器在2026年依然离不开它。",
+    "descJa": "ICOフォーマットは時代遅れ？このレガシーコンテナの内部構造と、2026年のWebサーバーにまだ必要な理由を現役エンジニアが解説します。",
+    "descKo": "ICO 파일이 구식이라고 생각하시나요? 이 레거시 컨테이너의 내부 바이트 구조와 2026년 웹 서버에 여전히 필요한 이유를 알아보세요.",
+    "descEs": "¿Crees que el formato ICO está muerto? Descubre cómo funciona este contenedor, su estructura de bytes y por qué tu servidor lo sigue necesitando en 2026.",
+    "keyword": "ico file format explained",
+    "tags": [
+      "format",
+      "advanced"
+    ],
+    "qualityScore": 77,
+    "qualityGrade": "B"
   }
 ]

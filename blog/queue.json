@@ -708,7 +708,9 @@
     "avoidOverlap": [
       "ico-vs-png-favicon"
     ],
-    "status": "pending"
+    "status": "done",
+    "qualityScore": 77,
+    "qualityGrade": "B"
   },
   {
     "keyword": "favicon in address bar",
