@@ -1148,5 +1148,26 @@
     ],
     "qualityScore": 77,
     "qualityGrade": "B"
+  },
+  {
+    "slug": "address-bar-favicon",
+    "publishDate": "2026-04-14",
+    "titleEn": "Favicon in Address Bar: How to Fix the Missing Icon",
+    "titleZh": "地址栏 Favicon 不显示？2026 开发者修复指南",
+    "titleJa": "アドレスバーのFaviconが表示されない？2026年版の設定ガイド",
+    "titleKo": "주소창 파비콘(Favicon) 설정 가이드: 2026년 완벽 해결법",
+    "titleEs": "Favicon en la barra de direcciones: Guía de configuración 2026",
+    "descEn": "Learn why your favicon in address bar is missing and how to fix it. Discover the exact HTML code and best practices to build trust in the browser URL bar.",
+    "descZh": "你的网站地址栏还在显示默认地球图标吗？本文教你如何正确配置地址栏 Favicon，提升网站信任度，包含最新 HTML 代码示例与排错技巧。",
+    "descJa": "ブラウザのアドレスバーにFaviconを正しく表示させる方法を解説。SVGとICOを組み合わせた最新のHTML実装と、よくある表示エラーの解決策を紹介します。",
+    "descKo": "웹 브라우저 주소창에 파비콘이 보이지 않나요? 최신 SVG 및 ICO 형식을 활용하여 주소창 파비콘을 완벽하게 적용하는 개발자 가이드를 확인하세요.",
+    "descEs": "Aprende a configurar correctamente el favicon en la barra de direcciones. Código HTML, formatos recomendados y soluciones para que tu icono siempre aparezca.",
+    "keyword": "favicon in address bar",
+    "tags": [
+      "basics",
+      "browser"
+    ],
+    "qualityScore": 85,
+    "qualityGrade": "A"
   }
 ]
