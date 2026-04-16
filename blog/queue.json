@@ -758,7 +758,9 @@
       "ico-vs-png-favicon",
       "svg-favicon"
     ],
-    "status": "pending"
+    "status": "done",
+    "qualityScore": 85,
+    "qualityGrade": "A"
   },
   {
     "keyword": "favicon html code examples",
