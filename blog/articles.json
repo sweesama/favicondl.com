@@ -1232,5 +1232,26 @@
     ],
     "qualityScore": 85,
     "qualityGrade": "A"
+  },
+  {
+    "slug": "shortcut-icon",
+    "publishDate": "2026-04-18",
+    "titleEn": "Link rel shortcut icon Explained: Why You Must Stop Using It",
+    "titleZh": "Link rel shortcut icon 详解：为什么 2026 年必须弃用它",
+    "titleJa": "Link rel shortcut icon の解説：2026年に使用をやめるべき理由",
+    "titleKo": "Link rel shortcut icon 설명: 2026년에 사용을 중단해야 하는 이유",
+    "titleEs": "Link rel shortcut icon explicado: Por qué debes dejar de usarlo",
+    "descEn": "Still using rel='shortcut icon' for your favicons? Learn the history behind this legacy HTML attribute, how browsers parse it, and the modern 2026 standard.",
+    "descZh": "你的网站还在用 rel='shortcut icon' 吗？深入了解这个遗留 HTML 属性的历史背景、浏览器的解析机制，以及 2026 年的现代标准写法。",
+    "descJa": "まだ rel='shortcut icon' を使っていますか？この古いHTML属性の歴史、ブラウザの解析メカニズム、そして2026年の最新標準について解説します。",
+    "descKo": "여전히 파비콘에 rel='shortcut icon'을 사용하시나요? 이 오래된 HTML 속성의 역사, 브라우저 파싱 방식, 그리고 2026년 최신 표준을 알아보세요.",
+    "descEs": "¿Sigues usando rel='shortcut icon' para tus favicons? Descubre la historia de este atributo HTML heredado, cómo lo analizan los navegadores y el estándar de 2026.",
+    "keyword": "link rel shortcut icon explained",
+    "tags": [
+      "html",
+      "basics"
+    ],
+    "qualityScore": 85,
+    "qualityGrade": "A"
   }
 ]
