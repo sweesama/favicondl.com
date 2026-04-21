@@ -1295,5 +1295,26 @@
     ],
     "qualityScore": 85,
     "qualityGrade": "A"
+  },
+  {
+    "slug": "favorite-icon-history",
+    "publishDate": "2026-04-21",
+    "titleEn": "Favorite Icon Origin and History: Why Browsers Still Request It",
+    "titleZh": "Favorite Icon 起源与历史：为什么浏览器还在请求它？",
+    "titleJa": "Favorite Iconの起源と歴史：なぜブラウザは要求し続けるのか",
+    "titleKo": "Favorite Icon 기원과 역사: 브라우저가 계속 요청하는 이유",
+    "titleEs": "Origen e historia del Favorite Icon: Por qué tu navegador lo busca",
+    "descEn": "Explore the favorite icon origin and history. Learn how a 1999 Internet Explorer feature evolved into the modern browser tab icons we use in 2026.",
+    "descZh": "探索 favorite icon 的起源与历史。了解 1999 年 IE 浏览器的书签功能是如何演变成 2026 年现代浏览器标签页图标的。",
+    "descJa": "favorite iconの起源と歴史を解説。1999年のIEの機能が、2026年の最新ブラウザタブアイコンへとどのように進化したのかを学びます。",
+    "descKo": "favorite icon의 기원과 역사를 알아봅니다. 1999년 인터넷 익스플로러의 기능이 2026년 현대 브라우저 탭 아이콘으로 어떻게 발전했는지 확인하세요.",
+    "descEs": "Explora el origen e historia del favorite icon. Descubre cómo una función de Internet Explorer de 1999 evolucionó hasta los iconos de pestañas de 2026.",
+    "keyword": "favorite icon origin and history",
+    "tags": [
+      "basics",
+      "history"
+    ],
+    "qualityScore": 85,
+    "qualityGrade": "A"
   }
 ]
