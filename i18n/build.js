@@ -284,7 +284,11 @@ async function main() {
       console.log(`⚠️  跳过 ${page}（文件不存在）`);
       continue;
     }
-    const html = fs.readFileSync(srcPath, 'utf-8');
+    // Strip BOM if present, so cheerio parses <head> correctly
+    const rawBuf = fs.readFileSync(srcPath);
+    const html = rawBuf[0] === 0xEF && rawBuf[1] === 0xBB && rawBuf[2] === 0xBF
+      ? rawBuf.slice(3).toString('utf-8')
+      : rawBuf.toString('utf-8');
 
     // 为每种目标语言生成页面
     for (const lang of LANGUAGES) {
@@ -294,7 +298,7 @@ async function main() {
 
     // 更新英文根页面（注入 hreflang + 多语言切换器）
     const patchedEnglish = patchEnglishPage(html, page);
-    fs.writeFileSync(srcPath, patchedEnglish, 'utf-8');
+    fs.writeFileSync(srcPath, patchedEnglish, { encoding: 'utf-8' });
 
     console.log(`✅ ${page} → en(patched), ${LANGUAGES.join(', ')}`);
   }
@@ -315,7 +319,10 @@ async function main() {
     for (const file of blogFiles) {
       const blogPage = `blog/${file}`;  // 如 'blog/index.html'
       const srcPath = path.join(ROOT, blogPage);
-      const html = fs.readFileSync(srcPath, 'utf-8');
+      const rawBlogBuf = fs.readFileSync(srcPath);
+      const html = rawBlogBuf[0] === 0xEF && rawBlogBuf[1] === 0xBB && rawBlogBuf[2] === 0xBF
+        ? rawBlogBuf.slice(3).toString('utf-8')
+        : rawBlogBuf.toString('utf-8');
 
       for (const lang of LANGUAGES) {
         buildPage(html, lang, blogPage, translations);
@@ -324,7 +331,7 @@ async function main() {
 
       // 给英文博客页注入 hreflang + 切换器
       const patchedBlog = patchEnglishPage(html, blogPage);
-      fs.writeFileSync(srcPath, patchedBlog, 'utf-8');
+      fs.writeFileSync(srcPath, patchedBlog, { encoding: 'utf-8' });
 
       console.log(`✅ ${blogPage} → en(patched), ${LANGUAGES.join(', ')}`);
     }
