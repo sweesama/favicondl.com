@@ -1337,5 +1337,26 @@
     ],
     "qualityScore": 85,
     "qualityGrade": "A"
+  },
+  {
+    "slug": "favicon-ico-size",
+    "publishDate": "2026-04-24",
+    "titleEn": "Favicon ICO Size Optimization: Stop Bloating Your Tabs",
+    "titleZh": "Favicon ICO 体积优化指南：别再让图标拖慢网页",
+    "titleJa": "Favicon ICOのサイズ最適化：タブの肥大化を防ぐ方法",
+    "titleKo": "파비콘 ICO 용량 최적화: 브라우저 탭 성능 개선하기",
+    "titleEs": "Optimización del tamaño del Favicon ICO: Evita la sobrecarga",
+    "descEn": "Learn how to perform favicon ICO size optimization. Stop serving 150KB legacy files and master the 2026 technique for ultra-light browser tab icons.",
+    "descZh": "学习如何进行 favicon ICO 体积优化。别再让 150KB 的旧版图标拖慢加载速度，掌握 2026 年的超轻量级浏览器标签图标优化技巧。",
+    "descJa": "favicon ICOサイズの最適化方法を解説。150KBのレガシーファイルを配信するのはやめて、超軽量なタブアイコンを作成する2026年のテクニックをマスターしましょう。",
+    "descKo": "파비콘 ICO 용량 최적화 방법을 알아보세요. 150KB의 무거운 레거시 파일을 버리고 초경량 브라우저 탭 아이콘을 만드는 2026년 기술을 마스터하세요.",
+    "descEs": "Aprende a optimizar el tamaño de tu favicon ICO. Deja de servir archivos heredados de 150 KB y domina la técnica de 2026 para íconos ultraligeros.",
+    "keyword": "favicon ico size optimization",
+    "tags": [
+      "optimization",
+      "format"
+    ],
+    "qualityScore": 85,
+    "qualityGrade": "A"
   }
 ]
