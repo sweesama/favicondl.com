@@ -1358,5 +1358,26 @@
     ],
     "qualityScore": 85,
     "qualityGrade": "A"
+  },
+  {
+    "slug": "apple-touch-icon-sizes",
+    "publishDate": "2026-04-25",
+    "titleEn": "Apple Touch Icon Sizes Guide: Stop Generating 15 Files",
+    "titleZh": "Apple Touch Icon 尺寸指南：别再生成一堆无用图标了",
+    "titleJa": "Apple Touch Icon サイズガイド：15個も画像を作るのはやめよう",
+    "titleKo": "Apple Touch Icon 크기 가이드: 15개의 파일을 그만 만드세요",
+    "titleEs": "Guía de Tamaños de Apple Touch Icon: Deja de Crear 15 Archivos",
+    "descEn": "Stop wasting time on legacy iOS resolutions. Learn the exact Apple Touch Icon sizes you actually need in 2026 and how to implement them perfectly.",
+    "descZh": "别再为旧版 iOS 分辨率浪费时间了。了解 2026 年真正需要的 Apple Touch Icon 尺寸，以及如何完美配置它们。",
+    "descJa": "古いiOSの解像度に時間を無駄にするのはやめましょう。2026年に本当に必要なApple Touch Iconのサイズと完璧な実装方法を解説します。",
+    "descKo": "구형 iOS 해상도에 시간을 낭비하지 마세요. 2026년에 실제로 필요한 Apple Touch Icon 크기와 완벽한 구현 방법을 알아보세요.",
+    "descEs": "Deja de perder tiempo en resoluciones antiguas de iOS. Aprende los tamaños exactos de Apple Touch Icon que realmente necesitas en 2026.",
+    "keyword": "apple touch icon sizes guide",
+    "tags": [
+      "apple",
+      "sizes"
+    ],
+    "qualityScore": 85,
+    "qualityGrade": "A"
   }
 ]
