@@ -1379,5 +1379,26 @@
     ],
     "qualityScore": 85,
     "qualityGrade": "A"
+  },
+  {
+    "slug": "apple-touch-icon-precomposed",
+    "publishDate": "2026-04-26",
+    "titleEn": "Apple Touch Icon Precomposed Explained (2026 Guide)",
+    "titleZh": "Apple Touch Icon Precomposed 详解：2026年还需要吗？",
+    "titleJa": "Apple Touch Icon Precomposed とは？2026年の最適解",
+    "titleKo": "Apple Touch Icon Precomposed 완벽 설명 (2026 가이드)",
+    "titleEs": "Apple Touch Icon Precomposed Explicado (Guía 2026)",
+    "descEn": "Stop using apple-touch-icon-precomposed.png. Learn the history of iOS glossy icons, why this legacy tag is obsolete, and how to clean your HTML in 2026.",
+    "descZh": "还在用 apple-touch-icon-precomposed 吗？了解 iOS 拟物化图标的历史，为什么这个标签已完全过时，以及如何在2026年精简你的代码。",
+    "descJa": "apple-touch-icon-precomposed.png の使用はもうやめましょう。iOSの光沢アイコンの歴史と、この古いタグが不要な理由を解説します。",
+    "descKo": "apple-touch-icon-precomposed.png 사용을 중단하세요. iOS 광택 아이콘의 역사와 이 레거시 태그가 더 이상 필요 없는 이유를 알아봅니다.",
+    "descEs": "Deja de usar apple-touch-icon-precomposed.png. Descubre la historia de los iconos de iOS y por qué esta etiqueta obsoleta debe eliminarse en 2026.",
+    "keyword": "apple touch icon precomposed explained",
+    "tags": [
+      "apple",
+      "advanced"
+    ],
+    "qualityScore": 85,
+    "qualityGrade": "A"
   }
 ]
