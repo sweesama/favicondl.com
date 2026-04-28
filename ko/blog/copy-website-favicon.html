@@ -1,0 +1,150 @@
+<!DOCTYPE html><html lang="ko"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Copy a Website Favicon: The Pro Dev Workflow - Mzu favicondl</title>
+    <meta name="description" content="Stop guessing URLs. Learn the exact developer workflow on how to copy a website favicon using DevTools, DOM inspection, and console scripts.">
+    <meta name="keywords" content="how to copy a website favicon, extract favicon, copy html favicon, devtools icon">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/ko/blog/copy-website-favicon.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/copy-website-favicon.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/copy-website-favicon.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/copy-website-favicon.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/copy-website-favicon.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/copy-website-favicon.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/copy-website-favicon.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/ko/blog/copy-website-favicon.html">
+    <meta property="og:title" content="How to Copy a Website Favicon: The Pro Dev Workflow">
+    <meta property="og:description" content="Stop guessing URLs. Learn the exact developer workflow on how to copy a website favicon using DevTools, DOM inspection, and console scripts.">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="How to Copy a Website Favicon: The Pro Dev Workflow">
+    <meta name="twitter:description" content="Stop guessing URLs. Learn the exact developer workflow on how to copy a website favicon using DevTools, DOM inspection, and console scripts.">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "How to Copy a Website Favicon: The Pro Dev Workflow",
+      "description": "Stop guessing URLs. Learn the exact developer workflow on how to copy a website favicon using DevTools, DOM inspection, and console scripts.",
+      "datePublished": "2026-04-28",
+      "dateModified": "2026-04-28",
+      "author": {
+            "@type": "Organization",
+            "name": "Mzu favicondl",
+            "url": "https://favicondl.com"
+      },
+      "publisher": {
+            "@type": "Organization",
+            "name": "Mzu favicondl",
+            "url": "https://favicondl.com"
+      },
+      "mainEntityOfPage": "https://favicondl.com/blog/copy-website-favicon.html",
+      "inLanguage": "en"
+}
+    </script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/ko/index.html" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/ko/documentation.html" class="nav-link" data-en="Docs" data-zh="文档">문서</a>
+                <a href="/ko/tools.html" class="nav-link" data-en="Tools" data-zh="工具">도구</a>
+                <a href="/ko/blog/" class="nav-link" data-en="Blog" data-zh="博客">블로그</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/copy-website-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/copy-website-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/copy-website-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/copy-website-favicon.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/copy-website-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/ko/index.html" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/ko/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600" data-en="Copy Website Favicon" data-zh="复制网站 Favicon">Copy Website Favicon</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">how-to</span><time class="text-sm text-gray-400">2026-04-28</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight" data-en="How to Copy a Website Favicon: The Pro Dev Workflow" data-zh="如何复制网站 Favicon：专业开发者的提取工作流">How to Copy a Website Favicon: The Pro Dev Workflow</h1>
+        </header>
+
+        <div class="article-body" data-lang="en">
+            <p>If you're building a client mockup, a competitor analysis dashboard, or just trying to reverse-engineer how GitHub handles their slick dark-mode tab icon, you've probably hit a wall. You try appending <code>/favicon.ico</code> to a URL, and you get a 404 error. Browsers have moved way past a single root file. If you want to know exactly how to copy a website favicon today, you need to look at the DOM.</p><p>I do this constantly when auditing client sites. Grabbing their existing icon setup is step one before I fix it. Here is my exact workflow for copying a site's favicon implementation directly from the browser.</p><h2>The Developer Workflow: How to Copy a Website Favicon</h2><p>Don't bother viewing the page source. Modern JavaScript frameworks (like Next.js or Nuxt) often inject these tags dynamically. We need the rendered DOM.</p><h3>Step 1: Open the Elements Panel</h3><p>Right-click anywhere on the target webpage and select 'Inspect'. Press <code>Cmd+F</code> (or <code>Ctrl+F</code>) inside the Elements panel and search for <code>rel='icon'</code>.</p><h3>Step 2: Copy the Exact HTML</h3><p>You will likely find multiple tags. Stripe, for example, uses a mix of SVGs and PNG fallbacks. Right-click the <code>&lt;link&gt;</code> node, select 'Copy', and then 'Copy element'. This gives you the exact markup they use to serve the icon.</p><h3>Step 3: Extract the Asset via Console</h3><p>If you just want the image file itself, digging through relative paths (like <code>/assets/images/icon.svg</code>) is annoying. Jump to your DevTools Console and run this quick snippet:</p><pre><code>const icon = document.querySelector('link[rel="icon"]').href;
+console.log(icon);</code></pre><p>This instantly resolves the absolute URL. Click it, and save the image.</p><h2>Common Pitfalls When Copying Icons</h2><p>Grabbing the icon is easy, but reusing it blindly usually breaks things. Watch out for these traps:</p><ul><li><strong>Relative Paths:</strong> If you copy the HTML tag directly into your local project, a path like <code>href='/favicon.svg'</code> will look for the file on your localhost, resulting in a blank tab.</li><li><strong>Missing Apple Touch Icons:</strong> The standard <code>rel='icon'</code> doesn't cover iOS home screens. You often need to hunt for <code>rel='apple-touch-icon'</code> separately.</li><li><strong>SVG Media Queries:</strong> If you copy an SVG favicon, be aware it might contain internal CSS for dark mode. If your mockup environment doesn't match, it might render invisible.</li></ul><p>If you are doing this manually for more than one site, you are wasting time. While the console trick is great for a quick one-off, I built Mzu favicondl to automate this. It parses the target URL, resolves all paths, and packages the icons for you.</p><p>If you want to dive deeper into alternative extraction methods, check out our guide on <a href="/ko/blog/how-to-download-favicon.html">downloading favicons from any website</a>, or learn why modern sites use <a href="/ko/blog/svg-favicon.html">SVG favicons</a> in the first place. Stop guessing URLs and start inspecting the DOM.</p>
+        </div>
+
+        <div class="article-body" data-lang="zh" style="display:none">
+            <p>如果你正在制作客户的视觉稿、开发竞品分析面板，或者纯粹想逆向工程一下 Bilibili 是如何处理他们那个精美的暗黑模式标签页图标的，你可能已经碰壁了。你试着在网址后面加上 <code>/favicon.ico</code>，结果只收获了一个 404 错误。现代浏览器早就淘汰了单一根目录文件的做法。如果你想知道现在究竟如何复制一个网站的 favicon（how to copy a website favicon），你必须直接从 DOM 下手。</p><p>我在审计客户网站时经常做这件事。在修复他们的图标之前，第一步就是把他们现有的配置完整拷下来。以下是我直接从浏览器中复制网站 favicon 实现方案的具体工作流。</p><h2>开发者专属：如何复制网站 Favicon</h2><p>别去“查看网页源代码”。像 Next.js 或 Vue 这样的现代前端框架通常是动态注入这些标签的。我们需要的是渲染后的 DOM。</p><h3>第一步：打开元素面板</h3><p>在目标网页上右键点击，选择“检查”（Inspect）。在 Elements 面板中按下 <code>Cmd+F</code>（或 <code>Ctrl+F</code>），直接搜索 <code>rel='icon'</code>。</p><h3>第二步：复制完整的 HTML 节点</h3><p>你很可能会找到好几个标签。比如 Vercel 就混合使用了 SVG 和 PNG 作为降级方案。右键点击那个 <code>&lt;link&gt;</code> 节点，选择“复制”（Copy），然后点击“复制元素”（Copy element）。这能让你拿到他们用来加载图标的精确 HTML 代码。</p><h3>第三步：通过控制台提取资源链接</h3><p>如果你只想要图片文件本身，去拼凑相对路径（比如 <code>/assets/images/icon.svg</code>）是非常折磨人的。直接切到 DevTools 的 Console 面板，运行这段极简代码：</p><pre><code>const icon = document.querySelector('link[rel="icon"]').href;
+console.log(icon);</code></pre><p>这会立刻输出解析后的绝对 URL。点击它，保存图片即可。</p><h2>复制图标时的常见陷阱</h2><p>把图标扒下来很简单，但盲目复用通常会出问题。小心以下几个坑：</p><ul><li><strong>相对路径：</strong> 如果你直接把 HTML 标签复制到本地项目中，像 <code>href='/favicon.svg'</code> 这样的路径会去你的 localhost 找文件，结果就是标签页一片空白。</li><li><strong>遗漏苹果图标：</strong> 标准的 <code>rel='icon'</code> 管不到 iOS 的主屏幕。你通常还得单独去搜刮 <code>rel='apple-touch-icon'</code>。</li><li><strong>SVG 媒体查询：</strong> 如果你复制了一个 SVG 格式的 favicon，注意它内部可能包含了针对暗黑模式的 CSS。如果你的测试环境不匹配，它可能会隐形。</li></ul><p>如果你需要手动处理好几个网站，那太浪费时间了。虽然控制台技巧偶尔用用很爽，但我开发 Mzu favicondl 就是为了自动化这个过程。它能解析目标 URL，处理所有路径，并为你打包好图标。</p><p>如果你想深入了解其他提取方法，可以看看我们关于<a href="/ko/blog/how-to-download-favicon.html">从任意网站下载 favicon</a>的指南，或者了解为什么现代网站都在使用 <a href="/ko/blog/svg-favicon.html">SVG favicon</a>。别再瞎猜 URL 了，老老实实去审查 DOM 吧。</p>
+        </div>
+
+        <div class="article-body" data-lang="ja" style="display:none">
+            <p>クライアントのモックアップを作成したり、競合分析ダッシュボードを構築したり、あるいはZennがどのようにダークモード対応のタブアイコンを処理しているのかをリバースエンジニアリングしようとしたりして、壁にぶつかったことはありませんか？URLの末尾に <code>/favicon.ico</code> を追加してみても、404エラーが返ってくるだけです。ブラウザの仕様は、単一のルートファイルからすでに大きく進化しています。現在、ウェブサイトのファビコンをコピーする方法（how to copy a website favicon）を正確に知りたいなら、DOMを見る必要があります。</p><p>私はクライアントのサイトを監査する際、常にこの作業を行っています。アイコンの設定を修正する前の第一歩は、既存の設定をコピーすることです。ここでは、ブラウザから直接サイトのファビコン実装をコピーする、私の具体的なワークフローを紹介します。</p><h2>開発者のワークフロー：ウェブサイトのファビコンをコピーする方法</h2><p>「ページのソースを表示」は無視してください。Next.jsやNuxtなどの最新のJavaScriptフレームワークは、これらのタグを動的に注入することがよくあります。必要なのはレンダリングされたDOMです。</p><h3>ステップ1：要素パネルを開く</h3><p>対象のウェブページ上の任意の場所を右クリックし、「検証」を選択します。Elementsパネル内で <code>Cmd+F</code>（または <code>Ctrl+F</code>）を押し、<code>rel='icon'</code> を検索します。</p><h3>ステップ2：HTMLノードをコピーする</h3><p>おそらく複数のタグが見つかるはずです。例えばZennでは、SVGとフォールバック用のPNGを組み合わせて使用しています。<code>&lt;link&gt;</code> ノードを右クリックし、「コピー」から「要素をコピー」を選択します。これにより、アイコンを提供するために使用されている正確なマークアップを取得できます。</p><h3>ステップ3：コンソール経由でアセットを抽出する</h3><p>画像ファイル自体だけが欲しい場合、相対パス（<code>/assets/images/icon.svg</code> など）を掘り下げるのは面倒です。DevToolsのConsoleに移動し、この短いスニペットを実行してください。</p><pre><code>const icon = document.querySelector('link[rel="icon"]').href;
+console.log(icon);</code></pre><p>これにより、絶対URLが即座に解決されます。それをクリックして、画像を保存します。</p><h2>アイコンをコピーする際のよくある落とし穴</h2><p>アイコンを取得するのは簡単ですが、盲目的に再利用すると大抵問題が起きます。以下の罠に注意してください。</p><ul><li><strong>相対パス：</strong> HTMLタグをローカルプロジェクトに直接コピーした場合、<code>href='/favicon.svg'</code> のようなパスはlocalhost上のファイルを探すため、タブが空白になります。</li><li><strong>Apple Touch Iconの欠落：</strong> 標準の <code>rel='icon'</code> はiOSのホーム画面をカバーしていません。多くの場合、<code>rel='apple-touch-icon'</code> を別途探す必要があります。</li><li><strong>SVGメディアクエリ：</strong> SVGファビコンをコピーした場合、ダークモード用の内部CSSが含まれている可能性があることに注意してください。モックアップ環境が一致しないと、見えなくなる可能性があります。</li></ul><p>複数のサイトでこれを手動で行っているなら、時間の無駄です。コンソールのテクニックは単発の作業には最適ですが、私はこれを自動化するために Mzu favicondl を構築しました。ターゲットURLを解析し、すべてのパスを解決して、アイコンをパッケージ化します。</p><p>代替の抽出方法についてさらに深く知りたい場合は、<a href="/ko/blog/how-to-download-favicon.html">任意のウェブサイトからファビコンをダウンロードする</a>ガイドをチェックするか、最新のサイトがそもそもなぜ <a href="/ko/blog/svg-favicon.html">SVGファビコン</a> を使用するのかを学んでください。URLを推測するのはやめて、DOMの検証を始めましょう。</p>
+        </div>
+
+        <div class="article-body" data-lang="ko" style="display:none">
+            <p>클라이언트의 목업을 만들거나, 경쟁사 분석 대시보드를 구축하거나, Toss가 다크 모드 탭 아이콘을 어떻게 처리하는지 리버스 엔지니어링하려고 할 때 벽에 부딪힌 적이 있을 것입니다. URL 끝에 <code>/favicon.ico</code>를 추가해 보지만 404 에러만 돌아옵니다. 브라우저는 이미 단일 루트 파일 방식을 훨씬 넘어섰습니다. 오늘날 웹사이트 파비콘을 복사하는 방법(how to copy a website favicon)을 정확히 알고 싶다면 DOM을 살펴봐야 합니다.</p><p>저는 클라이언트 사이트를 감사할 때 이 작업을 끊임없이 합니다. 아이콘 설정을 수정하기 전 첫 번째 단계는 기존 설정을 그대로 가져오는 것입니다. 브라우저에서 직접 사이트의 파비콘 구현을 복사하는 저만의 정확한 워크플로우를 소개합니다.</p><h2>개발자의 워크플로우: 웹사이트 파비콘을 복사하는 방법</h2><p>'페이지 소스 보기'는 무시하세요. Next.js나 Nuxt 같은 최신 JavaScript 프레임워크는 이러한 태그를 동적으로 주입하는 경우가 많습니다. 우리에게 필요한 것은 렌더링된 DOM입니다.</p><h3>1단계: 요소(Elements) 패널 열기</h3><p>대상 웹페이지의 아무 곳이나 마우스 오른쪽 버튼으로 클릭하고 '검사'를 선택합니다. Elements 패널 안에서 <code>Cmd+F</code>(또는 <code>Ctrl+F</code>)를 누르고 <code>rel='icon'</code>을 검색합니다.</p><h3>2단계: HTML 노드 복사하기</h3><p>여러 개의 태그를 발견할 가능성이 높습니다. 예를 들어 Toss는 SVG와 PNG 폴백을 혼합하여 사용합니다. <code>&lt;link&gt;</code> 노드를 마우스 오른쪽 버튼으로 클릭하고 '복사'를 선택한 다음 '요소 복사'를 클릭합니다. 이렇게 하면 아이콘을 제공하는 데 사용하는 정확한 마크업을 얻을 수 있습니다.</p><h3>3단계: 콘솔을 통해 에셋 추출하기</h3><p>이미지 파일 자체만 원한다면 상대 경로(<code>/assets/images/icon.svg</code> 등)를 파헤치는 것은 성가신 일입니다. DevTools 콘솔로 이동하여 이 짧은 스니펫을 실행하세요.</p><pre><code>const icon = document.querySelector('link[rel="icon"]').href;
+console.log(icon);</code></pre><p>이렇게 하면 절대 URL이 즉시 확인됩니다. 클릭해서 이미지를 저장하세요.</p><h2>아이콘 복사 시 흔한 함정</h2><p>아이콘을 가져오는 것은 쉽지만, 맹목적으로 재사용하면 대개 문제가 발생합니다. 다음 함정에 주의하세요.</p><ul><li><strong>상대 경로:</strong> HTML 태그를 로컬 프로젝트에 직접 복사하면 <code>href='/favicon.svg'</code>와 같은 경로가 localhost에서 파일을 찾으려고 하므로 빈 탭이 나타납니다.</li><li><strong>Apple Touch Icon 누락:</strong> 표준 <code>rel='icon'</code>은 iOS 홈 화면을 커버하지 않습니다. 종종 <code>rel='apple-touch-icon'</code>을 따로 찾아야 합니다.</li><li><strong>SVG 미디어 쿼리:</strong> SVG 파비콘을 복사하는 경우 다크 모드를 위한 내부 CSS가 포함되어 있을 수 있다는 점에 유의하세요. 목업 환경이 일치하지 않으면 보이지 않을 수 있습니다.</li></ul><p>여러 사이트에서 이 작업을 수동으로 하고 있다면 시간을 낭비하고 있는 것입니다. 콘솔 트릭은 일회성으로 사용하기에는 훌륭하지만, 저는 이 과정을 자동화하기 위해 Mzu favicondl을 만들었습니다. 대상 URL을 파싱하고 모든 경로를 확인하여 아이콘을 패키징해 줍니다.</p><p>다른 추출 방법에 대해 더 깊이 알고 싶다면 <a href="/ko/blog/how-to-download-favicon.html">웹사이트에서 파비콘을 다운로드하는 방법</a>에 대한 가이드를 확인하거나, 최신 사이트들이 왜 <a href="/ko/blog/svg-favicon.html">SVG 파비콘</a>을 사용하는지 알아보세요. URL 추측은 그만두고 DOM 검사를 시작하세요.</p>
+        </div>
+
+        <div class="article-body" data-lang="es" style="display:none">
+            <p>Si alguna vez has estado construyendo un mockup para un cliente, un dashboard de análisis de la competencia, o simplemente intentando hacer ingeniería inversa de cómo MercadoLibre maneja su icono de pestaña en modo oscuro, probablemente te hayas chocado contra una pared. Intentas añadir <code>/favicon.ico</code> al final de la URL y te llevas un hermoso error 404. Los navegadores han dejado muy atrás la época del archivo único en la raíz. Si quieres saber exactamente cómo copiar el favicon de una página web (how to copy a website favicon) hoy en día, tienes que mirar el DOM.</p><p>Hago esto constantemente cuando audito sitios de clientes. Capturar su configuración actual de iconos es el paso uno antes de arreglarlo. Aquí tienes mi flujo de trabajo exacto para copiar la implementación del favicon de un sitio directamente desde el navegador.</p><h2>El Flujo de Trabajo del Desarrollador: Cómo Copiar un Favicon</h2><p>No te molestes en 'Ver código fuente de la página'. Los frameworks modernos de JavaScript (como Next.js o Nuxt) a menudo inyectan estas etiquetas dinámicamente. Necesitamos el DOM renderizado.</p><h3>Paso 1: Abre el Panel de Elementos</h3><p>Haz clic derecho en cualquier parte de la página web objetivo y selecciona 'Inspeccionar'. Presiona <code>Cmd+F</code> (o <code>Ctrl+F</code>) dentro del panel de Elementos y busca <code>rel='icon'</code>.</p><h3>Paso 2: Copia el Nodo HTML Exacto</h3><p>Es muy probable que encuentres múltiples etiquetas. Vercel, por ejemplo, usa una mezcla de SVGs y PNGs como respaldo. Haz clic derecho en el nodo <code>&lt;link&gt;</code>, selecciona 'Copiar' y luego 'Copiar elemento'. Esto te da el marcado exacto que usan para servir el icono.</p><h3>Paso 3: Extrae el Recurso vía Consola</h3><p>Si solo quieres el archivo de imagen en sí, escarbar entre rutas relativas (<code>/assets/images/icon.svg</code>) es una molestia. Salta a la Consola de tus DevTools y ejecuta este pequeño fragmento:</p><pre><code>const icon = document.querySelector('link[rel="icon"]').href;
+console.log(icon);</code></pre><p>Esto resuelve instantáneamente la URL absoluta. Haz clic en ella y guarda la imagen.</p><h2>Errores Comunes al Copiar Iconos</h2><p>Agarrar el icono es fácil, pero reutilizarlo a ciegas normalmente rompe cosas. Cuidado con estas trampas:</p><ul><li><strong>Rutas Relativas:</strong> Si copias la etiqueta HTML directamente a tu proyecto local, una ruta como <code>href='/favicon.svg'</code> buscará el archivo en tu localhost, resultando en una pestaña en blanco.</li><li><strong>Iconos de Apple Touch Faltantes:</strong> El <code>rel='icon'</code> estándar no cubre las pantallas de inicio de iOS. A menudo necesitas cazar el <code>rel='apple-touch-icon'</code> por separado.</li><li><strong>Media Queries en SVG:</strong> Si copias un favicon SVG, ten en cuenta que podría contener CSS interno para el modo oscuro. Si tu entorno de mockup no coincide, podría volverse invisible.</li></ul><p>Si estás haciendo esto manualmente para más de un sitio, estás perdiendo el tiempo. Aunque el truco de la consola es genial para un apuro, construí Mzu favicondl para automatizar esto. Analiza la URL objetivo, resuelve todas las rutas y empaqueta los iconos por ti.</p><p>Si quieres profundizar en métodos de extracción alternativos, echa un vistazo a nuestra guía sobre <a href="/ko/blog/how-to-download-favicon.html">cómo descargar favicons de cualquier sitio web</a>, o aprende por qué los sitios modernos usan <a href="/ko/blog/svg-favicon.html">favicons SVG</a> en primer lugar. Deja de adivinar URLs y empieza a inspeccionar el DOM.</p>
+        </div>
+
+        <div class="cta-box">
+            <h3 data-en="Stop Digging Through HTML Tags" data-zh="别再手动翻找 HTML 标签了" data-ja="HTMLタグを探し回るのはやめましょう" data-ko="HTML 태그 뒤지기는 이제 그만" data-es="Deja de Escarbar en Etiquetas HTML">Stop Digging Through HTML Tags</h3>
+            <p data-en="Use Mzu favicondl to instantly extract, convert, and download any website's complete favicon package in seconds." data-zh="使用 Mzu favicondl，只需几秒钟即可瞬间提取、转换并下载任何网站的完整 favicon 资源包。" data-ja="Mzu favicondlを使用すれば、数秒で任意のウェブサイトの完全なファビコンパッケージを抽出し、変換、ダウンロードできます。" data-ko="Mzu favicondl을 사용하여 몇 초 만에 모든 웹사이트의 전체 파비콘 패키지를 즉시 추출, 변환 및 다운로드하세요." data-es="Usa Mzu favicondl para extraer, convertir y descargar instantáneamente el paquete completo de favicons de cualquier sitio en segundos.">Use Mzu favicondl to instantly extract, convert, and download any website's complete favicon package in seconds.</p>
+            <a href="/ko/index.html" class="cta-btn" data-en="Extract Favicons Now →" data-zh="立即提取 Favicon →" data-ja="今すぐファビコンを抽出 →" data-ko="지금 파비콘 추출하기 →" data-es="Extraer Favicons Ahora →">Extract Favicons Now →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/ko/index.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Home" data-zh="首页">홈</a>
+                <a href="/ko/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Blog" data-zh="博客">블로그</a>
+                <a href="/ko/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Privacy" data-zh="隐私政策">개인정보</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js?v=20260211"></script>
+
+
+</body></html>
