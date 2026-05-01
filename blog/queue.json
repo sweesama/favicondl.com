@@ -992,7 +992,9 @@
       "favicon-not-showing",
       "favicon-cache-clear"
     ],
-    "status": "pending"
+    "status": "done",
+    "qualityScore": 85,
+    "qualityGrade": "A"
   },
   {
     "keyword": "favicon generator from text",

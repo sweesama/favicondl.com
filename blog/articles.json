@@ -1484,5 +1484,26 @@
     ],
     "qualityScore": 85,
     "qualityGrade": "A"
+  },
+  {
+    "slug": "favicon-not-showing-chrome",
+    "publishDate": "2026-05-01",
+    "titleEn": "Favicon Not Showing in Chrome? The 2026 Developer Fix",
+    "titleZh": "Chrome 不显示 Favicon？2026年开发者排坑指南",
+    "titleJa": "ChromeでFaviconが表示されない？2026年版の解決策",
+    "titleKo": "Chrome에서 파비콘이 안 보이나요? 2026년 개발자 해결법",
+    "titleEs": "¿Favicon no se ve en Chrome? La solución definitiva (2026)",
+    "descEn": "Troubleshoot why your favicon is not showing in Chrome. Learn about Chrome's hidden SQLite cache, strict SVG parsing, and the quick query string fix.",
+    "descZh": "深入解析 Chrome 不显示 Favicon 的根本原因。了解 Chrome 隐藏的 SQLite 缓存机制、严格的 SVG 解析规则，以及最快的版本号修复技巧。",
+    "descJa": "ChromeでFaviconが表示されない原因をトラブルシューティング。隠しSQLiteキャッシュ、厳格なSVG解析、クエリストリングによる即効性のある解決策を解説します。",
+    "descKo": "Chrome에서 파비콘이 표시되지 않는 이유를 해결하세요. 숨겨진 SQLite 캐시, 엄격한 SVG 파싱, 그리고 빠른 쿼리 문자열 해결법을 알아봅니다.",
+    "descEs": "Soluciona por qué tu favicon no se muestra en Chrome. Descubre la caché oculta de SQLite, el análisis estricto de SVG y la solución rápida con query strings.",
+    "keyword": "favicon not showing in chrome",
+    "tags": [
+      "troubleshooting",
+      "chrome"
+    ],
+    "qualityScore": 85,
+    "qualityGrade": "A"
   }
 ]
