@@ -1009,7 +1009,9 @@
       "favicon-generator-free",
       "favicon-emoji"
     ],
-    "status": "pending"
+    "status": "done",
+    "qualityScore": 75,
+    "qualityGrade": "B"
   },
   {
     "keyword": "favicon best size 2026",
