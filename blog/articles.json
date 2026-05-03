@@ -1526,5 +1526,26 @@
     ],
     "qualityScore": 75,
     "qualityGrade": "B"
+  },
+  {
+    "slug": "favicon-best-size-2026",
+    "publishDate": "2026-05-03",
+    "titleEn": "The Favicon Best Size 2026: A Minimalist Dev Guide",
+    "titleZh": "2026年 Favicon 最佳尺寸指南：告别冗余图标文件",
+    "titleJa": "2026年版ファビコン最適なサイズ：開発者のための最小構成ガイド",
+    "titleKo": "2026년 파비콘 최적의 크기: 개발자를 위한 미니멀 가이드",
+    "titleEs": "El mejor tamaño de favicon en 2026: Guía minimalista",
+    "descEn": "Stop generating 30 different icon files. Discover the exact favicon best size 2026 strategy you need for crisp browser tabs, mobile screens, and PWAs.",
+    "descZh": "还在为网站生成几十个不同尺寸的图标吗？了解 2026 年最精简的 favicon 最佳尺寸策略，仅需 3 个文件即可完美适配所有现代浏览器和 PWA。",
+    "descJa": "30種類ものアイコンファイルを生成するのはもうやめましょう。モダンブラウザやPWAで鮮明に表示される、2026年の最適なファビコンサイズ戦略を解説します。",
+    "descKo": "더 이상 30개의 다른 아이콘 파일을 생성하지 마세요. 선명한 브라우저 탭과 PWA를 위해 2026년에 정확히 필요한 파비콘 최적의 크기 전략을 확인해 보세요.",
+    "descEs": "Deja de generar 30 archivos de iconos diferentes. Descubre la estrategia exacta del mejor tamaño de favicon en 2026 para pestañas y PWAs.",
+    "keyword": "favicon best size 2026",
+    "tags": [
+      "sizes",
+      "guide"
+    ],
+    "qualityScore": 77,
+    "qualityGrade": "B"
   }
 ]

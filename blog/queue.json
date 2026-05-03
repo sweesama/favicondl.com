@@ -1026,7 +1026,9 @@
       "favicon-sizes-guide",
       "retina-favicon-high-dpi"
     ],
-    "status": "pending"
+    "status": "done",
+    "qualityScore": 77,
+    "qualityGrade": "B"
   },
   {
     "keyword": "favicon for chrome new tab",
