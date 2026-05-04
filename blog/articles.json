@@ -1547,5 +1547,26 @@
     ],
     "qualityScore": 77,
     "qualityGrade": "B"
+  },
+  {
+    "slug": "favicon-chrome-new-tab",
+    "publishDate": "2026-05-04",
+    "titleEn": "Favicon for Chrome New Tab: Stop Serving Blurry Shortcuts",
+    "titleZh": "Chrome 新标签页 Favicon 优化指南：告别模糊图标",
+    "titleJa": "Chrome 新しいタブの Favicon 設定：ぼやけたアイコンを修正",
+    "titleKo": "Chrome 새 탭 Favicon 최적화: 흐릿한 바로가기 아이콘 해결",
+    "titleEs": "Favicon para nueva pestaña de Chrome: Evita iconos borrosos",
+    "descEn": "Learn how Chrome's New Tab Page sources favicons. Fix blurry shortcut icons with the correct SVG and PNG setup for a professional brand presence.",
+    "descZh": "了解 Chrome 新标签页如何抓取和缓存网站图标。通过正确的 SVG 和 PNG 配置，修复模糊的快捷方式图标，提升品牌专业度。",
+    "descJa": "Chromeの新しいタブページがFaviconを取得する仕組みを解説。適切なSVGとPNG設定で、ぼやけたショートカットアイコンを修正しましょう。",
+    "descKo": "Chrome 새 탭 페이지가 Favicon을 가져오는 방식을 알아보고, 올바른 SVG 및 PNG 설정으로 흐릿한 바로가기 아이콘을 수정하는 방법을 배웁니다.",
+    "descEs": "Descubre cómo Chrome obtiene los favicons para la nueva pestaña. Arregla los iconos borrosos con la configuración correcta de SVG y PNG.",
+    "keyword": "favicon for chrome new tab",
+    "tags": [
+      "browser",
+      "chrome"
+    ],
+    "qualityScore": 85,
+    "qualityGrade": "A"
   }
 ]
