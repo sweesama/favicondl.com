@@ -1610,5 +1610,26 @@
     ],
     "qualityScore": 85,
     "qualityGrade": "A"
+  },
+  {
+    "slug": "favicon-base64",
+    "publishDate": "2026-05-07",
+    "titleEn": "Favicon Base64 Inline: How to Bundle Icons in HTML (2026)",
+    "titleZh": "Favicon Base64 Inline：单文件HTML图标内联指南",
+    "titleJa": "Favicon Base64 Inline：HTMLにアイコンを埋め込む方法",
+    "titleKo": "Favicon Base64 Inline: HTML에 아이콘 내장하는 방법",
+    "titleEs": "Favicon Base64 Inline: Cómo incrustar iconos en HTML",
+    "descEn": "Learn how to implement a favicon base64 inline setup for single-file web apps and offline tools. Code examples, best practices, and common pitfalls.",
+    "descZh": "了解如何为单文件Web应用和离线工具实现favicon base64 inline。包含代码示例、最佳实践以及需要避免的常见陷阱。",
+    "descJa": "シングルファイルWebアプリやオフラインツール向けにfavicon base64 inlineを実装する方法を解説。コード例や注意点も紹介します。",
+    "descKo": "단일 파일 웹 앱 및 오프라인 도구를 위한 favicon base64 inline 구현 방법을 알아봅니다. 코드 예제와 주의사항을 포함합니다.",
+    "descEs": "Aprende a implementar un favicon base64 inline para aplicaciones web de un solo archivo y herramientas offline. Ejemplos de código y mejores prácticas.",
+    "keyword": "favicon base64 inline",
+    "tags": [
+      "advanced",
+      "code"
+    ],
+    "qualityScore": 85,
+    "qualityGrade": "A"
   }
 ]
