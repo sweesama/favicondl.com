@@ -1109,7 +1109,9 @@
       "favicon-mobile",
       "web-app-manifest-favicon"
     ],
-    "status": "pending"
+    "status": "done",
+    "qualityScore": 81,
+    "qualityGrade": "A"
   },
   {
     "keyword": "multiple favicons different pages",
