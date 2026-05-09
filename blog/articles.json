@@ -1652,5 +1652,26 @@
     ],
     "qualityScore": 81,
     "qualityGrade": "A"
+  },
+  {
+    "slug": "multiple-favicons",
+    "publishDate": "2026-05-09",
+    "titleEn": "How to Set Up Multiple Favicons Different Pages (2026)",
+    "titleZh": "如何为不同页面设置多个 Favicon (2026 开发者指南)",
+    "titleJa": "ページごとに異なるFaviconを設定する方法（2026年版）",
+    "titleKo": "페이지별로 다른 파비콘 설정하는 방법 (2026년 가이드)",
+    "titleEs": "Cómo configurar múltiples favicons en diferentes páginas (2026)",
+    "descEn": "Learn how to serve multiple favicons for different pages on your site. Improve UX with distinct browser tab icons using HTML and modern frameworks.",
+    "descZh": "学习如何为网站的不同页面配置专属的 Favicon。通过 HTML 和现代前端框架设置独立的浏览器标签图标，大幅提升用户体验。",
+    "descJa": "サイト内の異なるページに複数のFaviconを設定する方法を解説。HTMLや最新フレームワークを使ってタブの視認性を向上させましょう。",
+    "descKo": "웹사이트의 다양한 페이지에 각각 다른 파비콘을 적용하는 방법을 알아보세요. HTML과 최신 프레임워크를 활용해 탭 가독성을 높일 수 있습니다.",
+    "descEs": "Aprende a servir múltiples favicons para diferentes páginas en tu sitio. Mejora la UX con iconos de pestañas distintos usando HTML y frameworks modernos.",
+    "keyword": "multiple favicons different pages",
+    "tags": [
+      "advanced",
+      "how-to"
+    ],
+    "qualityScore": 85,
+    "qualityGrade": "A"
   }
 ]
