@@ -1673,5 +1673,26 @@
     ],
     "qualityScore": 85,
     "qualityGrade": "A"
+  },
+  {
+    "slug": "favicon-webp",
+    "publishDate": "2026-05-10",
+    "titleEn": "Favicon WebP Format Support: Why You Should Skip It",
+    "titleZh": "Favicon WebP 格式支持：为什么建议你放弃使用",
+    "titleJa": "FaviconのWebPフォーマット対応：なぜ避けるべきなのか",
+    "titleKo": "파비콘 WebP 포맷 지원: 2026년에도 사용을 피해야 하는 이유",
+    "titleEs": "Soporte de formato WebP para Favicon: Por qué deberías evitarlo",
+    "descEn": "Curious about favicon WebP format support? Learn why modern browsers struggle with it and why SVG and ICO remain the superior choices for your tabs in 2026.",
+    "descZh": "想知道浏览器是否支持 WebP 格式的 Favicon？了解为什么在 2026 年，SVG 和 ICO 依然是浏览器标签页图标的最佳选择。",
+    "descJa": "FaviconのWebPフォーマット対応について解説。2026年現在でもSVGやICOがブラウザタブに最適な理由を現役エンジニアが語ります。",
+    "descKo": "파비콘 WebP 포맷 지원 여부가 궁금하신가요? 2026년에도 브라우저 탭에 SVG와 ICO가 여전히 최적의 선택인 이유를 알아보세요.",
+    "descEs": "¿Te preguntas sobre el soporte del formato WebP para favicon? Descubre por qué SVG e ICO siguen siendo las mejores opciones para tus pestañas en 2026.",
+    "keyword": "favicon webp format support",
+    "tags": [
+      "format",
+      "advanced"
+    ],
+    "qualityScore": 85,
+    "qualityGrade": "A"
   }
 ]
