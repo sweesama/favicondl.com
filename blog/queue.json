@@ -1159,7 +1159,9 @@
       "retina-favicon-high-dpi",
       "favicon-sizes-guide"
     ],
-    "status": "pending"
+    "status": "done",
+    "qualityScore": 75,
+    "qualityGrade": "B"
   },
   {
     "keyword": "favicon bookmarks bar display",
