@@ -1191,7 +1191,9 @@
     "avoidOverlap": [
       "how-to-add-favicon-to-website"
     ],
-    "status": "pending"
+    "status": "done",
+    "qualityScore": 90,
+    "qualityGrade": "A"
   },
   {
     "keyword": "astro framework favicon",
