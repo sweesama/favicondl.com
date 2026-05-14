@@ -1757,5 +1757,26 @@
     ],
     "qualityScore": 90,
     "qualityGrade": "A"
+  },
+  {
+    "slug": "astro-favicon",
+    "publishDate": "2026-05-14",
+    "titleEn": "Astro Framework Favicon Setup: The 2026 Developer Guide",
+    "titleZh": "Astro 框架 Favicon 设置指南：2026 开发者实战",
+    "titleJa": "AstroフレームワークのFavicon設定：2026年版プロ向けガイド",
+    "titleKo": "Astro 프레임워크 Favicon 설정: 2026년 개발자 가이드",
+    "titleEs": "Configuración de Favicon en Astro Framework: Guía 2026",
+    "descEn": "Stop serving the default rocket icon. Learn how to correctly implement your Astro framework favicon using the public directory and BaseHead components.",
+    "descZh": "别再用默认的火箭图标了。学习如何使用 public 目录和 BaseHead 组件正确配置你的 Astro 框架 favicon。",
+    "descJa": "デフォルトのロケットアイコンから卒業しましょう。publicディレクトリとBaseHeadコンポーネントを使ったAstroフレームワークの正しいFavicon実装方法を解説します。",
+    "descKo": "기본 로켓 아이콘은 이제 그만! public 디렉토리와 BaseHead 컴포넌트를 사용하여 Astro 프레임워크 favicon을 올바르게 구현하는 방법을 알아보세요.",
+    "descEs": "Deja de mostrar el icono del cohete por defecto. Aprende a implementar correctamente tu favicon en Astro framework usando el directorio public.",
+    "keyword": "astro framework favicon",
+    "tags": [
+      "framework",
+      "astro"
+    ],
+    "qualityScore": 77,
+    "qualityGrade": "B"
   }
 ]

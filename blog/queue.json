@@ -1208,7 +1208,9 @@
       "nextjs-favicon",
       "how-to-add-favicon-to-website"
     ],
-    "status": "pending"
+    "status": "done",
+    "qualityScore": 77,
+    "qualityGrade": "B"
   },
   {
     "keyword": "remix favicon setup",
