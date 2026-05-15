@@ -1,0 +1,355 @@
+<!DOCTYPE html><html lang="zh"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remix Favicon Setup: The 2026 Developer Guide - Mzu favicondl</title>
+    <meta name="description" content="Learn the exact Remix favicon setup for 2026. Master the root.tsx links export, handle dark mode SVGs, and implement dynamic icons using loader data.">
+    <meta name="keywords" content="remix favicon setup, remix links export, root.tsx favicon">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/zh/blog/remix-favicon.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/remix-favicon.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/remix-favicon.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/remix-favicon.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/remix-favicon.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/remix-favicon.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/remix-favicon.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/zh/blog/remix-favicon.html">
+    <meta property="og:title" content="Remix Favicon Setup: The 2026 Developer Guide">
+    <meta property="og:description" content="Learn the exact Remix favicon setup for 2026. Master the root.tsx links export, handle dark mode SVGs, and implement dynamic icons using loader data.">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Remix Favicon Setup: The 2026 Developer Guide">
+    <meta name="twitter:description" content="Learn the exact Remix favicon setup for 2026. Master the root.tsx links export, handle dark mode SVGs, and implement dynamic icons using loader data.">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Remix Favicon Setup: The 2026 Developer Guide",
+      "description": "Learn the exact Remix favicon setup for 2026. Master the root.tsx links export, handle dark mode SVGs, and implement dynamic icons using loader data.",
+      "datePublished": "2026-05-15",
+      "dateModified": "2026-05-15",
+      "author": {
+            "@type": "Organization",
+            "name": "Mzu favicondl",
+            "url": "https://favicondl.com"
+      },
+      "publisher": {
+            "@type": "Organization",
+            "name": "Mzu favicondl",
+            "url": "https://favicondl.com"
+      },
+      "mainEntityOfPage": "https://favicondl.com/blog/remix-favicon.html",
+      "inLanguage": "en"
+}
+    </script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/zh/index.html" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/zh/documentation.html" class="nav-link" data-en="Docs" data-zh="文档">文档</a>
+                <a href="/zh/tools.html" class="nav-link" data-en="Tools" data-zh="工具">工具</a>
+                <a href="/zh/blog/" class="nav-link" data-en="Blog" data-zh="博客">博客</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/remix-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/remix-favicon.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/remix-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/remix-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/remix-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/zh/index.html" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/zh/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600" data-en="Remix Favicon Setup" data-zh="Remix Favicon 设置">Remix Favicon 设置</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">framework</span><time class="text-sm text-gray-400">2026-05-15</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight" data-en="Remix Favicon Setup: The 2026 Developer Guide" data-zh="Remix Favicon 设置指南：2026 开发者实战">Remix Favicon 设置指南：2026 开发者实战</h1>
+        </header>
+
+        <div class="article-body" data-lang="en">
+            <p>If you have just spun up a new Remix project, you probably noticed a glaring omission: there is no <code>index.html</code> file sitting in a <code>public</code> folder waiting for your <code>&lt;link&gt;</code> tags. Getting your remix favicon setup right requires shifting how you think about document heads. In traditional React single-page applications, you just dump an <code>.ico</code> file in the root directory and call it a day. Remix handles things differently, leaning heavily on route-based exports to manage document metadata.</p><p>Look at GitHub's browser tabs. They do not just serve a static image; their favicon changes based on system themes and even updates dynamically to show a blue dot when you have unread notifications. To achieve that level of polish in Remix, you cannot rely on magic file resolution. You need to explicitly define your assets.</p><h2>The Remix Philosophy: Explicit Over Implicit</h2><p>Unlike the <a href="/zh/blog/nextjs-favicon.html">Next.js App Router</a>, which automatically scans your app directory for files named <code>favicon.ico</code> or <code>icon.svg</code>, Remix prefers explicit declarations. I strongly prefer this approach. Magic file routing is great until it breaks, and then you are left digging through framework source code to figure out why your icon is caching incorrectly.</p><p>In Remix, you use the <code>LinksFunction</code> export. This function returns an array of objects that Remix maps directly to HTML <code>&lt;link&gt;</code> tags. Since your favicon needs to appear on every single page of your application, the only logical place to put this is in your <code>app/root.tsx</code> file.</p><h3>Step 1: Prepare Your Asset Stack</h3><p>Before writing any code, you need the actual image files. In 2026, you do not need 15 different icon sizes. You only need three specific files placed in your <code>public</code> directory:</p><ul><li><strong>/favicon.ico</strong>: A 48x48 fallback for legacy browsers and strict enterprise environments.</li><li><strong>/icon.svg</strong>: Your modern, scalable vector icon.</li><li><strong>/apple-touch-icon.png</strong>: A 180x180 PNG specifically for iOS home screens and Safari bookmarks.</li></ul><p>If you only have a high-resolution logo, run it through Mzu favicondl. It will generate this exact modern stack and strip out the unnecessary metadata that bloats SVG files.</p><h3>Step 2: The Links Export in root.tsx</h3><p>Open your <code>app/root.tsx</code> file. If you used the default Remix template, you likely already have a <code>links</code> function exporting your stylesheet. We are going to expand that array to include our favicon stack.</p><pre><code>import type { LinksFunction } from '@remix-run/node';
+
+export const links: LinksFunction = () =&gt; [
+  // Legacy fallback
+  { rel: 'icon', href: '/favicon.ico', sizes: '48x48' },
+  // Modern scalable icon
+  { rel: 'icon', href: '/icon.svg', type: 'image/svg+xml' },
+  // Apple device support
+  { rel: 'apple-touch-icon', href: '/apple-touch-icon.png' }
+];</code></pre><p>Remix takes these objects and injects them into the <code>&lt;Links /&gt;</code> component rendered inside your document's <code>&lt;head&gt;</code>. Order matters here. Browsers read from top to bottom, and modern browsers will correctly prioritize the SVG over the ICO file if they support it.</p><h3>Step 3: Handling Dark Mode</h3><p>If your logo is black, it will completely disappear when a user switches their browser to dark mode. Because Remix's <code>links</code> array accepts any valid HTML link attribute, we can use the <code>media</code> property to swap icons based on the user's system preferences.</p><pre><code>export const links: LinksFunction = () =&gt; [
+  { rel: 'icon', href: '/favicon.ico', sizes: '48x48' },
+  { 
+    rel: 'icon', 
+    href: '/icon-light.svg', 
+    type: 'image/svg+xml', 
+    media: '(prefers-color-scheme: light)' 
+  },
+  { 
+    rel: 'icon', 
+    href: '/icon-dark.svg', 
+    type: 'image/svg+xml', 
+    media: '(prefers-color-scheme: dark)' 
+  }
+];</code></pre><p>This is much cleaner than writing inline CSS inside a single SVG file, and it ensures the browser only requests the asset it actually needs.</p><h2>Advanced: Dynamic Favicons with Loader Data</h2><p>Here is a common pitfall: developers try to use the <code>links</code> export to show a notification badge on their favicon. The problem? The <code>LinksFunction</code> does not have access to your <code>useLoaderData()</code>. It is evaluated before your component renders.</p><p>If you need a dynamic favicon based on user state (like unread messages), you must bypass the <code>links</code> export for that specific tag and render a standard HTML element manually inside the <code>&lt;head&gt;</code> of your root component.</p><pre><code>export default function App() {
+  const data = useLoaderData&lt;typeof loader&gt;();
+  const faviconUrl = data.hasUnread ? '/icon-unread.svg' : '/icon.svg';
+
+  return (
+    &lt;html lang='en'&gt;
+      &lt;head&gt;
+        &lt;Meta /&gt;
+        &lt;Links /&gt;
+        {/* Dynamic favicon rendered manually */}
+        &lt;link rel='icon' href={faviconUrl} type='image/svg+xml' /&gt;
+      &lt;/head&gt;
+      &lt;body&gt;
+        &lt;Outlet /&gt;
+        &lt;ScrollRestoration /&gt;
+        &lt;Scripts /&gt;
+      &lt;/body&gt;
+    &lt;/html&gt;
+  );
+}</code></pre><p>This approach gives you the best of both worlds. You keep your static assets (like the Apple Touch Icon) in the clean <code>links</code> export, while handling dynamic state directly in your React tree. If you are migrating from a standard <a href="/zh/blog/react-favicon.html">React favicon setup</a>, this pattern will feel very familiar.</p><h2>Final Testing</h2><p>Once deployed, browsers can be notoriously stubborn about updating cached icons. If you refresh and still see the old Remix logo, you are likely dealing with a local cache issue. Do not waste hours debugging your code—read up on how to force a <a href="/zh/blog/favicon-cache-clear.html">favicon cache clear</a> first.</p><p>Remix forces you to be explicit about your document head, which ultimately leads to fewer bugs and better performance. Stick to the SVG + ICO fallback pattern, utilize the <code>links</code> export for static assets, and you will have a professional browser tab presence that works flawlessly across all devices.</p>
+        </div>
+
+        <div class="article-body" data-lang="zh" style="display:none">
+            <p>如果你刚刚初始化了一个全新的 Remix 项目，你可能会立刻发现一个明显的问题：<code>public</code> 文件夹里根本没有 <code>index.html</code> 文件让你去手写 <code>&lt;link&gt;</code> 标签。要搞定 Remix favicon 设置，你需要转变对 HTML 头部（Document Head）的心智模型。在传统的 React 单页应用中，你只需把 <code>.ico</code> 文件扔进根目录就万事大吉了。但 Remix 的处理方式截然不同，它重度依赖基于路由的导出（Exports）来管理文档元数据。</p><p>看看 GitHub 的浏览器标签页。他们可不仅仅是提供一张静态图片；他们的 favicon 会根据系统主题自动切换，甚至在你收到未读通知时动态显示一个小蓝点。要在 Remix 中实现这种级别的细节打磨，你不能指望框架的“魔法文件解析”，你需要显式地定义你的静态资源。</p><h2>Remix 的哲学：显式优于隐式</h2><p>与 <a href="/zh/blog/nextjs-favicon.html">Next.js App Router</a> 会自动扫描 <code>app</code> 目录寻找 <code>favicon.ico</code> 或 <code>icon.svg</code> 不同，Remix 更倾向于显式声明。我个人非常推崇这种做法。所谓的“魔法路由”在正常工作时确实很爽，可一旦出问题，你就只能去翻框架的源码，苦苦排查为什么图标缓存不对。</p><p>在 Remix 中，我们使用 <code>LinksFunction</code> 导出。这个函数返回一个对象数组，Remix 会将这些对象直接映射为 HTML 的 <code>&lt;link&gt;</code> 标签。既然你的 favicon 需要出现在应用的每一个页面上，那么放置这个导出的唯一合理位置就是 <code>app/root.tsx</code> 文件。</p><h3>第一步：准备你的图标资源栈</h3><p>在写代码之前，你需要准备好实际的图片文件。在 2026 年，你不再需要生成 15 种不同尺寸的图标了。你只需要将以下三个特定文件放入 <code>public</code> 目录：</p><ul><li><strong>/favicon.ico</strong>：一个 48x48 的回退方案，用于兼容老旧浏览器和严格的企业内网环境。</li><li><strong>/icon.svg</strong>：现代的、可无限缩放的矢量图标。</li><li><strong>/apple-touch-icon.png</strong>：一个 180x180 的 PNG，专门为 iOS 主屏幕和 Safari 书签准备。</li></ul><p>如果你手头只有一个高清的 Logo，可以直接使用 Mzu favicondl 处理。它会为你生成这套精确的现代资源栈，并剔除 SVG 文件中臃肿的无用元数据。</p><h3>第二步：在 root.tsx 中配置 Links 导出</h3><p>打开你的 <code>app/root.tsx</code> 文件。如果你使用的是 Remix 默认模板，很可能已经有一个 <code>links</code> 函数在导出全局样式表了。我们要扩充这个数组，把 favicon 资源加进去。</p><pre><code>import type { LinksFunction } from '@remix-run/node';
+
+export const links: LinksFunction = () =&gt; [
+  // 传统浏览器回退
+  { rel: 'icon', href: '/favicon.ico', sizes: '48x48' },
+  // 现代可缩放图标
+  { rel: 'icon', href: '/icon.svg', type: 'image/svg+xml' },
+  // 苹果设备支持
+  { rel: 'apple-touch-icon', href: '/apple-touch-icon.png' }
+];</code></pre><p>Remix 会提取这些对象，并将它们注入到文档 <code>&lt;head&gt;</code> 内渲染的 <code>&lt;Links /&gt;</code> 组件中。这里的顺序很关键。浏览器是从上往下读取的，现代浏览器如果支持 SVG，会正确地优先加载 SVG 而忽略底部的 ICO 文件。</p><h3>第三步：适配深色模式</h3><p>如果你的 Logo 是纯黑色的，当用户将浏览器切换到深色模式时，它就会完全隐形。因为 Remix 的 <code>links</code> 数组接受任何合法的 HTML link 属性，我们可以利用 <code>media</code> 属性，根据用户的系统偏好自动切换图标。</p><pre><code>export const links: LinksFunction = () =&gt; [
+  { rel: 'icon', href: '/favicon.ico', sizes: '48x48' },
+  { 
+    rel: 'icon', 
+    href: '/icon-light.svg', 
+    type: 'image/svg+xml', 
+    media: '(prefers-color-scheme: light)' 
+  },
+  { 
+    rel: 'icon', 
+    href: '/icon-dark.svg', 
+    type: 'image/svg+xml', 
+    media: '(prefers-color-scheme: dark)' 
+  }
+];</code></pre><p>这比在一个 SVG 文件里硬写内联 CSS 要干净得多，而且能确保浏览器只请求它真正需要的那个图片资源。</p><h2>进阶技巧：基于 Loader 数据的动态 Favicon</h2><p>这里有一个常见的踩坑点：很多开发者试图在 <code>links</code> 导出中实现未读消息的红点提示。问题出在哪？<code>LinksFunction</code> 根本无法访问你的 <code>useLoaderData()</code>。它在你的组件渲染之前就已经被求值了。</p><p>如果你需要基于用户状态（比如未读消息）来动态改变 favicon，你必须针对这个特定的标签绕过 <code>links</code> 导出，直接在 root 组件的 <code>&lt;head&gt;</code> 中手动渲染一个标准的 HTML 元素。</p><pre><code>export default function App() {
+  const data = useLoaderData&lt;typeof loader&gt;();
+  const faviconUrl = data.hasUnread ? '/icon-unread.svg' : '/icon.svg';
+
+  return (
+    &lt;html lang='en'&gt;
+      &lt;head&gt;
+        &lt;Meta /&gt;
+        &lt;Links /&gt;
+        {/* 手动渲染动态 favicon */}
+        &lt;link rel='icon' href={faviconUrl} type='image/svg+xml' /&gt;
+      &lt;/head&gt;
+      &lt;body&gt;
+        &lt;Outlet /&gt;
+        &lt;ScrollRestoration /&gt;
+        &lt;Scripts /&gt;
+      &lt;/body&gt;
+    &lt;/html&gt;
+  );
+}</code></pre><p>这种方案让你两全其美。你可以将静态资源（如 Apple Touch Icon）保留在整洁的 <code>links</code> 导出中，同时在 React 树中直接处理动态状态。如果你是从标准的 <a href="/zh/blog/react-favicon.html">React favicon 设置</a> 迁移过来的，这种模式你会感到非常亲切。</p><h2>最后的测试</h2><p>一旦部署上线，浏览器在更新缓存图标时往往非常顽固。如果你刷新页面后仍然看到旧的 Remix 默认 Logo，十有八九是本地缓存作祟。别浪费几个小时去 debug 你的代码——先去看看如何强制执行 <a href="/zh/blog/favicon-cache-clear.html">favicon 缓存清理</a>。</p><p>Remix 强制你显式地管理文档头部，这最终会带来更少的 Bug 和更好的性能。坚持使用 SVG + ICO 回退模式，善用 <code>links</code> 导出处理静态资源，你就能在所有设备上呈现出专业无瑕的浏览器标签页形象。</p>
+        </div>
+
+        <div class="article-body" data-lang="ja" style="display:none">
+            <p>Remixの新しいプロジェクトを立ち上げたばかりなら、あることにすぐ気づくはずです。<code>public</code>フォルダの中に、<code>&lt;link&gt;</code>タグを書き込むための<code>index.html</code>ファイルが存在しないのです。Remixにおけるfavicon設定を正しく行うには、ドキュメントの<code>&lt;head&gt;</code>に対する考え方を少し変える必要があります。従来のReact SPAなら、ルートディレクトリに<code>.ico</code>ファイルを放り込んで終わりでした。しかしRemixは異なり、ドキュメントのメタデータを管理するためにルートベースのエクスポート（Exports）を多用します。</p><p>GitHubのブラウザタブを見てください。単なる静止画像ではなく、システムテーマに応じてfaviconが切り替わり、未読通知があるときは青いドットが動的に表示されます。Remixでこのレベルの洗練されたUIを実現するには、フレームワークの「魔法」に頼るのではなく、アセットを明示的に定義する必要があります。</p><h2>Remixの哲学：暗黙的よりも明示的を好む</h2><p><code>app</code>ディレクトリ内の<code>favicon.ico</code>や<code>icon.svg</code>を自動でスキャンする<a href="/zh/blog/nextjs-favicon.html">Next.js App Router</a>とは異なり、Remixは明示的な宣言を好みます。個人的にはこのアプローチを強く支持します。魔法のようなファイルルーティングは動いている時は便利ですが、アイコンのキャッシュがおかしくなった途端、フレームワークのソースコードを掘り下げる羽目になるからです。</p><p>Remixでは、<code>LinksFunction</code>エクスポートを使用します。この関数は、RemixがHTMLの<code>&lt;link&gt;</code>タグに直接マッピングするオブジェクトの配列を返します。faviconはアプリケーションの全ページに表示される必要があるため、これを配置する論理的な場所は<code>app/root.tsx</code>ファイルのみとなります。</p><h3>ステップ1：アセットの準備</h3><p>コードを書く前に、実際の画像ファイルが必要です。2026年現在、15種類もの異なるサイズのアイコンを生成する必要はありません。<code>public</code>ディレクトリに配置すべきファイルは以下の3つだけです。</p><ul><li><strong>/favicon.ico</strong>：レガシーブラウザや厳格な企業環境向けの48x48フォールバック。</li><li><strong>/icon.svg</strong>：モダンでスケーラブルなベクターアイコン。</li><li><strong>/apple-touch-icon.png</strong>：iOSのホーム画面やSafariのブックマーク専用の180x180 PNG。</li></ul><p>高解像度のロゴしか手元にない場合は、Mzu favicondlに通してください。この正確なモダンスタックを生成し、SVGファイルを肥大化させる不要なメタデータを削除してくれます。</p><h3>ステップ2：root.tsxでのLinksエクスポート</h3><p><code>app/root.tsx</code>ファイルを開きます。デフォルトのRemixテンプレートを使用している場合、スタイルシートをエクスポートする<code>links</code>関数がすでにあるはずです。この配列を拡張して、faviconスタックを含めます。</p><pre><code>import type { LinksFunction } from '@remix-run/node';
+
+export const links: LinksFunction = () =&gt; [
+  // レガシーフォールバック
+  { rel: 'icon', href: '/favicon.ico', sizes: '48x48' },
+  // モダンなスケーラブルアイコン
+  { rel: 'icon', href: '/icon.svg', type: 'image/svg+xml' },
+  // Appleデバイス対応
+  { rel: 'apple-touch-icon', href: '/apple-touch-icon.png' }
+];</code></pre><p>Remixはこれらのオブジェクトを受け取り、ドキュメントの<code>&lt;head&gt;</code>内にレンダリングされる<code>&lt;Links /&gt;</code>コンポーネントに注入します。ここで重要なのは順序です。ブラウザは上から下へ読み込むため、モダンブラウザはSVGをサポートしていれば、正しくSVGを優先して読み込みます。</p><h3>ステップ3：ダークモードの対応</h3><p>ロゴが黒の場合、ユーザーがブラウザをダークモードに切り替えると完全に消えてしまいます。Remixの<code>links</code>配列は有効なHTMLリンク属性をすべて受け入れるため、<code>media</code>プロパティを使用して、ユーザーのシステム設定に基づいてアイコンを切り替えることができます。</p><pre><code>export const links: LinksFunction = () =&gt; [
+  { rel: 'icon', href: '/favicon.ico', sizes: '48x48' },
+  { 
+    rel: 'icon', 
+    href: '/icon-light.svg', 
+    type: 'image/svg+xml', 
+    media: '(prefers-color-scheme: light)' 
+  },
+  { 
+    rel: 'icon', 
+    href: '/icon-dark.svg', 
+    type: 'image/svg+xml', 
+    media: '(prefers-color-scheme: dark)' 
+  }
+];</code></pre><p>これは、単一のSVGファイル内にインラインCSSを書くよりもはるかにクリーンであり、ブラウザが実際に必要なアセットのみをリクエストすることを保証します。</p><h2>上級編：Loaderデータを使った動的Favicon</h2><p>ここでよくある落とし穴があります。開発者が<code>links</code>エクスポートを使って未読バッジを表示しようとするケースです。何が問題なのでしょうか？<code>LinksFunction</code>は<code>useLoaderData()</code>にアクセスできません。コンポーネントがレンダリングされる前に評価されるからです。</p><p>ユーザーの状態（未読メッセージなど）に基づいて動的なfaviconが必要な場合は、その特定のタグについてのみ<code>links</code>エクスポートをバイパスし、ルートコンポーネントの<code>&lt;head&gt;</code>内で標準のHTML要素を手動でレンダリングする必要があります。</p><pre><code>export default function App() {
+  const data = useLoaderData&lt;typeof loader&gt;();
+  const faviconUrl = data.hasUnread ? '/icon-unread.svg' : '/icon.svg';
+
+  return (
+    &lt;html lang='en'&gt;
+      &lt;head&gt;
+        &lt;Meta /&gt;
+        &lt;Links /&gt;
+        {/* 動的faviconを手動でレンダリング */}
+        &lt;link rel='icon' href={faviconUrl} type='image/svg+xml' /&gt;
+      &lt;/head&gt;
+      &lt;body&gt;
+        &lt;Outlet /&gt;
+        &lt;ScrollRestoration /&gt;
+        &lt;Scripts /&gt;
+      &lt;/body&gt;
+    &lt;/html&gt;
+  );
+}</code></pre><p>このアプローチなら両方のメリットを享受できます。静的アセット（Apple Touch Iconなど）はクリーンな<code>links</code>エクスポートに保持しつつ、動的な状態はReactツリーで直接処理します。標準的な<a href="/zh/blog/react-favicon.html">Reactのfavicon設定</a>から移行してきた場合、このパターンは非常に馴染みやすいはずです。</p><h2>最終テスト</h2><p>デプロイ後、ブラウザはキャッシュされたアイコンの更新に対して非常に頑固です。リロードしても古いRemixロゴが表示される場合は、ローカルキャッシュの問題である可能性が高いです。コードのデバッグに何時間も費やす前に、まずは<a href="/zh/blog/favicon-cache-clear.html">faviconのキャッシュクリア</a>の方法を確認してください。</p><p>Remixはドキュメントのheadを明示的に管理することを強制しますが、結果としてバグが減り、パフォーマンスが向上します。SVG + ICOフォールバックのパターンを守り、静的アセットに<code>links</code>エクスポートを活用すれば、すべてのデバイスで完璧に機能するプロフェッショナルなブラウザタブを実現できるでしょう。</p>
+        </div>
+
+        <div class="article-body" data-lang="ko" style="display:none">
+            <p>새로운 Remix 프로젝트를 막 시작했다면, 아마 눈에 띄는 빈자리를 발견했을 것입니다. <code>public</code> 폴더 안에 <code>&lt;link&gt;</code> 태그를 작성할 <code>index.html</code> 파일이 없다는 사실 말이죠. Remix 파비콘 설정을 제대로 하려면 문서의 <code>&lt;head&gt;</code>를 다루는 방식에 대한 사고의 전환이 필요합니다. 기존의 React SPA에서는 루트 디렉토리에 <code>.ico</code> 파일 하나 던져두면 끝이었습니다. 하지만 Remix는 문서 메타데이터를 관리하기 위해 라우트 기반의 export를 적극 활용하는 다른 방식을 취합니다.</p><p>GitHub의 브라우저 탭을 살펴보세요. 단순한 정적 이미지가 아닙니다. 시스템 테마에 따라 파비콘이 변경되고, 읽지 않은 알림이 있을 때는 파란색 점이 동적으로 표시됩니다. Remix에서 이 정도 수준의 디테일을 구현하려면 프레임워크의 '마법'에 의존해서는 안 됩니다. 에셋을 명시적으로 정의해야 합니다.</p><h2>Remix의 철학: 암시적 동작보다 명시적 선언</h2><p><code>app</code> 디렉토리에서 <code>favicon.ico</code>나 <code>icon.svg</code> 파일을 자동으로 스캔하는 <a href="/zh/blog/nextjs-favicon.html">Next.js App Router</a>와 달리, Remix는 명시적인 선언을 선호합니다. 저는 개인적으로 이 방식을 강력히 지지합니다. 마법 같은 파일 라우팅은 잘 작동할 때는 좋지만, 아이콘 캐싱에 문제가 생기는 순간 프레임워크 소스 코드를 뒤져야 하는 상황이 발생하기 때문입니다.</p><p>Remix에서는 <code>LinksFunction</code> export를 사용합니다. 이 함수는 Remix가 HTML <code>&lt;link&gt;</code> 태그로 직접 매핑하는 객체 배열을 반환합니다. 파비콘은 애플리케이션의 모든 페이지에 표시되어야 하므로, 이를 배치할 유일한 논리적 위치는 <code>app/root.tsx</code> 파일입니다.</p><h3>1단계: 에셋 스택 준비하기</h3><p>코드를 작성하기 전에 실제 이미지 파일이 필요합니다. 2026년에는 15가지나 되는 다양한 크기의 아이콘이 필요하지 않습니다. <code>public</code> 디렉토리에 딱 3개의 특정 파일만 있으면 됩니다.</p><ul><li><strong>/favicon.ico</strong>: 레거시 브라우저 및 엄격한 기업 환경을 위한 48x48 폴백(fallback).</li><li><strong>/icon.svg</strong>: 확장 가능한 최신 벡터 아이콘.</li><li><strong>/apple-touch-icon.png</strong>: iOS 홈 화면 및 Safari 북마크 전용 180x180 PNG.</li></ul><p>고해상도 로고만 가지고 있다면 Mzu favicondl을 사용해 보세요. 이 정확한 최신 스택을 생성하고 SVG 파일을 무겁게 만드는 불필요한 메타데이터를 제거해 줍니다.</p><h3>2단계: root.tsx의 Links Export</h3><p><code>app/root.tsx</code> 파일을 엽니다. 기본 Remix 템플릿을 사용했다면 스타일시트를 export하는 <code>links</code> 함수가 이미 있을 것입니다. 이 배열을 확장하여 파비콘 스택을 포함시켜 보겠습니다.</p><pre><code>import type { LinksFunction } from '@remix-run/node';
+
+export const links: LinksFunction = () =&gt; [
+  // 레거시 폴백
+  { rel: 'icon', href: '/favicon.ico', sizes: '48x48' },
+  // 최신 확장 가능 아이콘
+  { rel: 'icon', href: '/icon.svg', type: 'image/svg+xml' },
+  // Apple 기기 지원
+  { rel: 'apple-touch-icon', href: '/apple-touch-icon.png' }
+];</code></pre><p>Remix는 이 객체들을 가져와 문서의 <code>&lt;head&gt;</code> 내에 렌더링되는 <code>&lt;Links /&gt;</code> 컴포넌트에 주입합니다. 여기서 순서가 중요합니다. 브라우저는 위에서 아래로 읽기 때문에, 최신 브라우저는 SVG를 지원할 경우 올바르게 SVG를 우선시하여 로드합니다.</p><h3>3단계: 다크 모드 처리</h3><p>로고가 검은색인 경우, 사용자가 브라우저를 다크 모드로 전환하면 로고가 완전히 사라집니다. Remix의 <code>links</code> 배열은 모든 유효한 HTML 링크 속성을 허용하므로, <code>media</code> 속성을 사용하여 사용자의 시스템 설정에 따라 아이콘을 전환할 수 있습니다.</p><pre><code>export const links: LinksFunction = () =&gt; [
+  { rel: 'icon', href: '/favicon.ico', sizes: '48x48' },
+  { 
+    rel: 'icon', 
+    href: '/icon-light.svg', 
+    type: 'image/svg+xml', 
+    media: '(prefers-color-scheme: light)' 
+  },
+  { 
+    rel: 'icon', 
+    href: '/icon-dark.svg', 
+    type: 'image/svg+xml', 
+    media: '(prefers-color-scheme: dark)' 
+  }
+];</code></pre><p>이 방식은 단일 SVG 파일 내에 인라인 CSS를 작성하는 것보다 훨씬 깔끔하며, 브라우저가 실제로 필요한 에셋만 요청하도록 보장합니다.</p><h2>고급: Loader 데이터를 활용한 동적 파비콘</h2><p>개발자들이 자주 겪는 함정이 있습니다. <code>links</code> export를 사용하여 읽지 않은 알림 배지를 표시하려고 시도하는 것입니다. 무엇이 문제일까요? <code>LinksFunction</code>은 <code>useLoaderData()</code>에 접근할 수 없습니다. 컴포넌트가 렌더링되기 전에 평가되기 때문입니다.</p><p>사용자 상태(예: 읽지 않은 메시지)에 따라 동적인 파비콘이 필요한 경우, 해당 특정 태그에 대해서는 <code>links</code> export를 우회하고 루트 컴포넌트의 <code>&lt;head&gt;</code> 내에 표준 HTML 요소를 수동으로 렌더링해야 합니다.</p><pre><code>export default function App() {
+  const data = useLoaderData&lt;typeof loader&gt;();
+  const faviconUrl = data.hasUnread ? '/icon-unread.svg' : '/icon.svg';
+
+  return (
+    &lt;html lang='en'&gt;
+      &lt;head&gt;
+        &lt;Meta /&gt;
+        &lt;Links /&gt;
+        {/* 동적 파비콘 수동 렌더링 */}
+        &lt;link rel='icon' href={faviconUrl} type='image/svg+xml' /&gt;
+      &lt;/head&gt;
+      &lt;body&gt;
+        &lt;Outlet /&gt;
+        &lt;ScrollRestoration /&gt;
+        &lt;Scripts /&gt;
+      &lt;/body&gt;
+    &lt;/html&gt;
+  );
+}</code></pre><p>이 접근 방식은 두 가지 장점을 모두 제공합니다. 정적 에셋(Apple Touch Icon 등)은 깔끔한 <code>links</code> export에 유지하면서, 동적 상태는 React 트리에서 직접 처리할 수 있습니다. 표준적인 <a href="/zh/blog/react-favicon.html">React 파비콘 설정</a>에서 넘어온 경우, 이 패턴이 매우 친숙하게 느껴질 것입니다.</p><h2>최종 테스트</h2><p>배포 후 브라우저는 캐시된 아이콘을 업데이트하는 데 매우 고집스럽게 굴 수 있습니다. 새로고침을 해도 여전히 이전 Remix 로고가 보인다면 로컬 캐시 문제일 가능성이 높습니다. 코드 디버깅에 시간을 낭비하지 말고 먼저 <a href="/zh/blog/favicon-cache-clear.html">파비콘 캐시 지우기</a> 방법을 확인하세요.</p><p>Remix는 문서의 head를 명시적으로 관리하도록 강제하지만, 이는 궁극적으로 버그를 줄이고 성능을 향상시킵니다. SVG + ICO 폴백 패턴을 고수하고, 정적 에셋에 <code>links</code> export를 활용하면 모든 기기에서 완벽하게 작동하는 전문적인 브라우저 탭을 구현할 수 있습니다.</p>
+        </div>
+
+        <div class="article-body" data-lang="es" style="display:none">
+            <p>Si acabas de inicializar un nuevo proyecto en Remix, probablemente notaste una gran omisión: no hay un archivo <code>index.html</code> en la carpeta <code>public</code> esperando tus etiquetas <code>&lt;link&gt;</code>. Configurar correctamente el favicon en Remix requiere cambiar tu modelo mental sobre cómo manejar el <code>&lt;head&gt;</code> del documento. En las aplicaciones tradicionales de React, simplemente tiras un archivo <code>.ico</code> en la raíz y listo. Remix maneja las cosas de manera diferente, apoyándose fuertemente en las exportaciones basadas en rutas para gestionar los metadatos.</p><p>Mira las pestañas del navegador de GitHub. No solo sirven una imagen estática; su favicon cambia según el tema del sistema e incluso se actualiza dinámicamente para mostrar un punto azul cuando tienes notificaciones sin leer. Para lograr ese nivel de detalle en Remix, no puedes depender de la resolución mágica de archivos. Necesitas definir explícitamente tus recursos.</p><h2>La filosofía de Remix: Explícito sobre implícito</h2><p>A diferencia del <a href="/zh/blog/nextjs-favicon.html">App Router de Next.js</a>, que escanea automáticamente tu directorio en busca de archivos llamados <code>favicon.ico</code> o <code>icon.svg</code>, Remix prefiere las declaraciones explícitas. Personalmente, prefiero este enfoque. El enrutamiento mágico de archivos es genial hasta que se rompe, y entonces te quedas escarbando en el código fuente del framework para averiguar por qué tu icono se está almacenando en caché incorrectamente.</p><p>En Remix, usas la exportación <code>LinksFunction</code>. Esta función devuelve un array de objetos que Remix mapea directamente a etiquetas <code>&lt;link&gt;</code> de HTML. Como tu favicon necesita aparecer en cada página de tu aplicación, el único lugar lógico para poner esto es en tu archivo <code>app/root.tsx</code>.</p><h3>Paso 1: Prepara tu stack de recursos</h3><p>Antes de escribir código, necesitas los archivos de imagen reales. En 2026, no necesitas 15 tamaños de iconos diferentes. Solo necesitas tres archivos específicos ubicados en tu directorio <code>public</code>:</p><ul><li><strong>/favicon.ico</strong>: Un respaldo de 48x48 para navegadores heredados y entornos empresariales estrictos.</li><li><strong>/icon.svg</strong>: Tu icono vectorial moderno y escalable.</li><li><strong>/apple-touch-icon.png</strong>: Un PNG de 180x180 específicamente para pantallas de inicio de iOS y marcadores de Safari.</li></ul><p>Si solo tienes un logo en alta resolución, pásalo por Mzu favicondl. Generará exactamente este stack moderno y eliminará los metadatos innecesarios que inflan los archivos SVG.</p><h3>Paso 2: La exportación links en root.tsx</h3><p>Abre tu archivo <code>app/root.tsx</code>. Si usaste la plantilla por defecto de Remix, probablemente ya tengas una función <code>links</code> exportando tu hoja de estilos. Vamos a expandir ese array para incluir nuestro stack de favicon.</p><pre><code>import type { LinksFunction } from '@remix-run/node';
+
+export const links: LinksFunction = () =&gt; [
+  // Respaldo heredado
+  { rel: 'icon', href: '/favicon.ico', sizes: '48x48' },
+  // Icono escalable moderno
+  { rel: 'icon', href: '/icon.svg', type: 'image/svg+xml' },
+  // Soporte para dispositivos Apple
+  { rel: 'apple-touch-icon', href: '/apple-touch-icon.png' }
+];</code></pre><p>Remix toma estos objetos y los inyecta en el componente <code>&lt;Links /&gt;</code> renderizado dentro del <code>&lt;head&gt;</code> de tu documento. El orden importa aquí. Los navegadores leen de arriba a abajo, y los navegadores modernos priorizarán correctamente el SVG sobre el archivo ICO si lo soportan.</p><h3>Paso 3: Manejo del modo oscuro</h3><p>Si tu logo es negro, desaparecerá por completo cuando un usuario cambie su navegador al modo oscuro. Como el array <code>links</code> de Remix acepta cualquier atributo de enlace HTML válido, podemos usar la propiedad <code>media</code> para intercambiar iconos basándonos en las preferencias del sistema del usuario.</p><pre><code>export const links: LinksFunction = () =&gt; [
+  { rel: 'icon', href: '/favicon.ico', sizes: '48x48' },
+  { 
+    rel: 'icon', 
+    href: '/icon-light.svg', 
+    type: 'image/svg+xml', 
+    media: '(prefers-color-scheme: light)' 
+  },
+  { 
+    rel: 'icon', 
+    href: '/icon-dark.svg', 
+    type: 'image/svg+xml', 
+    media: '(prefers-color-scheme: dark)' 
+  }
+];</code></pre><p>Esto es mucho más limpio que escribir CSS en línea dentro de un solo archivo SVG, y asegura que el navegador solo solicite el recurso que realmente necesita.</p><h2>Avanzado: Favicons dinámicos con Loader Data</h2><p>Aquí hay un error común: los desarrolladores intentan usar la exportación <code>links</code> para mostrar un indicador de notificaciones. ¿El problema? <code>LinksFunction</code> no tiene acceso a tu <code>useLoaderData()</code>. Se evalúa antes de que tu componente se renderice.</p><p>Si necesitas un favicon dinámico basado en el estado del usuario (como mensajes no leídos), debes omitir la exportación <code>links</code> para esa etiqueta específica y renderizar un elemento HTML estándar manualmente dentro del <code>&lt;head&gt;</code> de tu componente raíz.</p><pre><code>export default function App() {
+  const data = useLoaderData&lt;typeof loader&gt;();
+  const faviconUrl = data.hasUnread ? '/icon-unread.svg' : '/icon.svg';
+
+  return (
+    &lt;html lang='en'&gt;
+      &lt;head&gt;
+        &lt;Meta /&gt;
+        &lt;Links /&gt;
+        {/* Favicon dinámico renderizado manualmente */}
+        &lt;link rel='icon' href={faviconUrl} type='image/svg+xml' /&gt;
+      &lt;/head&gt;
+      &lt;body&gt;
+        &lt;Outlet /&gt;
+        &lt;ScrollRestoration /&gt;
+        &lt;Scripts /&gt;
+      &lt;/body&gt;
+    &lt;/html&gt;
+  );
+}</code></pre><p>Este enfoque te da lo mejor de ambos mundos. Mantienes tus recursos estáticos (como el Apple Touch Icon) en la limpia exportación <code>links</code>, mientras manejas el estado dinámico directamente en tu árbol de React. Si vienes de una <a href="/zh/blog/react-favicon.html">configuración estándar de favicon en React</a>, este patrón te resultará muy familiar.</p><h2>Pruebas finales</h2><p>Una vez desplegado, los navegadores pueden ser notoriamente tercos a la hora de actualizar los iconos almacenados en caché. Si recargas y sigues viendo el viejo logo de Remix, probablemente estés lidiando con un problema de caché local. No pierdas horas depurando tu código; lee primero sobre cómo forzar una <a href="/zh/blog/favicon-cache-clear.html">limpieza de caché del favicon</a>.</p><p>Remix te obliga a ser explícito sobre el head de tu documento, lo que en última instancia conduce a menos errores y mejor rendimiento. Apégate al patrón de respaldo SVG + ICO, utiliza la exportación <code>links</code> para los recursos estáticos, y tendrás una presencia profesional en las pestañas del navegador que funcionará a la perfección en todos los dispositivos.</p>
+        </div>
+
+        <div class="cta-box">
+            <h3 data-en="Generate Your Remix Favicon Stack" data-zh="一键生成 Remix 专属 Favicon" data-ja="Remix用Faviconスタックを生成" data-ko="Remix 파비콘 스택 생성하기" data-es="Genera tu Stack de Favicon para Remix">一键生成 Remix 专属 Favicon</h3>
+            <p data-en="Drop your logo into Mzu favicondl and instantly get the exact SVG, ICO, and PNG files you need for your root.tsx links export." data-zh="将 Logo 拖入 Mzu favicondl，即刻获取 root.tsx 所需的 SVG、ICO 和 PNG 完美资源组合。" data-ja="Mzu favicondlにロゴをドロップするだけで、root.tsxに必要なSVG、ICO、PNGファイルを即座に生成します。" data-ko="Mzu favicondl에 로고를 업로드하고 root.tsx에 필요한 완벽한 SVG, ICO, PNG 파일을 즉시 다운로드하세요." data-es="Sube tu logo a Mzu favicondl y obtén al instante los archivos SVG, ICO y PNG exactos que necesitas para tu root.tsx.">将 Logo 拖入 Mzu favicondl，即刻获取 root.tsx 所需的 SVG、ICO 和 PNG 完美资源组合。</p>
+            <a href="/zh/index.html" class="cta-btn" data-en="Create Remix Icons →" data-zh="生成 Remix 图标 →" data-ja="Remixアイコンを作成 →" data-ko="Remix 아이콘 만들기 →" data-es="Crear Iconos para Remix →">生成 Remix 图标 →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/zh/index.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Home" data-zh="首页">首页</a>
+                <a href="/zh/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Blog" data-zh="博客">博客</a>
+                <a href="/zh/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Privacy" data-zh="隐私政策">隐私政策</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js?v=20260211"></script>
+
+
+</body></html>

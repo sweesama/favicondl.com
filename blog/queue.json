@@ -1225,7 +1225,9 @@
       "react-favicon",
       "nextjs-favicon"
     ],
-    "status": "pending"
+    "status": "done",
+    "qualityScore": 90,
+    "qualityGrade": "A"
   },
   {
     "keyword": "ruby on rails favicon",
