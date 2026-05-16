@@ -1799,5 +1799,26 @@
     ],
     "qualityScore": 90,
     "qualityGrade": "A"
+  },
+  {
+    "slug": "rails-favicon",
+    "publishDate": "2026-05-16",
+    "titleEn": "Ruby on Rails Favicon Setup: The 2026 Hybrid Approach",
+    "titleZh": "Ruby on Rails Favicon 配置指南：2026 混合部署策略",
+    "titleJa": "Ruby on RailsのFavicon設定：2026年のハイブリッド戦略",
+    "titleKo": "Ruby on Rails 파비콘 설정: 2026년 하이브리드 접근법",
+    "titleEs": "Configuración de Favicon en Ruby on Rails: Guía 2026",
+    "descEn": "Stop the routing errors in your Rails logs. Learn the exact 2026 hybrid approach to implement a ruby on rails favicon using Propshaft, Vite, and the public folder.",
+    "descZh": "彻底消除 Rails 日志中的路由错误。学习使用 Propshaft、Vite 和 public 目录混合部署 Ruby on Rails favicon 的 2026 年最佳实践。",
+    "descJa": "Railsのログを埋め尽くすルーティングエラーを解決。Propshaft、Vite、publicディレクトリを活用した最新のFavicon設定手順を解説します。",
+    "descKo": "Rails 로그의 라우팅 에러를 해결하세요. Propshaft, Vite 및 public 폴더를 활용한 최신 파비콘 설정 가이드를 제공합니다.",
+    "descEs": "Detén los errores de enrutamiento en tus logs de Rails. Aprende el enfoque híbrido de 2026 para implementar un favicon usando Propshaft, Vite y la carpeta public.",
+    "keyword": "ruby on rails favicon",
+    "tags": [
+      "framework",
+      "rails"
+    ],
+    "qualityScore": 90,
+    "qualityGrade": "A"
   }
 ]

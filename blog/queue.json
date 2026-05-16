@@ -1242,7 +1242,9 @@
       "laravel-favicon",
       "django-favicon"
     ],
-    "status": "pending"
+    "status": "done",
+    "qualityScore": 90,
+    "qualityGrade": "A"
   },
   {
     "keyword": "spring boot favicon",
