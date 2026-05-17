@@ -1820,5 +1820,26 @@
     ],
     "qualityScore": 90,
     "qualityGrade": "A"
+  },
+  {
+    "slug": "spring-boot-favicon",
+    "publishDate": "2026-05-17",
+    "titleEn": "Spring Boot Favicon Setup: The 2026 Developer Guide",
+    "titleZh": "Spring Boot Favicon 设置：2026 开发者指南",
+    "titleJa": "Spring Boot Favicon設定：2026年版開発者ガイド",
+    "titleKo": "Spring Boot Favicon 설정: 2026 개발자 가이드",
+    "titleEs": "Configurar Favicon en Spring Boot: Guía para Devs (2026)",
+    "descEn": "Stop serving the default green leaf. Learn how to configure a Spring Boot favicon, handle Spring Security 404s, and implement modern SVG icons.",
+    "descZh": "别再用默认的小绿叶了。学习如何配置 Spring Boot favicon，解决 Spring Security 拦截导致的 404 错误，并部署现代 SVG 图标。",
+    "descJa": "デフォルトの緑の葉っぱアイコンは卒業しましょう。Spring BootでのFavicon設定、Spring Securityの404エラー回避、最新SVGの実装方法を解説します。",
+    "descKo": "기본 초록색 나뭇잎 아이콘은 이제 그만! Spring Boot Favicon 설정 방법, Spring Security 404 에러 해결 및 최신 SVG 아이콘 적용법을 알아봅니다.",
+    "descEs": "Deja de usar la hoja verde por defecto. Aprende a configurar tu favicon en Spring Boot, evitar errores 404 de Spring Security y usar SVGs modernos.",
+    "keyword": "spring boot favicon",
+    "tags": [
+      "framework",
+      "java"
+    ],
+    "qualityScore": 85,
+    "qualityGrade": "A"
   }
 ]

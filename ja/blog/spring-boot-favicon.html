@@ -1,0 +1,205 @@
+<!DOCTYPE html><html lang="ja"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spring Boot Favicon Setup: The 2026 Developer Guide - Mzu favicondl</title>
+    <meta name="description" content="Stop serving the default green leaf. Learn how to configure a Spring Boot favicon, handle Spring Security 404s, and implement modern SVG icons.">
+    <meta name="keywords" content="spring boot favicon, java web icon, spring security favicon">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/ja/blog/spring-boot-favicon.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/spring-boot-favicon.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/spring-boot-favicon.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/spring-boot-favicon.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/spring-boot-favicon.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/spring-boot-favicon.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/spring-boot-favicon.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/ja/blog/spring-boot-favicon.html">
+    <meta property="og:title" content="Spring Boot Favicon Setup: The 2026 Developer Guide">
+    <meta property="og:description" content="Stop serving the default green leaf. Learn how to configure a Spring Boot favicon, handle Spring Security 404s, and implement modern SVG icons.">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Spring Boot Favicon Setup: The 2026 Developer Guide">
+    <meta name="twitter:description" content="Stop serving the default green leaf. Learn how to configure a Spring Boot favicon, handle Spring Security 404s, and implement modern SVG icons.">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Spring Boot Favicon Setup: The 2026 Developer Guide",
+      "description": "Stop serving the default green leaf. Learn how to configure a Spring Boot favicon, handle Spring Security 404s, and implement modern SVG icons.",
+      "datePublished": "2026-05-17",
+      "dateModified": "2026-05-17",
+      "author": {
+            "@type": "Organization",
+            "name": "Mzu favicondl",
+            "url": "https://favicondl.com"
+      },
+      "publisher": {
+            "@type": "Organization",
+            "name": "Mzu favicondl",
+            "url": "https://favicondl.com"
+      },
+      "mainEntityOfPage": "https://favicondl.com/blog/spring-boot-favicon.html",
+      "inLanguage": "en"
+}
+    </script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/ja/index.html" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/ja/documentation.html" class="nav-link" data-en="Docs" data-zh="文档">ドキュメント</a>
+                <a href="/ja/tools.html" class="nav-link" data-en="Tools" data-zh="工具">ツール</a>
+                <a href="/ja/blog/" class="nav-link" data-en="Blog" data-zh="博客">ブログ</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/spring-boot-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/spring-boot-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/spring-boot-favicon.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/spring-boot-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/spring-boot-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/ja/index.html" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/ja/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600" data-en="Spring Boot Favicon" data-zh="Spring Boot 图标">Spring Boot Favicon</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">framework</span><time class="text-sm text-gray-400">2026-05-17</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight" data-en="Spring Boot Favicon Setup: The 2026 Developer Guide" data-zh="Spring Boot Favicon 设置：2026 开发者指南">Spring Boot Favicon Setup: The 2026 Developer Guide</h1>
+        </header>
+
+        <div class="article-body" data-lang="en">
+            <p>If you've ever fired up a fresh Spring Boot application, hit <code>localhost:8080</code>, and stared at that default green leaf icon in your browser tab — you know exactly what I'm talking about. That little leaf is a badge of honor for Java developers, but your users expect to see your actual brand logo.</p><p>Look at how companies like Stripe or GitHub handle their web apps. They don't leave default framework icons in their production builds. They serve crisp, optimized icons that build instant trust before the page even finishes rendering. A missing or default icon screams "unfinished side project."</p><p>Many older tutorials tell you to just drop an ICO file into your static folder and call it a day. I strongly advise against stopping there. We are building web apps in 2026, which means you need a modern stack that handles high-DPI displays and dark mode, while also playing nicely with Spring's strict routing rules.</p><h2>The Quick Fix: The Static Folder Method</h2><p>Spring Boot has built-in magic for static resources. By default, it looks for a file named <code>favicon.ico</code> in specific classpath directories and automatically serves it at the root URL (<code>/favicon.ico</code>).</p><h3>Step 1: Prepare Your Icon File</h3><p>First, you need a valid ICO file. Don't just rename a PNG to ICO (browsers hate that). Use Mzu favicondl to generate a proper multi-resolution ICO file from your logo.</p><h3>Step 2: Place It in the Correct Directory</h3><p>Drop your newly generated <code>favicon.ico</code> into one of the following directories in your Spring Boot project:</p><ul><li><code>src/main/resources/static/</code> (Recommended)</li><li><code>src/main/resources/public/</code></li><li><code>src/main/resources/META-INF/resources/</code></li></ul><p>Restart your application. If you hit your root URL, the green leaf should be gone, replaced by your custom icon.</p><h2>The Modern Approach: Thymeleaf and HTML Tags</h2><p>Relying solely on the implicit root <code>favicon.ico</code> request is a legacy habit. Browsers will request it, but it gives you zero control over Apple Touch Icons or modern SVG formats.</p><p>You should explicitly declare your icons in your HTML templates. If you are using Thymeleaf (the standard templating engine for Spring), you can create a reusable <code>&lt;head&gt;</code> fragment.</p><pre><code>&lt;!-- In your fragments/head.html --&gt;
+&lt;link rel='icon' type='image/svg+xml' href='/icons/favicon.svg'&gt;
+&lt;link rel='icon' type='image/png' href='/icons/favicon-96x96.png' sizes='96x96'&gt;
+&lt;link rel='apple-touch-icon' href='/icons/apple-touch-icon.png'&gt;</code></pre><p>Place these files inside <code>src/main/resources/static/icons/</code>. This explicitly tells the browser exactly what to load, bypassing the fallback root request entirely. If you need a refresher on the exact tags to use, check out our <a href="/ja/blog/how-to-add-favicon-to-website.html">HTML guide for adding favicons</a>.</p><h2>The Gotcha: Spring Security Blocking Your Icon</h2><p>This is where 90% of Java developers get stuck. You put the file in the right folder, you added the HTML tags, but the browser tab is completely blank. You open your DevTools network tab and see a <code>404 Not Found</code> or a <code>302 Redirect</code> to a login page.</p><p>If you have Spring Security on your classpath, it secures all endpoints by default — including static resources. When the browser tries to fetch <code>/favicon.ico</code>, Spring Security intercepts the unauthenticated request and blocks it.</p><h3>How to Fix the Security Filter Chain</h3><p>You need to explicitly tell Spring Security to ignore requests for your favicon and static icon directories. Open your security configuration class and update your <code>SecurityFilterChain</code> bean:</p><pre><code>@Bean
+public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+    http
+        .authorizeHttpRequests(auth -&gt; auth
+            .requestMatchers('/favicon.ico', '/icons/**').permitAll()
+            .anyRequest().authenticated()
+        )
+        .formLogin(Customizer.withDefaults());
+    return http.build();
+}</code></pre><p>By adding <code>requestMatchers('/favicon.ico', '/icons/**').permitAll()</code>, you allow browsers to fetch your branding before the user logs in. This is critical for the login page itself to look professional.</p><h2>Common Pitfalls to Avoid</h2><p>Even with the perfect Spring configuration, things can still look broken. Here is what usually goes wrong:</p><ul><li><strong>Aggressive Browser Caching:</strong> Browsers cache favicons aggressively. You might have fixed the Spring Security issue, but Chrome is still showing the green leaf. You will need to force a <a href="/ja/blog/favicon-cache-clear.html">favicon cache clear</a> to see your changes.</li><li><strong>DispatcherServlet Overrides:</strong> If you mapped your <code>DispatcherServlet</code> to <code>/</code> instead of the default, you might have accidentally disabled Spring's static resource handling. Ensure you implement <code>WebMvcConfigurer</code> and override <code>addResourceHandlers</code> if you have custom routing.</li></ul><p>Customizing your Spring Boot favicon takes a bit more effort than a static HTML site due to the routing and security layers. But getting rid of that default leaf is the first step in turning a local Java project into a production-ready web application.</p>
+        </div>
+
+        <div class="article-body" data-lang="zh" style="display:none">
+            <p>如果你刚跑起一个全新的 Spring Boot 项目，打开 <code>localhost:8080</code>，然后盯着浏览器标签页里那片默认的绿叶图标发呆——你就知道是时候换掉它了。那片小绿叶确实是 Java 开发者的荣誉徽章，但你的用户期望看到的是你真正的品牌 Logo。</p><p>看看 Stripe 或 GitHub 这些公司是如何处理他们的 Web 应用的。他们绝不会在生产环境中留下框架的默认图标。他们提供的是清晰、经过优化的图标，在页面还没渲染完之前就能建立起用户的信任感。缺失图标或使用默认图标，只会让人觉得这是一个“还没做完的业余项目”。</p><p>很多老旧的教程会告诉你，随便扔个 ICO 文件到 static 文件夹里就完事了。我强烈建议你别停在那一步。现在是 2026 年，你需要的是一套能处理高分屏和暗黑模式的现代方案，同时还要能和 Spring 严格的路由规则完美配合。</p><h2>快速修复：静态文件夹法</h2><p>Spring Boot 对静态资源有内置的魔法。默认情况下，它会在特定的类路径目录中寻找名为 <code>favicon.ico</code> 的文件，并自动将其映射到根 URL (<code>/favicon.ico</code>)。</p><h3>第一步：准备你的图标文件</h3><p>首先，你需要一个真正的 ICO 文件。千万别只是把 PNG 的后缀改成 ICO（浏览器非常讨厌这种做法）。使用 Mzu favicondl 从你的 Logo 生成一个包含多分辨率的规范 ICO 文件。</p><h3>第二步：把它放到正确的目录</h3><p>将新生成的 <code>favicon.ico</code> 放到你 Spring Boot 项目的以下任一目录中：</p><ul><li><code>src/main/resources/static/</code>（推荐）</li><li><code>src/main/resources/public/</code></li><li><code>src/main/resources/META-INF/resources/</code></li></ul><p>重启你的应用。当你访问根 URL 时，那片绿叶应该就不见了，取而代之的是你的自定义图标。</p><h2>现代方法：Thymeleaf 与 HTML 标签</h2><p>仅仅依赖浏览器对根目录 <code>favicon.ico</code> 的隐式请求是一个过时的习惯。浏览器确实会去请求它，但这让你无法控制 Apple Touch 图标或现代的 SVG 格式。</p><p>你应该在 HTML 模板中显式声明你的图标。如果你使用的是 Thymeleaf（Spring 的标准模板引擎），你可以创建一个可复用的 <code>&lt;head&gt;</code> 片段。</p><pre><code>&lt;!-- 在你的 fragments/head.html 中 --&gt;
+&lt;link rel='icon' type='image/svg+xml' href='/icons/favicon.svg'&gt;
+&lt;link rel='icon' type='image/png' href='/icons/favicon-96x96.png' sizes='96x96'&gt;
+&lt;link rel='apple-touch-icon' href='/icons/apple-touch-icon.png'&gt;</code></pre><p>将这些文件放在 <code>src/main/resources/static/icons/</code> 目录下。这明确告诉浏览器到底该加载什么，完全绕过了后备的根目录请求。如果你想复习一下具体该用哪些标签，可以看看我们的<a href="/ja/blog/how-to-add-favicon-to-website.html">添加 Favicon 的 HTML 指南</a>。</p><h2>避坑指南：Spring Security 拦截了你的图标</h2><p>这是 90% 的 Java 开发者都会卡住的地方。你把文件放到了正确的文件夹，也加了 HTML 标签，但是浏览器标签页还是一片空白。你打开 DevTools 的网络面板，看到一个 <code>404 Not Found</code> 或者一个跳转到登录页的 <code>302 Redirect</code>。</p><p>如果你的类路径里有 Spring Security，它默认会保护所有的端点——包括静态资源。当浏览器尝试获取 <code>/favicon.ico</code> 时，Spring Security 会拦截这个未认证的请求并将其屏蔽。</p><h3>如何修复安全过滤器链</h3><p>你需要明确告诉 Spring Security 忽略对 favicon 和静态图标目录的请求。打开你的安全配置类，更新你的 <code>SecurityFilterChain</code> Bean：</p><pre><code>@Bean
+public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+    http
+        .authorizeHttpRequests(auth -&gt; auth
+            .requestMatchers('/favicon.ico', '/icons/**').permitAll()
+            .anyRequest().authenticated()
+        )
+        .formLogin(Customizer.withDefaults());
+    return http.build();
+}</code></pre><p>通过添加 <code>requestMatchers('/favicon.ico', '/icons/**').permitAll()</code>，你允许浏览器在用户登录之前就获取你的品牌图标。这对于让登录页面本身看起来更专业至关重要。</p><h2>常见问题排查</h2><p>即使 Spring 配置完美，图标可能还是显示不出来。以下是常见的背锅侠：</p><ul><li><strong>激进的浏览器缓存：</strong> 浏览器对 favicon 的缓存非常顽固。你可能已经修好了 Spring Security 的问题，但 Chrome 还在显示那片绿叶。你需要强制进行<a href="/ja/blog/favicon-cache-clear.html">清除 favicon 缓存</a>才能看到变化。</li><li><strong>DispatcherServlet 覆盖：</strong> 如果你把 <code>DispatcherServlet</code> 映射到了 <code>/</code> 而不是默认路径，你可能不小心禁用了 Spring 的静态资源处理。如果你有自定义路由，确保实现 <code>WebMvcConfigurer</code> 并重写 <code>addResourceHandlers</code>。</li></ul><p>由于路由和安全层的存在，自定义 Spring Boot 的 favicon 确实比纯静态 HTML 网站要多费点心思。但干掉那片默认的绿叶，是你将本地 Java 项目转变为生产级 Web 应用的第一步。</p>
+        </div>
+
+        <div class="article-body" data-lang="ja" style="display:none">
+            <p>新しいSpring Bootプロジェクトを立ち上げて <code>localhost:8080</code> にアクセスし、ブラウザのタブに表示されるデフォルトの「緑の葉っぱ」アイコンを見つめたことがあるなら、私が言いたいことはお分かりでしょう。あの小さな葉っぱはJava開発者の勲章のようなものですが、ユーザーが期待しているのはあなたの実際のブランドロゴです。</p><p>StripeやGitHubのような企業がWebアプリをどう扱っているか見てください。彼らは本番環境にフレームワークのデフォルトアイコンを残したりしません。ページが完全にレンダリングされる前から、鮮明で最適化されたアイコンを提供して即座に信頼を築いています。アイコンが欠けていたりデフォルトのままだったりすると、「未完成のサイドプロジェクト」だと叫んでいるようなものです。</p><p>古いチュートリアルの多くは、ICOファイルをstaticフォルダに放り込んで終わりにしろと言います。しかし、そこで立ち止まるのは絶対にお勧めしません。私たちは2026年にWebアプリを構築しているのです。つまり、高DPIディスプレイやダークモードに対応しつつ、Springの厳格なルーティングルールともうまく連携するモダンなスタックが必要なのです。</p><h2>手っ取り早い解決策：Staticフォルダ法</h2><p>Spring Bootには静的リソースに対する組み込みの魔法があります。デフォルトでは、特定のクラスパスディレクトリにある <code>favicon.ico</code> という名前のファイルを探し、自動的にルートURL (<code>/favicon.ico</code>) にマッピングしてくれます。</p><h3>ステップ1：アイコンファイルを準備する</h3><p>まず、有効なICOファイルが必要です。単にPNGの拡張子をICOに変更しないでください（ブラウザはそれを嫌います）。Mzu favicondlを使用して、ロゴから適切なマルチ解像度のICOファイルを生成しましょう。</p><h3>ステップ2：正しいディレクトリに配置する</h3><p>新しく生成した <code>favicon.ico</code> を、Spring Bootプロジェクトの以下のいずれかのディレクトリに配置します：</p><ul><li><code>src/main/resources/static/</code>（推奨）</li><li><code>src/main/resources/public/</code></li><li><code>src/main/resources/META-INF/resources/</code></li></ul><p>アプリケーションを再起動します。ルートURLにアクセスすると、緑の葉っぱが消え、カスタムアイコンに置き換わっているはずです。</p><h2>モダンなアプローチ：ThymeleafとHTMLタグ</h2><p>暗黙のルート <code>favicon.ico</code> リクエストだけに頼るのは過去の習慣です。ブラウザは確かにそれをリクエストしますが、Apple Touch IconやモダンなSVGフォーマットを制御することはできません。</p><p>HTMLテンプレート内でアイコンを明示的に宣言すべきです。Thymeleaf（Springの標準テンプレートエンジン）を使用している場合は、再利用可能な <code>&lt;head&gt;</code> フラグメントを作成できます。</p><pre><code>&lt;!-- fragments/head.html の中 --&gt;
+&lt;link rel='icon' type='image/svg+xml' href='/icons/favicon.svg'&gt;
+&lt;link rel='icon' type='image/png' href='/icons/favicon-96x96.png' sizes='96x96'&gt;
+&lt;link rel='apple-touch-icon' href='/icons/apple-touch-icon.png'&gt;</code></pre><p>これらのファイルを <code>src/main/resources/static/icons/</code> の中に配置します。これにより、ブラウザに正確に何をロードすべきかを明示し、フォールバックのルートリクエストを完全にバイパスできます。使用すべき正確なタグについて復習したい場合は、<a href="/ja/blog/how-to-add-favicon-to-website.html">Faviconを追加するためのHTMLガイド</a>をご覧ください。</p><h2>落とし穴：Spring Securityによるアイコンのブロック</h2><p>ここで90%のJava開発者が行き詰まります。ファイルを正しいフォルダに置き、HTMLタグを追加したのに、ブラウザのタブは完全に空白のまま。DevToolsのネットワークタブを開くと、<code>404 Not Found</code> またはログインページへの <code>302 Redirect</code> が表示されています。</p><p>クラスパスにSpring Securityが含まれている場合、静的リソースを含むすべてのエンドポイントがデフォルトで保護されます。ブラウザが <code>/favicon.ico</code> を取得しようとすると、Spring Securityが認証されていないリクエストを傍受してブロックするのです。</p><h3>セキュリティフィルターチェーンの修正方法</h3><p>Spring Securityに対して、faviconや静的アイコンディレクトリへのリクエストを無視するよう明示的に指示する必要があります。セキュリティ設定クラスを開き、<code>SecurityFilterChain</code> Beanを更新します：</p><pre><code>@Bean
+public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+    http
+        .authorizeHttpRequests(auth -&gt; auth
+            .requestMatchers('/favicon.ico', '/icons/**').permitAll()
+            .anyRequest().authenticated()
+        )
+        .formLogin(Customizer.withDefaults());
+    return http.build();
+}</code></pre><p><code>requestMatchers('/favicon.ico', '/icons/**').permitAll()</code> を追加することで、ユーザーがログインする前にブラウザがブランドアイコンを取得できるようになります。これは、ログインページ自体をプロフェッショナルに見せるために非常に重要です。</p><h2>避けるべきよくある落とし穴</h2><p>完璧なSpring設定を行っても、まだ表示が壊れていることがあります。よくある原因は以下の通りです：</p><ul><li><strong>強力なブラウザキャッシュ：</strong> ブラウザはfaviconを非常に強力にキャッシュします。Spring Securityの問題を修正しても、Chromeがまだ緑の葉っぱを表示しているかもしれません。変更を確認するには、強制的に<a href="/ja/blog/favicon-cache-clear.html">faviconのキャッシュをクリア</a>する必要があります。</li><li><strong>DispatcherServletの上書き：</strong> <code>DispatcherServlet</code> をデフォルトではなく <code>/</code> にマッピングした場合、誤ってSpringの静的リソース処理を無効にしてしまった可能性があります。カスタムルーティングがある場合は、<code>WebMvcConfigurer</code> を実装し、<code>addResourceHandlers</code> をオーバーライドしてください。</li></ul><p>Spring Bootでのfaviconのカスタマイズは、ルーティングとセキュリティ層があるため、静的なHTMLサイトよりも少し手間がかかります。しかし、あのデフォルトの葉っぱを取り除くことは、ローカルのJavaプロジェクトを本番環境対応のWebアプリケーションに変えるための第一歩なのです。</p>
+        </div>
+
+        <div class="article-body" data-lang="ko" style="display:none">
+            <p>새로운 Spring Boot 프로젝트를 실행하고 <code>localhost:8080</code>에 접속했을 때, 브라우저 탭에 나타나는 기본 '초록색 나뭇잎' 아이콘을 본 적이 있다면 제가 무슨 말을 하는지 정확히 아실 겁니다. 그 작은 나뭇잎은 Java 개발자들에게는 훈장과도 같지만, 사용자들은 여러분의 실제 브랜드 로고를 보길 원합니다.</p><p>Stripe나 GitHub 같은 기업들이 웹 앱을 어떻게 관리하는지 살펴보세요. 그들은 프로덕션 빌드에 프레임워크의 기본 아이콘을 남겨두지 않습니다. 페이지 렌더링이 끝나기도 전에 선명하고 최적화된 아이콘을 제공하여 즉각적인 신뢰를 구축합니다. 아이콘이 없거나 기본 아이콘을 그대로 두면 "아직 완성되지 않은 사이드 프로젝트"라는 인상을 주게 됩니다.</p><p>오래된 튜토리얼들은 대부분 ICO 파일을 static 폴더에 넣기만 하면 끝이라고 말합니다. 하지만 저는 거기서 멈추는 것을 강력히 반대합니다. 우리는 2026년에 웹 앱을 구축하고 있습니다. 즉, 고해상도 디스플레이와 다크 모드를 처리하면서 Spring의 엄격한 라우팅 규칙과도 잘 연동되는 모던 스택이 필요합니다.</p><h2>빠른 해결책: Static 폴더 방식</h2><p>Spring Boot는 정적 리소스 처리를 위한 내장된 마법을 가지고 있습니다. 기본적으로 특정 클래스패스 디렉토리에서 <code>favicon.ico</code>라는 이름의 파일을 찾아 루트 URL(<code>/favicon.ico</code>)에 자동으로 매핑합니다.</p><h3>1단계: 아이콘 파일 준비하기</h3><p>먼저 유효한 ICO 파일이 필요합니다. 단순히 PNG 파일의 확장자만 ICO로 바꾸지 마세요(브라우저가 매우 싫어합니다). Mzu favicondl을 사용하여 로고에서 올바른 다중 해상도 ICO 파일을 생성하세요.</p><h3>2단계: 올바른 디렉토리에 배치하기</h3><p>새로 생성한 <code>favicon.ico</code>를 Spring Boot 프로젝트의 다음 디렉토리 중 하나에 넣습니다:</p><ul><li><code>src/main/resources/static/</code> (권장)</li><li><code>src/main/resources/public/</code></li><li><code>src/main/resources/META-INF/resources/</code></li></ul><p>애플리케이션을 재시작합니다. 루트 URL에 접속하면 초록색 나뭇잎이 사라지고 커스텀 아이콘으로 대체된 것을 확인할 수 있습니다.</p><h2>모던한 접근법: Thymeleaf와 HTML 태그</h2><p>암묵적인 루트 <code>favicon.ico</code> 요청에만 의존하는 것은 과거의 습관입니다. 브라우저가 요청하긴 하겠지만, Apple Touch Icon이나 최신 SVG 포맷을 제어할 수는 없습니다.</p><p>HTML 템플릿에 아이콘을 명시적으로 선언해야 합니다. Thymeleaf(Spring의 표준 템플릿 엔진)를 사용 중이라면 재사용 가능한 <code>&lt;head&gt;</code> 프래그먼트를 만들 수 있습니다.</p><pre><code>&lt;!-- fragments/head.html 내부 --&gt;
+&lt;link rel='icon' type='image/svg+xml' href='/icons/favicon.svg'&gt;
+&lt;link rel='icon' type='image/png' href='/icons/favicon-96x96.png' sizes='96x96'&gt;
+&lt;link rel='apple-touch-icon' href='/icons/apple-touch-icon.png'&gt;</code></pre><p>이 파일들을 <code>src/main/resources/static/icons/</code> 안에 배치하세요. 이렇게 하면 브라우저에 정확히 무엇을 로드해야 할지 명시하여 폴백 루트 요청을 완전히 우회할 수 있습니다. 정확히 어떤 태그를 사용해야 할지 다시 확인하고 싶다면 <a href="/ja/blog/how-to-add-favicon-to-website.html">Favicon 추가를 위한 HTML 가이드</a>를 참조하세요.</p><h2>주의사항: Spring Security가 아이콘을 차단할 때</h2><p>이 부분이 90%의 Java 개발자가 막히는 곳입니다. 파일을 올바른 폴더에 넣고 HTML 태그도 추가했는데 브라우저 탭이 완전히 비어있습니다. DevTools 네트워크 탭을 열어보면 <code>404 Not Found</code> 또는 로그인 페이지로의 <code>302 Redirect</code>가 표시됩니다.</p><p>클래스패스에 Spring Security가 있다면 정적 리소스를 포함한 모든 엔드포인트를 기본적으로 보호합니다. 브라우저가 <code>/favicon.ico</code>를 가져오려 할 때 Spring Security가 인증되지 않은 요청을 가로채고 차단하는 것입니다.</p><h3>Security Filter Chain 수정 방법</h3><p>Spring Security에 favicon 및 정적 아이콘 디렉토리에 대한 요청을 무시하도록 명시적으로 알려야 합니다. 보안 설정 클래스를 열고 <code>SecurityFilterChain</code> 빈을 업데이트하세요:</p><pre><code>@Bean
+public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+    http
+        .authorizeHttpRequests(auth -&gt; auth
+            .requestMatchers('/favicon.ico', '/icons/**').permitAll()
+            .anyRequest().authenticated()
+        )
+        .formLogin(Customizer.withDefaults());
+    return http.build();
+}</code></pre><p><code>requestMatchers('/favicon.ico', '/icons/**').permitAll()</code>을 추가함으로써 사용자가 로그인하기 전에 브라우저가 브랜드 아이콘을 가져올 수 있도록 허용합니다. 이는 로그인 페이지 자체를 프로페셔널하게 보이게 하는 데 매우 중요합니다.</p><h2>자주 발생하는 문제들</h2><p>완벽한 Spring 설정을 마쳤더라도 여전히 문제가 발생할 수 있습니다. 주로 다음과 같은 원인들입니다:</p><ul><li><strong>강력한 브라우저 캐싱:</strong> 브라우저는 favicon을 매우 강력하게 캐시합니다. Spring Security 문제를 해결했더라도 Chrome이 여전히 초록색 나뭇잎을 표시할 수 있습니다. 변경 사항을 확인하려면 강제로 <a href="/ja/blog/favicon-cache-clear.html">favicon 캐시 지우기</a>를 수행해야 합니다.</li><li><strong>DispatcherServlet 덮어쓰기:</strong> <code>DispatcherServlet</code>을 기본값이 아닌 <code>/</code>로 매핑한 경우, 실수로 Spring의 정적 리소스 처리를 비활성화했을 수 있습니다. 커스텀 라우팅이 있다면 <code>WebMvcConfigurer</code>를 구현하고 <code>addResourceHandlers</code>를 오버라이드해야 합니다.</li></ul><p>Spring Boot에서 favicon을 커스터마이징하는 것은 라우팅과 보안 계층 때문에 정적 HTML 사이트보다 조금 더 노력이 필요합니다. 하지만 그 기본 나뭇잎을 제거하는 것이 로컬 Java 프로젝트를 프로덕션 수준의 웹 애플리케이션으로 전환하는 첫걸음입니다.</p>
+        </div>
+
+        <div class="article-body" data-lang="es" style="display:none">
+            <p>Si alguna vez has arrancado un proyecto nuevo de Spring Boot, has entrado a <code>localhost:8080</code> y te has quedado mirando esa hojita verde por defecto en la pestaña del navegador... sabes exactamente de lo que hablo. Esa pequeña hoja es una medalla de honor para los desarrolladores Java, pero tus usuarios esperan ver el logotipo real de tu marca.</p><p>Fíjate en cómo empresas como Stripe o GitHub manejan sus aplicaciones web. No dejan los iconos por defecto del framework en sus entornos de producción. Sirven iconos nítidos y optimizados que generan confianza al instante, incluso antes de que la página termine de renderizarse. Un icono ausente o por defecto grita "proyecto personal sin terminar".</p><p>Muchos tutoriales antiguos te dicen que simplemente sueltes un archivo ICO en tu carpeta static y te olvides del asunto. Te aconsejo encarecidamente que no te quedes ahí. Estamos construyendo aplicaciones web en 2026, lo que significa que necesitas un stack moderno que soporte pantallas de alta resolución y modo oscuro, y que al mismo tiempo se lleve bien con las estrictas reglas de enrutamiento de Spring.</p><h2>La solución rápida: El método de la carpeta Static</h2><p>Spring Boot tiene magia incorporada para los recursos estáticos. Por defecto, busca un archivo llamado <code>favicon.ico</code> en directorios específicos del classpath y lo sirve automáticamente en la URL raíz (<code>/favicon.ico</code>).</p><h3>Paso 1: Prepara tu archivo de icono</h3><p>Primero, necesitas un archivo ICO válido. No te limites a cambiar la extensión de un PNG a ICO (los navegadores odian eso). Usa Mzu favicondl para generar un archivo ICO adecuado con múltiples resoluciones a partir de tu logo.</p><h3>Paso 2: Colócalo en el directorio correcto</h3><p>Suelta tu nuevo <code>favicon.ico</code> en uno de los siguientes directorios de tu proyecto Spring Boot:</p><ul><li><code>src/main/resources/static/</code> (Recomendado)</li><li><code>src/main/resources/public/</code></li><li><code>src/main/resources/META-INF/resources/</code></li></ul><p>Reinicia tu aplicación. Si accedes a tu URL raíz, la hoja verde debería haber desaparecido, reemplazada por tu icono personalizado.</p><h2>El enfoque moderno: Thymeleaf y etiquetas HTML</h2><p>Depender únicamente de la petición implícita de <code>favicon.ico</code> en la raíz es una costumbre del pasado. Los navegadores la solicitarán, pero no te da ningún control sobre los Apple Touch Icons o los formatos SVG modernos.</p><p>Debes declarar explícitamente tus iconos en tus plantillas HTML. Si usas Thymeleaf (el motor de plantillas estándar para Spring), puedes crear un fragmento <code>&lt;head&gt;</code> reutilizable.</p><pre><code>&lt;!-- En tu fragments/head.html --&gt;
+&lt;link rel='icon' type='image/svg+xml' href='/icons/favicon.svg'&gt;
+&lt;link rel='icon' type='image/png' href='/icons/favicon-96x96.png' sizes='96x96'&gt;
+&lt;link rel='apple-touch-icon' href='/icons/apple-touch-icon.png'&gt;</code></pre><p>Coloca estos archivos dentro de <code>src/main/resources/static/icons/</code>. Esto le dice explícitamente al navegador qué debe cargar exactamente, evitando por completo la petición de respaldo a la raíz. Si necesitas repasar las etiquetas exactas que debes usar, echa un vistazo a nuestra <a href="/ja/blog/how-to-add-favicon-to-website.html">guía HTML para añadir favicons</a>.</p><h2>La trampa: Spring Security bloqueando tu icono</h2><p>Aquí es donde el 90% de los desarrolladores Java se atascan. Pones el archivo en la carpeta correcta, añades las etiquetas HTML, pero la pestaña del navegador está completamente en blanco. Abres la pestaña de red de tus DevTools y ves un <code>404 Not Found</code> o un <code>302 Redirect</code> a una página de login.</p><p>Si tienes Spring Security en tu classpath, asegura todos los endpoints por defecto, incluyendo los recursos estáticos. Cuando el navegador intenta obtener <code>/favicon.ico</code>, Spring Security intercepta la petición no autenticada y la bloquea.</p><h3>Cómo arreglar el Security Filter Chain</h3><p>Tienes que decirle explícitamente a Spring Security que ignore las peticiones de tu favicon y de los directorios de iconos estáticos. Abre tu clase de configuración de seguridad y actualiza tu bean <code>SecurityFilterChain</code>:</p><pre><code>@Bean
+public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+    http
+        .authorizeHttpRequests(auth -&gt; auth
+            .requestMatchers('/favicon.ico', '/icons/**').permitAll()
+            .anyRequest().authenticated()
+        )
+        .formLogin(Customizer.withDefaults());
+    return http.build();
+}</code></pre><p>Al añadir <code>requestMatchers('/favicon.ico', '/icons/**').permitAll()</code>, permites que los navegadores obtengan tu branding antes de que el usuario inicie sesión. Esto es fundamental para que la propia página de login tenga un aspecto profesional.</p><h2>Errores comunes a evitar</h2><p>Incluso con la configuración perfecta de Spring, las cosas pueden seguir viéndose mal. Esto es lo que suele fallar:</p><ul><li><strong>Caché agresiva del navegador:</strong> Los navegadores cachean los favicons de forma muy agresiva. Puede que hayas arreglado el problema de Spring Security, pero Chrome sigue mostrando la hoja verde. Tendrás que forzar un <a href="/ja/blog/favicon-cache-clear.html">borrado de caché del favicon</a> para ver tus cambios.</li><li><strong>Sobrescritura del DispatcherServlet:</strong> Si mapeaste tu <code>DispatcherServlet</code> a <code>/</code> en lugar de usar el valor por defecto, es posible que hayas desactivado accidentalmente el manejo de recursos estáticos de Spring. Asegúrate de implementar <code>WebMvcConfigurer</code> y sobrescribir <code>addResourceHandlers</code> si tienes un enrutamiento personalizado.</li></ul><p>Personalizar tu favicon en Spring Boot requiere un poco más de esfuerzo que en un sitio HTML estático debido a las capas de enrutamiento y seguridad. Pero deshacerte de esa hoja por defecto es el primer paso para convertir un proyecto Java local en una aplicación web lista para producción.</p>
+        </div>
+
+        <div class="cta-box">
+            <h3 data-en="Need a Spring Boot Favicon?" data-zh="需要生成 Spring Boot 兼容的图标？" data-ja="Spring Boot用のFaviconが必要ですか？" data-ko="Spring Boot용 Favicon이 필요하신가요?" data-es="¿Necesitas un Favicon para Spring Boot?">Need a Spring Boot Favicon?</h3>
+            <p data-en="Convert your logo into the perfect multi-resolution ICO and modern SVG stack for your Spring Boot static folder." data-zh="将您的 Logo 转换为完美的多分辨率 ICO 和现代 SVG 组合，直接放入 Spring Boot 的 static 文件夹中。" data-ja="ロゴを完璧なマルチ解像度ICOやモダンなSVGに変換し、Spring Bootのstaticフォルダに配置しましょう。" data-ko="로고를 완벽한 다중 해상도 ICO 및 최신 SVG 스택으로 변환하여 Spring Boot static 폴더에 바로 적용하세요." data-es="Convierte tu logo en un ICO multiresolución perfecto y un stack SVG moderno para tu carpeta static de Spring Boot.">Convert your logo into the perfect multi-resolution ICO and modern SVG stack for your Spring Boot static folder.</p>
+            <a href="/ja/index.html" class="cta-btn" data-en="Generate for Spring Boot →" data-zh="为 Spring Boot 生成图标 →" data-ja="Spring Boot用に生成する →" data-ko="Spring Boot용 생성하기 →" data-es="Generar para Spring Boot →">Generate for Spring Boot →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/ja/index.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Home" data-zh="首页">ホーム</a>
+                <a href="/ja/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Blog" data-zh="博客">ブログ</a>
+                <a href="/ja/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Privacy" data-zh="隐私政策">プライバシー</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js?v=20260211"></script>
+
+
+</body></html>
