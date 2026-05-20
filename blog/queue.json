@@ -1309,7 +1309,9 @@
       "favicon-color-palette",
       "favicon-design-tips"
     ],
-    "status": "pending"
+    "status": "done",
+    "qualityScore": 75,
+    "qualityGrade": "B"
   },
   {
     "keyword": "favicon performance optimization",
