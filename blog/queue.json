@@ -1326,7 +1326,9 @@
       "favicon-cdn-hosting",
       "favicon-ico-size"
     ],
-    "status": "pending"
+    "status": "done",
+    "qualityScore": 85,
+    "qualityGrade": "A"
   },
   {
     "keyword": "drupal favicon setup guide",
