@@ -1925,5 +1925,26 @@
     ],
     "qualityScore": 85,
     "qualityGrade": "A"
+  },
+  {
+    "slug": "drupal-favicon",
+    "publishDate": "2026-05-22",
+    "titleEn": "Drupal Favicon Setup Guide: Stop Serving the Blue Drop",
+    "titleZh": "Drupal Favicon 设置指南：彻底告别默认蓝色水滴",
+    "titleJa": "Drupal Favicon設定ガイド：デフォルトの青い水滴を消す方法",
+    "titleKo": "Drupal 파비콘 설정 가이드: 기본 파란 물방울 아이콘 없애기",
+    "titleEs": "Guía de Configuración de Favicon en Drupal para 2026",
+    "descEn": "Stop fighting the Drupal UI. Learn the exact developer workflow to implement a professional Drupal favicon setup using Twig templates and Drush in 2026.",
+    "descZh": "别再和 Drupal 后台较劲了。学习 2026 年最专业的开发者工作流，通过 Twig 模板和 Drush 彻底替换 Drupal 默认的 Favicon。",
+    "descJa": "Drupalの管理画面で消耗するのはやめましょう。TwigテンプレートとDrushを使用してプロフェッショナルなFaviconを設定する2026年の開発者向けワークフロー。",
+    "descKo": "Drupal UI와 씨름하지 마세요. Twig 템플릿과 Drush를 사용하여 전문적인 파비콘을 설정하는 2026년 개발자 워크플로우를 알아보세요.",
+    "descEs": "Deja de pelear con la UI de Drupal. Aprende el flujo de trabajo exacto para configurar un favicon profesional usando Twig y Drush en 2026.",
+    "keyword": "drupal favicon setup guide",
+    "tags": [
+      "cms",
+      "drupal"
+    ],
+    "qualityScore": 85,
+    "qualityGrade": "A"
   }
 ]

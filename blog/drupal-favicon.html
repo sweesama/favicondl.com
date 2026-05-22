@@ -1,0 +1,200 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drupal Favicon Setup Guide: Stop Serving the Blue Drop - Mzu favicondl</title>
+    <meta name="description" content="Stop fighting the Drupal UI. Learn the exact developer workflow to implement a professional Drupal favicon setup using Twig templates and Drush in 2026.">
+    <meta name="keywords" content="drupal favicon setup guide, drupal 10 favicon, twig favicon, drush cr favicon">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/blog/drupal-favicon.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/drupal-favicon.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/drupal-favicon.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/drupal-favicon.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/drupal-favicon.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/drupal-favicon.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/drupal-favicon.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/blog/drupal-favicon.html">
+    <meta property="og:title" content="Drupal Favicon Setup Guide: Stop Serving the Blue Drop">
+    <meta property="og:description" content="Stop fighting the Drupal UI. Learn the exact developer workflow to implement a professional Drupal favicon setup using Twig templates and Drush in 2026.">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Drupal Favicon Setup Guide: Stop Serving the Blue Drop">
+    <meta name="twitter:description" content="Stop fighting the Drupal UI. Learn the exact developer workflow to implement a professional Drupal favicon setup using Twig templates and Drush in 2026.">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Drupal Favicon Setup Guide: Stop Serving the Blue Drop",
+      "description": "Stop fighting the Drupal UI. Learn the exact developer workflow to implement a professional Drupal favicon setup using Twig templates and Drush in 2026.",
+      "datePublished": "2026-05-22",
+      "dateModified": "2026-05-22",
+      "author": {
+            "@type": "Organization",
+            "name": "Mzu favicondl",
+            "url": "https://favicondl.com"
+      },
+      "publisher": {
+            "@type": "Organization",
+            "name": "Mzu favicondl",
+            "url": "https://favicondl.com"
+      },
+      "mainEntityOfPage": "https://favicondl.com/blog/drupal-favicon.html",
+      "inLanguage": "en"
+}
+    </script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/index.html" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/documentation.html" class="nav-link" data-en="Docs" data-zh="文档">Docs</a>
+                <a href="/tools.html" class="nav-link" data-en="Tools" data-zh="工具">Tools</a>
+                <a href="/blog/" class="nav-link" data-en="Blog" data-zh="博客">Blog</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/drupal-favicon.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/drupal-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/drupal-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/drupal-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/drupal-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/index.html" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600" data-en="Drupal Favicon Guide" data-zh="Drupal Favicon 指南">Drupal Favicon Guide</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">cms</span><time class="text-sm text-gray-400">2026-05-22</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight" data-en="Drupal Favicon Setup Guide: Stop Serving the Blue Drop" data-zh="Drupal Favicon 设置指南：彻底告别默认蓝色水滴">Drupal Favicon Setup Guide: Stop Serving the Blue Drop</h1>
+        </header>
+
+        <div class="article-body" data-lang="en">
+            <p>If you've ever launched a custom Drupal 10 or 11 site, you know the drill. You spend weeks perfecting the Twig templates, configuring complex Views, and mapping out taxonomy structures. Then, you open Safari to admire your work, and that stubborn blue Drupal water drop is still staring back at you from the tab bar.</p><p>Getting rid of that default core icon requires more than just dropping an image into your public directory. Drupal's aggressive caching and theme inheritance make this seemingly simple task surprisingly frustrating. In this <strong>drupal favicon setup guide</strong>, we will walk through the exact steps to replace the core icon permanently, ensuring your brand looks crisp across all devices in 2026.</p><p>Look at how large enterprise teams (like Red Hat or major universities) handle their Drupal platforms. They rarely rely on the admin UI for critical branding assets. Instead, they hardcode a modern SVG directly into their theme layer. We are going to take that exact professional approach.</p><h2>Why the Default UI Method Fails</h2><p>Drupal does offer a built-in way to change the favicon. If you navigate to <strong>Appearance &gt; Settings &gt; Your Theme</strong>, you will find a toggle to uncheck the default shortcut icon and upload a custom one.</p><p>I strongly recommend against using this method for production sites.</p><p>Why? First, it relies on the managed file system, meaning your icon URL will look something like <code>/sites/default/files/favicon.ico</code>. If you ever migrate databases or lose your files directory, your icon breaks. Second, the UI only accepts a single legacy ICO file, completely ignoring the modern 2026 stack of SVGs and Apple Touch Icons.</p><h2>The Professional Drupal Favicon Setup Guide</h2><p>To do this right, we need to bypass the UI and inject our icons directly into the theme. Before we touch any code, generate your modern icon set using Mzu favicondl. You want a crisp SVG and a fallback ICO.</p><h3>Step 1: Place Files in Your Theme</h3><p>Instead of the public files directory, store your icons inside your custom theme. Create a dedicated folder for them to keep things organized and version-controlled.</p><ul><li>Navigate to <code>/web/themes/custom/your_theme/</code></li><li>Create a directory named <code>icons</code></li><li>Drop your <code>favicon.svg</code> and <code>favicon.ico</code> into this folder.</li></ul><h3>Step 2: Override html.html.twig</h3><p>Drupal core controls the <code>&lt;head&gt;</code> output via the <code>html.html.twig</code> template. If your theme doesn't already have this file, copy it from the core system module (<code>/core/modules/system/templates/html.html.twig</code>) into your theme's <code>/templates/layout/</code> directory.</p><p>Open the file. You will see a <code>&lt;head-placeholder token=...&gt;</code> tag. Just below that, hardcode your modern <a href="/blog/svg-favicon.html">SVG favicon</a> links using Twig's active theme path variable.</p><pre><code>&lt;link rel='icon' href='{{ active_theme_path() }}/icons/favicon.svg' type='image/svg+xml'&gt;
+&lt;link rel='alternate icon' href='{{ active_theme_path() }}/icons/favicon.ico'&gt;
+&lt;link rel='apple-touch-icon' href='{{ active_theme_path() }}/icons/apple-touch-icon.png'&gt;</code></pre><p>This guarantees your icons are deployed with your codebase and never rely on the database state.</p><h3>Step 3: Remove the Core Attachment</h3><p>Even with your hardcoded Twig tags, Drupal might still inject its default icon tag via page attachments, causing duplicate tags in your DOM. To strip it out, we use a preprocess hook in your <code>your_theme.theme</code> file.</p><pre><code>/**
+ * Implements hook_page_attachments_alter().
+ */
+function your_theme_page_attachments_alter(array &amp;$attachments) {
+  foreach ($attachments['#attached']['html_head_link'] as $key =&gt; $value) {
+    if (isset($value[0]['rel']) &amp;&amp; $value[0]['rel'] === 'icon') {
+      unset($attachments['#attached']['html_head_link'][$key]);
+    }
+  }
+}</code></pre><p>This snippet intercepts the page build process and aggressively strips out any icon links Drupal tries to inject natively, leaving only your clean Twig implementation.</p><h2>Busting the Drupal Cache</h2><p>You can make all the code changes in the world, but Drupal won't show them until you clear the cache. The render cache is notoriously stubborn.</p><ol><li>Open your terminal and navigate to your project root.</li><li>Run <code>drush cr</code> (Cache Rebuild).</li><li>If you are using a reverse proxy like Varnish or a CDN like Cloudflare, purge those caches as well.</li></ol><p>If you still see the old blue drop, your browser is likely holding onto it. Read our guide on <a href="/blog/favicon-cache-clear.html">forcing a favicon cache clear</a> to resolve local browser stubbornness.</p><h2>Common Pitfalls in Drupal 10/11</h2><p>If your setup is still failing, check these common culprits:</p><ul><li><strong>File Permissions:</strong> Ensure your <code>/icons/</code> directory is readable by the web server (usually 755 for directories, 644 for files).</li><li><strong>Base Path Issues:</strong> If you are running Drupal in a subdirectory, <code>active_theme_path()</code> might need to be prefixed with the base URL.</li><li><strong>Theme Inheritance:</strong> If you are building a sub-theme (e.g., based on Radix or Olivero), make sure your parent theme isn't injecting its own icons via a higher-priority hook.</li></ul><p>Stop fighting the Drupal UI. By moving your icon logic into your theme's codebase, you ensure a stable, version-controlled, and professional brand presence across every browser tab.</p>
+        </div>
+
+        <div class="article-body" data-lang="zh" style="display:none">
+            <p>如果你曾负责过定制化 Drupal 10 或 11 网站的上线，你一定对这个场景不陌生：你花了几周时间完美配置了 Twig 模板、复杂的 Views 和分类结构。然后，你满怀期待地打开 Safari 浏览器，却发现标签页上依然挂着那个顽固的 Drupal 蓝色水滴图标。</p><p>要彻底替换掉这个核心自带的默认图标，光靠把图片丢进 public 目录是远远不够的。Drupal 激进的缓存机制和复杂的主题继承树，让这个看似简单的任务变得异常令人抓狂。在这份 <strong>drupal favicon setup guide</strong> 中，我们将手把手教你如何永久替换核心图标，确保你的品牌在 2026 年的所有设备上都显得专业清晰。</p><p>看看那些大型企业团队（比如红帽公司或顶尖大学）是如何管理他们的 Drupal 平台的。他们极少依赖后台 UI 来上传关键的品牌资产。相反，他们会将现代化的 SVG 图标直接硬编码到主题层中。我们今天就要采用这种最专业的做法。</p><h2>为什么不推荐使用默认的 UI 方法？</h2><p>Drupal 确实提供了一个内置的方法来更改 favicon。如果你进入 <strong>外观 &gt; 设置 &gt; 你的主题</strong>，你会看到一个选项，可以取消勾选默认的快捷方式图标并上传自定义图标。</p><p>我强烈建议不要在生产环境中使用这种方法。</p><p>为什么？首先，它依赖于托管文件系统，这意味着你的图标 URL 会变成类似 <code>/sites/default/files/favicon.ico</code> 的形式。一旦你迁移数据库或丢失了 files 目录，图标就会失效。其次，这个 UI 界面通常只接受单一的传统 ICO 文件，完全无视了 2026 年主流的 SVG 和 Apple Touch Icon 现代标准。</p><h2>专业的 Drupal Favicon 设置指南</h2><p>为了做到万无一失，我们需要绕过 UI，将图标直接注入到主题中。在动代码之前，请先使用 Mzu favicondl 生成你的现代图标集。你需要一个清晰的 SVG 和一个作为后备的 ICO 文件。</p><h3>步骤 1：将文件放入你的主题目录</h3><p>不要放在公共的 files 目录，而是将图标存放在你的自定义主题内。为它们创建一个专用文件夹，以保持代码整洁并纳入版本控制。</p><ul><li>进入 <code>/web/themes/custom/your_theme/</code> 目录</li><li>创建一个名为 <code>icons</code> 的文件夹</li><li>将你的 <code>favicon.svg</code> 和 <code>favicon.ico</code> 放入该文件夹中。</li></ul><h3>步骤 2：覆盖 html.html.twig</h3><p>Drupal 核心通过 <code>html.html.twig</code> 模板控制 <code>&lt;head&gt;</code> 的输出。如果你的主题还没有这个文件，请从核心系统模块（<code>/core/modules/system/templates/html.html.twig</code>）将它复制到你主题的 <code>/templates/layout/</code> 目录中。</p><p>打开该文件。你会看到一个 <code>&lt;head-placeholder token=...&gt;</code> 标签。就在它下方，使用 Twig 的当前主题路径变量，硬编码你的<a href="/blog/svg-favicon.html">现代 SVG 图标</a>链接。</p><pre><code>&lt;link rel='icon' href='{{ active_theme_path() }}/icons/favicon.svg' type='image/svg+xml'&gt;
+&lt;link rel='alternate icon' href='{{ active_theme_path() }}/icons/favicon.ico'&gt;
+&lt;link rel='apple-touch-icon' href='{{ active_theme_path() }}/icons/apple-touch-icon.png'&gt;</code></pre><p>这能确保你的图标与代码库一起进行版本控制，并且永远不依赖数据库状态。</p><h3>步骤 3：移除核心附加组件</h3><p>即使你硬编码了 Twig 标签，Drupal 仍可能通过页面附件（page attachments）注入其默认的图标标签，导致 DOM 中出现重复标签。为了剥离它，我们在 <code>your_theme.theme</code> 文件中使用预处理钩子。</p><pre><code>/**
+ * Implements hook_page_attachments_alter().
+ */
+function your_theme_page_attachments_alter(array &amp;$attachments) {
+  foreach ($attachments['#attached']['html_head_link'] as $key =&gt; $value) {
+    if (isset($value[0]['rel']) &amp;&amp; $value[0]['rel'] === 'icon') {
+      unset($attachments['#attached']['html_head_link'][$key]);
+    }
+  }
+}</code></pre><p>这段代码会拦截页面构建过程，强行剥离 Drupal 试图原生注入的任何图标链接，只留下你干净的 Twig 实现。</p><h2>清除 Drupal 缓存</h2><p>你可以修改世界上所有的代码，但在清除缓存之前，Drupal 是不会显示这些更改的。渲染缓存出了名的顽固。</p><ol><li>打开终端并导航到你的项目根目录。</li><li>运行 <code>drush cr</code>（重建缓存）。</li><li>如果你使用了像 Varnish 这样的反向代理或 Cloudflare 等 CDN，请一并清除它们的缓存。</li></ol><p>如果你仍然看到旧的蓝色水滴，很可能是你的浏览器缓存了它。请阅读我们的<a href="/blog/favicon-cache-clear.html">强制清除 Favicon 缓存指南</a>来解决本地浏览器的顽固问题。</p><h2>Drupal 10/11 中的常见陷阱</h2><p>如果你的设置仍然失败，请检查以下常见原因：</p><ul><li><strong>文件权限：</strong>确保 Web 服务器可以读取你的 <code>/icons/</code> 目录（目录通常为 755，文件为 644）。</li><li><strong>基础路径问题：</strong>如果你在子目录中运行 Drupal，<code>active_theme_path()</code> 可能需要加上基础 URL 前缀。</li><li><strong>主题继承：</strong>如果你正在构建子主题（例如基于 Radix 或 Olivero），请确保父主题没有通过更高优先级的钩子注入自己的图标。</li></ul><p>别再和 Drupal UI 较劲了。通过将图标逻辑移入主题代码库，你可以确保在每个浏览器标签页中呈现稳定、受版本控制且专业的品牌形象。</p>
+        </div>
+
+        <div class="article-body" data-lang="ja" style="display:none">
+            <p>カスタムDrupal 10または11サイトをローンチした経験があるなら、あのシナリオをご存知でしょう。Twigテンプレートを完璧に仕上げ、複雑なViewsを設定し、タクソノミー構造を構築するのに何週間も費やします。そして、作業の成果を見るためにSafariを開くと、タブバーからあの頑固な「青いDrupalの水滴」がこちらを見つめ返してくるのです。</p><p>このデフォルトのコアイコンを取り除くには、単に公開ディレクトリに画像をドロップするだけでは不十分です。Drupalの強力なキャッシュとテーマの継承システムにより、この一見簡単なタスクが驚くほどイライラするものになります。この<strong>drupal favicon setup guide</strong>では、2026年のあらゆるデバイスでブランドが鮮明に表示されるよう、コアイコンを永久に置き換える正確な手順を解説します。</p><p>大規模なエンタープライズチーム（Red Hatや主要大学など）がDrupalプラットフォームをどのように扱っているか見てみましょう。彼らは重要なブランド資産を管理画面のUIに依存することは滅多にありません。代わりに、最新のSVGをテーマレイヤーに直接ハードコードしています。私たちも全く同じプロフェッショナルなアプローチを取ります。</p><h2>デフォルトのUIメソッドが失敗する理由</h2><p>DrupalにはFaviconを変更する組み込みの方法が用意されています。<strong>Appearance &gt; Settings &gt; Your Theme</strong>に移動すると、デフォルトのショートカットアイコンのチェックを外し、カスタムアイコンをアップロードするトグルがあります。</p><p>本番サイトでこの方法を使用することは強くお勧めしません。</p><p>なぜでしょうか？第一に、これは管理されたファイルシステムに依存しているため、アイコンのURLは<code>/sites/default/files/favicon.ico</code>のようになります。データベースを移行したり、filesディレクトリを失ったりすると、アイコンが壊れます。第二に、このUIは単一のレガシーICOファイルしか受け付けず、SVGやApple Touch Iconといった2026年のモダンスペックを完全に無視しています。</p><h2>プロフェッショナルなDrupal Favicon設定ガイド</h2><p>これを正しく行うには、UIをバイパスしてアイコンをテーマに直接注入する必要があります。コードに触れる前に、Mzu favicondlを使用してモダンなアイコンセットを生成してください。鮮明なSVGとフォールバック用のICOが必要です。</p><h3>ステップ1：テーマ内にファイルを配置する</h3><p>公開filesディレクトリの代わりに、カスタムテーマ内にアイコンを保存します。整理とバージョン管理のために専用のフォルダを作成します。</p><ul><li><code>/web/themes/custom/your_theme/</code>に移動します。</li><li><code>icons</code>という名前のディレクトリを作成します。</li><li>このフォルダに<code>favicon.svg</code>と<code>favicon.ico</code>をドロップします。</li></ul><h3>ステップ2：html.html.twigをオーバーライドする</h3><p>Drupalコアは<code>html.html.twig</code>テンプレートを介して<code>&lt;head&gt;</code>の出力を制御します。テーマにまだこのファイルがない場合は、コアのシステムモジュール（<code>/core/modules/system/templates/html.html.twig</code>）からテーマの<code>/templates/layout/</code>ディレクトリにコピーします。</p><p>ファイルを開きます。<code>&lt;head-placeholder token=...&gt;</code>タグが見つかるはずです。そのすぐ下に、Twigのアクティブテーマパス変数を使用して、<a href="/blog/svg-favicon.html">モダンなSVG Favicon</a>リンクをハードコードします。</p><pre><code>&lt;link rel='icon' href='{{ active_theme_path() }}/icons/favicon.svg' type='image/svg+xml'&gt;
+&lt;link rel='alternate icon' href='{{ active_theme_path() }}/icons/favicon.ico'&gt;
+&lt;link rel='apple-touch-icon' href='{{ active_theme_path() }}/icons/apple-touch-icon.png'&gt;</code></pre><p>これにより、アイコンがコードベースと一緒にバージョン管理され、データベースの状態に依存しなくなります。</p><h3>ステップ3：コアのアタッチメントを削除する</h3><p>Twigタグをハードコードしても、Drupalがページアタッチメントを介してデフォルトのアイコンタグを注入し、DOMに重複するタグが発生する可能性があります。これを取り除くには、<code>your_theme.theme</code>ファイルでプリプロセスフックを使用します。</p><pre><code>/**
+ * Implements hook_page_attachments_alter().
+ */
+function your_theme_page_attachments_alter(array &amp;$attachments) {
+  foreach ($attachments['#attached']['html_head_link'] as $key =&gt; $value) {
+    if (isset($value[0]['rel']) &amp;&amp; $value[0]['rel'] === 'icon') {
+      unset($attachments['#attached']['html_head_link'][$key]);
+    }
+  }
+}</code></pre><p>このスニペットはページ構築プロセスを傍受し、Drupalがネイティブに注入しようとするアイコンリンクを強制的に取り除き、クリーンなTwig実装のみを残します。</p><h2>Drupalキャッシュのクリア</h2><p>コードをどれだけ変更しても、キャッシュをクリアするまでDrupalはそれを表示しません。レンダリングキャッシュは非常に頑固です。</p><ol><li>ターミナルを開き、プロジェクトのルートに移動します。</li><li><code>drush cr</code>（Cache Rebuild）を実行します。</li><li>VarnishなどのリバースプロキシやCloudflareなどのCDNを使用している場合は、それらのキャッシュもパージしてください。</li></ol><p>それでも古い青い水滴が表示される場合は、ブラウザがそれを保持している可能性が高いです。ローカルブラウザの頑固なキャッシュを解決するには、<a href="/blog/favicon-cache-clear.html">Faviconキャッシュの強制クリアガイド</a>をお読みください。</p><h2>Drupal 10/11でのよくある落とし穴</h2><p>設定がまだ失敗する場合は、以下の一般的な原因を確認してください：</p><ul><li><strong>ファイル権限：</strong><code>/icons/</code>ディレクトリがWebサーバーから読み取り可能であることを確認します（通常、ディレクトリは755、ファイルは644）。</li><li><strong>ベースパスの問題：</strong>Drupalをサブディレクトリで実行している場合、<code>active_theme_path()</code>にベースURLのプレフィックスが必要になることがあります。</li><li><strong>テーマの継承：</strong>サブテーマ（RadixやOliveroなどに基づく）を構築している場合、親テーマがより優先度の高いフックを介して独自のアイコンを注入していないか確認してください。</li></ul><p>DrupalのUIと格闘するのはやめましょう。アイコンのロジックをテーマのコードベースに移動することで、すべてのブラウザタブで安定し、バージョン管理されたプロフェッショナルなブランドプレゼンスを確保できます。</p>
+        </div>
+
+        <div class="article-body" data-lang="ko" style="display:none">
+            <p>맞춤형 Drupal 10 또는 11 사이트를 구축해 본 개발자라면 이 상황이 익숙할 겁니다. Twig 템플릿을 완벽하게 다듬고, 복잡한 Views를 구성하고, 분류 구조를 매핑하는 데 몇 주를 보냅니다. 그런 다음 작업물을 감상하기 위해 Safari를 열었는데, 탭 표시줄에서 여전히 그 고집스러운 파란색 Drupal 물방울이 당신을 쳐다보고 있습니다.</p><p>이 기본 코어 아이콘을 없애는 것은 단순히 public 디렉토리에 이미지를 넣는 것 이상을 요구합니다. Drupal의 강력한 캐싱과 테마 상속으로 인해 이 간단해 보이는 작업이 놀랍도록 실망스러워질 수 있습니다. 이 <strong>drupal favicon setup guide</strong>에서는 코어 아이콘을 영구적으로 교체하여 2026년의 모든 기기에서 브랜드가 선명하게 보이도록 하는 정확한 단계를 안내합니다.</p><p>Red Hat이나 주요 대학과 같은 대규모 엔터프라이즈 팀이 Drupal 플랫폼을 어떻게 처리하는지 살펴보세요. 그들은 중요한 브랜딩 자산을 관리자 UI에 의존하는 일이 거의 없습니다. 대신 최신 SVG를 테마 레이어에 직접 하드코딩합니다. 우리도 바로 그 전문적인 접근 방식을 취할 것입니다.</p><h2>기본 UI 방식이 실패하는 이유</h2><p>Drupal은 파비콘을 변경할 수 있는 기본 제공 방법을 제공합니다. <strong>Appearance &gt; Settings &gt; Your Theme</strong>로 이동하면 기본 바로가기 아이콘을 선택 취소하고 사용자 정의 아이콘을 업로드할 수 있는 토글이 있습니다.</p><p>프로덕션 사이트에서는 이 방법을 사용하지 않는 것을 강력히 권장합니다.</p><p>이유가 무엇일까요? 첫째, 관리형 파일 시스템에 의존하므로 아이콘 URL이 <code>/sites/default/files/favicon.ico</code>와 같이 됩니다. 데이터베이스를 마이그레이션하거나 files 디렉토리를 잃어버리면 아이콘이 깨집니다. 둘째, 이 UI는 단일 레거시 ICO 파일만 허용하며 SVG 및 Apple Touch Icon과 같은 2026년의 최신 스택을 완전히 무시합니다.</p><h2>전문적인 Drupal 파비콘 설정 가이드</h2><p>이 작업을 제대로 수행하려면 UI를 우회하고 아이콘을 테마에 직접 주입해야 합니다. 코드를 건드리기 전에 Mzu favicondl을 사용하여 최신 아이콘 세트를 생성하세요. 선명한 SVG와 폴백 ICO가 필요합니다.</p><h3>1단계: 테마에 파일 배치</h3><p>공용 files 디렉토리 대신 사용자 정의 테마 내에 아이콘을 저장하세요. 정리를 위해 전용 폴더를 만들고 버전 관리를 적용합니다.</p><ul><li><code>/web/themes/custom/your_theme/</code>로 이동합니다.</li><li><code>icons</code>라는 디렉토리를 만듭니다.</li><li>이 폴더에 <code>favicon.svg</code>와 <code>favicon.ico</code>를 넣습니다.</li></ul><h3>2단계: html.html.twig 재정의</h3><p>Drupal 코어는 <code>html.html.twig</code> 템플릿을 통해 <code>&lt;head&gt;</code> 출력을 제어합니다. 테마에 이 파일이 아직 없는 경우 코어 시스템 모듈(<code>/core/modules/system/templates/html.html.twig</code>)에서 테마의 <code>/templates/layout/</code> 디렉토리로 복사합니다.</p><p>파일을 엽니다. <code>&lt;head-placeholder token=...&gt;</code> 태그가 보일 것입니다. 그 바로 아래에 Twig의 활성 테마 경로 변수를 사용하여 <a href="/blog/svg-favicon.html">최신 SVG 파비콘</a> 링크를 하드코딩합니다.</p><pre><code>&lt;link rel='icon' href='{{ active_theme_path() }}/icons/favicon.svg' type='image/svg+xml'&gt;
+&lt;link rel='alternate icon' href='{{ active_theme_path() }}/icons/favicon.ico'&gt;
+&lt;link rel='apple-touch-icon' href='{{ active_theme_path() }}/icons/apple-touch-icon.png'&gt;</code></pre><p>이렇게 하면 아이콘이 코드베이스와 함께 버전 관리되며 데이터베이스 상태에 의존하지 않게 됩니다.</p><h3>3단계: 코어 첨부 파일 제거</h3><p>Twig 태그를 하드코딩하더라도 Drupal이 페이지 첨부 파일을 통해 기본 아이콘 태그를 주입하여 DOM에 중복 태그가 발생할 수 있습니다. 이를 제거하기 위해 <code>your_theme.theme</code> 파일에서 전처리 후크를 사용합니다.</p><pre><code>/**
+ * Implements hook_page_attachments_alter().
+ */
+function your_theme_page_attachments_alter(array &amp;$attachments) {
+  foreach ($attachments['#attached']['html_head_link'] as $key =&gt; $value) {
+    if (isset($value[0]['rel']) &amp;&amp; $value[0]['rel'] === 'icon') {
+      unset($attachments['#attached']['html_head_link'][$key]);
+    }
+  }
+}</code></pre><p>이 스니펫은 페이지 빌드 프로세스를 가로채어 Drupal이 기본적으로 주입하려는 모든 아이콘 링크를 강제로 제거하고 깔끔한 Twig 구현만 남깁니다.</p><h2>Drupal 캐시 지우기</h2><p>코드를 아무리 많이 변경하더라도 캐시를 지울 때까지 Drupal은 이를 표시하지 않습니다. 렌더링 캐시는 매우 고집이 셉니다.</p><ol><li>터미널을 열고 프로젝트 루트로 이동합니다.</li><li><code>drush cr</code>(Cache Rebuild)을 실행합니다.</li><li>Varnish와 같은 리버스 프록시나 Cloudflare와 같은 CDN을 사용하는 경우 해당 캐시도 제거하세요.</li></ol><p>여전히 예전의 파란 물방울이 보인다면 브라우저가 이를 붙잡고 있을 가능성이 높습니다. 로컬 브라우저의 고집을 해결하려면 <a href="/blog/favicon-cache-clear.html">파비콘 캐시 강제 지우기 가이드</a>를 읽어보세요.</p><h2>Drupal 10/11의 일반적인 함정</h2><p>설정이 여전히 실패하는 경우 다음 일반적인 원인을 확인하세요.</p><ul><li><strong>파일 권한:</strong> <code>/icons/</code> 디렉토리를 웹 서버에서 읽을 수 있는지 확인합니다(일반적으로 디렉토리는 755, 파일은 644).</li><li><strong>기본 경로 문제:</strong> 하위 디렉토리에서 Drupal을 실행하는 경우 <code>active_theme_path()</code>에 기본 URL 접두사가 필요할 수 있습니다.</li><li><strong>테마 상속:</strong> 하위 테마(예: Radix 또는 Olivero 기반)를 구축하는 경우 상위 테마가 더 높은 우선순위의 후크를 통해 자체 아이콘을 주입하지 않는지 확인하세요.</li></ul><p>Drupal UI와 씨름하지 마세요. 아이콘 로직을 테마의 코드베이스로 이동하면 모든 브라우저 탭에서 안정적이고 버전 관리되는 전문적인 브랜드 입지를 확보할 수 있습니다.</p>
+        </div>
+
+        <div class="article-body" data-lang="es" style="display:none">
+            <p>Si alguna vez has lanzado un sitio Drupal 10 u 11 personalizado, conoces la rutina. Pasas semanas perfeccionando las plantillas Twig, configurando Views complejas y mapeando estructuras de taxonomía. Luego, abres Safari para admirar tu trabajo, y esa obstinada gota de agua azul de Drupal sigue mirándote desde la barra de pestañas.</p><p>Deshacerse de ese icono central por defecto requiere más que simplemente soltar una imagen en tu directorio público. El almacenamiento en caché agresivo de Drupal y la herencia de temas hacen que esta tarea, aparentemente simple, sea sorprendentemente frustrante. En esta <strong>drupal favicon setup guide</strong>, recorreremos los pasos exactos para reemplazar el icono del núcleo permanentemente, asegurando que tu marca se vea nítida en todos los dispositivos en 2026.</p><p>Mira cómo los grandes equipos empresariales (como Red Hat o las principales universidades) manejan sus plataformas Drupal. Rara vez confían en la interfaz de administración para los activos críticos de la marca. En su lugar, codifican un SVG moderno directamente en su capa de temas. Vamos a adoptar exactamente ese enfoque profesional.</p><h2>Por qué falla el método de la UI por defecto</h2><p>Drupal ofrece una forma integrada de cambiar el favicon. Si navegas a <strong>Appearance &gt; Settings &gt; Your Theme</strong>, encontrarás un interruptor para desmarcar el icono de acceso directo por defecto y subir uno personalizado.</p><p>Recomiendo encarecidamente no usar este método para sitios en producción.</p><p>¿Por qué? Primero, depende del sistema de archivos administrado, lo que significa que la URL de tu icono se verá como <code>/sites/default/files/favicon.ico</code>. Si alguna vez migras bases de datos o pierdes tu directorio de archivos, tu icono se rompe. Segundo, la UI solo acepta un único archivo ICO heredado, ignorando por completo la pila moderna de 2026 de SVGs y Apple Touch Icons.</p><h2>La Guía Profesional de Configuración de Favicon en Drupal</h2><p>Para hacer esto bien, necesitamos evitar la UI e inyectar nuestros iconos directamente en el tema. Antes de tocar ningún código, genera tu conjunto de iconos modernos usando Mzu favicondl. Necesitas un SVG nítido y un ICO de respaldo.</p><h3>Paso 1: Coloca los archivos en tu tema</h3><p>En lugar del directorio de archivos públicos, almacena tus iconos dentro de tu tema personalizado. Crea una carpeta dedicada para ellos para mantener las cosas organizadas y bajo control de versiones.</p><ul><li>Navega a <code>/web/themes/custom/your_theme/</code></li><li>Crea un directorio llamado <code>icons</code></li><li>Suelta tu <code>favicon.svg</code> y <code>favicon.ico</code> en esta carpeta.</li></ul><h3>Paso 2: Sobrescribe html.html.twig</h3><p>El núcleo de Drupal controla la salida del <code>&lt;head&gt;</code> a través de la plantilla <code>html.html.twig</code>. Si tu tema aún no tiene este archivo, cópialo desde el módulo del sistema central (<code>/core/modules/system/templates/html.html.twig</code>) al directorio <code>/templates/layout/</code> de tu tema.</p><p>Abre el archivo. Verás una etiqueta <code>&lt;head-placeholder token=...&gt;</code>. Justo debajo de eso, codifica tus enlaces de <a href="/blog/svg-favicon.html">favicon SVG moderno</a> usando la variable de ruta del tema activo de Twig.</p><pre><code>&lt;link rel='icon' href='{{ active_theme_path() }}/icons/favicon.svg' type='image/svg+xml'&gt;
+&lt;link rel='alternate icon' href='{{ active_theme_path() }}/icons/favicon.ico'&gt;
+&lt;link rel='apple-touch-icon' href='{{ active_theme_path() }}/icons/apple-touch-icon.png'&gt;</code></pre><p>Esto garantiza que tus iconos estén controlados por versiones con tu código base y nunca dependan del estado de la base de datos.</p><h3>Paso 3: Elimina el archivo adjunto del núcleo</h3><p>Incluso con tus etiquetas Twig codificadas, Drupal aún podría inyectar su etiqueta de icono por defecto a través de los archivos adjuntos de la página, causando etiquetas duplicadas en tu DOM. Para eliminarlo, usamos un hook de preprocesamiento en tu archivo <code>your_theme.theme</code>.</p><pre><code>/**
+ * Implements hook_page_attachments_alter().
+ */
+function your_theme_page_attachments_alter(array &amp;$attachments) {
+  foreach ($attachments['#attached']['html_head_link'] as $key =&gt; $value) {
+    if (isset($value[0]['rel']) &amp;&amp; $value[0]['rel'] === 'icon') {
+      unset($attachments['#attached']['html_head_link'][$key]);
+    }
+  }
+}</code></pre><p>Este fragmento intercepta el proceso de construcción de la página y elimina agresivamente cualquier enlace de icono que Drupal intente inyectar de forma nativa, dejando solo tu implementación limpia de Twig.</p><h2>Borrando la caché de Drupal</h2><p>Puedes hacer todos los cambios de código del mundo, pero Drupal no los mostrará hasta que borres la caché. La caché de renderizado es notoriamente obstinada.</p><ol><li>Abre tu terminal y navega a la raíz de tu proyecto.</li><li>Ejecuta <code>drush cr</code> (Cache Rebuild).</li><li>Si estás usando un proxy inverso como Varnish o un CDN como Cloudflare, purga esas cachés también.</li></ol><p>Si aún ves la vieja gota azul, es probable que tu navegador la esté reteniendo. Lee nuestra guía sobre <a href="/blog/favicon-cache-clear.html">cómo forzar el borrado de la caché del favicon</a> para resolver la obstinación del navegador local.</p><h2>Errores comunes en Drupal 10/11</h2><p>Si tu configuración sigue fallando, revisa estos culpables comunes:</p><ul><li><strong>Permisos de archivos:</strong> Asegúrate de que tu directorio <code>/icons/</code> sea legible por el servidor web (generalmente 755 para directorios, 644 para archivos).</li><li><strong>Problemas de ruta base:</strong> Si estás ejecutando Drupal en un subdirectorio, es posible que <code>active_theme_path()</code> necesite el prefijo de la URL base.</li><li><strong>Herencia de temas:</strong> Si estás construyendo un subtema (por ejemplo, basado en Radix u Olivero), asegúrate de que tu tema principal no esté inyectando sus propios iconos a través de un hook de mayor prioridad.</li></ul><p>Deja de pelear con la UI de Drupal. Al mover la lógica de tu icono a la base de código de tu tema, garantizas una presencia de marca estable, controlada por versiones y profesional en cada pestaña del navegador.</p>
+        </div>
+
+        <div class="cta-box">
+            <h3 data-en="Generate Your Drupal Icons Instantly" data-zh="一键生成你的 Drupal 图标集" data-ja="Drupal用アイコンを瞬時に生成" data-ko="Drupal 아이콘 즉시 생성" data-es="Genera tus Iconos para Drupal al Instante">Generate Your Drupal Icons Instantly</h3>
+            <p data-en="Stop manually resizing images. Use Mzu favicondl to generate the perfect SVG and ICO files for your Drupal theme in seconds." data-zh="别再手动调整图片尺寸了。使用 Mzu favicondl，几秒钟内为你的 Drupal 主题生成完美的 SVG 和 ICO 文件。" data-ja="手動での画像リサイズはもう不要です。Mzu favicondlを使用して、Drupalテーマに最適なSVGとICOファイルを数秒で生成しましょう。" data-ko="수동으로 이미지 크기를 조정하지 마세요. Mzu favicondl을 사용하여 몇 초 만에 Drupal 테마에 완벽한 SVG 및 ICO 파일을 생성하세요." data-es="Deja de redimensionar imágenes manualmente. Usa Mzu favicondl para generar los archivos SVG e ICO perfectos para tu tema de Drupal en segundos.">Stop manually resizing images. Use Mzu favicondl to generate the perfect SVG and ICO files for your Drupal theme in seconds.</p>
+            <a href="/index.html" class="cta-btn" data-en="Create Drupal Favicon →" data-zh="创建 Drupal Favicon →" data-ja="Drupal Faviconを作成 →" data-ko="Drupal 파비콘 만들기 →" data-es="Crear Favicon para Drupal →">Create Drupal Favicon →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/index.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Home" data-zh="首页">Home</a>
+                <a href="/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Blog" data-zh="博客">Blog</a>
+                <a href="/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Privacy" data-zh="隐私政策">Privacy</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js?v=20260211"></script>
+
+
+</body></html>
