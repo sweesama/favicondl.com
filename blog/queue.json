@@ -1360,7 +1360,9 @@
       "squarespace-favicon",
       "wix-favicon"
     ],
-    "status": "pending"
+    "status": "done",
+    "qualityScore": 85,
+    "qualityGrade": "A"
   },
   {
     "keyword": "ghost cms favicon",
