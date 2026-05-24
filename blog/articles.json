@@ -1967,5 +1967,26 @@
     ],
     "qualityScore": 85,
     "qualityGrade": "A"
+  },
+  {
+    "slug": "ghost-favicon",
+    "publishDate": "2026-05-24",
+    "titleEn": "How to Change Your Ghost CMS Favicon (2026 Pro Guide)",
+    "titleZh": "如何修改 Ghost CMS Favicon：2026 高阶开发者指南",
+    "titleJa": "Ghost CMSのFavicon設定ガイド：2026年版プロの手法",
+    "titleKo": "Ghost CMS 파비콘 변경 방법: 2026년 프로 개발자 가이드",
+    "titleEs": "Cómo cambiar el Favicon en Ghost CMS: Guía Pro 2026",
+    "descEn": "Stop showing the default ghost icon. Learn how to update your Ghost CMS favicon using the admin UI or pro-level code injection for SVG support in 2026.",
+    "descZh": "别再用默认的小幽灵图标了。学习如何在 2026 年通过 Ghost 后台或代码注入完美设置支持暗黑模式的 SVG Favicon。",
+    "descJa": "デフォルトのお化けアイコンから卒業しましょう。管理画面からの基本設定と、SVGに対応したコードインジェクションによる高度な設定方法を解説します。",
+    "descKo": "기본 유령 아이콘은 이제 그만! 관리자 UI와 코드 삽입을 통해 완벽한 Ghost CMS 파비콘을 설정하는 2026년 최신 방법을 알아보세요.",
+    "descEs": "Deja de mostrar el fantasma por defecto. Aprende a actualizar tu favicon en Ghost CMS usando la interfaz o inyección de código para SVGs en 2026.",
+    "keyword": "ghost cms favicon",
+    "tags": [
+      "cms",
+      "ghost"
+    ],
+    "qualityScore": 85,
+    "qualityGrade": "A"
   }
 ]
