@@ -1988,5 +1988,26 @@
     ],
     "qualityScore": 85,
     "qualityGrade": "A"
+  },
+  {
+    "slug": "favicon-cors",
+    "publishDate": "2026-05-25",
+    "titleEn": "Fix Favicon CORS Cross Origin Issues in 2 Minutes",
+    "titleZh": "两分钟解决 Favicon 跨域 (CORS) 报错问题",
+    "titleJa": "FaviconのCORS（オリジン間リソース共有）エラーを2分で解決",
+    "titleKo": "파비콘 CORS 교차 출처 문제 2분 만에 해결하기",
+    "titleEs": "Soluciona los Errores CORS de tu Favicon en 2 Minutos",
+    "descEn": "Browser console bleeding red with favicon CORS cross origin issues? Learn why your CDN is blocking your site icons and the exact HTML/server fixes for 2026.",
+    "descZh": "控制台满屏 Favicon 跨域报错？本文教你排查 CDN 拦截网站图标的根本原因，并提供 2026 年最新的 HTML 与服务器端修复方案。",
+    "descJa": "コンソールがFaviconのCORSエラーで真っ赤ですか？CDNがサイトアイコンをブロックする理由と、2026年最新のHTML/サーバー修正方法を解説します。",
+    "descKo": "브라우저 콘솔이 파비콘 CORS 에러로 붉게 물들었나요? CDN이 사이트 아이콘을 차단하는 이유와 2026년 최신 해결책을 알아보세요.",
+    "descEs": "¿La consola sangra en rojo por errores CORS del favicon? Descubre por qué tu CDN bloquea los iconos y las soluciones exactas de HTML/servidor para 2026.",
+    "keyword": "favicon cors cross origin issues",
+    "tags": [
+      "troubleshooting",
+      "advanced"
+    ],
+    "qualityScore": 85,
+    "qualityGrade": "A"
   }
 ]

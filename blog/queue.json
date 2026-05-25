@@ -1393,6 +1393,8 @@
       "favicon-not-showing",
       "favicon-cdn-hosting"
     ],
-    "status": "pending"
+    "status": "done",
+    "qualityScore": 85,
+    "qualityGrade": "A"
   }
 ]
