@@ -1846,5 +1846,755 @@
       "netlify-favicon"
     ],
     "status": "pending"
+  },
+  {
+    "keyword": "favicon checker online",
+    "slug": "favicon-checker-online",
+    "tags": [
+      "tools",
+      "checker"
+    ],
+    "intent": "tool-guide",
+    "depth": "standard",
+    "avoidOverlap": [
+      "favicon-testing-tools",
+      "check-website-favicon"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "favicon tester for all browsers",
+    "slug": "favicon-tester-all-browsers",
+    "tags": [
+      "tools",
+      "testing"
+    ],
+    "intent": "tool-guide",
+    "depth": "standard",
+    "avoidOverlap": [
+      "favicon-checker-online",
+      "favicon-testing-tools"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "download favicon from website url",
+    "slug": "download-favicon-from-url",
+    "tags": [
+      "tools",
+      "download"
+    ],
+    "intent": "tool-guide",
+    "depth": "standard",
+    "avoidOverlap": [
+      "how-to-download-favicon",
+      "copy-website-favicon"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "extract apple touch icon from website",
+    "slug": "extract-apple-touch-icon",
+    "tags": [
+      "tools",
+      "apple"
+    ],
+    "intent": "tool-guide",
+    "depth": "standard",
+    "avoidOverlap": [
+      "apple-touch-icon-guide",
+      "copy-website-favicon"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "extract svg favicon from website",
+    "slug": "extract-svg-favicon",
+    "tags": [
+      "tools",
+      "svg"
+    ],
+    "intent": "tool-guide",
+    "depth": "standard",
+    "avoidOverlap": [
+      "svg-favicon",
+      "svg-to-ico"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "website favicon downloader ico png svg",
+    "slug": "website-favicon-downloader-formats",
+    "tags": [
+      "tools",
+      "download"
+    ],
+    "intent": "tool-guide",
+    "depth": "standard",
+    "avoidOverlap": [
+      "download-favicon-from-url",
+      "ico-vs-png-favicon"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "favicon package generator",
+    "slug": "favicon-package-generator",
+    "tags": [
+      "tools",
+      "generator"
+    ],
+    "intent": "tool-guide",
+    "depth": "standard",
+    "avoidOverlap": [
+      "favicon-generator-free",
+      "create-favicon-online"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "complete favicon zip package",
+    "slug": "complete-favicon-zip-package",
+    "tags": [
+      "tools",
+      "generator"
+    ],
+    "intent": "informational",
+    "depth": "standard",
+    "avoidOverlap": [
+      "favicon-package-generator",
+      "favicon-file-formats"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "favicon html link tags generator",
+    "slug": "favicon-html-link-tags-generator",
+    "tags": [
+      "html",
+      "tools"
+    ],
+    "intent": "tool-guide",
+    "depth": "standard",
+    "avoidOverlap": [
+      "favicon-html-code",
+      "favicon-link-tag"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "favicon link rel icon examples",
+    "slug": "favicon-link-rel-icon-examples",
+    "tags": [
+      "html",
+      "code"
+    ],
+    "intent": "how-to",
+    "depth": "standard",
+    "avoidOverlap": [
+      "favicon-html-code",
+      "shortcut-icon"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "apple touch icon 180x180",
+    "slug": "apple-touch-icon-180x180",
+    "tags": [
+      "apple",
+      "sizes"
+    ],
+    "intent": "informational",
+    "depth": "standard",
+    "avoidOverlap": [
+      "apple-touch-icon-sizes",
+      "apple-touch-icon-guide"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "apple touch icon transparent background",
+    "slug": "apple-touch-icon-transparent-background",
+    "tags": [
+      "apple",
+      "design"
+    ],
+    "intent": "troubleshooting",
+    "depth": "standard",
+    "avoidOverlap": [
+      "favicon-transparent-background",
+      "apple-touch-icon-180x180"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "web app manifest icons 192 512",
+    "slug": "web-app-manifest-icons-192-512",
+    "tags": [
+      "pwa",
+      "manifest"
+    ],
+    "intent": "how-to",
+    "depth": "standard",
+    "avoidOverlap": [
+      "web-app-manifest-favicon",
+      "pwa-icon-requirements"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "site webmanifest icon sizes",
+    "slug": "site-webmanifest-icon-sizes",
+    "tags": [
+      "pwa",
+      "sizes"
+    ],
+    "intent": "how-to",
+    "depth": "standard",
+    "avoidOverlap": [
+      "favicon-webmanifest",
+      "web-app-manifest-icons-192-512"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "favicon ico root directory",
+    "slug": "favicon-ico-root-directory",
+    "tags": [
+      "html",
+      "troubleshooting"
+    ],
+    "intent": "how-to",
+    "depth": "standard",
+    "avoidOverlap": [
+      "favicon-404-error",
+      "favicon-html-code"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "favicon wrong file path fix",
+    "slug": "favicon-wrong-file-path",
+    "tags": [
+      "troubleshooting",
+      "fix"
+    ],
+    "intent": "troubleshooting",
+    "depth": "brief",
+    "avoidOverlap": [
+      "favicon-404-error",
+      "favicon-not-showing"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "favicon syntax error fix",
+    "slug": "favicon-syntax-error-fix",
+    "tags": [
+      "troubleshooting",
+      "html"
+    ],
+    "intent": "troubleshooting",
+    "depth": "brief",
+    "avoidOverlap": [
+      "favicon-html-code",
+      "favicon-link-tag"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "favicon link tag in head not body",
+    "slug": "favicon-link-tag-head-body",
+    "tags": [
+      "html",
+      "troubleshooting"
+    ],
+    "intent": "troubleshooting",
+    "depth": "brief",
+    "avoidOverlap": [
+      "favicon-syntax-error-fix",
+      "favicon-html-code"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "favicon not showing on localhost",
+    "slug": "favicon-not-showing-localhost",
+    "tags": [
+      "troubleshooting",
+      "local"
+    ],
+    "intent": "troubleshooting",
+    "depth": "brief",
+    "avoidOverlap": [
+      "favicon-not-showing",
+      "favicon-wrong-file-path"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "favicon not showing after clearing cache",
+    "slug": "favicon-not-showing-after-cache-clear",
+    "tags": [
+      "troubleshooting",
+      "cache"
+    ],
+    "intent": "troubleshooting",
+    "depth": "standard",
+    "avoidOverlap": [
+      "favicon-cache-clear",
+      "favicon-cache-busting"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "favicon not showing in google search results",
+    "slug": "favicon-not-showing-google-results",
+    "tags": [
+      "seo",
+      "troubleshooting"
+    ],
+    "intent": "troubleshooting",
+    "depth": "standard",
+    "avoidOverlap": [
+      "favicon-google-search-console",
+      "favicon-seo-impact"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "google favicon requirements 48x48",
+    "slug": "google-favicon-requirements-48x48",
+    "tags": [
+      "seo",
+      "google"
+    ],
+    "intent": "informational",
+    "depth": "standard",
+    "avoidOverlap": [
+      "favicon-not-showing-google-results",
+      "favicon-google-search-console"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "shopify favicon not showing on google",
+    "slug": "shopify-favicon-google-results",
+    "tags": [
+      "shopify",
+      "seo"
+    ],
+    "intent": "troubleshooting",
+    "depth": "standard",
+    "avoidOverlap": [
+      "favicon-shopify",
+      "favicon-not-showing-google-results"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "squarespace favicon not showing google",
+    "slug": "squarespace-favicon-google-results",
+    "tags": [
+      "squarespace",
+      "seo"
+    ],
+    "intent": "troubleshooting",
+    "depth": "standard",
+    "avoidOverlap": [
+      "squarespace-favicon",
+      "favicon-not-showing-google-results"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "wix favicon google search results",
+    "slug": "wix-favicon-google-results",
+    "tags": [
+      "wix",
+      "seo"
+    ],
+    "intent": "troubleshooting",
+    "depth": "standard",
+    "avoidOverlap": [
+      "wix-favicon",
+      "google-favicon-requirements-48x48"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "webflow favicon not updating",
+    "slug": "webflow-favicon-not-updating",
+    "tags": [
+      "webflow",
+      "troubleshooting"
+    ],
+    "intent": "troubleshooting",
+    "depth": "standard",
+    "avoidOverlap": [
+      "webflow-favicon",
+      "favicon-not-updating-deployment"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "nextjs app router favicon",
+    "slug": "nextjs-app-router-favicon",
+    "tags": [
+      "nextjs",
+      "framework"
+    ],
+    "intent": "how-to",
+    "depth": "standard",
+    "avoidOverlap": [
+      "nextjs-favicon",
+      "favicon-html-code"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "nextjs metadata icons favicon",
+    "slug": "nextjs-metadata-icons-favicon",
+    "tags": [
+      "nextjs",
+      "metadata"
+    ],
+    "intent": "how-to",
+    "depth": "standard",
+    "avoidOverlap": [
+      "nextjs-app-router-favicon",
+      "favicon-metadata-json"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "nextjs apple icon setup",
+    "slug": "nextjs-apple-icon",
+    "tags": [
+      "nextjs",
+      "apple"
+    ],
+    "intent": "how-to",
+    "depth": "standard",
+    "avoidOverlap": [
+      "nextjs-favicon",
+      "apple-touch-icon-guide"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "vite public folder favicon",
+    "slug": "vite-public-folder-favicon",
+    "tags": [
+      "vite",
+      "framework"
+    ],
+    "intent": "how-to",
+    "depth": "standard",
+    "avoidOverlap": [
+      "vite-favicon",
+      "react-favicon"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "react vite favicon not showing",
+    "slug": "react-vite-favicon-not-showing",
+    "tags": [
+      "react",
+      "vite"
+    ],
+    "intent": "troubleshooting",
+    "depth": "standard",
+    "avoidOverlap": [
+      "vite-public-folder-favicon",
+      "react-favicon"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "vue vite favicon public folder",
+    "slug": "vue-vite-favicon-public-folder",
+    "tags": [
+      "vue",
+      "vite"
+    ],
+    "intent": "how-to",
+    "depth": "standard",
+    "avoidOverlap": [
+      "vue-favicon",
+      "vite-public-folder-favicon"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "astro favicon public folder",
+    "slug": "astro-favicon-public-folder",
+    "tags": [
+      "astro",
+      "framework"
+    ],
+    "intent": "how-to",
+    "depth": "standard",
+    "avoidOverlap": [
+      "astro-favicon",
+      "static-site-generator-favicon"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "remix app favicon links",
+    "slug": "remix-app-favicon-links",
+    "tags": [
+      "remix",
+      "framework"
+    ],
+    "intent": "how-to",
+    "depth": "standard",
+    "avoidOverlap": [
+      "remix-favicon",
+      "favicon-html-code"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "sveltekit app.html favicon",
+    "slug": "sveltekit-app-html-favicon",
+    "tags": [
+      "sveltekit",
+      "framework"
+    ],
+    "intent": "how-to",
+    "depth": "standard",
+    "avoidOverlap": [
+      "sveltekit-favicon",
+      "favicon-html-code"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "nuxt app head favicon",
+    "slug": "nuxt-app-head-favicon",
+    "tags": [
+      "nuxt",
+      "framework"
+    ],
+    "intent": "how-to",
+    "depth": "standard",
+    "avoidOverlap": [
+      "nuxt-favicon",
+      "vue-favicon"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "svg favicon with png fallback",
+    "slug": "svg-favicon-png-fallback",
+    "tags": [
+      "svg",
+      "format"
+    ],
+    "intent": "how-to",
+    "depth": "standard",
+    "avoidOverlap": [
+      "svg-favicon",
+      "favicon-file-formats"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "svg favicon dark mode media query",
+    "slug": "svg-favicon-dark-mode-media-query",
+    "tags": [
+      "svg",
+      "dark-mode"
+    ],
+    "intent": "how-to",
+    "depth": "standard",
+    "avoidOverlap": [
+      "favicon-dark-mode",
+      "svg-favicon"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "png favicon 96x96 google",
+    "slug": "png-favicon-96x96-google",
+    "tags": [
+      "png",
+      "google"
+    ],
+    "intent": "informational",
+    "depth": "standard",
+    "avoidOverlap": [
+      "google-favicon-requirements-48x48",
+      "favicon-sizes-guide"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "favicon ico multiple sizes 16 32 48",
+    "slug": "favicon-ico-multiple-sizes-16-32-48",
+    "tags": [
+      "ico",
+      "sizes"
+    ],
+    "intent": "informational",
+    "depth": "standard",
+    "avoidOverlap": [
+      "multi-size-favicon-ico",
+      "favicon-ico-size"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "favicon sizes for mobile home screen",
+    "slug": "favicon-sizes-mobile-home-screen",
+    "tags": [
+      "mobile",
+      "sizes"
+    ],
+    "intent": "informational",
+    "depth": "standard",
+    "avoidOverlap": [
+      "favicon-mobile",
+      "home-screen-icon"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "favicon for android add to home screen",
+    "slug": "android-add-to-home-screen-favicon",
+    "tags": [
+      "android",
+      "pwa"
+    ],
+    "intent": "how-to",
+    "depth": "standard",
+    "avoidOverlap": [
+      "favicon-android-chrome",
+      "home-screen-icon"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "browser chooses wrong favicon",
+    "slug": "browser-chooses-wrong-favicon",
+    "tags": [
+      "browser",
+      "troubleshooting"
+    ],
+    "intent": "troubleshooting",
+    "depth": "standard",
+    "avoidOverlap": [
+      "multiple-favicons",
+      "favicon-cache-clear"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "multiple favicon link tags order",
+    "slug": "multiple-favicon-link-tags-order",
+    "tags": [
+      "html",
+      "advanced"
+    ],
+    "intent": "how-to",
+    "depth": "standard",
+    "avoidOverlap": [
+      "multiple-favicons",
+      "favicon-html-code"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "favicon fallback strategy",
+    "slug": "favicon-fallback-strategy",
+    "tags": [
+      "advanced",
+      "compatibility"
+    ],
+    "intent": "informational",
+    "depth": "standard",
+    "avoidOverlap": [
+      "svg-favicon-png-fallback",
+      "favicon-file-formats"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "favicon compatibility test",
+    "slug": "favicon-compatibility-test",
+    "tags": [
+      "testing",
+      "compatibility"
+    ],
+    "intent": "tool-guide",
+    "depth": "standard",
+    "avoidOverlap": [
+      "favicon-tester-all-browsers",
+      "favicon-testing-tools"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "favicon generator for brand logo",
+    "slug": "favicon-generator-brand-logo",
+    "tags": [
+      "generator",
+      "branding"
+    ],
+    "intent": "tool-guide",
+    "depth": "standard",
+    "avoidOverlap": [
+      "favicon-from-logo",
+      "favicon-generator-free"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "make favicon from initials",
+    "slug": "make-favicon-from-initials",
+    "tags": [
+      "text",
+      "generator"
+    ],
+    "intent": "how-to",
+    "depth": "brief",
+    "avoidOverlap": [
+      "favicon-generator-text",
+      "favicon-emoji"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "make favicon from emoji online",
+    "slug": "make-favicon-from-emoji-online",
+    "tags": [
+      "emoji",
+      "generator"
+    ],
+    "intent": "tool-guide",
+    "depth": "brief",
+    "avoidOverlap": [
+      "favicon-emoji",
+      "favicon-generator-text"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "jpg to favicon converter",
+    "slug": "jpg-to-favicon-converter",
+    "tags": [
+      "conversion",
+      "tools"
+    ],
+    "intent": "tool-guide",
+    "depth": "standard",
+    "avoidOverlap": [
+      "png-to-favicon",
+      "make-favicon-from-image"
+    ],
+    "status": "pending"
   }
 ]

@@ -177,6 +177,7 @@ https://www.google.com/s2/favicons?domain={域名}&sz={尺寸}
 - ✅ **补充博客关键词库存**：`blog/queue.json` 新增 30 个 `pending` 关键词，恢复每日自动发布。
 - ✅ **排查飞书 0 库存通知**：飞书通知读取的是 GitHub 远端仓库状态；远端队列已全部 `done` 时会持续提示“剩余 0 篇”。本地如果未及时 `git pull`，可能看到旧的 `pending` 状态，造成误判。
 - ✅ **后续维护建议**：收到“关键词已耗尽”通知后，先同步远端最新代码，再检查 `blog/queue.json` 的 `pending` 数量；补充关键词后需要提交并推送到 GitHub，自动任务才会恢复。
+- ✅ **数据支撑关键词扩展**：基于 RealFaviconGenerator、Favicon.io、Next.js 官方文档、Wix/Squarespace 帮助文档、Shopify/Squarespace 用户社区和 SEOptimer 故障排查内容，额外补充 50 个高相关 `pending` 关键词；调研记录见 `blog/keyword-research.md`。
 
 ### v1.4.0 (2026-03-10)
 - ✅ **8 维度质量评分器**：自动评估文章质量（A/B/C 评级），评分记录到 articles.json
