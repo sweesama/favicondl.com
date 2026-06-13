@@ -1396,5 +1396,455 @@
     "status": "done",
     "qualityScore": 85,
     "qualityGrade": "A"
+  },
+  {
+    "keyword": "favicon for microsoft edge setup",
+    "slug": "microsoft-edge-favicon",
+    "tags": [
+      "browser",
+      "edge"
+    ],
+    "intent": "how-to",
+    "depth": "standard",
+    "avoidOverlap": [
+      "browser-tab-favicon",
+      "favicon-not-showing-chrome"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "favicon for firefox browser guide",
+    "slug": "firefox-favicon-guide",
+    "tags": [
+      "browser",
+      "firefox"
+    ],
+    "intent": "informational",
+    "depth": "standard",
+    "avoidOverlap": [
+      "browser-tab-favicon",
+      "favicon-cache-clear"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "favicon not updating after deployment",
+    "slug": "favicon-not-updating-deployment",
+    "tags": [
+      "troubleshooting",
+      "deployment"
+    ],
+    "intent": "troubleshooting",
+    "depth": "standard",
+    "avoidOverlap": [
+      "favicon-cache-clear",
+      "favicon-not-showing"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "favicon cache busting best practices",
+    "slug": "favicon-cache-busting",
+    "tags": [
+      "performance",
+      "troubleshooting"
+    ],
+    "intent": "how-to",
+    "depth": "standard",
+    "avoidOverlap": [
+      "favicon-cache-clear",
+      "favicon-performance"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "favicon for ecommerce websites",
+    "slug": "ecommerce-favicon",
+    "tags": [
+      "ecommerce",
+      "branding"
+    ],
+    "intent": "informational",
+    "depth": "standard",
+    "avoidOverlap": [
+      "favicon-branding-strategy",
+      "favicon-for-seo"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "favicon for saas landing pages",
+    "slug": "saas-landing-page-favicon",
+    "tags": [
+      "saas",
+      "branding"
+    ],
+    "intent": "informational",
+    "depth": "standard",
+    "avoidOverlap": [
+      "favicon-branding-strategy",
+      "favicon-design-tips"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "favicon for portfolio website",
+    "slug": "portfolio-website-favicon",
+    "tags": [
+      "portfolio",
+      "design"
+    ],
+    "intent": "how-to",
+    "depth": "brief",
+    "avoidOverlap": [
+      "favicon-design-tips",
+      "favicon-from-logo"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "favicon for personal blog",
+    "slug": "personal-blog-favicon",
+    "tags": [
+      "blog",
+      "branding"
+    ],
+    "intent": "how-to",
+    "depth": "brief",
+    "avoidOverlap": [
+      "website-icon-guide",
+      "favicon-design-tips"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "favicon for news website",
+    "slug": "news-website-favicon",
+    "tags": [
+      "media",
+      "branding"
+    ],
+    "intent": "informational",
+    "depth": "standard",
+    "avoidOverlap": [
+      "favicon-branding-strategy",
+      "favicon-for-seo"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "favicon visual hierarchy design",
+    "slug": "favicon-visual-hierarchy",
+    "tags": [
+      "design",
+      "advanced"
+    ],
+    "intent": "informational",
+    "depth": "standard",
+    "avoidOverlap": [
+      "favicon-design-tips",
+      "favicon-color-palette"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "favicon contrast ratio guide",
+    "slug": "favicon-contrast-ratio",
+    "tags": [
+      "design",
+      "accessibility"
+    ],
+    "intent": "how-to",
+    "depth": "standard",
+    "avoidOverlap": [
+      "favicon-accessibility",
+      "favicon-color-matching"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "favicon monochrome design guide",
+    "slug": "favicon-monochrome-design",
+    "tags": [
+      "design",
+      "branding"
+    ],
+    "intent": "informational",
+    "depth": "standard",
+    "avoidOverlap": [
+      "safari-pinned-tab-icon",
+      "favicon-design-tips"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "favicon shape psychology",
+    "slug": "favicon-shape-psychology",
+    "tags": [
+      "design",
+      "branding"
+    ],
+    "intent": "informational",
+    "depth": "standard",
+    "avoidOverlap": [
+      "favicon-branding-strategy",
+      "favicon-color-palette"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "favicon for startup brand identity",
+    "slug": "startup-brand-favicon",
+    "tags": [
+      "startup",
+      "branding"
+    ],
+    "intent": "informational",
+    "depth": "standard",
+    "avoidOverlap": [
+      "favicon-branding-strategy",
+      "saas-landing-page-favicon"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "favicon audit checklist",
+    "slug": "favicon-audit-checklist",
+    "tags": [
+      "seo",
+      "checklist"
+    ],
+    "intent": "tool-guide",
+    "depth": "standard",
+    "avoidOverlap": [
+      "favicon-testing-tools",
+      "check-website-favicon"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "favicon migration checklist",
+    "slug": "favicon-migration-checklist",
+    "tags": [
+      "deployment",
+      "checklist"
+    ],
+    "intent": "how-to",
+    "depth": "standard",
+    "avoidOverlap": [
+      "favicon-cache-busting",
+      "favicon-not-updating-deployment"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "favicon for subdomains",
+    "slug": "subdomain-favicon",
+    "tags": [
+      "advanced",
+      "seo"
+    ],
+    "intent": "how-to",
+    "depth": "standard",
+    "avoidOverlap": [
+      "multiple-favicons",
+      "favicon-cdn-hosting"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "favicon for multilingual websites",
+    "slug": "multilingual-website-favicon",
+    "tags": [
+      "i18n",
+      "seo"
+    ],
+    "intent": "informational",
+    "depth": "standard",
+    "avoidOverlap": [
+      "multiple-favicons",
+      "favicon-for-seo"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "favicon and open graph image difference",
+    "slug": "favicon-vs-open-graph-image",
+    "tags": [
+      "seo",
+      "comparison"
+    ],
+    "intent": "comparison",
+    "depth": "standard",
+    "avoidOverlap": [
+      "favicon-vs-logo",
+      "favicon-metadata-json"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "favicon and app icon difference",
+    "slug": "favicon-vs-app-icon",
+    "tags": [
+      "comparison",
+      "mobile"
+    ],
+    "intent": "comparison",
+    "depth": "standard",
+    "avoidOverlap": [
+      "web-app-manifest-favicon",
+      "home-screen-icon"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "favicon for ai tools website",
+    "slug": "ai-tools-website-favicon",
+    "tags": [
+      "ai",
+      "branding"
+    ],
+    "intent": "informational",
+    "depth": "standard",
+    "avoidOverlap": [
+      "favicon-branding-strategy",
+      "favicon-design-tips"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "favicon for developer tools website",
+    "slug": "developer-tools-favicon",
+    "tags": [
+      "developer-tools",
+      "branding"
+    ],
+    "intent": "informational",
+    "depth": "standard",
+    "avoidOverlap": [
+      "favicon-testing-tools",
+      "favicon-branding-strategy"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "favicon for no code websites",
+    "slug": "no-code-website-favicon",
+    "tags": [
+      "no-code",
+      "cms"
+    ],
+    "intent": "how-to",
+    "depth": "standard",
+    "avoidOverlap": [
+      "webflow-favicon",
+      "wix-favicon"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "favicon for static site generators",
+    "slug": "static-site-generator-favicon",
+    "tags": [
+      "framework",
+      "static-site"
+    ],
+    "intent": "how-to",
+    "depth": "standard",
+    "avoidOverlap": [
+      "astro-favicon",
+      "gatsby-favicon"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "favicon for vite app",
+    "slug": "vite-favicon",
+    "tags": [
+      "framework",
+      "vite"
+    ],
+    "intent": "how-to",
+    "depth": "standard",
+    "avoidOverlap": [
+      "react-favicon",
+      "vue-favicon"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "favicon for sveltekit app",
+    "slug": "sveltekit-favicon",
+    "tags": [
+      "framework",
+      "sveltekit"
+    ],
+    "intent": "how-to",
+    "depth": "standard",
+    "avoidOverlap": [
+      "vite-favicon",
+      "static-site-generator-favicon"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "favicon for nuxt app",
+    "slug": "nuxt-favicon",
+    "tags": [
+      "framework",
+      "nuxt"
+    ],
+    "intent": "how-to",
+    "depth": "standard",
+    "avoidOverlap": [
+      "vue-favicon",
+      "vite-favicon"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "favicon for cloudflare pages",
+    "slug": "cloudflare-pages-favicon",
+    "tags": [
+      "hosting",
+      "cloudflare"
+    ],
+    "intent": "how-to",
+    "depth": "standard",
+    "avoidOverlap": [
+      "github-pages-favicon",
+      "favicon-cdn-hosting"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "favicon for netlify deployment",
+    "slug": "netlify-favicon",
+    "tags": [
+      "hosting",
+      "netlify"
+    ],
+    "intent": "how-to",
+    "depth": "standard",
+    "avoidOverlap": [
+      "cloudflare-pages-favicon",
+      "github-pages-favicon"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "favicon for vercel deployment",
+    "slug": "vercel-favicon",
+    "tags": [
+      "hosting",
+      "vercel"
+    ],
+    "intent": "how-to",
+    "depth": "standard",
+    "avoidOverlap": [
+      "nextjs-favicon",
+      "netlify-favicon"
+    ],
+    "status": "pending"
   }
 ]
