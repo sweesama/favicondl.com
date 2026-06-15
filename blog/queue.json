@@ -1427,7 +1427,9 @@
       "browser-tab-favicon",
       "favicon-cache-clear"
     ],
-    "status": "pending"
+    "status": "done",
+    "qualityScore": 85,
+    "qualityGrade": "A"
   },
   {
     "keyword": "favicon not updating after deployment",

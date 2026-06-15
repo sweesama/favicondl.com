@@ -2030,5 +2030,26 @@
     ],
     "qualityScore": 85,
     "qualityGrade": "A"
+  },
+  {
+    "slug": "firefox-favicon-guide",
+    "publishDate": "2026-06-15",
+    "titleEn": "Favicon for Firefox Browser Guide: Taming Mozilla in 2026",
+    "titleZh": "Firefox 浏览器 Favicon 指南：2026年开发者避坑手册",
+    "titleJa": "Firefox向けFavicon設定ガイド：2026年の開発者向けベストプラクティス",
+    "titleKo": "파이어폭스 브라우저 파비콘 가이드: 2026년 개발자를 위한 완벽 설정",
+    "titleEs": "Guía de Favicon para Firefox: Dominando Mozilla en 2026",
+    "descEn": "Learn how to configure your favicon for Firefox. Master strict SVG parsing, container tabs, and cache busting in this 2026 developer guide.",
+    "descZh": "了解如何为 Firefox 正确配置 Favicon。掌握严格的 SVG 解析、容器标签页适配以及缓存清理技巧，专为 2026 年开发者打造。",
+    "descJa": "Firefox向けにFaviconを正しく設定する方法を解説。厳格なSVG解析、コンテナタブ、キャッシュクリアの仕様をマスターしましょう。",
+    "descKo": "파이어폭스 브라우저에 맞는 파비콘 설정 방법을 알아봅니다. 엄격한 SVG 파싱, 컨테이너 탭, 캐시 무효화 기법을 마스터하세요.",
+    "descEs": "Aprende a configurar tu favicon para Firefox. Domina el análisis estricto de SVG, las pestañas contenedoras y la limpieza de caché en 2026.",
+    "keyword": "favicon for firefox browser guide",
+    "tags": [
+      "browser",
+      "firefox"
+    ],
+    "qualityScore": 85,
+    "qualityGrade": "A"
   }
 ]
