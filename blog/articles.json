@@ -2051,5 +2051,26 @@
     ],
     "qualityScore": 85,
     "qualityGrade": "A"
+  },
+  {
+    "slug": "favicon-not-updating-deployment",
+    "publishDate": "2026-06-16",
+    "titleEn": "Favicon Not Updating After Deployment? The 2-Minute Fix",
+    "titleZh": "部署后 Favicon 没有更新？2分钟快速修复指南",
+    "titleJa": "デプロイ後にFaviconが更新されない？2分で直す解決策",
+    "titleKo": "배포 후 파비콘이 업데이트되지 않나요? 2분 해결 가이드",
+    "titleEs": "¿El Favicon No Se Actualiza Tras Desplegar? Solución Rápida",
+    "descEn": "Is your favicon not updating after deployment? Learn how to bypass CDN edge caches, fix service worker traps, and force browsers to show your new site icon.",
+    "descZh": "网站部署后浏览器标签页还在显示旧版图标？本文教你如何绕过 CDN 节点缓存、修复 Service Worker 陷阱，强制刷新 Favicon。",
+    "descJa": "デプロイ後に古いFaviconが表示されたままですか？CDNエッジキャッシュの回避やService Workerの罠を修正し、新しいアイコンを強制表示する方法を解説します。",
+    "descKo": "배포 후에도 예전 파비콘이 보이나요? CDN 캐시를 우회하고 서비스 워커 문제를 해결하여 새 아이콘을 강제로 표시하는 방법을 알아보세요.",
+    "descEs": "¿Tu favicon no se actualiza después de un despliegue? Aprende a evitar la caché del CDN y forzar a los navegadores a mostrar tu nuevo icono.",
+    "keyword": "favicon not updating after deployment",
+    "tags": [
+      "troubleshooting",
+      "deployment"
+    ],
+    "qualityScore": 85,
+    "qualityGrade": "A"
   }
 ]
