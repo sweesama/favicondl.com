@@ -3270,4 +3270,34 @@
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
+  <url>
+    <loc>https://favicondl.com/blog/saas-landing-page-favicon.html</loc>
+    <lastmod>2026-06-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://favicondl.com/zh/blog/saas-landing-page-favicon.html</loc>
+    <lastmod>2026-06-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://favicondl.com/ja/blog/saas-landing-page-favicon.html</loc>
+    <lastmod>2026-06-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://favicondl.com/ko/blog/saas-landing-page-favicon.html</loc>
+    <lastmod>2026-06-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://favicondl.com/es/blog/saas-landing-page-favicon.html</loc>
+    <lastmod>2026-06-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
 </urlset>

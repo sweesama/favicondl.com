@@ -1495,7 +1495,9 @@
       "favicon-branding-strategy",
       "favicon-design-tips"
     ],
-    "status": "pending"
+    "status": "done",
+    "qualityScore": 75,
+    "qualityGrade": "B"
   },
   {
     "keyword": "favicon for portfolio website",
