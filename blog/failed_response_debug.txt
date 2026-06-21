@@ -1,40 +1,627 @@
 {
-  "titleEn": "Favicon Not Updating After Deployment? The CI/CD Fix",
-  "titleZh": "部署后Favicon不更新？前端缓存与CDN排雷指南",
-  "titleJa": "デプロイ後にFaviconが更新されない？CDNとビルドの解決策",
-  "titleKo": "배포 후 파비콘 업데이트가 안 되나요? CI/CD 캐시 해결법",
-  "titleEs": "¿Favicon no se actualiza tras desplegar? Solución CI/CD",
-  "descEn": "Is your favicon not updating after deployment? Learn how to bypass CDN edge caching, fix build tool blind spots, and force global icon updates.",
-  "descZh": "网站部署后Favicon图标依然是旧的？本文教你如何绕过CDN边缘缓存、修复打包工具的盲区，并强制全局更新浏览器标签页图标。",
-  "descJa": "デプロイ後にFaviconが更新されない問題を解決。CDNのエッジキャッシュ回避、ビルドツールの設定ミス修正、強制更新のテクニックを解説します。",
-  "descKo": "배포 후에도 이전 파비콘이 보이나요? CDN 엣지 캐시를 우회하고 빌드 도구의 사각지대를 해결하여 전역 아이콘 업데이트를 강제하는 방법을 알아보세요.",
-  "descEs": "¿Tu favicon no se actualiza tras el despliegue? Aprende a evitar la caché del CDN, corregir herramientas de build y forzar la actualización global.",
-  "metaKeywords": "favicon not updating, deployment cache, CDN favicon, cache busting",
-  "breadcrumbEn": "Deployment Fixes",
-  "breadcrumbZh": "部署修复",
-  "breadcrumbJa": "デプロイ修正",
-  "breadcrumbKo": "배포 문제 해결",
-  "breadcrumbEs": "Soluciones de Despliegue",
-  "contentEn": "<p>You just merged a massive rebranding pull request. The deployment pipeline on Vercel goes green. You open the live production URL, and the new UI looks crisp. But looking up at the browser tab, the old logo is still staring back at you. If your favicon not updating after deployment is driving you crazy, you are experiencing one of the most stubborn caching layers in modern web development.</p><p>The immediate reaction is usually to mash Cmd+Shift+R. While that might fix your local view (a topic we covered in our <a href='/blog/favicon-cache-clear.html'>favicon cache clear guide</a>), it does absolutely nothing for your actual users. They are still seeing the outdated brand asset. To fix this globally, we need to look at your deployment pipeline, not your browser.</p><h2>The Quick Fix: Cache Busting Your HTML</h2><p>People are in a hurry, so here is the immediate solution. You need to force the browser and the CDN to treat the new favicon as a completely different file. You do this by appending a query string to the file path in your HTML head.</p><pre><code>&lt;!-- Change this --&gt;\n&lt;link rel='icon' href='/favicon.svg'&gt;\n\n&lt;!-- To this --&gt;\n&lt;link rel='icon' href='/favicon.svg?v=2026.1'&gt;</code></pre><p>When the browser parses the updated HTML, it sees the <code>?v=2026.1</code> parameter. Because the URL string is technically different, the browser bypasses its local cache and requests the file fresh from the server. More importantly, your CDN treats this as a cache miss and fetches the new asset from your origin server.</p><h2>Root Cause 1: CDN and Edge Caching</h2><p>If you use Cloudflare, AWS CloudFront, or Fastly, your static assets are distributed across edge nodes globally. CDNs are configured to cache image files (like <code>.ico</code>, <code>.png</code>, and <code>.svg</code>) aggressively. They often have a Time To Live (TTL) of 30 days or more.</p><p>When your CI/CD pipeline finishes, it updates the files on your origin server. However, unless your deployment script explicitly includes a CDN invalidation step, the edge nodes will happily continue serving the old favicon until the TTL expires. Adding the query string mentioned above bypasses this, but a cleaner architectural fix is to trigger a cache invalidation for <code>/favicon.*</code> automatically upon successful deployment.</p><h2>Root Cause 2: Build Tool Blind Spots</h2><p>Modern frameworks like Next.js, Vite, and Nuxt use content hashing for JavaScript and CSS files. A file named <code>app.js</code> becomes <code>app-8f7d6a.js</code>. This guarantees that new deployments bust the cache automatically.</p><p>However, favicons are usually placed in a <code>/public</code> or <code>/static</code> directory. Build tools intentionally ignore these folders during the hashing process, copying them directly to the output folder untouched. If you are struggling with a <a href='/blog/nextjs-favicon.html'>Next.js favicon setup</a>, this is likely why your icon isn't updating. The HTML references exactly the same filename, so the browser assumes the file content hasn't changed.</p><h3>How the Giants Handle It</h3><p>Look at how Google handles updates across their Workspace apps. They don't rely on replacing a static <code>favicon.ico</code> at the root level. Instead, they use versioned SVG files injected directly into the document head. When you switch accounts or receive a notification, the HTML swaps the link tag to a uniquely hashed URL, ensuring the tab icon updates the exact millisecond the new DOM is parsed.</p><h2>Root Cause 3: The Service Worker Trap</h2><p>If your site is a Progressive Web App (PWA), you have a service worker intercepting network requests. Service workers are notorious for clinging to old assets. If your <code>manifest.json</code> or service worker caching strategy includes your favicon files, the browser will serve the cached icon even if the network has a newer version.</p><ul><li><strong>The Fix:</strong> Update the version number in your service worker script.</li><li><strong>The Verification:</strong> Open Chrome DevTools, go to the Application tab, unregister the current service worker, and reload.</li></ul><h2>Prevention Tips for 2026</h2><p>To stop fighting your deployment pipeline every time you rebrand, adopt a modern favicon strategy. Stop relying on the implicit <code>/favicon.ico</code> request that browsers make by default. Instead, explicitly declare your icons in the HTML and use a build plugin to inject content hashes into your image filenames.</p><p>When you generate your icon stack using Mzu favicondl, you receive a clean, minimal set of files (SVG, PNG, and Apple Touch Icon). Keep these files versioned in your repository, and whenever you update them, simply bump the query string version in your base HTML template. It takes two seconds and guarantees a flawless rollout for every user, every time.</p>",
-  "contentZh": "<p>你刚合并了一个巨大的品牌重塑PR。Vercel上的部署流水线一路绿灯。你打开生产环境的URL，新的UI看起来非常清爽。但是，当你抬头看向浏览器标签页时，旧的Logo依然在那里嘲笑你。如果部署后Favicon不更新的问题让你抓狂，那么你正在经历现代Web开发中最顽固的缓存层之一。</p><p>开发者的第一反应通常是狂按 Cmd+Shift+R。虽然这可能会修复你本地的视图（我们在<a href='/blog/favicon-cache-clear.html'>Favicon清除缓存指南</a>中讨论过），但这对你的实际用户毫无帮助。他们看到的仍然是过时的品牌图标。要全局修复这个问题，我们需要检查你的部署流水线，而不是你的浏览器。</p><h2>快速修复：HTML缓存破坏（Cache Busting）</h2><p>大家都赶时间，所以先上最直接的解决方案。你需要强制浏览器和CDN将新的Favicon视为一个完全不同的文件。你可以通过在HTML的link标签路径后追加查询字符串来实现。</p><pre><code>&lt;!-- 把这个 --&gt;\n&lt;link rel='icon' href='/favicon.svg'&gt;\n\n&lt;!-- 改成这样 --&gt;\n&lt;link rel='icon' href='/favicon.svg?v=2026.1'&gt;</code></pre><p>当浏览器解析更新后的HTML时，它会看到 <code>?v=2026.1</code> 参数。因为URL字符串在技术上是不同的，浏览器会绕过本地缓存，向服务器请求最新的文件。更重要的是，你的CDN（如阿里云或Cloudflare）会将其视为缓存未命中，从而回源拉取新资产。</p><h2>根本原因 1：CDN与边缘缓存</h2><p>如果你使用了CDN服务，你的静态资产会被分发到全球的边缘节点。CDN通常被配置为激进地缓存图片文件（如 <code>.ico</code>、<code>.png</code> 和 <code>.svg</code>），它们的生存时间（TTL）通常长达30天甚至更久。</p><p>当你的CI/CD流水线完成时，它更新了源站上的文件。然而，除非你的部署脚本明确包含CDN刷新步骤，否则边缘节点将继续愉快地提供旧的Favicon，直到TTL过期。添加上面提到的查询字符串可以绕过这个问题，但更优雅的架构修复方案是在部署成功后自动触发 <code>/favicon.*</code> 的缓存刷新API。</p><h2>根本原因 2：打包工具的盲区</h2><p>像 Next.js、Vite 和 Webpack 这样的现代框架对 JavaScript 和 CSS 文件使用内容哈希。一个名为 <code>app.js</code> 的文件会变成 <code>app-8f7d6a.js</code>。这保证了新部署会自动破坏缓存。</p><p>然而，Favicon通常放在 <code>/public</code> 或 <code>/static</code> 目录中。打包工具在哈希过程中会故意忽略这些文件夹，将它们原封不动地直接复制到输出目录。如果你在配置 <a href='/blog/nextjs-favicon.html'>Next.js Favicon</a> 时遇到困难，这很可能就是图标不更新的原因。HTML引用的文件名完全相同，因此浏览器认为文件内容没有改变。</p><h3>大厂是如何处理的</h3><p>看看Google是如何在他们的Workspace应用中处理更新的。他们不依赖于替换根目录下的静态 <code>favicon.ico</code>。相反，他们使用带有版本号的SVG文件直接注入到文档头部。当你切换账号或收到通知时，HTML会将link标签切换到一个带有唯一哈希URL的地址，确保标签页图标在新DOM解析的瞬间立即更新。</p><h2>根本原因 3：Service Worker陷阱</h2><p>如果你的网站是一个渐进式Web应用（PWA），你可能有一个Service Worker在拦截网络请求。Service Worker以死死抓住旧资产不放而闻名。如果你的 <code>manifest.json</code> 或Service Worker缓存策略包含了Favicon文件，即使网络上有新版本，浏览器也会提供缓存的图标。</p><ul><li><strong>修复方法：</strong> 更新Service Worker脚本中的版本号。</li><li><strong>验证方法：</strong> 打开Chrome开发者工具，进入Application面板，注销当前的Service Worker，然后重新加载。</li></ul><h2>2026年的预防建议</h2><p>为了不再每次重塑品牌时都和部署流水线搏斗，请采用现代的Favicon策略。停止依赖浏览器默认发起的隐式 <code>/favicon.ico</code> 请求。相反，在HTML中显式声明你的图标，并使用构建插件将内容哈希注入到你的图片文件名中。</p><p>当你使用 Mzu favicondl 生成图标栈时，你会得到一组干净、极简的文件（SVG、PNG和Apple Touch Icon）。将这些文件纳入版本控制，每当更新它们时，只需在基础HTML模板中增加查询字符串的版本号。这只需要两秒钟，就能保证每次都能为每个用户完美发布。</p>",
-  "contentJa": "<p>大規模なリブランディングのプルリクエストをマージしたばかりだとします。Vercel上のデプロイパイプラインは無事にグリーン（成功）となりました。本番環境のURLを開くと、新しいUIが鮮明に表示されています。しかし、ブラウザのタブを見上げると、古いロゴがまだこちらを見つめています。デプロイ後にFaviconが更新されない問題に悩まされているなら、あなたは現代のWeb開発において最も頑固なキャッシュレイヤーに直面していることになります。</p><p>開発者の最初の反応は、大抵Cmd+Shift+Rを連打することです。これによりローカルの表示は直るかもしれませんが（これについては<a href='/blog/favicon-cache-clear.html'>Faviconキャッシュクリアガイド</a>で解説しています）、実際のユーザーには何の効果もありません。ユーザーは依然として古いブランドアセットを見ているのです。これをグローバルに修正するには、ブラウザではなくデプロイパイプラインに目を向ける必要があります。</p><h2>即効性のある解決策：HTMLのキャッシュバスター</h2><p>急いでいる方のために、まずは即効性のある解決策を紹介します。ブラウザとCDNに、新しいFaviconを「完全に別のファイル」として認識させる必要があります。これを行うには、HTMLのhead内にあるファイルパスにクエリストリング（パラメータ）を追加します。</p><pre><code>&lt;!-- 変更前 --&gt;\n&lt;link rel='icon' href='/favicon.svg'&gt;\n\n&lt;!-- 変更後 --&gt;\n&lt;link rel='icon' href='/favicon.svg?v=2026.1'&gt;</code></pre><p>ブラウザが更新されたHTMLを解析する際、<code>?v=2026.1</code>というパラメータを認識します。URL文字列が技術的に異なるため、ブラウザはローカルキャッシュをバイパスし、サーバーから新しいファイルを要求します。さらに重要なのは、CDN（CloudflareやAWS CloudFrontなど）もこれをキャッシュミスとして扱い、オリジンサーバーから新しいアセットを取得するということです。</p><h2>根本原因1：CDNとエッジキャッシュ</h2><p>CDNを使用している場合、静的アセットは世界中のエッジノードに分散されます。CDNは画像ファイル（<code>.ico</code>、<code>.png</code>、<code>.svg</code>など）を積極的にキャッシュするよう設定されており、そのTTL（有効期間）は30日以上に設定されていることも珍しくありません。</p><p>CI/CDパイプラインが完了すると、オリジンサーバー上のファイルは更新されます。しかし、デプロイスクリプトにCDNの無効化（Invalidation）ステップが明示的に含まれていない限り、エッジノードはTTLが切れるまで古いFaviconを配信し続けます。前述のクエリストリングを追加することでこの問題は回避できますが、よりクリーンなアーキテクチャの修正としては、デプロイ成功時に<code>/favicon.*</code>のキャッシュ無効化を自動的にトリガーすることです。</p><h2>根本原因2：ビルドツールの死角</h2><p>Next.js、Vite、Nuxtなどのモダンなフレームワークは、JavaScriptやCSSファイルにコンテンツハッシュを使用します。<code>app.js</code>というファイルは<code>app-8f7d6a.js</code>のようになります。これにより、新しいデプロイメントが自動的にキャッシュを破棄することが保証されます。</p><p>しかし、Faviconは通常<code>/public</code>や<code>/static</code>ディレクトリに配置されます。ビルドツールはハッシュ化のプロセス中、これらのフォルダを意図的に無視し、そのまま出力フォルダにコピーします。<a href='/blog/nextjs-favicon.html'>Next.jsのFavicon設定</a>で苦労している場合、アイコンが更新されない原因はこれである可能性が高いです。HTMLが参照するファイル名が全く同じであるため、ブラウザはファイルの内容が変更されていないと判断してしまうのです。</p><h3>巨大企業はどう対応しているか</h3><p>GoogleがWorkspaceアプリ全体でどのように更新を処理しているか見てみましょう。彼らはルートレベルの静的な<code>favicon.ico</code>の置き換えには依存していません。代わりに、バージョン管理されたSVGファイルをドキュメントのheadに直接注入しています。アカウントを切り替えたり通知を受け取ったりすると、HTMLはlinkタグを固有のハッシュURLに切り替え、新しいDOMが解析された瞬間にタブアイコンが確実に更新されるようにしています。</p><h2>根本原因3：Service Workerの罠</h2><p>サイトがPWA（Progressive Web App）である場合、Service Workerがネットワークリクエストを傍受しています。Service Workerは古いアセットを保持し続けることで悪名高いです。<code>manifest.json</code>やService Workerのキャッシュ戦略にFaviconファイルが含まれている場合、ネットワーク上に新しいバージョンがあっても、ブラウザはキャッシュされたアイコンを配信します。</p><ul><li><strong>修正方法：</strong> Service Workerスクリプト内のバージョン番号を更新します。</li><li><strong>確認方法：</strong> Chrome DevToolsを開き、Applicationタブに移動して、現在のService Workerの登録を解除してからリロードします。</li></ul><h2>2026年に向けた予防策</h2><p>リブランディングのたびにデプロイパイプラインと格闘するのをやめるには、モダンなFavicon戦略を採用しましょう。ブラウザがデフォルトで行う暗黙の<code>/favicon.ico</code>リクエストに依存するのはやめてください。代わりに、HTMLでアイコンを明示的に宣言し、ビルドプラグインを使用して画像ファイル名にコンテンツハッシュを注入します。</p><p>Mzu favicondlを使用してアイコンスタックを生成すると、クリーンで最小限のファイルセット（SVG、PNG、Apple Touch Icon）が得られます。これらのファイルをリポジトリでバージョン管理し、更新するたびにベースHTMLテンプレートのクエリストリングのバージョンを上げるだけです。これなら2秒で完了し、毎回すべてのユーザーに完璧なロールアウトを保証できます。</p>",
-  "contentKo": "<p>대규모 리브랜딩 PR을 방금 병합했습니다. Vercel의 배포 파이프라인이 성공적으로 완료되었습니다. 프로덕션 URL을 열어보니 새로운 UI가 깔끔하게 적용되어 있습니다. 하지만 브라우저 탭을 올려다보는 순간, 이전 로고가 여전히 당신을 쳐다보고 있습니다. 배포 후 파비콘이 업데이트되지 않는 문제로 스트레스를 받고 있다면, 당신은 현대 웹 개발에서 가장 완고한 캐시 계층 중 하나를 경험하고 있는 것입니다.</p><p>개발자들의 첫 번째 반응은 보통 Cmd+Shift+R을 연타하는 것입니다. 이 방법이 로컬 화면을 고칠 수는 있지만(이 주제는 <a href='/blog/favicon-cache-clear.html'>파비콘 캐시 지우기 가이드</a>에서 다루었습니다), 실제 사용자에게는 아무런 도움이 되지 않습니다. 사용자는 여전히 구형 브랜드 자산을 보고 있습니다. 이 문제를 전역적으로 해결하려면 브라우저가 아닌 배포 파이프라인을 살펴봐야 합니다.</p><h2>빠른 해결책: HTML 캐시 무효화(Cache Busting)</h2><p>시간이 없는 분들을 위해 즉각적인 해결책부터 제시합니다. 브라우저와 CDN이 새 파비콘을 완전히 다른 파일로 취급하도록 강제해야 합니다. HTML head의 파일 경로에 쿼리 문자열을 추가하여 이 작업을 수행할 수 있습니다.</p><pre><code>&lt;!-- 변경 전 --&gt;\n&lt;link rel='icon' href='/favicon.svg'&gt;\n\n&lt;!-- 변경 후 --&gt;\n&lt;link rel='icon' href='/favicon.svg?v=2026.1'&gt;</code></pre><p>브라우저가 업데이트된 HTML을 파싱할 때 <code>?v=2026.1</code> 파라미터를 보게 됩니다. URL 문자열이 기술적으로 다르기 때문에 브라우저는 로컬 캐시를 우회하고 서버에 새로운 파일을 요청합니다. 더 중요한 것은 AWS CloudFront나 Cloudflare 같은 CDN도 이를 캐시 미스로 처리하고 원본 서버에서 새 자산을 가져온다는 점입니다.</p><h2>근본 원인 1: CDN 및 엣지 캐싱</h2><p>CDN을 사용하는 경우 정적 자산은 전 세계의 엣지 노드에 분산됩니다. CDN은 이미지 파일(<code>.ico</code>, <code>.png</code>, <code>.svg</code> 등)을 매우 공격적으로 캐시하도록 구성되어 있습니다. TTL(Time To Live)이 30일 이상인 경우도 흔합니다.</p><p>CI/CD 파이프라인이 완료되면 원본 서버의 파일은 업데이트됩니다. 하지만 배포 스크립트에 명시적인 CDN 무효화(invalidation) 단계가 포함되어 있지 않다면, 엣지 노드는 TTL이 만료될 때까지 이전 파비콘을 계속 제공할 것입니다. 위에서 언급한 쿼리 문자열을 추가하면 이 문제를 우회할 수 있지만, 더 깔끔한 아키텍처 수정 방법은 배포 성공 시 <code>/favicon.*</code>에 대한 캐시 무효화를 자동으로 트리거하는 것입니다.</p><h2>근본 원인 2: 빌드 도구의 사각지대</h2><p>Next.js, Vite, Webpack과 같은 최신 프레임워크는 JavaScript 및 CSS 파일에 콘텐츠 해싱을 사용합니다. <code>app.js</code>라는 파일은 <code>app-8f7d6a.js</code>가 됩니다. 이는 새로운 배포가 캐시를 자동으로 무효화하도록 보장합니다.</p><p>하지만 파비콘은 보통 <code>/public</code>이나 <code>/static</code> 디렉토리에 배치됩니다. 빌드 도구는 해싱 과정에서 의도적으로 이 폴더들을 무시하고 출력 폴더로 그대로 복사합니다. <a href='/blog/nextjs-favicon.html'>Next.js 파비콘 설정</a>으로 어려움을 겪고 있다면 이것이 아이콘이 업데이트되지 않는 이유일 가능성이 높습니다. HTML이 참조하는 파일 이름이 완전히 동일하기 때문에 브라우저는 파일 내용이 변경되지 않았다고 가정합니다.</p><h3>거대 기업들의 처리 방식</h3><p>Google이 Workspace 앱 전반에서 업데이트를 어떻게 처리하는지 살펴보세요. 그들은 루트 수준의 정적 <code>favicon.ico</code>를 교체하는 것에 의존하지 않습니다. 대신 버전이 지정된 SVG 파일을 문서 head에 직접 주입합니다. 계정을 전환하거나 알림을 받을 때 HTML은 고유하게 해시된 URL로 link 태그를 교체하여 새로운 DOM이 파싱되는 정확한 순간에 탭 아이콘이 업데이트되도록 보장합니다.</p><h2>근본 원인 3: Service Worker의 함정</h2><p>사이트가 PWA(Progressive Web App)인 경우 네트워크 요청을 가로채는 Service Worker가 있습니다. Service Worker는 이전 자산을 끈질기게 유지하는 것으로 악명 높습니다. <code>manifest.json</code>이나 Service Worker 캐싱 전략에 파비콘 파일이 포함되어 있다면, 네트워크에 새 버전이 있더라도 브라우저는 캐시된 아이콘을 제공합니다.</p><ul><li><strong>해결 방법:</strong> Service Worker 스크립트의 버전 번호를 업데이트합니다.</li><li><strong>확인 방법:</strong> Chrome DevTools를 열고 Application 탭으로 이동하여 현재 Service Worker의 등록을 해제한 후 새로고침합니다.</li></ul><h2>2026년을 위한 예방 팁</h2><p>리브랜딩을 할 때마다 배포 파이프라인과 씨름하는 것을 멈추려면 최신 파비콘 전략을 채택하세요. 브라우저가 기본적으로 수행하는 암묵적인 <code>/favicon.ico</code> 요청에 의존하지 마세요. 대신 HTML에서 아이콘을 명시적으로 선언하고 빌드 플러그인을 사용하여 이미지 파일 이름에 콘텐츠 해시를 주입하세요.</p><p>Mzu favicondl을 사용하여 아이콘 스택을 생성하면 깔끔하고 최소화된 파일 세트(SVG, PNG, Apple Touch Icon)를 얻을 수 있습니다. 이 파일들을 저장소에서 버전 관리하고, 업데이트할 때마다 기본 HTML 템플릿의 쿼리 문자열 버전만 올리면 됩니다. 2초면 끝나는 이 작업으로 매번 모든 사용자에게 완벽한 롤아웃을 보장할 수 있습니다.</p>",
-  "contentEs": "<p>Acabas de fusionar un enorme Pull Request de rebranding. El pipeline de despliegue en Vercel se pone en verde. Abres la URL de producción y la nueva interfaz luce impecable. Pero al levantar la vista hacia la pestaña del navegador, el antiguo logo sigue mirándote fijamente. Si el hecho de que tu favicon no se actualice tras el despliegue te está volviendo loco, estás experimentando una de las capas de caché más obstinadas del desarrollo web moderno.</p><p>La primera reacción suele ser machacar Cmd+Shift+R. Aunque eso podría arreglar tu vista local (un tema que cubrimos en nuestra <a href='/blog/favicon-cache-clear.html'>guía para limpiar la caché del favicon</a>), no hace absolutamente nada por tus usuarios reales. Ellos siguen viendo el recurso de marca obsoleto. Para solucionar esto a nivel global, necesitamos revisar tu pipeline de despliegue, no tu navegador.</p><h2>La solución rápida: Cache Busting en tu HTML</h2><p>La gente tiene prisa, así que aquí tienes la solución inmediata. Necesitas forzar al navegador y al CDN a tratar el nuevo favicon como un archivo completamente diferente. Esto se logra añadiendo una cadena de consulta (query string) a la ruta del archivo en el head de tu HTML.</p><pre><code>&lt;!-- Cambia esto --&gt;\n&lt;link rel='icon' href='/favicon.svg'&gt;\n\n&lt;!-- Por esto --&gt;\n&lt;link rel='icon' href='/favicon.svg?v=2026.1'&gt;</code></pre><p>Cuando el navegador analiza el HTML actualizado, ve el parámetro <code>?v=2026.1</code>. Dado que la cadena de la URL es técnicamente diferente, el navegador ignora su caché local y solicita el archivo nuevo al servidor. Más importante aún, tu CDN trata esto como un fallo de caché (cache miss) y obtiene el nuevo recurso de tu servidor de origen.</p><h2>Causa raíz 1: CDN y caché perimetral (Edge Caching)</h2><p>Si usas Cloudflare, AWS CloudFront o Fastly, tus recursos estáticos se distribuyen a través de nodos perimetrales a nivel global. Los CDN están configurados para almacenar en caché archivos de imagen (como <code>.ico</code>, <code>.png</code> y <code>.svg</code>) de forma muy agresiva. A menudo tienen un Tiempo de Vida (TTL) de 30 días o más.</p><p>Cuando tu pipeline de CI/CD termina, actualiza los archivos en tu servidor de origen. Sin embargo, a menos que tu script de despliegue incluya explícitamente un paso de invalidación del CDN, los nodos perimetrales seguirán sirviendo felizmente el antiguo favicon hasta que expire el TTL. Añadir la cadena de consulta mencionada arriba evita esto, pero una solución arquitectónica más limpia es activar automáticamente una invalidación de caché para <code>/favicon.*</code> tras un despliegue exitoso.</p><h2>Causa raíz 2: Los puntos ciegos de las herramientas de Build</h2><p>Frameworks modernos como Next.js, Vite y Nuxt utilizan hashing de contenido para archivos JavaScript y CSS. Un archivo llamado <code>app.js</code> se convierte en <code>app-8f7d6a.js</code>. Esto garantiza que los nuevos despliegues rompan la caché automáticamente.</p><p>Sin embargo, los favicons suelen colocarse en un directorio <code>/public</code> o <code>/static</code>. Las herramientas de build ignoran intencionadamente estas carpetas durante el proceso de hashing, copiándolas directamente a la carpeta de salida sin alterarlas. Si estás luchando con la <a href='/blog/nextjs-favicon.html'>configuración del favicon en Next.js</a>, es muy probable que esta sea la razón por la que tu icono no se actualiza. El HTML hace referencia exactamente al mismo nombre de archivo, por lo que el navegador asume que el contenido del archivo no ha cambiado.</p><h3>Cómo lo manejan los gigantes</h3><p>Fíjate en cómo Google maneja las actualizaciones en sus aplicaciones de Workspace. No dependen de reemplazar un <code>favicon.ico</code> estático en el nivel raíz. En su lugar, utilizan archivos SVG versionados inyectados directamente en el head del documento. Cuando cambias de cuenta o recibes una notificación, el HTML cambia la etiqueta link a una URL con un hash único, asegurando que el icono de la pestaña se actualice en el milisegundo exacto en que se analiza el nuevo DOM.</p><h2>Causa raíz 3: La trampa del Service Worker</h2><p>Si tu sitio es una Aplicación Web Progresiva (PWA), tienes un service worker interceptando las solicitudes de red. Los service workers son famosos por aferrarse a recursos antiguos. Si tu <code>manifest.json</code> o la estrategia de caché del service worker incluye tus archivos de favicon, el navegador servirá el icono en caché incluso si la red tiene una versión más nueva.</p><ul><li><strong>La solución:</strong> Actualiza el número de versión en el script de tu service worker.</li><li><strong>La verificación:</strong> Abre las Chrome DevTools, ve a la pestaña Application, anula el registro del service worker actual y recarga.</li></ul><h2>Consejos de prevención para 2026</h2><p>Para dejar de pelear con tu pipeline de despliegue cada vez que haces un rebranding, adopta una estrategia de favicon moderna. Deja de depender de la solicitud implícita de <code>/favicon.ico</code> que los navegadores hacen por defecto. En su lugar, declara explícitamente tus iconos en el HTML y usa un plugin de build para inyectar hashes de contenido en los nombres de tus archivos de imagen.</p><p>Cuando generas tu stack de iconos usando Mzu favicondl, recibes un conjunto de archivos limpio y mínimo (SVG, PNG y Apple Touch Icon). Mantén estos archivos versionados en tu repositorio, y cada vez que los actualices, simplemente incrementa la versión de la cadena de consulta en tu plantilla HTML base. Toma dos segundos y garantiza un despliegue impecable para cada usuario, cada vez.</p>",
-  "ctaTitleEn": "Stop Fighting Your Build Tools",
-  "ctaTitleZh": "停止与打包工具搏斗",
-  "ctaTitleJa": "ビルドツールとの格闘は終わりにしよう",
-  "ctaTitleKo": "빌드 도구와의 씨름은 이제 그만",
-  "ctaTitleEs": "Deja de pelear con tus herramientas de Build",
-  "ctaDescEn": "Generate the perfect, version-ready favicon stack (SVG, PNG, ICO) in seconds with Mzu favicondl. Deploy with confidence.",
-  "ctaDescZh": "使用 Mzu favicondl 在几秒钟内生成完美、支持版本控制的 Favicon 组合（SVG、PNG、ICO）。自信地进行部署。",
-  "ctaDescJa": "Mzu favicondlを使って、バージョン管理に最適なFaviconセット（SVG、PNG、ICO）を数秒で生成。自信を持ってデプロイしましょう。",
-  "ctaDescKo": "Mzu favicondl을 사용하여 버전 관리에 완벽한 파비콘 세트(SVG, PNG, ICO)를 몇 초 만에 생성하세요. 자신 있게 배포하세요.",
-  "ctaDescEs": "Genera el stack de favicons perfecto y listo para versionar (SVG, PNG, ICO) en segundos con Mzu favicondl. Despliega con confianza.",
-  "ctaBtnEn": "Generate Your Favicon →",
-  "ctaBtnZh": "生成你的 Favicon →",
-  "ctaBtnJa": "Faviconを生成する →",
-  "ctaBtnKo": "파비콘 생성하기 →",
-  "ctaBtnEs": "Generar tu Favicon →",
+  "titleEn": "Setup a Favicon for Personal Blog: A Dev's Guide",
+  "titleZh": "个人博客 Favicon 设置指南：开发者极简方案",
+  "titleJa": "個人ブログ用Faviconの設定：開発者向けガイド",
+  "titleKo": "개인 블로그용 파비콘 설정: 개발자 가이드",
+  "titleEs": "Configurar un Favicon para Blog Personal: Guía Dev",
+  "descEn": "Learn how to set up a minimalist, high-performance favicon for personal blog projects in 2026. Master SVG icons, dark mode, and HTML fallbacks.",
+  "descZh": "了解如何在2026年为个人博客设置极简、高性能的 Favicon。掌握 SVG 图标、暗黑模式适配以及 HTML 回退方案。",
+  "descJa": "2026年版、個人ブログに最適な軽量Faviconの設定方法。SVGアイコン、ダークモード対応、HTMLのフォールバックを解説します。",
+  "descKo": "2026년 개인 블로그 프로젝트를 위한 가볍고 성능 좋은 파비콘 설정 방법을 알아보세요. SVG, 다크 모드 및 HTML 폴백을 마스터하세요.",
+  "descEs": "Aprende a configurar un favicon minimalista y de alto rendimiento para tu blog personal en 2026. Domina SVG, modo oscuro y fallbacks HTML.",
+  "metaKeywords": "favicon for personal blog, blog icon setup, svg favicon",
+  "breadcrumbEn": "Personal Blog Favicon",
+  "breadcrumbZh": "个人博客图标",
+  "breadcrumbJa": "個人ブログのFavicon",
+  "breadcrumbKo": "개인 블로그 파비콘",
+  "breadcrumbEs": "Favicon Blog Personal",
+  "contentEn": "<p>Ever spent three hours tweaking your personal blog's CSS typography, only to realize the browser tab still shows Vercel's default black triangle? Your site icon setup is incomplete.</p><p>When readers bookmark your site or leave it open among 50 other tabs, that tiny 16x16 pixel square is your only brand identity. Look at Dan Abramov's Overreacted blog—he uses a simple, recognizable icon that instantly stands out. Setting up a <strong>favicon for personal blog</strong> projects doesn't require an enterprise-level, 30-file manifest stack. We just need a clean, minimalist approach that works everywhere in 2026.</p><h2>The Minimalist Blog Favicon Stack</h2><p>Before we touch any code, you need an image. If you don't have a custom logo, don't panic. Many developers just <a href='/blog/favicon-emoji.html'>use an emoji as a favicon</a> or a stylized initial.</p><h3>Step 1: Create an SVG Primary Icon</h3><p>I strongly recommend using SVG for your primary icon. It scales infinitely, weighs almost nothing, and lets you embed CSS for dark mode support. Browsers love it.</p><h3>Step 2: Generate the Fallbacks</h3><p>Safari and legacy browsers still need traditional formats. Drop your SVG or high-res PNG into Mzu favicondl. We only need two specific outputs from the generator:</p><ul><li>A <code>favicon.ico</code> (for legacy browsers and RSS readers).</li><li>An <code>apple-touch-icon.png</code> (180x180px, for iOS home screens).</li></ul><h3>Step 3: Inject the HTML</h3><p>Drop those three files into your blog's root directory (usually the <code>public</code> folder in Next.js or Astro). Then, add this exact snippet to your <code>&lt;head&gt;</code> tag:</p><pre><code>&lt;link rel='icon' href='/favicon.ico' sizes='32x32'&gt;\n&lt;link rel='icon' href='/icon.svg' type='image/svg+xml'&gt;\n&lt;link rel='apple-touch-icon' href='/apple-touch-icon.png'&gt;</code></pre><h2>Common Pitfalls to Avoid</h2><p>Personal blogs usually run into two specific issues during deployment:</p><h3>The Hosting Cache Trap</h3><p>You deploy your new icon, but the old one still shows up. Browsers cache favicons aggressively. To fix this locally, you'll need to <a href='/blog/favicon-cache-clear.html'>force a favicon cache clear</a>. For production, append a version string like <code>?v=2</code> to your href paths.</p><h3>Invisible Dark Mode Icons</h3><p>If your logo is black text on a transparent background, it will completely vanish when a user switches their browser to dark mode. Always test your icon against a dark gray background before uploading.</p><p>Keep your blog's branding simple, ship the code, and get back to writing.</p>",
+  "contentZh": "<p>刚花了三个小时调整个人博客的 CSS 字体，结果抬头一看，浏览器标签页上还是 Vercel 默认的黑色三角形？你的图标设置显然没到位。</p><p>当读者收藏你的网站，或者在 50 个标签页中寻找你的博客时，那个 16x16 像素的小方块是你唯一的品牌标识。看看尤雨溪的博客或者 Dan Abramov 的 Overreacted——他们都使用了简单却极具辨识度的图标。为<strong>个人博客 Favicon</strong> 进行配置，完全不需要企业级那种动辄 30 个文件的复杂清单。在 2026 年，我们只需要一套极简且全平台兼容的方案。</p><h2>极简博客图标方案</h2><p>在写代码之前，你需要一张图片。如果你没有专门设计的 Logo，别慌。很多开发者会直接 <a href='/blog/favicon-emoji.html'>使用 Emoji 作为 Favicon</a>，或者用自己名字的首字母。</p><h3>步骤 1：使用 SVG 作为主图标</h3><p>我强烈建议个人博客使用 SVG 格式。它支持无限缩放，体积几乎为零，而且你可以直接在里面写 CSS 来适配暗黑模式。现代浏览器对它的支持非常完美。</p><h3>步骤 2：生成回退格式</h3><p>Safari 和一些老旧浏览器仍然需要传统格式。把你的 SVG 或高清 PNG 扔进 Mzu favicondl。我们只需要生成两个特定的文件：</p><ul><li>一个 <code>favicon.ico</code>（用于旧版浏览器和 RSS 阅读器）。</li><li>一个 <code>apple-touch-icon.png</code>（180x180px，用于 iOS 主屏幕）。</li></ul><h3>步骤 3：注入 HTML 代码</h3><p>把这三个文件放到你博客的根目录（在 Next.js 或 Astro 中通常是 <code>public</code> 文件夹）。然后，把下面这段代码复制到你的 <code>&lt;head&gt;</code> 标签中：</p><pre><code>&lt;link rel='icon' href='/favicon.ico' sizes='32x32'&gt;\n&lt;link rel='icon' href='/icon.svg' type='image/svg+xml'&gt;\n&lt;link rel='apple-touch-icon' href='/apple-touch-icon.png'&gt;</code></pre><h2>需要避免的常见坑</h2><p>个人博客在部署时通常会遇到两个问题：</p><h3>缓存陷阱</h3><p>你部署了新图标，但线上还是显示旧的。浏览器对 Favicon 的缓存极其顽固。在本地测试时，你需要 <a href='/blog/favicon-cache-clear.html'>强制清除 Favicon 缓存</a>。在生产环境中，最简单的办法是在路径后面加上版本号，比如 <code>?v=2</code>。</p><h3>暗黑模式下隐身</h3><p>如果你的 Logo 是透明背景上的纯黑文字，当用户切换到暗黑模式时，它会直接“隐身”。在上传之前，务必在深灰色背景下测试你的图标。</p><p>保持博客品牌简洁，部署代码，然后继续安心写作吧。</p>",
+  "contentJa": "<p>個人ブログのCSSタイポグラフィの調整に3時間も費やしたのに、ブラウザのタブにはVercelのデフォルトの黒い三角形が表示されたまま…なんて経験はありませんか？あなたのサイトアイコンの設定はまだ完了していません。</p><p>読者がサイトをブックマークしたり、50個のタブの中に放置したりしたとき、その16x16ピクセルの小さな正方形だけがあなたのブランドの証になります。ZennやQiitaのアイコンがタブの中でいかに目立つか考えてみてください。<strong>個人ブログのFavicon</strong>を設定するのに、企業のような30個のファイルからなる複雑なマニフェストは不要です。2026年の現在、どこでも機能するクリーンでミニマルなアプローチがあれば十分です。</p><h2>ミニマルなブログ用Favicon構成</h2><p>コードを触る前に、画像を用意しましょう。カスタムロゴがなくても焦る必要はありません。多くの開発者は <a href='/blog/favicon-emoji.html'>絵文字をFaviconとして使用</a> したり、イニシャルをスタイライズしたりしています。</p><h3>ステップ 1: SVGのメインアイコンを作成する</h3><p>メインのアイコンにはSVGを使用することを強くお勧めします。無限に拡大縮小でき、ファイルサイズはほぼゼロで、ダークモード対応のCSSを埋め込むこともできます。現代のブラウザとの相性は抜群です。</p><h3>ステップ 2: フォールバックを生成する</h3><p>Safariや古いブラウザでは、まだ従来のフォーマットが必要です。SVGや高解像度のPNGをMzu favicondlにドロップしてください。ジェネレーターから必要なのは以下の2つだけです：</p><ul><li><code>favicon.ico</code>（古いブラウザやRSSリーダー用）</li><li><code>apple-touch-icon.png</code>（180x180px、iOSのホーム画面用）</li></ul><h3>ステップ 3: HTMLを記述する</h3><p>これら3つのファイルをブログのルートディレクトリ（Next.jsやAstroなら通常は <code>public</code> フォルダ）に配置します。そして、以下のコードを <code>&lt;head&gt;</code> タグに追加します：</p><pre><code>&lt;link rel='icon' href='/favicon.ico' sizes='32x32'&gt;\n&lt;link rel='icon' href='/icon.svg' type='image/svg+xml'&gt;\n&lt;link rel='apple-touch-icon' href='/apple-touch-icon.png'&gt;</code></pre><h2>よくある落とし穴</h2><p>個人ブログのデプロイ時によく発生する2つの問題を紹介します：</p><h3>ホスティングのキャッシュの罠</h3><p>新しいアイコンをデプロイしたのに、古いものが表示され続けることがあります。ブラウザはFaviconを強力にキャッシュします。ローカルでこれを解決するには、<a href='/blog/favicon-cache-clear.html'>Faviconのキャッシュを強制クリア</a> する必要があります。本番環境では、パスに <code>?v=2</code> のようなバージョン文字列を追加してください。</p><h3>ダークモードで見えなくなるアイコン</h3><p>ロゴが透明な背景に黒い文字の場合、ユーザーがブラウザをダークモードに切り替えると完全に消えてしまいます。アップロードする前に、必ず濃いグレーの背景でアイコンをテストしてください。</p><p>ブログのブランディングはシンプルに保ち、コードをデプロイしたら、執筆作業に戻りましょう。</p>",
+  "contentKo": "<p>개인 블로그의 CSS 타이포그래피를 3시간 동안 수정했는데, 브라우저 탭에는 여전히 Vercel의 기본 검은색 삼각형이 보이나요? 파비콘 설정이 아직 끝나지 않은 겁니다.</p><p>독자가 사이트를 북마크하거나 50개의 다른 탭 사이에 열어두었을 때, 그 작은 16x16 픽셀 정사각형이 여러분의 유일한 브랜드 아이덴티티가 됩니다. Dan Abramov의 Overreacted 블로그를 보세요. 단순하지만 눈에 띄는 아이콘을 사용합니다. <strong>개인 블로그용 파비콘</strong>을 설정할 때 기업처럼 30개의 파일이 들어간 복잡한 매니페스트를 구성할 필요는 없습니다. 2026년에는 어디서나 작동하는 깔끔하고 미니멀한 접근 방식만 있으면 됩니다.</p><h2>미니멀한 블로그 파비콘 스택</h2><p>코드를 작성하기 전에 이미지가 필요합니다. 커스텀 로고가 없더라도 당황하지 마세요. 많은 개발자들이 <a href='/blog/favicon-emoji.html'>이모지를 파비콘으로 사용</a>하거나 이니셜을 활용합니다.</p><h3>1단계: SVG 메인 아이콘 만들기</h3><p>메인 아이콘으로는 SVG를 사용하는 것을 강력히 추천합니다. 무한대로 확장 가능하고, 용량이 거의 없으며, 다크 모드 지원을 위한 CSS를 내장할 수 있습니다. 최신 브라우저들이 아주 좋아하죠.</p><h3>2단계: 폴백(Fallback) 생성하기</h3><p>Safari와 구형 브라우저는 여전히 전통적인 포맷을 필요로 합니다. SVG나 고해상도 PNG를 Mzu favicondl에 넣으세요. 생성기에서 딱 두 가지만 얻으면 됩니다:</p><ul><li><code>favicon.ico</code> (구형 브라우저 및 RSS 리더용)</li><li><code>apple-touch-icon.png</code> (180x180px, iOS 홈 화면용)</li></ul><h3>3단계: HTML 삽입하기</h3><p>이 세 개의 파일을 블로그의 루트 디렉토리(Next.js나 Astro의 경우 보통 <code>public</code> 폴더)에 넣습니다. 그런 다음 <code>&lt;head&gt;</code> 태그에 다음 코드를 정확히 추가하세요:</p><pre><code>&lt;link rel='icon' href='/favicon.ico' sizes='32x32'&gt;\n&lt;link rel='icon' href='/icon.svg' type='image/svg+xml'&gt;\n&lt;link rel='apple-touch-icon' href='/apple-touch-icon.png'&gt;</code></pre><h2>피해야 할 흔한 실수들</h2><p>개인 블로그 배포 시 보통 두 가지 문제에 부딪힙니다:</p><h3>호스팅 캐시의 늪</h3><p>새 아이콘을 배포했는데도 예전 아이콘이 계속 보일 때가 있습니다. 브라우저는 파비콘을 아주 강력하게 캐시합니다. 로컬에서 이 문제를 해결하려면 <a href='/blog/favicon-cache-clear.html'>파비콘 캐시를 강제로 지워야</a> 합니다. 프로덕션 환경에서는 href 경로 뒤에 <code>?v=2</code>와 같은 버전 문자열을 추가하세요.</p><h3>다크 모드에서 사라지는 아이콘</h3><p>로고가 투명한 배경에 검은색 텍스트라면, 사용자가 다크 모드로 전환할 때 완전히 사라져 버립니다. 업로드하기 전에 항상 어두운 회색 배경에서 아이콘을 테스트하세요.</p><p>블로그 브랜딩은 단순하게 유지하고, 코드를 배포한 뒤, 다시 글쓰기에 집중하세요.</p>",
+  "contentEs": "<p>¿Alguna vez has pasado tres horas ajustando la tipografía CSS de tu blog personal, solo para darte cuenta de que la pestaña del navegador todavía muestra el triángulo negro predeterminado de Vercel? La configuración de tu icono está incompleta.</p><p>Cuando los lectores guardan tu sitio en marcadores o lo dejan abierto entre otras 50 pestañas, ese diminuto cuadrado de 16x16 píxeles es tu única identidad de marca. Mira el blog Overreacted de Dan Abramov: usa un icono simple y reconocible que destaca al instante. Configurar un <strong>favicon para blog personal</strong> no requiere un stack empresarial de 30 archivos. Solo necesitamos un enfoque limpio y minimalista que funcione en todas partes en 2026.</p><h2>El Stack Minimalista de Favicon para Blogs</h2><p>Antes de tocar el código, necesitas una imagen. Si no tienes un logotipo personalizado, no te asustes. Muchos desarrolladores simplemente <a href='/blog/favicon-emoji.html'>usan un emoji como favicon</a> o una inicial estilizada.</p><h3>Paso 1: Crea un Icono Principal SVG</h3><p>Te recomiendo encarecidamente usar SVG para tu icono principal. Se escala infinitamente, no pesa casi nada y te permite incrustar CSS para soportar el modo oscuro nativamente. A los navegadores les encanta.</p><h3>Paso 2: Genera los Fallbacks</h3><p>Safari y los navegadores heredados todavía necesitan formatos tradicionales. Arrastra tu SVG o PNG de alta resolución a Mzu favicondl. Solo necesitamos dos archivos específicos del generador:</p><ul><li>Un <code>favicon.ico</code> (para navegadores antiguos y lectores RSS).</li><li>Un <code>apple-touch-icon.png</code> (180x180px, para pantallas de inicio de iOS).</li></ul><h3>Paso 3: Inyecta el HTML</h3><p>Suelta esos tres archivos en el directorio raíz de tu blog (generalmente la carpeta <code>public</code> en Next.js o Astro). Luego, añade este fragmento exacto a tu etiqueta <code>&lt;head&gt;</code>:</p><pre><code>&lt;link rel='icon' href='/favicon.ico' sizes='32x32'&gt;\n&lt;link rel='icon' href='/icon.svg' type='image/svg+xml'&gt;\n&lt;link rel='apple-touch-icon' href='/apple-touch-icon.png'&gt;</code></pre><h2>Errores Comunes a Evitar</h2><p>Los blogs personales suelen encontrarse con dos problemas específicos durante el despliegue:</p><h3>La Trampa del Caché del Hosting</h3><p>Despliegas tu nuevo icono, pero sigue apareciendo el antiguo. Los navegadores almacenan los favicons en caché de forma muy agresiva. Para arreglar esto localmente, tendrás que <a href='/blog/favicon-cache-clear.html'>forzar el borrado del caché del favicon</a>. Para producción, añade una cadena de versión como <code>?v=2</code> a tus rutas href.</p><h3>Iconos Invisibles en Modo Oscuro</h3><p>Si tu logo es texto negro sobre fondo transparente, desaparecerá por completo cuando un usuario cambie su navegador al modo oscuro. Prueba siempre tu icono contra un fondo gris oscuro antes de subirlo.</p><p>Mantén la marca de tu blog simple, sube el código y vuelve a escribir.</p>",
+  "ctaTitleEn": "Generate Your Blog Favicon in Seconds",
+  "ctaTitleZh": "几秒钟生成你的博客 Favicon",
+  "ctaTitleJa": "数秒でブログのFaviconを作成",
+  "ctaTitleKo": "몇 초 만에 블로그 파비콘 생성하기",
+  "ctaTitleEs": "Genera el Favicon de tu Blog en Segundos",
+  "ctaDescEn": "Drop your logo or emoji into Mzu favicondl and get the perfect minimalist stack for your personal blog instantly.",
+  "ctaDescZh": "将你的 Logo 或 Emoji 拖入 Mzu favicondl，立即获取适合个人博客的极简图标组合。",
+  "ctaDescJa": "ロゴや絵文字をMzu favicondlにドロップするだけで、個人ブログに最適なミニマル構成をすぐに取得できます。",
+  "ctaDescKo": "로고나 이모지를 Mzu favicondl에 넣고 개인 블로그에 완벽한 미니멀 파비콘 세트를 즉시 받으세요.",
+  "ctaDescEs": "Arrastra tu logo o emoji a Mzu favicondl y obtén el stack minimalista perfecto para tu blog personal al instante.",
+  "ctaBtnEn": "Create Blog Favicon →",
+  "ctaBtnZh": "创建博客图标 →",
+  "ctaBtnJa": "ブログFaviconを作成 →",
+  "ctaBtnKo": "블로그 파비콘 만들기 →",
+  "ctaBtnEs": "Crear Favicon para Blog →",
   "ctaLink": "/index.html"
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
+}
+html"
+}
+}
+}
 }
 }

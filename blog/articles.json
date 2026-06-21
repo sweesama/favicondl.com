@@ -2156,5 +2156,26 @@
     ],
     "qualityScore": 85,
     "qualityGrade": "A"
+  },
+  {
+    "slug": "personal-blog-favicon",
+    "publishDate": "2026-06-21",
+    "titleEn": "How to Add a Favicon for Personal Blog Sites (2026 Guide)",
+    "titleZh": "如何为个人博客设置 Favicon：2026 极简配置指南",
+    "titleJa": "個人ブログ用Faviconの設定方法：2026年版ミニマルガイド",
+    "titleKo": "개인 블로그용 파비콘 설정 방법: 2026년 최소주의 가이드",
+    "titleEs": "Cómo añadir un favicon para blog personal (Guía 2026)",
+    "descEn": "Learn how to set up a favicon for personal blog sites. Master the minimal 3-file stack, avoid dark mode traps, and claim your browser tab.",
+    "descZh": "了解如何为个人博客设置完美的 Favicon。掌握 2026 年最精简的 3 文件配置方案，避开深色模式陷阱，让你的浏览器标签页脱颖而出。",
+    "descJa": "個人ブログに最適なFaviconの設定方法を解説。2026年のモダンな3ファイル構成、ダークモード対策、ブラウザタブでのアピール方法を学びます。",
+    "descKo": "개인 블로그에 파비콘을 설정하는 방법을 알아보세요. 3개의 파일로 끝내는 2026년형 최소 설정법과 다크 모드 대비 팁을 제공합니다.",
+    "descEs": "Aprende a configurar un favicon para tu blog personal. Domina el stack minimalista de 3 archivos, evita los problemas del modo oscuro y destaca tu pestaña.",
+    "keyword": "favicon for personal blog",
+    "tags": [
+      "blog",
+      "branding"
+    ],
+    "qualityScore": 85,
+    "qualityGrade": "A"
   }
 ]

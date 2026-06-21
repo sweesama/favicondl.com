@@ -1529,7 +1529,9 @@
       "website-icon-guide",
       "favicon-design-tips"
     ],
-    "status": "pending"
+    "status": "done",
+    "qualityScore": 85,
+    "qualityGrade": "A"
   },
   {
     "keyword": "favicon for news website",
