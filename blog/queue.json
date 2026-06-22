@@ -1546,7 +1546,9 @@
       "favicon-branding-strategy",
       "favicon-for-seo"
     ],
-    "status": "pending"
+    "status": "done",
+    "qualityScore": 77,
+    "qualityGrade": "B"
   },
   {
     "keyword": "favicon visual hierarchy design",

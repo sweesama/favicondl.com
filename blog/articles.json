@@ -2177,5 +2177,26 @@
     ],
     "qualityScore": 85,
     "qualityGrade": "A"
+  },
+  {
+    "slug": "news-website-favicon",
+    "publishDate": "2026-06-22",
+    "titleEn": "Favicon for News Website: Stop Losing Tab Hoarders",
+    "titleZh": "新闻网站 Favicon 指南：如何在拥挤的标签页中脱颖而出",
+    "titleJa": "ニュースサイトのFavicon設計：大量のタブから読者を呼び戻す方法",
+    "titleKo": "뉴스 웹사이트 파비콘 가이드: 수많은 탭 속에서 독자 시선 잡기",
+    "titleEs": "Favicon para sitios de noticias: Evita perder a los acumuladores de pestañas",
+    "descEn": "Learn how to design and implement a high-converting favicon for news website projects. Master dynamic live-blog icons, high-contrast monograms, and SEO.",
+    "descZh": "了解如何为新闻网站项目设计和实现高转化率的 favicon。掌握动态实时博客图标、高对比度字母组合以及 SEO 优化技巧。",
+    "descJa": "ニュースサイト向けFaviconの設計と実装方法を解説。動的なライブブログアイコン、高コントラストのモノグラム、SEO対策をマスターしましょう。",
+    "descKo": "뉴스 웹사이트 프로젝트를 위한 파비콘 설계 및 구현 방법을 알아봅니다. 동적 라이브 블로그 아이콘, 고대비 모노그램, SEO 최적화를 마스터하세요.",
+    "descEs": "Aprende a diseñar e implementar un favicon para sitios de noticias. Domina los iconos dinámicos para blogs en vivo, monogramas de alto contraste y SEO.",
+    "keyword": "favicon for news website",
+    "tags": [
+      "media",
+      "branding"
+    ],
+    "qualityScore": 77,
+    "qualityGrade": "B"
   }
 ]
