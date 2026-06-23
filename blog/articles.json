@@ -2198,5 +2198,26 @@
     ],
     "qualityScore": 77,
     "qualityGrade": "B"
+  },
+  {
+    "slug": "favicon-visual-hierarchy",
+    "publishDate": "2026-06-23",
+    "titleEn": "Favicon Visual Hierarchy Design: Stop Serving Blurry Tabs",
+    "titleZh": "Favicon视觉层级设计：别再让你的浏览器标签糊成一团",
+    "titleJa": "ファビコンの視覚的階層デザイン：ぼやけたタブを改善する",
+    "titleKo": "파비콘 시각적 계층 구조 디자인: 흐릿한 탭 해결하기",
+    "titleEs": "Diseño de jerarquía visual en favicons: Evita pestañas borrosas",
+    "descEn": "Learn how to master favicon visual hierarchy design. Stop serving blurry icons and discover how to prioritize shapes and contrast in a 16x16 pixel grid.",
+    "descZh": "掌握Favicon视觉层级设计的核心技巧。了解如何在16x16像素的网格中利用形状和对比度，打造清晰专业的浏览器标签图标。",
+    "descJa": "ファビコンの視覚的階層デザインをマスターする方法を解説。16x16ピクセルのグリッドで形状とコントラストを最適化し、プロ仕様のアイコンを作成しましょう。",
+    "descKo": "파비콘 시각적 계층 구조 디자인을 마스터하는 방법을 알아보세요. 16x16 픽셀 그리드에서 형태와 대비의 우선순위를 정하여 선명한 아이콘을 만드는 비결을 공개합니다.",
+    "descEs": "Aprende a dominar el diseño de jerarquía visual en favicons. Descubre cómo priorizar formas y contraste en una cuadrícula de 16x16 píxeles para pestañas nítidas.",
+    "keyword": "favicon visual hierarchy design",
+    "tags": [
+      "design",
+      "advanced"
+    ],
+    "qualityScore": 77,
+    "qualityGrade": "B"
   }
 ]

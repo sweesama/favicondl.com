@@ -1563,7 +1563,9 @@
       "favicon-design-tips",
       "favicon-color-palette"
     ],
-    "status": "pending"
+    "status": "done",
+    "qualityScore": 77,
+    "qualityGrade": "B"
   },
   {
     "keyword": "favicon contrast ratio guide",
