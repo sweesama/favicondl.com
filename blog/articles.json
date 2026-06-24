@@ -2219,5 +2219,26 @@
     ],
     "qualityScore": 77,
     "qualityGrade": "B"
+  },
+  {
+    "slug": "favicon-contrast-ratio",
+    "publishDate": "2026-06-24",
+    "titleEn": "Favicon Contrast Ratio Guide: Stop Losing Browser Tabs",
+    "titleZh": "Favicon 对比度指南：别让你的图标在深色模式下消失",
+    "titleJa": "Faviconコントラスト比ガイド：タブで見失わないアイコン設計",
+    "titleKo": "파비콘 대비율 가이드: 브라우저 탭에서 사라지는 아이콘 수정하기",
+    "titleEs": "Guía de ratio de contraste para favicons: Evita pestañas invisibles",
+    "descEn": "Learn how to calculate and fix your favicon contrast ratio. Step-by-step guide to SVG media queries, browser tab backgrounds, and PNG fallbacks.",
+    "descZh": "了解如何计算和修复 Favicon 对比度。本指南涵盖 SVG 媒体查询、浏览器标签页背景色以及 PNG 降级方案的详细步骤。",
+    "descJa": "Faviconのコントラスト比を計算し、修正する方法を解説。SVGメディアクエリ、タブの背景色、PNGフォールバックの実践的な手順。",
+    "descKo": "파비콘 대비율을 계산하고 수정하는 방법을 알아보세요. SVG 미디어 쿼리, 브라우저 탭 배경, PNG 대체 이미지에 대한 단계별 가이드입니다.",
+    "descEs": "Aprende a calcular y corregir el ratio de contraste de tu favicon. Guía paso a paso sobre media queries SVG, fondos de pestañas y fallbacks PNG.",
+    "keyword": "favicon contrast ratio guide",
+    "tags": [
+      "design",
+      "accessibility"
+    ],
+    "qualityScore": 85,
+    "qualityGrade": "A"
   }
 ]
