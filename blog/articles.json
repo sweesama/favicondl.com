@@ -2261,5 +2261,26 @@
     ],
     "qualityScore": 85,
     "qualityGrade": "A"
+  },
+  {
+    "slug": "favicon-shape-psychology",
+    "publishDate": "2026-06-26",
+    "titleEn": "Favicon Shape Psychology: Why Your Browser Tab Needs a Silhouette",
+    "titleZh": "Favicon 形状心理学：为什么你的浏览器标签页需要清晰的轮廓",
+    "titleJa": "ファビコンの形状心理学：ブラウザタブにシルエットが必要な理由",
+    "titleKo": "파비콘 형태 심리학: 브라우저 탭에 실루엣이 필요한 이유",
+    "titleEs": "Psicología de formas en Favicons: Por qué tu pestaña necesita una silueta",
+    "descEn": "Learn how favicon shape psychology influences user perception. Discover why circles, squares, and triangles perform differently in crowded browser tabs.",
+    "descZh": "了解 favicon 形状心理学如何影响用户感知。探讨为什么圆形、方形和三角形在拥挤的浏览器标签页中表现截然不同。",
+    "descJa": "ファビコンの形状心理学がユーザーの認知にどう影響するかを解説。混雑したタブで図形がどのように機能するかを学びます。",
+    "descKo": "파비콘 형태 심리학이 사용자 인식에 미치는 영향을 알아봅니다. 혼잡한 브라우저 탭에서 원, 사각형, 삼각형이 어떻게 다르게 작동하는지 확인하세요.",
+    "descEs": "Aprende cómo la psicología de formas en los favicons influye en la percepción del usuario en pestañas de navegador saturadas.",
+    "keyword": "favicon shape psychology",
+    "tags": [
+      "design",
+      "branding"
+    ],
+    "qualityScore": 85,
+    "qualityGrade": "A"
   }
 ]
