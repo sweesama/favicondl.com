@@ -2345,5 +2345,26 @@
     ],
     "qualityScore": 85,
     "qualityGrade": "A"
+  },
+  {
+    "slug": "subdomain-favicon",
+    "publishDate": "2026-06-30",
+    "titleEn": "Favicon for Subdomains: Stop Serving Broken Browser Tabs",
+    "titleZh": "子域名 Favicon 设置指南：告别浏览器标签页 404",
+    "titleJa": "サブドメインのファビコン設定：ブラウザタブの404を防ぐ方法",
+    "titleKo": "서브도메인 파비콘 설정: 브라우저 탭 오류 해결 가이드",
+    "titleEs": "Favicon para subdominios: Evita pestañas rotas en tu web",
+    "descEn": "Learn how to configure a distinct favicon for subdomains. Master absolute URLs, CORS fixes, and multi-tenant SaaS icon routing in this developer guide.",
+    "descZh": "了解如何为子域名配置独立的 favicon。本开发者指南涵盖绝对路径、CORS 修复以及多租户 SaaS 图标路由的实战技巧。",
+    "descJa": "サブドメイン専用のファビコンを設定する方法を解説。絶対URL、CORSエラーの修正、SaaSのマルチテナント対応まで網羅した開発者向けガイド。",
+    "descKo": "서브도메인에 고유한 파비콘을 구성하는 방법을 알아보세요. 절대 URL, CORS 수정 및 멀티테넌트 SaaS 아이콘 라우팅을 마스터하세요.",
+    "descEs": "Aprende a configurar un favicon distinto para subdominios. Domina las URL absolutas, CORS y el enrutamiento SaaS multi-inquilino en esta guía.",
+    "keyword": "favicon for subdomains",
+    "tags": [
+      "advanced",
+      "seo"
+    ],
+    "qualityScore": 85,
+    "qualityGrade": "A"
   }
 ]
