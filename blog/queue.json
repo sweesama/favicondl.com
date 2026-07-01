@@ -1699,7 +1699,9 @@
       "multiple-favicons",
       "favicon-for-seo"
     ],
-    "status": "pending"
+    "status": "done",
+    "qualityScore": 77,
+    "qualityGrade": "B"
   },
   {
     "keyword": "favicon and open graph image difference",
