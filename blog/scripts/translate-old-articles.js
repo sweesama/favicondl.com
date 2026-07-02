@@ -1,30 +1,33 @@
 // ============================================================
 // 一次性脚本：为旧博客文章补充 ja/ko/es 正文翻译
-// 使用 Gemini API，每篇文章 1 次 API 调用（翻译 en → ja+ko+es）
+// 使用 NVIDIA NIM API，每篇文章 1 次 API 调用（翻译 en → ja+ko+es）
 // 
 // 用法：
-//   GEMINI_API_KEY=xxx node translate-old-articles.js
-//   GEMINI_API_KEY=xxx node translate-old-articles.js --limit 5
+//   NVIDIA_API_KEY=xxx node translate-old-articles.js
+//   NVIDIA_API_KEY=xxx node translate-old-articles.js --limit 5
 //
-// Gemini 免费额度：20 RPD，所以 23 篇文章需要分 2 天跑
+// NVIDIA NIM 免费额度：40 RPM，可一次跑完所有文章
 // 脚本会自动跳过已有 ja/ko/es 正文的文章
 // ============================================================
 
 import fs from 'fs';
 import path from 'path';
-import { GoogleGenAI } from '@google/genai';
+import OpenAI from 'openai';
 
 const BLOG_DIR = path.resolve(new URL('.', import.meta.url).pathname.replace(/^\/([A-Z]:)/i, '$1'), '..');
-const API_KEY = process.env.GEMINI_API_KEY;
+const API_KEY = process.env.NVIDIA_API_KEY;
 
 if (!API_KEY) {
-  console.error('❌ 缺少 GEMINI_API_KEY 环境变量');
-  console.error('   用法: GEMINI_API_KEY=xxx node translate-old-articles.js');
+  console.error('❌ 缺少 NVIDIA_API_KEY 环境变量');
+  console.error('   用法: NVIDIA_API_KEY=xxx node translate-old-articles.js');
   process.exit(1);
 }
 
-const ai = new GoogleGenAI({ apiKey: API_KEY });
-const MODEL_LIST = ['gemini-2.5-flash', 'gemini-2.5-pro', 'gemini-2.0-flash'];
+const ai = new OpenAI({
+  apiKey: API_KEY,
+  baseURL: 'https://integrate.api.nvidia.com/v1',
+});
+const MODEL_LIST = ['qwen/qwen3.5-122b-a10b', 'deepseek-ai/deepseek-v4-flash'];
 const RETRY_DELAY_MS = 10000;
 
 // 从命令行参数获取限制数（付费层 10K RPD，可一次跑完所有文章）
@@ -116,8 +119,8 @@ async function translateArticle(filename) {
   }
   const enContent = enMatch[1].trim();
 
-  // 调用 Gemini API 翻译
-  const translations = await callGeminiTranslate(enContent, filename);
+  // 调用 NVIDIA NIM API 翻译
+  const translations = await callNvidiaTranslate(enContent, filename);
 
   // 找到 cta-box 的位置，在其前面插入 ja/ko/es 块
   const ctaIndex = html.indexOf('<div class="cta-box">');
@@ -148,10 +151,10 @@ async function translateArticle(filename) {
 }
 
 // ============================================================
-// Gemini API 调用 — 带重试和多模型降级
+// NVIDIA NIM API 调用 — 带重试和多模型降级
 // ============================================================
 
-async function callGeminiTranslate(enContent, filename) {
+async function callNvidiaTranslate(enContent, filename) {
   const prompt = buildTranslatePrompt(enContent, filename);
 
   for (const model of MODEL_LIST) {
@@ -159,17 +162,18 @@ async function callGeminiTranslate(enContent, filename) {
       try {
         console.log(`  🤖 尝试 ${model} (第 ${attempt} 次)...`);
 
-        const response = await ai.models.generateContent({
+        const response = await ai.chat.completions.create({
           model,
-          contents: prompt,
-          config: {
-            temperature: 0.3,
-            maxOutputTokens: 65536,
-            responseMimeType: 'application/json',
-          },
+          messages: [
+            { role: 'system', content: 'You are a professional web content translator. You always return valid JSON.' },
+            { role: 'user', content: prompt },
+          ],
+          temperature: 0.3,
+          max_tokens: 65536,
+          response_format: { type: 'json_object' },
         });
 
-        const text = response.text.trim();
+        const text = response.choices[0].message.content.trim();
         const json = JSON.parse(text);
 
         // 验证

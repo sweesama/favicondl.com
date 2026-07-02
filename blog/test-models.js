@@ -1,8 +1,11 @@
-import { GoogleGenAI } from '@google/genai';
+import OpenAI from 'openai';
 import fs from 'fs';
 
-const API_KEY = process.env.GEMINI_API_KEY;
-const ai = new GoogleGenAI({ apiKey: API_KEY });
+const API_KEY = process.env.NVIDIA_API_KEY;
+const ai = new OpenAI({
+  apiKey: API_KEY,
+  baseURL: 'https://integrate.api.nvidia.com/v1',
+});
 
 const MOCK_PROMPT = `You are a senior developer-blogger who writes like a real human — with opinions, humor, and hard-won experience. You write for Mzu favicondl (https://favicondl.com), a favicon download and conversion tool.
 
@@ -116,18 +119,19 @@ async function testModel(modelName) {
     console.log(`============================`);
     
     try {
-        const result = await ai.models.generateContent({
+        const result = await ai.chat.completions.create({
             model: modelName,
-            contents: MOCK_PROMPT,
-            config: {
-                temperature: 0.55,
-                topP: 0.88,
-                maxOutputTokens: 65536,
-                responseMimeType: 'application/json',
-            }
+            messages: [
+              { role: 'system', content: 'You are a professional multilingual SEO content writer. You always return valid JSON when asked.' },
+              { role: 'user', content: MOCK_PROMPT },
+            ],
+            temperature: 0.55,
+            top_p: 0.88,
+            max_tokens: 65536,
+            response_format: { type: 'json_object' },
         });
 
-        const data = JSON.parse(result.text);
+        const data = JSON.parse(result.choices[0].message.content);
         
         // Analyze contentEn
         const contentEn = data.contentEn || '';
@@ -156,8 +160,8 @@ async function testModel(modelName) {
 }
 
 async function run() {
-    await testModel('gemini-3.1-flash-lite-preview');
-    await testModel('gemini-2.5-flash');
+    await testModel('qwen/qwen3.5-122b-a10b');
+    await testModel('deepseek-ai/deepseek-v4-flash');
 }
 
 run();

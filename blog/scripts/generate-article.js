@@ -6,18 +6,18 @@
  * - AI 套话检测：验证阶段自动扫描生成内容中的 AI 陈词滥调
  * - Schema.org Bug 修复：JSON-LD 改用 JSON.stringify（不再错误使用 HTML 实体）
  * - 温度 0.55：平衡准确性与可读性
- * - API 120s 超时：防止 Gemini 挂起导致脚本卡死
+ * - API 240s 超时：防止 API 挂起导致脚本卡死
  * - 动态版权年份
  * 
  * v3 基础：
- * - 模型优先级：gemini-3-flash-preview → 2.5-flash → 2.5-pro
- * - 意图感知 / 自适应长度 / 语义去重 / 现代 SEO / responseMimeType: JSON
+ * - 模型优先级：qwen3.5-122b → deepseek-v4-flash（NVIDIA NIM 免费端点）
+ * - 意图感知 / 自适应长度 / 语义去重 / 现代 SEO / response_format: JSON
  * 
  * 使用方式：
- *   GEMINI_API_KEY=xxx node generate-article.js
+ *   NVIDIA_API_KEY=xxx node generate-article.js
  */
 
-import { GoogleGenAI } from '@google/genai';
+import OpenAI from 'openai';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -34,23 +34,24 @@ const QUEUE_PATH = path.join(BLOG_DIR, 'queue.json');
 const ARTICLES_PATH = path.join(BLOG_DIR, 'articles.json');
 const SITEMAP_PATH = path.join(ROOT_DIR, 'sitemap.xml');
 
-// API 配置
-const API_KEY = process.env.GEMINI_API_KEY;
+// API 配置（NVIDIA NIM — OpenAI 兼容接口）
+const API_KEY = process.env.NVIDIA_API_KEY;
 if (!API_KEY) {
-  console.error('❌ 错误：缺少 GEMINI_API_KEY 环境变量');
+  console.error('❌ 错误：缺少 NVIDIA_API_KEY 环境变量');
   process.exit(1);
 }
 
-const ai = new GoogleGenAI({ apiKey: API_KEY });
+const ai = new OpenAI({
+  apiKey: API_KEY,
+  baseURL: 'https://integrate.api.nvidia.com/v1',
+});
 
-// 模型优先级列表（质量优先 → 快速备选 → 兜底）
-// 2026-04: Gemini 3 系列仍为 preview，API 名称必须带 -preview 后缀
-// 付费层可用 gemini-3.1-pro-preview，质量最高，放首位
+// 模型优先级列表（NVIDIA NIM 免费端点）
+// 主力 qwen3.5-122b：多语言能力最强（CJK 优势），262K 输出
+// 备选 deepseek-v4-flash：推理强，英文/中文 Tier 1，66K 输出
 const MODEL_LIST = [
-  'gemini-3.1-pro-preview',          // Pro 级，质量最高，5语言长文最稳
-  'gemini-3-flash-preview',          // Flash 快速模型
-  'gemini-2.5-flash',                // 稳定主力（已 GA）
-  'gemini-3.1-flash-lite-preview',   // 轻量兜底
+  'qwen/qwen3.5-122b-a10b',          // 主力：5 语言最均衡，CJK 最强
+  'deepseek-ai/deepseek-v4-flash',   // 备选：推理强，英文/中文顶级
 ];
 const MAX_RETRIES = 3;
 const RETRY_DELAY_MS = 50000;
@@ -426,7 +427,7 @@ CRITICAL: Do NOT use literal newlines inside string values. Export strings as si
 async function generateArticleContent(keyword, slug, tags, existingArticles, intent, depth, avoidOverlap) {
   const prompt = buildPrompt(keyword, slug, tags, existingArticles, intent, depth, avoidOverlap);
 
-  console.log('🤖 正在调用 Gemini API 生成文章...');
+  console.log('🤖 正在调用 NVIDIA NIM API 生成文章...');
 
   let usedModel = '';
 
@@ -439,20 +440,21 @@ async function generateArticleContent(keyword, slug, tags, existingArticles, int
           setTimeout(() => reject(new Error('API 调用超时(240s)')), 240000)
         );
         const result = await Promise.race([
-          ai.models.generateContent({
+          ai.chat.completions.create({
             model: modelName,
-            contents: prompt,
-            config: {
-              temperature: 0.55,       // 平衡准确性与可读性（0.4太死板，0.7太散）
-              topP: 0.88,
-              maxOutputTokens: 65536,
-              responseMimeType: 'application/json',
-            }
+            messages: [
+              { role: 'system', content: 'You are a professional multilingual SEO content writer. You always return valid JSON when asked.' },
+              { role: 'user', content: prompt },
+            ],
+            temperature: 0.55,       // 平衡准确性与可读性（0.4太死板，0.7太散）
+            top_p: 0.88,
+            max_tokens: 65536,
+            response_format: { type: 'json_object' },
           }),
           timeoutPromise
         ]);
 
-        const responseText = result.text;
+        const responseText = result.choices[0].message.content;
         usedModel = modelName;
         console.log(`  ✅ ${modelName} 响应成功 (${responseText.length} 字符)`);
 
