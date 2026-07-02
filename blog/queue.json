@@ -1716,7 +1716,9 @@
       "favicon-vs-logo",
       "favicon-metadata-json"
     ],
-    "status": "pending"
+    "status": "done",
+    "qualityScore": 75,
+    "qualityGrade": "B"
   },
   {
     "keyword": "favicon and app icon difference",
