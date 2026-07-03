@@ -229,7 +229,7 @@ async function main() {
 // Prompt 构建 — 意图感知 + 语义去重 + 自适应长度
 // ============================================================
 
-function buildPrompt(keyword, slug, tags, existingArticles, intent, depth, avoidOverlap) {
+function buildMainPrompt(keyword, slug, tags, existingArticles, intent, depth, avoidOverlap) {
   const depthCfg = DEPTH_CONFIG[depth] || DEPTH_CONFIG.standard;
 
   // 构建已有文章摘要（标题 + 描述，让 AI 知道哪些话题已覆盖）
@@ -359,25 +359,21 @@ Your article will be graded automatically. To get an 'A' grade (100/100), you MU
 4. LISTS: You MUST include at least one bulleted list \`<ul>\` or numbered list \`<ol>\` to organize steps or features.
 5. INTERNAL LINKS: You MUST include 1 or 2 internal links (e.g., \`<a href='/blog/example.html'>\`) using the existing articles provided above.
 
-=== CHINESE CONTENT ===
-- Full natural Chinese version — NOT literal translation.
-- Adapt idioms and examples for Chinese readers. Keep technical terms in English.
-- Apply the same anti-AI writing rules: no 套话 like "在当今数字化时代", "众所周知", "不言而喻". Write like a Chinese developer blogging, not a textbook.
-
-=== MULTI-LANGUAGE (ja/ko/es) ===
-CRITICAL SEO REQUIREMENT: DO NOT provide literal word-for-word translations. Google flags literal translations as "Duplicate without user-selected canonical". You MUST provide hyper-localized, culturally adapted content that feels like an independent article written by a native.
-- Re-write the intro and examples to fit local context (e.g., use regional brand examples instead of US-only).
-- Structure can vary slightly if it makes more sense in the target language.
-- titleJa/Ko/Es: Highly optimized, native-sounding titles. Use local search habits.
-- descJa/Ko/Es: Compelling meta descriptions adapted for each language.
-- contentJa/Ko/Es: Full HTML article body. KEEP HTML STRUCTURE IN TACT but completely rewrite the narrative so it isn't an exact replica of the English version.
-- ctaTitleJa/Ko/Es, ctaDescJa/Ko/Es, ctaBtnJa/Ko/Es: Native, persuasive CTA copy.
+=== MULTI-LANGUAGE METADATA (titles, descriptions, breadcrumbs, CTA) ===
+Provide metadata for ALL 5 languages (en, zh, ja, ko, es). These are SHORT fields — NOT the full article body.
+- titleZh/Ja/Ko/Es: Highly optimized, native-sounding titles. Use local search habits.
+- descZh/Ja/Ko/Es: Compelling meta descriptions adapted for each language.
+- breadcrumbZh/Ja/Ko/Es: Native breadcrumb labels.
+- ctaTitleZh/Ja/Ko/Es, ctaDescZh/Ja/Ko/Es, ctaBtnZh/Ja/Ko/Es: Native, persuasive CTA copy.
 - Keep technical terms (favicon, ICO, PNG, SVG) in English.
-- Japanese: use です/ます style, active tech blogger tone. Korean: use 합니다 style. Spanish: use "tú" form, casual tech instructor tone.
+- Japanese: use です/ます style. Korean: use 합니다 style. Spanish: use "tú" form.
+- Chinese: no 套话 like "在当今数字化时代", "众所周知", "不言而喻".
+
+NOTE: The full article body for zh/ja/ko/es will be generated separately in follow-up calls. Only provide the English article body (contentEn) here.
 
 === OUTPUT FORMAT ===
 Return ONLY valid JSON.
-CRITICAL: Do NOT use literal newlines inside string values. Export strings as single continuous lines and use \\n for line breaks. Do NOT leave unescaped double quotes inside strings.
+CRITICAL: Do NOT use literal newlines inside string values. Export strings as single continuous lines and use \n for line breaks. Do NOT leave unescaped double quotes inside strings.
 
 {
   "titleEn": "Engaging title with keyword (50-60 chars)",
@@ -397,10 +393,6 @@ CRITICAL: Do NOT use literal newlines inside string values. Export strings as si
   "breadcrumbKo": "브레드크럼",
   "breadcrumbEs": "Migas de pan",
   "contentEn": "<p>HTML article body...</p>",
-  "contentZh": "<p>中文文章正文...</p>",
-  "contentJa": "<p>日本語の記事本文...</p>",
-  "contentKo": "<p>한국어 기사 본문...</p>",
-  "contentEs": "<p>Cuerpo del artículo en español...</p>",
   "ctaTitleEn": "CTA heading",
   "ctaTitleZh": "CTA 标题",
   "ctaTitleJa": "CTA 見出し",
@@ -421,21 +413,77 @@ CRITICAL: Do NOT use literal newlines inside string values. Export strings as si
 }
 
 // ============================================================
-// AI 调用 — 带重试和多模型降级
+// 翻译 Prompt — 根据英文正文生成单语言内容（文化适配，非直译）
 // ============================================================
 
-async function generateArticleContent(keyword, slug, tags, existingArticles, intent, depth, avoidOverlap) {
-  const prompt = buildPrompt(keyword, slug, tags, existingArticles, intent, depth, avoidOverlap);
+function buildTranslationPrompt(englishContent, englishTitle, langCode, keyword) {
+  const langMap = {
+    Zh: {
+      name: 'Chinese',
+      nativeName: '中文',
+      rules: '- Full natural Chinese version — NOT literal translation.\n- Adapt idioms and examples for Chinese readers. Keep technical terms in English.\n- Apply the same anti-AI writing rules: no 套话 like "在当今数字化时代", "众所周知", "不言而喻". Write like a Chinese developer blogging, not a textbook.',
+    },
+    Ja: {
+      name: 'Japanese',
+      nativeName: '日本語',
+      rules: '- Japanese: use です/ます style, active tech blogger tone.\n- Adapt examples for Japanese readers. Keep technical terms in English.\n- No AI clichés. Write like a Japanese developer blogging.',
+    },
+    Ko: {
+      name: 'Korean',
+      nativeName: '한국어',
+      rules: '- Korean: use 합니다 style, natural developer blog tone.\n- Adapt examples for Korean readers. Keep technical terms in English.\n- No AI clichés. Write like a Korean developer blogging.',
+    },
+    Es: {
+      name: 'Spanish',
+      nativeName: 'español',
+      rules: '- Spanish: use "tú" form, casual tech instructor tone.\n- Adapt examples for Spanish-speaking readers. Keep technical terms in English.\n- No AI clichés. Write like a Spanish developer blogging.',
+    },
+  };
 
-  console.log('🤖 正在调用 NVIDIA NIM API 生成文章...');
+  const lang = langMap[langCode];
+  if (!lang) throw new Error(`未知语言代码: ${langCode}`);
 
-  let usedModel = '';
+  return `You are a professional ${lang.name} tech blogger. Adapt the following English article into ${lang.nativeName}.
+CRITICAL: This is NOT a literal word-for-word translation. Google flags literal translations as "Duplicate without user-selected canonical". You MUST provide hyper-localized, culturally adapted content that feels like an independent article written by a native ${lang.name} developer.
 
+=== ADAPTATION RULES ===
+${lang.rules}
+- Re-write the intro and examples to fit local context (e.g., use regional brand examples instead of US-only).
+- Structure can vary slightly if it makes more sense in the target language.
+- Keep ALL HTML tags and structure (h2, h3, p, ul, li, pre, code, a, strong, em, table, etc.)
+- Keep all href links unchanged
+- Keep technical terms in English: favicon, ICO, PNG, SVG, CSS, HTML, JavaScript, PWA, CDN, CORS, API, etc.
+- Do NOT add new tags or remove existing ones
+- Do NOT translate code inside <pre><code> blocks
+- HTML only, no markdown
+
+=== HTML RULES ===
+- Use single quotes for all HTML attributes (e.g., <a href='/link' class='btn'>).
+- Do NOT use double quotes in HTML attributes.
+
+=== OUTPUT FORMAT ===
+Return ONLY valid JSON.
+CRITICAL: Do NOT use literal newlines inside string values. Use \\n for line breaks. Do NOT leave unescaped double quotes inside strings.
+
+{
+  "content": "<p>${lang.nativeName} HTML article body...</p>"
+}
+
+=== ENGLISH ARTICLE TO ADAPT ===
+Title: ${englishTitle}
+
+${englishContent}`;
+}
+
+// ============================================================
+// AI 调用 — 单次调用带重试和多模型降级
+// ============================================================
+
+async function callAI(prompt, label, temperature = 0.55) {
   for (const modelName of MODEL_LIST) {
     for (let attempt = 1; attempt <= MAX_RETRIES; attempt++) {
       try {
-        console.log(`  → 模型 ${modelName} (第 ${attempt}/${MAX_RETRIES} 次)...`);
-        // 240 秒超时，防止 API 挂起
+        console.log(`  → [${label}] 模型 ${modelName} (第 ${attempt}/${MAX_RETRIES} 次)...`);
         const timeoutPromise = new Promise((_, reject) =>
           setTimeout(() => reject(new Error('API 调用超时(240s)')), 240000)
         );
@@ -446,57 +494,90 @@ async function generateArticleContent(keyword, slug, tags, existingArticles, int
               { role: 'system', content: 'You are a professional multilingual SEO content writer. You always return valid JSON when asked.' },
               { role: 'user', content: prompt },
             ],
-            temperature: 0.55,       // 平衡准确性与可读性（0.4太死板，0.7太散）
+            temperature,
             top_p: 0.88,
-            max_tokens: 65536,
+            max_tokens: 4096,
             response_format: { type: 'json_object' },
           }),
           timeoutPromise
         ]);
 
-        const responseText = result.choices[0].message.content;
-        usedModel = modelName;
-        console.log(`  ✅ ${modelName} 响应成功 (${responseText.length} 字符)`);
+        const responseText = result.choices[0].message?.content;
+        if (!responseText) {
+          throw new Error('API 返回了空响应');
+        }
+        console.log(`  ✅ [${label}] ${modelName} 响应成功 (${responseText.length} 字符)`);
 
-        // --- 解析 JSON ---
         const data = parseAIResponse(responseText);
-        
-        // --- 验证文章数据 ---
-        validateArticleData(data, keyword, depth);
-
-        console.log(`✅ AI 生成完成 [${usedModel}]: "${data.titleEn}"`);
         return data;
 
       } catch (err) {
         const isRateLimit = err.message?.includes('429') || err.message?.includes('quota') || err.message?.includes('RESOURCE_EXHAUSTED') || err.message?.includes('503') || err.message?.includes('high demand');
         const isJsonError = err.message?.includes('JSON');
-        const isValidationError = err.message?.includes('质量检查失败');
-        
+        const isTimeout = err.message?.includes('超时');
+
         let errSummary = err.message?.substring(0, 100);
         if (isRateLimit) errSummary = '配额限制';
         else if (isJsonError) errSummary = '返回了无效的 JSON';
-        else if (isValidationError) errSummary = err.message.split('\n')[0];
+        else if (isTimeout) errSummary = 'API 调用超时';
 
-        console.log(`  ⚠️ ${modelName} 失败: ${errSummary}`);
+        console.log(`  ⚠️ [${label}] ${modelName} 失败: ${errSummary}`);
 
-        if ((isRateLimit || isJsonError || isValidationError) && attempt < MAX_RETRIES) {
+        if ((isRateLimit || isJsonError) && attempt < MAX_RETRIES) {
           const delay = isRateLimit ? RETRY_DELAY_MS : 3000;
           console.log(`  ⏳ 等待 ${delay / 1000} 秒后重试...`);
           await new Promise(r => setTimeout(r, delay));
-        } else if ((isJsonError || isValidationError) && attempt === MAX_RETRIES) {
-          console.log(`  ⏭️ ${modelName} 已达最大重试次数，切换下一个模型...`);
-          break; // 当前模型已用完机会，换下一个模型
-        } else if (!isRateLimit && !isJsonError && !isValidationError) {
-          break; // 非限流、非JSON、非验证错误 → 直接换下一个模型
-        } else if (isRateLimit && attempt === MAX_RETRIES) {
-          console.log(`  ⏭️ ${modelName} 限流重试已达上限，尝试下一个模型...`);
+        } else if (isTimeout && attempt < MAX_RETRIES) {
+          console.log(`  ⏳ 超时，切换下一个模型...`);
+          break;
+        } else {
           break;
         }
       }
     }
   }
 
-  throw new Error('所有模型均调用失败，请检查 API Key 和配额');
+  throw new Error(`[${label}] 所有模型均调用失败`);
+}
+
+// ============================================================
+// AI 调用 — 分步生成（主调用 + 4 次翻译调用）
+// ============================================================
+
+async function generateArticleContent(keyword, slug, tags, existingArticles, intent, depth, avoidOverlap) {
+  // --- 第 1 步：生成英文正文 + 5 语言元数据 ---
+  const mainPrompt = buildMainPrompt(keyword, slug, tags, existingArticles, intent, depth, avoidOverlap);
+  console.log('🤖 [1/5] 正在调用 NVIDIA NIM API 生成英文文章 + 元数据...');
+  const data = await callAI(mainPrompt, 'main', 0.55);
+  console.log(`✅ 英文文章生成完成: "${data.titleEn}"`);
+
+  // --- 第 2-5 步：分别生成 4 种非英语正文 ---
+  const languages = [
+    { code: 'Zh', name: '中文' },
+    { code: 'Ja', name: '日本語' },
+    { code: 'Ko', name: '한국어' },
+    { code: 'Es', name: 'Español' },
+  ];
+
+  for (let i = 0; i < languages.length; i++) {
+    const lang = languages[i];
+    const stepNum = i + 2;
+    console.log(`\n🌐 [${stepNum}/5] 正在生成${lang.name}正文...`);
+    const transPrompt = buildTranslationPrompt(data.contentEn, data.titleEn, lang.code, keyword);
+    const transData = await callAI(transPrompt, `translate-${lang.code}`, 0.5);
+
+    if (!transData.content || transData.content.trim() === '') {
+      throw new Error(`${lang.name}内容生成失败：返回了空内容`);
+    }
+
+    data[`content${lang.code}`] = transData.content;
+    console.log(`✅ ${lang.name}正文生成完成 (${transData.content.length} 字符)`);
+  }
+
+  // --- 验证完整数据 ---
+  validateArticleData(data, keyword, depth);
+  console.log(`✅ 全部生成完成: "${data.titleEn}"`);
+  return data;
 }
 
 // ============================================================
