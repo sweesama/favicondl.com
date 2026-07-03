@@ -515,16 +515,18 @@ async function callAI(prompt, label, temperature = 0.55) {
         const isRateLimit = err.message?.includes('429') || err.message?.includes('quota') || err.message?.includes('RESOURCE_EXHAUSTED') || err.message?.includes('503') || err.message?.includes('high demand');
         const isJsonError = err.message?.includes('JSON');
         const isTimeout = err.message?.includes('超时');
+        const isConnError = err.message?.includes('Connection') || err.message?.includes('ECONNRESET') || err.message?.includes('socket') || err.message?.includes('network') || err.message?.includes('fetch');
 
         let errSummary = err.message?.substring(0, 100);
         if (isRateLimit) errSummary = '配额限制';
         else if (isJsonError) errSummary = '返回了无效的 JSON';
         else if (isTimeout) errSummary = 'API 调用超时';
+        else if (isConnError) errSummary = '网络连接错误';
 
         console.log(`  ⚠️ [${label}] ${modelName} 失败: ${errSummary}`);
 
-        if ((isRateLimit || isJsonError) && attempt < MAX_RETRIES) {
-          const delay = isRateLimit ? RETRY_DELAY_MS : 3000;
+        if ((isRateLimit || isJsonError || isConnError) && attempt < MAX_RETRIES) {
+          const delay = isRateLimit ? RETRY_DELAY_MS : (isConnError ? 5000 : 3000);
           console.log(`  ⏳ 等待 ${delay / 1000} 秒后重试...`);
           await new Promise(r => setTimeout(r, delay));
         } else if (isTimeout && attempt < MAX_RETRIES) {
@@ -572,6 +574,11 @@ async function generateArticleContent(keyword, slug, tags, existingArticles, int
 
     data[`content${lang.code}`] = transData.content;
     console.log(`✅ ${lang.name}正文生成完成 (${transData.content.length} 字符)`);
+
+    // 每次调用之间等待 2 秒，避免连续请求导致连接问题
+    if (i < languages.length - 1) {
+      await new Promise(r => setTimeout(r, 2000));
+    }
   }
 
   // --- 验证完整数据 ---
