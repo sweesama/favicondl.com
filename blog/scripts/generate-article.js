@@ -498,13 +498,16 @@ async function callAI(prompt, label, temperature = 0.55) {
             top_p: 0.88,
             max_tokens: 4096,
             response_format: { type: 'json_object' },
+            // Qwen 3.5 默认开启 reasoning 模式，会消耗 token 在内部推理上导致输出为空
+            // 显式关闭 thinking 模式
+            chat_template_kwargs: { enable_thinking: false },
           }),
           timeoutPromise
         ]);
 
         const responseText = result.choices[0].message?.content;
-        if (!responseText) {
-          throw new Error('API 返回了空响应');
+        if (!responseText || responseText.trim() === '') {
+          throw new Error('API 返回了空响应（可能是 reasoning 模式消耗了所有 token）');
         }
         console.log(`  ✅ [${label}] ${modelName} 响应成功 (${responseText.length} 字符)`);
 
@@ -516,16 +519,18 @@ async function callAI(prompt, label, temperature = 0.55) {
         const isJsonError = err.message?.includes('JSON');
         const isTimeout = err.message?.includes('超时');
         const isConnError = err.message?.includes('Connection') || err.message?.includes('ECONNRESET') || err.message?.includes('socket') || err.message?.includes('network') || err.message?.includes('fetch');
+        const isEmptyResponse = err.message?.includes('空响应');
 
         let errSummary = err.message?.substring(0, 100);
         if (isRateLimit) errSummary = '配额限制';
         else if (isJsonError) errSummary = '返回了无效的 JSON';
         else if (isTimeout) errSummary = 'API 调用超时';
         else if (isConnError) errSummary = '网络连接错误';
+        else if (isEmptyResponse) errSummary = 'API 返回了空响应';
 
         console.log(`  ⚠️ [${label}] ${modelName} 失败: ${errSummary}`);
 
-        if ((isRateLimit || isJsonError || isConnError) && attempt < MAX_RETRIES) {
+        if ((isRateLimit || isJsonError || isConnError || isEmptyResponse) && attempt < MAX_RETRIES) {
           const delay = isRateLimit ? RETRY_DELAY_MS : (isConnError ? 5000 : 3000);
           console.log(`  ⏳ 等待 ${delay / 1000} 秒后重试...`);
           await new Promise(r => setTimeout(r, delay));
