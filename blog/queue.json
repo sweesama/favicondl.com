@@ -1767,7 +1767,9 @@
       "favicon-testing-tools",
       "favicon-branding-strategy"
     ],
-    "status": "pending"
+    "status": "done",
+    "qualityScore": 77,
+    "qualityGrade": "B"
   },
   {
     "keyword": "favicon for no code websites",
