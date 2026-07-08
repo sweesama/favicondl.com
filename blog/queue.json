@@ -1784,7 +1784,9 @@
       "webflow-favicon",
       "wix-favicon"
     ],
-    "status": "pending"
+    "status": "done",
+    "qualityScore": 70,
+    "qualityGrade": "B"
   },
   {
     "keyword": "favicon for static site generators",
