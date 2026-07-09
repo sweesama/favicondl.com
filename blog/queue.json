@@ -1801,7 +1801,9 @@
       "astro-favicon",
       "gatsby-favicon"
     ],
-    "status": "pending"
+    "status": "done",
+    "qualityScore": 77,
+    "qualityGrade": "B"
   },
   {
     "keyword": "favicon for vite app",

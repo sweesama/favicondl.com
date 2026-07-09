@@ -2492,5 +2492,26 @@
     ],
     "qualityScore": 70,
     "qualityGrade": "B"
+  },
+  {
+    "slug": "static-site-generator-favicon",
+    "publishDate": "2026-07-09",
+    "titleEn": "Favicon for Static Site Generators: The 2026 Setup Guide",
+    "titleZh": "静态站点生成器 Favicon 设置指南：2026 版",
+    "titleJa": "静的サイトジェネレータ向けファビコン設定ガイド 2026",
+    "titleKo": "정적 사이트 생성기용 파비콘 설정 가이드 2026",
+    "titleEs": "Guía de configuración de favicon para generadores de sitios estáticos 2026",
+    "descEn": "Stop fighting your build tool. Learn the exact steps to set a favicon for static site generators like Astro, Next.js, and Gatsby without breaking your cache.",
+    "descZh": "别再和构建工具较劲了。学习如何在 Astro、Next.js 和 Gatsby 等静态站点生成器中设置 favicon 的确切步骤，同时避免缓存问题。",
+    "descJa": "ビルドツールとの戦いをやめましょう。Astro、Next.js、Gatsby などの静的サイトジェネレータでファビコンを設定し、キャッシュを壊さずに完了させる正確な手順を学びます。",
+    "descKo": "빌드 도구와의 싸움을 멈추세요. Astro, Next.js, Gatsby 등의 정적 사이트 생성기에서 캐시를 깨지 않고 파비콘을 설정하는 정확한 단계를 배웁니다.",
+    "descEs": "Deja de luchar contra tu herramienta de construcción. Aprende los pasos exactos para configurar un favicon en generadores de sitios estáticos como Astro, Next.js y Gatsby sin romper tu caché.",
+    "keyword": "favicon for static site generators",
+    "tags": [
+      "framework",
+      "static-site"
+    ],
+    "qualityScore": 77,
+    "qualityGrade": "B"
   }
 ]
