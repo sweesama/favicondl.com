@@ -2513,5 +2513,26 @@
     ],
     "qualityScore": 77,
     "qualityGrade": "B"
+  },
+  {
+    "slug": "vite-favicon",
+    "publishDate": "2026-07-10",
+    "titleEn": "How to Add a Favicon for Vite App: The 2026 Dev Guide",
+    "titleZh": "Vite 应用 favicon 设置指南：2026 开发者必读",
+    "titleJa": "Vite アプリの favicon 設定：2026 年版開発者ガイド",
+    "titleKo": "Vite 앱 favicon 추가 가이드: 2026 개발자 가이드",
+    "titleEs": "Cómo añadir un favicon para Vite App: Guía Dev 2026",
+    "descEn": "Stop fighting Vite's build process. Learn the exact file-based metadata approach to add a favicon for Vite app projects without breaking your cache.",
+    "descZh": "别再和 Vite 的构建过程较劲了。学习基于文件的确切元数据方法，在不破坏缓存的情况下为 Vite 应用添加 favicon。",
+    "descJa": "Vite のビルドプロセスとの戦いをやめましょう。キャッシュを壊さずに Vite アプリに favicon を追加するための正確なファイルベースのメタデータアプローチを学びます。",
+    "descKo": "Vite 빌드 프로세스와의 싸움을 멈추세요. 캐시를 손상시키지 않고 Vite 앱 프로젝트에 favicon 을 추가하는 정확한 파일 기반 메타데이터 접근 방식을 배웁니다.",
+    "descEs": "Deja de luchar contra el proceso de construcción de Vite. Aprende el enfoque exacto de metadatos basado en archivos para añadir un favicon en proyectos de Vite sin romper tu caché.",
+    "keyword": "favicon for vite app",
+    "tags": [
+      "framework",
+      "vite"
+    ],
+    "qualityScore": 67,
+    "qualityGrade": "B"
   }
 ]
