@@ -1835,7 +1835,9 @@
       "vite-favicon",
       "static-site-generator-favicon"
     ],
-    "status": "pending"
+    "status": "done",
+    "qualityScore": 77,
+    "qualityGrade": "B"
   },
   {
     "keyword": "favicon for nuxt app",
