@@ -2555,5 +2555,26 @@
     ],
     "qualityScore": 77,
     "qualityGrade": "B"
+  },
+  {
+    "slug": "nuxt-favicon",
+    "publishDate": "2026-07-13",
+    "titleEn": "How to Set a Favicon for Nuxt App: The 2026 Guide",
+    "titleZh": "Nuxt 应用图标设置指南：2026 版",
+    "titleJa": "Nuxt アプリのファビコン設定：2026 年版ガイド",
+    "titleKo": "Nuxt 앱 아이콘 설정 가이드: 2026 버전",
+    "titleEs": "Cómo configurar un favicon para Nuxt App: Guía 2026",
+    "descEn": "Stop seeing the default Nuxt logo. Learn the exact file-based metadata approach to set a professional favicon for Nuxt app projects in 2026.",
+    "descZh": "别再看到默认的 Nuxt 标志了。学习如何在 2026 年通过基于文件的方法为 Nuxt 项目设置专业的网站图标。",
+    "descJa": "デフォルトの Nuxt ロゴを表示するのはやめましょう。2026 年の Nuxt アプリプロジェクトにプロフェッショナルなファビコンを設定するための正確なファイルベースのメタデータアプローチを学びます。",
+    "descKo": "기본 Nuxt 로고 보기를 중단하세요. 2026 년 Nuxt 앱 프로젝트에 전문적인 파비콘을 설정하는 정확한 파일 기반 메타데이터 접근 방식을 배웁니다.",
+    "descEs": "Deja de ver el logo predeterminado de Nuxt. Aprende el enfoque exacto basado en archivos para configurar un favicon profesional para proyectos de Nuxt app en 2026.",
+    "keyword": "favicon for nuxt app",
+    "tags": [
+      "framework",
+      "nuxt"
+    ],
+    "qualityScore": 77,
+    "qualityGrade": "B"
   }
 ]

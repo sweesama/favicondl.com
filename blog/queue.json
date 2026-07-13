@@ -1852,7 +1852,9 @@
       "vue-favicon",
       "vite-favicon"
     ],
-    "status": "pending"
+    "status": "done",
+    "qualityScore": 77,
+    "qualityGrade": "B"
   },
   {
     "keyword": "favicon for cloudflare pages",
