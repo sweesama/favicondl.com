@@ -8,11 +8,11 @@
 
 ### 主页 - Favicon Extractor / Downloader
 - ✅ 输入任意域名/网址，即时预览网站图标
-- ✅ 支持多尺寸预览与下载（16/32/48/64/128）
+- ✅ 支持 16 到 512 像素的尺寸偏好
 - ✅ 一键复制 Direct URL 与 HTML 代码片段
-- ✅ 支持下载 PNG，并可选"透明化处理"（实验）
-- ✅ 对强保护站点支持"图标覆盖表"秒出（用于 chatgpt.com 等）
-- ✅ 默认启用 Cloudflare Worker：更稳定的 HTML 解析与图标发现（含 manifest / apple-touch-icon）
+- ✅ 支持图片下载、JSON 元数据和 302 重定向模式
+- ✅ 对强保护站点支持安全的候选图标与代理兜底
+- ✅ 默认启用 Cloudflare Worker：HTML、SVG、manifest、Apple Touch Icon 多级发现
 
 ### 工具页面 - 图片转 Favicon
 - ✅ 拖拽上传图片（支持 PNG、JPG、SVG、GIF、WebP）
@@ -50,8 +50,9 @@
 | **动画** | Anime.js |
 | **图片处理** | Canvas API（纯前端） |
 | **ZIP 打包** | JSZip（按需加载） |
-| **图标发现/代理** | Cloudflare Worker |
-| **兜底来源** | Google Favicon / DuckDuckGo / gstatic |
+| **图标发现/代理** | Cloudflare Worker 多级发现与安全图片代理 |
+| **Agent 接入** | REST API + OpenAPI + llms.txt + CLI |
+| **MCP** | 本地 stdio MCP Server（`mcp/server.mjs`） |
 | **i18n 构建** | Node.js + Cheerio |
 | **博客生成** | NVIDIA NIM（OpenAI 兼容 API） |
 | **CI/CD** | GitHub Actions |
@@ -61,11 +62,11 @@
 
 | 项目 | 方案 | 成本 |
 |------|------|------|
-| 托管 | Netlify / GitHub Pages | **$0** |
-| Favicon API | Google Favicon Service | **$0** |
+| 托管 | Vercel 静态部署 | **$0** |
+| Favicon API | Vercel Function + Cloudflare Worker | **$0** |
 | 图片处理 | 前端 Canvas | **$0** |
-| CDN/代理 | Cloudflare Worker (免费额度) | **$0** |
-| AI 文章 | Gemini 3.1 Flash Lite (免费额度 150K RPD) | **$0** |
+| CDN/代理 | Cloudflare Worker 免费额度 | **$0** |
+| AI 文章 | NVIDIA NIM（按当前账户额度） | **按用量** |
 | 数据分析 | Google Analytics 4 | **$0** |
 | **总计** | | **$0/月** |
 
@@ -97,7 +98,7 @@ favicon/
 │   ├── articles.json           # 文章索引（标题/描述/日期，5 语言）
 │   ├── queue.json              # 关键词发布队列
 │   └── scripts/
-│       ├── generate-article.js # AI 文章生成脚本（Gemini API）
+│       ├── generate-article.js # AI 文章生成脚本（NVIDIA NIM API）
 │       └── package.json
 │
 ├── zh/                         # 中文页面（i18n build 自动生成）
@@ -107,21 +108,27 @@ favicon/
 │
 ├── .github/workflows/
 │   └── daily-blog.yml          # GitHub Actions：每日自动生成博客
+├── favicondl.ps1               # Windows PowerShell CLI 下载器
+├── favicondl.sh                # Linux/macOS Bash CLI 下载器
+├── SKILL.md                    # Agent/OpenClaw skill canonical source
+├── mcp/                        # 本地 MCP Server（extract_favicon）
+│   ├── server.mjs
+│   ├── package.json
+│   └── README.md
 │
 └── favicons/                   # 网站自身的 favicon 资源
 ```
 
 ## 🚀 部署方式
 
-### 方式 1: Netlify（推荐）
-1. 将项目上传到 GitHub
-2. 登录 [Netlify](https://netlify.com) → "New site from Git"
-3. 选择仓库，自动部署
+### 方式 1: Vercel（当前部署方式）
+1. 将项目连接到 GitHub
+2. 在 Vercel 导入仓库
+3. 之后每次 push 到 `main` 自动部署
 
-### 方式 2: GitHub Pages
-1. 仓库 Settings → Pages → 选择 main 分支
+Cloudflare Worker 需要在 Cloudflare 控制台单独发布 `cloudflare-worker.js`。
 
-### 方式 3: 本地运行
+### 方式 2: 本地运行
 ```bash
 npx serve .
 # 或
@@ -162,14 +169,29 @@ GitHub Actions 每天 UTC 00:00 自动执行上述流程 + i18n 构建 + commit 
 
 ## 🔧 API 说明
 
-### 默认模式（推荐）：Cloudflare Worker
-Worker 会抓取网站 HTML 并解析 `<link rel="icon">`、`apple-touch-icon`、`manifest.webmanifest` 等，返回 `iconUrl`（真实候选）与 `proxyUrl`（绕过 CORS）。
+### Agent 统一接口（推荐）
+```text
+GET https://favicondl.com/api/extract?url={域名或网址}&size={尺寸}
+```
 
-### 兜底模式：Google Favicon Service
-当站点无法解析时，回退到聚合源。URL 模板：
+默认返回 `302`，跟随跳转即可下载图标；需要来源和候选地址时，增加 `format=json`。
+
+```text
+GET https://favicondl.com/api/extract?url=github.com&size=128&format=json
 ```
-https://www.google.com/s2/favicons?domain={域名}&sz={尺寸}
+
+Worker 会按优先级发现 HTML 图标、SVG、Apple Touch Icon、Web Manifest 和其他安全候选，并在需要时通过受保护的图片代理返回结果。项目提供 REST API、OpenAPI、`llms.txt`、CLI，以及一个调用该 API 的本地 stdio MCP Server。它不是需要单独部署的远程 MCP 服务。
+
+### CLI 下载
+```powershell
+.\\favicondl.ps1 -Domain "github.com" -Size 128
 ```
+
+```bash
+./favicondl.sh github.com 128
+```
+
+完整 Agent 说明见 `SKILL.md`、`llms.txt` 和 `openapi.yaml`。支持 MCP 的客户端可参考 `mcp/README.md` 配置本地 `extract_favicon` 工具。
 
 ## 📝 更新日志
 
@@ -223,8 +245,8 @@ MIT License
 
 ## 🙏 致谢
 
-- [Google Favicon Service](https://www.google.com/s2/favicons) - Favicon API
-- [Google Gemini API](https://ai.google.dev/) - AI 文章生成
+- Cloudflare Worker - Favicon discovery and protected image proxy
+- NVIDIA NIM - AI article generation
 - [Tailwind CSS](https://tailwindcss.com) - CSS 框架
 - [Anime.js](https://animejs.com) - 动画库
 - [JSZip](https://stuk.github.io/jszip/) - ZIP 生成库
