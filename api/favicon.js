@@ -10,15 +10,27 @@ module.exports = async function handler(req, res) {
 
   const cfWorkerUrl = `https://icy-glade-6d04favicon.sweeyeah.workers.dev/api/favicon?domain=${encodeURIComponent(domain)}&size=${size}`;
 
-  if (format === 'redirect') {
-    return res.redirect(cfWorkerUrl + '&format=redirect');
-  }
-
   try {
     const response = await fetch(cfWorkerUrl);
     const data = await response.json();
+
+    if (!response.ok || !data?.ok) {
+      return res.status(response.ok ? 502 : response.status).json({
+        ok: false,
+        error: data?.error || 'Favicon extraction failed',
+      });
+    }
+
+    if (format === 'redirect') {
+      const redirectUrl = data.proxyUrl || data.iconUrl;
+      if (!redirectUrl) {
+        return res.status(502).json({ ok: false, error: 'No favicon URL returned' });
+      }
+      return res.redirect(302, redirectUrl);
+    }
+
     return res.status(200).json(data);
   } catch (e) {
-    return res.status(500).json({ ok: false, error: 'Proxy error' });
+    return res.status(504).json({ ok: false, error: 'Proxy error' });
   }
 }

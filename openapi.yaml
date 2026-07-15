@@ -15,48 +15,71 @@ servers:
 paths:
   /api/extract:
     get:
-      summary: Extract high-resolution favicon
+      summary: Download or resolve a website favicon
       description: >
-        Programmatically fetch the best available favicon for a given URL.
-        This endpoint abstracts away the complexity of parsing HTML, manifest.json, 
-        and high-DPI apple-touch-icons.
+        Finds a usable favicon from the target domain and redirects to a
+        downloadable image URL by default. Use format=json to receive the
+        resolved icon URL and source metadata instead. The requested size is a
+        preference; the original website asset may have a different native size.
       operationId: extractFavicon
       parameters:
         - name: url
           in: query
           required: true
-          description: The target domain or URL (e.g., github.com)
+          description: Target domain or URL, for example github.com or https://github.com/docs
           schema:
             type: string
         - name: size
           in: query
           required: false
-          description: Desired icon size in pixels (e.g., 32, 64, 128, 256, 512). Defaults to 128 if omitted.
+          description: Preferred icon size in pixels. Values are clamped to 16-512 and default to 128.
           schema:
             type: integer
+            minimum: 16
+            maximum: 512
             default: 128
+        - name: format
+          in: query
+          required: false
+          description: Use json for metadata; omit it for a 302 image redirect.
+          schema:
+            type: string
+            enum: [redirect, json]
+            default: redirect
       responses:
         '302':
-          description: Discovered icon footprint. Redirects to the highest resolution image asset directly.
-          content:
-            image/*:
+          description: Redirect to the resolved downloadable image URL.
+          headers:
+            Location:
               schema:
                 type: string
-                format: binary
+                format: uri
         '200':
-          description: Successfully fetched the icon details (if requested as JSON, experimental).
+          description: Resolved favicon metadata when format=json is requested.
           content:
             application/json:
               schema:
                 type: object
+                required: [ok, domain, size, iconUrl, proxyUrl, source]
                 properties:
+                  ok:
+                    type: boolean
                   domain:
-                    type: string
-                  icon_url:
                     type: string
                   size:
                     type: integer
+                  iconUrl:
+                    type: string
+                    format: uri
+                  proxyUrl:
+                    type: string
+                    format: uri
+                  source:
+                    type: string
+                    enum: [direct, html, google_s2]
         '400':
-          description: Invalid URL provided
-        '404':
-          description: No favicon could be discovered for the given domain
+          description: Missing URL or invalid format
+        '502':
+          description: Favicon discovery failed
+        '504':
+          description: Favicon discovery timed out

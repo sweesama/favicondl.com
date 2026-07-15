@@ -18,7 +18,7 @@
 │   ├── articles.json            # 数据库：记录已生成的文章元数据 (初始为 [])
 │   ├── queue.json               # 任务队列：等待生成的关键词及意图 (包含多篇带 pending 状态文章的 JSON)
 │   └── scripts/
-│       ├── generate-article.js  # 核心生成引擎，调用 Gemini API
+│       ├── generate-article.js  # 核心生成引擎，调用 NVIDIA NIM API
 │       ├── ping-indexnow.js     # IndexNow 搜索引擎主动推送脚本
 │       └── package.json         # 博客脚本依赖
 ├── i18n/
@@ -41,7 +41,7 @@
 # 1. 配置博客生成环境
 cd blog/scripts
 npm init -y
-npm install @google/genai
+npm install openai
 
 # 2. 配置多语言编译环境
 cd ../../i18n
@@ -84,7 +84,7 @@ npm install cheerio
 新项目复制此 YAML 文件后，检查以下步骤：
 1. **触发条件**：可以保留 `cron` 定时任务（如每天运行一次）和 `workflow_dispatch`（支持在 GitHub 网页端手动点击一键运行）。
 2. **Secrets 设置**：务必在 GitHub 新仓库的 Settings -> Secrets and variables -> Actions 中添加：
-   - `GEMINI_API_KEY`: 填入你的 Google Gemini API 密钥。
+   - `NVIDIA_API_KEY`: 填入你的 NVIDIA NIM API 密钥。
 
 工作流的逻辑应该是这样串联的：
 1. 检出（Checkout）最新代码
@@ -139,8 +139,8 @@ npm install cheerio
 
 ```bash
 # 1. 本地设置环境变量
-export GEMINI_API_KEY="你的真实API_KEY" # ⚠️ macOS/Linux
-# Windows (PowerShell) 用户请用: $env:GEMINI_API_KEY="你的真实API_KEY"
+export NVIDIA_API_KEY="你的真实API_KEY" # ⚠️ macOS/Linux
+# Windows (PowerShell) 用户请用: $env:NVIDIA_API_KEY="你的真实API_KEY"
 
 # 2. 预设排期
 # 在 queue.json 中预留至少 1 篇 pending 状态的测试文章。

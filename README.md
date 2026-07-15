@@ -30,11 +30,11 @@
 - ✅ `i18n/build.js` 一键构建所有语言版本
 
 ### 📝 博客自动发布系统
-- ✅ **AI 生成文章**：Gemini API 单次调用生成 5 语言元数据（标题/描述/CTA）+ 五国语言正文
+- ✅ **AI 生成文章**：NVIDIA NIM（OpenAI 兼容接口）生成 5 语言元数据（标题/描述/CTA）+ 五国语言正文
 - ✅ **GitHub Actions 自动化**：每天 UTC 00:00 自动生成 + i18n 构建 + commit & push
 - ✅ **关键词队列**：`blog/queue.json` 管理待发布关键词
 - ✅ **8 维度质量评分**：词数/代码示例/FAQ/内链/AI套话/标题/列表/多语言平衡 → A/B/C 自动评级
-- ✅ **多模型降级**：Gemini 3.1 Flash Lite → 3.0 Flash → 2.5 Flash
+- ✅ **多模型降级**：Qwen 3.5 122B → DeepSeek V4 Flash（NVIDIA NIM）
 - ✅ **飞书通知**：每日发布结果 + 质量评级推送到飞书群
 - ✅ **IndexNow 推送**：自动通知 Google/Bing 抓取新页面
 
@@ -53,7 +53,7 @@
 | **图标发现/代理** | Cloudflare Worker |
 | **兜底来源** | Google Favicon / DuckDuckGo / gstatic |
 | **i18n 构建** | Node.js + Cheerio |
-| **博客生成** | Google Gemini API（@google/genai） |
+| **博客生成** | NVIDIA NIM（OpenAI 兼容 API） |
 | **CI/CD** | GitHub Actions |
 | **数据分析** | Google Analytics 4 |
 
@@ -154,9 +154,9 @@ node build.js
 ```bash
 cd blog/scripts
 npm install
-GEMINI_API_KEY=your_key node generate-article.js
+NVIDIA_API_KEY=your_key node generate-article.js
 ```
-从 `queue.json` 取下一个关键词，调用 Gemini API 生成 5 语言文章，输出 HTML + 更新 `articles.json` + `sitemap.xml`。
+从 `queue.json` 取下一个关键词，调用 NVIDIA NIM 生成 5 语言文章，输出 HTML + 更新 `articles.json` + `sitemap.xml`。需要设置 `NVIDIA_API_KEY` 环境变量。
 
 GitHub Actions 每天 UTC 00:00 自动执行上述流程 + i18n 构建 + commit & push。
 

@@ -14,44 +14,57 @@ FaviconDL handles:
 
 ## Integration Guide (API Usage for Agents)
 
-AI Agents can integrate FaviconDL's standardized extraction approach using the following REST pattern:
+AI agents can download a favicon with one stable REST endpoint:
 
 **Endpoint Details:**
 - **URL Template**: `https://favicondl.com/api/extract?url={url}&size={size}`
 - **Method**: GET
-- **Returns**: A direct redirect (302) to the high-resolution image asset, or an image byte stream.
+- **Default response**: HTTP 302 redirect to a downloadable image URL.
+- **JSON response**: Add `&format=json` when the agent needs the resolved icon URL and source metadata.
+- **Size range**: `16` to `512`; the endpoint requests the preferred size when supported, but the original website asset may have a different native pixel size.
 
 ### cURL Example
 ```bash
-# Fetch a 128px high-resolution icon from github.com
-curl -L -O "https://favicondl.com/api/extract?url=github.com&size=128"
+# Follow the redirect and save the image
+curl -L -o github-favicon "https://favicondl.com/api/extract?url=github.com&size=128"
 ```
 
 ### Python (Requests) Example
 ```python
 import requests
 
-def get_favicon(domain: str, size: int = 128):
-    """
-    Extracts a high-quality favicon using the FaviconDL protocol.
-    """
-    url = f"https://favicondl.com/api/extract?url={domain}&size={size}"
-    response = requests.get(url, allow_redirects=True)
-    
-    if response.status_code == 200:
-        with open(f"{domain}_icon.png", "wb") as f:
-            f.write(response.content)
-            
-get_favicon("stripe.com", 256)
+def get_favicon(url: str, size: int = 128):
+    endpoint = "https://favicondl.com/api/extract"
+    response = requests.get(
+        endpoint,
+        params={"url": url, "size": size},
+        allow_redirects=True,
+        timeout=15,
+    )
+    response.raise_for_status()
+    return response.content
+
+icon_bytes = get_favicon("stripe.com", 256)
+with open("stripe-favicon", "wb") as output:
+    output.write(icon_bytes)
 ```
+
+### JSON Metadata Example
+```text
+GET https://favicondl.com/api/extract?url=github.com&size=128&format=json
+```
+
+The JSON response contains `ok`, `domain`, `size`, `iconUrl`, `proxyUrl`, and `source`.
 
 ### JavaScript (Fetch) Example
 ```javascript
-async function fetchHighResFavicon(domain, size = 128) {
-  const url = `https://favicondl.com/api/extract?url=${domain}&size=${size}`;
-  const response = await fetch(url);
-  const blob = await response.blob();
-  return URL.createObjectURL(blob);
+async function fetchFavicon(url, size = 128) {
+  const endpoint = new URL('https://favicondl.com/api/extract');
+  endpoint.searchParams.set('url', url);
+  endpoint.searchParams.set('size', String(size));
+  const response = await fetch(endpoint);
+  if (!response.ok) throw new Error(`Favicon request failed: ${response.status}`);
+  return await response.blob();
 }
 ```
 

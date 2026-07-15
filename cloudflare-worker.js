@@ -1,3 +1,7 @@
+const MAX_DISCOVERY_MS = 12000;
+const MAX_PROXY_MS = 8000;
+const MAX_PROXY_BYTES = 5 * 1024 * 1024;
+
 export default {
   async fetch(request, env, ctx) {
     const url = new URL(request.url);
@@ -30,13 +34,16 @@ export default {
       }
 
       const urlCheckCache = new Map();
+      const deadline = Date.now() + MAX_DISCOVERY_MS;
 
       const htmlCandidates = [];
       const manifestUrls = [];
 
       const pageUrls = buildPageUrls(domain);
       for (const pageUrl of pageUrls) {
-        const html = await fetchHtml(pageUrl);
+        const remainingMs = deadline - Date.now();
+        if (remainingMs <= 0) break;
+        const html = await fetchHtml(pageUrl, Math.min(8000, remainingMs));
         if (!html) continue;
 
         const found = extractIconUrlsFromHtml(html, pageUrl);
@@ -53,13 +60,16 @@ export default {
         }
       }
 
-      const manifestIcons = await extractIconUrlsFromManifests(Array.from(new Set(manifestUrls)));
+      const manifestIcons = await extractIconUrlsFromManifests(
+        Array.from(new Set(manifestUrls)),
+        deadline
+      );
       for (const u of manifestIcons) htmlCandidates.push(u);
 
       const directCandidates = buildDirectIconUrls(domain);
 
-      const uniqueHtml = Array.from(new Set(htmlCandidates));
-      const uniqueDirect = Array.from(new Set(directCandidates));
+      const uniqueHtml = Array.from(new Set(htmlCandidates)).sort(compareIconCandidates);
+      const uniqueDirect = Array.from(new Set(directCandidates)).sort(compareIconCandidates);
 
       let iconUrl = '';
       let source = '';
@@ -69,7 +79,8 @@ export default {
         if (directTries >= 24) break;
         directTries++;
         if (!isProbablyIcon(u)) continue;
-        const ok = await isImageUrlCached(u, urlCheckCache);
+        if (deadline - Date.now() <= 0) break;
+        const ok = await isImageUrlCached(u, urlCheckCache, deadline);
         if (!ok) continue;
         iconUrl = u;
         source = 'direct';
@@ -81,7 +92,8 @@ export default {
         for (const u of uniqueHtml) {
           if (htmlTries >= 30) break;
           htmlTries++;
-          const ok = await isImageUrlCached(u, urlCheckCache);
+          if (deadline - Date.now() <= 0) break;
+          const ok = await isImageUrlCached(u, urlCheckCache, deadline);
           if (!ok) continue;
           iconUrl = u;
           source = 'html';
@@ -127,14 +139,35 @@ export default {
         return json({ ok: false, error: 'Invalid url' }, 400);
       }
 
-      const upstream = await fetch(targetUrl.toString(), {
-        headers: {
+      if (!['http:', 'https:'].includes(targetUrl.protocol) || isPrivateHostname(targetUrl.hostname)) {
+        return json({ ok: false, error: 'Target is not allowed' }, 403);
+      }
+
+      const upstream = await fetchWithTimeout(
+        targetUrl.toString(),
+        {
+          headers: {
           'user-agent':
             'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
           accept: '*/*',
         },
         redirect: 'follow',
-      });
+      },
+      MAX_PROXY_MS
+      );
+
+      if (!upstream) {
+        return json({ ok: false, error: 'Proxy request timed out' }, 504);
+      }
+
+      const contentType = upstream.headers.get('content-type') || '';
+      const contentLength = Number(upstream.headers.get('content-length') || 0);
+      if (!isImageContentType(contentType)) {
+        return json({ ok: false, error: 'Target is not an image' }, 415);
+      }
+      if (contentLength > MAX_PROXY_BYTES) {
+        return json({ ok: false, error: 'Image is too large' }, 413);
+      }
 
       const headers = new Headers(upstream.headers);
       headers.set('access-control-allow-origin', '*');
@@ -189,9 +222,9 @@ function cleanDomain(input) {
   return s;
 }
 
-async function fetchHtml(pageUrl) {
+async function fetchHtml(pageUrl, timeoutMs = 8000) {
   const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), 8000);
+  const timer = setTimeout(() => controller.abort(), Math.max(100, timeoutMs));
 
   try {
     const res = await fetch(pageUrl, {
@@ -330,7 +363,7 @@ function isImageContentType(contentType) {
   return false;
 }
 
-async function isImageUrl(u) {
+async function isImageUrl(u, deadline = 0) {
   const target = String(u);
   const baseHeaders = {
     'user-agent':
@@ -338,6 +371,7 @@ async function isImageUrl(u) {
     accept: 'image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8',
   };
 
+  const headTimeout = deadline ? Math.min(3500, Math.max(100, deadline - Date.now())) : 3500;
   const headRes = await fetchWithTimeout(
     target,
     {
@@ -345,7 +379,7 @@ async function isImageUrl(u) {
       redirect: 'follow',
       headers: baseHeaders,
     },
-    3500
+    headTimeout
   );
 
   if (headRes) {
@@ -353,6 +387,8 @@ async function isImageUrl(u) {
     if (isImageContentType(ct)) return true;
   }
 
+  if (deadline && deadline - Date.now() <= 0) return false;
+  const getTimeout = deadline ? Math.min(6000, Math.max(100, deadline - Date.now())) : 6000;
   const getRes = await fetchWithTimeout(
     target,
     {
@@ -363,7 +399,7 @@ async function isImageUrl(u) {
         range: 'bytes=0-2048',
       },
     },
-    6000
+    getTimeout
   );
 
   if (!getRes) return false;
@@ -371,10 +407,10 @@ async function isImageUrl(u) {
   return isImageContentType(ct);
 }
 
-async function isImageUrlCached(u, cache) {
+async function isImageUrlCached(u, cache, deadline = 0) {
   const key = String(u);
   if (cache && cache.has(key)) return cache.get(key);
-  const ok = await isImageUrl(key);
+  const ok = await isImageUrl(key, deadline);
   if (cache) cache.set(key, ok);
   return ok;
 }
@@ -394,11 +430,13 @@ async function fetchWithTimeout(targetUrl, options, timeoutMs) {
   }
 }
 
-async function extractIconUrlsFromManifests(urls) {
+async function extractIconUrlsFromManifests(urls, deadline = 0) {
   const out = [];
 
   for (const u of urls || []) {
-    const data = await fetchJson(u, 6000);
+    if (deadline && deadline - Date.now() <= 0) break;
+    const timeoutMs = deadline ? Math.min(6000, Math.max(100, deadline - Date.now())) : 6000;
+    const data = await fetchJson(u, timeoutMs);
     if (!data) continue;
 
     const icons = Array.isArray(data.icons) ? data.icons : [];
@@ -436,6 +474,46 @@ async function fetchJson(url, timeoutMs) {
   } finally {
     clearTimeout(timer);
   }
+}
+
+function isPrivateHostname(hostname) {
+  const host = String(hostname || '')
+    .toLowerCase()
+    .replace(/^\[|\]$/g, '')
+    .replace(/\.$/, '');
+  if (host === 'localhost' || host === 'localhost.localdomain') return true;
+  if (host === '::1' || host === '0.0.0.0' || host === '::') return true;
+  if (host.startsWith('fc') || host.startsWith('fd') || host.startsWith('fe80:')) return true;
+  if (/^127\./.test(host) || /^10\./.test(host) || /^192\.168\./.test(host)) return true;
+  const match = host.match(/^172\.(\d{1,3})\./);
+  if (match && Number(match[1]) >= 16 && Number(match[1]) <= 31) return true;
+  return host.endsWith('.local') || host.endsWith('.internal');
+}
+
+function compareIconCandidates(a, b) {
+  return scoreIconCandidate(b) - scoreIconCandidate(a);
+}
+
+function scoreIconCandidate(url) {
+  const value = String(url || '').toLowerCase();
+  let score = 0;
+
+  if (value.includes('.svg') || value.includes('format=svg')) score += 1000;
+  if (value.includes('apple-touch') || value.includes('android-chrome')) score += 450;
+  if (value.includes('mask-icon')) score += 400;
+  if (value.includes('512')) score += 360;
+  else if (value.includes('256')) score += 320;
+  else if (value.includes('192')) score += 300;
+  else if (value.includes('180')) score += 280;
+  else if (value.includes('128')) score += 220;
+  else if (value.includes('96')) score += 180;
+  else if (value.includes('64')) score += 140;
+  else if (value.includes('48')) score += 100;
+  else if (value.includes('32')) score += 60;
+  else if (value.includes('16')) score += 20;
+
+  if (value.endsWith('.ico') || value.includes('favicon.ico')) score -= 120;
+  return score;
 }
 
 function isProbablyIcon(url) {

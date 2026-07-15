@@ -152,6 +152,38 @@ class FaviconTools {
         return `${base}/api/proxy?url=${encodeURIComponent(String(targetUrl))}`;
     }
 
+    async fetchFaviconViaWorker(domain, size, timeoutMs = 8000) {
+        const base = String(this.workerBaseUrl || '').trim();
+        if (!base) return null;
+
+        const endpoint = `${base}/api/favicon?domain=${encodeURIComponent(domain)}&size=${encodeURIComponent(size)}`;
+        const controller = new AbortController();
+        const timer = setTimeout(() => controller.abort(), timeoutMs);
+
+        try {
+            const response = await fetch(endpoint, {
+                cache: 'no-store',
+                signal: controller.signal,
+            });
+            if (!response.ok) return null;
+            const data = await response.json();
+            if (!data?.ok || (!data.proxyUrl && !data.iconUrl)) return null;
+            return data;
+        } catch {
+            return null;
+        } finally {
+            clearTimeout(timer);
+        }
+    }
+
+    getBatchDownloadUrl(url) {
+        const value = String(url || '');
+        if (this.workerBaseUrl && value.startsWith(`${this.workerBaseUrl}/api/proxy?`)) {
+            return value;
+        }
+        return this.buildProxyUrl(value);
+    }
+
     syncBatchDownloadButtonLabel() {
         const btn = document.getElementById('download-batch');
         const labelEl = btn?.querySelector('span');
@@ -752,24 +784,37 @@ Project site: https://favicondl.com
         document.getElementById('batch-progress')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
         this.batchResults = [];
 
-        for (let i = 0; i < domains.length; i++) {
-            const domain = this.cleanDomain(domains[i]);
-            const faviconUrl = this.buildFaviconUrl(domain, size);
-            
-            // Google Favicon 服务非常可靠，直接添加结果
-            this.batchResults.push({
-                domain,
-                url: faviconUrl,
-                success: true,
-                index: i + 1
-            });
+        const workerSize = size === 'large' ? 256 : 64;
+        const concurrency = 6;
+        let completed = 0;
+        let nextIndex = 0;
 
-            this.updateBatchProgress(i + 1, domains.length);
-            // 小延迟让UI更新
-            if (i % 10 === 0) {
-                await new Promise(resolve => setTimeout(resolve, 10));
+        const processNext = async () => {
+            while (true) {
+                const index = nextIndex++;
+                if (index >= domains.length) return;
+
+                const domain = this.cleanDomain(domains[index]);
+                const workerData = await this.fetchFaviconViaWorker(domain, workerSize);
+                const fallbackUrl = this.buildFaviconUrl(domain, size);
+                const faviconUrl = workerData?.proxyUrl || workerData?.iconUrl || fallbackUrl;
+
+                this.batchResults[index] = {
+                    domain,
+                    url: faviconUrl,
+                    success: true,
+                    source: workerData?.source || 'google_fallback',
+                    index: index + 1,
+                };
+
+                completed++;
+                this.updateBatchProgress(completed, domains.length);
             }
-        }
+        };
+
+        await Promise.all(
+            Array.from({ length: Math.min(concurrency, domains.length) }, () => processNext())
+        );
 
         this.displayBatchResults();
         this.syncBatchDownloadButtonLabel();
@@ -880,7 +925,7 @@ Project site: https://favicondl.com
     async downloadBatchIcon(url, domain, index) {
         try {
             // 使用 fetch 下载（Google 服务支持）
-            const response = await fetch(this.buildProxyUrl(url));
+            const response = await fetch(this.getBatchDownloadUrl(url));
             const blob = await response.blob();
             const blobUrl = URL.createObjectURL(blob);
 
@@ -912,7 +957,7 @@ Project site: https://favicondl.com
 
             for (const result of successResults) {
                 try {
-                    const response = await fetch(this.buildProxyUrl(result.url));
+                    const response = await fetch(this.getBatchDownloadUrl(result.url));
                     const blob = await response.blob();
                     const blobUrl = URL.createObjectURL(blob);
                     const filename = this.buildBatchFilename(result, 'png');
@@ -957,7 +1002,7 @@ Project site: https://favicondl.com
             for (const result of successResults) {
                 try {
                     // 使用 fetch 获取图片
-                    const response = await fetch(this.buildProxyUrl(result.url));
+                    const response = await fetch(this.getBatchDownloadUrl(result.url));
                     const blob = await response.blob();
                     zip.file(this.buildBatchFilename(result, 'png'), blob);
                     addedCount++;
