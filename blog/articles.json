@@ -2597,5 +2597,26 @@
     ],
     "qualityScore": 77,
     "qualityGrade": "B"
+  },
+  {
+    "slug": "netlify-favicon",
+    "publishDate": "2026-07-18",
+    "titleEn": "Favicon for Netlify Deployment: The 2026 Setup Guide",
+    "titleZh": "Netlify 部署 Favicon 指南：2026 版",
+    "titleJa": "Netlify への Favicon 導入ガイド 2026",
+    "titleKo": "Netlify 배포를 위한 Favicon 설정 가이드 2026",
+    "titleEs": "Guía de Favicon para Despliegue en Netlify 2026",
+    "descEn": "Stop seeing blank tabs on Netlify. Learn the exact file placement and manifest setup to ensure your favicon for netlify deployment works instantly.",
+    "descZh": "解决 Netlify 上的空白标签页问题。学习精确的文件放置和清单设置，确保您的 favicon 在部署后立即生效。",
+    "descJa": "Netlify で空白タブが表示されるのをやめましょう。即座に機能する Favicon の正確な配置と設定方法を学びます。",
+    "descKo": "Netlify 에서 빈 탭이 표시되는 것을 멈추세요. 즉시 작동하는 Favicon 의 정확한 파일 배치 및 설정 방법을 배웁니다.",
+    "descEs": "Deja de ver pestañas en blanco en Netlify. Aprende la colocación exacta de archivos y la configuración del manifiesto para que tu favicon funcione al instante.",
+    "keyword": "favicon for netlify deployment",
+    "tags": [
+      "hosting",
+      "netlify"
+    ],
+    "qualityScore": 82,
+    "qualityGrade": "A"
   }
 ]
