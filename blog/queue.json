@@ -1903,7 +1903,9 @@
       "nextjs-favicon",
       "netlify-favicon"
     ],
-    "status": "pending"
+    "status": "done",
+    "qualityScore": 77,
+    "qualityGrade": "B"
   },
   {
     "keyword": "favicon checker online",
