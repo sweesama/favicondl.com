@@ -1937,7 +1937,9 @@
       "favicon-checker-online",
       "favicon-testing-tools"
     ],
-    "status": "pending"
+    "status": "done",
+    "qualityScore": 65,
+    "qualityGrade": "B"
   },
   {
     "keyword": "download favicon from website url",
