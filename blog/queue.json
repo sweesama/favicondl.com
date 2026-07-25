@@ -1971,7 +1971,9 @@
       "apple-touch-icon-guide",
       "copy-website-favicon"
     ],
-    "status": "pending"
+    "status": "done",
+    "qualityScore": 90,
+    "qualityGrade": "A"
   },
   {
     "keyword": "extract svg favicon from website",
