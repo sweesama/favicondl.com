@@ -2744,5 +2744,26 @@
     ],
     "qualityScore": 85,
     "qualityGrade": "A"
+  },
+  {
+    "slug": "website-favicon-downloader-formats",
+    "publishDate": "2026-07-28",
+    "titleEn": "Website Favicon Downloader: Get ICO, PNG & SVG in One Click",
+    "titleZh": "网站图标下载器：一键获取ICO、PNG和SVG",
+    "titleJa": "ウェブサイトファビコンのダウンローダー：ICO、PNG、SVGを一発取得",
+    "titleKo": "웹사이트 파비콘 다운로더: ICO, PNG, SVG를 한 번에",
+    "titleEs": "Descargador de favicons: Obtén ICO, PNG y SVG en un clic",
+    "descEn": "Stop hunting for favicon files. Use a website favicon downloader to grab ICO, PNG, and SVG formats instantly. Mzu favicondl makes it painless.",
+    "descZh": "别再手动寻找网站图标文件了。使用网站图标下载器，一键获取ICO、PNG和SVG格式。Mzu favicondl让这一切变得简单。",
+    "descJa": "ファビコンファイルを探し回るのはもう終わり。ウェブサイトファビコンのダウンローダーを使えば、ICO、PNG、SVG形式を瞬時に取得できます。Mzu favicondlなら簡単です。",
+    "descKo": "파비콘 파일을 찾아 헤매지 마세요. 웹사이트 파비콘 다운로더를 사용하면 ICO, PNG, SVG 형식을 즉시 가져올 수 있습니다. Mzu favicondl이 간편하게 해결합니다.",
+    "descEs": "Deja de buscar archivos de favicon manualmente. Usa un descargador de favicons para obtener formatos ICO, PNG y SVG al instante. Mzu favicondl lo hace sencillo.",
+    "keyword": "website favicon downloader ico png svg",
+    "tags": [
+      "tools",
+      "download"
+    ],
+    "qualityScore": 70,
+    "qualityGrade": "B"
   }
 ]

@@ -2005,7 +2005,9 @@
       "download-favicon-from-url",
       "ico-vs-png-favicon"
     ],
-    "status": "pending"
+    "status": "done",
+    "qualityScore": 70,
+    "qualityGrade": "B"
   },
   {
     "keyword": "favicon package generator",
