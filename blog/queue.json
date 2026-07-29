@@ -2022,7 +2022,9 @@
       "favicon-generator-free",
       "create-favicon-online"
     ],
-    "status": "pending"
+    "status": "done",
+    "qualityScore": 78,
+    "qualityGrade": "B"
   },
   {
     "keyword": "complete favicon zip package",
