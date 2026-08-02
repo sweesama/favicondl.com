@@ -46,12 +46,15 @@ const ai = new OpenAI({
   baseURL: 'https://integrate.api.nvidia.com/v1',
 });
 
-// 模型优先级列表（NVIDIA NIM 免费端点）
+// 模型优先级列表（NVIDIA NIM 免费端点，全部免费）
 // 主力 deepseek-v4-flash：推理强，英文/中文 Tier 1，66K 输出
-// 备选 deepseek-v4-pro：更强推理，更大输出窗口
+// 备选按多语言能力、推理能力、稳定性排序
 const MODEL_LIST = [
-  'deepseek-ai/deepseek-v4-flash',   // 主力：推理强，英文/中文顶级
-  'deepseek-ai/deepseek-v4-pro',     // 备选：更强推理能力
+  'deepseek-ai/deepseek-v4-flash',         // 1️⃣ 主力：推理强，英文/中文顶级
+  'deepseek-ai/deepseek-v4-pro',           // 2️⃣ 备选：更强推理，更大输出窗口
+  'moonshotai/kimi-k2.6',                  // 3️⃣ 备选：Kimi，中日韩多语言能力强
+  'z-ai/glm-5.2',                          // 4️⃣ 备选：智谱 GLM，中文能力突出
+  'nvidia/nemotron-3-super-120b-a12b',     // 5️⃣ 备选：英伟达 Nemotron 3，120B 参数
 ];
 const MAX_RETRIES = 3;
 const RETRY_DELAY_MS = 50000;
