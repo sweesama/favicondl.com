@@ -47,11 +47,11 @@ const ai = new OpenAI({
 });
 
 // 模型优先级列表（NVIDIA NIM 免费端点）
-// 主力 qwen3.5-122b：多语言能力最强（CJK 优势），262K 输出
-// 备选 deepseek-v4-flash：推理强，英文/中文 Tier 1，66K 输出
+// 主力 deepseek-v4-flash：推理强，英文/中文 Tier 1，66K 输出
+// 备选 deepseek-v4-pro：更强推理，更大输出窗口
 const MODEL_LIST = [
-  'qwen/qwen3.5-122b-a10b',          // 主力：5 语言最均衡，CJK 最强
-  'deepseek-ai/deepseek-v4-flash',   // 备选：推理强，英文/中文顶级
+  'deepseek-ai/deepseek-v4-flash',   // 主力：推理强，英文/中文顶级
+  'deepseek-ai/deepseek-v4-pro',     // 备选：更强推理能力
 ];
 const MAX_RETRIES = 3;
 const RETRY_DELAY_MS = 50000;
@@ -496,11 +496,11 @@ async function callAI(prompt, label, temperature = 0.55) {
             ],
             temperature,
             top_p: 0.88,
-            max_tokens: 4096,
+            max_tokens: 16384,
             response_format: { type: 'json_object' },
-            // Qwen 3.5 默认开启 reasoning 模式，会消耗 token 在内部推理上导致输出为空
-            // 显式关闭 thinking 模式
-            chat_template_kwargs: { enable_thinking: false },
+            // chat_template_kwargs 仅对 Qwen 系列模型有效（关闭 thinking 模式避免空输出）
+            // 非 Qwen 模型不支持此参数，需要条件传递
+            ...(modelName.includes('qwen') ? { chat_template_kwargs: { enable_thinking: false } } : {}),
           }),
           timeoutPromise
         ]);
@@ -596,6 +596,79 @@ async function generateArticleContent(keyword, slug, tags, existingArticles, int
 // AI 响应解析 — 健壮的 JSON 提取
 // ============================================================
 
+// 修复被截断的 JSON — 当 AI 输出因 max_tokens 不足被切断时
+// 策略：找到最后一个完整的 "key": "value" 对，截断其后内容，补全引号和大括号
+function repairTruncatedJSON(text) {
+  let s = text.trim();
+
+  // 如果已经有完整的 }，不需要修复
+  if (s.endsWith('}')) return null;
+
+  // 找到最后一个完整的引号闭合位置（即最后一个 ": "..." 的结尾）
+  // 从后往前找，定位最后一个完整的值字符串的结束引号
+  let lastCompleteQuote = -1;
+  let inStr = false;
+  let escaped = false;
+  let depth = 0;
+
+  for (let i = 0; i < s.length; i++) {
+    const ch = s[i];
+    if (escaped) {
+      escaped = false;
+      continue;
+    }
+    if (ch === '\\') {
+      escaped = true;
+      continue;
+    }
+    if (ch === '"') {
+      inStr = !inStr;
+      if (!inStr) {
+        // 字符串刚闭合
+        lastCompleteQuote = i;
+      }
+    } else if (!inStr) {
+      if (ch === '{' || ch === '[') depth++;
+      else if (ch === '}' || ch === ']') depth--;
+    }
+  }
+
+  if (lastCompleteQuote === -1) return null;
+
+  // 截断到最后一个完整值之后，可能还需要处理逗号
+  let cut = s.substring(0, lastCompleteQuote + 1).trimEnd();
+  // 移除可能的尾随逗号
+  if (cut.endsWith(',')) cut = cut.slice(0, -1);
+
+  // 补全缺失的闭合大括号（根据嵌套深度）
+  // 重新计算截断后的深度
+  depth = 0;
+  inStr = false;
+  escaped = false;
+  for (let i = 0; i < cut.length; i++) {
+    const ch = cut[i];
+    if (escaped) { escaped = false; continue; }
+    if (ch === '\\') { escaped = true; continue; }
+    if (ch === '"') inStr = !inStr;
+    else if (!inStr) {
+      if (ch === '{' || ch === '[') depth++;
+      else if (ch === '}' || ch === ']') depth--;
+    }
+  }
+
+  // 补全所有未闭合的大括号
+  while (depth > 0) {
+    cut += '}';
+    depth--;
+  }
+
+  try {
+    return JSON.parse(cut);
+  } catch (e) {
+    return null;
+  }
+}
+
 function parseAIResponse(responseText) {
   let cleaned = responseText.trim();
 
@@ -645,6 +718,21 @@ function parseAIResponse(responseText) {
           return JSON.parse(extracted);
         } catch (e3) {
           console.error('❌ JSON 提取解析失败:', e3.message);
+        }
+      }
+
+      // 尝试修复被截断的 JSON（AI 输出因 max_tokens 不足被切断）
+      // 策略：找到最后一个完整的键值对，截断其后内容，补全引号和大括号
+      if (firstBrace !== -1) {
+        const truncated = fixed.substring(firstBrace);
+        try {
+          const repaired = repairTruncatedJSON(truncated);
+          if (repaired) {
+            console.log('  🔧 检测到 JSON 可能被截断，尝试自动修复...');
+            return repaired;
+          }
+        } catch (e4) {
+          console.error('❌ JSON 截断修复失败:', e4.message);
         }
       }
 
