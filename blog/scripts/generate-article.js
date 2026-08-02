@@ -51,10 +51,9 @@ const ai = new OpenAI({
 // 备选按多语言能力、推理能力、稳定性排序
 const MODEL_LIST = [
   'deepseek-ai/deepseek-v4-flash',         // 1️⃣ 主力：推理强，英文/中文顶级
-  'deepseek-ai/deepseek-v4-pro',           // 2️⃣ 备选：更强推理，更大输出窗口
-  'moonshotai/kimi-k2.6',                  // 3️⃣ 备选：Kimi，中日韩多语言能力强
-  'z-ai/glm-5.2',                          // 4️⃣ 备选：智谱 GLM，中文能力突出
-  'nvidia/nemotron-3-super-120b-a12b',     // 5️⃣ 备选：英伟达 Nemotron 3，120B 参数
+  'moonshotai/kimi-k2.6',                  // 2️⃣ 备选：Kimi，中日韩多语言能力强
+  'z-ai/glm-5.2',                          // 3️⃣ 备选：智谱 GLM，中文能力突出
+  'nvidia/nemotron-3-super-120b-a12b',     // 4️⃣ 备选：英伟达 Nemotron 3，120B 参数
 ];
 const MAX_RETRIES = 3;
 const RETRY_DELAY_MS = 50000;
