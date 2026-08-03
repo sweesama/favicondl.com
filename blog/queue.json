@@ -2039,7 +2039,9 @@
       "favicon-package-generator",
       "favicon-file-formats"
     ],
-    "status": "pending"
+    "status": "done",
+    "qualityScore": 77,
+    "qualityGrade": "B"
   },
   {
     "keyword": "favicon html link tags generator",
