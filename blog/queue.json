@@ -2056,7 +2056,9 @@
       "favicon-html-code",
       "favicon-link-tag"
     ],
-    "status": "pending"
+    "status": "done",
+    "qualityScore": 82,
+    "qualityGrade": "A"
   },
   {
     "keyword": "favicon link rel icon examples",
