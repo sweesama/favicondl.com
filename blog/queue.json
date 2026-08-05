@@ -2073,7 +2073,9 @@
       "favicon-html-code",
       "shortcut-icon"
     ],
-    "status": "pending"
+    "status": "done",
+    "qualityScore": 77,
+    "qualityGrade": "B"
   },
   {
     "keyword": "apple touch icon 180x180",

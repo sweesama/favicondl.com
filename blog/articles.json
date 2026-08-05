@@ -2828,5 +2828,26 @@
     ],
     "qualityScore": 82,
     "qualityGrade": "A"
+  },
+  {
+    "slug": "favicon-link-rel-icon-examples",
+    "publishDate": "2026-08-05",
+    "titleEn": "Favicon Link Rel Icon Examples: Real HTML Patterns",
+    "titleZh": "Favicon link rel icon 示例：真实 HTML 模式解析",
+    "titleJa": "Favicon link rel icon 例：実践的な HTML パターン",
+    "titleKo": "Favicon link rel icon 예제: 실제 HTML 패턴",
+    "titleEs": "Ejemplos de Favicon Link Rel Icon: Patrones HTML",
+    "descEn": "Practical favicon link rel icon examples for 2026. See how GitHub and Stripe structure their HTML tags, and copy the exact patterns for your site.",
+    "descZh": "实用的 favicon link rel icon 示例。解析 GitHub 和 Stripe 的 HTML 标签结构，直接复制真实模式用于你的网站。",
+    "descJa": "実践的な favicon link rel icon の例。GitHub や Stripe の HTML タグ構造を分析し、そのまま使えるパターンを解説します。",
+    "descKo": "실용적인 favicon link rel icon 예제. GitHub과 Stripe의 HTML 태그 구조를 분석하고 그대로 복사할 수 있는 패턴을 제공합니다.",
+    "descEs": "Ejemplos prácticos de favicon link rel icon para 2026. Analiza cómo GitHub y Stripe estructuran sus etiquetas HTML y copia los patrones exactos.",
+    "keyword": "favicon link rel icon examples",
+    "tags": [
+      "html",
+      "code"
+    ],
+    "qualityScore": 77,
+    "qualityGrade": "B"
   }
 ]
