@@ -2090,7 +2090,9 @@
       "apple-touch-icon-sizes",
       "apple-touch-icon-guide"
     ],
-    "status": "pending"
+    "status": "done",
+    "qualityScore": 77,
+    "qualityGrade": "B"
   },
   {
     "keyword": "apple touch icon transparent background",

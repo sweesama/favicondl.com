@@ -2849,5 +2849,26 @@
     ],
     "qualityScore": 77,
     "qualityGrade": "B"
+  },
+  {
+    "slug": "apple-touch-icon-180x180",
+    "publishDate": "2026-08-06",
+    "titleEn": "Why apple touch icon 180x180 Is the Only iOS Size You Need",
+    "titleZh": "为什么 apple touch icon 180x180 是你唯一需要的 iOS 尺寸",
+    "titleJa": "apple touch icon 180x180 が必要な唯一の iOS サイズである理由",
+    "titleKo": "apple touch icon 180x180이 유일하게 필요한 iOS 사이즈인 이유",
+    "titleEs": "Por qué apple touch icon 180x180 es la única medida iOS que necesitas",
+    "descEn": "Stop generating 15 icon files for iOS. Learn why the apple touch icon 180x180 is the only resolution you need for crisp home screen icons in 2026.",
+    "descZh": "别再为 iOS 生成 15 个图标文件了。了解为什么 apple touch icon 180x180 是 2026 年唯一需要的分辨率。",
+    "descJa": "iOS用に15個のアイコンファイルを生成するのはやめましょう。2026年に必要な唯一の解像度が apple touch icon 180x180 である理由を解説します。",
+    "descKo": "iOS용 아이콘 파일 15개 생성은 그만하세요. 2026년에 유일하게 필요한 해상도가 apple touch icon 180x180인 이유를 알아보세요.",
+    "descEs": "Deja de generar 15 archivos de iconos para iOS. Descubre por qué apple touch icon 180x180 es la única resolución que necesitas en 2026.",
+    "keyword": "apple touch icon 180x180",
+    "tags": [
+      "apple",
+      "sizes"
+    ],
+    "qualityScore": 77,
+    "qualityGrade": "B"
   }
 ]
