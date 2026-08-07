@@ -2107,7 +2107,9 @@
       "favicon-transparent-background",
       "apple-touch-icon-180x180"
     ],
-    "status": "pending"
+    "status": "done",
+    "qualityScore": 72,
+    "qualityGrade": "B"
   },
   {
     "keyword": "web app manifest icons 192 512",

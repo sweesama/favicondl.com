@@ -2870,5 +2870,26 @@
     ],
     "qualityScore": 77,
     "qualityGrade": "B"
+  },
+  {
+    "slug": "apple-touch-icon-transparent-background",
+    "publishDate": "2026-08-07",
+    "titleEn": "Apple Touch Icon Transparent Background: Fix the White Square on iOS",
+    "titleZh": "Apple Touch 图标透明背景：修复 iOS 上的白色方块",
+    "titleJa": "Apple Touch Icon の透明背景：iOS の白い四角を修正する",
+    "titleKo": "Apple Touch Icon 투명 배경: iOS 흰색 사각형 수정",
+    "titleEs": "Fondo transparente del icono táctil de Apple: corrige el cuadrado blanco en iOS",
+    "descEn": "Stop the white square ruining your Apple Touch Icon on iOS. Learn why transparency breaks, the quick HTML fix, and how to prevent it with SVG and PNG.",
+    "descZh": "别再让白色方块破坏你的 Apple Touch 图标。了解透明度失效的原因、快速 HTML 修复方法，以及如何用 SVG 和 PNG 预防。",
+    "descJa": "iOS で Apple Touch Icon が白い四角になる問題を解決。透明背景が機能しない原因、即効 HTML 修正、SVG・PNG での予防策を解説。",
+    "descKo": "iOS에서 Apple Touch Icon이 흰색 사각형으로 표시되는 문제를 해결하세요. 투명 배경이 깨지는 이유, 빠른 HTML 수정, SVG 및 PNG 예방 방법을 알아보세요.",
+    "descEs": "Deja que el cuadrado blanco arruine tu icono táctil de Apple en iOS. Descubre por qué falla la transparencia, la solución HTML rápida y cómo prevenirlo con SVG y PNG.",
+    "keyword": "apple touch icon transparent background",
+    "tags": [
+      "apple",
+      "design"
+    ],
+    "qualityScore": 72,
+    "qualityGrade": "B"
   }
 ]
