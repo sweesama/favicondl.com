@@ -2891,5 +2891,26 @@
     ],
     "qualityScore": 72,
     "qualityGrade": "B"
+  },
+  {
+    "slug": "web-app-manifest-icons-192-512",
+    "publishDate": "2026-08-08",
+    "titleEn": "Web App Manifest Icons 192 512: The Exact Setup",
+    "titleZh": "Web App Manifest Icons 192 512 配置完全指南",
+    "titleJa": "Web App Manifest Icons 192 512 の正確な設定方法",
+    "titleKo": "Web App Manifest Icons 192 512 완벽 설정 가이드",
+    "titleEs": "Configuración Exacta de Web App Manifest Icons 192 512",
+    "descEn": "Learn the exact 2026 developer setup for web app manifest icons 192 512. Generate correct PNGs, configure manifest.json, and avoid common pitfalls.",
+    "descZh": "学习2026年 web app manifest icons 192 512 的正确配置方法。生成精确的 PNG，配置 manifest.json 并避开常见陷阱。",
+    "descJa": "2026年の web app manifest icons 192 512 の正確な開発者向け設定を学びましょう。PNG生成から manifest.json の構成まで完全解説。",
+    "descKo": "2026년 web app manifest icons 192 512 개발자 설정 가이드. 정확한 PNG 생성, manifest.json 구성 및 일반적인 함정 피하기.",
+    "descEs": "Aprende la configuración exacta de 2026 para web app manifest icons 192 512. Genera PNGs correctos, configura manifest.json y evita errores.",
+    "keyword": "web app manifest icons 192 512",
+    "tags": [
+      "pwa",
+      "manifest"
+    ],
+    "qualityScore": 67,
+    "qualityGrade": "B"
   }
 ]
