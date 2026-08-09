@@ -2912,5 +2912,26 @@
     ],
     "qualityScore": 67,
     "qualityGrade": "B"
+  },
+  {
+    "slug": "site-webmanifest-icon-sizes",
+    "publishDate": "2026-08-09",
+    "titleEn": "site webmanifest icon sizes: The Only Sizes That Matter",
+    "titleZh": "site webmanifest icon sizes：你实际需要的尺寸",
+    "titleJa": "site webmanifest icon sizes：必要なサイズだけ",
+    "titleKo": "site webmanifest icon sizes: 실제로 필요한 크기",
+    "titleEs": "site webmanifest icon sizes: las que necesitas",
+    "descEn": "Stop guessing your site webmanifest icon sizes. Learn the exact 2026 setup for PWA manifests, avoid Android scaling traps, and serve crisp icons.",
+    "descZh": "别再盲目配置 site webmanifest icon sizes。了解 2026 年 PWA manifest 的正确设置，避开 Android 缩放陷阱，提供清晰的图标。",
+    "descJa": "site webmanifest icon sizes の設定で迷う必要はありません。2026年のPWAマニフェストの正確な設定と、Androidのスケーリングの罠を回避する方法を学びましょう。",
+    "descKo": "site webmanifest icon sizes 추측은 그만. 2026년 PWA 매니페스트의 정확한 설정과 Android 스케일링 함정 회피 방법을 알아보세요.",
+    "descEs": "Deja de adivinar tus site webmanifest icon sizes. Aprende la configuración exacta de 2026 para manifiestos PWA y evita trampas de escalado en Android.",
+    "keyword": "site webmanifest icon sizes",
+    "tags": [
+      "pwa",
+      "sizes"
+    ],
+    "qualityScore": 75,
+    "qualityGrade": "B"
   }
 ]

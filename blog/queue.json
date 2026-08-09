@@ -2141,7 +2141,9 @@
       "favicon-webmanifest",
       "web-app-manifest-icons-192-512"
     ],
-    "status": "pending"
+    "status": "done",
+    "qualityScore": 75,
+    "qualityGrade": "B"
   },
   {
     "keyword": "favicon ico root directory",
