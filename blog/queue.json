@@ -2158,7 +2158,9 @@
       "favicon-404-error",
       "favicon-html-code"
     ],
-    "status": "pending"
+    "status": "done",
+    "qualityScore": 75,
+    "qualityGrade": "B"
   },
   {
     "keyword": "favicon wrong file path fix",

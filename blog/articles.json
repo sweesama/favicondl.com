@@ -2933,5 +2933,26 @@
     ],
     "qualityScore": 75,
     "qualityGrade": "B"
+  },
+  {
+    "slug": "favicon-ico-root-directory",
+    "publishDate": "2026-08-10",
+    "titleEn": "Favicon ICO Root Directory: The 2026 Server Setup Guide",
+    "titleZh": "Favicon ICO 根目录配置：2026年服务器部署指南",
+    "titleJa": "Favicon ICO ルートディレクトリ：2026年サーバー設定ガイド",
+    "titleKo": "Favicon ICO 루트 디렉토리: 2026 서버 설정 가이드",
+    "titleEs": "Favicon ICO Directorio Raíz: Guía de Servidor 2026",
+    "descEn": "Learn why placing favicon.ico in your root directory matters. Step-by-step server config, MIME types, and Apache/Nginx rules for 2026.",
+    "descZh": "了解为何将 favicon.ico 放在根目录至关重要。包含 2026 年 Apache/Nginx 服务器配置、MIME 类型设置及常见陷阱解决。",
+    "descJa": "favicon.ico をルートディレクトリに配置する理由と、2026年のApache/Nginxサーバー設定、MIMEタイプ、落とし穴を解説。",
+    "descKo": "favicon.ico 루트 디렉토리 배치의 중요성과 2026년 Apache/Nginx 서버 설정, MIME 유형 및 일반적인 함정을 알아보세요.",
+    "descEs": "Aprende por qué poner favicon.ico en tu directorio raíz importa. Configuración de servidor Apache/Nginx y MIME types para 2026.",
+    "keyword": "favicon ico root directory",
+    "tags": [
+      "html",
+      "troubleshooting"
+    ],
+    "qualityScore": 75,
+    "qualityGrade": "B"
   }
 ]
