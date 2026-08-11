@@ -2175,7 +2175,9 @@
       "favicon-404-error",
       "favicon-not-showing"
     ],
-    "status": "pending"
+    "status": "done",
+    "qualityScore": 77,
+    "qualityGrade": "B"
   },
   {
     "keyword": "favicon syntax error fix",
