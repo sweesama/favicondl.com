@@ -2192,7 +2192,9 @@
       "favicon-html-code",
       "favicon-link-tag"
     ],
-    "status": "pending"
+    "status": "done",
+    "qualityScore": 77,
+    "qualityGrade": "B"
   },
   {
     "keyword": "favicon link tag in head not body",
