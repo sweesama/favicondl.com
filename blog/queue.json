@@ -2209,7 +2209,9 @@
       "favicon-syntax-error-fix",
       "favicon-html-code"
     ],
-    "status": "pending"
+    "status": "done",
+    "qualityScore": 69,
+    "qualityGrade": "B"
   },
   {
     "keyword": "favicon not showing on localhost",

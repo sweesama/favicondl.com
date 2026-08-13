@@ -2996,5 +2996,26 @@
     ],
     "qualityScore": 77,
     "qualityGrade": "B"
+  },
+  {
+    "slug": "favicon-link-tag-head-body",
+    "publishDate": "2026-08-13",
+    "titleEn": "Favicon Link Tag in Head Not Body: The Quick Fix",
+    "titleZh": "Favicon link 标签必须在 Head 中：快速修复指南",
+    "titleJa": "Favicon link タグはHeadに配置すべき：迅速な修正",
+    "titleKo": "Favicon link 태그는 Head에 있어야 합니다: 빠른 수정",
+    "titleEs": "Etiqueta link de favicon en Head, no en Body: Solución",
+    "descEn": "Is your favicon link tag in the body? Browsers ignore it. Learn why favicons must live in the head and how to fix broken icon tags fast.",
+    "descZh": "你的 favicon link 标签在 body 里吗？浏览器会忽略它。了解为什么图标必须放在 head 中并快速修复。",
+    "descJa": "favicon link タグが body にありますか？ブラウザは無視します。Head に配置すべき理由と迅速な修正方法を学びましょう。",
+    "descKo": "favicon link 태그가 body에 있나요? 브라우저는 무시합니다. Head에 있어야 하는 이유와 빠른 수정 방법을 알아보세요.",
+    "descEs": "¿Tu etiqueta link de favicon está en el body? Los navegadores la ignoran. Aprende por qué debe ir en el head y cómo solucionarlo.",
+    "keyword": "favicon link tag in head not body",
+    "tags": [
+      "html",
+      "troubleshooting"
+    ],
+    "qualityScore": 69,
+    "qualityGrade": "B"
   }
 ]
