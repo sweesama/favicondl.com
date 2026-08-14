@@ -3017,5 +3017,26 @@
     ],
     "qualityScore": 69,
     "qualityGrade": "B"
+  },
+  {
+    "slug": "favicon-not-showing-localhost",
+    "publishDate": "2026-08-14",
+    "titleEn": "Favicon Not Showing on Localhost? The Quick Dev Fix",
+    "titleZh": "本地开发时 Favicon 不显示？开发者快速修复指南",
+    "titleJa": "ローカルホストで Favicon が表示されない？開発者のクイックフィックス",
+    "titleKo": "Localhost에서 Favicon이 표시되지 않습니까? 빠른 개발자 수정 가이드",
+    "titleEs": "¿Favicon no se muestra en Localhost? Solución rápida",
+    "descEn": "Fix the favicon not showing on localhost issue fast. Learn why local dev servers break favicons and the exact HTML fix to get your icon back in the tab.",
+    "descZh": "快速修复本地开发时 favicon 不显示的问题。了解本地服务器为何会破坏 favicon，以及恢复标签页图标的 HTML 修复方法。",
+    "descJa": "ローカルホストで favicon が表示されない問題を迅速に修正。ローカル開発サーバーがアイコンを壊す理由と、タブに戻すための正確な HTML 修正法を学びましょう。",
+    "descKo": "localhost에서 favicon이 표시되지 않는 문제를 빠르게 수정하세요. 로컬 개발 서버가 favicon을 손상시키는 이유와 탭에 아이콘을 복원하는 정확한 HTML 수정법을 알아보세요.",
+    "descEs": "Arregla rápido el problema de favicon not showing on localhost. Aprende por qué tu servidor local rompe los favicons y la solución HTML exacta.",
+    "keyword": "favicon not showing on localhost",
+    "tags": [
+      "troubleshooting",
+      "local"
+    ],
+    "qualityScore": 77,
+    "qualityGrade": "B"
   }
 ]

@@ -2226,7 +2226,9 @@
       "favicon-not-showing",
       "favicon-wrong-file-path"
     ],
-    "status": "pending"
+    "status": "done",
+    "qualityScore": 77,
+    "qualityGrade": "B"
   },
   {
     "keyword": "favicon not showing after clearing cache",
