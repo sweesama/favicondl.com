@@ -2243,7 +2243,9 @@
       "favicon-cache-clear",
       "favicon-cache-busting"
     ],
-    "status": "pending"
+    "status": "done",
+    "qualityScore": 85,
+    "qualityGrade": "A"
   },
   {
     "keyword": "favicon not showing in google search results",
