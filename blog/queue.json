@@ -2260,7 +2260,9 @@
       "favicon-google-search-console",
       "favicon-seo-impact"
     ],
-    "status": "pending"
+    "status": "done",
+    "qualityScore": 90,
+    "qualityGrade": "A"
   },
   {
     "keyword": "google favicon requirements 48x48",
