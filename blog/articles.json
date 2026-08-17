@@ -3080,5 +3080,26 @@
     ],
     "qualityScore": 90,
     "qualityGrade": "A"
+  },
+  {
+    "slug": "google-favicon-requirements-48x48",
+    "publishDate": "2026-08-17",
+    "titleEn": "Google Favicon Requirements 48x48: The SERP Icon Spec",
+    "titleZh": "Google 搜索 Favicon 48x48 要求详解",
+    "titleJa": "Google favicon 48x48要件：検索結果アイコン仕様",
+    "titleKo": "Google favicon 48x48 요건: SERP 아이콘 사양",
+    "titleEs": "Requisitos de favicon de Google 48x48: Guía SERP",
+    "descEn": "Google uses a specific 48x48 pixel grid for search result favicons. Learn the exact requirements, format rules, and how to optimize your icon for SERPs.",
+    "descZh": "Google 搜索结果使用 48x48 像素的 favicon。了解具体格式要求及如何为 SERP 优化你的网站图标。",
+    "descJa": "Google検索結果のfaviconは48x48ピクセルが基準です。SERP向けの正確な要件とフォーマット最適化方法を解説します。",
+    "descKo": "Google 검색결과 favicon은 48x48 픽셀이 기준입니다. SERP 최적화를 위한 정확한 요건과 포맷 규칙을 알아보세요.",
+    "descEs": "Google usa un favicon de 48x48 píxeles para resultados de búsqueda. Aprende los requisitos exactos y optimiza tu icono para SERPs.",
+    "keyword": "google favicon requirements 48x48",
+    "tags": [
+      "seo",
+      "google"
+    ],
+    "qualityScore": 77,
+    "qualityGrade": "B"
   }
 ]

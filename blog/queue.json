@@ -2277,7 +2277,9 @@
       "favicon-not-showing-google-results",
       "favicon-google-search-console"
     ],
-    "status": "pending"
+    "status": "done",
+    "qualityScore": 77,
+    "qualityGrade": "B"
   },
   {
     "keyword": "shopify favicon not showing on google",
