@@ -12,66 +12,6 @@
     <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/web-app-manifest-icons-192-512.html">
     <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/web-app-manifest-icons-192-512.html">
     <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/web-app-manifest-icons-192-512.html">
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 
     <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
@@ -102,28 +42,26 @@
       gtag('config', 'G-7QLC8QV609');
     </script>
 
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Article",
-      "headline": "Web App Manifest Icons 192 512: The Exact Setup",
-      "description": "Learn the exact 2026 developer setup for web app manifest icons 192 512. Generate correct PNGs, configure manifest.json, and avoid common pitfalls.",
-      "datePublished": "2026-08-08",
-      "dateModified": "2026-08-08",
-      "author": {
-            "@type": "Organization",
-            "name": "Mzu favicondl",
-            "url": "https://favicondl.com"
-      },
-      "publisher": {
-            "@type": "Organization",
-            "name": "Mzu favicondl",
-            "url": "https://favicondl.com"
-      },
-      "mainEntityOfPage": "https://favicondl.com/blog/web-app-manifest-icons-192-512.html",
-      "inLanguage": "en"
-}
-    </script>
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Web App Manifest Icons 192 512: The Exact Setup",
+  "description": "Learn the exact 2026 developer setup for web app manifest icons 192 512. Generate correct PNGs, configure manifest.json, and avoid common pitfalls.",
+  "datePublished": "2026-08-08",
+  "dateModified": "2026-08-08",
+  "author": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "mainEntityOfPage": "https://favicondl.com/blog/web-app-manifest-icons-192-512.html",
+  "inLanguage": "en"
+}</script>
 </head>
 <body>
     <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
@@ -154,12 +92,12 @@
         <nav class="text-sm text-gray-400 mb-8">
             <a href="/index.html" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
             <a href="/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
-            <span class="text-gray-600" data-en="PWA Setup" data-zh="PWA 配置">PWA Setup</span>
+            <span class="text-gray-600" data-en="Web App Manifest Icons 192 512: The Exact Setup" data-zh="Web App Manifest Icons 192 512 配置完全指南" data-ja="Web App Manifest Icons 192 512 の正確な設定方法" data-ko="Web App Manifest Icons 192 512 완벽 설정 가이드" data-es="Configuración Exacta de Web App Manifest Icons 192 512">Web App Manifest Icons 192 512: The Exact Setup</span>
         </nav>
 
         <header class="mb-10">
             <div class="flex items-center gap-3 mb-4"><span class="tag">pwa</span><time class="text-sm text-gray-400">2026-08-08</time></div>
-            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight" data-en="Web App Manifest Icons 192 512: The Exact Setup" data-zh="Web App Manifest Icons 192 512 配置完全指南">Web App Manifest Icons 192 512: The Exact Setup</h1>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight" data-en="Web App Manifest Icons 192 512: The Exact Setup" data-zh="Web App Manifest Icons 192 512 配置完全指南" data-ja="Web App Manifest Icons 192 512 の正確な設定方法" data-ko="Web App Manifest Icons 192 512 완벽 설정 가이드" data-es="Configuración Exacta de Web App Manifest Icons 192 512">Web App Manifest Icons 192 512: The Exact Setup</h1>
         </header>
 
         <div class="article-body" data-lang="en">
@@ -186,87 +124,7 @@
   "type": "image/png",
   "purpose": "maskable"
 }</code></pre><p>You can actually have multiple 192x192 entries in your manifest as long as their <code>purpose</code> is different. I recommend having one <code>any</code> and one <code>maskable</code> for both 192 and 512 sizes.</p><h3>Pitfall 2: Serving the Wrong MIME Type</h3><p>If your icons are failing to load on mobile but work fine on desktop, check your server headers. Some strict web servers default to serving PNGs as <code>application/octet-stream</code> instead of <code>image/png</code>.</p><p>Android Chrome is notoriously picky about MIME types in the manifest. If the <code>type</code> field in your JSON doesn't match the server's Content-Type header, the OS will silently reject the icon. Make sure your Nginx or Apache config is correctly mapping <code>.png</code> files.</p><h3>Pitfall 3: Using a 512px Icon with Too Much Detail</h3><p>Just because you have a 512x512 canvas doesn't mean you should cram your entire company mission statement into it. When Android scales that 512px icon down for a notification or a small shortcut, all that detail turns into mud.</p><p>Look at how Stripe handles their PWA icon. They use a simple, high-contrast mark on a solid background. It looks perfectly sharp whether it's displayed at 512px on a splash screen or scaled down to 48px in a notification bar. Keep it simple.</p><h2>Verifying Your Setup</h2><p>Don't just deploy and hope. You need to verify your manifest icons are working correctly. Open Chrome DevTools, go to the Application tab, and click on Manifest. You should see your 192 and 512 icons rendered clearly under the 'Icons' section.</p><p>If they show up there without a broken image icon, you've done it right. If you want to quickly grab a 192 or 512 icon from another site to see how they structured their padding, you can use Mzu favicondl to pull the exact manifest files and compare their setup.</p><p>Setting up your web app manifest icons 192 512 correctly takes about ten minutes if you have the right source file. Skip the guesswork, export the exact sizes, declare the correct MIME types, and your PWA will look native on every Android device.</p>
-        </div>
-
-        <div class="article-body" data-lang="zh" style="display:none">
-            <p>很多前端同学在把 PWA 安装到 Android 手机桌面后，都会发现 Logo 变得模糊或者被拉伸。这通常是因为 web app manifest 里的 192 和 512 尺寸图标配置出了问题。Android 系统不会去猜你要用哪张图，它只会严格解析 manifest.json 文件，然后找尺寸最接近的那张。如果尺寸不对或者内边距没留对，最后出来的效果就是惨不忍睹。</p><p>跑一下 Google 的 Lighthouse 审计，如果你的 manifest 里找不到 192x192 和 512x512 的 PNG 图标，PWA 这项直接挂掉。这俩不是随便定的数字。192px 是桌面快捷图标的标准尺寸，而 512px 是 Android 用来生成启动页（splash screen）的素材。缺一不可，而且必须完美。</p><p>这篇文章不展开讲 PWA 的全套生态——需要补基础的同学可以看我们的 <a href="/blog/web-app-manifest-favicon.html">Web App Manifest Favicon 指南</a>。我们这里只死磕 192 和 512 像素这两个图标：为什么老是配置失败、怎么正确生成、以及能直接跑通的 JSON 代码。</p><h2>前提：搞定你的源文件</h2><p>在开始调整尺寸之前，你得先准备一张高质量的源文件。千万别拿一张 16x16 的 favicon 去强行放大。你需要一张矢量 SVG 源文件，或者至少 1024x1024 像素的 PNG。</p><p>如果你手里只有位图，放大到 512px 肯定会糊。这就是为什么现在行业标准都直接用 SVG。无限缩放，清晰度不掉一像素。如果你的 Logo 上面有一堆细小的文字，那在缩放时绝对会翻车——建议看看我们的 <a href="/blog/favicon-design-tips.html">Favicon 设计避坑指南</a>，了解一下为什么在小尺寸下做减法才是正解。</p><h2>实操：生成与配置 Icons</h2><p>下面直接上代码和操作。你可以用任何图像编辑软件，但我们这里用标准 CLI 工具和原生 JSON 配置，方便你直接塞到自动化构建流水线里。</p><h3>Step 1: 导出 192 和 512 的 PNG</h3><p>用你顺手的编辑器（Figma、Sketch 或 Adobe XD）打开源 SVG 文件，导出两张独立的 PNG。命名必须精确为 <code>icon-192.png</code> 和 <code>icon-512.png</code>。规范的命名不仅让 manifest 更易读，后期排查问题也方便。</p><p>如果你用的是 Vite 或者 Webpack 这类构建工具，可以配个插件自动搞定。如果是普通的静态站点，直接把图扔进 <code>/public/icons/</code> 目录就能用。</p><h3>Step 2: 编写 Manifest JSON</h3><p>打开你的 <code>manifest.json</code> 文件。你需要在 <code>icons</code> 数组里显式声明这两个图标。下面是你可以直接复制粘贴的配置：</p><pre><code>{
-  "name": "My Awesome App",
-  "short_name": "Awesome",
-  "icons": [
-    {
-      "src": "/icons/icon-192.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "any"
-    },
-    {
-      "src": "/icons/icon-512.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "any"
-    }
-  ]
-}</code></pre><p>注意 <code>purpose</code> 字段。设为 <code>any</code> 就是告诉浏览器这张图可以在任何场景下使用。后面讲踩坑点的时候会提到 maskable icons，那是大部分开发者翻车的地方。</p><h3>Step 3: 在 HTML 中引入 Manifest</h3><p>如果浏览器不知道 manifest 的存在，写了也没用。在你的 HTML 文档的 <code>&lt;head&gt;</code> 里加上这一行：</p><pre><code>&lt;link rel='manifest' href='/manifest.json'&gt;</code></pre><p>搞定了。部署上线后，Android 设备就会读取这个文件，自动拉取正确的 192px 和 512px 图标。</p><h2>配置 192 和 512 图标的常见坑</h2><p>JSON 写对只算成功了一半。很多同学 Lighthouse PWA 审计跑不过，往往是因为一些设计或配置细节没到位。下面是我在 Code Review 时见得最多的三个问题。</p><h3>坑 1：无视 'purpose' Maskable 陷阱</h3><p>Android 8+ 引入了自适应图标。如果你想让图标看起来像原生应用一样，能适配各种圆形或圆角矩形桌面，你需要 maskable icon。但是，你不能直接在原有的 192 和 512 PNG 上加个 <code>purpose: "maskable"</code> 就完事了。</p><p>Maskable icons 需要满版的背景色，而且你的 Logo 必须放在安全区（画布中心的 80% 区域）内。如果 Logo 紧贴边缘，Android 桌面强行裁剪后就会变得很诡异。你需要单独导出留白版本，然后这样声明：</p><pre><code>{
-  "src": "/icons/maskable-192.png",
-  "sizes": "192x192",
-  "type": "image/png",
-  "purpose": "maskable"
-}</code></pre><p>在 manifest 里，你可以声明多个 192x192 的条目，只要它们的 <code>purpose</code> 不同就行。强烈建议 192 和 512 尺寸各配一个 <code>any</code> 和一个 <code>maskable</code>。</p><h3>坑 2：服务器返回了错误的 MIME Type</h3><p>如果你发现图标在桌面端正常，但在手机上死活加载不出来，查一下服务器的响应头。有些配置严格的服务器会把 PNG 默认以 <code>application/octet-stream</code> 返回，而不是 <code>image/png</code>。</p><p>Android Chrome 对 manifest 里的 MIME type 极其敏感。如果你 JSON 里写的 <code>type</code> 跟服务器返回的 Content-Type 对不上，系统会直接静默丢弃这个图标。确保你的 Nginx 或 Apache 正确映射了 <code>.png</code> 文件的响应头。</p><h3>坑 3：在 512px 画布里塞太多细节</h3><p>给了你 512x512 的画布，不代表你要把公司使命宣言全塞进去。当 Android 把这个 512px 的图标缩小用做通知栏小图标时，那些细节全会糊成一团。</p><p>看看大厂是怎么做的，比如支付宝或者微信的 PWA 图标，都是在纯色背景上放一个高对比度的简单标识。不管是在启动页放大到 512px，还是在通知栏缩小到 48px，看着都很锐利。做减法就对了。</p><h2>验证你的配置</h2><p>别写完直接上线就祈祷没事。你需要验证 manifest icons 是否生效。打开 Chrome DevTools，切到 Application 面板，点击 Manifest。你应该能在 'Icons' 区域清晰地看到 192 和 512 的图标。</p><p>如果这里显示正常，没有碎图图标，那就稳了。如果你想看看其他网站是怎么处理内边距的，可以用 Mzu favicondl 直接拉取它们的 manifest 文件，对比一下别人的配置。</p><p>只要源文件没问题，正确配置 web app manifest icons 192 512 顶多花你十分钟。别瞎猜，按规矩导出尺寸，声明对的 MIME type，你的 PWA 在 Android 上就能拥有原生的质感。</p>
-        </div>
-
-        <div class="article-body" data-lang="ja" style="display:none">
-            <p>Androidのホーム画面にPWAをインストールしたのに、ロゴがぼやけて引き伸ばされたような残念な表示になってしまった経験はありませんか？ その原因の多くは、Web App Manifestのアイコン設定（192pxと512px）の不備にあります。Androidはアイコン選択を適当にやってくれるわけではなく、manifest.jsonに記述された情報を厳密に読み取り、最適なものをピックアップしています。サイズや余白の設定を間違えると、期待外れの結果になってしまうのです。</p><p>GoogleのLighthouse監査でも、manifest内に192x192と512x512のPNGアイコンが見つからないとPWAの評価が容赦なく失敗になります。これらはただの適当な数字ではありません。192pxのアイコンはホーム画面のショートカットに使われる標準サイズで、512pxのアイコンはAndroidがスプラッシュスクリーンを生成する際に使用されます。どちらも必須であり、かつ完璧に仕上げる必要があります。</p><p>本記事ではPWAの全体的なエコシステムについては触れません。そちらが必要な方は<a href="/blog/web-app-manifest-favicon.html">Web App Manifest Favicon Guide</a>を参照してください。ここでは192pxと512pxのアイコンに絞り、なぜ表示が崩れるのか、正しい生成方法、そして確実に機能させるためのJSONの設定について解説します。</p><h2>前提条件：ソース画像の準備</h2><p>リサイズ作業に入る前に、高品質なソースファイルを用意しましょう。16x16のfaviconから無理やり拡大するようなことは絶対に避けてください。必要なのは、ベクター形式のSVGソースファイル、または少なくとも1024x1024ピクセル以上のPNG画像です。</p><p>ラスター画像のロゴしか手元にない場合、512pxまで拡大するとぼやけてしまうのがわかるはずです。だからこそ、SVGから作業することがプロの標準スタイルとなります。SVGなら解像度を気にせず無限にスケールでき、1ピクセルの解像度も失いません。もしロゴに細かいテキストが含まれていると、小さいフォーマットに縮小した際に悲惨なことになります。小さなサイズでも機能するシンプルなマークの重要性については、<a href="/blog/favicon-design-tips.html">Favicon Design Tips</a>を参考にしてみてください。</p><h2>ステップバイステップ：アイコンの生成と設定</h2><p>実際の実装手順を見ていきましょう。画像編集ソフトなら何でも使えますが、ここではビルドパイプラインに組み込みやすいよう、標準的なCLIツールとプレーンなJSON設定を使用します。</p><h3>Step 1: 192pxと512pxのPNGを書き出す</h3><p>お好みのエディタ（Figma、Sketch、Adobe XDなど）でソースのSVGを開きます。そして、2つの異なるPNGファイルとして書き出します。ファイル名は正確に<code>icon-192.png</code>と<code>icon-512.png</code>としてください。命名規則を守ることで、manifestが読みやすく、デバッグも容易になります。</p><p>ViteやWebpackなどのビルドツールを使っているなら、プラグインでこの作業を自動化できます。しかし、シンプルな静的サイトであれば、<code>/public/icons/</code>ディレクトリにそのままドロップするだけで完璧に動作します。</p><h3>Step 2: ManifestのJSONを記述する</h3><p>次に、<code>manifest.json</code>ファイルを開きます。<code>icons</code>配列の中に、両方のアイコンを明示的に宣言する必要があります。以下がそのまま使える正確な設定です：</p><pre><code>{
-  "name": "My Awesome App",
-  "short_name": "Awesome",
-  "icons": [
-    {
-      "src": "/icons/icon-192.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "any"
-    },
-    {
-      "src": "/icons/icon-512.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "any"
-    }
-  ]
-}</code></pre><p><code>purpose</code>フィールドに注目してください。<code>any</code>に設定することで、ブラウザに対してこのアイコンがどこでも使えることを伝えます。ほとんどの開発者がつまずくmaskable iconsについては、後述の落とし穴セクションで解説します。</p><h3>Step 3: HTMLからManifestを読み込む</h3><p>manifestファイルは、ブラウザに存在を知らせなければ何の役にも立ちません。HTMLドキュメントの<code>&lt;head&gt;</code>内に、以下の1行を追加してください：</p><pre><code>&lt;link rel='manifest' href='/manifest.json'&gt;</code></pre><p>これだけです。デプロイ後、Androidデバイスはこのファイルを読み込み、自動的に正しい192pxと512pxのアイコンを取得してくれます。</p><h2>192pxと512pxアイコン設定のよくある落とし穴</h2><p>JSONを正しく書いただけでは、戦いは半分終わったにすぎません。多くの開発者がLighthouseのPWA監査に失敗するのは、デザインや設定の微妙なミスが原因です。コードレビューでよく見かける3つの問題を紹介します。</p><h3>落とし穴1：'purpose'のmaskableトラップ</h3><p>Android 8以降ではAdaptive Iconsが導入されました。アイコンをネイティブのように見せ、様々なランチャーの円形やスクエア形のシェイプにフィットさせるには、maskable iconが必要です。しかし、既存の192pxと512pxのPNGに対して単に<code>purpose: "maskable"</code>を設定するだけではうまくいきません。</p><p>maskable iconsは、全面に背景色を敷き詰め、ロゴをセーフゾーン（キャンバスの内側80%）に配置する必要があります。ロゴが端に触れていると、Androidランチャーが不格好にクロップしてしまいます。余白を考慮して設計された別バージョンを書き出し、次のように宣言する必要があります：</p><pre><code>{
-  "src": "/icons/maskable-192.png",
-  "sizes": "192x192",
-  "type": "image/png",
-  "purpose": "maskable"
-}</code></pre><p><code>purpose</code>が異なれば、manifest内に複数の192x192エントリを持つことができます。192と512の両サイズについて、<code>any</code>と<code>maskable</code>を1つずつ持たせることをおすすめします。</p><h3>落とし穴2：間違ったMIME Typeを配信している</h3><p>デスクトップでは問題なく表示されるのにモバイルでアイコンが読み込まれない場合、サーバーのヘッダーを確認してください。厳格な設定のWebサーバーでは、PNGを<code>image/png</code>ではなく<code>application/octet-stream</code>として配信してしまうことがあります。</p><p>AndroidのChromeは、manifest内のMIME typeに対して非常に厳格です。JSON内の<code>type</code>フィールドとサーバーのContent-Typeヘッダーが一致しない場合、OSは警告なしにアイコンを拒否します。NginxやApacheの設定で、<code>.png</code>ファイルが正しくマッピングされているか確認しましょう。</p><h3>落とし穴3：512pxアイコンに細部を詰め込みすぎる</h3><p>512x512のキャンバスがあるからといって、会社のミッションステートメントを全部詰め込むべきではありません。Androidがその512pxアイコンを通知や小さなショートカット用に縮小表示するとき、細部はすべて泥のように潰れてしまいます。</p><p>LINEやPayPayのような大手のPWAアイコンを見てみてください。彼らは単純でコントラストの高いマークを単色の背景に配置しています。これにより、スプラッシュスクリーンで512pxで表示されても、通知バーで48pxに縮小されても、完璧にシャープに見えます。シンプルに保つことが重要です。</p><h2>設定の検証</h2><p>デプロイして祈るようなことはやめましょう。manifestのアイコンが正しく機能しているか検証する必要があります。Chrome DevToolsを開き、Applicationタブに移動して、Manifestをクリックしてください。'Icons'セクションの下に、192pxと512pxのアイコンが明確にレンダリングされているはずです。</p><p>そこで壊れた画像アイコンなしで表示されていれば、設定は成功しています。他のサイトがどのように余白を設定しているか確認するために、192pxや512pxのアイコンを手早く取得したい場合は、Mzu favicondlを使ってmanifestファイルを直接取得し、設定を比較してみるのがおすすめです。</p><p>正しいソースファイルさえあれば、Web App Manifestの192pxと512pxアイコンの設定は約10分で完了します。推測に頼らず、正確なサイズを書き出し、正しいMIME typeを宣言すれば、あなたのPWAはすべてのAndroidデバイスでネイティブアプリのように美しく表示されるでしょう。</p>
-        </div>
-
-        <div class="article-body" data-lang="ko" style="display:none">
-            <p>안녕하세요, 개발자 여러분. 모바일 홈 화면에 PWA를 설치했더니 로고가 뭉개져서 나오는 경험, 한 번쯤 있으시죠? 이건 십중팔구 web app manifest의 192px, 512px icon 설정이 꼬여있기 때문입니다. Android는 알아서 딱 맞는 아이콘을 골라주지 않습니다. manifest.json 파일을 아주 엄격하게 읽고 가장 근접한 이미지를 선택할 뿐이죠. 사이즈나 여백(padding) 설정을 잘못하면 바로 그런 참사가 벌어집니다.</p><p>Google Lighthouse audit에서는 manifest 파일 내에 192x192 PNG icon과 512x512 PNG icon이 없으면 PWA 검사를 바로 실패시킵니다. 이 숫자들에는 분명한 이유가 있습니다. 192px icon은 홈 화면 바로가기 아이콘의 표준 사이즈이고, 512px icon은 Android에서 앱의 splash screen을 생성할 때 사용합니다. 둘 다 있어야 하며, 완벽하게 세팅되어야 합니다.</p><p>이 글에서는 PWA 생태계 전반을 다루지는 않겠습니다. PWA 전반적인 개요가 필요하시다면 저희 <a href="/blog/web-app-manifest-favicon.html">Web App Manifest Favicon Guide</a>를 참고해 주세요. 대신, 이 글에서는 192px과 512px icon에만 집중합니다. 왜 깨지는지, 어떻게 올바르게 생성하는지, 그리고 정확히 어떤 JSON 설정이 필요한지 알아보겠습니다.</p><h2>시작하기 전에: 원본 이미지 준비</h2><p>리사이징을 하기 전에, 고화질의 원본 파일부터 준비해야 합니다. 16x16 favicon을 가지고 확대(upscale)하려고 하지 마세요. SVG vector 원본 파일이거나 최소 1024x1024 pixel 이상의 PNG 파일이 필요합니다.</p><p>래스터 이미지 로고밖에 없다면, 512px까지 키울 때 블러 현상이 발생할 겁니다. 2026년에는 SVG로 작업하는 것이 업계 표준입니다. SVG는 선명도를 한 픽셀도 잃지 않고 무한히 확장할 수 있죠. 만약 로고에 아주 작은 텍스트가 포함되어 있다면, 이건 애초에 타협이 필요한 부분입니다. 작은 사이즈에서는 로고를 단순화하는 것이 필수적입니다. 자세한 이유는 <a href="/blog/favicon-design-tips.html">Favicon Design Tips</a>에서 확인해 보세요.</p><h2>단계별 가이드: Icon 생성 및 설정</h2><p>이제 실제 구현을 해보겠습니다. 어떤 이미지 에디터를 써도 상관없지만, 빌드 파이프라인에서 자동화할 수 있도록 CLI 툴과 순수 JSON 설정을 사용하는 방식으로 설명하겠습니다.</p><h3>Step 1: 192px과 512px PNG 내보내기</h3><p>선호하는 에디터(Figma, Sketch, Adobe XD 등)에서 원본 SVG를 엽니다. 두 개의 PNG 파일로 각각 내보내세요. 파일명은 정확히 <code>icon-192.png</code>와 <code>icon-512.png</code>로 지정합니다. 네이밍 컨벤션은 manifest의 가독성과 디버깅 편의성을 높여주므로 매우 중요합니다.</p><p>Vite나 Webpack 같은 빌드 툴을 사용 중이라면 플러그인으로 자동화할 수 있습니다. 하지만 정적 사이트라면 <code>/public/icons/</code> 디렉토리에 파일들을 넣기만 해도 충분히 동작합니다.</p><h3>Step 2: Manifest JSON 작성</h3><p>이제 <code>manifest.json</code> 파일을 엽니다. <code>icons</code> 배열에 두 icon을 명시적으로 선언해야 합니다. 아래 설정을 그대로 복사해서 사용하시면 됩니다.</p><pre><code>{
-  "name": "My Awesome App",
-  "short_name": "Awesome",
-  "icons": [
-    {
-      "src": "/icons/icon-192.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "any"
-    },
-    {
-      "src": "/icons/icon-512.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "any"
-    }
-  ]
-}</code></pre><p><code>purpose</code> 필드를 주목해 주세요. <code>any</code>로 설정하면 브라우저에게 이 icon을 어디든 사용할 수 있다고 알려주는 것입니다. 아래 pitfalls 섹션에서 maskable icon에 대해 다룰 텐데, 대부분의 개발자가 바로 이 부분에서 넘어집니다.</p><h3>Step 3: HTML에 Manifest 연결</h3><p>브라우저가 manifest 파일의 존재를 모르면 아무 일도 일어나지 않습니다. HTML 문서의 <code>&lt;head&gt;</code>에 다음 한 줄을 추가하세요.</p><pre><code>&lt;link rel='manifest' href='/manifest.json'&gt;</code></pre><p>끝입니다. 배포하고 나면 Android 기기가 이 파일을 읽고 알아서 192px과 512px icon을 가져옵니다.</p><h2>192px, 512px Icon 설정 시 흔히 겪는 함정들</h2><p>JSON을 올바르게 작성하는 것은 싸움의 절반에 불과합니다. 대부분의 개발자가 Lighthouse PWA audit에서 불합격하는 이유는 미묘한 디자인이나 설정 실수 때문입니다. 코드 리뷰하면서 자주 발견하는 세 가지 문제점을 짚어보겠습니다.</p><h3>Pitfall 1: 'purpose' Maskable 함정</h3><p>Android 8+부터 adaptive icon이 도입되었습니다. icon이 네이티브처럼 보이고 다양한 런처의 원형이나 squircle 모양을 채우려면 maskable icon이 필요합니다. 하지만 기존 192px, 512px PNG에 그냥 <code>purpose: "maskable"</code>을 설정한다고 되는 게 아닙니다.</p><p>Maskable icon은 전체 영역을 채우는 배경색과 안전 영역(캔버스 안쪽 80%)에 배치된 로고가 필요합니다. 로고가 영역 끝에 닿으면 Android 런처가 이를 어색하게 잘라버립니다. 여백(padding)을 고려해 별도로 디자인된 버전을 따로 내보내고, 다음과 같이 선언해야 합니다.</p><pre><code>{
-  "src": "/icons/maskable-192.png",
-  "sizes": "192x192",
-  "type": "image/png",
-  "purpose": "maskable"
-}</code></pre><p><code>purpose</code> 값이 다르다면 manifest에 192x192 entry를 여러 개 가질 수 있습니다. 192px과 512px 사이즈 모두에 <code>any</code> 용도와 <code>maskable</code> 용도를 하나씩 만들어 두는 것을 권장합니다.</p><h3>Pitfall 2: 잘못된 MIME Type 제공</h3><p>데스크톱에서는 icon이 잘 로드되는데 모바일에서만 실패한다면, 서버 헤더를 확인해 보세요. 일부 엄격한 웹 서버는 PNG를 <code>image/png</code>가 아니라 <code>application/octet-stream</code>으로 제공하기도 합니다.</p><p>Android Chrome은 manifest 내의 MIME type에 대해 유독 깐깐합니다. JSON의 <code>type</code> 필드와 서버의 Content-Type header가 일치하지 않으면, OS가 조용히 icon을 거부합니다. Nginx나 Apache 설정에서 <code>.png</code> 파일이 올바르게 매핑되어 있는지 반드시 확인하세요.</p><h3>Pitfall 3: 디테일이 너무 많은 512px Icon 사용</h3><p>512x512 캔버스를 쓴다고 해서 회사의 모든 비전과 미션을 아이콘에 쑤셔 넣을 수 있는 건 아닙니다. Android가 512px icon을 알림이나 작은 바로가기로 축소할 때, 그 많은 디테일은 그냥 흙탕물처럼 뭉개집니다.</p><p>토스(Toss)나 카카오 같은 국내 앱들의 PWA icon을 보면 이해가 쉽습니다. 단순하고 대비가 강한 마크를 단색 배경 위에 배치합니다. splash screen에서 512px으로 보여질 때나 알림 바에서 48px로 축소되어 보여질 때나 완벽하게 선명하게 보이죠. 심플함이 핵심입니다.</p><h2>설정 검증하기</h2><p>배포하고 기도하지 마세요. manifest icon이 제대로 동작하는지 검증해야 합니다. Chrome DevTools를 열고 Application 탭으로 이동한 뒤, Manifest를 클릭하세요. 'Icons' 섹션 아래에 192px과 512px icon이 선명하게 렌더링된 것을 볼 수 있어야 합니다.</p><p>깨진 이미지 아이콘 없이 제대로 보인다면 성공입니다. 다른 사이트의 192px이나 512px icon을 빠르게 다운받아 여백 구조를 비교해 보고 싶다면, Mzu favicondl을 사용해 manifest 파일을 직접 가져와 비교해 볼 수 있습니다.</p><p>올바른 원본 파일만 있다면 web app manifest icon 192 512 설정은 10분이면 충분합니다. 찍기 없이 정확한 사이즈로 내보내고, 올바른 MIME type을 선언하세요. 그러면 여러분의 PWA도 모든 Android 기기에서 네이티브 앱처럼 보일 겁니다.</p>
-        </div>
-
-        <div class="article-body" data-lang="es" style="display:none">
+        </div><template data-article-lang="es">
             <p>¿Te ha pasado que instalas una PWA en tu móvil Android y el icono de tu marca aparece borroso o deformado en la pantalla de inicio? Te aviso ya: el problema no es tu teléfono, son tus web app manifest icons 192 512. Android no adivina nada ni hace magia por ti; lee estrictamente tu archivo manifest.json y coge el recurso que mejor encaje. Si te equivocas con las dimensiones o no respetas los márgenes de la imagen, el resultado va a ser un desastre visual.</p><p>Si pasas el audit de Lighthouse de Google, verás que te suspende directamente la PWA si no encuentra un icono PNG de 192x192 y otro de 512x512 en tu manifest. No son números que han puesto a lo loco. El icono de 192px es el estándar que se usa para el acceso directo en el home, mientras que el de 512px es el que utiliza Android para montar el splash screen de tu app. Necesitas ambos, y tienen que estar perfectamente configurados.</p><p>No te voy a aburrir con el ecosistema general de las PWA en este post; si necesitas un repaso completo, échale un ojo a nuestra <a href="/blog/web-app-manifest-favicon.html">Web App Manifest Favicon Guide</a>. Aquí nos vamos a centrar de lleno en los iconos de 192 y 512 píxeles: por qué fallan, cómo generarlos sin morir en el intento y el JSON exacto que tienes que poner para que funcionen.</p><h2>Prerrequisitos: Deja bien tu imagen de origen</h2><p>Antes de redimensionar nada, necesitas un archivo de origen de alta calidad. Por favor, no cojas un favicon de 16x16 y intentes escalarlo. Necesitas un archivo SVG vectorial o un PNG que sea como mínimo de 1024x1024 píxeles.</p><p>Si solo tienes el logo rasterizado, verás que al escalarlo a 512px se queda hecho un puré. Por eso en 2026 trabajar desde SVG es el estándar profesional. Escala de forma infinita sin perder ni un ápice de nitidez. Si tu logo depende de un texto minúsculo, lo vas a pasar mal; lee nuestros <a href="/blog/favicon-design-tips.html">Favicon Design Tips</a> para entender por qué simplificar tu marca es crítico en formatos tan pequeños.</p><h2>Paso a paso: Generando y configurando los iconos</h2><p>Vamos a la implementación real. Puedes usar el editor de imágenes que quieras, pero vamos a usar herramientas CLI estándar y configuración JSON pura para que puedas automatizarlo en tu pipeline de build.</p><h3>Paso 1: Exportar los PNG de 192 y 512</h3><p>Abre tu SVG de origen en tu editor favorito (Figma, Sketch o Adobe XD). Exporta dos archivos PNG distintos. Llámalos exactamente <code>icon-192.png</code> y <code>icon-512.png</code>. Los nombres importan y mucho, porque hacen que tu manifest sea legible y fácil de debuguear.</p><p>Si usas herramientas de build como Vite o Webpack, puedes automatizar esto con un plugin. Pero para un site estático rápido, con que los dejes caer en tu directorio <code>/public/icons/</code> ya funciona perfecto.</p><h3>Paso 2: Escribir el JSON del Manifest</h3><p>Ahora abre tu archivo <code>manifest.json</code>. Tienes que declarar ambos iconos de forma explícita en el array de <code>icons</code>. Aquí tienes la configuración exacta que puedes copiar y pegar:</p><pre><code>{
   "name": "My Awesome App",
   "short_name": "Awesome",
@@ -290,7 +148,79 @@
   "type": "image/png",
   "purpose": "maskable"
 }</code></pre><p>En realidad puedes tener múltiples entradas de 192x192 en tu manifest siempre y cuando su <code>purpose</code> sea distinto. Te recomiendo tener uno <code>any</code> y otro <code>maskable</code> tanto para el tamaño 192 como para el 512.</p><h3>Error 2: Servir el MIME Type equivocado</h3><p>Si tus iconos no cargan en el móvil pero en el escritorio van bien, revisa las cabeceras de tu servidor. Hay servidores web estrictos que por defecto sirven los PNG como <code>application/octet-stream</code> en lugar de <code>image/png</code>.</p><p>Android Chrome es especialito con los MIME types en el manifest. Si el campo <code>type</code> de tu JSON no coincide con la cabecera Content-Type del servidor, el SO va a rechazar el icono sin decir ni pío. Asegúrate de que tu configuración de Nginx o Apache mapea correctamente los archivos <code>.png</code>.</p><h3>Error 3: Usar un icono de 512px con exceso de detalle</h3><p>El hecho de tener un canvas de 512x512 no significa que debas meter todo el manifiesto de tu empresa ahí dentro. Cuando Android escala ese icono de 512px para una notificación o un acceso directo pequeño, todo ese detalle se convierte en manchas borrosas.</p><p>Fíjate cómo gestiona Cabify el icono de su PWA. Usan una marca simple y de alto contraste sobre un fondo sólido. Se ve nítido tanto a 512px en un splash screen como escalado a 48px en la barra de notificaciones. Mantenlo simple.</p><h2>Verificando tu configuración</h2><p>No hagas un deploy y rece para que funcione. Tienes que verificar que tus iconos del manifest están funcionando. Abre Chrome DevTools, ve a la pestaña de Application y haz clic en Manifest. Ahí deberías ver tus iconos de 192 y 512 renderizados claramente en la sección de 'Icons'.</p><p>Si aparecen ahí sin el icono de imagen rota, lo has hecho bien. Si quieres sacar rápidamente un icono de 192 o 512 de otro site para ver cómo han estructurado su padding, puedes usar Mzu favicondl para descargar los archivos manifest exactos y comparar su configuración con la tuya.</p><p>Configurar bien tus web app manifest icons 192 512 te lleva unos diez minutos si tienes el archivo de origen correcto. Salta el ensayo-error, exporta los tamaños exactos, declara los MIME types correctos y tu PWA se verá nativa en cualquier dispositivo Android.</p>
-        </div>
+        </template><template data-article-lang="ko">
+            <p>안녕하세요, 개발자 여러분. 모바일 홈 화면에 PWA를 설치했더니 로고가 뭉개져서 나오는 경험, 한 번쯤 있으시죠? 이건 십중팔구 web app manifest의 192px, 512px icon 설정이 꼬여있기 때문입니다. Android는 알아서 딱 맞는 아이콘을 골라주지 않습니다. manifest.json 파일을 아주 엄격하게 읽고 가장 근접한 이미지를 선택할 뿐이죠. 사이즈나 여백(padding) 설정을 잘못하면 바로 그런 참사가 벌어집니다.</p><p>Google Lighthouse audit에서는 manifest 파일 내에 192x192 PNG icon과 512x512 PNG icon이 없으면 PWA 검사를 바로 실패시킵니다. 이 숫자들에는 분명한 이유가 있습니다. 192px icon은 홈 화면 바로가기 아이콘의 표준 사이즈이고, 512px icon은 Android에서 앱의 splash screen을 생성할 때 사용합니다. 둘 다 있어야 하며, 완벽하게 세팅되어야 합니다.</p><p>이 글에서는 PWA 생태계 전반을 다루지는 않겠습니다. PWA 전반적인 개요가 필요하시다면 저희 <a href="/blog/web-app-manifest-favicon.html">Web App Manifest Favicon Guide</a>를 참고해 주세요. 대신, 이 글에서는 192px과 512px icon에만 집중합니다. 왜 깨지는지, 어떻게 올바르게 생성하는지, 그리고 정확히 어떤 JSON 설정이 필요한지 알아보겠습니다.</p><h2>시작하기 전에: 원본 이미지 준비</h2><p>리사이징을 하기 전에, 고화질의 원본 파일부터 준비해야 합니다. 16x16 favicon을 가지고 확대(upscale)하려고 하지 마세요. SVG vector 원본 파일이거나 최소 1024x1024 pixel 이상의 PNG 파일이 필요합니다.</p><p>래스터 이미지 로고밖에 없다면, 512px까지 키울 때 블러 현상이 발생할 겁니다. 2026년에는 SVG로 작업하는 것이 업계 표준입니다. SVG는 선명도를 한 픽셀도 잃지 않고 무한히 확장할 수 있죠. 만약 로고에 아주 작은 텍스트가 포함되어 있다면, 이건 애초에 타협이 필요한 부분입니다. 작은 사이즈에서는 로고를 단순화하는 것이 필수적입니다. 자세한 이유는 <a href="/blog/favicon-design-tips.html">Favicon Design Tips</a>에서 확인해 보세요.</p><h2>단계별 가이드: Icon 생성 및 설정</h2><p>이제 실제 구현을 해보겠습니다. 어떤 이미지 에디터를 써도 상관없지만, 빌드 파이프라인에서 자동화할 수 있도록 CLI 툴과 순수 JSON 설정을 사용하는 방식으로 설명하겠습니다.</p><h3>Step 1: 192px과 512px PNG 내보내기</h3><p>선호하는 에디터(Figma, Sketch, Adobe XD 등)에서 원본 SVG를 엽니다. 두 개의 PNG 파일로 각각 내보내세요. 파일명은 정확히 <code>icon-192.png</code>와 <code>icon-512.png</code>로 지정합니다. 네이밍 컨벤션은 manifest의 가독성과 디버깅 편의성을 높여주므로 매우 중요합니다.</p><p>Vite나 Webpack 같은 빌드 툴을 사용 중이라면 플러그인으로 자동화할 수 있습니다. 하지만 정적 사이트라면 <code>/public/icons/</code> 디렉토리에 파일들을 넣기만 해도 충분히 동작합니다.</p><h3>Step 2: Manifest JSON 작성</h3><p>이제 <code>manifest.json</code> 파일을 엽니다. <code>icons</code> 배열에 두 icon을 명시적으로 선언해야 합니다. 아래 설정을 그대로 복사해서 사용하시면 됩니다.</p><pre><code>{
+  "name": "My Awesome App",
+  "short_name": "Awesome",
+  "icons": [
+    {
+      "src": "/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}</code></pre><p><code>purpose</code> 필드를 주목해 주세요. <code>any</code>로 설정하면 브라우저에게 이 icon을 어디든 사용할 수 있다고 알려주는 것입니다. 아래 pitfalls 섹션에서 maskable icon에 대해 다룰 텐데, 대부분의 개발자가 바로 이 부분에서 넘어집니다.</p><h3>Step 3: HTML에 Manifest 연결</h3><p>브라우저가 manifest 파일의 존재를 모르면 아무 일도 일어나지 않습니다. HTML 문서의 <code>&lt;head&gt;</code>에 다음 한 줄을 추가하세요.</p><pre><code>&lt;link rel='manifest' href='/manifest.json'&gt;</code></pre><p>끝입니다. 배포하고 나면 Android 기기가 이 파일을 읽고 알아서 192px과 512px icon을 가져옵니다.</p><h2>192px, 512px Icon 설정 시 흔히 겪는 함정들</h2><p>JSON을 올바르게 작성하는 것은 싸움의 절반에 불과합니다. 대부분의 개발자가 Lighthouse PWA audit에서 불합격하는 이유는 미묘한 디자인이나 설정 실수 때문입니다. 코드 리뷰하면서 자주 발견하는 세 가지 문제점을 짚어보겠습니다.</p><h3>Pitfall 1: 'purpose' Maskable 함정</h3><p>Android 8+부터 adaptive icon이 도입되었습니다. icon이 네이티브처럼 보이고 다양한 런처의 원형이나 squircle 모양을 채우려면 maskable icon이 필요합니다. 하지만 기존 192px, 512px PNG에 그냥 <code>purpose: "maskable"</code>을 설정한다고 되는 게 아닙니다.</p><p>Maskable icon은 전체 영역을 채우는 배경색과 안전 영역(캔버스 안쪽 80%)에 배치된 로고가 필요합니다. 로고가 영역 끝에 닿으면 Android 런처가 이를 어색하게 잘라버립니다. 여백(padding)을 고려해 별도로 디자인된 버전을 따로 내보내고, 다음과 같이 선언해야 합니다.</p><pre><code>{
+  "src": "/icons/maskable-192.png",
+  "sizes": "192x192",
+  "type": "image/png",
+  "purpose": "maskable"
+}</code></pre><p><code>purpose</code> 값이 다르다면 manifest에 192x192 entry를 여러 개 가질 수 있습니다. 192px과 512px 사이즈 모두에 <code>any</code> 용도와 <code>maskable</code> 용도를 하나씩 만들어 두는 것을 권장합니다.</p><h3>Pitfall 2: 잘못된 MIME Type 제공</h3><p>데스크톱에서는 icon이 잘 로드되는데 모바일에서만 실패한다면, 서버 헤더를 확인해 보세요. 일부 엄격한 웹 서버는 PNG를 <code>image/png</code>가 아니라 <code>application/octet-stream</code>으로 제공하기도 합니다.</p><p>Android Chrome은 manifest 내의 MIME type에 대해 유독 깐깐합니다. JSON의 <code>type</code> 필드와 서버의 Content-Type header가 일치하지 않으면, OS가 조용히 icon을 거부합니다. Nginx나 Apache 설정에서 <code>.png</code> 파일이 올바르게 매핑되어 있는지 반드시 확인하세요.</p><h3>Pitfall 3: 디테일이 너무 많은 512px Icon 사용</h3><p>512x512 캔버스를 쓴다고 해서 회사의 모든 비전과 미션을 아이콘에 쑤셔 넣을 수 있는 건 아닙니다. Android가 512px icon을 알림이나 작은 바로가기로 축소할 때, 그 많은 디테일은 그냥 흙탕물처럼 뭉개집니다.</p><p>토스(Toss)나 카카오 같은 국내 앱들의 PWA icon을 보면 이해가 쉽습니다. 단순하고 대비가 강한 마크를 단색 배경 위에 배치합니다. splash screen에서 512px으로 보여질 때나 알림 바에서 48px로 축소되어 보여질 때나 완벽하게 선명하게 보이죠. 심플함이 핵심입니다.</p><h2>설정 검증하기</h2><p>배포하고 기도하지 마세요. manifest icon이 제대로 동작하는지 검증해야 합니다. Chrome DevTools를 열고 Application 탭으로 이동한 뒤, Manifest를 클릭하세요. 'Icons' 섹션 아래에 192px과 512px icon이 선명하게 렌더링된 것을 볼 수 있어야 합니다.</p><p>깨진 이미지 아이콘 없이 제대로 보인다면 성공입니다. 다른 사이트의 192px이나 512px icon을 빠르게 다운받아 여백 구조를 비교해 보고 싶다면, Mzu favicondl을 사용해 manifest 파일을 직접 가져와 비교해 볼 수 있습니다.</p><p>올바른 원본 파일만 있다면 web app manifest icon 192 512 설정은 10분이면 충분합니다. 찍기 없이 정확한 사이즈로 내보내고, 올바른 MIME type을 선언하세요. 그러면 여러분의 PWA도 모든 Android 기기에서 네이티브 앱처럼 보일 겁니다.</p>
+        </template><template data-article-lang="ja">
+            <p>Androidのホーム画面にPWAをインストールしたのに、ロゴがぼやけて引き伸ばされたような残念な表示になってしまった経験はありませんか？ その原因の多くは、Web App Manifestのアイコン設定（192pxと512px）の不備にあります。Androidはアイコン選択を適当にやってくれるわけではなく、manifest.jsonに記述された情報を厳密に読み取り、最適なものをピックアップしています。サイズや余白の設定を間違えると、期待外れの結果になってしまうのです。</p><p>GoogleのLighthouse監査でも、manifest内に192x192と512x512のPNGアイコンが見つからないとPWAの評価が容赦なく失敗になります。これらはただの適当な数字ではありません。192pxのアイコンはホーム画面のショートカットに使われる標準サイズで、512pxのアイコンはAndroidがスプラッシュスクリーンを生成する際に使用されます。どちらも必須であり、かつ完璧に仕上げる必要があります。</p><p>本記事ではPWAの全体的なエコシステムについては触れません。そちらが必要な方は<a href="/blog/web-app-manifest-favicon.html">Web App Manifest Favicon Guide</a>を参照してください。ここでは192pxと512pxのアイコンに絞り、なぜ表示が崩れるのか、正しい生成方法、そして確実に機能させるためのJSONの設定について解説します。</p><h2>前提条件：ソース画像の準備</h2><p>リサイズ作業に入る前に、高品質なソースファイルを用意しましょう。16x16のfaviconから無理やり拡大するようなことは絶対に避けてください。必要なのは、ベクター形式のSVGソースファイル、または少なくとも1024x1024ピクセル以上のPNG画像です。</p><p>ラスター画像のロゴしか手元にない場合、512pxまで拡大するとぼやけてしまうのがわかるはずです。だからこそ、SVGから作業することがプロの標準スタイルとなります。SVGなら解像度を気にせず無限にスケールでき、1ピクセルの解像度も失いません。もしロゴに細かいテキストが含まれていると、小さいフォーマットに縮小した際に悲惨なことになります。小さなサイズでも機能するシンプルなマークの重要性については、<a href="/blog/favicon-design-tips.html">Favicon Design Tips</a>を参考にしてみてください。</p><h2>ステップバイステップ：アイコンの生成と設定</h2><p>実際の実装手順を見ていきましょう。画像編集ソフトなら何でも使えますが、ここではビルドパイプラインに組み込みやすいよう、標準的なCLIツールとプレーンなJSON設定を使用します。</p><h3>Step 1: 192pxと512pxのPNGを書き出す</h3><p>お好みのエディタ（Figma、Sketch、Adobe XDなど）でソースのSVGを開きます。そして、2つの異なるPNGファイルとして書き出します。ファイル名は正確に<code>icon-192.png</code>と<code>icon-512.png</code>としてください。命名規則を守ることで、manifestが読みやすく、デバッグも容易になります。</p><p>ViteやWebpackなどのビルドツールを使っているなら、プラグインでこの作業を自動化できます。しかし、シンプルな静的サイトであれば、<code>/public/icons/</code>ディレクトリにそのままドロップするだけで完璧に動作します。</p><h3>Step 2: ManifestのJSONを記述する</h3><p>次に、<code>manifest.json</code>ファイルを開きます。<code>icons</code>配列の中に、両方のアイコンを明示的に宣言する必要があります。以下がそのまま使える正確な設定です：</p><pre><code>{
+  "name": "My Awesome App",
+  "short_name": "Awesome",
+  "icons": [
+    {
+      "src": "/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}</code></pre><p><code>purpose</code>フィールドに注目してください。<code>any</code>に設定することで、ブラウザに対してこのアイコンがどこでも使えることを伝えます。ほとんどの開発者がつまずくmaskable iconsについては、後述の落とし穴セクションで解説します。</p><h3>Step 3: HTMLからManifestを読み込む</h3><p>manifestファイルは、ブラウザに存在を知らせなければ何の役にも立ちません。HTMLドキュメントの<code>&lt;head&gt;</code>内に、以下の1行を追加してください：</p><pre><code>&lt;link rel='manifest' href='/manifest.json'&gt;</code></pre><p>これだけです。デプロイ後、Androidデバイスはこのファイルを読み込み、自動的に正しい192pxと512pxのアイコンを取得してくれます。</p><h2>192pxと512pxアイコン設定のよくある落とし穴</h2><p>JSONを正しく書いただけでは、戦いは半分終わったにすぎません。多くの開発者がLighthouseのPWA監査に失敗するのは、デザインや設定の微妙なミスが原因です。コードレビューでよく見かける3つの問題を紹介します。</p><h3>落とし穴1：'purpose'のmaskableトラップ</h3><p>Android 8以降ではAdaptive Iconsが導入されました。アイコンをネイティブのように見せ、様々なランチャーの円形やスクエア形のシェイプにフィットさせるには、maskable iconが必要です。しかし、既存の192pxと512pxのPNGに対して単に<code>purpose: "maskable"</code>を設定するだけではうまくいきません。</p><p>maskable iconsは、全面に背景色を敷き詰め、ロゴをセーフゾーン（キャンバスの内側80%）に配置する必要があります。ロゴが端に触れていると、Androidランチャーが不格好にクロップしてしまいます。余白を考慮して設計された別バージョンを書き出し、次のように宣言する必要があります：</p><pre><code>{
+  "src": "/icons/maskable-192.png",
+  "sizes": "192x192",
+  "type": "image/png",
+  "purpose": "maskable"
+}</code></pre><p><code>purpose</code>が異なれば、manifest内に複数の192x192エントリを持つことができます。192と512の両サイズについて、<code>any</code>と<code>maskable</code>を1つずつ持たせることをおすすめします。</p><h3>落とし穴2：間違ったMIME Typeを配信している</h3><p>デスクトップでは問題なく表示されるのにモバイルでアイコンが読み込まれない場合、サーバーのヘッダーを確認してください。厳格な設定のWebサーバーでは、PNGを<code>image/png</code>ではなく<code>application/octet-stream</code>として配信してしまうことがあります。</p><p>AndroidのChromeは、manifest内のMIME typeに対して非常に厳格です。JSON内の<code>type</code>フィールドとサーバーのContent-Typeヘッダーが一致しない場合、OSは警告なしにアイコンを拒否します。NginxやApacheの設定で、<code>.png</code>ファイルが正しくマッピングされているか確認しましょう。</p><h3>落とし穴3：512pxアイコンに細部を詰め込みすぎる</h3><p>512x512のキャンバスがあるからといって、会社のミッションステートメントを全部詰め込むべきではありません。Androidがその512pxアイコンを通知や小さなショートカット用に縮小表示するとき、細部はすべて泥のように潰れてしまいます。</p><p>LINEやPayPayのような大手のPWAアイコンを見てみてください。彼らは単純でコントラストの高いマークを単色の背景に配置しています。これにより、スプラッシュスクリーンで512pxで表示されても、通知バーで48pxに縮小されても、完璧にシャープに見えます。シンプルに保つことが重要です。</p><h2>設定の検証</h2><p>デプロイして祈るようなことはやめましょう。manifestのアイコンが正しく機能しているか検証する必要があります。Chrome DevToolsを開き、Applicationタブに移動して、Manifestをクリックしてください。'Icons'セクションの下に、192pxと512pxのアイコンが明確にレンダリングされているはずです。</p><p>そこで壊れた画像アイコンなしで表示されていれば、設定は成功しています。他のサイトがどのように余白を設定しているか確認するために、192pxや512pxのアイコンを手早く取得したい場合は、Mzu favicondlを使ってmanifestファイルを直接取得し、設定を比較してみるのがおすすめです。</p><p>正しいソースファイルさえあれば、Web App Manifestの192pxと512pxアイコンの設定は約10分で完了します。推測に頼らず、正確なサイズを書き出し、正しいMIME typeを宣言すれば、あなたのPWAはすべてのAndroidデバイスでネイティブアプリのように美しく表示されるでしょう。</p>
+        </template><template data-article-lang="zh">
+            <p>很多前端同学在把 PWA 安装到 Android 手机桌面后，都会发现 Logo 变得模糊或者被拉伸。这通常是因为 web app manifest 里的 192 和 512 尺寸图标配置出了问题。Android 系统不会去猜你要用哪张图，它只会严格解析 manifest.json 文件，然后找尺寸最接近的那张。如果尺寸不对或者内边距没留对，最后出来的效果就是惨不忍睹。</p><p>跑一下 Google 的 Lighthouse 审计，如果你的 manifest 里找不到 192x192 和 512x512 的 PNG 图标，PWA 这项直接挂掉。这俩不是随便定的数字。192px 是桌面快捷图标的标准尺寸，而 512px 是 Android 用来生成启动页（splash screen）的素材。缺一不可，而且必须完美。</p><p>这篇文章不展开讲 PWA 的全套生态——需要补基础的同学可以看我们的 <a href="/blog/web-app-manifest-favicon.html">Web App Manifest Favicon 指南</a>。我们这里只死磕 192 和 512 像素这两个图标：为什么老是配置失败、怎么正确生成、以及能直接跑通的 JSON 代码。</p><h2>前提：搞定你的源文件</h2><p>在开始调整尺寸之前，你得先准备一张高质量的源文件。千万别拿一张 16x16 的 favicon 去强行放大。你需要一张矢量 SVG 源文件，或者至少 1024x1024 像素的 PNG。</p><p>如果你手里只有位图，放大到 512px 肯定会糊。这就是为什么现在行业标准都直接用 SVG。无限缩放，清晰度不掉一像素。如果你的 Logo 上面有一堆细小的文字，那在缩放时绝对会翻车——建议看看我们的 <a href="/blog/favicon-design-tips.html">Favicon 设计避坑指南</a>，了解一下为什么在小尺寸下做减法才是正解。</p><h2>实操：生成与配置 Icons</h2><p>下面直接上代码和操作。你可以用任何图像编辑软件，但我们这里用标准 CLI 工具和原生 JSON 配置，方便你直接塞到自动化构建流水线里。</p><h3>Step 1: 导出 192 和 512 的 PNG</h3><p>用你顺手的编辑器（Figma、Sketch 或 Adobe XD）打开源 SVG 文件，导出两张独立的 PNG。命名必须精确为 <code>icon-192.png</code> 和 <code>icon-512.png</code>。规范的命名不仅让 manifest 更易读，后期排查问题也方便。</p><p>如果你用的是 Vite 或者 Webpack 这类构建工具，可以配个插件自动搞定。如果是普通的静态站点，直接把图扔进 <code>/public/icons/</code> 目录就能用。</p><h3>Step 2: 编写 Manifest JSON</h3><p>打开你的 <code>manifest.json</code> 文件。你需要在 <code>icons</code> 数组里显式声明这两个图标。下面是你可以直接复制粘贴的配置：</p><pre><code>{
+  "name": "My Awesome App",
+  "short_name": "Awesome",
+  "icons": [
+    {
+      "src": "/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}</code></pre><p>注意 <code>purpose</code> 字段。设为 <code>any</code> 就是告诉浏览器这张图可以在任何场景下使用。后面讲踩坑点的时候会提到 maskable icons，那是大部分开发者翻车的地方。</p><h3>Step 3: 在 HTML 中引入 Manifest</h3><p>如果浏览器不知道 manifest 的存在，写了也没用。在你的 HTML 文档的 <code>&lt;head&gt;</code> 里加上这一行：</p><pre><code>&lt;link rel='manifest' href='/manifest.json'&gt;</code></pre><p>搞定了。部署上线后，Android 设备就会读取这个文件，自动拉取正确的 192px 和 512px 图标。</p><h2>配置 192 和 512 图标的常见坑</h2><p>JSON 写对只算成功了一半。很多同学 Lighthouse PWA 审计跑不过，往往是因为一些设计或配置细节没到位。下面是我在 Code Review 时见得最多的三个问题。</p><h3>坑 1：无视 'purpose' Maskable 陷阱</h3><p>Android 8+ 引入了自适应图标。如果你想让图标看起来像原生应用一样，能适配各种圆形或圆角矩形桌面，你需要 maskable icon。但是，你不能直接在原有的 192 和 512 PNG 上加个 <code>purpose: "maskable"</code> 就完事了。</p><p>Maskable icons 需要满版的背景色，而且你的 Logo 必须放在安全区（画布中心的 80% 区域）内。如果 Logo 紧贴边缘，Android 桌面强行裁剪后就会变得很诡异。你需要单独导出留白版本，然后这样声明：</p><pre><code>{
+  "src": "/icons/maskable-192.png",
+  "sizes": "192x192",
+  "type": "image/png",
+  "purpose": "maskable"
+}</code></pre><p>在 manifest 里，你可以声明多个 192x192 的条目，只要它们的 <code>purpose</code> 不同就行。强烈建议 192 和 512 尺寸各配一个 <code>any</code> 和一个 <code>maskable</code>。</p><h3>坑 2：服务器返回了错误的 MIME Type</h3><p>如果你发现图标在桌面端正常，但在手机上死活加载不出来，查一下服务器的响应头。有些配置严格的服务器会把 PNG 默认以 <code>application/octet-stream</code> 返回，而不是 <code>image/png</code>。</p><p>Android Chrome 对 manifest 里的 MIME type 极其敏感。如果你 JSON 里写的 <code>type</code> 跟服务器返回的 Content-Type 对不上，系统会直接静默丢弃这个图标。确保你的 Nginx 或 Apache 正确映射了 <code>.png</code> 文件的响应头。</p><h3>坑 3：在 512px 画布里塞太多细节</h3><p>给了你 512x512 的画布，不代表你要把公司使命宣言全塞进去。当 Android 把这个 512px 的图标缩小用做通知栏小图标时，那些细节全会糊成一团。</p><p>看看大厂是怎么做的，比如支付宝或者微信的 PWA 图标，都是在纯色背景上放一个高对比度的简单标识。不管是在启动页放大到 512px，还是在通知栏缩小到 48px，看着都很锐利。做减法就对了。</p><h2>验证你的配置</h2><p>别写完直接上线就祈祷没事。你需要验证 manifest icons 是否生效。打开 Chrome DevTools，切到 Application 面板，点击 Manifest。你应该能在 'Icons' 区域清晰地看到 192 和 512 的图标。</p><p>如果这里显示正常，没有碎图图标，那就稳了。如果你想看看其他网站是怎么处理内边距的，可以用 Mzu favicondl 直接拉取它们的 manifest 文件，对比一下别人的配置。</p><p>只要源文件没问题，正确配置 web app manifest icons 192 512 顶多花你十分钟。别瞎猜，按规矩导出尺寸，声明对的 MIME type，你的 PWA 在 Android 上就能拥有原生的质感。</p>
+        </template>
 
         <div class="cta-box">
             <h3 data-en="Need Perfect PWA Icons?" data-zh="需要完美的 PWA 图标？" data-ja="完璧な PWA アイコンが必要ですか？" data-ko="완벽한 PWA 아이콘이 필요하신가요?" data-es="¿Necesitas Iconos PWA Perfectos?">Need Perfect PWA Icons?</h3>
@@ -310,6 +240,5 @@
         </div>
     </footer>
     <script src="/blog/blog.js?v=20260211"></script>
-
 
 </body></html>

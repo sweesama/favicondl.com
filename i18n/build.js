@@ -442,7 +442,7 @@ function normalizeHtmlOutput(html) {
   const protectedBlocks = [];
   const masked = html.replace(/<(pre|template|textarea)\b[\s\S]*?<\/\1>/gi, (block) => {
     const token = `\uE000FAVICONDL_BLOCK_${protectedBlocks.length}\uE001`;
-    protectedBlocks.push(block);
+    protectedBlocks.push(block.replace(/[ \t]+(?=\r?\n|$)/g, ''));
     return token;
   });
 
