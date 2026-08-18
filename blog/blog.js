@@ -1,6 +1,5 @@
 // Shared blog article JS — 5 语言支持 + URL 路径检测 + 下拉菜单
 (function() {
-    const LANG_KEY = 'mzu_favicondl_lang';
     const SUPPORTED = ['en', 'zh', 'ja', 'ko', 'es'];
     const FLAGS = {
         en: 'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg',
@@ -10,16 +9,12 @@
         es: 'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg',
     };
 
-    // 检测语言：URL路径 > 查询参数 > localStorage > 默认en
+    // 语言由 URL 路径唯一决定，避免 canonical 英文 URL 被本地偏好替换成其他语言内容。
     function detectLang() {
         try {
             const m = location.pathname.match(/^\/(zh|ja|ko|es)(\/|$)/);
             if (m) return m[1];
         } catch {}
-        const q = new URLSearchParams(location.search).get('lang');
-        if (q && SUPPORTED.includes(q)) return q;
-        const s = localStorage.getItem(LANG_KEY);
-        if (s && SUPPORTED.includes(s)) return s;
         return 'en';
     }
     const lang = detectLang();

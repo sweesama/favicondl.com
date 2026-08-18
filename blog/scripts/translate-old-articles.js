@@ -51,8 +51,8 @@ async function main() {
 
   for (const file of htmlFiles) {
     const content = fs.readFileSync(path.join(BLOG_DIR, file), 'utf-8');
-    // 检查是否已有 ja 正文块
-    if (content.includes('data-lang="ja"')) {
+    // 同时兼容旧正文块与新构建流程使用的非渲染 template。
+    if (content.includes('data-lang="ja"') || content.includes('data-article-lang="ja"')) {
       continue; // 已翻译，跳过
     }
     // 检查是否有英文正文块
@@ -217,7 +217,11 @@ function buildTranslatePrompt(enContent, filename) {
 - Japanese: use です/ます style, natural developer blog tone
 - Korean: use 합니다 style, natural developer blog tone
 - Spanish: use "tú" form, natural developer blog tone
-- Adapt naturally for each language's readers — NOT literal word-by-word translation
+- Write naturally rather than following English word order, but preserve all facts, named examples, dates, measurements, qualifications, and first-party source links
+- Do NOT replace named examples with regional brands or invent local examples
+- Do NOT add statistics, tests, customer stories, rankings, requirements, or product claims that are absent from the English source
+- Preserve the distinction between documented requirements and editorial recommendations
+- Keep markup shown inside <code> or <pre> escaped as &amp;lt; and &amp;gt;; never turn it into live page-level HTML
 - No AI clichés or filler phrases
 
 === ARTICLE TO TRANSLATE (from ${filename}) ===

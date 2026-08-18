@@ -46,7 +46,7 @@ const ai = new OpenAI({
   baseURL: 'https://integrate.api.nvidia.com/v1',
 });
 
-// 模型优先级列表（NVIDIA NIM 免费端点，全部免费）
+// 模型优先级列表（NVIDIA NIM；可用性与费用以当前账户和官方页面为准）
 // 主力 deepseek-v4-flash：推理强，英文/中文 Tier 1，66K 输出
 // 备选按多语言能力、推理能力、稳定性排序
 const MODEL_LIST = [
@@ -65,8 +65,13 @@ const DEPTH_CONFIG = {
   deep: { minWords: 1000, maxWords: 1500, label: '深度' },
 };
 
-// 禁止出现的危险 HTML 标签 (移除了 link 和 meta，允许在代码示例中展示)
+// 禁止直接出现在正文 DOM 中的危险或页面级 HTML 标签。
 const FORBIDDEN_TAGS = ['script', 'iframe', 'object', 'embed', 'form', 'input', 'style', 'h1'];
+const ALLOWED_CONTENT_TAGS = new Set([
+  'p', 'h2', 'h3', 'strong', 'em', 'code', 'pre', 'ul', 'ol', 'li', 'a',
+  'table', 'thead', 'tbody', 'tr', 'th', 'td', 'blockquote', 'br'
+]);
+const VOID_CONTENT_TAGS = new Set(['br']);
 
 // CTA 链接白名单
 const VALID_CTA_LINKS = ['/index.html', '/tools.html', '/documentation.html'];
@@ -150,7 +155,7 @@ async function main() {
     articleData.contentEs = sanitizeHTML(articleData.contentEs);
 
     // --- 质量评分 ---
-    const { score: qualityScore, grade: qualityGrade } = scoreArticleQuality(articleData, nextItem.keyword, depth);
+    const { score: qualityScore, grade: qualityGrade } = scoreArticleQuality(articleData, nextItem.keyword, depth, intent);
 
     // --- 写入文件 ---
     const htmlContent = buildHTML(articleData, nextItem, today);
@@ -282,7 +287,7 @@ Tone: Product guide writer. Focus on practical outcomes, not theory.`,
 
   const writingStyle = intentGuide[intent] || intentGuide['informational'];
 
-  return `You are a senior developer-blogger who writes like a real human — with opinions, humor, and hard-won experience. You write for Mzu favicondl (https://favicondl.com), a favicon download and conversion tool.
+  return `You are a careful technical editor writing for Mzu favicondl (https://favicondl.com), a favicon download and conversion tool. Write naturally, but never invent personal experience, tests, customer stories, quotes, or measurements.
 
 TARGET KEYWORD: "${keyword}"
 SEARCH INTENT: ${intent}
@@ -292,7 +297,7 @@ TARGET LENGTH: ${depthCfg.minWords}-${depthCfg.maxWords} English words (strict)
 ${writingStyle}
 
 === ⚠️ ANTI-AI RULES — READ THIS FIRST ===
-Your writing MUST feel like a real developer sharing their experience on a personal blog.
+Your writing MUST feel like a knowledgeable developer explaining a real problem, without pretending the author personally ran tests that were not provided.
 The following phrases and patterns are STRICTLY BANNED. If you use them, the article fails:
 
 BANNED OPENINGS (never start an article with these):
@@ -318,8 +323,8 @@ BANNED FILLER PHRASES (never use anywhere):
 REQUIRED INSTEAD:
 - Start with a SPECIFIC scenario, question, or surprising fact. Example: "If you've ever wondered why your site looks professional on desktop but shows a blank white square in Safari's tab bar — your favicon setup is probably incomplete."
 - Use "we" / "you" naturally, like talking to a colleague.
-- Include at least ONE real-world example using a well-known brand (GitHub, Google, Stripe, Apple, etc.) and describe what they actually do with their favicons.
-- Have a clear OPINION. Don't just list options — recommend the best one and say why.
+- Use a real platform example only when it is observable or supported by a first-party source link.
+- Give a clear recommendation when the evidence supports one, and state limits or trade-offs.
 - Use SHORT paragraphs (2-3 sentences max). Long blocks of text are unreadable.
 - Use occasional casual asides in parentheses (like this — they feel human).
 - Every paragraph must teach something SPECIFIC the reader didn't know. No padding.
@@ -328,9 +333,15 @@ REQUIRED INSTEAD:
 - Like Apple docs meets a dev blog post. Clean, confident, opinionated.
 - Audience: web developers and designers, all levels.
 - NEVER use hype words ("amazing", "revolutionary", "game-changer", "unlock", "supercharge").
-- NEVER mention competitors by name.
+- Do not promote competing favicon-download tools. Browser vendors, web platforms, and standards bodies may be named when they are relevant sources.
 - Brand: always "Mzu favicondl" (lowercase "favicondl").
-- Year: 2026 where relevant.
+- Date volatile requirements, prices, rankings, or product behavior. Do not add "2026" merely to make a claim sound current.
+
+=== EVIDENCE RULES ===
+- Never invent statistics, conversion effects, customer quotes, testimonials, rankings, or benchmark results.
+- For current Google Search, browser, framework, or platform requirements, link to a first-party documentation page near the claim.
+- Distinguish a documented requirement from a recommendation or opinion.
+- If a fact cannot be verified from a supplied or first-party source, omit it or phrase it as a limited recommendation.
 
 === CONTENT UNIQUENESS ===
 These articles ALREADY EXIST on our blog. Do NOT repeat their content. Link to them instead.
@@ -348,16 +359,17 @@ ${avoidSection}
 - <h2> for sections, <h3> for sub-sections. NEVER <h1>.
 - <p> for paragraphs. <strong> for key terms. <code> for inline code.
 - Code blocks: <pre><code>...</code></pre>.
+- Inside <code> and <pre>, escape markup characters as &amp;lt; and &amp;gt;. Raw <link>, <meta>, or other page tags inside a code example are invalid.
 - Tables: <table><thead>...<tbody>...</table>.
 - Internal links: relative paths (/blog/xxx.html). Link to 1-2 existing articles.
 - FORBIDDEN: <script>, <style>, <iframe>, <form>, <input>, <h1>, <meta>, <img>.
 - HTML only, no markdown.
 
 === 🏆 QUALITY SCORING CRITERIA (MANDATORY) ===
-Your article will be graded automatically. To get an 'A' grade (100/100), you MUST include:
+Your article will be graded automatically. Match the structure to the search intent instead of filling a template:
 1. LONG FORM CONTENT: The English version MUST exceed the minimum word count specified above. Expand on examples, case studies, and common pitfalls to ensure depth.
-2. CODE EXAMPLES: You MUST include at least one \`<pre><code>...</code></pre>\` block demonstrating a code snippet or configuration.
-3. SUB-SECTIONS: You MUST break down your concepts using multiple \`<h3>\` headers. A high-scoring article has at least three \`<h3>\` sub-sections.
+2. CODE EXAMPLES: Include a code block for how-to, troubleshooting, or implementation topics. Do not force code into a design or conceptual article.
+3. SUB-SECTIONS: Use headings that answer the reader's actual questions; do not add repetitive sections merely to increase a score.
 4. LISTS: You MUST include at least one bulleted list \`<ul>\` or numbered list \`<ol>\` to organize steps or features.
 5. INTERNAL LINKS: You MUST include 1 or 2 internal links (e.g., \`<a href='/blog/example.html'>\`) using the existing articles provided above.
 
@@ -423,22 +435,22 @@ function buildTranslationPrompt(englishContent, englishTitle, langCode, keyword)
     Zh: {
       name: 'Chinese',
       nativeName: '中文',
-      rules: '- Full natural Chinese version — NOT literal translation.\n- Adapt idioms and examples for Chinese readers. Keep technical terms in English.\n- Apply the same anti-AI writing rules: no 套话 like "在当今数字化时代", "众所周知", "不言而喻". Write like a Chinese developer blogging, not a textbook.',
+      rules: '- Write natural Chinese rather than mechanically mirroring English syntax.\n- Localize idioms and explanations, but preserve every factual example, qualification, and source. Keep technical terms in English where that is clearer.\n- Apply the same anti-AI writing rules: no 套话 like "在当今数字化时代", "众所周知", "不言而喻". Write like a careful Chinese developer, not a textbook.',
     },
     Ja: {
       name: 'Japanese',
       nativeName: '日本語',
-      rules: '- Japanese: use です/ます style, active tech blogger tone.\n- Adapt examples for Japanese readers. Keep technical terms in English.\n- No AI clichés. Write like a Japanese developer blogging.',
+      rules: '- Japanese: use です/ます style and a natural technical-editor tone.\n- Localize explanations, but preserve every factual example, qualification, and source. Keep technical terms in English where that is clearer.\n- No AI clichés.',
     },
     Ko: {
       name: 'Korean',
       nativeName: '한국어',
-      rules: '- Korean: use 합니다 style, natural developer blog tone.\n- Adapt examples for Korean readers. Keep technical terms in English.\n- No AI clichés. Write like a Korean developer blogging.',
+      rules: '- Korean: use 합니다 style and a natural technical-editor tone.\n- Localize explanations, but preserve every factual example, qualification, and source. Keep technical terms in English where that is clearer.\n- No AI clichés.',
     },
     Es: {
       name: 'Spanish',
       nativeName: 'español',
-      rules: '- Spanish: use "tú" form, casual tech instructor tone.\n- Adapt examples for Spanish-speaking readers. Keep technical terms in English.\n- No AI clichés. Write like a Spanish developer blogging.',
+      rules: '- Spanish: use "tú" form and a natural technical-editor tone.\n- Localize explanations, but preserve every factual example, qualification, and source. Keep technical terms in English where that is clearer.\n- No AI clichés.',
     },
   };
 
@@ -446,17 +458,21 @@ function buildTranslationPrompt(englishContent, englishTitle, langCode, keyword)
   if (!lang) throw new Error(`未知语言代码: ${langCode}`);
 
   return `You are a professional ${lang.name} tech blogger. Adapt the following English article into ${lang.nativeName}.
-CRITICAL: This is NOT a literal word-for-word translation. Google flags literal translations as "Duplicate without user-selected canonical". You MUST provide hyper-localized, culturally adapted content that feels like an independent article written by a native ${lang.name} developer.
+CRITICAL: This is not a word-for-word translation. Produce fluent native-language prose while keeping the source article's meaning, evidence, and limitations intact.
 
 === ADAPTATION RULES ===
 ${lang.rules}
-- Re-write the intro and examples to fit local context (e.g., use regional brand examples instead of US-only).
-- Structure can vary slightly if it makes more sense in the target language.
+- You may rephrase the introduction for fluency, but do not replace named examples with regional brands or invent local examples.
+- Preserve factual claims, dates, measurements, source URLs, uncertainty, and requirement-versus-recommendation distinctions.
+- Do not add statistics, tests, customer stories, rankings, platform requirements, or product claims that are absent from the English source.
+- Keep first-party citations adjacent to the claim they support.
+- Structure can vary slightly only when required for natural grammar; do not add or remove substantive sections.
 - Keep ALL HTML tags and structure (h2, h3, p, ul, li, pre, code, a, strong, em, table, etc.)
 - Keep all href links unchanged
 - Keep technical terms in English: favicon, ICO, PNG, SVG, CSS, HTML, JavaScript, PWA, CDN, CORS, API, etc.
 - Do NOT add new tags or remove existing ones
 - Do NOT translate code inside <pre><code> blocks
+- Keep markup shown inside <code> or <pre> escaped as &amp;lt; and &amp;gt;; never turn it into live page-level HTML.
 - HTML only, no markdown
 
 === HTML RULES ===
@@ -762,6 +778,52 @@ function parseAIResponse(responseText) {
 // 内容验证 — 多维度质量检查
 // ============================================================
 
+function validateHtmlFragment(html, label, errors) {
+  if (!html) return;
+
+  if (/&lt;\/?(?:p|h2|h3|ul|ol|li|pre|code|a|table|tr|td|th)\b/i.test(html)) {
+    errors.push(`${label} 包含被转义的结构标签，正文可能已损坏`);
+  }
+  if (/```|`<\/?(?:p|h2|h3|pre|code|a|table)\b/i.test(html)) {
+    errors.push(`${label} 混入 Markdown 代码围栏或反引号 HTML`);
+  }
+
+  const stack = [];
+  const tagPattern = /<\/?([a-z0-9-]+)\b[^>]*>/gi;
+  let match;
+  while ((match = tagPattern.exec(html)) !== null) {
+    const fullTag = match[0];
+    const tag = match[1].toLowerCase();
+    if (!ALLOWED_CONTENT_TAGS.has(tag)) {
+      errors.push(`${label} 包含不允许的正文标签: <${tag}>；代码示例中的尖括号必须写成 &lt; 和 &gt;`);
+      continue;
+    }
+    if (VOID_CONTENT_TAGS.has(tag)) continue;
+    if (fullTag.startsWith('</')) {
+      const expected = stack.pop();
+      if (expected !== tag) {
+        errors.push(`${label} HTML 标签闭合错误: 期望 </${expected || 'none'}>，实际为 </${tag}>`);
+        return;
+      }
+    } else if (!fullTag.endsWith('/>')) {
+      stack.push(tag);
+    }
+  }
+  if (stack.length > 0) {
+    errors.push(`${label} 存在未闭合标签: ${stack.map(tag => `<${tag}>`).join(', ')}`);
+  }
+
+  for (const anchor of html.matchAll(/<a\b([^>]*)>/gi)) {
+    const attributes = anchor[1];
+    const href = attributes.match(/\bhref\s*=\s*(['"])(.*?)\1/i)?.[2];
+    if (!href || href === '#') errors.push(`${label} 包含空链接或占位链接`);
+    if (href && /^javascript:/i.test(href)) errors.push(`${label} 包含 javascript: 链接`);
+  }
+  if (/<a\b[^>]*>(?:(?!<\/a>)[\s\S])*<a\b/i.test(html)) {
+    errors.push(`${label} 包含嵌套链接`);
+  }
+}
+
 function validateArticleData(data, keyword, depth) {
   console.log('\n🔍 正在验证文章质量...');
   const errors = [];
@@ -865,10 +927,38 @@ function validateArticleData(data, keyword, depth) {
     }
   }
 
-  // --- 9. HTML 基本结构 ---
-  if (data.contentEn) {
-    if (!/<h2[\s>]/i.test(data.contentEn)) warnings.push('英文内容缺少 <h2>');
-    if (!/<p[\s>]/i.test(data.contentEn)) errors.push('英文内容缺少 <p>');
+  // --- 9. HTML 基本结构（所有语言都必须是可解析、单一正文） ---
+  const contentByLanguage = [
+    ['英文', data.contentEn],
+    ['中文', data.contentZh],
+    ['日文', data.contentJa],
+    ['韩文', data.contentKo],
+    ['西班牙文', data.contentEs],
+  ];
+  for (const [label, content] of contentByLanguage) {
+    validateHtmlFragment(content, label, errors);
+    if (content && !/<h2[\s>]/i.test(content)) warnings.push(`${label}内容缺少 <h2>`);
+    if (content && !/<p[\s>]/i.test(content)) errors.push(`${label}内容缺少 <p>`);
+  }
+  const platformClaim = /\b(?:Google|Chrome|Safari|Firefox|Apple|Microsoft|Edge|WordPress|Shopify|Wix|Squarespace)\b/i.test(data.contentEn || '');
+  const externalSourceLinks = [...(data.contentEn || '').matchAll(/<a\s+[^>]*href\s*=\s*(['"])(https:\/\/[^'"]+)\1/gi)]
+    .map(match => match[2]);
+  const officialSourceHosts = [
+    'developers.google.com', 'web.dev', 'developer.chrome.com', 'developer.mozilla.org',
+    'developer.apple.com', 'support.apple.com', 'learn.microsoft.com', 'wordpress.org',
+    'shopify.dev', 'help.shopify.com', 'support.wix.com', 'support.squarespace.com',
+    'w3.org', 'html.spec.whatwg.org'
+  ];
+  const hasOfficialSource = externalSourceLinks.some(link => {
+    try {
+      const host = new URL(link).hostname.toLowerCase();
+      return officialSourceHosts.some(officialHost => host === officialHost || host.endsWith(`.${officialHost}`));
+    } catch {
+      return false;
+    }
+  });
+  if (platformClaim && !hasOfficialSource) {
+    errors.push('英文正文包含当前平台或浏览器行为，但没有受支持的第一方来源链接');
   }
 
   // --- 10. AI 套话检测（降低 AI 感） ---
@@ -927,7 +1017,7 @@ function validateArticleData(data, keyword, depth) {
 // 文章质量评分 — 8 维度自动打分 (满分 100)
 // ============================================================
 
-function scoreArticleQuality(data, keyword, depth) {
+function scoreArticleQuality(data, keyword, depth, intent) {
   console.log('\n📊 正在评估文章质量...');
   let score = 0;
   const details = [];
@@ -949,18 +1039,22 @@ function scoreArticleQuality(data, keyword, depth) {
     }
   }
 
-  // --- 2. 有无代码示例 <code> 或 <pre> (15分) ---
+  // --- 2. 代码是否符合搜索意图 (15分) ---
   if (data.contentEn) {
     const hasPre = /<pre[\s>]/i.test(data.contentEn);
     const hasCode = /<code[\s>]/i.test(data.contentEn);
+    const codeExpected = ['how-to', 'troubleshooting', 'tool-guide'].includes(intent);
     if (hasPre) {
       score += 15;
       details.push('有代码块 +15');
     } else if (hasCode) {
       score += 8;
       details.push('有行内代码 +8');
+    } else if (!codeExpected) {
+      score += 15;
+      details.push('当前搜索意图不需要强塞代码 +15');
     } else {
-      details.push('无代码示例 +0');
+      details.push('操作型文章缺少代码示例 +0');
     }
   }
 
@@ -980,7 +1074,7 @@ function scoreArticleQuality(data, keyword, depth) {
 
   // --- 4. 内部链接数量 (10分) ---
   if (data.contentEn) {
-    const internalLinks = (data.contentEn.match(/<a\s+href="\/blog\//gi) || []).length;
+    const internalLinks = (data.contentEn.match(/<a\s+[^>]*href=['"]\/blog\//gi) || []).length;
     if (internalLinks >= 2) {
       score += 10;
       details.push(`${internalLinks}条内链 +10`);
@@ -1172,21 +1266,11 @@ function buildHTML(data, queueItem, publishDate) {
             ${data.contentEn}
         </div>
 
-        <div class="article-body" data-lang="zh" style="display:none">
-            ${data.contentZh}
-        </div>
-
-        <div class="article-body" data-lang="ja" style="display:none">
-            ${data.contentJa}
-        </div>
-
-        <div class="article-body" data-lang="ko" style="display:none">
-            ${data.contentKo}
-        </div>
-
-        <div class="article-body" data-lang="es" style="display:none">
-            ${data.contentEs}
-        </div>
+        <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
+        <template data-article-lang="zh">${data.contentZh}</template>
+        <template data-article-lang="ja">${data.contentJa}</template>
+        <template data-article-lang="ko">${data.contentKo}</template>
+        <template data-article-lang="es">${data.contentEs}</template>
 
         <div class="cta-box">
             <h3 data-en="${esc(data.ctaTitleEn)}" data-zh="${esc(data.ctaTitleZh)}" data-ja="${esc(data.ctaTitleJa)}" data-ko="${esc(data.ctaTitleKo)}" data-es="${esc(data.ctaTitleEs)}">${esc(data.ctaTitleEn)}</h3>

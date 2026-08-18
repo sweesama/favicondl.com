@@ -6,6 +6,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const BLOG_DIR = path.resolve(__dirname, '..');
 const ARTICLES_PATH = path.join(BLOG_DIR, 'articles.json');
+const SITEMAP_PATH = path.resolve(BLOG_DIR, '..', 'sitemap.xml');
 const HOST = 'favicondl.com';
 
 const INDEXNOW_KEY = '8894b846bf144cbdb509ce481d85f7d9';
@@ -20,13 +21,24 @@ async function pingIndexNow() {
     }
 
     const articles = JSON.parse(fs.readFileSync(ARTICLES_PATH, 'utf-8'));
+    const requestedSlugs = [...new Set(process.argv.slice(2))]
+        .filter(slug => /^[a-z0-9-]+$/.test(slug));
     const today = new Date().toISOString().split('T')[0];
+    const sitemap = fs.existsSync(SITEMAP_PATH)
+        ? fs.readFileSync(SITEMAP_PATH, 'utf-8')
+        : '';
 
-    // 找出今天发布的文章
-    const newArticles = articles.filter(a => a.publishDate === today);
+    // 发布工作流会显式传入本次合并的 slug；本地手动运行时才回退到当天文章。
+    const newArticles = articles.filter(article => {
+        const selected = requestedSlugs.length > 0
+            ? requestedSlugs.includes(article.slug)
+            : article.publishDate === today;
+        const isIndexable = sitemap.includes(`https://${HOST}/blog/${article.slug}.html`);
+        return selected && isIndexable;
+    });
 
     if (newArticles.length === 0) {
-        console.log('✅ 今天没有新文章生成，无需提交。');
+        console.log('✅ 没有已发布且可索引的新文章，无需提交。');
         return;
     }
 

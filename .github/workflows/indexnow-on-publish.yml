@@ -1,0 +1,69 @@
+name: Notify IndexNow After Publish
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'blog/*.html'
+      - 'zh/blog/*.html'
+      - 'ja/blog/*.html'
+      - 'ko/blog/*.html'
+      - 'es/blog/*.html'
+      - 'blog/articles.json'
+      - 'sitemap.xml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: favicondl-indexnow-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  notify-indexnow:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout publication
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Find published article slugs
+        id: changed
+        env:
+          BEFORE_SHA: ${{ github.event.before }}
+          AFTER_SHA: ${{ github.sha }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          SLUGS=$(git diff --name-only "$BEFORE_SHA" "$AFTER_SHA" -- \
+            'blog/*.html' \
+            'zh/blog/*.html' \
+            'ja/blog/*.html' \
+            'ko/blog/*.html' \
+            'es/blog/*.html' | node -e "
+              const fs = require('fs');
+              const path = require('path');
+              const slugs = [...new Set(fs.readFileSync('/dev/stdin', 'utf8')
+                .split(/\\r?\\n/)
+                .filter(Boolean)
+                .map(file => path.basename(file, '.html'))
+                .filter(slug => slug !== 'index'))];
+              process.stdout.write(slugs.join(' '));
+            ")
+          echo "slugs=$SLUGS" >> "$GITHUB_OUTPUT"
+
+      - name: Notify IndexNow participants
+        if: steps.changed.outputs.slugs != ''
+        run: node blog/scripts/ping-indexnow.js ${{ steps.changed.outputs.slugs }}
+
+      - name: Nothing to notify
+        if: steps.changed.outputs.slugs == ''
+        run: echo "No indexable article URL changed."

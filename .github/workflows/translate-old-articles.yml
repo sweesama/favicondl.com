@@ -1,66 +1,90 @@
-# 一次性工作流：为旧博客文章补充 ja/ko/es 正文翻译
-# 手动触发（workflow_dispatch），跑完自动 commit & push
-# NVIDIA NIM 免费额度 40 RPM，可一次跑完所有文章
-# 脚本会自动跳过已翻译的文章，所以重复跑也安全
-
 name: Translate Old Blog Articles
 
 on:
   workflow_dispatch:
     inputs:
       limit:
-        description: '每次翻译的文章数量上限（付费层可一次跑完）'
+        description: 'Maximum number of articles in this batch'
         required: false
         default: '50'
 
 permissions:
   contents: write
 
+concurrency:
+  group: favicondl-content-main
+  cancel-in-progress: false
+
 jobs:
-  translate:
+  translate-and-publish:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+      - name: Checkout latest main
         uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '22'
+          cache: npm
+          cache-dependency-path: |
+            blog/scripts/package-lock.json
+            i18n/package-lock.json
 
-      - name: Install dependencies
+      - name: Install generator dependencies
         working-directory: blog/scripts
-        run: npm install
+        run: npm ci
 
-      - name: Run translation script
+      - name: Translate missing article bodies
         working-directory: blog/scripts
         env:
           NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
-        run: node translate-old-articles.js --limit ${{ github.event.inputs.limit }}
+        run: node translate-old-articles.js --limit ${{ inputs.limit }}
 
-      - name: Install i18n dependencies
+      - name: Install site build dependencies
         working-directory: i18n
-        run: npm install
+        run: npm ci
 
-      - name: Run i18n build
+      - name: Build localized pages
         working-directory: i18n
-        run: node build.js
+        run: npm run build
 
-      - name: Commit & Push
+      - name: Validate all generated output
+        working-directory: i18n
+        run: npm run validate
+
+      - name: Publish only after every gate passes
+        id: publish
+        shell: bash
         run: |
+          set -euo pipefail
           git config user.name "Translate Bot"
           git config user.email "bot@favicondl.com"
           git add -A
-          if ! git diff --staged --quiet; then
-            git commit -m "🌐 Translate old articles to ja/ko/es (batch)"
-            git pull --rebase origin main
-            git push
-          else
-            echo "ℹ️ No changes to commit"
+          if git diff --staged --quiet; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            exit 0
           fi
 
+          git commit -m "Translate missing legacy article bodies"
+          git pull --rebase origin main
+          npm --prefix i18n run build
+          npm --prefix i18n run validate
+          git add -A
+          git commit --amend --no-edit
+          git push origin HEAD:main
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+
       - name: Summary
+        shell: bash
         run: |
-          echo "✅ Translation batch complete!"
-          echo "If articles remain, run this workflow again tomorrow."
+          if [ "${{ steps.publish.outputs.changed }}" = "true" ]; then
+            echo "Validated translations were published."
+          else
+            echo "No untranslated legacy article was found."
+          fi
