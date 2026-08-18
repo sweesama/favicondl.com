@@ -2294,7 +2294,9 @@
       "favicon-shopify",
       "favicon-not-showing-google-results"
     ],
-    "status": "pending"
+    "status": "done",
+    "qualityScore": 77,
+    "qualityGrade": "B"
   },
   {
     "keyword": "squarespace favicon not showing google",
