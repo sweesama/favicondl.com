@@ -5,6 +5,7 @@ on:
     branches:
       - main
     paths:
+      - '.github/workflows/indexnow-on-publish.yml'
       - 'blog/*.html'
       - 'zh/blog/*.html'
       - 'ja/blog/*.html'
