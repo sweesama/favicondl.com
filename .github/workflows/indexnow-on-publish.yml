@@ -28,7 +28,9 @@ jobs:
       - name: Checkout publication
         uses: actions/checkout@v4
         with:
-          fetch-depth: 2
+          # A push can contain more than one commit. The event's `before` SHA
+          # must be present so the workflow can compare the whole push.
+          fetch-depth: 0
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -43,7 +45,24 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          SLUGS=$(git diff --name-only "$BEFORE_SHA" "$AFTER_SHA" -- \
+
+          BASE_SHA="$BEFORE_SHA"
+          ZERO_SHA="0000000000000000000000000000000000000000"
+
+          # A normal push is covered by the full-history checkout above. Keep a
+          # safe fallback for unusual events such as a recreated or force-pushed
+          # branch so an indexing notification can never break the publish run.
+          if [[ "$BASE_SHA" == "$ZERO_SHA" ]] || ! git cat-file -e "${BASE_SHA}^{commit}" 2>/dev/null; then
+            echo "::warning::The push base commit is unavailable; comparing the latest commit only."
+            BASE_SHA=$(git rev-parse "${AFTER_SHA}^" 2>/dev/null || true)
+          fi
+
+          if [[ -z "$BASE_SHA" ]]; then
+            echo "slugs=" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          SLUGS=$(git diff --name-only "$BASE_SHA" "$AFTER_SHA" -- \
             'blog/*.html' \
             'zh/blog/*.html' \
             'ja/blog/*.html' \
