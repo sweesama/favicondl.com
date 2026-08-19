@@ -3122,5 +3122,26 @@
     ],
     "qualityScore": 77,
     "qualityGrade": "B"
+  },
+  {
+    "slug": "squarespace-favicon-google-results",
+    "publishDate": "2026-08-19",
+    "titleEn": "Squarespace Favicon Not Showing on Google? The Fix",
+    "titleZh": "Squarespace Favicon 不在 Google 显示？修复指南",
+    "titleJa": "Squarespace の Favicon が Google に表示されない？修正方法",
+    "titleKo": "Squarespace Favicon이 Google에 표시되지 않습니까? 해결책",
+    "titleEs": "Squarespace Favicon no aparece en Google? La solución",
+    "descEn": "Fix your Squarespace favicon not showing on Google. Learn why Google skips Squarespace CDN icons and how to force a recrawl for search results.",
+    "descZh": "修复 Squarespace favicon 不在 Google 显示的问题。了解 Google 为何跳过 CDN 图标，以及如何强制重新抓取。",
+    "descJa": "Squarespace の favicon が Google に表示されない問題を修正。CDN アイコンがスキップされる理由と再クロールの強制方法を学びましょう。",
+    "descKo": "Squarespace favicon이 Google에 표시되지 않는 문제를 수정하세요. CDN 아이콘이 건너뛰어지는 이유와 재크롤링 방법을 알아보세요.",
+    "descEs": "Arregla tu favicon de Squarespace que no aparece en Google. Aprende por qué Google omite los íconos de CDN y cómo forzar un rastreo.",
+    "keyword": "squarespace favicon not showing google",
+    "tags": [
+      "squarespace",
+      "seo"
+    ],
+    "qualityScore": 65,
+    "qualityGrade": "B"
   }
 ]

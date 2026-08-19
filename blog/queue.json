@@ -2311,7 +2311,9 @@
       "squarespace-favicon",
       "favicon-not-showing-google-results"
     ],
-    "status": "pending"
+    "status": "done",
+    "qualityScore": 65,
+    "qualityGrade": "B"
   },
   {
     "keyword": "wix favicon google search results",
