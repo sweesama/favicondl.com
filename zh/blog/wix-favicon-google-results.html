@@ -100,7 +100,22 @@
             <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">解决 Wix 网站在 Google 搜索结果中缺少图标的问题</h1>
         </header>
 
-        <div class="article-body"><p>刚发布 Wix 网站却发现 Google 搜索结果里品牌图标没显示？这通常是 Google 的预期与 Wix 实际输出的内容之间存在细微差异导致的。</p><h2>快速修复——让 Google 识别有效的 favicon</h2><p>最快捷的恢复方式是在首页添加一个规范的 <code>rel='icon'</code> 链接，然后在 Google Search Console 中请求重新抓取。</p><ol><li>在 Wix 编辑器中上传一张 48 × 48 px 的 PNG（或 SVG）——参考 Wix 官方指南<a href="https://support.wix.com/en/article/wix-editor-changing-your-favicon">这里</a>。</li><li>打开 Wix Dashboard，进入 Settings → Advanced → Custom Code，将以下标签粘贴到 <code>&lt;head&gt;</code> 区域：</li></ol><pre><code>&amp;lt;link rel='icon' href='https://example.com/favicon.png' sizes='48x48' type='image/png'&amp;gt;</code></pre><p>保存并重新发布网站。然后打开 Google Search Console，在 URL Inspection 工具中输入你的首页 URL，点击“Request Indexing”。Google 在下次抓取时会获取新的图标。</p><h2>快速修复的原理——Google 的 favicon 要求</h2><p>Google 只有在能抓取到一张至少 48 × 48 px 的方形图片、且该图片无需身份验证即可访问时，才会在搜索结果中显示 favicon。官方规范详见 Google Search 文档<a href="https://developers.google.com/search/docs/appearance/favicon-in-search?hl=en">这里</a>。</p><h3>Wix 上的常见根本原因</h3><ul><li><strong>默认的“W”图标仍然存在。</strong>在编辑器中替换之前，Wix 会一直保留这个占位图标，因此爬虫始终看到的是通用图标。</li><li><strong>缺少 <code>rel='icon'</code> 标签。</strong>Wix 可能依赖隐式的 <code>/favicon.ico</code> 文件，而 Google 不会优先于显式 link 标签去处理它。</li><li><strong>图片尺寸或格式不正确。</strong>小于 48 × 48 px 的 PNG、缺少所需尺寸的 ICO 文件，或缺少正确 <code>viewBox</code> 的 SVG 都可能被忽略。</li><li><strong>Robots.txt 或 X-Robots-Tag 屏蔽了该文件。</strong>如果 favicon URL 被 disallow，Google 无法抓取，就会回退为不显示图标。</li></ul><p>这些问题可以通过 HTML 规范中关于 link icons 的说明<a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">这里</a>进行验证，也可以在浏览器的 DevTools 中检查网络请求来排查。</p><h2>在 Google 抓取之前本地测试修复效果</h2><p>添加标签后，在 Chrome 中打开页面，右键 → Inspect，在 Elements 面板中查找 <code>link[rel='icon']</code> 元素。确认 <code>href</code> 返回 200 响应，并且图片尺寸正确（可以在 Sources 标签页中查看图片）。</p><p>如果图标在浏览器标签页中显示但未出现在 Google 中，请仔细检查 URL 是否为绝对路径、是否使用 HTTPS，以及是否被重定向到了 404 页面。</p><h2>预防措施——让 Wix favicon 长期可见</h2><p>图标被索引后，养成以下习惯可以避免日后图标消失：</p><ol><li>将 favicon 存放在域名根目录下（例如 <code>https://example.com/favicon.png</code>），并保持文件公开可访问。</li><li>同时添加 <code>rel='icon'</code> 标签和用于旧版浏览器的 <code>rel='shortcut icon'</code> 回退标签。</li><li>每次替换图片时附加一个 cache-busting 查询字符串，例如 <code>favicon.png?v=2</code>，以强制浏览器和 Google 获取最新版本。</li><li>每次更改后运行<a href="/zh/blog/favicon-checker-online.html">favicon checker</a>，确认所有必需的尺寸和标签都已就位。</li><li>提交或更新 XML sitemap，以便 Google 在每次图标更新后重新访问首页。</li></ol><p>遵循这份清单可以降低未来重新设计或 CDN 配置变更导致图标对爬虫不可见的风险。</p><h2>结论</h2><p>Google 搜索结果中 Wix favicon 缺失几乎总是简单的配置疏漏。添加正确的 <code>rel='icon'</code> 标签、提供 48 × 48 px 的 PNG（或合规的 SVG），并触发 Google 重新抓取，几分钟内就能恢复品牌可见性。把预防清单留在手边，你的 favicon 就能在浏览器和搜索结果中持续显示。</p></div>
+        <div class="article-body"><p>Wix 的 favicon 在浏览器标签页里正常，并不代表它一定会出现在 Google 搜索结果中。需要同时确认 Wix 已把正确图标发布到正式域名、Google 能抓取首页与图标，而且最终是否展示仍由 Google 决定。</p>
+<h2>先使用 Wix 自带的 Favicon 设置</h2>
+<p>不要一开始就添加 Custom Code。根据 <a href="https://support.wix.com/en/article/wix-editor-changing-your-favicon">Wix 官方指南</a>，自定义 favicon 需要 Premium 套餐、已连接的域名，并且网站此前已经发布。</p>
+<ol><li>打开网站 Dashboard 的 <strong>Settings</strong>。</li><li>进入 <strong>Website settings</strong>。</li><li>在 <strong>Favicon</strong> 下点击 <strong>Upload Image</strong>，选择文件并应用。</li><li>用无痕窗口打开正式域名，确认新图标已经上线，而不只是编辑器预览里可见。</li></ol>
+<p>Wix 要求非 SVG 图标使用 48 像素的倍数，例如 48×48 或 96×96；SVG 不受这个限制。这是 Wix 的上传规则，不等于 Google 的通用最低尺寸。</p>
+<h2>检查 Google 是否能使用这个图标</h2>
+<p><a href="https://developers.google.com/search/docs/appearance/favicon-in-search?hl=en">Google Search 的 favicon 文档</a>要求首页通过受支持的 <code>rel</code> 值声明图标，并允许 Googlebot 抓取首页、允许 Googlebot-Image 抓取图标。通过 Wix 的设置上传后，Wix 通常会自动生成相应标签，因此除非检查正式页面后确认标签缺失，否则不需要再手动添加一份。</p>
+<p>Google 的最低要求是正方形且至少 8×8 像素，建议使用大于 48×48 的图标；同时要求图标 URL 保持稳定。即使全部条件满足，Google 也不保证一定展示。</p>
+<h3>检查正式页面</h3>
+<ol><li>查看正式首页源代码，搜索 <code>rel='icon'</code>、<code>rel='shortcut icon'</code> 或 <code>rel='apple-touch-icon'</code>。</li><li>直接打开标签里的图标地址，确认无需登录即可访问，返回的不是 404、拒绝访问页面或 HTML 错误页。</li><li>确认 robots 规则没有阻止 Google 抓取首页或图标。</li><li>如果正式页面仍引用旧图标，回到 Wix 重新上传并确认变更已应用到正式域名。</li></ol>
+<p>也可以参考我们的 <a href="/zh/blog/favicon-checker-online.html">favicon 检查指南</a>，在等待 Google 再次抓取前核对页面声明和图标文件。</p>
+<h2>请求重新抓取后，留出合理时间</h2>
+<p>确认正式首页已经输出正确图标后，在 Google Search Console 中检查首页 URL，并点击“请求编入索引”。这只是请求，不是即时刷新。Google 明确说明，重新抓取和处理可能需要几天到几周。</p>
+<ul><li>不要把编辑器预览当成上线结果。</li><li>不要把 48×48 误写成 Google 的最低要求。</li><li>不要为了反复测试频繁更换图标 URL。</li><li>不要承诺几分钟或固定天数内显示。</li><li>没有检查页面前，不要添加重复、冲突的自定义标签。</li></ul>
+<h2>正确的处理顺序</h2>
+<p>通过 Wix 的 Website settings 上传图标，检查正式首页和图标 URL，向 Search Console 请求重新抓取，然后等待 Google 的正常处理周期。如果这些检查都通过但搜索结果仍未展示，就继续观察，不要反复修改一个已经正确的配置。</p></div>
 
         <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
 

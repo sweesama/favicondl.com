@@ -12,7 +12,7 @@
  * - 动态版权年份
  * 
  * v3 基础：
- * - 模型优先级：qwen3.5-122b → deepseek-v4-flash（NVIDIA NIM 免费端点）
+ * - NVIDIA NIM 免费端点的多模型路由
  * - 意图感知 / 自适应长度 / 语义去重 / 现代 SEO / response_format: JSON
  * 
  * 使用方式：
@@ -50,14 +50,14 @@ function parseModelList(value, fallback) {
 
 // 免费托管端点会轮换，因此模型名单可由环境变量覆盖，并在运行时自动熔断失效项。
 const ARTICLE_MODELS = parseModelList(process.env.BLOG_MODEL_LIST, [
-  'z-ai/glm-5.2',
   'openai/gpt-oss-120b',
+  'z-ai/glm-5.2',
   'nvidia/nemotron-3-nano-30b-a3b',
   'nvidia/nemotron-3-super-120b-a12b',
 ]);
 const TRANSLATION_MODELS = parseModelList(process.env.BLOG_TRANSLATION_MODEL_LIST, [
-  'openai/gpt-oss-120b',
   'z-ai/glm-5.2',
+  'openai/gpt-oss-120b',
 ]);
 const MAX_RETRIES = 2;
 const RETRY_DELAY_MS = 12000;
@@ -78,6 +78,11 @@ const SOURCE_EVIDENCE = new Map([
   ['https://nuxt.com/docs/4.x/getting-started/seo-meta', "Nuxt's <a href='https://nuxt.com/docs/4.x/getting-started/seo-meta'>SEO and meta guide</a> documents how link metadata is configured."],
   ['https://www.w3.org/TR/appmanifest/#icons-member', "The Web App Manifest specification defines the <a href='https://www.w3.org/TR/appmanifest/#icons-member'>icons member</a> as a list of image resources for an application."],
   [GENERAL_FAVICON_SOURCE, "The HTML Standard defines <a href='https://html.spec.whatwg.org/multipage/links.html#rel-icon'><code>rel='icon'</code></a> as the link relationship for an icon representing the current page."],
+]);
+const SOURCE_NOTES = new Map([
+  ['https://developers.google.com/search/docs/appearance/favicon-in-search?hl=en', 'Google: a favicon is eligible, not guaranteed. It must be square and at least 8x8; larger than 48x48 is recommended. Keep its URL stable. Recrawling can take several days to several weeks.'],
+  ['https://support.wix.com/en/article/wix-editor-changing-your-favicon', 'Wix: use Dashboard > Settings > Website settings > Upload Image under Favicon. A Premium plan, connected domain, and previously published site are required. Non-SVG dimensions must be multiples of 48px. Do not present Custom Code as the normal setup route.'],
+  ['https://vite.dev/guide/assets.html#the-public-directory', 'Vite: files in public are served at the root path, copied to the build output unchanged, and referenced as /icon.png rather than /public/icon.png.'],
 ]);
 const SOURCE_RULES = [
   { match: /google|search results?|48x48|96x96/i, urls: ['https://developers.google.com/search/docs/appearance/favicon-in-search?hl=en'] },
@@ -285,6 +290,11 @@ async function main() {
 
 function buildMainPrompt(keyword, slug, tags, existingArticles, intent, depth, avoidOverlap, sourceUrls) {
   const depthCfg = DEPTH_CONFIG[depth] || DEPTH_CONFIG.standard;
+  const verifiedNotes = sourceUrls
+    .map(url => SOURCE_NOTES.get(url))
+    .filter(Boolean)
+    .map(note => `- ${note}`)
+    .join('\n');
 
   // 构建已有文章摘要（标题 + 描述，让 AI 知道哪些话题已覆盖）
   const existingList = existingArticles
@@ -393,6 +403,10 @@ REQUIRED INSTEAD:
 === APPROVED FIRST-PARTY SOURCES ===
 Use the following exact URLs for current platform, framework, browser, or search behavior. Link each relevant claim to its source. Do not invent replacement URLs.
 ${sourceUrls.map(url => `- ${url}`).join('\n')}
+
+=== VERIFIED SOURCE NOTES ===
+These notes were checked against the approved sources. Do not contradict them or turn a recommendation into a requirement.
+${verifiedNotes || '- No additional source notes are configured; keep claims limited to what the linked documentation states.'}
 
 === CONTENT UNIQUENESS ===
 These articles ALREADY EXIST on our blog. Do NOT repeat their content. Link to them instead.
@@ -724,6 +738,40 @@ function ensureFirstPartyEvidence(data, sourceUrls) {
   return data;
 }
 
+function validateKnownPlatformClaims(data, keyword = '') {
+  const html = String(data?.contentEn || '');
+  const plain = html.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+  const topic = `${keyword} ${data?.titleEn || ''} ${plain}`;
+  const problems = [];
+
+  if (/google|search results?/i.test(topic)) {
+    if (/google[^.]{0,120}(?:requires?|minimum(?: size)?(?: is| of)?)[^.]{0,35}48\s*[x×]\s*48/i.test(plain)
+        || /google[^.]{0,120}at least\s+48\s*[x×]\s*48/i.test(plain)
+        || /48\s*[x×]\s*48[^.]{0,45}(?:minimum|required)[^.]{0,70}google/i.test(plain)) {
+      problems.push('把 48×48 错写成 Google 最低要求（最低为 8×8，建议大于 48×48）');
+    }
+    if (/(?:appear|display|restore)[^.]{0,60}(?:within|in)\s+(?:a few\s+)?minutes/i.test(plain)) {
+      problems.push('承诺 Google favicon 在几分钟内显示');
+    }
+    if (/(?:append|add|use)[^.]{0,100}(?:cache[- ]bust|query string|\?v=)/i.test(plain)) {
+      problems.push('建议频繁改变 Google 要求保持稳定的 favicon URL');
+    }
+  }
+
+  if (/\bwix\b/i.test(topic)
+      && (/(?:go to|open|navigate to)[^.]{0,120}custom code/i.test(plain)
+          || /custom code[^.]{0,100}(?:paste|add)[^.]{0,80}(?:head|rel=.icon)/i.test(plain))) {
+    problems.push('把 Wix Custom Code 错写成常规 favicon 设置路径');
+  }
+
+  if (problems.length > 0) {
+    const error = new Error(`平台事实校验失败: ${problems.join('；')}`);
+    error.code = 'INVALID_MODEL_OUTPUT';
+    throw error;
+  }
+  return data;
+}
+
 async function generateArticleContent(keyword, slug, tags, existingArticles, intent, depth, avoidOverlap, sourceUrls) {
   // --- 第 1 步：生成英文正文 + 5 语言元数据 ---
   const mainPrompt = buildMainPrompt(keyword, slug, tags, existingArticles, intent, depth, avoidOverlap, sourceUrls);
@@ -735,7 +783,10 @@ async function generateArticleContent(keyword, slug, tags, existingArticles, int
       0.55,
       ARTICLE_MODELS,
       API_TIMEOUT_MS,
-      candidate => requireStringFields(candidate, ['titleEn', 'contentEn'], '英文主输出'),
+      candidate => {
+        requireStringFields(candidate, ['titleEn', 'contentEn'], '英文主输出');
+        validateKnownPlatformClaims(candidate, keyword);
+      },
     ), keyword),
     sourceUrls,
   );
@@ -1553,5 +1604,6 @@ export {
   requireStringFields,
   repairMissingMetadata,
   resolveOfficialSources,
+  validateKnownPlatformClaims,
   validateArticleData,
 };

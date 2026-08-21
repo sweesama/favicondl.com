@@ -214,8 +214,17 @@ function storeTranslationsAsTemplates($) {
   for (const lang of LANGUAGES) {
     const body = $(`.article-body[data-lang="${lang}"]`).first();
     const existingTemplate = $(`template[data-article-lang="${lang}"]`).first();
-    if (body.length && !existingTemplate.length) {
-      englishBody.after(`<template data-article-lang="${lang}">${body.html() || ''}</template>`);
+    if (body.length) {
+      if (existingTemplate.length) {
+        // A manually reviewed translation body is authoritative. Replacing the
+        // old template lets editors correct a published translation without
+        // hand-editing the generated localized pages.
+        existingTemplate.replaceWith(
+          `<template data-article-lang="${lang}">${body.html() || ''}</template>`
+        );
+      } else {
+        englishBody.after(`<template data-article-lang="${lang}">${body.html() || ''}</template>`);
+      }
     }
     body.remove();
   }

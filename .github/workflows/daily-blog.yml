@@ -124,6 +124,14 @@ jobs:
           PAYLOAD=$(node -e "process.stdout.write(JSON.stringify({msg_type:'text',content:{text:'Mzu favicondl 已通过构建与质量检查并发布：\nhttps://favicondl.com/blog/' + process.env.ARTICLE_SLUG + '.html'}}))")
           curl --fail-with-body -X POST -H "Content-Type: application/json" -d "$PAYLOAD" "$FEISHU_WEBHOOK"
 
+      # Pushes made with GITHUB_TOKEN do not start another push-triggered
+      # workflow. Notify IndexNow here so automated publications are covered;
+      # indexnow-on-publish.yml remains responsible for human/manual pushes.
+      - name: Notify IndexNow for automated publication
+        if: steps.publish.outputs.changed == 'true'
+        continue-on-error: true
+        run: node blog/scripts/ping-indexnow.js "${{ steps.publish.outputs.slug }}"
+
       - name: Report keyword stock
         if: always()
         shell: bash

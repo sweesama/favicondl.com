@@ -100,40 +100,22 @@
             <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">Cómo arreglar el favicon de Wix que no aparece en resultados de Google</h1>
         </header>
 
-        <div class="article-body"><p>Si acabas de publicar tu sitio en Wix y notas que el icono de tu marca no aparece en los resultados de búsqueda de Google, el problema suele ser una pequeña desconexión entre lo que Google espera encontrar y lo que Wix realmente entrega.</p>
-<h2>Solución rápida – fuerza a Google a reconocer un favicon válido</h2>
-<p>La forma más rápida de recuperar el icono en los SERPs es añadir un enlace <code>rel='icon'</code> correcto en la página principal y luego solicitar un nuevo rastreo en Google Search Console.</p>
-<ol>
-<li>Sube un PNG de 48 × 48 px (o un SVG) a través del editor de Wix – consulta la guía de Wix <a href="https://support.wix.com/en/article/wix-editor-changing-your-favicon">aquí</a>.</li>
-<li>Abre el Wix Dashboard, ve a Settings → Advanced → Custom Code, y pega la siguiente etiqueta en la sección <code>&lt;head&gt;</code>:</li>
-</ol>
-<pre><code>&amp;lt;link rel='icon' href='https://example.com/favicon.png' sizes='48x48' type='image/png'&amp;gt;</code></pre>
-<p>Guarda y vuelve a publicar el sitio. Después abre Google Search Console, introduce la URL de tu página principal en la herramienta URL Inspection y haz clic en “Request Indexing”. Google obtendrá el nuevo icono en su próximo rastreo.</p>
-<h2>Por qué funciona esta solución – los requisitos de favicon de Google</h2>
-<p>Google solo muestra un favicon en los resultados de búsqueda cuando puede recuperar una imagen cuadrada de al menos 48 × 48 px accesible sin autenticación. La especificación oficial está descrita en la documentación de Google Search <a href="https://developers.google.com/search/docs/appearance/favicon-in-search?hl=en">aquí</a>.</p>
-<h3>Causas comunes en Wix</h3>
-<ul>
-<li><strong>El icono predeterminado “W” sigue activo.</strong> Wix mantiene el placeholder hasta que lo reemplazas en el editor, por lo que los crawlers siguen viendo el icono genérico.</li>
-<li><strong>Falta la etiqueta <code>rel='icon'</code>.</strong> Wix puede depender de un archivo <code>/favicon.ico</code> implícito, que Google no prioriza frente a una etiqueta link explícita.</li>
-<li><strong>Tamaño o formato de imagen incorrectos.</strong> Los PNG menores de 48 × 48 px, los archivos ICO sin el tamaño requerido o los SVG sin un <code>viewBox</code> adecuado pueden ser ignorados.</li>
-<li><strong>Robots.txt o X‑Robots‑Tag bloqueando el archivo.</strong> Si la URL del favicon está disallowed, Google no puede rastrearla y se queda sin icono.</li>
-</ul>
-<p>Cada uno de estos problemas se puede verificar con la especificación HTML para link icons <a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">aquí</a> e inspeccionando la petición de red en las DevTools de tu navegador.</p>
-<h2>Probar la solución localmente antes de que Google la vea</h2>
-<p>Después de añadir la etiqueta, abre la página en Chrome, haz clic derecho → Inspect y busca el elemento <code>link[rel='icon']</code> en el panel Elements. Comprueba que el <code>href</code> devuelve una respuesta 200 y que las dimensiones de la imagen son correctas (puedes ver la imagen en la pestaña Sources).</p>
-<p>Si el icono aparece en la pestaña del navegador pero no en Google, verifica que la URL sea absoluta, use HTTPS y no redirija a una página 404.</p>
-<h2>Prevención – mantén tu favicon de Wix visible a largo plazo</h2>
-<p>Una vez que el icono esté indexado, adopta estos hábitos para evitar que desaparezca en el futuro:</p>
-<ol>
-<li>Guarda el favicon en la raíz de tu dominio (por ejemplo, <code>https://example.com/favicon.png</code>) y mantén el archivo accesible públicamente.</li>
-<li>Incluye tanto una etiqueta <code>rel='icon'</code> como un fallback <code>rel='shortcut icon'</code> para navegadores antiguos.</li>
-<li>Añade una query string de cache‑busting cada vez que reemplaces la imagen, como <code>favicon.png?v=2</code>, para forzar a los navegadores y a Google a obtener la versión más reciente.</li>
-<li>Ejecuta el <a href="/es/blog/favicon-checker-online.html">favicon checker</a> después de cualquier cambio para confirmar que todos los tamaños y etiquetas requeridos están presentes.</li>
-<li>Envía o actualiza tu XML sitemap para que Google vuelva a visitar la página principal tras cada actualización del icono.</li>
-</ol>
-<p>Seguir esta checklist reduce la probabilidad de que un rediseño futuro o una configuración de CDN oculten el icono a los crawlers de forma involuntaria.</p>
-<h2>Conclusión</h2>
-<p>Los favicons de Wix que faltan en los resultados de búsqueda de Google casi siempre se deben a una brecha de configuración sencilla. Añadir una etiqueta <code>rel='icon'</code> correcta, servir un PNG de 48 × 48 px (o un SVG que cumpla con los requisitos) y solicitar a Google que vuelva a rastrear la página restaura la visibilidad de tu marca en cuestión de minutos. Ten la checklist de prevención a mano y tu favicon se mantendrá visible tanto en navegadores como en resultados de búsqueda.</p></div>
+        <div class="article-body"><p>Que el favicon de Wix aparezca en la pestaña del navegador no significa que Google vaya a mostrarlo en sus resultados. La configuración correcta debe estar publicada en el dominio real, Google debe poder rastrear la portada y el archivo, y la decisión final de mostrarlo sigue siendo de Google.</p>
+<h2>Usa primero el ajuste de favicon de Wix</h2>
+<p>No empieces añadiendo Custom Code. La <a href="https://support.wix.com/en/article/wix-editor-changing-your-favicon">guía oficial de Wix</a> indica que necesitas un plan Premium, un dominio conectado y un sitio previamente publicado para usar un favicon personalizado.</p>
+<ol><li>Abre <strong>Settings</strong> en el Dashboard del sitio.</li><li>Selecciona <strong>Website settings</strong>.</li><li>En <strong>Favicon</strong>, pulsa <strong>Upload Image</strong> y aplica el archivo.</li><li>Abre el dominio público en una ventana privada y comprueba que el cambio está en producción, no solo en la vista previa del editor.</li></ol>
+<p>Para Wix, usa un PNG cuadrado cuyas dimensiones sean múltiplos de 48, como 48×48 o 96×96, o un SVG. Es una indicación específica de Wix, no el tamaño mínimo universal de Google.</p>
+<h2>Comprueba si Google puede utilizarlo</h2>
+<p>La <a href="https://developers.google.com/search/docs/appearance/favicon-in-search?hl=en">documentación de Google Search</a> exige que la portada declare el icono con un valor <code>rel</code> admitido y que tanto la página como el favicon sean rastreables. Wix normalmente genera esa etiqueta al usar su ajuste, así que no añadas otra manualmente salvo que hayas comprobado que falta en el HTML público.</p>
+<p>Google exige una imagen cuadrada de al menos 8×8 píxeles y recomienda una mayor de 48×48. La URL debe mantenerse estable y cumplir las reglas no garantiza que el icono se muestre.</p>
+<h3>Revisa la página pública</h3>
+<ol><li>Busca <code>rel='icon'</code> o valores equivalentes en el código fuente de la portada publicada.</li><li>Abre directamente la URL del icono y confirma que devuelve la imagen sin iniciar sesión, no un 404 ni una página HTML de error.</li><li>Verifica que las reglas de robots no bloqueen la portada, Googlebot o Googlebot-Image.</li><li>Si todavía apunta al icono anterior, vuelve a configurarlo en Wix y confirma el cambio en el dominio real.</li></ol>
+<p>También puedes usar nuestra <a href="/es/blog/favicon-checker-online.html">guía para comprobar favicons</a> antes de esperar un nuevo rastreo.</p>
+<h2>Solicita el rastreo y espera un plazo realista</h2>
+<p>Cuando la portada pública ya sea correcta, inspecciónala en Google Search Console y solicita la indexación. No es una actualización instantánea: Google advierte que el rastreo y el procesamiento pueden tardar desde varios días hasta varias semanas.</p>
+<ul><li>No uses la vista previa del editor como prueba de producción.</li><li>No confundas 48×48 con el mínimo de Google.</li><li>No cambies la URL del icono en cada intento.</li><li>No prometas que aparecerá en minutos o en un plazo fijo.</li><li>No añadas etiquetas duplicadas sin revisar primero el HTML.</li></ul>
+<h2>El orden correcto</h2>
+<p>Configura el icono en Website settings, revisa la portada pública y la URL del archivo, solicita un nuevo rastreo y espera el ciclo normal de Google. Si todo es válido y todavía no aparece, es mejor vigilarlo que cambiar repetidamente una configuración correcta.</p></div>
 
         <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
 

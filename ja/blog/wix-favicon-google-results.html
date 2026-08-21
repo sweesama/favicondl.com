@@ -100,40 +100,22 @@
             <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">Wix のファビコンが Google 検索結果に表示されない問題を解決</h1>
         </header>
 
-        <div class="article-body"><p>Wix サイトを公開したばかりで、Google の検索結果にブランドアイコンが表示されていないことに気付いた場合、問題はほとんどの場合、Google が期待するものと Wix が実際に提供しているものとの間のごく小さな不一致です。</p>
-<h2>クイック修正 – Google に有効な favicon を認識させる</h2>
-<p>アイコンを検索結果に復元する最速の方法は、ホームページに正しい <code>rel='icon'</code> リンクを追加し、Google Search Console で再クロールをリクエストすることです。</p>
-<ol>
-<li>Wix エディタから 48 × 48 px の PNG（または SVG）をアップロードします – Wix のガイドは <a href="https://support.wix.com/en/article/wix-editor-changing-your-favicon">こちら</a>をご覧ください。</li>
-<li>Wix ダッシュボードを開き、設定 → 詳細設定 → カスタムコード に進み、以下のタグを <code>&amp;lt;head&amp;gt;</code> セクションに貼り付けます：</li>
-</ol>
-<pre><code>&amp;lt;link rel='icon' href='https://example.com/favicon.png' sizes='48x48' type='image/png'&amp;gt;</code></pre>
-<p>サイトを保存して再公開します。その後、Google Search Console を開き、URL インスペクション ツールにホームページの URL を入力し、「インデックス登録をリクエスト」をクリックします。Google は次回のクロール時に新しいアイコンを取得します。</p>
-<h2>なぜクイック修正が機能するのか – Google の favicon 要件</h2>
-<p>Google は、認証なしで取得可能な、少なくとも 48 × 48 px の正方形画像を取得できた場合にのみ、検索結果に favicon を表示します。公式仕様は Google の検索ドキュメント <a href="https://developers.google.com/search/docs/appearance/favicon-in-search?hl=en">こちら</a>に記載されています。</p>
-<h3>Wix での一般的な根本原因</h3>
-<ul>
-<li><strong>デフォルトの “W” アイコンがまだ有効。</strong> Wix はエディタで置き換えるまでプレースホルダーを保持するため、クローラは汎用アイコンを見続けます。</li>
-<li><strong><code>rel='icon'</code> タグが欠如。</strong> Wix は暗黙的な <code>/favicon.ico</code> ファイルに依存することがありますが、Google は明示的な link タグを優先しません。</li>
-<li><strong>画像サイズまたは形式が不正。</strong> 48 × 48 px 未満の PNG、必要なサイズを持たない ICO、または適切な <code>viewBox</code> を欠く SVG は無視される可能性があります。</li>
-<li><strong>Robots.txt または X‑Robots‑Tag がファイルをブロック。</strong> favicon の URL が禁止されていると、Google はクロールできず、アイコンが表示されません。</li>
-</ul>
-<p>これらの問題は、リンクアイコンに関する HTML 仕様 <a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">こちら</a>で確認でき、ブラウザの DevTools でネットワークリクエストを検査することでも確認できます。</p>
-<h2>Google が確認する前にローカルで修正をテストする方法</h2>
-<p>タグを追加したら、Chrome でページを開き、右クリック → 検証 を選択し、Elements パネルで <code>link[rel='icon']</code> 要素を探します。<code>href</code> が 200 応答を返し、画像サイズが正しいことを確認してください（Sources タブで画像を確認できます）。</p>
-<p>ブラウザのタブにはアイコンが表示されても Google に表示されない場合は、URL が絶対パスで HTTPS を使用しているか、404 ページへリダイレクトされていないかを再確認してください。</p>
-<h2>予防策 – Wix の favicon を長期的に表示させる方法</h2>
-<p>アイコンがインデックスされたら、今後の消失を防ぐために以下の習慣を取り入れましょう。</p>
-<ol>
-<li>favicon をドメインのルートに配置し（例：<code>https://example.com/favicon.png</code>）、ファイルを公開状態に保ちます。</li>
-<li><code>rel='icon'</code> タグに加えて、レガシーブラウザ用に <code>rel='shortcut icon'</code> のフォールバックも含めます。</li>
-<li>画像を差し替えるたびにキャッシュバスティング用クエリ文字列（例：<code>favicon.png?v=2</code>）を付加し、ブラウザと Google に最新バージョンを取得させます。</li>
-<li>変更後は <a href="/ja/blog/favicon-checker-online.html">favicon checker</a> を実行し、必要なサイズとタグがすべて揃っていることを確認します。</li>
-<li>XML サイトマップを送信または更新し、アイコン更新ごとに Google がホームページを再訪するようにします。</li>
-</ol>
-<p>このチェックリストに従うことで、将来のリデザインや CDN 設定がアイコンをクローラから意図せず隠すリスクを低減できます。</p>
-<h2>結論</h2>
-<p>Google の検索結果で Wix の favicon が欠如しているケースは、ほとんどの場合単純な設定の抜けです。正しい <code>rel='icon'</code> タグを追加し、48 × 48 px の PNG（または準拠した SVG）を提供し、Google に再クロールを促すことで、数分以内にブランドの可視性が回復します。予防チェックリストを手元に置いておけば、favicon はブラウザと検索結果の両方で表示され続けます。</p></div>
+        <div class="article-body"><p>Wix の favicon がブラウザタブに表示されても、Google 検索結果に必ず表示されるわけではありません。公開ドメインに正しい設定が反映され、Google がページと画像をクロールできることを確認したうえで、表示の最終判断は Google に委ねられます。</p>
+<h2>まず Wix 標準の favicon 設定を使う</h2>
+<p>最初から Custom Code を追加する必要はありません。<a href="https://support.wix.com/en/article/wix-editor-changing-your-favicon">Wix 公式ガイド</a>では、カスタム favicon に Premium プラン、接続済みドメイン、公開済みサイトが必要だと説明されています。</p>
+<ol><li>サイトの Dashboard で <strong>Settings</strong> を開きます。</li><li><strong>Website settings</strong> を選びます。</li><li><strong>Favicon</strong> の <strong>Upload Image</strong> からファイルを設定します。</li><li>シークレットウィンドウで公開ドメインを開き、エディタ内だけでなく本番サイトに反映されたことを確認します。</li></ol>
+<p>Wix は SVG 以外について 48×48、96×96 など 48 ピクセルの倍数を案内しています。これは Wix のアップロード条件であり、Google 全体の最小要件ではありません。</p>
+<h2>Google が利用できる状態か確認する</h2>
+<p><a href="https://developers.google.com/search/docs/appearance/favicon-in-search?hl=en">Google Search の公式文書</a>では、ホームページに対応する <code>rel</code> 値でアイコンを指定し、ホームページと favicon をクロール可能にする必要があります。Wix の設定を使うと通常はタグが生成されるため、本番 HTML にタグがないと確認できた場合を除き、重複するタグを手動追加しないでください。</p>
+<p>Google の最小サイズは正方形の 8×8 ピクセルで、48×48 より大きい画像を推奨しています。URL は安定させる必要があり、条件を満たしても表示は保証されません。</p>
+<h3>公開ページを点検する</h3>
+<ol><li>公開ホームページのソースで <code>rel='icon'</code> などを検索します。</li><li>参照先 URL を直接開き、ログイン不要で画像が返り、404 や HTML エラーではないことを確かめます。</li><li>robots の設定が Googlebot と Googlebot-Image を遮断していないか確認します。</li><li>古いアイコンを参照している場合は Wix で再設定し、本番ドメインへの反映を確認します。</li></ol>
+<p><a href="/ja/blog/favicon-checker-online.html">favicon チェックガイド</a>も、リンクとファイルの確認に利用できます。</p>
+<h2>再クロールを依頼して待つ</h2>
+<p>本番ページが正しくなったら、Google Search Console の URL 検査でホームページのインデックス登録をリクエストします。これは即時更新ではありません。Google は処理に数日から数週間かかる場合があると説明しています。</p>
+<ul><li>エディタのプレビューだけで判断しない。</li><li>48×48 を Google の最小要件と誤解しない。</li><li>試すたびに URL を変更しない。</li><li>表示までの固定時間を約束しない。</li><li>確認せずに重複タグを追加しない。</li></ul>
+<h2>正しい手順</h2>
+<p>Wix の Website settings で設定し、公開ページと画像 URL を確認し、Search Console で再クロールを依頼して通常の処理期間を待ちます。すべて正常なら、設定を繰り返し変更するより監視を続ける方が安全です。</p></div>
 
         <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
 

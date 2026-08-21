@@ -9,17 +9,18 @@ import {
   parseModelList,
   requireStringFields,
   resolveOfficialSources,
+  validateKnownPlatformClaims,
 } from './generate-article.js';
 
 assert.equal(ARTICLE_MODELS.includes('deepseek-ai/deepseek-v4-flash'), false);
 assert.equal(TRANSLATION_MODELS.includes('moonshotai/kimi-k2.6'), false);
 assert.equal(TRANSLATION_MODELS.includes('nvidia/nemotron-3.5-lightning-30b-a3b'), false);
 assert.equal(TRANSLATION_MODELS.includes('nvidia/nemotron-3-super-120b-a12b'), false);
-assert.equal(TRANSLATION_MODELS[0], 'openai/gpt-oss-120b');
+assert.equal(TRANSLATION_MODELS[0], 'z-ai/glm-5.2');
 assert.ok(ARTICLE_MODELS.length >= 4);
 assert.ok(TRANSLATION_MODELS.length >= 2);
-assert.equal(ARTICLE_MODELS[0], 'z-ai/glm-5.2');
-assert.equal(ARTICLE_MODELS[1], 'openai/gpt-oss-120b');
+assert.equal(ARTICLE_MODELS[0], 'openai/gpt-oss-120b');
+assert.equal(ARTICLE_MODELS[1], 'z-ai/glm-5.2');
 assert.equal(ARTICLE_MODELS.includes('nvidia/nemotron-3.5-lightning-30b-a3b'), false);
 assert.deepEqual(parseModelList(' model/a, model/b,model/a ', ['fallback']), ['model/a', 'model/b']);
 assert.deepEqual(parseModelList('', ['fallback']), ['fallback']);
@@ -46,6 +47,14 @@ assert.ok(guardedWix.contentEn.includes('https://developers.google.com/search/do
 assert.ok(guardedWix.contentEn.includes('Check the documented requirements'));
 assert.ok(guardedWix.descEn.length <= 160);
 assert.ok(normalizeDescription('Short factual description.').length <= 160);
+assert.throws(() => validateKnownPlatformClaims({
+  titleEn: 'Wix favicon in Google',
+  contentEn: '<p>Google requires a favicon of at least 48x48. Go to Wix Custom Code and paste a link tag into the head.</p>',
+}, 'wix favicon google search results'), /平台事实校验失败/);
+assert.doesNotThrow(() => validateKnownPlatformClaims({
+  titleEn: 'Wix favicon in Google',
+  contentEn: '<p>Google requires at least 8x8 and recommends larger than 48x48. Use Wix Website settings and keep the URL stable.</p>',
+}, 'wix favicon google search results'));
 
 const nextSources = resolveOfficialSources({ keyword: 'nextjs app router favicon', tags: ['nextjs'] });
 assert.ok(nextSources.some(url => url.includes('nextjs.org')));
