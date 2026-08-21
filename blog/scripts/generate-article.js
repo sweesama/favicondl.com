@@ -51,10 +51,9 @@ function parseModelList(value, fallback) {
 // 免费托管端点会轮换，因此模型名单可由环境变量覆盖，并在运行时自动熔断失效项。
 const ARTICLE_MODELS = parseModelList(process.env.BLOG_MODEL_LIST, [
   'z-ai/glm-5.2',
-  'nvidia/nemotron-3-super-120b-a12b',
-  'nvidia/nemotron-3-nano-30b-a3b',
   'openai/gpt-oss-120b',
-  'nvidia/nemotron-3.5-lightning-30b-a3b',
+  'nvidia/nemotron-3-nano-30b-a3b',
+  'nvidia/nemotron-3-super-120b-a12b',
 ]);
 const TRANSLATION_MODELS = parseModelList(process.env.BLOG_TRANSLATION_MODEL_LIST, [
   'z-ai/glm-5.2',
@@ -600,8 +599,19 @@ function classifyModelError(error) {
   if (status === 429 || status >= 500 || /quota|RESOURCE_EXHAUSTED|high demand/i.test(message)) return 'transient';
   if (/AbortError|aborted|超时|timeout/i.test(message)) return 'timeout';
   if (/Connection|ECONNRESET|socket|network|fetch/i.test(message)) return 'transient';
+  if (error?.code === 'INVALID_MODEL_OUTPUT') return 'retryable-output';
   if (/JSON|空响应/i.test(message)) return 'retryable-output';
   return 'unknown';
+}
+
+function requireStringFields(data, fields, label = '模型输出') {
+  const missing = fields.filter(field => typeof data?.[field] !== 'string' || !data[field].trim());
+  if (missing.length > 0) {
+    const error = new Error(`${label}缺少必需字段: ${missing.join(', ')}`);
+    error.code = 'INVALID_MODEL_OUTPUT';
+    throw error;
+  }
+  return data;
 }
 
 async function requestModel(modelName, prompt, temperature, useJsonMode = true, timeoutMs = API_TIMEOUT_MS) {
@@ -631,7 +641,7 @@ async function requestModel(modelName, prompt, temperature, useJsonMode = true, 
   }
 }
 
-async function callAI(prompt, label, temperature = 0.55, models = ARTICLE_MODELS, timeoutMs = API_TIMEOUT_MS) {
+async function callAI(prompt, label, temperature = 0.55, models = ARTICLE_MODELS, timeoutMs = API_TIMEOUT_MS, validateResponse = null) {
   let lastError;
   for (const modelName of models) {
     if (disabledModels.has(modelName)) {
@@ -647,6 +657,7 @@ async function callAI(prompt, label, temperature = 0.55, models = ARTICLE_MODELS
           throw new Error('API 返回了空响应');
         }
         const data = parseAIResponse(responseText);
+        if (validateResponse) validateResponse(data);
         console.log(`  ✅ [${label}] ${modelName} 响应成功 (${responseText.length} 字符)`);
         return data;
       } catch (error) {
@@ -701,7 +712,14 @@ Missing fields: ${missing.join(', ')}
 Existing metadata: ${JSON.stringify(context)}
 
 Return one valid JSON object containing exactly the missing fields. Keep titles concise, descriptions natural and search-friendly, and CTA copy factual. Do not return article HTML.`;
-  const repaired = await callAI(repairPrompt, 'metadata-repair', 0.2, ARTICLE_MODELS);
+  const repaired = await callAI(
+    repairPrompt,
+    'metadata-repair',
+    0.2,
+    ARTICLE_MODELS,
+    API_TIMEOUT_MS,
+    candidate => requireStringFields(candidate, missing, '元数据修复输出'),
+  );
   for (const field of missing) {
     if (typeof repaired[field] === 'string' && repaired[field].trim()) data[field] = repaired[field].trim();
   }
@@ -746,7 +764,14 @@ async function generateArticleContent(keyword, slug, tags, existingArticles, int
   const mainPrompt = buildMainPrompt(keyword, slug, tags, existingArticles, intent, depth, avoidOverlap, sourceUrls);
   console.log('🤖 [1/2] 正在调用 NVIDIA NIM API 生成英文文章 + 元数据...');
   const data = ensureFirstPartyEvidence(
-    await repairMissingMetadata(await callAI(mainPrompt, 'main', 0.55, ARTICLE_MODELS), keyword),
+    await repairMissingMetadata(await callAI(
+      mainPrompt,
+      'main',
+      0.55,
+      ARTICLE_MODELS,
+      API_TIMEOUT_MS,
+      candidate => requireStringFields(candidate, ['titleEn', 'contentEn'], '英文主输出'),
+    ), keyword),
     sourceUrls,
   );
   console.log(`✅ 英文文章生成完成: "${data.titleEn}"`);
@@ -760,6 +785,7 @@ async function generateArticleContent(keyword, slug, tags, existingArticles, int
     0.45,
     TRANSLATION_MODELS,
     TRANSLATION_API_TIMEOUT_MS,
+    candidate => requireStringFields(candidate, ['contentZh', 'contentJa', 'contentKo', 'contentEs'], '批量翻译输出'),
   );
   for (const [field, label] of [
     ['contentZh', '中文'],
@@ -1560,6 +1586,7 @@ export {
   ensureFirstPartyEvidence,
   normalizeDescription,
   parseModelList,
+  requireStringFields,
   repairMissingMetadata,
   resolveOfficialSources,
   validateArticleData,

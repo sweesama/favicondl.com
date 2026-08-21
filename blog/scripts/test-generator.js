@@ -8,6 +8,7 @@ import {
   ensureFirstPartyEvidence,
   normalizeDescription,
   parseModelList,
+  requireStringFields,
   resolveOfficialSources,
 } from './generate-article.js';
 
@@ -17,6 +18,8 @@ assert.equal(TRANSLATION_MODELS.includes('nvidia/nemotron-3.5-lightning-30b-a3b'
 assert.ok(ARTICLE_MODELS.length >= 4);
 assert.ok(TRANSLATION_MODELS.length >= 2);
 assert.equal(ARTICLE_MODELS[0], 'z-ai/glm-5.2');
+assert.equal(ARTICLE_MODELS[1], 'openai/gpt-oss-120b');
+assert.equal(ARTICLE_MODELS.includes('nvidia/nemotron-3.5-lightning-30b-a3b'), false);
 assert.deepEqual(parseModelList(' model/a, model/b,model/a ', ['fallback']), ['model/a', 'model/b']);
 assert.deepEqual(parseModelList('', ['fallback']), ['fallback']);
 
@@ -25,6 +28,9 @@ assert.equal(classifyModelError({ status: 404, message: 'Not found' }), 'permane
 assert.equal(classifyModelError({ status: 429, message: 'Rate limited' }), 'transient');
 assert.equal(classifyModelError({ status: 401, message: 'Unauthorized' }), 'auth');
 assert.equal(classifyModelError({ message: 'The operation was aborted' }), 'timeout');
+assert.equal(classifyModelError({ code: 'INVALID_MODEL_OUTPUT', message: 'missing title' }), 'retryable-output');
+assert.throws(() => requireStringFields({}, ['titleEn', 'contentEn'], 'test'), /titleEn, contentEn/);
+assert.doesNotThrow(() => requireStringFields({ titleEn: 'Title', contentEn: '<p>Body</p>' }, ['titleEn', 'contentEn'], 'test'));
 
 const wixSources = resolveOfficialSources({ keyword: 'wix favicon google search results', tags: ['wix', 'seo'] });
 assert.ok(wixSources.some(url => url.includes('support.wix.com')));
