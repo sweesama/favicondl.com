@@ -58,13 +58,13 @@ const ARTICLE_MODELS = parseModelList(process.env.BLOG_MODEL_LIST, [
 ]);
 const TRANSLATION_MODELS = parseModelList(process.env.BLOG_TRANSLATION_MODEL_LIST, [
   'z-ai/glm-5.2',
-  'nvidia/nemotron-3-nano-30b-a3b',
+  'openai/gpt-oss-120b',
   'nvidia/nemotron-3-super-120b-a12b',
-  'nvidia/nemotron-3.5-lightning-30b-a3b',
 ]);
 const MAX_RETRIES = 2;
 const RETRY_DELAY_MS = 12000;
 const API_TIMEOUT_MS = Number(process.env.BLOG_API_TIMEOUT_MS || 180000);
+const TRANSLATION_API_TIMEOUT_MS = Number(process.env.BLOG_TRANSLATION_API_TIMEOUT_MS || 300000);
 const disabledModels = new Set();
 
 const GENERAL_FAVICON_SOURCE = 'https://html.spec.whatwg.org/multipage/links.html#rel-icon';
@@ -546,6 +546,40 @@ Title: ${englishTitle}
 ${englishContent}`;
 }
 
+function buildBatchTranslationPrompt(englishContent, englishTitle, keyword) {
+  return `You are a multilingual technical editor. Adapt the following English article into four complete, fluent versions: Simplified Chinese, Japanese, Korean, and Spanish.
+
+CRITICAL: Preserve the English article's meaning, evidence, qualifications, source URLs, and HTML structure. Do not invent or remove substantive claims.
+
+=== LANGUAGE RULES ===
+- contentZh: natural Simplified Chinese for developers; avoid formulaic openings and AI clichés.
+- contentJa: natural Japanese in です/ます style.
+- contentKo: natural Korean in 합니다 style.
+- contentEs: natural Spanish using the tú form.
+- Keep technical terms such as favicon, ICO, PNG, SVG, CSS, HTML, JavaScript, PWA, CDN, CORS, and API in English where clearer.
+
+=== SHARED RULES ===
+- Keep every source URL and href unchanged and adjacent to the claim it supports.
+- Keep all substantive sections, lists, tables, and code examples.
+- Do not translate code inside <pre><code> blocks.
+- Keep markup shown inside <code> or <pre> escaped as &amp;lt; and &amp;gt;.
+- Use single quotes for every HTML attribute.
+- Return article-body HTML only inside each JSON string; no markdown.
+- Do not add statistics, tests, customer stories, rankings, platform requirements, or product claims absent from the English source.
+
+=== OUTPUT FORMAT ===
+Return ONLY one valid JSON object with exactly these fields:
+{"contentZh":"<p>完整中文正文...</p>","contentJa":"<p>完全な日本語本文...</p>","contentKo":"<p>완전한 한국어 본문...</p>","contentEs":"<p>Artículo completo en español...</p>"}
+
+Do not use literal newlines inside JSON string values. Escape them as \\n. Do not output analysis or commentary.
+
+Topic: ${keyword}
+English title: ${englishTitle}
+
+=== ENGLISH ARTICLE TO ADAPT ===
+${englishContent}`;
+}
+
 // ============================================================
 // AI 调用 — 单次调用带重试和多模型降级
 // ============================================================
@@ -570,9 +604,9 @@ function classifyModelError(error) {
   return 'unknown';
 }
 
-async function requestModel(modelName, prompt, temperature, useJsonMode = true) {
+async function requestModel(modelName, prompt, temperature, useJsonMode = true, timeoutMs = API_TIMEOUT_MS) {
   const controller = new AbortController();
-  const timeout = setTimeout(() => controller.abort(new Error(`API 调用超时(${Math.round(API_TIMEOUT_MS / 1000)}s)`)), API_TIMEOUT_MS);
+  const timeout = setTimeout(() => controller.abort(new Error(`API 调用超时(${Math.round(timeoutMs / 1000)}s)`)), timeoutMs);
   const payload = {
     model: modelName,
     messages: [
@@ -597,7 +631,7 @@ async function requestModel(modelName, prompt, temperature, useJsonMode = true) 
   }
 }
 
-async function callAI(prompt, label, temperature = 0.55, models = ARTICLE_MODELS) {
+async function callAI(prompt, label, temperature = 0.55, models = ARTICLE_MODELS, timeoutMs = API_TIMEOUT_MS) {
   let lastError;
   for (const modelName of models) {
     if (disabledModels.has(modelName)) {
@@ -607,7 +641,7 @@ async function callAI(prompt, label, temperature = 0.55, models = ARTICLE_MODELS
     for (let attempt = 1; attempt <= MAX_RETRIES; attempt++) {
       try {
         console.log(`  → [${label}] 模型 ${modelName} (第 ${attempt}/${MAX_RETRIES} 次)...`);
-        const result = await requestModel(modelName, prompt, temperature);
+        const result = await requestModel(modelName, prompt, temperature, true, timeoutMs);
         const responseText = result.choices?.[0]?.message?.content;
         if (!responseText || responseText.trim() === '') {
           throw new Error('API 返回了空响应');
@@ -644,7 +678,7 @@ async function callAI(prompt, label, temperature = 0.55, models = ARTICLE_MODELS
 }
 
 // ============================================================
-// AI 调用 — 分步生成（主调用 + 4 次翻译调用）
+// AI 调用 — 两步生成（英文与元数据 + 一次四语批量翻译）
 // ============================================================
 
 const MAIN_REQUIRED_FIELDS = REQUIRED_FIELDS.filter(field => !['contentZh', 'contentJa', 'contentKo', 'contentEs'].includes(field));
@@ -710,39 +744,34 @@ function ensureFirstPartyEvidence(data, sourceUrls) {
 async function generateArticleContent(keyword, slug, tags, existingArticles, intent, depth, avoidOverlap, sourceUrls) {
   // --- 第 1 步：生成英文正文 + 5 语言元数据 ---
   const mainPrompt = buildMainPrompt(keyword, slug, tags, existingArticles, intent, depth, avoidOverlap, sourceUrls);
-  console.log('🤖 [1/5] 正在调用 NVIDIA NIM API 生成英文文章 + 元数据...');
+  console.log('🤖 [1/2] 正在调用 NVIDIA NIM API 生成英文文章 + 元数据...');
   const data = ensureFirstPartyEvidence(
     await repairMissingMetadata(await callAI(mainPrompt, 'main', 0.55, ARTICLE_MODELS), keyword),
     sourceUrls,
   );
   console.log(`✅ 英文文章生成完成: "${data.titleEn}"`);
 
-  // --- 第 2-5 步：分别生成 4 种非英语正文 ---
-  const languages = [
-    { code: 'Zh', name: '中文' },
-    { code: 'Ja', name: '日本語' },
-    { code: 'Ko', name: '한국어' },
-    { code: 'Es', name: 'Español' },
-  ];
-
-  for (let i = 0; i < languages.length; i++) {
-    const lang = languages[i];
-    const stepNum = i + 2;
-    console.log(`\n🌐 [${stepNum}/5] 正在生成${lang.name}正文...`);
-    const transPrompt = buildTranslationPrompt(data.contentEn, data.titleEn, lang.code, keyword);
-    const transData = await callAI(transPrompt, `translate-${lang.code}`, 0.5, TRANSLATION_MODELS);
-
-    if (!transData.content || transData.content.trim() === '') {
-      throw new Error(`${lang.name}内容生成失败：返回了空内容`);
+  // --- 第 2 步：一次生成 4 种非英语正文，避免免费端点被连续五次调用触发限流 ---
+  console.log('\n🌐 [2/2] 正在批量生成中文、日文、韩文和西班牙文正文...');
+  const translationPrompt = buildBatchTranslationPrompt(data.contentEn, data.titleEn, keyword);
+  const translations = await callAI(
+    translationPrompt,
+    'translate-batch',
+    0.45,
+    TRANSLATION_MODELS,
+    TRANSLATION_API_TIMEOUT_MS,
+  );
+  for (const [field, label] of [
+    ['contentZh', '中文'],
+    ['contentJa', '日本語'],
+    ['contentKo', '한국어'],
+    ['contentEs', 'Español'],
+  ]) {
+    if (typeof translations[field] !== 'string' || !translations[field].trim()) {
+      throw new Error(`${label}内容生成失败：批量翻译缺少 ${field}`);
     }
-
-    data[`content${lang.code}`] = transData.content;
-    console.log(`✅ ${lang.name}正文生成完成 (${transData.content.length} 字符)`);
-
-    // 每次调用之间等待 2 秒，避免连续请求导致连接问题
-    if (i < languages.length - 1) {
-      await new Promise(r => setTimeout(r, 2000));
-    }
+    data[field] = translations[field];
+    console.log(`  ✅ ${label}正文生成完成 (${translations[field].length} 字符)`);
   }
 
   // --- 验证完整数据 ---
@@ -1526,6 +1555,7 @@ if (process.argv[1] && path.resolve(process.argv[1]) === __filename) {
 export {
   ARTICLE_MODELS,
   TRANSLATION_MODELS,
+  buildBatchTranslationPrompt,
   classifyModelError,
   ensureFirstPartyEvidence,
   normalizeDescription,

@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import {
   ARTICLE_MODELS,
   TRANSLATION_MODELS,
+  buildBatchTranslationPrompt,
   classifyModelError,
   ensureFirstPartyEvidence,
   normalizeDescription,
@@ -12,7 +13,9 @@ import {
 
 assert.equal(ARTICLE_MODELS.includes('deepseek-ai/deepseek-v4-flash'), false);
 assert.equal(TRANSLATION_MODELS.includes('moonshotai/kimi-k2.6'), false);
+assert.equal(TRANSLATION_MODELS.includes('nvidia/nemotron-3.5-lightning-30b-a3b'), false);
 assert.ok(ARTICLE_MODELS.length >= 4);
+assert.ok(TRANSLATION_MODELS.length >= 2);
 assert.equal(ARTICLE_MODELS[0], 'z-ai/glm-5.2');
 assert.deepEqual(parseModelList(' model/a, model/b,model/a ', ['fallback']), ['model/a', 'model/b']);
 assert.deepEqual(parseModelList('', ['fallback']), ['fallback']);
@@ -36,6 +39,11 @@ assert.ok(guardedWix.contentEn.includes('https://developers.google.com/search/do
 assert.ok(guardedWix.contentEn.includes('Check the documented requirements'));
 assert.ok(guardedWix.descEn.length <= 160);
 assert.ok(normalizeDescription('Short factual description.').length <= 160);
+
+const batchPrompt = buildBatchTranslationPrompt('<p>Source article.</p>', 'Source title', 'favicon source topic');
+for (const field of ['contentZh', 'contentJa', 'contentKo', 'contentEs']) {
+  assert.ok(batchPrompt.includes(field));
+}
 
 const nextSources = resolveOfficialSources({ keyword: 'nextjs app router favicon', tags: ['nextjs'] });
 assert.ok(nextSources.some(url => url.includes('nextjs.org')));
