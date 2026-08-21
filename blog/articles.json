@@ -3143,5 +3143,26 @@
     ],
     "qualityScore": 65,
     "qualityGrade": "B"
+  },
+  {
+    "slug": "wix-favicon-google-results",
+    "publishDate": "2026-08-21",
+    "titleEn": "Fix Wix Favicon Not Showing in Google Search Results – Quick Guide",
+    "titleZh": "解决 Wix 网站在 Google 搜索结果中缺少图标的问题",
+    "titleJa": "Wix のファビコンが Google 検索結果に表示されない問題を解決",
+    "titleKo": "Wix 파비콘이 Google 검색 결과에 표시되지 않을 때 해결 방법",
+    "titleEs": "Cómo arreglar el favicon de Wix que no aparece en resultados de Google",
+    "descEn": "Learn why your Wix site's favicon may be missing from Google search results and apply a fast fix, root cause analysis, and prevention steps.",
+    "descZh": "了解 Wix 网站的图标为何在 Google 搜索结果中缺失，并快速修复、分析根本原因并防止再次出现。",
+    "descJa": "Wix サイトのファビコンが Google 検索結果に表示されない原因と、即効性のある修正方法、根本原因の解説、予防策を紹介します。",
+    "descKo": "Wix 사이트 파비콘이 Google 검색 결과에 표시되지 않는 원인과 빠른 해결 방법, 근본 원인 분석, 예방 팁을 제공합니다.",
+    "descEs": "Descubre por qué el favicon de tu sitio Wix no aparece en los resultados de Google y aplica una solución rápida, análisis de causas y medidas preventivas.",
+    "keyword": "wix favicon google search results",
+    "tags": [
+      "wix",
+      "seo"
+    ],
+    "qualityScore": 69,
+    "qualityGrade": "B"
   }
 ]

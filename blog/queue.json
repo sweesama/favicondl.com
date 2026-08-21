@@ -2328,7 +2328,9 @@
       "wix-favicon",
       "google-favicon-requirements-48x48"
     ],
-    "status": "pending"
+    "status": "done",
+    "qualityScore": 69,
+    "qualityGrade": "B"
   },
   {
     "keyword": "webflow favicon not updating",
