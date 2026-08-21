@@ -18,14 +18,14 @@ jobs:
 
     steps:
       - name: Checkout latest main
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           ref: main
           fetch-depth: 0
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: '22'
           cache: npm
@@ -36,6 +36,10 @@ jobs:
       - name: Install generator dependencies
         working-directory: blog/scripts
         run: npm ci
+
+      - name: Test generator resilience
+        working-directory: blog/scripts
+        run: npm test
 
       - name: Check keyword queue
         id: queue

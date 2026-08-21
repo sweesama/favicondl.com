@@ -1,12 +1,14 @@
 /**
- * 自动博客文章生成脚本（v4 — 反 AI 八股文 + 全面 Bug 修复版）
+ * 自动博客文章生成脚本（v5 — 可恢复模型路由 + 来源约束）
  * 
  * v4 改进：
  * - 反 AI 八股文：Prompt 禁止 20+ 条常见 AI 套话，要求真实品牌案例和第一人称视角
  * - AI 套话检测：验证阶段自动扫描生成内容中的 AI 陈词滥调
  * - Schema.org Bug 修复：JSON-LD 改用 JSON.stringify（不再错误使用 HTML 实体）
  * - 温度 0.55：平衡准确性与可读性
- * - API 240s 超时：防止 API 挂起导致脚本卡死
+ * - API 超时与失效模型熔断：404/410 后本轮不再重复调用
+ * - 官方来源注入：平台、框架和浏览器事实必须有第一方链接
+ * - 元数据局部修复：缺少单个语言描述时不再废弃整篇文章
  * - 动态版权年份
  * 
  * v3 基础：
@@ -36,27 +38,58 @@ const SITEMAP_PATH = path.join(ROOT_DIR, 'sitemap.xml');
 
 // API 配置（NVIDIA NIM — OpenAI 兼容接口）
 const API_KEY = process.env.NVIDIA_API_KEY;
-if (!API_KEY) {
-  console.error('❌ 错误：缺少 NVIDIA_API_KEY 环境变量');
-  process.exit(1);
-}
-
-const ai = new OpenAI({
+const ai = API_KEY ? new OpenAI({
   apiKey: API_KEY,
   baseURL: 'https://integrate.api.nvidia.com/v1',
-});
+}) : null;
 
-// 模型优先级列表（NVIDIA NIM；可用性与费用以当前账户和官方页面为准）
-// 主力 deepseek-v4-flash：推理强，英文/中文 Tier 1，66K 输出
-// 备选按多语言能力、推理能力、稳定性排序
-const MODEL_LIST = [
-  'deepseek-ai/deepseek-v4-flash',         // 1️⃣ 主力：推理强，英文/中文顶级
-  'moonshotai/kimi-k2.6',                  // 2️⃣ 备选：Kimi，中日韩多语言能力强
-  'z-ai/glm-5.2',                          // 3️⃣ 备选：智谱 GLM，中文能力突出
-  'nvidia/nemotron-3-super-120b-a12b',     // 4️⃣ 备选：英伟达 Nemotron 3，120B 参数
+function parseModelList(value, fallback) {
+  const parsed = String(value || '').split(',').map(item => item.trim()).filter(Boolean);
+  return parsed.length > 0 ? [...new Set(parsed)] : fallback;
+}
+
+// 免费托管端点会轮换，因此模型名单可由环境变量覆盖，并在运行时自动熔断失效项。
+const ARTICLE_MODELS = parseModelList(process.env.BLOG_MODEL_LIST, [
+  'nvidia/nemotron-3.5-lightning-30b-a3b',
+  'nvidia/nemotron-3-super-120b-a12b',
+  'z-ai/glm-5.2',
+  'nvidia/nemotron-3-nano-30b-a3b',
+  'openai/gpt-oss-120b',
+]);
+const TRANSLATION_MODELS = parseModelList(process.env.BLOG_TRANSLATION_MODEL_LIST, [
+  'nvidia/nemotron-3-super-120b-a12b',
+  'z-ai/glm-5.2',
+  'nvidia/nemotron-3.5-lightning-30b-a3b',
+  'nvidia/nemotron-3-nano-30b-a3b',
+]);
+const MAX_RETRIES = 2;
+const RETRY_DELAY_MS = 12000;
+const API_TIMEOUT_MS = Number(process.env.BLOG_API_TIMEOUT_MS || 180000);
+const disabledModels = new Set();
+
+const GENERAL_FAVICON_SOURCE = 'https://html.spec.whatwg.org/multipage/links.html#rel-icon';
+const SOURCE_RULES = [
+  { match: /google|search results?|48x48|96x96/i, urls: ['https://developers.google.com/search/docs/appearance/favicon-in-search?hl=en'] },
+  { match: /wix/i, urls: ['https://support.wix.com/en/article/wix-editor-changing-your-favicon'] },
+  { match: /webflow/i, urls: ['https://help.webflow.com/hc/en-us/articles/33961293384147-Add-a-favicon-or-webclip'] },
+  { match: /next\.?js/i, urls: ['https://nextjs.org/docs/app/api-reference/file-conventions/metadata/app-icons'] },
+  { match: /vite|react vite|vue vite/i, urls: ['https://vite.dev/guide/assets.html#the-public-directory'] },
+  { match: /astro/i, urls: ['https://docs.astro.build/en/basics/project-structure/#public'] },
+  { match: /remix/i, urls: ['https://v2.remix.run/docs/route/links/'] },
+  { match: /sveltekit/i, urls: ['https://svelte.dev/docs/kit/project-structure'] },
+  { match: /nuxt/i, urls: ['https://nuxt.com/docs/4.x/getting-started/seo-meta'] },
+  { match: /manifest|pwa|android|home screen/i, urls: ['https://www.w3.org/TR/appmanifest/#icons-member'] },
+  { match: /svg|png|ico|browser|favicon/i, urls: [GENERAL_FAVICON_SOURCE] },
 ];
-const MAX_RETRIES = 3;
-const RETRY_DELAY_MS = 50000;
+
+function resolveOfficialSources(item) {
+  const haystack = `${item.keyword || ''} ${(item.tags || []).join(' ')}`;
+  const explicit = Array.isArray(item.sourceUrls) ? item.sourceUrls : [];
+  const matched = SOURCE_RULES.filter(rule => rule.match.test(haystack)).flatMap(rule => rule.urls);
+  const sources = [...new Set([...explicit, ...matched])];
+  if (sources.length === 0) sources.push(GENERAL_FAVICON_SOURCE);
+  return sources.slice(0, 4);
+}
 
 // 按 depth 字段对应的词数范围（英文词数）
 const DEPTH_CONFIG = {
@@ -94,6 +127,7 @@ const REQUIRED_FIELDS = [
 // ============================================================
 
 async function main() {
+  if (!ai) throw new Error('缺少 NVIDIA_API_KEY 环境变量');
   console.log('🚀 开始自动生成博客文章...\n');
 
   // --- 前置检查 ---
@@ -124,12 +158,14 @@ async function main() {
   const intent = nextItem.intent || 'informational';
   const depth = nextItem.depth || 'standard';
   const avoidOverlap = nextItem.avoidOverlap || [];
+  const sourceUrls = resolveOfficialSources(nextItem);
   const depthCfg = DEPTH_CONFIG[depth] || DEPTH_CONFIG.standard;
 
   console.log(`📝 关键词: "${nextItem.keyword}"`);
   console.log(`📄 输出: ${nextItem.slug}.html`);
   console.log(`🏷️  标签: [${nextItem.tags.join(', ')}]`);
   console.log(`🎯 意图: ${intent} | 深度: ${depthCfg.label}(${depthCfg.minWords}-${depthCfg.maxWords}词)\n`);
+  console.log(`📚 官方来源: ${sourceUrls.join(', ')}\n`);
 
   const today = new Date().toISOString().split('T')[0];
 
@@ -144,7 +180,7 @@ async function main() {
     // --- 调用 AI 生成 ---
     const articleData = await generateArticleContent(
       nextItem.keyword, nextItem.slug, nextItem.tags,
-      articles, intent, depth, avoidOverlap
+      articles, intent, depth, avoidOverlap, sourceUrls
     );
 
     // --- 净化 HTML ---
@@ -236,7 +272,7 @@ async function main() {
 // Prompt 构建 — 意图感知 + 语义去重 + 自适应长度
 // ============================================================
 
-function buildMainPrompt(keyword, slug, tags, existingArticles, intent, depth, avoidOverlap) {
+function buildMainPrompt(keyword, slug, tags, existingArticles, intent, depth, avoidOverlap, sourceUrls) {
   const depthCfg = DEPTH_CONFIG[depth] || DEPTH_CONFIG.standard;
 
   // 构建已有文章摘要（标题 + 描述，让 AI 知道哪些话题已覆盖）
@@ -342,6 +378,10 @@ REQUIRED INSTEAD:
 - For current Google Search, browser, framework, or platform requirements, link to a first-party documentation page near the claim.
 - Distinguish a documented requirement from a recommendation or opinion.
 - If a fact cannot be verified from a supplied or first-party source, omit it or phrase it as a limited recommendation.
+
+=== APPROVED FIRST-PARTY SOURCES ===
+Use the following exact URLs for current platform, framework, browser, or search behavior. Link each relevant claim to its source. Do not invent replacement URLs.
+${sourceUrls.map(url => `- ${url}`).join('\n')}
 
 === CONTENT UNIQUENESS ===
 These articles ALREADY EXIST on our blog. Do NOT repeat their content. Link to them instead.
@@ -497,83 +537,137 @@ ${englishContent}`;
 // AI 调用 — 单次调用带重试和多模型降级
 // ============================================================
 
-async function callAI(prompt, label, temperature = 0.55) {
-  for (const modelName of MODEL_LIST) {
+function getErrorStatus(error) {
+  return Number(error?.status || error?.response?.status || 0);
+}
+
+function isJsonModeUnsupported(error) {
+  return getErrorStatus(error) === 400 && /response[_ -]?format|json[_ -]?object|structured output/i.test(error?.message || '');
+}
+
+function classifyModelError(error) {
+  const status = getErrorStatus(error);
+  const message = error?.message || '';
+  if (status === 401 || status === 403) return 'auth';
+  if (status === 404 || status === 410 || status === 400) return 'permanent';
+  if (status === 429 || status >= 500 || /quota|RESOURCE_EXHAUSTED|high demand/i.test(message)) return 'transient';
+  if (/AbortError|aborted|超时|timeout/i.test(message)) return 'timeout';
+  if (/Connection|ECONNRESET|socket|network|fetch/i.test(message)) return 'transient';
+  if (/JSON|空响应/i.test(message)) return 'retryable-output';
+  return 'unknown';
+}
+
+async function requestModel(modelName, prompt, temperature, useJsonMode = true) {
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(new Error(`API 调用超时(${Math.round(API_TIMEOUT_MS / 1000)}s)`)), API_TIMEOUT_MS);
+  const payload = {
+    model: modelName,
+    messages: [
+      { role: 'system', content: 'You are a professional multilingual technical editor. Return valid JSON only when asked.' },
+      { role: 'user', content: prompt },
+    ],
+    temperature,
+    top_p: 0.95,
+    max_tokens: 16384,
+    ...(useJsonMode ? { response_format: { type: 'json_object' } } : {}),
+  };
+  try {
+    return await ai.chat.completions.create(payload, { signal: controller.signal });
+  } catch (error) {
+    if (useJsonMode && isJsonModeUnsupported(error)) {
+      console.log(`  ℹ️ ${modelName} 不支持 response_format，改用提示词 JSON 模式重试`);
+      return await ai.chat.completions.create({ ...payload, response_format: undefined }, { signal: controller.signal });
+    }
+    throw error;
+  } finally {
+    clearTimeout(timeout);
+  }
+}
+
+async function callAI(prompt, label, temperature = 0.55, models = ARTICLE_MODELS) {
+  let lastError;
+  for (const modelName of models) {
+    if (disabledModels.has(modelName)) {
+      console.log(`  ↪ [${label}] 跳过本轮已熔断模型 ${modelName}`);
+      continue;
+    }
     for (let attempt = 1; attempt <= MAX_RETRIES; attempt++) {
       try {
         console.log(`  → [${label}] 模型 ${modelName} (第 ${attempt}/${MAX_RETRIES} 次)...`);
-        const timeoutPromise = new Promise((_, reject) =>
-          setTimeout(() => reject(new Error('API 调用超时(240s)')), 240000)
-        );
-        const result = await Promise.race([
-          ai.chat.completions.create({
-            model: modelName,
-            messages: [
-              { role: 'system', content: 'You are a professional multilingual SEO content writer. You always return valid JSON when asked.' },
-              { role: 'user', content: prompt },
-            ],
-            temperature,
-            top_p: 0.88,
-            max_tokens: 16384,
-            response_format: { type: 'json_object' },
-            // chat_template_kwargs 仅对 Qwen 系列模型有效（关闭 thinking 模式避免空输出）
-            // 非 Qwen 模型不支持此参数，需要条件传递
-            ...(modelName.includes('qwen') ? { chat_template_kwargs: { enable_thinking: false } } : {}),
-          }),
-          timeoutPromise
-        ]);
-
-        const responseText = result.choices[0].message?.content;
+        const result = await requestModel(modelName, prompt, temperature);
+        const responseText = result.choices?.[0]?.message?.content;
         if (!responseText || responseText.trim() === '') {
-          throw new Error('API 返回了空响应（可能是 reasoning 模式消耗了所有 token）');
+          throw new Error('API 返回了空响应');
         }
-        console.log(`  ✅ [${label}] ${modelName} 响应成功 (${responseText.length} 字符)`);
-
         const data = parseAIResponse(responseText);
+        console.log(`  ✅ [${label}] ${modelName} 响应成功 (${responseText.length} 字符)`);
         return data;
+      } catch (error) {
+        lastError = error;
+        const kind = classifyModelError(error);
+        const status = getErrorStatus(error);
+        const summary = status ? `HTTP ${status}` : (error.message || '未知错误').substring(0, 120);
+        console.log(`  ⚠️ [${label}] ${modelName} 失败: ${summary}`);
 
-      } catch (err) {
-        const isRateLimit = err.message?.includes('429') || err.message?.includes('quota') || err.message?.includes('RESOURCE_EXHAUSTED') || err.message?.includes('503') || err.message?.includes('high demand');
-        const isJsonError = err.message?.includes('JSON');
-        const isTimeout = err.message?.includes('超时');
-        const isConnError = err.message?.includes('Connection') || err.message?.includes('ECONNRESET') || err.message?.includes('socket') || err.message?.includes('network') || err.message?.includes('fetch');
-        const isEmptyResponse = err.message?.includes('空响应');
-
-        let errSummary = err.message?.substring(0, 100);
-        if (isRateLimit) errSummary = '配额限制';
-        else if (isJsonError) errSummary = '返回了无效的 JSON';
-        else if (isTimeout) errSummary = 'API 调用超时';
-        else if (isConnError) errSummary = '网络连接错误';
-        else if (isEmptyResponse) errSummary = 'API 返回了空响应';
-
-        console.log(`  ⚠️ [${label}] ${modelName} 失败: ${errSummary}`);
-
-        if ((isRateLimit || isJsonError || isConnError || isEmptyResponse) && attempt < MAX_RETRIES) {
-          const delay = isRateLimit ? RETRY_DELAY_MS : (isConnError ? 5000 : 3000);
-          console.log(`  ⏳ 等待 ${delay / 1000} 秒后重试...`);
-          await new Promise(r => setTimeout(r, delay));
-        } else if (isTimeout && attempt < MAX_RETRIES) {
-          console.log(`  ⏳ 超时，切换下一个模型...`);
-          break;
-        } else {
+        if (kind === 'auth') throw new Error(`NVIDIA API 鉴权失败 (${summary})`);
+        if (kind === 'permanent') {
+          disabledModels.add(modelName);
+          console.log(`  ⛔ ${modelName} 本轮熔断，后续语言任务不再重复调用`);
           break;
         }
+        if (kind === 'timeout') break;
+        if (attempt < MAX_RETRIES && ['transient', 'retryable-output', 'unknown'].includes(kind)) {
+          const delay = kind === 'transient' ? RETRY_DELAY_MS : 3000;
+          console.log(`  ⏳ 等待 ${delay / 1000} 秒后重试...`);
+          await new Promise(resolve => setTimeout(resolve, delay));
+          continue;
+        }
+        break;
       }
     }
   }
 
-  throw new Error(`[${label}] 所有模型均调用失败`);
+  throw new Error(`[${label}] 所有模型均调用失败${lastError?.message ? `：${lastError.message}` : ''}`);
 }
 
 // ============================================================
 // AI 调用 — 分步生成（主调用 + 4 次翻译调用）
 // ============================================================
 
-async function generateArticleContent(keyword, slug, tags, existingArticles, intent, depth, avoidOverlap) {
+const MAIN_REQUIRED_FIELDS = REQUIRED_FIELDS.filter(field => !['contentZh', 'contentJa', 'contentKo', 'contentEs'].includes(field));
+
+async function repairMissingMetadata(data, keyword) {
+  if (!data.contentEn || !data.titleEn) {
+    throw new Error('英文主输出缺少 titleEn 或 contentEn，不能安全地局部修复');
+  }
+  if (!data.ctaLink) data.ctaLink = '/index.html';
+  const missing = MAIN_REQUIRED_FIELDS.filter(field => !data[field] || (typeof data[field] === 'string' && !data[field].trim()));
+  if (missing.length === 0) return data;
+
+  console.log(`  🔧 检测到可局部修复的元数据字段: ${missing.join(', ')}`);
+  const context = Object.fromEntries(Object.entries(data).filter(([key]) => key !== 'contentEn'));
+  const repairPrompt = `Repair only the missing metadata fields for a multilingual favicon article.
+Topic: ${keyword}
+English title: ${data.titleEn}
+English description: ${data.descEn || ''}
+Missing fields: ${missing.join(', ')}
+Existing metadata: ${JSON.stringify(context)}
+
+Return one valid JSON object containing exactly the missing fields. Keep titles concise, descriptions natural and search-friendly, and CTA copy factual. Do not return article HTML.`;
+  const repaired = await callAI(repairPrompt, 'metadata-repair', 0.2, ARTICLE_MODELS);
+  for (const field of missing) {
+    if (typeof repaired[field] === 'string' && repaired[field].trim()) data[field] = repaired[field].trim();
+  }
+  const remaining = MAIN_REQUIRED_FIELDS.filter(field => !data[field] || (typeof data[field] === 'string' && !data[field].trim()));
+  if (remaining.length > 0) throw new Error(`元数据局部修复后仍缺少: ${remaining.join(', ')}`);
+  return data;
+}
+
+async function generateArticleContent(keyword, slug, tags, existingArticles, intent, depth, avoidOverlap, sourceUrls) {
   // --- 第 1 步：生成英文正文 + 5 语言元数据 ---
-  const mainPrompt = buildMainPrompt(keyword, slug, tags, existingArticles, intent, depth, avoidOverlap);
+  const mainPrompt = buildMainPrompt(keyword, slug, tags, existingArticles, intent, depth, avoidOverlap, sourceUrls);
   console.log('🤖 [1/5] 正在调用 NVIDIA NIM API 生成英文文章 + 元数据...');
-  const data = await callAI(mainPrompt, 'main', 0.55);
+  const data = await repairMissingMetadata(await callAI(mainPrompt, 'main', 0.55, ARTICLE_MODELS), keyword);
   console.log(`✅ 英文文章生成完成: "${data.titleEn}"`);
 
   // --- 第 2-5 步：分别生成 4 种非英语正文 ---
@@ -589,7 +683,7 @@ async function generateArticleContent(keyword, slug, tags, existingArticles, int
     const stepNum = i + 2;
     console.log(`\n🌐 [${stepNum}/5] 正在生成${lang.name}正文...`);
     const transPrompt = buildTranslationPrompt(data.contentEn, data.titleEn, lang.code, keyword);
-    const transData = await callAI(transPrompt, `translate-${lang.code}`, 0.5);
+    const transData = await callAI(transPrompt, `translate-${lang.code}`, 0.5, TRANSLATION_MODELS);
 
     if (!transData.content || transData.content.trim() === '') {
       throw new Error(`${lang.name}内容生成失败：返回了空内容`);
@@ -605,7 +699,7 @@ async function generateArticleContent(keyword, slug, tags, existingArticles, int
   }
 
   // --- 验证完整数据 ---
-  validateArticleData(data, keyword, depth);
+  validateArticleData(data, keyword, depth, sourceUrls);
   console.log(`✅ 全部生成完成: "${data.titleEn}"`);
   return data;
 }
@@ -824,7 +918,7 @@ function validateHtmlFragment(html, label, errors) {
   }
 }
 
-function validateArticleData(data, keyword, depth) {
+function validateArticleData(data, keyword, depth, sourceUrls = []) {
   console.log('\n🔍 正在验证文章质量...');
   const errors = [];
   const warnings = [];
@@ -949,6 +1043,11 @@ function validateArticleData(data, keyword, depth) {
     'shopify.dev', 'help.shopify.com', 'support.wix.com', 'support.squarespace.com',
     'w3.org', 'html.spec.whatwg.org'
   ];
+  for (const sourceUrl of sourceUrls) {
+    try {
+      officialSourceHosts.push(new URL(sourceUrl).hostname.toLowerCase());
+    } catch { /* invalid configured source is caught below */ }
+  }
   const hasOfficialSource = externalSourceLinks.some(link => {
     try {
       const host = new URL(link).hostname.toLowerCase();
@@ -959,6 +1058,12 @@ function validateArticleData(data, keyword, depth) {
   });
   if (platformClaim && !hasOfficialSource) {
     errors.push('英文正文包含当前平台或浏览器行为，但没有受支持的第一方来源链接');
+  }
+  const specificallyRequiredSources = sourceUrls.filter(url => url !== GENERAL_FAVICON_SOURCE);
+  const requiredSources = specificallyRequiredSources.length > 0 ? specificallyRequiredSources : sourceUrls;
+  const missingSources = requiredSources.filter(url => !(data.contentEn || '').includes(url));
+  if (missingSources.length > 0) {
+    errors.push(`英文正文没有引用配置的第一方来源: ${missingSources.join(', ')}`);
   }
 
   // --- 10. AI 套话检测（降低 AI 感） ---
@@ -1364,7 +1469,19 @@ function buildJsonLd(titleEn, descEn, publishDate, slug) {
 // 启动
 // ============================================================
 
-main().catch(err => {
-  console.error('❌ 未捕获错误:', err.message);
-  process.exit(1);
-});
+if (process.argv[1] && path.resolve(process.argv[1]) === __filename) {
+  main().catch(err => {
+    console.error('❌ 未捕获错误:', err.message);
+    process.exit(1);
+  });
+}
+
+export {
+  ARTICLE_MODELS,
+  TRANSLATION_MODELS,
+  classifyModelError,
+  parseModelList,
+  repairMissingMetadata,
+  resolveOfficialSources,
+  validateArticleData,
+};
