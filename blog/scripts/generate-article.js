@@ -50,17 +50,17 @@ function parseModelList(value, fallback) {
 
 // 免费托管端点会轮换，因此模型名单可由环境变量覆盖，并在运行时自动熔断失效项。
 const ARTICLE_MODELS = parseModelList(process.env.BLOG_MODEL_LIST, [
-  'nvidia/nemotron-3.5-lightning-30b-a3b',
-  'nvidia/nemotron-3-super-120b-a12b',
   'z-ai/glm-5.2',
+  'nvidia/nemotron-3-super-120b-a12b',
   'nvidia/nemotron-3-nano-30b-a3b',
   'openai/gpt-oss-120b',
+  'nvidia/nemotron-3.5-lightning-30b-a3b',
 ]);
 const TRANSLATION_MODELS = parseModelList(process.env.BLOG_TRANSLATION_MODEL_LIST, [
-  'nvidia/nemotron-3-super-120b-a12b',
   'z-ai/glm-5.2',
-  'nvidia/nemotron-3.5-lightning-30b-a3b',
   'nvidia/nemotron-3-nano-30b-a3b',
+  'nvidia/nemotron-3-super-120b-a12b',
+  'nvidia/nemotron-3.5-lightning-30b-a3b',
 ]);
 const MAX_RETRIES = 2;
 const RETRY_DELAY_MS = 12000;
@@ -68,6 +68,19 @@ const API_TIMEOUT_MS = Number(process.env.BLOG_API_TIMEOUT_MS || 180000);
 const disabledModels = new Set();
 
 const GENERAL_FAVICON_SOURCE = 'https://html.spec.whatwg.org/multipage/links.html#rel-icon';
+const SOURCE_EVIDENCE = new Map([
+  ['https://developers.google.com/search/docs/appearance/favicon-in-search?hl=en', "Google's <a href='https://developers.google.com/search/docs/appearance/favicon-in-search?hl=en'>favicon documentation for Search</a> explains the crawlability, URL, and image requirements Google uses when it considers a site's favicon."],
+  ['https://support.wix.com/en/article/wix-editor-changing-your-favicon', "Wix's <a href='https://support.wix.com/en/article/wix-editor-changing-your-favicon'>favicon guide</a> shows the dashboard steps for uploading an icon and states that the site must already be published before adding it."],
+  ['https://help.webflow.com/hc/en-us/articles/33961293384147-Add-a-favicon-or-webclip', "Webflow's <a href='https://help.webflow.com/hc/en-us/articles/33961293384147-Add-a-favicon-or-webclip'>favicon and webclip guide</a> identifies the project settings used for each asset."],
+  ['https://nextjs.org/docs/app/api-reference/file-conventions/metadata/app-icons', "Next.js documents favicons and app icons in its <a href='https://nextjs.org/docs/app/api-reference/file-conventions/metadata/app-icons'>metadata file conventions</a>."],
+  ['https://vite.dev/guide/assets.html#the-public-directory', "Vite's <a href='https://vite.dev/guide/assets.html#the-public-directory'>public directory documentation</a> explains how root-path assets are copied without transformation."],
+  ['https://docs.astro.build/en/basics/project-structure/#public', "Astro's <a href='https://docs.astro.build/en/basics/project-structure/#public'>project structure guide</a> documents the public directory for assets that should be copied unchanged."],
+  ['https://v2.remix.run/docs/route/links/', "Remix documents page-level link descriptors, including icon relationships, in its <a href='https://v2.remix.run/docs/route/links/'>route links guide</a>."],
+  ['https://svelte.dev/docs/kit/project-structure', "SvelteKit's <a href='https://svelte.dev/docs/kit/project-structure'>project structure documentation</a> explains where static assets belong."],
+  ['https://nuxt.com/docs/4.x/getting-started/seo-meta', "Nuxt's <a href='https://nuxt.com/docs/4.x/getting-started/seo-meta'>SEO and meta guide</a> documents how link metadata is configured."],
+  ['https://www.w3.org/TR/appmanifest/#icons-member', "The Web App Manifest specification defines the <a href='https://www.w3.org/TR/appmanifest/#icons-member'>icons member</a> as a list of image resources for an application."],
+  [GENERAL_FAVICON_SOURCE, "The HTML Standard defines <a href='https://html.spec.whatwg.org/multipage/links.html#rel-icon'><code>rel='icon'</code></a> as the link relationship for an icon representing the current page."],
+]);
 const SOURCE_RULES = [
   { match: /google|search results?|48x48|96x96/i, urls: ['https://developers.google.com/search/docs/appearance/favicon-in-search?hl=en'] },
   { match: /wix/i, urls: ['https://support.wix.com/en/article/wix-editor-changing-your-favicon'] },
@@ -663,11 +676,45 @@ Return one valid JSON object containing exactly the missing fields. Keep titles 
   return data;
 }
 
+function normalizeDescription(value, maxLength = 160) {
+  const compact = String(value || '').replace(/\s+/g, ' ').trim();
+  if (compact.length <= maxLength) return compact;
+  const candidate = compact.slice(0, maxLength - 1);
+  const sentenceBoundary = Math.max(candidate.lastIndexOf('. '), candidate.lastIndexOf('! '), candidate.lastIndexOf('? '));
+  const wordBoundary = candidate.lastIndexOf(' ');
+  const cutAt = sentenceBoundary >= 100 ? sentenceBoundary + 1 : wordBoundary;
+  const shortened = candidate.slice(0, cutAt > 0 ? cutAt : maxLength - 1).replace(/[\s,;:\-]+$/g, '');
+  return /[.!?]$/.test(shortened) ? shortened : `${shortened}.`;
+}
+
+function ensureFirstPartyEvidence(data, sourceUrls) {
+  data.descEn = normalizeDescription(data.descEn);
+  const specificallyRequired = sourceUrls.filter(url => url !== GENERAL_FAVICON_SOURCE);
+  const requiredSources = specificallyRequired.length > 0 ? specificallyRequired : sourceUrls;
+  const missingSources = requiredSources.filter(url => !String(data.contentEn || '').includes(url));
+  if (missingSources.length === 0) return data;
+
+  const evidenceParagraphs = missingSources.map(url => {
+    const supportedStatement = SOURCE_EVIDENCE.get(url);
+    if (!supportedStatement) {
+      throw new Error(`没有为必需的一方来源配置可验证摘要: ${url}`);
+    }
+    return `<p>${supportedStatement}</p>`;
+  });
+  const evidenceSection = `<h2>Check the documented requirements</h2>${evidenceParagraphs.join('')}`;
+  data.contentEn = `${String(data.contentEn || '').trim()}${evidenceSection}`;
+  console.log(`  🔗 已补入 ${missingSources.length} 个缺失的一方来源，并让后续翻译以修复后的英文正文为准`);
+  return data;
+}
+
 async function generateArticleContent(keyword, slug, tags, existingArticles, intent, depth, avoidOverlap, sourceUrls) {
   // --- 第 1 步：生成英文正文 + 5 语言元数据 ---
   const mainPrompt = buildMainPrompt(keyword, slug, tags, existingArticles, intent, depth, avoidOverlap, sourceUrls);
   console.log('🤖 [1/5] 正在调用 NVIDIA NIM API 生成英文文章 + 元数据...');
-  const data = await repairMissingMetadata(await callAI(mainPrompt, 'main', 0.55, ARTICLE_MODELS), keyword);
+  const data = ensureFirstPartyEvidence(
+    await repairMissingMetadata(await callAI(mainPrompt, 'main', 0.55, ARTICLE_MODELS), keyword),
+    sourceUrls,
+  );
   console.log(`✅ 英文文章生成完成: "${data.titleEn}"`);
 
   // --- 第 2-5 步：分别生成 4 种非英语正文 ---
@@ -1480,6 +1527,8 @@ export {
   ARTICLE_MODELS,
   TRANSLATION_MODELS,
   classifyModelError,
+  ensureFirstPartyEvidence,
+  normalizeDescription,
   parseModelList,
   repairMissingMetadata,
   resolveOfficialSources,
