@@ -2345,7 +2345,9 @@
       "webflow-favicon",
       "favicon-not-updating-deployment"
     ],
-    "status": "pending"
+    "status": "done",
+    "qualityScore": 82,
+    "qualityGrade": "A"
   },
   {
     "keyword": "nextjs app router favicon",
