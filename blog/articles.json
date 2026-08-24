@@ -3185,5 +3185,26 @@
     ],
     "qualityScore": 82,
     "qualityGrade": "A"
+  },
+  {
+    "slug": "nextjs-app-router-favicon",
+    "publishDate": "2026-08-24",
+    "titleEn": "Add a nextjs app router favicon in minutes",
+    "titleZh": "快速在 Next.js App Router 中添加 Favicon",
+    "titleJa": "Next.js App Router に Favicon をすぐ設定する方法",
+    "titleKo": "Next.js App Router에 파비콘을 빠르게 추가하는 방법",
+    "titleEs": "Cómo agregar un favicon en nextjs app router rápidamente",
+    "descEn": "Step‑by‑step guide to configure a favicon for a Next.js App Router project using file‑based metadata and Mzu favicondl generated icons.",
+    "descZh": "一步步教你在 Next.js App Router 项目中配置 favicon，使用文件元数据和 Mzu favicondl 生成的图标。",
+    "descJa": "Next.js App Router プロジェクトに favicon を設定する手順を、ファイルベースのメタデータと Mzu favicondl のアイコンで解説します。",
+    "descKo": "Next.js App Router 프로젝트에 파비콘을 설정하는 방법을 파일 기반 메타데이터와 Mzu favicondl 아이콘으로 단계별 안내합니다.",
+    "descEs": "Guía paso a paso para configurar un favicon en un proyecto Next.js App Router usando metadatos basados en archivos y los íconos de Mzu favicondl.",
+    "keyword": "nextjs app router favicon",
+    "tags": [
+      "nextjs",
+      "framework"
+    ],
+    "qualityScore": 72,
+    "qualityGrade": "B"
   }
 ]

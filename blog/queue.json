@@ -2362,7 +2362,9 @@
       "nextjs-favicon",
       "favicon-html-code"
     ],
-    "status": "pending"
+    "status": "done",
+    "qualityScore": 72,
+    "qualityGrade": "B"
   },
   {
     "keyword": "nextjs metadata icons favicon",

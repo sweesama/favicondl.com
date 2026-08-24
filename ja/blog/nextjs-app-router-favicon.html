@@ -1,0 +1,185 @@
+<!DOCTYPE html><html lang="ja"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Next.js App Router に Favicon をすぐ設定する方法 - Mzu favicondl</title>
+    <meta name="description" content="Next.js App Router プロジェクトに favicon を設定する手順を、ファイルベースのメタデータと Mzu favicondl のアイコンで解説します。">
+    <meta name="keywords" content="nextjs, app router, favicon, metadata, Mzu favicondl">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/ja/blog/nextjs-app-router-favicon.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/nextjs-app-router-favicon.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/nextjs-app-router-favicon.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/nextjs-app-router-favicon.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/nextjs-app-router-favicon.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/nextjs-app-router-favicon.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/nextjs-app-router-favicon.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/ja/blog/nextjs-app-router-favicon.html">
+    <meta property="og:title" content="Next.js App Router に Favicon をすぐ設定する方法">
+    <meta property="og:description" content="Next.js App Router プロジェクトに favicon を設定する手順を、ファイルベースのメタデータと Mzu favicondl のアイコンで解説します。">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Next.js App Router に Favicon をすぐ設定する方法">
+    <meta name="twitter:description" content="Next.js App Router プロジェクトに favicon を設定する手順を、ファイルベースのメタデータと Mzu favicondl のアイコンで解説します。">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Next.js App Router に Favicon をすぐ設定する方法",
+  "description": "Next.js App Router プロジェクトに favicon を設定する手順を、ファイルベースのメタデータと Mzu favicondl のアイコンで解説します。",
+  "datePublished": "2026-08-24",
+  "dateModified": "2026-08-24",
+  "author": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "mainEntityOfPage": "https://favicondl.com/ja/blog/nextjs-app-router-favicon.html",
+  "inLanguage": "ja"
+}</script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/ja/index.html" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/ja/documentation.html" class="nav-link">ドキュメント</a>
+                <a href="/ja/tools.html" class="nav-link">ツール</a>
+                <a href="/ja/blog/" class="nav-link">ブログ</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/nextjs-app-router-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/nextjs-app-router-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/nextjs-app-router-favicon.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/nextjs-app-router-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/nextjs-app-router-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/ja/index.html" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/ja/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600">Next.js App Router に Favicon をすぐ設定する方法</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">nextjs</span><time class="text-sm text-gray-400">2026-08-24</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">Next.js App Router に Favicon をすぐ設定する方法</h1>
+        </header>
+
+        <div class="article-body"><p>Next.js の App Router を使用したサイトを開いた際に、汎用的なブラウザタブアイコンが表示された場合、favicon が欠如しているのはメタデータ設定が不完全なためである可能性が高いです。</p>
+<h2>Prerequisites</h2>
+<ul>
+  <li>Next.js 13+ で、<code>app</code> ディレクトリを使用しているプロジェクト。</li>
+  <li>ローカルにインストールされた Node.js 18 以上。</li>
+  <li><a href="https://favicondl.com">Mzu favicondl</a> で生成したアイコンセット（SVG、PNG、ICO）。適切なサイズは<a href="/ja/blog/favicon-sizes-guide.html">favicon sizes guide</a> が参考になります。</li>
+</ul>
+<h2>Step‑by‑step implementation</h2>
+<ol>
+  <li><strong>アイコンファイルを生成します。</strong> Mzu favicondl を使用して、少なくとも次の 3 つのファイルを作成してください。
+    <ul>
+      <li><code>favicon.svg</code> – 推奨されるスケーラブル形式。</li>
+      <li><code>favicon.ico</code> – <code>/favicon.ico</code> を要求するブラウザ向けのレガシーフォールバック。</li>
+      <li><code>apple-touch-icon.png</code> – 任意の Apple Touch アイコン。</li>
+    </ul>
+    これらのファイルをプロジェクトの <code>public</code> フォルダに保存します。
+  </li>
+  <li><strong><code>app/layout.tsx</code> でメタデータをエクスポートします。</strong> App Router はレイアウトファイルから <code>metadata</code> エクスポートを読み取ります。先ほど配置したファイルを参照する <code>icons</code> オブジェクトを追加してください。
+    <pre><code>&amp;lt;pre&amp;gt;&amp;lt;code&amp;gt;export const metadata = {
+  title: 'My Next.js Site',
+  icons: {
+    icon: '/favicon.ico', // legacy fallback
+    shortcut: '/favicon.ico', // shortcut icon for older browsers
+    apple: '/apple-touch-icon.png', // Apple Touch icon (optional)
+    other: [
+      { rel: 'icon', url: '/favicon.svg', type: 'image/svg+xml', sizes: 'any' }
+    ]
+  }
+};
+&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;</code></pre>
+    これは Next.js が公式にドキュメントしているファイルベースのメタデータアプローチに一致します。
+  </li>
+  <li><strong>生成された <code>&lt;head&gt;</code> の出力を確認します。</strong> <code>npm run dev</code> を実行し、ページのソースを開いてください。次のような <code>link</code> タグが出力されているはずです。
+    <pre><code>&amp;lt;link rel='icon' href='/favicon.ico'&amp;gt;
+&amp;lt;link rel='shortcut icon' href='/favicon.ico'&amp;gt;
+&amp;lt;link rel='apple-touch-icon' href='/apple-touch-icon.png'&amp;gt;
+&amp;lt;link rel='icon' href='/favicon.svg' type='image/svg+xml' sizes='any'&amp;gt;</code></pre>
+    これらのタグは自動的に生成されるため、手動で記述する必要はありません。
+  </li>
+  <li><strong>複数のブラウザでテストします。</strong> Chrome、Safari、Firefox でサイトを開いてください。各ブラウザは高 DPI 画面では SVG アイコンを表示し、古いバージョンでは ICO ファイルにフォールバックします。
+    <ul>
+      <li>Chrome は <code>type='image/svg+xml'</code> が存在する場合、SVG を優先します。</li>
+      <li>Safari はホーム画面用ショートカットとして Apple Touch アイコンを使用します。</li>
+      <li>Firefox は <code>rel='icon'</code> エントリを尊重し、SVG が欠如している場合は ICO ファイルをキャッシュします。</li>
+    </ul>
+  </li>
+  <li><strong>デプロイします。</strong> 変更をホスティングプロバイダー（Vercel、Netlify など）にプッシュしてください。<code>public</code> フォルダは静的に配信されるため、ビルドが完了した直後からアイコンが利用可能になります。</li>
+</ol>
+<h2>Common pitfalls</h2>
+<ul>
+  <li><strong><code>public</code> フォルダのパスが欠如している。</strong> アイコンが <code>public</code> の外にある場合、生成された URL は存在しない場所を指し、ブラウザは 404 エラーを記録します。</li>
+  <li><strong><code>rel='shortcut icon'</code> のみを使用している。</strong> 現代のブラウザは <code>rel='icon'</code> 仕様（<a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">HTML spec</a>）に従います。レガシー属性だけに依存すると SVG が無視される可能性があります。</li>
+  <li><strong>キャッシュに起因する古いアイコン。</strong> ブラウザは <code>favicon.ico</code> を積極的にキャッシュします。クエリ文字列（例：<code>/favicon.ico?v=2</code>）を付加するか、ビルド時にコンテンツハッシュを有効にして更新を強制してください。</li>
+  <li><strong>不正な MIME タイプ。</strong> <code>.svg</code> は <code>image/svg+xml</code>、<code>.ico</code> は <code>image/x-icon</code> で配信してください。サーバー設定が誤っているとブラウザはファイルを拒否します。</li>
+</ul>
+<h2>Conclusion</h2>
+<p>App Router が単一の <code>metadata</code> エクスポートから <code>&lt;link&gt;</code> タグを自動生成するようにすれば、favicon 設定を宣言的かつ将来にわたって保守しやすくなります。上記の手順は生成、配置、メタデータエクスポート、検証、デプロイを網羅しており、空白のタブアイコンから洗練されたブランド表現へ数分で移行できます。</p>
+<p>SVG と ICO ファイルを手早く作成したい場合は、<a href="https://favicondl.com">Mzu favicondl</a> を試してください。App Router のアプローチに必要なファイル一式を生成してくれます。</p>
+<h2>Check the documented requirements</h2>
+<p>Next.js は <a href="https://nextjs.org/docs/app/api-reference/file-conventions/metadata/app-icons">metadata file conventions</a> において favicon とアプリアイコンの取り扱いを文書化しています。</p></div>
+
+        <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
+
+        <div class="cta-box">
+            <h3>今すぐ完璧なファビコンを生成</h3>
+            <p>Mzu favicondl を使って Next.js App Router に対応する SVG、PNG、ICO を作成しましょう。</p>
+            <a href="/ja/index.html" class="cta-btn">無料で試す →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/ja/index.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">ホーム</a>
+                <a href="/ja/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">ブログ</a>
+                <a href="/ja/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">プライバシー</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js?v=20260211"></script>
+
+</body></html>

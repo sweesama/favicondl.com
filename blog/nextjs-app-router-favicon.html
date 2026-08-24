@@ -1,0 +1,428 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add a nextjs app router favicon in minutes - Mzu favicondl</title>
+    <meta name="description" content="Step‑by‑step guide to configure a favicon for a Next.js App Router project using file‑based metadata and Mzu favicondl generated icons.">
+    <meta name="keywords" content="nextjs, app router, favicon, metadata, Mzu favicondl">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/blog/nextjs-app-router-favicon.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/nextjs-app-router-favicon.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/nextjs-app-router-favicon.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/nextjs-app-router-favicon.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/nextjs-app-router-favicon.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/nextjs-app-router-favicon.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/nextjs-app-router-favicon.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/blog/nextjs-app-router-favicon.html">
+    <meta property="og:title" content="Add a nextjs app router favicon in minutes">
+    <meta property="og:description" content="Step‑by‑step guide to configure a favicon for a Next.js App Router project using file‑based metadata and Mzu favicondl generated icons.">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Add a nextjs app router favicon in minutes">
+    <meta name="twitter:description" content="Step‑by‑step guide to configure a favicon for a Next.js App Router project using file‑based metadata and Mzu favicondl generated icons.">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Add a nextjs app router favicon in minutes",
+  "description": "Step‑by‑step guide to configure a favicon for a Next.js App Router project using file‑based metadata and Mzu favicondl generated icons.",
+  "datePublished": "2026-08-24",
+  "dateModified": "2026-08-24",
+  "author": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "mainEntityOfPage": "https://favicondl.com/blog/nextjs-app-router-favicon.html",
+  "inLanguage": "en"
+}</script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/index.html" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/documentation.html" class="nav-link" data-en="Docs" data-zh="文档">Docs</a>
+                <a href="/tools.html" class="nav-link" data-en="Tools" data-zh="工具">Tools</a>
+                <a href="/blog/" class="nav-link" data-en="Blog" data-zh="博客">Blog</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/nextjs-app-router-favicon.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/nextjs-app-router-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/nextjs-app-router-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/nextjs-app-router-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/nextjs-app-router-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/index.html" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600" data-en="Add a nextjs app router favicon in minutes" data-zh="快速在 Next.js App Router 中添加 Favicon" data-ja="Next.js App Router に Favicon をすぐ設定する方法" data-ko="Next.js App Router에 파비콘을 빠르게 추가하는 방법" data-es="Cómo agregar un favicon en nextjs app router rápidamente">Add a nextjs app router favicon in minutes</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">nextjs</span><time class="text-sm text-gray-400">2026-08-24</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight" data-en="Add a nextjs app router favicon in minutes" data-zh="快速在 Next.js App Router 中添加 Favicon" data-ja="Next.js App Router に Favicon をすぐ設定する方法" data-ko="Next.js App Router에 파비콘을 빠르게 추가하는 방법" data-es="Cómo agregar un favicon en nextjs app router rápidamente">Add a nextjs app router favicon in minutes</h1>
+        </header>
+
+        <div class="article-body" data-lang="en">
+            <p>If you’ve ever opened a Next.js site built with the App Router and saw a generic browser tab icon, the missing favicon is probably the result of an incomplete metadata setup.</p>
+<h2>Prerequisites</h2>
+<ul>
+  <li>A Next.js 13+ project that uses the <code>app</code> directory.</li>
+  <li>Node.js 18 or newer installed locally.</li>
+  <li>An icon set (SVG, PNG, ICO) generated with <a href="https://favicondl.com">Mzu favicondl</a>. The <a href="/blog/favicon-sizes-guide.html">favicon sizes guide</a> can help you pick the right dimensions.</li>
+</ul>
+<h2>Step‑by‑step implementation</h2>
+<ol>
+  <li><strong>Generate the icon files.</strong> Use Mzu favicondl to create at least three files:
+    <ul>
+      <li><code>favicon.svg</code> – the preferred scalable format.</li>
+      <li><code>favicon.ico</code> – legacy fallback for browsers that still request <code>/favicon.ico</code>.</li>
+      <li><code>apple-touch-icon.png</code> – optional Apple Touch icon.</li>
+    </ul>
+    Save the files in the project’s <code>public</code> folder.
+  </li>
+  <li><strong>Export metadata in <code>app/layout.tsx</code>.</strong> The App Router reads a <code>metadata</code> export from layout files. Add an <code>icons</code> object that references the files you just placed.
+    <pre><code>&amp;lt;pre&amp;gt;&amp;lt;code&amp;gt;export const metadata = {
+  title: 'My Next.js Site',
+  icons: {
+    icon: '/favicon.ico', // legacy fallback
+    shortcut: '/favicon.ico', // shortcut icon for older browsers
+    apple: '/apple-touch-icon.png', // Apple Touch icon (optional)
+    other: [
+      { rel: 'icon', url: '/favicon.svg', type: 'image/svg+xml', sizes: 'any' }
+    ]
+  }
+};
+&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;</code></pre>
+    This matches the official file‑based metadata approach documented by Next.js.
+  </li>
+  <li><strong>Verify the generated <code>&lt;head&gt;</code> output.</strong> Run <code>npm run dev</code> and open the page source. You should see link tags similar to:
+    <pre><code>&amp;lt;link rel='icon' href='/favicon.ico'&amp;gt;
+&amp;lt;link rel='shortcut icon' href='/favicon.ico'&amp;gt;
+&amp;lt;link rel='apple-touch-icon' href='/apple-touch-icon.png'&amp;gt;
+&amp;lt;link rel='icon' href='/favicon.svg' type='image/svg+xml' sizes='any'&amp;gt;</code></pre>
+    The tags are generated automatically; you do not need to write them manually.
+  </li>
+  <li><strong>Test in multiple browsers.</strong> Open the site in Chrome, Safari, and Firefox. Each should display the SVG icon on high‑DPI screens and fall back to the ICO file on older versions.
+    <ul>
+      <li>Chrome prefers SVG when <code>type='image/svg+xml'</code> is present.</li>
+      <li>Safari uses the Apple Touch icon for home‑screen shortcuts.</li>
+      <li>Firefox respects the <code>rel='icon'</code> entry and will cache the ICO file if the SVG is missing.</li>
+    </ul>
+  </li>
+  <li><strong>Deploy.</strong> Push the changes to your hosting provider (Vercel, Netlify, etc.). The <code>public</code> folder is served statically, so the icons are available immediately after the first build.
+  </li>
+</ol>
+<h2>Common pitfalls</h2>
+<ul>
+  <li><strong>Missing <code>public</code> folder path.</strong> If the icons live outside <code>public</code>, the generated URLs will point to a non‑existent location and browsers will log 404 errors.</li>
+  <li><strong>Using only <code>rel='shortcut icon'</code>.</strong> Modern browsers follow the <code>rel='icon'</code> specification (<a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">HTML spec</a>). Relying solely on the legacy attribute can cause the SVG to be ignored.</li>
+  <li><strong>Cache‑related stale icons.</strong> Browsers aggressively cache <code>favicon.ico</code>. Append a query string (e.g., <code>/favicon.ico?v=2</code>) or enable content hashing in your build to force an update.</li>
+  <li><strong>Incorrect MIME type.</strong> Serve <code>.svg</code> with <code>image/svg+xml</code> and <code>.ico</code> with <code>image/x-icon</code>. A misconfigured server will cause browsers to reject the file.</li>
+</ul>
+<h2>Conclusion</h2>
+<p>By letting the App Router generate the <code>&lt;link&gt;</code> tags from a single <code>metadata</code> export, you keep the favicon configuration declarative and future‑proof. The steps above cover generation, placement, metadata export, verification, and deployment, so you can move from a blank tab icon to a polished brand presence in minutes.</p>
+<p>Need a quick way to create the SVG and ICO files? Try <a href="https://favicondl.com">Mzu favicondl</a> – it produces the exact set of files required for the App Router approach.</p><h2>Check the documented requirements</h2><p>Next.js documents favicons and app icons in its <a href="https://nextjs.org/docs/app/api-reference/file-conventions/metadata/app-icons">metadata file conventions</a>.</p>
+        </div>
+
+        <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
+        <template data-article-lang="zh"><p>如果你打开使用 App Router 的 Next.js 站点时只看到一个通用的浏览器标签图标，通常是因为 metadata 配置不完整导致 favicon 缺失。</p>
+<h2>前置条件</h2>
+<ul>
+  <li>使用 <code>app</code> 目录的 Next.js 13+ 项目。</li>
+  <li>本地已安装 Node.js 18 及以上。</li>
+  <li>使用 <a href="https://favicondl.com">Mzu favicondl</a> 生成的图标集合（SVG、PNG、ICO）。<a href="/blog/favicon-sizes-guide.html">favicon 尺寸指南</a>可帮助挑选合适的尺寸。</li>
+</ul>
+<h2>逐步实现</h2>
+<ol>
+  <li><strong>生成图标文件。</strong> 使用 Mzu favicondl 创建至少三个文件：
+    <ul>
+      <li><code>favicon.svg</code> – 推荐的可伸缩矢量格式。</li>
+      <li><code>favicon.ico</code> – 为仍然请求 <code>/favicon.ico</code> 的旧浏览器提供的回退。</li>
+      <li><code>apple-touch-icon.png</code> – 可选的 Apple Touch 图标。</li>
+    </ul>
+    将这些文件保存到项目的 <code>public</code> 目录。
+  </li>
+  <li><strong>在 <code>app/layout.tsx</code> 中导出 metadata。</strong> App Router 会读取布局文件中的 <code>metadata</code> 导出。添加一个 <code>icons</code> 对象并指向刚才放置的文件。
+    <pre><code>&amp;lt;pre&amp;gt;&amp;lt;code&amp;gt;export const metadata = {
+  title: 'My Next.js Site',
+  icons: {
+    icon: '/favicon.ico', // legacy fallback
+    shortcut: '/favicon.ico', // shortcut icon for older browsers
+    apple: '/apple-touch-icon.png', // Apple Touch icon (optional)
+    other: [
+      { rel: 'icon', url: '/favicon.svg', type: 'image/svg+xml', sizes: 'any' }
+    ]
+  }
+};
+&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;</code></pre>
+    这符合 Next.js 官方文档中基于文件的 metadata 写法。
+  </li>
+  <li><strong>检查生成的 <code>&lt;head&gt;</code> 输出。</strong> 运行 <code>npm run dev</code> 并打开页面源码。你应该能看到类似以下的 <code>link</code> 标签：
+    <pre><code>&amp;lt;link rel='icon' href='/favicon.ico'&amp;gt;
+&amp;lt;link rel='shortcut icon' href='/favicon.ico'&amp;gt;
+&amp;lt;link rel='apple-touch-icon' href='/apple-touch-icon.png'&amp;gt;
+&amp;lt;link rel='icon' href='/favicon.svg' type='image/svg+xml' sizes='any'&amp;gt;</code></pre>
+    这些标签由框架自动生成，无需手动编写。
+  </li>
+  <li><strong>在多个浏览器中测试。</strong> 在 Chrome、Safari 和 Firefox 中打开站点。高 DPI 屏幕应显示 SVG 图标，旧版浏览器则回退到 ICO 文件。
+    <ul>
+      <li>Chrome 在存在 <code>type='image/svg+xml'</code> 时会优先使用 SVG。</li>
+      <li>Safari 会使用 Apple Touch 图标作为首页快捷方式。</li>
+      <li>Firefox 会遵循 <code>rel='icon'</code> 条目，如果缺少 SVG 则缓存 ICO 文件。</li>
+    </ul>
+  </li>
+  <li><strong>部署。</strong> 将修改推送到你的托管平台（Vercel、Netlify 等）。<code>public</code> 文件夹是静态提供的，构建完成后图标即可立即生效。</li>
+</ol>
+<h2>常见坑点</h2>
+<ul>
+  <li><strong>缺少 <code>public</code> 文件夹路径。</strong> 若图标放在 <code>public</code> 之外，生成的 URL 会指向不存在的位置，浏览器会报 404 错误。</li>
+  <li><strong>仅使用 <code>rel='shortcut icon'</code>。</strong> 现代浏览器遵循 <code>rel='icon'</code> 规范（<a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">HTML spec</a>）。只依赖旧属性会导致 SVG 被忽略。</li>
+  <li><strong>缓存导致的旧图标。</strong> 浏览器会强力缓存 <code>favicon.ico</code>。可以在 URL 后追加查询字符串（如 <code>/favicon.ico?v=2</code>）或在构建时启用内容哈希以强制更新。</li>
+  <li><strong>MIME 类型不正确。</strong> <code>.svg</code> 必须以 <code>image/svg+xml</code> 响应，<code>.ico</code> 必须以 <code>image/x-icon</code> 响应。服务器配置错误会导致浏览器拒绝加载。</li>
+</ul>
+<h2>结论</h2>
+<p>让 App Router 通过单一的 <code>metadata</code> 导出自动生成 <code>&lt;link&gt;</code> 标签，可保持 favicon 配置声明式且具备未来兼容性。上述步骤涵盖了图标生成、放置、metadata 导出、验证以及部署，帮助你在几分钟内从空白标签图标升级为完整的品牌标识。</p>
+<p>需要快速生成 SVG 与 ICO 文件？试试 <a href="https://favicondl.com">Mzu favicondl</a>——它会输出符合 App Router 需求的完整文件集。</p>
+<h2>查看官方要求</h2>
+<p>Next.js 在其 <a href="https://nextjs.org/docs/app/api-reference/file-conventions/metadata/app-icons">metadata file conventions</a> 中对 favicons 与 app icons 进行了说明。</p></template>
+        <template data-article-lang="ja"><p>Next.js の App Router を使用したサイトを開いた際に、汎用的なブラウザタブアイコンが表示された場合、favicon が欠如しているのはメタデータ設定が不完全なためである可能性が高いです。</p>
+<h2>Prerequisites</h2>
+<ul>
+  <li>Next.js 13+ で、<code>app</code> ディレクトリを使用しているプロジェクト。</li>
+  <li>ローカルにインストールされた Node.js 18 以上。</li>
+  <li><a href="https://favicondl.com">Mzu favicondl</a> で生成したアイコンセット（SVG、PNG、ICO）。適切なサイズは<a href="/blog/favicon-sizes-guide.html">favicon sizes guide</a> が参考になります。</li>
+</ul>
+<h2>Step‑by‑step implementation</h2>
+<ol>
+  <li><strong>アイコンファイルを生成します。</strong> Mzu favicondl を使用して、少なくとも次の 3 つのファイルを作成してください。
+    <ul>
+      <li><code>favicon.svg</code> – 推奨されるスケーラブル形式。</li>
+      <li><code>favicon.ico</code> – <code>/favicon.ico</code> を要求するブラウザ向けのレガシーフォールバック。</li>
+      <li><code>apple-touch-icon.png</code> – 任意の Apple Touch アイコン。</li>
+    </ul>
+    これらのファイルをプロジェクトの <code>public</code> フォルダに保存します。
+  </li>
+  <li><strong><code>app/layout.tsx</code> でメタデータをエクスポートします。</strong> App Router はレイアウトファイルから <code>metadata</code> エクスポートを読み取ります。先ほど配置したファイルを参照する <code>icons</code> オブジェクトを追加してください。
+    <pre><code>&amp;lt;pre&amp;gt;&amp;lt;code&amp;gt;export const metadata = {
+  title: 'My Next.js Site',
+  icons: {
+    icon: '/favicon.ico', // legacy fallback
+    shortcut: '/favicon.ico', // shortcut icon for older browsers
+    apple: '/apple-touch-icon.png', // Apple Touch icon (optional)
+    other: [
+      { rel: 'icon', url: '/favicon.svg', type: 'image/svg+xml', sizes: 'any' }
+    ]
+  }
+};
+&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;</code></pre>
+    これは Next.js が公式にドキュメントしているファイルベースのメタデータアプローチに一致します。
+  </li>
+  <li><strong>生成された <code>&lt;head&gt;</code> の出力を確認します。</strong> <code>npm run dev</code> を実行し、ページのソースを開いてください。次のような <code>link</code> タグが出力されているはずです。
+    <pre><code>&amp;lt;link rel='icon' href='/favicon.ico'&amp;gt;
+&amp;lt;link rel='shortcut icon' href='/favicon.ico'&amp;gt;
+&amp;lt;link rel='apple-touch-icon' href='/apple-touch-icon.png'&amp;gt;
+&amp;lt;link rel='icon' href='/favicon.svg' type='image/svg+xml' sizes='any'&amp;gt;</code></pre>
+    これらのタグは自動的に生成されるため、手動で記述する必要はありません。
+  </li>
+  <li><strong>複数のブラウザでテストします。</strong> Chrome、Safari、Firefox でサイトを開いてください。各ブラウザは高 DPI 画面では SVG アイコンを表示し、古いバージョンでは ICO ファイルにフォールバックします。
+    <ul>
+      <li>Chrome は <code>type='image/svg+xml'</code> が存在する場合、SVG を優先します。</li>
+      <li>Safari はホーム画面用ショートカットとして Apple Touch アイコンを使用します。</li>
+      <li>Firefox は <code>rel='icon'</code> エントリを尊重し、SVG が欠如している場合は ICO ファイルをキャッシュします。</li>
+    </ul>
+  </li>
+  <li><strong>デプロイします。</strong> 変更をホスティングプロバイダー（Vercel、Netlify など）にプッシュしてください。<code>public</code> フォルダは静的に配信されるため、ビルドが完了した直後からアイコンが利用可能になります。</li>
+</ol>
+<h2>Common pitfalls</h2>
+<ul>
+  <li><strong><code>public</code> フォルダのパスが欠如している。</strong> アイコンが <code>public</code> の外にある場合、生成された URL は存在しない場所を指し、ブラウザは 404 エラーを記録します。</li>
+  <li><strong><code>rel='shortcut icon'</code> のみを使用している。</strong> 現代のブラウザは <code>rel='icon'</code> 仕様（<a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">HTML spec</a>）に従います。レガシー属性だけに依存すると SVG が無視される可能性があります。</li>
+  <li><strong>キャッシュに起因する古いアイコン。</strong> ブラウザは <code>favicon.ico</code> を積極的にキャッシュします。クエリ文字列（例：<code>/favicon.ico?v=2</code>）を付加するか、ビルド時にコンテンツハッシュを有効にして更新を強制してください。</li>
+  <li><strong>不正な MIME タイプ。</strong> <code>.svg</code> は <code>image/svg+xml</code>、<code>.ico</code> は <code>image/x-icon</code> で配信してください。サーバー設定が誤っているとブラウザはファイルを拒否します。</li>
+</ul>
+<h2>Conclusion</h2>
+<p>App Router が単一の <code>metadata</code> エクスポートから <code>&lt;link&gt;</code> タグを自動生成するようにすれば、favicon 設定を宣言的かつ将来にわたって保守しやすくなります。上記の手順は生成、配置、メタデータエクスポート、検証、デプロイを網羅しており、空白のタブアイコンから洗練されたブランド表現へ数分で移行できます。</p>
+<p>SVG と ICO ファイルを手早く作成したい場合は、<a href="https://favicondl.com">Mzu favicondl</a> を試してください。App Router のアプローチに必要なファイル一式を生成してくれます。</p>
+<h2>Check the documented requirements</h2>
+<p>Next.js は <a href="https://nextjs.org/docs/app/api-reference/file-conventions/metadata/app-icons">metadata file conventions</a> において favicon とアプリアイコンの取り扱いを文書化しています。</p></template>
+        <template data-article-lang="ko"><p>App Router를 사용해 만든 Next.js 사이트를 열었을 때 기본 브라우저 탭 아이콘만 보인다면, 파비콘이 누락된 원인은 메타데이터 설정이 불완전하기 때문일 가능성이 높습니다.</p>
+<h2>전제 조건</h2>
+<ul>
+  <li>Next.js 13 이상 버전이며 <code>app</code> 디렉터리를 사용하는 프로젝트.</li>
+  <li>로컬에 Node.js 18 이상이 설치되어 있어야 합니다.</li>
+  <li>Mzu favicondl(<a href="https://favicondl.com">링크</a>)으로 생성한 아이콘 세트(SVG, PNG, ICO)가 필요합니다. 적절한 크기를 선택하려면 <a href="/blog/favicon-sizes-guide.html">favicon 사이즈 가이드</a>를 참고하십시오.</li>
+</ul>
+<h2>단계별 구현</h2>
+<ol>
+  <li><strong>아이콘 파일을 생성합니다.</strong> Mzu favicondl을 사용해 최소 세 개의 파일을 만듭니다:
+    <ul>
+      <li><code>favicon.svg</code> – 권장되는 확장 가능한 형식.</li>
+      <li><code>favicon.ico</code> – <code>/favicon.ico</code>를 여전히 요청하는 구형 브라우저용 대체 파일.</li>
+      <li><code>apple-touch-icon.png</code> – 선택적인 Apple Touch 아이콘.</li>
+    </ul>
+    파일을 프로젝트의 <code>public</code> 폴더에 저장합니다.
+  </li>
+  <li><strong><code>app/layout.tsx</code>에서 메타데이터를 내보냅니다.</strong> App Router는 레이아웃 파일에서 <code>metadata</code> export를 읽습니다. 방금 배치한 파일을 참조하는 <code>icons</code> 객체를 추가합니다.
+    <pre><code>&amp;lt;pre&amp;gt;&amp;lt;code&amp;gt;export const metadata = {
+  title: 'My Next.js Site',
+  icons: {
+    icon: '/favicon.ico', // legacy fallback
+    shortcut: '/favicon.ico', // shortcut icon for older browsers
+    apple: '/apple-touch-icon.png', // Apple Touch icon (optional)
+    other: [
+      { rel: 'icon', url: '/favicon.svg', type: 'image/svg+xml', sizes: 'any' }
+    ]
+  }
+};
+&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;</code></pre>
+    이는 Next.js에서 문서화한 파일 기반 메타데이터 방식과 일치합니다.
+  </li>
+  <li><strong>생성된 <code>&lt;head&gt;</code> 출력을 확인합니다.</strong> <code>npm run dev</code>를 실행하고 페이지 소스를 열면 다음과 유사한 <code>link</code> 태그가 표시됩니다:
+    <pre><code>&amp;lt;link rel='icon' href='/favicon.ico'&amp;gt;
+&amp;lt;link rel='shortcut icon' href='/favicon.ico'&amp;gt;
+&amp;lt;link rel='apple-touch-icon' href='/apple-touch-icon.png'&amp;gt;
+&amp;lt;link rel='icon' href='/favicon.svg' type='image/svg+xml' sizes='any'&amp;gt;</code></pre>
+    태그는 자동으로 생성되므로 직접 작성할 필요가 없습니다.
+  </li>
+  <li><strong>다양한 브라우저에서 테스트합니다.</strong> Chrome, Safari, Firefox에서 사이트를 열어보십시오. 고해상도 화면에서는 SVG 아이콘이 표시되고, 구형 버전에서는 ICO 파일이 대체됩니다.
+    <ul>
+      <li>Chrome은 <code>type='image/svg+xml'</code>가 지정된 경우 SVG를 우선 사용합니다.</li>
+      <li>Safari는 홈 화면 바로가기를 위해 Apple Touch 아이콘을 사용합니다.</li>
+      <li>Firefox는 <code>rel='icon'</code> 항목을 인식하며, SVG가 없을 경우 ICO 파일을 캐시합니다.</li>
+    </ul>
+  </li>
+  <li><strong>배포합니다.</strong> 변경 사항을 호스팅 제공업체(Vercel, Netlify 등)에 푸시합니다. <code>public</code> 폴더는 정적으로 제공되므로 첫 빌드가 완료된 직후 아이콘을 사용할 수 있습니다.
+  </li>
+</ol>
+<h2>자주 발생하는 실수</h2>
+<ul>
+  <li><strong><code>public</code> 폴더 경로 누락.</strong> 아이콘이 <code>public</code> 외부에 있으면 생성된 URL이 존재하지 않는 위치를 가리키게 되며, 브라우저는 404 오류를 기록합니다.</li>
+  <li><strong><code>rel='shortcut icon'</code>만 사용.</strong> 최신 브라우저는 <code>rel='icon'</code> 사양(<a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">HTML spec</a>)을 따릅니다. 레거시 속성만 의존하면 SVG가 무시될 수 있습니다.</li>
+  <li><strong>캐시로 인한 오래된 아이콘.</strong> 브라우저는 <code>favicon.ico</code>를 적극적으로 캐시합니다. 쿼리 문자열(예: <code>/favicon.ico?v=2</code>)을 추가하거나 빌드 시 콘텐츠 해싱을 활성화해 업데이트를 강제하십시오.</li>
+  <li><strong>잘못된 MIME 타입.</strong> <code>.svg</code>는 <code>image/svg+xml</code>, <code>.ico</code>는 <code>image/x-icon</code>으로 제공해야 합니다. 서버 설정이 잘못되면 브라우저가 파일을 거부합니다.</li>
+</ul>
+<h2>결론</h2>
+<p>App Router가 단일 <code>metadata</code> export를 기반으로 <code>&lt;link&gt;</code> 태그를 자동 생성하도록 하면 파비콘 설정을 선언적이고 향후 확장 가능하게 유지할 수 있습니다. 위 단계는 아이콘 생성, 위치 지정, 메타데이터 내보내기, 검증, 배포까지 모두 포함하므로 빈 탭 아이콘을 몇 분 안에 완성된 브랜드 아이덴티티로 전환할 수 있습니다.</p>
+<p>SVG와 ICO 파일을 빠르게 만들고 싶으신가요? <a href="https://favicondl.com">Mzu favicondl</a>을 사용해 보세요 – App Router 방식에 필요한 정확한 파일 세트를 생성합니다.</p>
+<h2>문서화된 요구 사항 확인</h2>
+<p>Next.js는 <a href="https://nextjs.org/docs/app/api-reference/file-conventions/metadata/app-icons">metadata 파일 규약</a>에서 파비콘 및 앱 아이콘에 대해 문서화하고 있습니다.</p></template>
+        <template data-article-lang="es"><p>Si alguna vez has abierto un sitio Next.js construido con el App Router y has visto un icono genérico en la pestaña del navegador, la falta de favicon probablemente se deba a una configuración incompleta de metadata.</p>
+<h2>Requisitos previos</h2>
+<ul>
+  <li>Un proyecto Next.js 13+ que use el directorio <code>app</code>.</li>
+  <li>Node.js 18 o superior instalado localmente.</li>
+  <li>Un conjunto de iconos (SVG, PNG, ICO) generado con <a href="https://favicondl.com">Mzu favicondl</a>. La <a href="/blog/favicon-sizes-guide.html">guía de tamaños de favicon</a> puede ayudarte a elegir las dimensiones correctas.</li>
+</ul>
+<h2>Implementación paso a paso</h2>
+<ol>
+  <li><strong>Generate the icon files.</strong> Use Mzu favicondl to create at least three files:
+    <ul>
+      <li><code>favicon.svg</code> – el formato escalable preferido.</li>
+      <li><code>favicon.ico</code> – fallback legado para navegadores que aún solicitan <code>/favicon.ico</code>.</li>
+      <li><code>apple-touch-icon.png</code> – icono Apple Touch opcional.</li>
+    </ul>
+    Guarda los archivos en la carpeta <code>public</code> del proyecto.
+  </li>
+  <li><strong>Export metadata in <code>app/layout.tsx</code>.</strong> El App Router lee una exportación <code>metadata</code> de los archivos de layout. Añade un objeto <code>icons</code> que haga referencia a los archivos que acabas de colocar.
+    <pre><code>&amp;lt;pre&amp;gt;&amp;lt;code&amp;gt;export const metadata = {
+  title: 'My Next.js Site',
+  icons: {
+    icon: '/favicon.ico', // legacy fallback
+    shortcut: '/favicon.ico', // shortcut icon for older browsers
+    apple: '/apple-touch-icon.png', // Apple Touch icon (optional)
+    other: [
+      { rel: 'icon', url: '/favicon.svg', type: 'image/svg+xml', sizes: 'any' }
+    ]
+  }
+};
+&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;</code></pre>
+    Esto coincide con el enfoque oficial de metadata basado en archivos documentado por Next.js.
+  </li>
+  <li><strong>Verify the generated <code>&amp;lt;head&amp;gt;</code> output.</strong> Ejecuta <code>npm run dev</code> y abre el código fuente de la página. Deberías ver etiquetas <code>link</code> similares a:
+    <pre><code>&amp;lt;link rel='icon' href='/favicon.ico'&amp;gt;
+&amp;lt;link rel='shortcut icon' href='/favicon.ico'&amp;gt;
+&amp;lt;link rel='apple-touch-icon' href='/apple-touch-icon.png'&amp;gt;
+&amp;lt;link rel='icon' href='/favicon.svg' type='image/svg+xml' sizes='any'&amp;gt;</code></pre>
+    Las etiquetas se generan automáticamente; no necesitas escribirlas a mano.
+  </li>
+  <li><strong>Test in multiple browsers.</strong> Abre el sitio en Chrome, Safari y Firefox. Cada uno debería mostrar el icono SVG en pantallas de alta densidad y recurrir al archivo ICO en versiones más antiguas.
+    <ul>
+      <li>Chrome prefiere SVG cuando está presente <code>type='image/svg+xml'</code>.</li>
+      <li>Safari usa el Apple Touch icon para accesos directos en la pantalla de inicio.</li>
+      <li>Firefox respeta la entrada <code>rel='icon'</code> y almacenará en caché el archivo ICO si falta el SVG.</li>
+    </ul>
+  </li>
+  <li><strong>Deploy.</strong> Envía los cambios a tu proveedor de hosting (Vercel, Netlify, etc.). La carpeta <code>public</code> se sirve de forma estática, por lo que los iconos están disponibles inmediatamente después de la primera compilación.
+  </li>
+</ol>
+<h2>Problemas comunes</h2>
+<ul>
+  <li><strong>Missing <code>public</code> folder path.</strong> Si los iconos están fuera de <code>public</code>, las URLs generadas apuntarán a una ubicación inexistente y los navegadores registrarán errores 404.</li>
+  <li><strong>Using only <code>rel='shortcut icon'</code>.</strong> Los navegadores modernos siguen la especificación <code>rel='icon'</code> (<a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">HTML spec</a>). Depender únicamente del atributo legado puede hacer que el SVG sea ignorado.</li>
+  <li><strong>Cache‑related stale icons.</strong> Los navegadores almacenan en caché agresivamente <code>favicon.ico</code>. Añade una cadena de consulta (p.ej., <code>/favicon.ico?v=2</code>) o habilita el hash de contenido en tu compilación para forzar una actualización.</li>
+  <li><strong>Incorrect MIME type.</strong> Sirve <code>.svg</code> con <code>image/svg+xml</code> y <code>.ico</code> con <code>image/x-icon</code>. Un servidor mal configurado hará que los navegadores rechacen el archivo.</li>
+</ul>
+<h2>Conclusión</h2>
+<p>Al permitir que el App Router genere las etiquetas <code>&amp;lt;link&amp;gt;</code> a partir de una única exportación <code>metadata</code>, mantienes la configuración del favicon declarativa y preparada para el futuro. Los pasos anteriores cubren la generación, ubicación, exportación de metadata, verificación y despliegue, de modo que puedas pasar de una pestaña vacía a una presencia de marca pulida en minutos.</p>
+<p>¿Necesitas una forma rápida de crear los archivos SVG y ICO? Prueba <a href="https://favicondl.com">Mzu favicondl</a>; genera el conjunto exacto de archivos necesario para el enfoque del App Router.</p>
+<h2>Revisa los requisitos documentados</h2>
+<p>Next.js documenta favicons y app icons en sus <a href="https://nextjs.org/docs/app/api-reference/file-conventions/metadata/app-icons">convenciones de archivos de metadata</a>.</p></template>
+
+        <div class="cta-box">
+            <h3 data-en="Generate perfect favicons instantly" data-zh="立即生成完美图标" data-ja="今すぐ完璧なファビコンを生成" data-ko="지금 바로 완벽한 파비콘 생성" data-es="Genera favicons perfectos al instante">Generate perfect favicons instantly</h3>
+            <p data-en="Use Mzu favicondl to create SVG, PNG, and ICO files that work with Next.js App Router metadata." data-zh="使用 Mzu favicondl 生成兼容 Next.js App Router 的 SVG、PNG、ICO 文件。" data-ja="Mzu favicondl を使って Next.js App Router に対応する SVG、PNG、ICO を作成しましょう。" data-ko="Mzu favicondl 로 Next.js App Router와 호환되는 SVG, PNG, ICO 파일을 만들 수 있습니다." data-es="Crea archivos SVG, PNG y ICO compatibles con la metadata del App Router de Next.js usando Mzu favicondl.">Use Mzu favicondl to create SVG, PNG, and ICO files that work with Next.js App Router metadata.</p>
+            <a href="/index.html" class="cta-btn" data-en="Try It Free →" data-zh="免费试用 →" data-ja="無料で試す →" data-ko="무료로 사용해보기 →" data-es="Pruébalo gratis →">Try It Free →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/index.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Home" data-zh="首页">Home</a>
+                <a href="/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Blog" data-zh="博客">Blog</a>
+                <a href="/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Privacy" data-zh="隐私政策">Privacy</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js?v=20260211"></script>
+
+</body></html>
