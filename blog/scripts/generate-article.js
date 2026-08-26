@@ -818,6 +818,11 @@ async function generateArticleContent(keyword, slug, tags, existingArticles, int
       TRANSLATION_API_TIMEOUT_MS,
       candidate => {
         requireStringFields(candidate, ['content'], `${lang.name}翻译输出`);
+        const repairedContent = escapeUnexpectedHtmlTags(candidate.content);
+        if (repairedContent !== candidate.content) {
+          console.log(`  🔧 [translate-${lang.code}] 已将误生成的未知 HTML 标签转回可见文本`);
+          candidate.content = repairedContent;
+        }
         validateTranslationContent(data.contentEn, candidate.content, `${lang.name}翻译输出`);
       },
     );
@@ -1620,6 +1625,17 @@ function extractHrefTargets(html) {
     .map(match => match[1].match(/\bhref\s*=\s*(['"])(.*?)\1/i)?.[2] || '');
 }
 
+function escapeUnexpectedHtmlTags(html) {
+  return String(html || '').replace(/<\/?([a-z][a-z0-9-]*)\b[^>]*>/gi, (fullTag, tagName) => {
+    const tag = tagName.toLowerCase();
+    if (ALLOWED_CONTENT_TAGS.has(tag) || FORBIDDEN_TAGS.includes(tag)) return fullTag;
+    return fullTag
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;');
+  });
+}
+
 function validateTranslationContent(sourceHtml, translatedHtml, label = '翻译输出') {
   const errors = [];
   validateHtmlFragment(translatedHtml, label, errors);
@@ -1650,6 +1666,7 @@ export {
   ARTICLE_MODELS,
   TRANSLATION_MODELS,
   classifyModelError,
+  escapeUnexpectedHtmlTags,
   ensureFirstPartyEvidence,
   normalizeDescription,
   parseModelList,

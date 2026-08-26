@@ -4,6 +4,7 @@ import {
   ARTICLE_MODELS,
   TRANSLATION_MODELS,
   classifyModelError,
+  escapeUnexpectedHtmlTags,
   ensureFirstPartyEvidence,
   normalizeDescription,
   parseModelList,
@@ -76,6 +77,14 @@ assert.doesNotThrow(
 assert.throws(
   () => validateTranslationContent(sourceHtml, validTranslation.replace('<li><code>favicon.ico</code></li>', ''), '中文翻译'),
   /改变了英文原文的段落\/标题\/列表\/表格结构/,
+);
+assert.equal(
+  escapeUnexpectedHtmlTags('<p>Use <metadata> in Next.js.</p>'),
+  '<p>Use &lt;metadata&gt; in Next.js.</p>',
+);
+assert.equal(
+  escapeUnexpectedHtmlTags('<p>Safe</p><script>alert(1)</script>'),
+  '<p>Safe</p><script>alert(1)</script>',
 );
 
 const nextSources = resolveOfficialSources({ keyword: 'nextjs app router favicon', tags: ['nextjs'] });
