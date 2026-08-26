@@ -784,8 +784,7 @@ async function generateArticleContent(keyword, slug, tags, existingArticles, int
   // --- 第 1 步：生成英文正文 + 5 语言元数据 ---
   const mainPrompt = buildMainPrompt(keyword, slug, tags, existingArticles, intent, depth, avoidOverlap, sourceUrls);
   console.log('🤖 [1/5] 正在调用 NVIDIA NIM API 生成英文文章 + 元数据...');
-  const data = ensureFirstPartyEvidence(
-    await repairMissingMetadata(await callAI(
+  const mainData = await repairMissingMetadata(await callAI(
       mainPrompt,
       'main',
       0.55,
@@ -795,9 +794,13 @@ async function generateArticleContent(keyword, slug, tags, existingArticles, int
         requireStringFields(candidate, ['titleEn', 'contentEn'], '英文主输出');
         validateKnownPlatformClaims(candidate, keyword);
       },
-    ), keyword),
-    sourceUrls,
-  );
+    ), keyword);
+  const repairedEnglish = escapeUnexpectedHtmlTags(mainData.contentEn);
+  if (repairedEnglish !== mainData.contentEn) {
+    console.log('  🔧 [main] 已将误生成的未知 HTML 标签转回可见文本');
+    mainData.contentEn = repairedEnglish;
+  }
+  const data = ensureFirstPartyEvidence(mainData, sourceUrls);
   console.log(`✅ 英文文章生成完成: "${data.titleEn}"`);
 
   // --- 第 2-5 步：每次只生成一个语言，避免四语大响应超过免费端点时限 ---
