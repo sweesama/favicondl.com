@@ -52,15 +52,15 @@ function parseModelList(value, fallback) {
 // 默认池只放入 2026-08-26 在官方目录中仍标记为 Free Endpoint: Available 的文本模型；
 // 名单仍可由环境变量覆盖，运行时会自动熔断失效或持续超时的端点。
 const ARTICLE_MODELS = parseModelList(process.env.BLOG_MODEL_LIST, [
-  'deepseek-ai/deepseek-v4-flash-0731',
   'nvidia/nemotron-3-ultra-550b-a55b',
+  'deepseek-ai/deepseek-v4-flash-0731',
   'stepfun-ai/step-3.7-flash',
   'nvidia/nemotron-3.5-lightning-30b-a3b',
 ]);
 const TRANSLATION_MODELS = parseModelList(process.env.BLOG_TRANSLATION_MODEL_LIST, [
   'deepseek-ai/deepseek-v4-flash-0731',
-  'stepfun-ai/step-3.7-flash',
   'nvidia/nemotron-3-ultra-550b-a55b',
+  'stepfun-ai/step-3.7-flash',
 ]);
 const MAX_RETRIES = 2;
 const RETRY_DELAY_MS = 12000;
@@ -816,7 +816,10 @@ async function generateArticleContent(keyword, slug, tags, existingArticles, int
       0.45,
       TRANSLATION_MODELS,
       TRANSLATION_API_TIMEOUT_MS,
-      candidate => requireStringFields(candidate, ['content'], `${lang.name}翻译输出`),
+      candidate => {
+        requireStringFields(candidate, ['content'], `${lang.name}翻译输出`);
+        validateTranslationContent(data.contentEn, candidate.content, `${lang.name}翻译输出`);
+      },
     );
     data[`content${lang.code}`] = translation.content;
     console.log(`  ✅ ${lang.name}正文生成完成 (${translation.content.length} 字符)`);
@@ -1601,6 +1604,42 @@ if (process.argv[1] && path.resolve(process.argv[1]) === __filename) {
   });
 }
 
+function extractHtmlStructure(html) {
+  return [...String(html || '').matchAll(/<(\/?)([a-z0-9-]+)\b[^>]*>/gi)]
+    .map(match => `${match[1] ? '/' : ''}${match[2].toLowerCase()}`);
+}
+
+function extractHrefTargets(html) {
+  return [...String(html || '').matchAll(/<a\b([^>]*)>/gi)]
+    .map(match => match[1].match(/\bhref\s*=\s*(['"])(.*?)\1/i)?.[2] || '');
+}
+
+function validateTranslationContent(sourceHtml, translatedHtml, label = '翻译输出') {
+  const errors = [];
+  validateHtmlFragment(translatedHtml, label, errors);
+
+  const sourceStructure = extractHtmlStructure(sourceHtml);
+  const translatedStructure = extractHtmlStructure(translatedHtml);
+  if (JSON.stringify(sourceStructure) !== JSON.stringify(translatedStructure)) {
+    const mismatchAt = sourceStructure.findIndex((tag, index) => translatedStructure[index] !== tag);
+    const position = mismatchAt === -1 ? Math.min(sourceStructure.length, translatedStructure.length) : mismatchAt;
+    errors.push(`${label}改变了英文原文的 HTML 结构（第 ${position + 1} 个标签：原文 ${sourceStructure[position] || '结束'}，翻译 ${translatedStructure[position] || '结束'}）`);
+  }
+
+  const sourceHrefs = extractHrefTargets(sourceHtml);
+  const translatedHrefs = extractHrefTargets(translatedHtml);
+  if (JSON.stringify(sourceHrefs) !== JSON.stringify(translatedHrefs)) {
+    errors.push(`${label}改变、遗漏或新增了英文原文链接`);
+  }
+
+  if (errors.length > 0) {
+    const error = new Error(errors.join('；'));
+    error.code = 'INVALID_MODEL_OUTPUT';
+    throw error;
+  }
+  return translatedHtml;
+}
+
 export {
   ARTICLE_MODELS,
   TRANSLATION_MODELS,
@@ -1611,6 +1650,7 @@ export {
   requireStringFields,
   repairMissingMetadata,
   resolveOfficialSources,
+  validateTranslationContent,
   validateKnownPlatformClaims,
   validateArticleData,
 };
