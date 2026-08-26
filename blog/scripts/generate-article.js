@@ -53,14 +53,14 @@ function parseModelList(value, fallback) {
 // 名单仍可由环境变量覆盖，运行时会自动熔断失效或持续超时的端点。
 const ARTICLE_MODELS = parseModelList(process.env.BLOG_MODEL_LIST, [
   'deepseek-ai/deepseek-v4-flash-0731',
-  'nvidia/nemotron-3.5-lightning-30b-a3b',
-  'stepfun-ai/step-3.7-flash',
   'nvidia/nemotron-3-ultra-550b-a55b',
+  'stepfun-ai/step-3.7-flash',
+  'nvidia/nemotron-3.5-lightning-30b-a3b',
 ]);
 const TRANSLATION_MODELS = parseModelList(process.env.BLOG_TRANSLATION_MODEL_LIST, [
-  'nvidia/nemotron-3.5-lightning-30b-a3b',
   'deepseek-ai/deepseek-v4-flash-0731',
   'stepfun-ai/step-3.7-flash',
+  'nvidia/nemotron-3-ultra-550b-a55b',
 ]);
 const MAX_RETRIES = 2;
 const RETRY_DELAY_MS = 12000;
