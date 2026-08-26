@@ -18,12 +18,12 @@ assert.equal(ARTICLE_MODELS.includes('openai/gpt-oss-120b'), false);
 assert.equal(ARTICLE_MODELS.includes('nvidia/nemotron-3-nano-30b-a3b'), false);
 assert.equal(TRANSLATION_MODELS.includes('z-ai/glm-5.2'), false);
 assert.equal(TRANSLATION_MODELS.includes('openai/gpt-oss-120b'), false);
-assert.equal(TRANSLATION_MODELS[0], 'deepseek-ai/deepseek-v4-flash-0731');
+assert.equal(TRANSLATION_MODELS[0], 'nvidia/nemotron-3-ultra-550b-a55b');
 assert.ok(ARTICLE_MODELS.length >= 4);
 assert.ok(TRANSLATION_MODELS.length >= 3);
 assert.equal(ARTICLE_MODELS[0], 'nvidia/nemotron-3-ultra-550b-a55b');
 assert.equal(ARTICLE_MODELS[1], 'deepseek-ai/deepseek-v4-flash-0731');
-assert.equal(TRANSLATION_MODELS[1], 'nvidia/nemotron-3-ultra-550b-a55b');
+assert.equal(TRANSLATION_MODELS[1], 'deepseek-ai/deepseek-v4-flash-0731');
 assert.equal(ARTICLE_MODELS.includes('stepfun-ai/step-3.7-flash'), true);
 assert.deepEqual(parseModelList(' model/a, model/b,model/a ', ['fallback']), ['model/a', 'model/b']);
 assert.deepEqual(parseModelList('', ['fallback']), ['fallback']);
@@ -69,6 +69,13 @@ assert.throws(
 assert.throws(
   () => validateTranslationContent(sourceHtml, validTranslation.replace('https://example.com/docs', 'https://example.com/other'), '中文翻译'),
   /改变、遗漏或新增了英文原文链接/,
+);
+assert.doesNotThrow(
+  () => validateTranslationContent(sourceHtml, validTranslation.replace('来源', '<em>来源</em>'), '中文翻译'),
+);
+assert.throws(
+  () => validateTranslationContent(sourceHtml, validTranslation.replace('<li><code>favicon.ico</code></li>', ''), '中文翻译'),
+  /改变了英文原文的段落\/标题\/列表\/表格结构/,
 );
 
 const nextSources = resolveOfficialSources({ keyword: 'nextjs app router favicon', tags: ['nextjs'] });

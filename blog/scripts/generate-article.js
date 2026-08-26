@@ -58,8 +58,8 @@ const ARTICLE_MODELS = parseModelList(process.env.BLOG_MODEL_LIST, [
   'nvidia/nemotron-3.5-lightning-30b-a3b',
 ]);
 const TRANSLATION_MODELS = parseModelList(process.env.BLOG_TRANSLATION_MODEL_LIST, [
-  'deepseek-ai/deepseek-v4-flash-0731',
   'nvidia/nemotron-3-ultra-550b-a55b',
+  'deepseek-ai/deepseek-v4-flash-0731',
   'stepfun-ai/step-3.7-flash',
 ]);
 const MAX_RETRIES = 2;
@@ -1604,8 +1604,14 @@ if (process.argv[1] && path.resolve(process.argv[1]) === __filename) {
   });
 }
 
-function extractHtmlStructure(html) {
+const BLOCK_STRUCTURE_TAGS = new Set([
+  'p', 'h2', 'h3', 'pre', 'ul', 'ol', 'li',
+  'table', 'thead', 'tbody', 'tr', 'th', 'td', 'blockquote',
+]);
+
+function extractBlockStructure(html) {
   return [...String(html || '').matchAll(/<(\/?)([a-z0-9-]+)\b[^>]*>/gi)]
+    .filter(match => BLOCK_STRUCTURE_TAGS.has(match[2].toLowerCase()))
     .map(match => `${match[1] ? '/' : ''}${match[2].toLowerCase()}`);
 }
 
@@ -1618,12 +1624,12 @@ function validateTranslationContent(sourceHtml, translatedHtml, label = '翻译�
   const errors = [];
   validateHtmlFragment(translatedHtml, label, errors);
 
-  const sourceStructure = extractHtmlStructure(sourceHtml);
-  const translatedStructure = extractHtmlStructure(translatedHtml);
+  const sourceStructure = extractBlockStructure(sourceHtml);
+  const translatedStructure = extractBlockStructure(translatedHtml);
   if (JSON.stringify(sourceStructure) !== JSON.stringify(translatedStructure)) {
     const mismatchAt = sourceStructure.findIndex((tag, index) => translatedStructure[index] !== tag);
     const position = mismatchAt === -1 ? Math.min(sourceStructure.length, translatedStructure.length) : mismatchAt;
-    errors.push(`${label}改变了英文原文的 HTML 结构（第 ${position + 1} 个标签：原文 ${sourceStructure[position] || '结束'}，翻译 ${translatedStructure[position] || '结束'}）`);
+    errors.push(`${label}改变了英文原文的段落/标题/列表/表格结构（第 ${position + 1} 个块级标签：原文 ${sourceStructure[position] || '结束'}，翻译 ${translatedStructure[position] || '结束'}）`);
   }
 
   const sourceHrefs = extractHrefTargets(sourceHtml);
