@@ -12,16 +12,17 @@ import {
   validateKnownPlatformClaims,
 } from './generate-article.js';
 
-assert.equal(ARTICLE_MODELS.includes('deepseek-ai/deepseek-v4-flash'), false);
-assert.equal(TRANSLATION_MODELS.includes('moonshotai/kimi-k2.6'), false);
-assert.equal(TRANSLATION_MODELS.includes('nvidia/nemotron-3.5-lightning-30b-a3b'), false);
-assert.equal(TRANSLATION_MODELS.includes('nvidia/nemotron-3-super-120b-a12b'), false);
-assert.equal(TRANSLATION_MODELS[0], 'z-ai/glm-5.2');
+assert.equal(ARTICLE_MODELS.includes('z-ai/glm-5.2'), false);
+assert.equal(ARTICLE_MODELS.includes('openai/gpt-oss-120b'), false);
+assert.equal(ARTICLE_MODELS.includes('nvidia/nemotron-3-nano-30b-a3b'), false);
+assert.equal(TRANSLATION_MODELS.includes('z-ai/glm-5.2'), false);
+assert.equal(TRANSLATION_MODELS.includes('openai/gpt-oss-120b'), false);
+assert.equal(TRANSLATION_MODELS[0], 'nvidia/nemotron-3.5-lightning-30b-a3b');
 assert.ok(ARTICLE_MODELS.length >= 4);
-assert.ok(TRANSLATION_MODELS.length >= 2);
-assert.equal(ARTICLE_MODELS[0], 'openai/gpt-oss-120b');
-assert.equal(ARTICLE_MODELS[1], 'z-ai/glm-5.2');
-assert.equal(ARTICLE_MODELS.includes('nvidia/nemotron-3.5-lightning-30b-a3b'), false);
+assert.ok(TRANSLATION_MODELS.length >= 3);
+assert.equal(ARTICLE_MODELS[0], 'deepseek-ai/deepseek-v4-flash-0731');
+assert.equal(ARTICLE_MODELS[1], 'nvidia/nemotron-3.5-lightning-30b-a3b');
+assert.equal(ARTICLE_MODELS.includes('stepfun-ai/step-3.7-flash'), true);
 assert.deepEqual(parseModelList(' model/a, model/b,model/a ', ['fallback']), ['model/a', 'model/b']);
 assert.deepEqual(parseModelList('', ['fallback']), ['fallback']);
 

@@ -1,5 +1,5 @@
 /**
- * 自动博客文章生成脚本（v5 — 可恢复模型路由 + 来源约束）
+ * 自动博客文章生成脚本（v6 — 可恢复模型路由 + 来源约束）
  * 
  * v4 改进：
  * - 反 AI 八股文：Prompt 禁止 20+ 条常见 AI 套话，要求真实品牌案例和第一人称视角
@@ -48,16 +48,19 @@ function parseModelList(value, fallback) {
   return parsed.length > 0 ? [...new Set(parsed)] : fallback;
 }
 
-// 免费托管端点会轮换，因此模型名单可由环境变量覆盖，并在运行时自动熔断失效项。
+// NVIDIA 的免费托管端点是开发/原型服务，会轮换且可能限流。
+// 默认池只放入 2026-08-26 在官方目录中仍标记为 Free Endpoint: Available 的文本模型；
+// 名单仍可由环境变量覆盖，运行时会自动熔断失效或持续超时的端点。
 const ARTICLE_MODELS = parseModelList(process.env.BLOG_MODEL_LIST, [
-  'openai/gpt-oss-120b',
-  'z-ai/glm-5.2',
-  'nvidia/nemotron-3-nano-30b-a3b',
-  'nvidia/nemotron-3-super-120b-a12b',
+  'deepseek-ai/deepseek-v4-flash-0731',
+  'nvidia/nemotron-3.5-lightning-30b-a3b',
+  'stepfun-ai/step-3.7-flash',
+  'nvidia/nemotron-3-ultra-550b-a55b',
 ]);
 const TRANSLATION_MODELS = parseModelList(process.env.BLOG_TRANSLATION_MODEL_LIST, [
-  'z-ai/glm-5.2',
-  'openai/gpt-oss-120b',
+  'nvidia/nemotron-3.5-lightning-30b-a3b',
+  'deepseek-ai/deepseek-v4-flash-0731',
+  'stepfun-ai/step-3.7-flash',
 ]);
 const MAX_RETRIES = 2;
 const RETRY_DELAY_MS = 12000;
@@ -652,7 +655,11 @@ async function callAI(prompt, label, temperature = 0.55, models = ARTICLE_MODELS
           console.log(`  ⛔ ${modelName} 本轮熔断，后续语言任务不再重复调用`);
           break;
         }
-        if (kind === 'timeout') break;
+        if (kind === 'timeout') {
+          disabledModels.add(modelName);
+          console.log(`  ⛔ ${modelName} 本轮超时熔断，后续语言任务改用其他模型`);
+          break;
+        }
         if (attempt < MAX_RETRIES && ['transient', 'retryable-output', 'unknown'].includes(kind)) {
           const delay = kind === 'transient' ? RETRY_DELAY_MS : 3000;
           console.log(`  ⏳ 等待 ${delay / 1000} 秒后重试...`);

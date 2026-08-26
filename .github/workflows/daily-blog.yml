@@ -4,6 +4,12 @@ on:
   schedule:
     - cron: '0 0 * * *'
   workflow_dispatch:
+    inputs:
+      dry_run:
+        description: Generate, build, and validate without publishing
+        required: false
+        default: false
+        type: boolean
 
 permissions:
   contents: write
@@ -81,7 +87,7 @@ jobs:
 
       - name: Publish only after every gate passes
         id: publish
-        if: steps.queue.outputs.pending != '0'
+        if: steps.queue.outputs.pending != '0' && (github.event_name != 'workflow_dispatch' || inputs.dry_run != true)
         env:
           ARTICLE_SLUG: ${{ steps.generate.outputs.slug }}
         shell: bash
@@ -107,6 +113,10 @@ jobs:
 
           echo "changed=true" >> "$GITHUB_OUTPUT"
           echo "slug=$ARTICLE_SLUG" >> "$GITHUB_OUTPUT"
+
+      - name: Confirm dry-run validation
+        if: steps.queue.outputs.pending != '0' && github.event_name == 'workflow_dispatch' && inputs.dry_run == true
+        run: echo "Dry run passed generation, localization build, and all quality gates; nothing was published."
 
       - name: Notify successful publication
         if: steps.publish.outputs.changed == 'true'
