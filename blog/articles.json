@@ -3206,5 +3206,26 @@
     ],
     "qualityScore": 72,
     "qualityGrade": "B"
+  },
+  {
+    "slug": "nextjs-metadata-icons-favicon",
+    "publishDate": "2026-08-27",
+    "titleEn": "Next.js Metadata Icons: Programmatic Favicon Control",
+    "titleZh": "Next.js Metadata Icons：程序化 Favicon 控制",
+    "titleJa": "Next.js Metadata Icons: プログラムによる Favicon 制御",
+    "titleKo": "Next.js Metadata Icons: 프로그래밍 방식 Favicon 제어",
+    "titleEs": "Next.js Metadata Icons: Control Programático de Favicon",
+    "descEn": "Learn to configure favicons programmatically using Next.js App Router metadata API. Control icon types, sizes, and rel values dynamically.",
+    "descZh": "了解如何使用 Next.js App Router 元数据 API 以编程方式配置 favicon。动态控制图标类型、尺寸和 rel 值。",
+    "descJa": "Next.js App Router のメタデータ API を使って、プログラムで favicon を設定する方法を学びます。アイコン タイプ、サイズ、rel 値を動的に制御します。",
+    "descKo": "Next.js App Router 메타데이터 API를 사용하여 프로그래밍 방식으로 파비콘을 구성하는 방법을 알아보세요. 아이콘 유형, 크기, rel 값을 동적으로 제어합니다.",
+    "descEs": "Aprende a configurar favicons programáticamente usando la API de metadatos de Next.js App Router. Controla tipos, tamaños y valores rel de iconos dinámicamente.",
+    "keyword": "nextjs metadata icons favicon",
+    "tags": [
+      "nextjs",
+      "metadata"
+    ],
+    "qualityScore": 85,
+    "qualityGrade": "A"
   }
 ]

@@ -1,0 +1,281 @@
+<!DOCTYPE html><html lang="ko"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Next.js Metadata Icons: 프로그래밍 방식 Favicon 제어 - Mzu favicondl</title>
+    <meta name="description" content="Next.js App Router 메타데이터 API를 사용하여 프로그래밍 방식으로 파비콘을 구성하는 방법을 알아보세요. 아이콘 유형, 크기, rel 값을 동적으로 제어합니다.">
+    <meta name="keywords" content="nextjs metadata icons, nextjs favicon api, app router icons">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/ko/blog/nextjs-metadata-icons-favicon.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/nextjs-metadata-icons-favicon.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/nextjs-metadata-icons-favicon.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/nextjs-metadata-icons-favicon.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/nextjs-metadata-icons-favicon.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/nextjs-metadata-icons-favicon.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/nextjs-metadata-icons-favicon.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/ko/blog/nextjs-metadata-icons-favicon.html">
+    <meta property="og:title" content="Next.js Metadata Icons: 프로그래밍 방식 Favicon 제어">
+    <meta property="og:description" content="Next.js App Router 메타데이터 API를 사용하여 프로그래밍 방식으로 파비콘을 구성하는 방법을 알아보세요. 아이콘 유형, 크기, rel 값을 동적으로 제어합니다.">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Next.js Metadata Icons: 프로그래밍 방식 Favicon 제어">
+    <meta name="twitter:description" content="Next.js App Router 메타데이터 API를 사용하여 프로그래밍 방식으로 파비콘을 구성하는 방법을 알아보세요. 아이콘 유형, 크기, rel 값을 동적으로 제어합니다.">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Next.js Metadata Icons: 프로그래밍 방식 Favicon 제어",
+  "description": "Next.js App Router 메타데이터 API를 사용하여 프로그래밍 방식으로 파비콘을 구성하는 방법을 알아보세요. 아이콘 유형, 크기, rel 값을 동적으로 제어합니다.",
+  "datePublished": "2026-08-27",
+  "dateModified": "2026-08-27",
+  "author": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "mainEntityOfPage": "https://favicondl.com/ko/blog/nextjs-metadata-icons-favicon.html",
+  "inLanguage": "ko"
+}</script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/ko/index.html" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/ko/documentation.html" class="nav-link">문서</a>
+                <a href="/ko/tools.html" class="nav-link">도구</a>
+                <a href="/ko/blog/" class="nav-link">블로그</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/nextjs-metadata-icons-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/nextjs-metadata-icons-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/nextjs-metadata-icons-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/nextjs-metadata-icons-favicon.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/nextjs-metadata-icons-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/ko/index.html" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/ko/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600">Next.js Metadata Icons: 프로그래밍 방식 Favicon 제어</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">nextjs</span><time class="text-sm text-gray-400">2026-08-27</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">Next.js Metadata Icons: 프로그래밍 방식 Favicon 제어</h1>
+        </header>
+
+        <div class="article-body"><p>favicon.ico를 app 디렉토리에 추가하고 작동하게 만드는 것은 쉽습니다. 하지만 마케팅 페이지와 대시보드에 서로 다른 아이콘이 필요하거나, 페이지 리로드 없이 사용자의 테마 설정에 맞춰 아이콘을 바꿔야 할 때는 어떻게 해야 할까요? 파일 기반 규약은 편리하지만 모든 상황을 커버하기는 어렵습니다.</p>
+
+<p>Next.js는 메타데이터 객체 내부에 icons 필드를 제공하여 아이콘을 프로그래밍 방식으로 선언할 수 있습니다. 이 방식을 사용하면 layout.tsx나 특정 page.tsx에서 rel, sizes, type, 심지어 media 속성까지 세밀하게 제어할 수 있습니다. 이 글에서는 정적 파일에서 메타데이터 기반 설정으로 마이그레이션하는 실용적인 단계를 살펴보겠습니다.</p>
+
+<h2>사전 준비 사항</h2>
+<ul>
+  <li>App Router를 사용하는 Next.js 13 이상 프로젝트</li>
+  <li>public/ 디렉토리나 접근 가능한 CDN 경로에 배치된 아이콘 리소스(SVG, PNG, ICO)</li>
+  <li>next의 Metadata 타입에 대한 familiarity</li>
+</ul>
+
+<h2>Step 1: 재사용 가능한 아이콘 설정 정의</h2>
+<p>레이아웃 전체에서 동일한 아이콘 정의를 재사용할 수 있도록 작은 헬퍼를 만드세요. 이렇게 하면 메타데이터 exports가 깔끔해지고 나중에 업데이트하기도 쉬워집니다.</p>
+
+<pre><code>// lib/icons.ts
+import { Metadata } from 'next';
+
+export const iconConfig = {
+  icon: [
+    { url: '/icons/icon-16x16.png', sizes: '16x16', type: 'image/png' },
+    { url: '/icons/icon-32x32.png', sizes: '32x32', type: 'image/png' },
+    { url: '/icons/icon.svg', sizes: 'any', type: 'image/svg+xml' },
+  ],
+  apple: [
+    { url: '/icons/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+  ],
+  shortcut: '/icons/favicon.ico',
+  other: [
+    {
+      rel: 'mask-icon',
+      url: '/icons/safari-pinned-tab.svg',
+      color: '#0066cc',
+    },
+  ],
+} satisfies Metadata['icons'];</code></pre>
+
+<h2>Step 2: 루트 레이아웃에 설정 적용</h2>
+<p>헬퍼를 불러와 메타데이터 export의 icons 필드에 전개 연산자로 넣으세요. 이렇게 하면 app/ 디렉토리에 직접 두었던 favicon.ico, icon.png, apple-icon.png 파일이 더 이상 필요하지 않습니다.</p>
+
+<pre><code>// app/layout.tsx
+import type { Metadata } from 'next';
+import { iconConfig } from '@/lib/icons';
+
+export const metadata: Metadata = {
+  title: 'My App',
+  icons: iconConfig,
+};
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    &amp;lt;html lang='en'&amp;gt;
+      &amp;lt;body&amp;gt;{children}&amp;lt;/body&amp;gt;
+    &amp;lt;/html&amp;gt;
+  );
+}</code></pre>
+
+<h2>Step 3: 특정 라우트의 아이콘 재정의</h2>
+<p>메타데이터는 라우트 트리 아래로 병합되므로, 페이지에서 루트 아이콘 세트를 확장하거나 교체할 수 있습니다. 이 기능은 블로그 하위 디렉토리나 테넌트 대시보드처럼 섹션별 브랜딩이 필요한 경우에 유용합니다.</p>
+
+<pre><code>// app/dashboard/layout.tsx
+import type { Metadata } from 'next';
+import { iconConfig } from '@/lib/icons';
+
+export const metadata: Metadata = {
+  icons: {
+    ...iconConfig,
+    icon: [
+      { url: '/icons/dashboard-32x32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/icons/dashboard.svg', sizes: 'any', type: 'image/svg+xml' },
+    ],
+  },
+};
+
+export default function DashboardLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return &amp;lt;section&amp;gt;{children}&amp;lt;/section&amp;gt;;
+}</code></pre>
+
+<h2>Step 4: 데이터 기반 아이콘 동적 생성</h2>
+<p>기능 플래그, 사용자 역할, A/B 변형에 따라 아이콘이 바뀌어야 한다면 서버 컴포넌트에서 데이터를 가져와 icons 객체를 즉석에서 만드세요. 아래 예제는 theme 쿠키가 다크 모드를 나타낼 때 고대비 변형을 선택합니다.</p>
+
+<pre><code>// app/settings/page.tsx
+import { cookies } from 'next/headers';
+import type { Metadata } from 'next';
+
+export async function generateMetadata(): Promise&lt;Metadata&gt; {
+  const cookieStore = await cookies();
+  const theme = cookieStore.get('theme')?.value ?? 'light';
+  const suffix = theme === 'dark' ? '-dark' : '';
+
+  return {
+    icons: {
+      icon: [
+        { url: `/icons/settings${suffix}-32x32.png`, sizes: '32x32' },
+        { url: `/icons/settings${suffix}.svg`, sizes: 'any' },
+      ],
+      apple: [{ url: `/icons/settings${suffix}-apple.png`, sizes: '180x180' }],
+    },
+  };
+}
+
+export default function SettingsPage() {
+  return &amp;lt;main&amp;gt;Settings&amp;lt;/main&amp;gt;;
+}</code></pre>
+
+<h2>Step 5: 미디어 쿼리를 사용한 다크 모드 SVG 추가</h2>
+<p>CSS로 적응하는 단일 SVG를 선호한다면 한 번만 선언하고 media 속성으로 나머지를 처리하세요. 이렇게 하면 중복 리소스를 피하고 head를 가볍게 유지할 수 있습니다.</p>
+
+<pre><code>// lib/icons.ts (추가)
+export const adaptiveIconConfig = {
+  icon: [
+    {
+      url: '/icons/adaptive.svg',
+      sizes: 'any',
+      type: 'image/svg+xml',
+      media: '(prefers-color-scheme: light)',
+    },
+    {
+      url: '/icons/adaptive-dark.svg',
+      sizes: 'any',
+      type: 'image/svg+xml',
+      media: '(prefers-color-scheme: dark)',
+    },
+  ],
+} satisfies Metadata['icons'];</code></pre>
+
+<h2>흔한 함정</h2>
+<ul>
+  <li><strong>satisfies 제약 조건 잊기.</strong> 이것이 없으면 TypeScript가 누락된 url이나 잘못된 rel 값을 잡아내지 못합니다.</li>
+  <li><strong>파일 기반 아이콘과 메타데이터 아이콘 혼용.</strong> Next.js는 둘을 병합하지만, 중복된 rel 항목이 브라우저 동작을 예측 불가능하게 만들 수 있습니다. 라우트 세그먼트별로 한 가지 전략을 선택하세요.</li>
+  <li><strong>선행 슬래시 없이 상대 URL 사용.</strong> 항상 /로 시작하거나 절대 CDN 출처를 사용하세요. 그렇지 않으면 브라우저가 현재 경로명을 기준으로 URL을 해석합니다.</li>
+  <li><strong>대체 ICO 생략.</strong> 일부 엔터프라이즈 프록시와 구형 크롤러는 여전히 /favicon.ico를 요청합니다. 설정에 shortcut: '/icons/favicon.ico'를 유지하세요.</li>
+</ul>
+
+<h2>확인 체크리스트</h2>
+<ol>
+  <li>DevTools → Network → img 필터를 열어 선언된 각 아이콘이 200을 반환하는지 확인하세요.</li>
+  <li>head 내부에 link rel='icon', link rel='apple-touch-icon', link rel='mask-icon' 태그가 있는지 검사하세요.</li>
+  <li>OS 설정에서 다크 모드 전환을 테스트하세요. 새로고침 없이 올바른 SVG가 로드되어야 합니다.</li>
+  <li><a href="/ko/blog/favicon-checker-online.html">Mzu favicondl의 온라인 체커</a>로 빠른 감사를 실행하여 누락된 크기나 MIME 타입 불일치를 잡아내세요.</li>
+</ol>
+
+<h2>파일 기반 규약을 고수해야 할 때</h2>
+<p>프로젝트에 단일 정적 favicon 세트만 필요하다면 파일 기반 접근 방식(app/favicon.ico, app/icon.png 등)이 여전히 가장 간단한 선택입니다. TypeScript도 런타임도 필요 없으며 별도 설정 없이 작동합니다. 라우트별 재정의, 동적 선택, media와 color 같은 고급 속성이 필요할 때 메타데이터 API를 활용하세요.</p>
+
+<p>파일 기반 워크플로에 대해 더 자세히 알아보려면 <a href="/ko/blog/nextjs-app-router-favicon.html">Next.js App Router favicon 추가 가이드</a>를 참고하세요. PWA를 구축 중이라면 <a href="/ko/blog/web-app-manifest-favicon.html">Web App Manifest favicon 가이드</a>에서 이 메타데이터 선언과 함께 필요한 매니페스트 아이콘을 다룹니다.</p>
+
+<h2>문서화된 요구 사항 확인</h2>
+<p>Next.js는 <a href="https://nextjs.org/docs/app/api-reference/file-conventions/metadata/app-icons">메타데이터 파일 규약</a> 문서에서 favicon과 앱 아이콘을 다루고 있습니다.</p></div>
+
+        <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
+
+        <div class="cta-box">
+            <h3>몇 초 만에 아이콘 패키지 생성</h3>
+            <p>SVG 또는 PNG 하나만 업로드하면 필요한 모든 크기, 형식, HTML 스니펫을 무료로 얻을 수 있습니다. 가입 불필요.</p>
+            <a href="/ko/index.html" class="cta-btn">Mzu favicondl 무료로 사용해보기 →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/ko/index.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">홈</a>
+                <a href="/ko/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">블로그</a>
+                <a href="/ko/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">개인정보</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js?v=20260211"></script>
+
+</body></html>

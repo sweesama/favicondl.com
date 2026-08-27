@@ -2379,7 +2379,9 @@
       "nextjs-app-router-favicon",
       "favicon-metadata-json"
     ],
-    "status": "pending"
+    "status": "done",
+    "qualityScore": 85,
+    "qualityGrade": "A"
   },
   {
     "keyword": "nextjs apple icon setup",

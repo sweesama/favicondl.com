@@ -1,0 +1,878 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Next.js Metadata Icons: Programmatic Favicon Control - Mzu favicondl</title>
+    <meta name="description" content="Learn to configure favicons programmatically using Next.js App Router metadata API. Control icon types, sizes, and rel values dynamically.">
+    <meta name="keywords" content="nextjs metadata icons, nextjs favicon api, app router icons">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/blog/nextjs-metadata-icons-favicon.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/nextjs-metadata-icons-favicon.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/nextjs-metadata-icons-favicon.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/nextjs-metadata-icons-favicon.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/nextjs-metadata-icons-favicon.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/nextjs-metadata-icons-favicon.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/nextjs-metadata-icons-favicon.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/blog/nextjs-metadata-icons-favicon.html">
+    <meta property="og:title" content="Next.js Metadata Icons: Programmatic Favicon Control">
+    <meta property="og:description" content="Learn to configure favicons programmatically using Next.js App Router metadata API. Control icon types, sizes, and rel values dynamically.">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Next.js Metadata Icons: Programmatic Favicon Control">
+    <meta name="twitter:description" content="Learn to configure favicons programmatically using Next.js App Router metadata API. Control icon types, sizes, and rel values dynamically.">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Next.js Metadata Icons: Programmatic Favicon Control",
+  "description": "Learn to configure favicons programmatically using Next.js App Router metadata API. Control icon types, sizes, and rel values dynamically.",
+  "datePublished": "2026-08-27",
+  "dateModified": "2026-08-27",
+  "author": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "mainEntityOfPage": "https://favicondl.com/blog/nextjs-metadata-icons-favicon.html",
+  "inLanguage": "en"
+}</script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/index.html" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/documentation.html" class="nav-link" data-en="Docs" data-zh="文档">Docs</a>
+                <a href="/tools.html" class="nav-link" data-en="Tools" data-zh="工具">Tools</a>
+                <a href="/blog/" class="nav-link" data-en="Blog" data-zh="博客">Blog</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/nextjs-metadata-icons-favicon.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/nextjs-metadata-icons-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/nextjs-metadata-icons-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/nextjs-metadata-icons-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/nextjs-metadata-icons-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/index.html" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600" data-en="Next.js Metadata Icons: Programmatic Favicon Control" data-zh="Next.js Metadata Icons：程序化 Favicon 控制" data-ja="Next.js Metadata Icons: プログラムによる Favicon 制御" data-ko="Next.js Metadata Icons: 프로그래밍 방식 Favicon 제어" data-es="Next.js Metadata Icons: Control Programático de Favicon">Next.js Metadata Icons: Programmatic Favicon Control</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">nextjs</span><time class="text-sm text-gray-400">2026-08-27</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight" data-en="Next.js Metadata Icons: Programmatic Favicon Control" data-zh="Next.js Metadata Icons：程序化 Favicon 控制" data-ja="Next.js Metadata Icons: プログラムによる Favicon 制御" data-ko="Next.js Metadata Icons: 프로그래밍 방식 Favicon 제어" data-es="Next.js Metadata Icons: Control Programático de Favicon">Next.js Metadata Icons: Programmatic Favicon Control</h1>
+        </header>
+
+        <div class="article-body" data-lang="en">
+            <p>You’ve added <code>favicon.ico</code> to your <code>app</code> directory and it works. But what happens when you need different icons for marketing pages versus the dashboard, or when the icon must reflect a user’s theme preference without a full page reload? The file-based convention is convenient, yet it cannot cover every scenario.</p>
+
+<p>Next.js exposes an <code>icons</code> field inside the metadata object that lets you declare icons programmatically. This approach gives you granular control over <code>rel</code>, <code>sizes</code>, <code>type</code>, and even <code>media</code> attributes — all from <code>layout.tsx</code> or a specific <code>page.tsx</code>. We’ll walk through the practical steps to migrate from static files to a metadata-driven setup.</p>
+
+<h2>Prerequisites</h2>
+<ul>
+  <li>A Next.js 13+ project using the App Router</li>
+  <li>Icon assets (SVG, PNG, or ICO) placed in <code>public/</code> or a reachable CDN path</li>
+  <li>Familiarity with the <code>Metadata</code> type from <code>next</code></li>
+</ul>
+
+<h2>Step 1: Define a reusable icon configuration</h2>
+<p>Create a small helper so you can reuse the same icon definitions across layouts. This keeps your metadata exports clean and makes future updates painless.</p>
+<pre><code>// lib/icons.ts
+import { Metadata } from 'next';
+
+export const iconConfig = {
+  icon: [
+    { url: '/icons/icon-16x16.png', sizes: '16x16', type: 'image/png' },
+    { url: '/icons/icon-32x32.png', sizes: '32x32', type: 'image/png' },
+    { url: '/icons/icon.svg', sizes: 'any', type: 'image/svg+xml' },
+  ],
+  apple: [
+    { url: '/icons/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+  ],
+  shortcut: '/icons/favicon.ico',
+  other: [
+    {
+      rel: 'mask-icon',
+      url: '/icons/safari-pinned-tab.svg',
+      color: '#0066cc',
+    },
+  ],
+} satisfies Metadata['icons'];</code></pre>
+
+<h2>Step 2: Apply the configuration in your root layout</h2>
+<p>Import the helper and spread it into the <code>icons</code> field of your metadata export. This replaces the need for <code>favicon.ico</code>, <code>icon.png</code>, and <code>apple-icon.png</code> files sitting directly in <code>app/</code>.</p>
+<pre><code>// app/layout.tsx
+import type { Metadata } from 'next';
+import { iconConfig } from '@/lib/icons';
+
+export const metadata: Metadata = {
+  title: 'My App',
+  icons: iconConfig,
+};
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    &amp;lt;html lang='en'&amp;gt;
+      &amp;lt;body&amp;gt;{children}&amp;lt;/body&amp;gt;
+    &amp;lt;/html&amp;gt;
+  );
+}</code></pre>
+
+<h2>Step 3: Override icons for a specific route</h2><p>Because metadata merges down the route tree, a page can extend or replace the root icon set. This is useful for section-specific branding — think a distinct icon for a blog subdirectory or a tenant dashboard.</p>
+<pre><code>// app/dashboard/layout.tsx
+import type { Metadata } from 'next';
+import { iconConfig } from '@/lib/icons';
+
+export const metadata: Metadata = {
+  icons: {
+    ...iconConfig,
+    icon: [
+      { url: '/icons/dashboard-32x32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/icons/dashboard.svg', sizes: 'any', type: 'image/svg+xml' },
+    ],
+  },
+};
+
+export default function DashboardLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return &amp;lt;section&amp;gt;{children}&amp;lt;/section&amp;gt;;
+}</code></pre>
+
+<h2>Step 4: Generate icons dynamically from data</h2>
+<p>Need an icon that changes based on a feature flag, user role, or A/B variant? Fetch the data in a server component and build the <code>icons</code> object on the fly. The example below picks a high-contrast variant when the <code>theme</code> cookie signals dark mode.</p>
+<pre><code>// app/settings/page.tsx
+import { cookies } from 'next/headers';
+import type { Metadata } from 'next';
+
+export async function generateMetadata(): Promise&lt;Metadata&gt; {
+  const cookieStore = await cookies();
+  const theme = cookieStore.get('theme')?.value ?? 'light';
+  const suffix = theme === 'dark' ? '-dark' : '';
+
+  return {
+    icons: {
+      icon: [
+        { url: `/icons/settings${suffix}-32x32.png`, sizes: '32x32' },
+        { url: `/icons/settings${suffix}.svg`, sizes: 'any' },
+      ],
+      apple: [{ url: `/icons/settings${suffix}-apple.png`, sizes: '180x180' }],
+    },
+  };
+}
+
+export default function SettingsPage() {
+  return &amp;lt;main&amp;gt;Settings&amp;lt;/main&amp;gt;;
+}</code></pre>
+
+<h2>Step 5: Add dark-mode SVG with media queries</h2>
+<p>If you prefer a single SVG that adapts via CSS, declare it once and let the <code>media</code> attribute handle the rest. This avoids duplicate assets and keeps the <code>&amp;lt;head&amp;gt;</code> lean.</p>
+<pre><code>// lib/icons.ts (addition)
+export const adaptiveIconConfig = {
+  icon: [
+    {
+      url: '/icons/adaptive.svg',
+      sizes: 'any',
+      type: 'image/svg+xml',
+      media: '(prefers-color-scheme: light)',
+    },
+    {
+      url: '/icons/adaptive-dark.svg',
+      sizes: 'any',
+      type: 'image/svg+xml',
+      media: '(prefers-color-scheme: dark)',
+    },
+  ],
+} satisfies Metadata['icons'];</code></pre>
+
+<h2>Common pitfalls</h2>
+<ul>
+  <li><strong>Forgetting the <code>satisfies</code> constraint.</strong> Without it, TypeScript won’t catch missing <code>url</code> or invalid <code>rel</code> values.</li>
+  <li><strong>Mixing file-based and metadata icons.</strong> Next.js merges them, but duplicate <code>rel</code> entries can cause unpredictable browser behavior. Pick one strategy per route segment.</li>
+  <li><strong>Using relative URLs without a leading slash.</strong> Always start with <code>/</code> or an absolute CDN origin; otherwise the browser resolves against the current pathname.</li>
+  <li><strong>Omitting a fallback ICO.</strong> Some enterprise proxies and older crawlers still request <code>/favicon.ico</code>. Keep <code>shortcut: '/icons/favicon.ico'</code> in your config.</li>
+</ul>
+
+<h2>Verification checklist</h2>
+<ol>
+  <li>Open DevTools → Network → filter “img” and confirm each declared icon returns 200.</li>
+  <li>Inspect <code>&amp;lt;head&amp;gt;</code> for <code>&amp;lt;link rel='icon'&amp;gt;</code>, <code>&amp;lt;link rel='apple-touch-icon'&amp;gt;</code>, and <code>&amp;lt;link rel='mask-icon'&amp;gt;</code> tags.</li>
+  <li>Test dark-mode switching in OS settings; the correct SVG should load without a refresh.</li>
+  <li>Run a quick audit with <a href="/blog/favicon-checker-online.html">Mzu favicondl’s online checker</a> to catch missing sizes or MIME-type mismatches.</li>
+</ol>
+
+<h2>When to stick with file-based conventions</h2>
+<p>If your project only needs a single, static favicon set, the file-based approach (<code>app/favicon.ico</code>, <code>app/icon.png</code>, etc.) remains the simplest path. It requires zero TypeScript, zero runtime, and works out of the box. Reach for the metadata API when you need per-route overrides, dynamic selection, or advanced attributes like <code>media</code> and <code>color</code>.</p>
+
+<p>For a deeper dive on the file-based workflow, see our guide on <a href="/blog/nextjs-app-router-favicon.html">adding a Next.js App Router favicon in minutes</a>. And if you’re building a PWA, the <a href="/blog/web-app-manifest-favicon.html">Web App Manifest favicon guide</a> covers the manifest icons you’ll need alongside these metadata declarations.</p><h2>Check the documented requirements</h2><p>Next.js documents favicons and app icons in its <a href="https://nextjs.org/docs/app/api-reference/file-conventions/metadata/app-icons">metadata file conventions</a>.</p>
+        </div>
+
+        <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
+        <template data-article-lang="zh"><p>你在 <code>app</code> 目录下放了 <code>favicon.ico</code>，能用。但如果营销页和后台需要不同的图标，或者图标要根据用户主题偏好切换且不能整页刷新呢？文件约定很方便，但覆盖不了所有场景。</p>
+
+<p>Next.js 在 metadata 对象里暴露了 <code>icons</code> 字段，支持以编程方式声明图标。这样你可以精细控制 <code>rel</code>、<code>sizes</code>、<code>type</code>，甚至 <code>media</code> 属性——全部在 <code>layout.tsx</code> 或某个 <code>page.tsx</code> 里完成。下面一步步演示如何从静态文件迁移到 metadata 驱动的方式。</p>
+
+<h2>前置条件</h2>
+<ul>
+  <li>使用 App Router 的 Next.js 13+ 项目</li>
+  <li>放在 <code>public/</code> 或可访问的 CDN 路径下的图标资源（SVG、PNG 或 ICO）</li>
+  <li>熟悉 <code>next</code> 中的 <code>Metadata</code> 类型</li>
+</ul>
+
+<h2>第一步：定义可复用的图标配置</h2>
+<p>写一个小 helper，让你能在不同 layout 里复用同一套图标定义。这样 metadata 导出更干净，后续更新也省事。</p>
+<pre><code>// lib/icons.ts
+import { Metadata } from 'next';
+
+export const iconConfig = {
+  icon: [
+    { url: '/icons/icon-16x16.png', sizes: '16x16', type: 'image/png' },
+    { url: '/icons/icon-32x32.png', sizes: '32x32', type: 'image/png' },
+    { url: '/icons/icon.svg', sizes: 'any', type: 'image/svg+xml' },
+  ],
+  apple: [
+    { url: '/icons/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+  ],
+  shortcut: '/icons/favicon.ico',
+  other: [
+    {
+      rel: 'mask-icon',
+      url: '/icons/safari-pinned-tab.svg',
+      color: '#0066cc',
+    },
+  ],
+} satisfies Metadata['icons'];</code></pre>
+
+<h2>第二步：在根 layout 中应用配置</h2>
+<p>导入 helper 并展开到 metadata 导出的 <code>icons</code> 字段里。这样就不用在 <code>app/</code> 下直接放 <code>favicon.ico</code>、<code>icon.png</code> 和 <code>apple-icon.png</code> 了。</p>
+<pre><code>// app/layout.tsx
+import type { Metadata } from 'next';
+import { iconConfig } from '@/lib/icons';
+
+export const metadata: Metadata = {
+  title: 'My App',
+  icons: iconConfig,
+};
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    &amp;lt;html lang='en'&amp;gt;
+      &amp;lt;body&amp;gt;{children}&amp;lt;/body&amp;gt;
+    &amp;lt;/html&amp;gt;
+  );
+}</code></pre>
+
+<h2>第三步：为特定路由覆盖图标</h2><p>因为 metadata 会沿路由树向下合并，页面可以扩展或替换根 icon 集合。适合做分区 branding——比如博客子目录或租户后台用不同的图标。</p>
+<pre><code>// app/dashboard/layout.tsx
+import type { Metadata } from 'next';
+import { iconConfig } from '@/lib/icons';
+
+export const metadata: Metadata = {
+  icons: {
+    ...iconConfig,
+    icon: [
+      { url: '/icons/dashboard-32x32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/icons/dashboard.svg', sizes: 'any', type: 'image/svg+xml' },
+    ],
+  },
+};
+
+export default function DashboardLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return &amp;lt;section&amp;gt;{children}&amp;lt;/section&amp;gt;;
+}</code></pre>
+
+<h2>第四步：根据数据动态生成图标</h2>
+<p>需要根据 feature flag、用户角色或 A/B 变体切换图标？在 server component 里取数据，动态构建 <code>icons</code> 对象。下面例子在 <code>theme</code> cookie 为 dark mode 时选用高对比度变体。</p>
+<pre><code>// app/settings/page.tsx
+import { cookies } from 'next/headers';
+import type { Metadata } from 'next';
+
+export async function generateMetadata(): Promise&lt;Metadata&gt; {
+  const cookieStore = await cookies();
+  const theme = cookieStore.get('theme')?.value ?? 'light';
+  const suffix = theme === 'dark' ? '-dark' : '';
+
+  return {
+    icons: {
+      icon: [
+        { url: `/icons/settings${suffix}-32x32.png`, sizes: '32x32' },
+        { url: `/icons/settings${suffix}.svg`, sizes: 'any' },
+      ],
+      apple: [{ url: `/icons/settings${suffix}-apple.png`, sizes: '180x180' }],
+    },
+  };
+}
+
+export default function SettingsPage() {
+  return &amp;lt;main&amp;gt;Settings&amp;lt;/main&amp;gt;;
+}</code></pre>
+
+<h2>第五步：用 media query 添加 dark-mode SVG</h2>
+<p>如果偏好单文件 SVG 通过 CSS 自适应，声明一次，让 <code>media</code> 属性处理剩余逻辑。避免重复资源，保持 <code>&amp;lt;head&amp;gt;</code> 精简。</p>
+<pre><code>// lib/icons.ts（补充）
+export const adaptiveIconConfig = {
+  icon: [
+    {
+      url: '/icons/adaptive.svg',
+      sizes: 'any',
+      type: 'image/svg+xml',
+      media: '(prefers-color-scheme: light)',
+    },
+    {
+      url: '/icons/adaptive-dark.svg',
+      sizes: 'any',
+      type: 'image/svg+xml',
+      media: '(prefers-color-scheme: dark)',
+    },
+  ],
+} satisfies Metadata['icons'];</code></pre>
+
+<h2>常见坑</h2>
+<ul>
+  <li><strong>忘了加 <code>satisfies</code> 约束。</strong>没有它，TypeScript 不会捕获缺失的 <code>url</code> 或非法的 <code>rel</code> 值。</li>
+  <li><strong>混用文件式和 metadata 图标。</strong>Next.js 会合并它们，但重复的 <code>rel</code> 条目可能导致浏览器行为不可预测。每个路由段选一种策略。</li>
+  <li><strong>相对 URL 没加前导斜杠。</strong>一定要以 <code>/</code> 或绝对 CDN 地址开头；否则浏览器会按当前路径解析。</li>
+  <li><strong>漏了 fallback ICO。</strong>部分企业代理和旧爬虫仍会请求 <code>/favicon.ico</code>。配置里保留 <code>shortcut: '/icons/favicon.ico'</code>。</li>
+</ul>
+
+<h2>验证清单</h2>
+<ol>
+  <li>打开 DevTools → Network → 筛选 "img"，确认每个声明的图标都返回 200。</li>
+  <li>检查 <code>&amp;lt;head&amp;gt;</code> 里的 <code>&amp;lt;link rel='icon'&amp;gt;</code>、<code>&amp;lt;link rel='apple-touch-icon'&amp;gt;</code> 和 <code>&amp;lt;link rel='mask-icon'&amp;gt;</code> 标签。</li>
+  <li>在 OS 设置里切换 dark mode；正确的 SVG 应在不刷新的情况下加载。</li>
+  <li>用 <a href="/blog/favicon-checker-online.html">Mzu favicondl 的在线检查工具</a> 快速审计，找出缺失的尺寸或 MIME 类型不匹配。</li>
+</ol>
+
+<h2>什么时候继续用文件约定</h2>
+<p>如果你的项目只需要一套静态 favicon，文件式方案（<code>app/favicon.ico</code>、<code>app/icon.png</code> 等）仍然是最简单的路径。它不需要 TypeScript、没有运行时开销，开箱即用。当你需要按路由覆盖、动态选择，或者 <code>media</code>、<code>color</code> 这类高级属性时，再用 metadata API。</p>
+
+<p>想深入了解文件式工作流，可以看我们这篇 <a href="/blog/nextjs-app-router-favicon.html">几分钟搞定 Next.js App Router favicon</a>。如果你在做 PWA，<a href="/blog/web-app-manifest-favicon.html">Web App Manifest favicon 指南</a> 还涵盖了这些 metadata 声明之外需要的 manifest 图标。</p>
+
+<h2>查看官方文档要求</h2>
+<p>Next.js 在 <a href="https://nextjs.org/docs/app/api-reference/file-conventions/metadata/app-icons">metadata 文件约定</a> 里记录了 favicon 和 app icon 的规范。</p></template>
+        <template data-article-lang="ja"><p>Next.js の <code>app</code> ディレクトリに <code>favicon.ico</code> を配置するだけであれば、特に問題はありません。しかし、マーケティングページとダッシュボードで異なるアイコンを使い分けたり、ページ全体を再読み込みせずにユーザーのテーマ設定に応じてアイコンを切り替えたりする必要が生じた場合はどうでしょうか。ファイルベースの規約は手軽ですが、すべてのシナリオに対応できるわけではありません。</p>
+
+<p>Next.js では、メタデータオブジェクト内の <code>icons</code> フィールドを利用することで、アイコンをプログラム的に宣言できます。この方法により、<code>layout.tsx</code> や特定の <code>page.tsx</code> から <code>rel</code>、<code>sizes</code>、<code>type</code>、さらには <code>media</code> 属性まで細かく制御できます。ここでは、静的なファイルからメタデータ駆動の構成へ移行するための実践的な手順を解説します。</p>
+
+<h2>前提条件</h2>
+<ul>
+  <li>App Router を使用した Next.js 13 以上のプロジェクト</li>
+  <li><code>public/</code> またはアクセス可能な CDN パスに配置したアイコンアセット（SVG、PNG、ICO）</li>
+  <li><code>next</code> の <code>Metadata</code> 型に関する基本的な理解</li>
+</ul>
+
+<h2>手順 1：再利用可能なアイコン設定を定義する</h2>
+<p>レイアウト間で同じアイコン定義を再利用できるよう、小さなヘルパーを作成しましょう。これにより、メタデータのエクスポートが整理され、将来的な更新も容易になります。</p>
+<pre><code>// lib/icons.ts
+import { Metadata } from 'next';
+
+export const iconConfig = {
+  icon: [
+    { url: '/icons/icon-16x16.png', sizes: '16x16', type: 'image/png' },
+    { url: '/icons/icon-32x32.png', sizes: '32x32', type: 'image/png' },
+    { url: '/icons/icon.svg', sizes: 'any', type: 'image/svg+xml' },
+  ],
+  apple: [
+    { url: '/icons/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+  ],
+  shortcut: '/icons/favicon.ico',
+  other: [
+    {
+      rel: 'mask-icon',
+      url: '/icons/safari-pinned-tab.svg',
+      color: '#0066cc',
+    },
+  ],
+} satisfies Metadata['icons'];</code></pre>
+
+<h2>手順 2：ルートレイアウトで設定を適用する</h2>
+<p>ヘルパーをインポートし、メタデータエクスポートの <code>icons</code> フィールドにスプレッドします。これにより、<code>app/</code> 直下に配置する <code>favicon.ico</code>、<code>icon.png</code>、<code>apple-icon.png</code> が不要になります。</p>
+<pre><code>// app/layout.tsx
+import type { Metadata } from 'next';
+import { iconConfig } from '@/lib/icons';
+
+export const metadata: Metadata = {
+  title: 'My App',
+  icons: iconConfig,
+};
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    &amp;lt;html lang='en'&amp;gt;
+      &amp;lt;body&amp;gt;{children}&amp;lt;/body&amp;gt;
+    &amp;lt;/html&amp;gt;
+  );
+}</code></pre>
+
+<h2>手順 3：特定ルートのアイコンを上書きする</h2>
+<p>メタデータはルートツリーに沿ってマージされるため、ページ側でルートのアイコンセットを拡張または置き換えられます。ブログのサブディレクトリやテナント別ダッシュボードなど、セクションごとにブランディングを変えたい場合に便利です。</p>
+<pre><code>// app/dashboard/layout.tsx
+import type { Metadata } from 'next';
+import { iconConfig } from '@/lib/icons';
+
+export const metadata: Metadata = {
+  icons: {
+    ...iconConfig,
+    icon: [
+      { url: '/icons/dashboard-32x32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/icons/dashboard.svg', sizes: 'any', type: 'image/svg+xml' },
+    ],
+  },
+};
+
+export default function DashboardLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return &amp;lt;section&amp;gt;{children}&amp;lt;/section&amp;gt;;
+}</code></pre>
+
+<h2>手順 4：データからアイコンを動的に生成する</h2>
+<p>feature flag、ユーザーロール、A/B テストのバリアントに応じてアイコンを切り替えたい場合は、サーバーコンポーネントでデータを取得し、その場で <code>icons</code> オブジェクトを構築します。次の例では、<code>theme</code> Cookie がダークモードを示す場合にハイコントラスト版のアイコンを選択しています。</p>
+<pre><code>// app/settings/page.tsx
+import { cookies } from 'next/headers';
+import type { Metadata } from 'next';
+
+export async function generateMetadata(): Promise&lt;Metadata&gt; {
+  const cookieStore = await cookies();
+  const theme = cookieStore.get('theme')?.value ?? 'light';
+  const suffix = theme === 'dark' ? '-dark' : '';
+
+  return {
+    icons: {
+      icon: [
+        { url: `/icons/settings${suffix}-32x32.png`, sizes: '32x32' },
+        { url: `/icons/settings${suffix}.svg`, sizes: 'any' },
+      ],
+      apple: [{ url: `/icons/settings${suffix}-apple.png`, sizes: '180x180' }],
+    },
+  };
+}
+
+export default function SettingsPage() {
+  return &amp;lt;main&amp;gt;Settings&amp;lt;/main&amp;gt;;
+}</code></pre>
+
+<h2>手順 5：メディアクエリによるダークモード SVG の追加</h2>
+<p>CSS で適応する単一の SVG を利用したい場合は、一度宣言し、<code>media</code> 属性に任せましょう。これによりアセットの重複を避け、<code>&amp;lt;head&amp;gt;</code> を軽量に保てます。</p>
+<pre><code>// lib/icons.ts（追加分）
+export const adaptiveIconConfig = {
+  icon: [
+    {
+      url: '/icons/adaptive.svg',
+      sizes: 'any',
+      type: 'image/svg+xml',
+      media: '(prefers-color-scheme: light)',
+    },
+    {
+      url: '/icons/adaptive-dark.svg',
+      sizes: 'any',
+      type: 'image/svg+xml',
+      media: '(prefers-color-scheme: dark)',
+    },
+  ],
+} satisfies Metadata['icons'];</code></pre>
+
+<h2>よくある落とし穴</h2>
+<ul>
+  <li><strong><code>satisfies</code> 制約を忘れる。</strong> これがないと、TypeScript は <code>url</code> の欠落や無効な <code>rel</code> の値を検出できません。</li>
+  <li><strong>ファイルベースとメタデータのアイコンを混在させる。</strong> Next.js はこれらをマージしますが、重複した <code>rel</code> エントリがあるとブラウザの動作が不安定になる可能性があります。ルートセグメントごとにどちらか一方の戦略を選びましょう。</li>
+  <li><strong>先頭のスラッシュなしで相対 URL を使用する。</strong> 必ず <code>/</code> で始めるか、CDN の絶対 URL を使用してください。そうしないとブラウザが現在のパス名を基準に解決してしまいます。</li>
+  <li><strong>フォールバック用 ICO を省略する。</strong> エンタープライズ向けプロキシや古いクローラの中には、依然として <code>/favicon.ico</code> を要求するものがあります。設定に <code>shortcut: '/icons/favicon.ico'</code> を残しておきましょう。</li>
+</ul>
+
+<h2>確認チェックリスト</h2>
+<ol>
+  <li>DevTools を開き、Network パネルで「img」フィルタを適用して、宣言した各アイコンが 200 を返すことを確認してください。</li>
+  <li><code>&amp;lt;head&amp;gt;</code> 内に <code>&amp;lt;link rel='icon'&amp;gt;</code>、<code>&amp;lt;link rel='apple-touch-icon'&amp;gt;</code>、<code>&amp;lt;link rel='mask-icon'&amp;gt;</code> の各タグが存在するか確認してください。</li>
+  <li>OS の設定でダークモードの切り替えをテストし、再読み込みなしに正しい SVG が読み込まれることを確認してください。</li>
+  <li><a href="/blog/favicon-checker-online.html">Mzu favicondl のオンラインチェッカー</a> を使って簡易監査を行い、不足しているサイズや MIME タイプの不一致を検出してください。</li>
+</ol>
+
+<h2>ファイルベースの規約を維持すべきケース</h2>
+<p>プロジェクトで静的な favicon セットを 1 つだけ使用する場合は、ファイルベースのアプローチ（<code>app/favicon.ico</code>、<code>app/icon.png</code> など）が依然として最もシンプルです。TypeScript もランタイムも不要で、すぐに動作します。ルートごとの上書き、動的な選択、<code>media</code> や <code>color</code> のような高度な属性が必要な場合に限り、メタデータ API を利用しましょう。</p>
+
+<p>ファイルベースのワークフローについて詳しくは、<a href="/blog/nextjs-app-router-favicon.html">Next.js App Router の favicon を数分で追加するガイド</a>を参照してください。PWA を構築している場合は、<a href="/blog/web-app-manifest-favicon.html">Web App Manifest の favicon ガイド</a>で、これらのメタデータ宣言と併せて必要なマニフェストアイコンについて説明しています。</p>
+
+<h2>公式ドキュメントの要件を確認する</h2>
+<p>Next.js では、favicon やアプリアイコンについて<a href="https://nextjs.org/docs/app/api-reference/file-conventions/metadata/app-icons">メタデータのファイル規約</a>に記載されています。</p></template>
+        <template data-article-lang="ko"><p>favicon.ico를 app 디렉토리에 추가하고 작동하게 만드는 것은 쉽습니다. 하지만 마케팅 페이지와 대시보드에 서로 다른 아이콘이 필요하거나, 페이지 리로드 없이 사용자의 테마 설정에 맞춰 아이콘을 바꿔야 할 때는 어떻게 해야 할까요? 파일 기반 규약은 편리하지만 모든 상황을 커버하기는 어렵습니다.</p>
+
+<p>Next.js는 메타데이터 객체 내부에 icons 필드를 제공하여 아이콘을 프로그래밍 방식으로 선언할 수 있습니다. 이 방식을 사용하면 layout.tsx나 특정 page.tsx에서 rel, sizes, type, 심지어 media 속성까지 세밀하게 제어할 수 있습니다. 이 글에서는 정적 파일에서 메타데이터 기반 설정으로 마이그레이션하는 실용적인 단계를 살펴보겠습니다.</p>
+
+<h2>사전 준비 사항</h2>
+<ul>
+  <li>App Router를 사용하는 Next.js 13 이상 프로젝트</li>
+  <li>public/ 디렉토리나 접근 가능한 CDN 경로에 배치된 아이콘 리소스(SVG, PNG, ICO)</li>
+  <li>next의 Metadata 타입에 대한 familiarity</li>
+</ul>
+
+<h2>Step 1: 재사용 가능한 아이콘 설정 정의</h2>
+<p>레이아웃 전체에서 동일한 아이콘 정의를 재사용할 수 있도록 작은 헬퍼를 만드세요. 이렇게 하면 메타데이터 exports가 깔끔해지고 나중에 업데이트하기도 쉬워집니다.</p>
+
+<pre><code>// lib/icons.ts
+import { Metadata } from 'next';
+
+export const iconConfig = {
+  icon: [
+    { url: '/icons/icon-16x16.png', sizes: '16x16', type: 'image/png' },
+    { url: '/icons/icon-32x32.png', sizes: '32x32', type: 'image/png' },
+    { url: '/icons/icon.svg', sizes: 'any', type: 'image/svg+xml' },
+  ],
+  apple: [
+    { url: '/icons/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+  ],
+  shortcut: '/icons/favicon.ico',
+  other: [
+    {
+      rel: 'mask-icon',
+      url: '/icons/safari-pinned-tab.svg',
+      color: '#0066cc',
+    },
+  ],
+} satisfies Metadata['icons'];</code></pre>
+
+<h2>Step 2: 루트 레이아웃에 설정 적용</h2>
+<p>헬퍼를 불러와 메타데이터 export의 icons 필드에 전개 연산자로 넣으세요. 이렇게 하면 app/ 디렉토리에 직접 두었던 favicon.ico, icon.png, apple-icon.png 파일이 더 이상 필요하지 않습니다.</p>
+
+<pre><code>// app/layout.tsx
+import type { Metadata } from 'next';
+import { iconConfig } from '@/lib/icons';
+
+export const metadata: Metadata = {
+  title: 'My App',
+  icons: iconConfig,
+};
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    &amp;lt;html lang='en'&amp;gt;
+      &amp;lt;body&amp;gt;{children}&amp;lt;/body&amp;gt;
+    &amp;lt;/html&amp;gt;
+  );
+}</code></pre>
+
+<h2>Step 3: 특정 라우트의 아이콘 재정의</h2>
+<p>메타데이터는 라우트 트리 아래로 병합되므로, 페이지에서 루트 아이콘 세트를 확장하거나 교체할 수 있습니다. 이 기능은 블로그 하위 디렉토리나 테넌트 대시보드처럼 섹션별 브랜딩이 필요한 경우에 유용합니다.</p>
+
+<pre><code>// app/dashboard/layout.tsx
+import type { Metadata } from 'next';
+import { iconConfig } from '@/lib/icons';
+
+export const metadata: Metadata = {
+  icons: {
+    ...iconConfig,
+    icon: [
+      { url: '/icons/dashboard-32x32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/icons/dashboard.svg', sizes: 'any', type: 'image/svg+xml' },
+    ],
+  },
+};
+
+export default function DashboardLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return &amp;lt;section&amp;gt;{children}&amp;lt;/section&amp;gt;;
+}</code></pre>
+
+<h2>Step 4: 데이터 기반 아이콘 동적 생성</h2>
+<p>기능 플래그, 사용자 역할, A/B 변형에 따라 아이콘이 바뀌어야 한다면 서버 컴포넌트에서 데이터를 가져와 icons 객체를 즉석에서 만드세요. 아래 예제는 theme 쿠키가 다크 모드를 나타낼 때 고대비 변형을 선택합니다.</p>
+
+<pre><code>// app/settings/page.tsx
+import { cookies } from 'next/headers';
+import type { Metadata } from 'next';
+
+export async function generateMetadata(): Promise&lt;Metadata&gt; {
+  const cookieStore = await cookies();
+  const theme = cookieStore.get('theme')?.value ?? 'light';
+  const suffix = theme === 'dark' ? '-dark' : '';
+
+  return {
+    icons: {
+      icon: [
+        { url: `/icons/settings${suffix}-32x32.png`, sizes: '32x32' },
+        { url: `/icons/settings${suffix}.svg`, sizes: 'any' },
+      ],
+      apple: [{ url: `/icons/settings${suffix}-apple.png`, sizes: '180x180' }],
+    },
+  };
+}
+
+export default function SettingsPage() {
+  return &amp;lt;main&amp;gt;Settings&amp;lt;/main&amp;gt;;
+}</code></pre>
+
+<h2>Step 5: 미디어 쿼리를 사용한 다크 모드 SVG 추가</h2>
+<p>CSS로 적응하는 단일 SVG를 선호한다면 한 번만 선언하고 media 속성으로 나머지를 처리하세요. 이렇게 하면 중복 리소스를 피하고 head를 가볍게 유지할 수 있습니다.</p>
+
+<pre><code>// lib/icons.ts (추가)
+export const adaptiveIconConfig = {
+  icon: [
+    {
+      url: '/icons/adaptive.svg',
+      sizes: 'any',
+      type: 'image/svg+xml',
+      media: '(prefers-color-scheme: light)',
+    },
+    {
+      url: '/icons/adaptive-dark.svg',
+      sizes: 'any',
+      type: 'image/svg+xml',
+      media: '(prefers-color-scheme: dark)',
+    },
+  ],
+} satisfies Metadata['icons'];</code></pre>
+
+<h2>흔한 함정</h2>
+<ul>
+  <li><strong>satisfies 제약 조건 잊기.</strong> 이것이 없으면 TypeScript가 누락된 url이나 잘못된 rel 값을 잡아내지 못합니다.</li>
+  <li><strong>파일 기반 아이콘과 메타데이터 아이콘 혼용.</strong> Next.js는 둘을 병합하지만, 중복된 rel 항목이 브라우저 동작을 예측 불가능하게 만들 수 있습니다. 라우트 세그먼트별로 한 가지 전략을 선택하세요.</li>
+  <li><strong>선행 슬래시 없이 상대 URL 사용.</strong> 항상 /로 시작하거나 절대 CDN 출처를 사용하세요. 그렇지 않으면 브라우저가 현재 경로명을 기준으로 URL을 해석합니다.</li>
+  <li><strong>대체 ICO 생략.</strong> 일부 엔터프라이즈 프록시와 구형 크롤러는 여전히 /favicon.ico를 요청합니다. 설정에 shortcut: '/icons/favicon.ico'를 유지하세요.</li>
+</ul>
+
+<h2>확인 체크리스트</h2>
+<ol>
+  <li>DevTools → Network → img 필터를 열어 선언된 각 아이콘이 200을 반환하는지 확인하세요.</li>
+  <li>head 내부에 link rel='icon', link rel='apple-touch-icon', link rel='mask-icon' 태그가 있는지 검사하세요.</li>
+  <li>OS 설정에서 다크 모드 전환을 테스트하세요. 새로고침 없이 올바른 SVG가 로드되어야 합니다.</li>
+  <li><a href="/blog/favicon-checker-online.html">Mzu favicondl의 온라인 체커</a>로 빠른 감사를 실행하여 누락된 크기나 MIME 타입 불일치를 잡아내세요.</li>
+</ol>
+
+<h2>파일 기반 규약을 고수해야 할 때</h2>
+<p>프로젝트에 단일 정적 favicon 세트만 필요하다면 파일 기반 접근 방식(app/favicon.ico, app/icon.png 등)이 여전히 가장 간단한 선택입니다. TypeScript도 런타임도 필요 없으며 별도 설정 없이 작동합니다. 라우트별 재정의, 동적 선택, media와 color 같은 고급 속성이 필요할 때 메타데이터 API를 활용하세요.</p>
+
+<p>파일 기반 워크플로에 대해 더 자세히 알아보려면 <a href="/blog/nextjs-app-router-favicon.html">Next.js App Router favicon 추가 가이드</a>를 참고하세요. PWA를 구축 중이라면 <a href="/blog/web-app-manifest-favicon.html">Web App Manifest favicon 가이드</a>에서 이 메타데이터 선언과 함께 필요한 매니페스트 아이콘을 다룹니다.</p>
+
+<h2>문서화된 요구 사항 확인</h2>
+<p>Next.js는 <a href="https://nextjs.org/docs/app/api-reference/file-conventions/metadata/app-icons">메타데이터 파일 규약</a> 문서에서 favicon과 앱 아이콘을 다루고 있습니다.</p></template>
+        <template data-article-lang="es"><p>Has agregado <code>favicon.ico</code> a tu directorio <code>app</code> y funciona. Pero, ¿qué pasa cuando necesitas iconos diferentes para páginas de marketing frente al dashboard, o cuando el icono debe reflejar la preferencia de tema del usuario sin una recarga completa de la página? La convención basada en archivos es cómoda, pero no cubre todos los escenarios.</p>
+
+<p>Next.js expone un campo <code>icons</code> dentro del objeto de metadatos que te permite declarar iconos de forma programática. Este enfoque te da control granular sobre los atributos <code>rel</code>, <code>sizes</code>, <code>type</code> e incluso <code>media</code>, todo desde <code>layout.tsx</code> o un <code>page.tsx</code> específico. Repasaremos los pasos prácticos para migrar de archivos estáticos a una configuración basada en metadatos.</p>
+
+<h2>Requisitos previos</h2>
+<ul>
+  <li>Un proyecto Next.js 13+ que use el App Router</li>
+  <li>Recursos de iconos (SVG, PNG o ICO) colocados en <code>public/</code> o en una ruta CDN accesible</li>
+  <li>Familiaridad con el tipo <code>Metadata</code> de <code>next</code></li>
+</ul>
+
+<h2>Paso 1: Definir una configuración de iconos reutilizable</h2>
+<p>Crea un pequeño helper para reutilizar las mismas definiciones de iconos en distintos layouts. Esto mantiene limpias tus exportaciones de metadatos y hace que las actualizaciones futuras sean sencillas.</p>
+<pre><code>// lib/icons.ts
+import { Metadata } from 'next';
+
+export const iconConfig = {
+  icon: [
+    { url: '/icons/icon-16x16.png', sizes: '16x16', type: 'image/png' },
+    { url: '/icons/icon-32x32.png', sizes: '32x32', type: 'image/png' },
+    { url: '/icons/icon.svg', sizes: 'any', type: 'image/svg+xml' },
+  ],
+  apple: [
+    { url: '/icons/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+  ],
+  shortcut: '/icons/favicon.ico',
+  other: [
+    {
+      rel: 'mask-icon',
+      url: '/icons/safari-pinned-tab.svg',
+      color: '#0066cc',
+    },
+  ],
+} satisfies Metadata['icons'];</code></pre>
+
+<h2>Paso 2: Aplicar la configuración en tu layout raíz</h2>
+<p>Importa el helper y extiéndelo en el campo <code>icons</code> de tu exportación de metadatos. Esto elimina la necesidad de tener archivos <code>favicon.ico</code>, <code>icon.png</code> y <code>apple-icon.png</code> directamente en <code>app/</code>.</p>
+<pre><code>// app/layout.tsx
+import type { Metadata } from 'next';
+import { iconConfig } from '@/lib/icons';
+
+export const metadata: Metadata = {
+  title: 'My App',
+  icons: iconConfig,
+};
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    &amp;lt;html lang='en'&amp;gt;
+      &amp;lt;body&amp;gt;{children}&amp;lt;/body&amp;gt;
+    &amp;lt;/html&amp;gt;
+  );
+}</code></pre>
+
+<h2>Paso 3: Sobrescribir iconos para una ruta específica</h2><p>Debido a que los metadatos se fusionan hacia abajo en el árbol de rutas, una página puede extender o reemplazar el conjunto de iconos raíz. Esto es útil para marcas específicas de sección —piensa en un icono distinto para un subdirectorio de blog o un dashboard de inquilino.</p>
+<pre><code>// app/dashboard/layout.tsx
+import type { Metadata } from 'next';
+import { iconConfig } from '@/lib/icons';
+
+export const metadata: Metadata = {
+  icons: {
+    ...iconConfig,
+    icon: [
+      { url: '/icons/dashboard-32x32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/icons/dashboard.svg', sizes: 'any', type: 'image/svg+xml' },
+    ],
+  },
+};
+
+export default function DashboardLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return &amp;lt;section&amp;gt;{children}&amp;lt;/section&amp;gt;;
+}</code></pre>
+
+<h2>Paso 4: Generar iconos dinámicamente a partir de datos</h2>
+<p>¿Necesitas un icono que cambie según un <em>feature flag</em>, el rol del usuario o una variante de A/B? Obtén los datos en un componente de servidor y construye el objeto <code>icons</code> al vuelo. El ejemplo siguiente elige una variante de alto contraste cuando la cookie <code>theme</code> indica modo oscuro.</p>
+<pre><code>// app/settings/page.tsx
+import { cookies } from 'next/headers';
+import type { Metadata } from 'next';
+
+export async function generateMetadata(): Promise&lt;Metadata&gt; {
+  const cookieStore = await cookies();
+  const theme = cookieStore.get('theme')?.value ?? 'light';
+  const suffix = theme === 'dark' ? '-dark' : '';
+
+  return {
+    icons: {
+      icon: [
+        { url: `/icons/settings${suffix}-32x32.png`, sizes: '32x32' },
+        { url: `/icons/settings${suffix}.svg`, sizes: 'any' },
+      ],
+      apple: [{ url: `/icons/settings${suffix}-apple.png`, sizes: '180x180' }],
+    },
+  };
+}
+
+export default function SettingsPage() {
+  return &amp;lt;main&amp;gt;Settings&amp;lt;/main&amp;gt;;
+}</code></pre>
+
+<h2>Paso 5: Añadir SVG en modo oscuro con <em>media queries</em></h2>
+<p>Si prefieres un solo SVG que se adapte mediante CSS, decláralo una vez y deja que el atributo <code>media</code> haga el resto. Esto evita recursos duplicados y mantiene el <code>&amp;lt;head&amp;gt;</code> limpio.</p>
+<pre><code>// lib/icons.ts (adición)
+export const adaptiveIconConfig = {
+  icon: [
+    {
+      url: '/icons/adaptive.svg',
+      sizes: 'any',
+      type: 'image/svg+xml',
+      media: '(prefers-color-scheme: light)',
+    },
+    {
+      url: '/icons/adaptive-dark.svg',
+      sizes: 'any',
+      type: 'image/svg+xml',
+      media: '(prefers-color-scheme: dark)',
+    },
+  ],
+} satisfies Metadata['icons'];</code></pre>
+
+<h2>Errores comunes</h2>
+<ul>
+  <li><strong>Olvidar la restricción <code>satisfies</code>.</strong> Sin ella, TypeScript no detectará valores <code>url</code> faltantes ni valores <code>rel</code> inválidos.</li>
+  <li><strong>Mezclar iconos basados en archivos y en metadatos.</strong> Next.js los fusiona, pero las entradas <code>rel</code> duplicadas pueden causar comportamiento impredecible en el navegador. Elige una estrategia por segmento de ruta.</li>
+  <li><strong>Usar URLs relativas sin la barra inicial.</strong> Empieza siempre con <code>/</code> o un origen CDN absoluto; de lo contrario, el navegador las resolverá contra la ruta actual.</li>
+  <li><strong>Omitir un ICO de respaldo.</strong> Algunos proxies empresariales y rastreadores antiguos todavía solicitan <code>/favicon.ico</code>. Mantén <code>shortcut: '/icons/favicon.ico'</code> en tu configuración.</li>
+</ul>
+
+<h2>Lista de verificación</h2>
+<ol>
+  <li>Abre DevTools → Network → filtra por “img” y confirma que cada icono declarado devuelve 200.</li>
+  <li>Inspecciona <code>&amp;lt;head&amp;gt;</code> en busca de etiquetas <code>&amp;lt;link rel='icon'&amp;gt;</code>, <code>&amp;lt;link rel='apple-touch-icon'&amp;gt;</code> y <code>&amp;lt;link rel='mask-icon'&amp;gt;</code>.</li>
+  <li>Prueba el cambio a modo oscuro en la configuración del sistema operativo; el SVG correcto debería cargarse sin refrescar.</li>
+  <li>Ejecuta una auditoría rápida con el <a href="/blog/favicon-checker-online.html">comprobador en línea de Mzu favicondl</a> para detectar tamaños faltantes o discrepancias en el tipo MIME.</li>
+</ol>
+
+<h2>Cuándo mantener la convención basada en archivos</h2>
+<p>Si tu proyecto solo necesita un conjunto de favicon estático y único, el enfoque basado en archivos (<code>app/favicon.ico</code>, <code>app/icon.png</code>, etc.) sigue siendo el más sencillo. No requiere TypeScript, no tiene costo en tiempo de ejecución y funciona de inmediato. Recurre a la API de metadatos cuando necesites sobrescrituras por ruta, selección dinámica o atributos avanzados como <code>media</code> y <code>color</code>.</p>
+
+<p>Para profundizar en el flujo basado en archivos, consulta nuestra guía sobre <a href="/blog/nextjs-app-router-favicon.html">cómo añadir un favicon en el Next.js App Router en minutos</a>. Y si estás construyendo una PWA, la <a href="/blog/web-app-manifest-favicon.html">guía de favicon en el Web App Manifest</a> cubre los iconos del manifiesto que necesitarás junto a estas declaraciones de metadatos.</p><h2>Consulta los requisitos documentados</h2><p>Next.js documenta los favicons y los iconos de aplicación en sus <a href="https://nextjs.org/docs/app/api-reference/file-conventions/metadata/app-icons">convenciones de archivos de metadatos</a>.</p></template>
+
+        <div class="cta-box">
+            <h3 data-en="Generate Your Icon Package in Seconds" data-zh="几秒钟生成您的图标包" data-ja="数秒でアイコン パッケージを生成" data-ko="몇 초 만에 아이콘 패키지 생성" data-es="Genera tu paquete de iconos en segundos">Generate Your Icon Package in Seconds</h3>
+            <p data-en="Upload one SVG or PNG and get every size, format, and HTML snippet you need — free, no signup." data-zh="上传一个 SVG 或 PNG，免费获取所需的每种尺寸、格式和 HTML 片段，无需注册。" data-ja="SVG または PNG を 1 つアップロードするだけで、必要なすべてのサイズ、形式、HTML スニペットが無料で手に入ります。サインアップ不要。" data-ko="SVG 또는 PNG 하나만 업로드하면 필요한 모든 크기, 형식, HTML 스니펫을 무료로 얻을 수 있습니다. 가입 불필요." data-es="Sube un SVG o PNG y obtén todos los tamaños, formatos y fragmentos HTML que necesitas — gratis, sin registro.">Upload one SVG or PNG and get every size, format, and HTML snippet you need — free, no signup.</p>
+            <a href="/index.html" class="cta-btn" data-en="Try Mzu favicondl Free →" data-zh="免费试用 Mzu favicondl →" data-ja="Mzu favicondl を無料で試す →" data-ko="Mzu favicondl 무료로 사용해보기 →" data-es="Prueba Mzu favicondl gratis →">Try Mzu favicondl Free →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/index.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Home" data-zh="首页">Home</a>
+                <a href="/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Blog" data-zh="博客">Blog</a>
+                <a href="/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Privacy" data-zh="隐私政策">Privacy</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js?v=20260211"></script>
+
+</body></html>

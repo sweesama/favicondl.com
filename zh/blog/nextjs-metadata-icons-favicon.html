@@ -1,0 +1,275 @@
+<!DOCTYPE html><html lang="zh"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Next.js Metadata Icons：程序化 Favicon 控制 - Mzu favicondl</title>
+    <meta name="description" content="了解如何使用 Next.js App Router 元数据 API 以编程方式配置 favicon。动态控制图标类型、尺寸和 rel 值。">
+    <meta name="keywords" content="nextjs metadata icons, nextjs favicon api, app router icons">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/zh/blog/nextjs-metadata-icons-favicon.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/nextjs-metadata-icons-favicon.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/nextjs-metadata-icons-favicon.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/nextjs-metadata-icons-favicon.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/nextjs-metadata-icons-favicon.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/nextjs-metadata-icons-favicon.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/nextjs-metadata-icons-favicon.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/zh/blog/nextjs-metadata-icons-favicon.html">
+    <meta property="og:title" content="Next.js Metadata Icons：程序化 Favicon 控制">
+    <meta property="og:description" content="了解如何使用 Next.js App Router 元数据 API 以编程方式配置 favicon。动态控制图标类型、尺寸和 rel 值。">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Next.js Metadata Icons：程序化 Favicon 控制">
+    <meta name="twitter:description" content="了解如何使用 Next.js App Router 元数据 API 以编程方式配置 favicon。动态控制图标类型、尺寸和 rel 值。">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Next.js Metadata Icons：程序化 Favicon 控制",
+  "description": "了解如何使用 Next.js App Router 元数据 API 以编程方式配置 favicon。动态控制图标类型、尺寸和 rel 值。",
+  "datePublished": "2026-08-27",
+  "dateModified": "2026-08-27",
+  "author": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "mainEntityOfPage": "https://favicondl.com/zh/blog/nextjs-metadata-icons-favicon.html",
+  "inLanguage": "zh-CN"
+}</script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/zh/index.html" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/zh/documentation.html" class="nav-link">文档</a>
+                <a href="/zh/tools.html" class="nav-link">工具</a>
+                <a href="/zh/blog/" class="nav-link">博客</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/nextjs-metadata-icons-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/nextjs-metadata-icons-favicon.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/nextjs-metadata-icons-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/nextjs-metadata-icons-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/nextjs-metadata-icons-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/zh/index.html" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/zh/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600">Next.js Metadata Icons：程序化 Favicon 控制</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">nextjs</span><time class="text-sm text-gray-400">2026-08-27</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">Next.js Metadata Icons：程序化 Favicon 控制</h1>
+        </header>
+
+        <div class="article-body"><p>你在 <code>app</code> 目录下放了 <code>favicon.ico</code>，能用。但如果营销页和后台需要不同的图标，或者图标要根据用户主题偏好切换且不能整页刷新呢？文件约定很方便，但覆盖不了所有场景。</p>
+
+<p>Next.js 在 metadata 对象里暴露了 <code>icons</code> 字段，支持以编程方式声明图标。这样你可以精细控制 <code>rel</code>、<code>sizes</code>、<code>type</code>，甚至 <code>media</code> 属性——全部在 <code>layout.tsx</code> 或某个 <code>page.tsx</code> 里完成。下面一步步演示如何从静态文件迁移到 metadata 驱动的方式。</p>
+
+<h2>前置条件</h2>
+<ul>
+  <li>使用 App Router 的 Next.js 13+ 项目</li>
+  <li>放在 <code>public/</code> 或可访问的 CDN 路径下的图标资源（SVG、PNG 或 ICO）</li>
+  <li>熟悉 <code>next</code> 中的 <code>Metadata</code> 类型</li>
+</ul>
+
+<h2>第一步：定义可复用的图标配置</h2>
+<p>写一个小 helper，让你能在不同 layout 里复用同一套图标定义。这样 metadata 导出更干净，后续更新也省事。</p>
+<pre><code>// lib/icons.ts
+import { Metadata } from 'next';
+
+export const iconConfig = {
+  icon: [
+    { url: '/icons/icon-16x16.png', sizes: '16x16', type: 'image/png' },
+    { url: '/icons/icon-32x32.png', sizes: '32x32', type: 'image/png' },
+    { url: '/icons/icon.svg', sizes: 'any', type: 'image/svg+xml' },
+  ],
+  apple: [
+    { url: '/icons/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+  ],
+  shortcut: '/icons/favicon.ico',
+  other: [
+    {
+      rel: 'mask-icon',
+      url: '/icons/safari-pinned-tab.svg',
+      color: '#0066cc',
+    },
+  ],
+} satisfies Metadata['icons'];</code></pre>
+
+<h2>第二步：在根 layout 中应用配置</h2>
+<p>导入 helper 并展开到 metadata 导出的 <code>icons</code> 字段里。这样就不用在 <code>app/</code> 下直接放 <code>favicon.ico</code>、<code>icon.png</code> 和 <code>apple-icon.png</code> 了。</p>
+<pre><code>// app/layout.tsx
+import type { Metadata } from 'next';
+import { iconConfig } from '@/lib/icons';
+
+export const metadata: Metadata = {
+  title: 'My App',
+  icons: iconConfig,
+};
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    &amp;lt;html lang='en'&amp;gt;
+      &amp;lt;body&amp;gt;{children}&amp;lt;/body&amp;gt;
+    &amp;lt;/html&amp;gt;
+  );
+}</code></pre>
+
+<h2>第三步：为特定路由覆盖图标</h2><p>因为 metadata 会沿路由树向下合并，页面可以扩展或替换根 icon 集合。适合做分区 branding——比如博客子目录或租户后台用不同的图标。</p>
+<pre><code>// app/dashboard/layout.tsx
+import type { Metadata } from 'next';
+import { iconConfig } from '@/lib/icons';
+
+export const metadata: Metadata = {
+  icons: {
+    ...iconConfig,
+    icon: [
+      { url: '/icons/dashboard-32x32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/icons/dashboard.svg', sizes: 'any', type: 'image/svg+xml' },
+    ],
+  },
+};
+
+export default function DashboardLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return &amp;lt;section&amp;gt;{children}&amp;lt;/section&amp;gt;;
+}</code></pre>
+
+<h2>第四步：根据数据动态生成图标</h2>
+<p>需要根据 feature flag、用户角色或 A/B 变体切换图标？在 server component 里取数据，动态构建 <code>icons</code> 对象。下面例子在 <code>theme</code> cookie 为 dark mode 时选用高对比度变体。</p>
+<pre><code>// app/settings/page.tsx
+import { cookies } from 'next/headers';
+import type { Metadata } from 'next';
+
+export async function generateMetadata(): Promise&lt;Metadata&gt; {
+  const cookieStore = await cookies();
+  const theme = cookieStore.get('theme')?.value ?? 'light';
+  const suffix = theme === 'dark' ? '-dark' : '';
+
+  return {
+    icons: {
+      icon: [
+        { url: `/icons/settings${suffix}-32x32.png`, sizes: '32x32' },
+        { url: `/icons/settings${suffix}.svg`, sizes: 'any' },
+      ],
+      apple: [{ url: `/icons/settings${suffix}-apple.png`, sizes: '180x180' }],
+    },
+  };
+}
+
+export default function SettingsPage() {
+  return &amp;lt;main&amp;gt;Settings&amp;lt;/main&amp;gt;;
+}</code></pre>
+
+<h2>第五步：用 media query 添加 dark-mode SVG</h2>
+<p>如果偏好单文件 SVG 通过 CSS 自适应，声明一次，让 <code>media</code> 属性处理剩余逻辑。避免重复资源，保持 <code>&amp;lt;head&amp;gt;</code> 精简。</p>
+<pre><code>// lib/icons.ts（补充）
+export const adaptiveIconConfig = {
+  icon: [
+    {
+      url: '/icons/adaptive.svg',
+      sizes: 'any',
+      type: 'image/svg+xml',
+      media: '(prefers-color-scheme: light)',
+    },
+    {
+      url: '/icons/adaptive-dark.svg',
+      sizes: 'any',
+      type: 'image/svg+xml',
+      media: '(prefers-color-scheme: dark)',
+    },
+  ],
+} satisfies Metadata['icons'];</code></pre>
+
+<h2>常见坑</h2>
+<ul>
+  <li><strong>忘了加 <code>satisfies</code> 约束。</strong>没有它，TypeScript 不会捕获缺失的 <code>url</code> 或非法的 <code>rel</code> 值。</li>
+  <li><strong>混用文件式和 metadata 图标。</strong>Next.js 会合并它们，但重复的 <code>rel</code> 条目可能导致浏览器行为不可预测。每个路由段选一种策略。</li>
+  <li><strong>相对 URL 没加前导斜杠。</strong>一定要以 <code>/</code> 或绝对 CDN 地址开头；否则浏览器会按当前路径解析。</li>
+  <li><strong>漏了 fallback ICO。</strong>部分企业代理和旧爬虫仍会请求 <code>/favicon.ico</code>。配置里保留 <code>shortcut: '/icons/favicon.ico'</code>。</li>
+</ul>
+
+<h2>验证清单</h2>
+<ol>
+  <li>打开 DevTools → Network → 筛选 "img"，确认每个声明的图标都返回 200。</li>
+  <li>检查 <code>&amp;lt;head&amp;gt;</code> 里的 <code>&amp;lt;link rel='icon'&amp;gt;</code>、<code>&amp;lt;link rel='apple-touch-icon'&amp;gt;</code> 和 <code>&amp;lt;link rel='mask-icon'&amp;gt;</code> 标签。</li>
+  <li>在 OS 设置里切换 dark mode；正确的 SVG 应在不刷新的情况下加载。</li>
+  <li>用 <a href="/zh/blog/favicon-checker-online.html">Mzu favicondl 的在线检查工具</a> 快速审计，找出缺失的尺寸或 MIME 类型不匹配。</li>
+</ol>
+
+<h2>什么时候继续用文件约定</h2>
+<p>如果你的项目只需要一套静态 favicon，文件式方案（<code>app/favicon.ico</code>、<code>app/icon.png</code> 等）仍然是最简单的路径。它不需要 TypeScript、没有运行时开销，开箱即用。当你需要按路由覆盖、动态选择，或者 <code>media</code>、<code>color</code> 这类高级属性时，再用 metadata API。</p>
+
+<p>想深入了解文件式工作流，可以看我们这篇 <a href="/zh/blog/nextjs-app-router-favicon.html">几分钟搞定 Next.js App Router favicon</a>。如果你在做 PWA，<a href="/zh/blog/web-app-manifest-favicon.html">Web App Manifest favicon 指南</a> 还涵盖了这些 metadata 声明之外需要的 manifest 图标。</p>
+
+<h2>查看官方文档要求</h2>
+<p>Next.js 在 <a href="https://nextjs.org/docs/app/api-reference/file-conventions/metadata/app-icons">metadata 文件约定</a> 里记录了 favicon 和 app icon 的规范。</p></div>
+
+        <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
+
+        <div class="cta-box">
+            <h3>几秒钟生成您的图标包</h3>
+            <p>上传一个 SVG 或 PNG，免费获取所需的每种尺寸、格式和 HTML 片段，无需注册。</p>
+            <a href="/zh/index.html" class="cta-btn">免费试用 Mzu favicondl →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/zh/index.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">首页</a>
+                <a href="/zh/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">博客</a>
+                <a href="/zh/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">隐私政策</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js?v=20260211"></script>
+
+</body></html>
