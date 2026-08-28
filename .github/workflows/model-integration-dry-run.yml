@@ -1,0 +1,54 @@
+name: Blog Model Integration Dry Run
+
+on:
+  push:
+    branches:
+      - codex/model-api-probe-20260828
+
+permissions:
+  contents: read
+
+concurrency:
+  group: favicondl-model-integration-dry-run
+  cancel-in-progress: true
+
+jobs:
+  generate-build-validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - name: Checkout test branch
+        uses: actions/checkout@v5
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: |
+            blog/scripts/package-lock.json
+            i18n/package-lock.json
+
+      - name: Install and test generator
+        working-directory: blog/scripts
+        run: |
+          npm ci
+          npm test
+
+      - name: Generate one unpublished article
+        working-directory: blog/scripts
+        env:
+          MINIMAX_API_KEY: ${{ secrets.MINIMAX_API_KEY }}
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+          NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
+        run: node generate-article.js
+
+      - name: Build and validate the generated site
+        working-directory: i18n
+        run: |
+          npm ci
+          npm run build
+          npm run validate
+
+      - name: Confirm no publication
+        run: echo "Full model integration passed; generated changes remain only on this disposable runner."
