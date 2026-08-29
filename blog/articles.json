@@ -3227,5 +3227,26 @@
     ],
     "qualityScore": 85,
     "qualityGrade": "A"
+  },
+  {
+    "slug": "nextjs-apple-icon",
+    "publishDate": "2026-08-29",
+    "titleEn": "Next.js Apple Icon Setup: The 2026 App Router Guide",
+    "titleZh": "Next.js Apple图标设置：2026年App Router指南",
+    "titleJa": "Next.js Appleアイコン設定：2026年App Routerガイド",
+    "titleKo": "Next.js Apple 아이콘 설정: 2026년 App Router 가이드",
+    "titleEs": "Configuración del icono de Apple en Next.js: Guía 2026 para App Router",
+    "descEn": "Learn how to set up Apple touch icons in Next.js App Router. Step-by-step file placement, metadata, and common pitfalls for iOS.",
+    "descZh": "了解如何在Next.js App Router中设置Apple触摸图标。逐步文件放置、元数据和常见陷阱。",
+    "descJa": "Next.js App RouterでAppleタッチアイコンを設定する方法を学びます。ファイル配置、メタデータ、よくある落とし穴をステップバイステップで解説。",
+    "descKo": "Next.js App Router에서 Apple 터치 아이콘을 설정하는 방법을 배웁니다. 파일 배치, 메타데이터, 일반적인 함정을 단계별로 안내합니다.",
+    "descEs": "Aprende a configurar el icono táctil de Apple en Next.js App Router. Guía paso a paso de colocación de archivos, metadatos y errores comunes.",
+    "keyword": "nextjs apple icon setup",
+    "tags": [
+      "nextjs",
+      "apple"
+    ],
+    "qualityScore": 80,
+    "qualityGrade": "A"
   }
 ]

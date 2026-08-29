@@ -1,0 +1,138 @@
+<!DOCTYPE html><html lang="ko"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Next.js Apple 아이콘 설정: 2026년 App Router 가이드 - Mzu favicondl</title>
+    <meta name="description" content="Next.js App Router에서 Apple 터치 아이콘을 설정하는 방법을 배웁니다. 파일 배치, 메타데이터, 일반적인 함정을 단계별로 안내합니다.">
+    <meta name="keywords" content="nextjs apple icon, nextjs apple touch icon, nextjs app router favicon, nextjs metadata icons">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/ko/blog/nextjs-apple-icon.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/nextjs-apple-icon.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/nextjs-apple-icon.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/nextjs-apple-icon.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/nextjs-apple-icon.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/nextjs-apple-icon.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/nextjs-apple-icon.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/ko/blog/nextjs-apple-icon.html">
+    <meta property="og:title" content="Next.js Apple 아이콘 설정: 2026년 App Router 가이드">
+    <meta property="og:description" content="Next.js App Router에서 Apple 터치 아이콘을 설정하는 방법을 배웁니다. 파일 배치, 메타데이터, 일반적인 함정을 단계별로 안내합니다.">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Next.js Apple 아이콘 설정: 2026년 App Router 가이드">
+    <meta name="twitter:description" content="Next.js App Router에서 Apple 터치 아이콘을 설정하는 방법을 배웁니다. 파일 배치, 메타데이터, 일반적인 함정을 단계별로 안내합니다.">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Next.js Apple 아이콘 설정: 2026년 App Router 가이드",
+  "description": "Next.js App Router에서 Apple 터치 아이콘을 설정하는 방법을 배웁니다. 파일 배치, 메타데이터, 일반적인 함정을 단계별로 안내합니다.",
+  "datePublished": "2026-08-29",
+  "dateModified": "2026-08-29",
+  "author": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "mainEntityOfPage": "https://favicondl.com/ko/blog/nextjs-apple-icon.html",
+  "inLanguage": "ko"
+}</script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/ko/index.html" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/ko/documentation.html" class="nav-link">문서</a>
+                <a href="/ko/tools.html" class="nav-link">도구</a>
+                <a href="/ko/blog/" class="nav-link">블로그</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/nextjs-apple-icon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/nextjs-apple-icon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/nextjs-apple-icon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/nextjs-apple-icon.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/nextjs-apple-icon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/ko/index.html" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/ko/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600">Next.js Apple 아이콘 설정: 2026년 App Router 가이드</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">nextjs</span><time class="text-sm text-gray-400">2026-08-29</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">Next.js Apple 아이콘 설정: 2026년 App Router 가이드</h1>
+        </header>
+
+        <div class="article-body"><p>iPhone에서 Next.js 사이트를 홈 화면에 추가했을 때 빈 회색 사각형이 표시된 적이 있다면, Apple 터치 아이콘이 누락된 것입니다. 브라우저 탭의 파비콘은 정상적으로 보일 수 있지만, iOS는 별도의 파일을 사용하며 Next.js는 이를 제공하는 특정한 방법이 있습니다.</p><p>이 가이드에서는 App Router의 파일 기반 메타데이터 시스템을 사용한 <strong>Next.js Apple 아이콘 설정</strong> 방법을 안내합니다. 사용자 정의 API 라우트나 <code>_document.tsx</code>에 수동으로 <code>&lt;link&gt;</code> 태그를 작성할 필요 없이, 올바른 폴더에 파일을 넣기만 하면 됩니다.</p><h2>사전 요구 사항</h2><p>시작하기 전에 다음이 준비되어 있는지 확인하세요:</p><ul><li>App Router를 사용하는 Next.js 프로젝트(버전 13.2 이상).</li><li>아이콘용 이미지 파일. Apple은 터치 아이콘에 180×180 PNG를 권장하지만, 잠시 후에 자세히 다루겠습니다.</li><li>프로젝트의 <code>app/</code> 디렉토리에 대한 기본적인 이해.</li></ul><h2>1단계: Apple 터치 아이콘 준비</h2><p>Apple 터치 아이콘은 사용자가 사이트를 홈 화면에 추가할 때 iOS가 사용하는 PNG 파일입니다. 권장 크기는 180×180 픽셀이며, iPad Pro용 167×167, 구형 iPad용 152×152도 제공할 수 있습니다. 그러나 iOS는 180×180 아이콘을 자동으로 축소하므로 하나의 파일만 있으면 됩니다.</p><p>준비된 아이콘이 없다면 <a href="/ko/blog/favicon-generator-free.html">Mzu favicondl</a>과 같은 도구를 사용하여 로고에서 생성할 수 있습니다. 올바른 투명도와 패딩이 적용된 180×180 PNG를 내보낼 수 있습니다.</p><h2>2단계: App 디렉토리에 파일 배치</h2><p>Next.js App Router에서는 <code>apple-icon.png</code>(또는 <code>apple-icon.jpg</code>)를 <code>app/</code> 디렉토리에 직접 추가할 수 있습니다. Next.js는 이를 자동으로 감지하여 사이트 루트에서 제공합니다. 파일은 <code>layout.tsx</code>와 같은 폴더(일반적으로 <code>app/</code>)에 배치해야 합니다.</p><p>다음은 폴더 구조 예시입니다:</p><pre><code>app/
+├── layout.tsx
+├── page.tsx
+├── apple-icon.png
+└── icon.png</code></pre><p>이것으로 끝입니다. Next.js는 페이지의 head에 적절한 <code>&lt;link rel='apple-touch-icon'&gt;</code> 태그를 자동으로 생성합니다. HTML을 수동으로 작성할 필요가 없습니다.</p><h2>3단계: 생성된 HTML 확인</h2><p>아이콘이 제대로 제공되는지 확인하려면 개발 서버를 실행하고 페이지 소스를 검사하세요. 다음과 같은 줄이 표시되어야 합니다:</p><pre><code>&lt;link rel='apple-touch-icon' href='/apple-icon.png' sizes='180x180' type='image/png'/&gt;</code></pre><p>이 줄이 보이지 않으면 파일 이름이 정확히 <code>apple-icon.png</code>인지, 올바른 디렉토리에 있는지 확인하세요. Next.js는 Linux와 macOS에서 대소문자를 구분합니다.</p><h2>4단계: 더 많은 제어를 위한 Metadata API 사용</h2><p>여러 아이콘을 지정하거나 프로그래밍 방식으로 설정해야 하는 경우 레이아웃에서 <code>metadata</code> 내보내기를 사용할 수 있습니다. 이는 라우트별로 다른 아이콘이 있거나 Android용 maskable 아이콘을 추가하려는 경우 유용합니다.</p><p>다음은 <code>app/layout.tsx</code>의 예시입니다:</p><pre><code>import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  icons: {
+    apple: [
+      { url: '/apple-icon.png', sizes: '180x180', type: 'image/png' },
+    ],
+  },
+};</code></pre><p>이 방법을 사용하면 <code>rel</code>, <code>sizes</code>, <code>type</code> 속성을 완전히 제어할 수 있습니다. 또한 Android PWA용 maskable 아이콘을 추가하는 데 사용할 수도 있지만, 이는 별도의 주제입니다.</p><h2>일반적인 문제</h2><p>다음은 발생할 수 있는 몇 가지 문제입니다:</p><ul><li><strong>파일을 찾을 수 없음:</strong> 파일 이름을 다시 확인하세요. <code>apple-icon.png</code> 또는 <code>apple-icon.jpg</code>여야 합니다. Next.js는 <code>apple-touch-icon.png</code>를 인식하지 못합니다.</li><li><strong>캐시 문제:</strong> iOS는 아이콘을 적극적으로 캐시합니다. 아이콘을 변경했는데 업데이트가 보이지 않으면 Safari의 캐시를 지우거나 다른 기기를 사용해 보세요.</li><li><strong>잘못된 크기:</strong> Apple은 180×180을 권장하지만, 다른 크기를 사용하면 iOS가 크기를 조정합니다. 크기 조정은 흐림을 유발할 수 있으므로 권장 크기를 사용하는 것이 좋습니다.</li><li><strong>투명도:</strong> iOS는 Apple 터치 아이콘에서 투명도를 지원하지 않습니다. PNG에 투명한 영역이 있으면 검은색으로 표시됩니다. 아이콘의 배경이 불투명한지 확인하세요.</li></ul><h2>결론</h2><p>Next.js에서 Apple 터치 아이콘을 설정하는 것은 파일 기반 규칙을 알면 간단합니다. 적절한 크기의 PNG를 <code>app/</code> 폴더에 넣으면 Next.js가 나머지를 처리합니다. 더 고급 시나리오의 경우 metadata API를 통해 프로그래밍 방식으로 제어할 수 있습니다.</p><p>아이콘 자체를 생성해야 한다면 <a href="/ko/blog/favicon-generator-free.html">Mzu favicondl</a>을 사용하여 로고에서 필요한 모든 크기를 만들어 보세요. Next.js에서 파비콘 설정에 대한 더 자세한 내용은 <a href="/ko/blog/nextjs-favicon.html">Next.js Favicon 가이드</a>를 확인하세요.</p><h2>문서화된 요구 사항 확인</h2><p>Next.js는 <a href="https://nextjs.org/docs/app/api-reference/file-conventions/metadata/app-icons">메타데이터 파일 규칙</a>에서 파비콘과 앱 아이콘을 문서화하고 있습니다.</p></div>
+
+        <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
+
+        <div class="cta-box">
+            <h3>지금 Apple 아이콘 생성</h3>
+            <p>Mzu favicondl을 사용하여 Next.js 앱용 완벽한 180x180 PNG를 만드세요.</p>
+            <a href="/ko/index.html" class="cta-btn">무료로 사용해보기 →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/ko/index.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">홈</a>
+                <a href="/ko/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">블로그</a>
+                <a href="/ko/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">개인정보</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js?v=20260211"></script>
+
+</body></html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html><html lang="zh"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Next.js Apple图标设置：2026年App Router指南 - Mzu favicondl</title>
+    <meta name="description" content="了解如何在Next.js App Router中设置Apple触摸图标。逐步文件放置、元数据和常见陷阱。">
+    <meta name="keywords" content="nextjs apple icon, nextjs apple touch icon, nextjs app router favicon, nextjs metadata icons">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/zh/blog/nextjs-apple-icon.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/nextjs-apple-icon.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/nextjs-apple-icon.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/nextjs-apple-icon.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/nextjs-apple-icon.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/nextjs-apple-icon.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/nextjs-apple-icon.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/zh/blog/nextjs-apple-icon.html">
+    <meta property="og:title" content="Next.js Apple图标设置：2026年App Router指南">
+    <meta property="og:description" content="了解如何在Next.js App Router中设置Apple触摸图标。逐步文件放置、元数据和常见陷阱。">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Next.js Apple图标设置：2026年App Router指南">
+    <meta name="twitter:description" content="了解如何在Next.js App Router中设置Apple触摸图标。逐步文件放置、元数据和常见陷阱。">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Next.js Apple图标设置：2026年App Router指南",
+  "description": "了解如何在Next.js App Router中设置Apple触摸图标。逐步文件放置、元数据和常见陷阱。",
+  "datePublished": "2026-08-29",
+  "dateModified": "2026-08-29",
+  "author": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "mainEntityOfPage": "https://favicondl.com/zh/blog/nextjs-apple-icon.html",
+  "inLanguage": "zh-CN"
+}</script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/zh/index.html" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/zh/documentation.html" class="nav-link">文档</a>
+                <a href="/zh/tools.html" class="nav-link">工具</a>
+                <a href="/zh/blog/" class="nav-link">博客</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/nextjs-apple-icon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/nextjs-apple-icon.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/nextjs-apple-icon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/nextjs-apple-icon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/nextjs-apple-icon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/zh/index.html" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/zh/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600">Next.js Apple图标设置：2026年App Router指南</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">nextjs</span><time class="text-sm text-gray-400">2026-08-29</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">Next.js Apple图标设置：2026年App Router指南</h1>
+        </header>
+
+        <div class="article-body"><p>如果你曾经在 iPhone 上打开你的 Next.js 网站，并尝试将其添加到主屏幕时看到了一个空白的灰色方块，那么你缺少的就是 Apple touch icon。浏览器标签页上的 favicon 可能看起来正常，但 iOS 使用的是单独的文件——而 Next.js 有特定的方式来提供这个文件。</p><p>本指南将带你完成 <strong>Next.js Apple 图标设置</strong>，使用 App Router 基于文件的元数据系统。无需自定义 API 路由，也无需在 <code>_document.tsx</code> 中手动编写 <code>&lt;link&gt;</code> 标签——只需将文件放入正确的文件夹即可。</p><h2>前提条件</h2><p>在开始之前，请确保你具备：</p><ul><li>一个使用 App Router 的 Next.js 项目（版本 13.2 或更高）。</li><li>一个用于图标的图片文件。Apple 建议 touch icon 使用 180×180 的 PNG，但稍后我们会详细说明。</li><li>对项目的 <code>app/</code> 目录有基本了解。</li></ul><h2>步骤 1：准备 Apple Touch Icon</h2><p>Apple 的 touch icon 是一个 PNG 文件，当用户将你的网站添加到主屏幕时，iOS 会使用它。推荐尺寸为 180×180 像素，但你也可以为 iPad Pro 提供 167×167，为旧款 iPad 提供 152×152。不过，iOS 会自动缩放 180×180 的图标，因此你只需要一个文件即可。</p><p>如果你没有现成的图标，可以使用类似 <a href="/zh/blog/favicon-generator-free.html">Mzu favicondl</a> 的工具从你的 logo 生成一个。它可以导出带有正确透明度和内边距的 180×180 PNG。</p><h2>步骤 2：将文件放入 App 目录</h2><p>在 Next.js App Router 中，你可以直接将 <code>apple-icon.png</code>（或 <code>apple-icon.jpg</code>）放在 <code>app/</code> 目录中。Next.js 会自动检测它，并在你的网站根目录提供该文件。该文件应放在与 <code>layout.tsx</code> 相同的文件夹中——通常是 <code>app/</code>。</p><p>以下是一个示例文件夹结构：</p><pre><code>app/
+├── layout.tsx
+├── page.tsx
+├── apple-icon.png
+└── icon.png</code></pre><p>就这样。Next.js 会自动在页面头部生成相应的 <code>&lt;link rel='apple-touch-icon'&gt;</code> 标签。你无需手动编写任何 HTML。</p><h2>步骤 3：验证生成的 HTML</h2><p>要确认图标是否正常提供，请运行开发服务器并检查页面源代码。你应该会看到类似这样的行：</p><pre><code>&lt;link rel='apple-touch-icon' href='/apple-icon.png' sizes='180x180' type='image/png'/&gt;</code></pre><p>如果你没有看到它，请检查文件名是否完全为 <code>apple-icon.png</code>，并且位于正确的目录中。Next.js 在 Linux 和 macOS 上区分大小写。</p><h2>步骤 4：使用 Metadata API 进行更多控制</h2><p>如果你需要指定多个图标，或者希望以编程方式设置它们，可以在 layout 中使用 <code>metadata</code> 导出。当你需要为不同路由使用不同图标，或者想为 Android 添加 maskable 图标时，这会很有用。</p><p>以下是在 <code>app/layout.tsx</code> 中的示例：</p><pre><code>import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  icons: {
+    apple: [
+      { url: '/apple-icon.png', sizes: '180x180', type: 'image/png' },
+    ],
+  },
+};</code></pre><p>这种方法让你完全控制 <code>rel</code>、<code>sizes</code> 和 <code>type</code> 属性。你也可以使用它来为 Android PWA 添加 <code>maskable</code> 图标，尽管那是另一个话题。</p><h2>常见陷阱</h2><p>以下是你可能会遇到的一些问题：</p><ul><li><strong>文件未找到：</strong>仔细检查文件名。它必须是 <code>apple-icon.png</code> 或 <code>apple-icon.jpg</code>。Next.js 不会识别 <code>apple-touch-icon.png</code>。</li><li><strong>缓存问题：</strong>iOS 会积极缓存图标。如果你更改了图标但看不到更新，请尝试清除 Safari 的缓存或使用其他设备。</li><li><strong>尺寸错误：</strong>Apple 推荐 180×180，但如果你使用不同尺寸，iOS 会进行缩放。缩放可能导致模糊，因此请坚持使用推荐尺寸。</li><li><strong>透明度：</strong>iOS 不支持 Apple touch icon 中的透明度。如果你的 PNG 有透明区域，它们会显示为黑色。确保你的图标具有纯色背景。</li></ul><h2>结论</h2><p>一旦你了解了基于文件的约定，在 Next.js 中设置 Apple touch icon 就很简单了。将适当尺寸的 PNG 放入 <code>app/</code> 文件夹，Next.js 会处理其余部分。对于更高级的场景，metadata API 提供了编程控制。</p><p>如果你需要生成图标本身，可以尝试 <a href="/zh/blog/favicon-generator-free.html">Mzu favicondl</a> 从你的 logo 创建所有所需尺寸。有关 Next.js 中 favicon 设置的更全面介绍，请查看我们的 <a href="/zh/blog/nextjs-favicon.html">Next.js Favicon 指南</a>。</p><h2>查看文档要求</h2><p>Next.js 在其 <a href="https://nextjs.org/docs/app/api-reference/file-conventions/metadata/app-icons">元数据文件约定</a> 中记录了 favicon 和应用程序图标。</p></div>
+
+        <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
+
+        <div class="cta-box">
+            <h3>立即生成您的Apple图标</h3>
+            <p>使用Mzu favicondl为您的Next.js应用创建完美的180x180 PNG。</p>
+            <a href="/zh/index.html" class="cta-btn">免费试用 →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/zh/index.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">首页</a>
+                <a href="/zh/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">博客</a>
+                <a href="/zh/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">隐私政策</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js?v=20260211"></script>
+
+</body></html>
