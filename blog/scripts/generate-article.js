@@ -12,7 +12,7 @@
  * - 动态版权年份
  * 
  * v3 基础：
- * - 跨供应商多模型路由（MiniMax 主用、DeepSeek 备用、NVIDIA 末级兜底）
+ * - 跨供应商多模型路由（MiniMax 主用、DeepSeek 备用）
  * - 意图感知 / 自适应长度 / 语义去重 / 现代 SEO / response_format: JSON
  * 
  * 使用方式：
@@ -62,20 +62,15 @@ function parseModelList(value, fallback) {
 }
 
 // 路由格式为 provider:model。旧的纯 NVIDIA model id 仍兼容并自动归入 nvidia。
-// M3 使用已订阅的 Token Plan；V4 Flash 是正式 API 备用；NVIDIA 免费端点只做末级容灾。
+// M3 使用已订阅的 Token Plan，V4 Flash 是正式 API 备用。NVIDIA 路由仍兼容，
+// 但免费端点不稳定，只在 BLOG_MODEL_LIST / BLOG_TRANSLATION_MODEL_LIST 中显式启用。
 const ARTICLE_MODELS = parseModelList(process.env.BLOG_MODEL_LIST, [
   'minimax:MiniMax-M3',
   'deepseek:deepseek-v4-flash',
-  'nvidia:nvidia/nemotron-3-ultra-550b-a55b',
-  'nvidia:nvidia/nemotron-3-super-120b-a12b',
-  'nvidia:nvidia/nemotron-3.5-lightning-30b-a3b',
 ]);
 const TRANSLATION_MODELS = parseModelList(process.env.BLOG_TRANSLATION_MODEL_LIST, [
   'minimax:MiniMax-M3',
   'deepseek:deepseek-v4-flash',
-  'nvidia:nvidia/nemotron-3-ultra-550b-a55b',
-  'nvidia:nvidia/nemotron-3-super-120b-a12b',
-  'nvidia:nvidia/nemotron-3.5-lightning-30b-a3b',
 ]);
 const MAX_RETRIES = 2;
 const RETRY_DELAY_MS = 12000;
@@ -165,7 +160,7 @@ async function main() {
     .map(parseModelRoute)
     .filter(route => PROVIDER_CONFIG[route.provider]?.apiKey);
   if (configuredRoutes.length === 0) {
-    throw new Error('没有可用的模型密钥；请至少配置 MINIMAX_API_KEY、DEEPSEEK_API_KEY 或 NVIDIA_API_KEY 之一');
+    throw new Error('没有可用的模型密钥；请配置 MINIMAX_API_KEY 或 DEEPSEEK_API_KEY');
   }
   console.log('🚀 开始自动生成博客文章...\n');
 

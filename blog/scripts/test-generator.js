@@ -18,8 +18,8 @@ import {
 assert.equal(ARTICLE_MODELS.includes('stepfun-ai/step-3.7-flash'), false);
 assert.equal(TRANSLATION_MODELS.includes('stepfun-ai/step-3.7-flash'), false);
 assert.equal(TRANSLATION_MODELS[0], 'minimax:MiniMax-M3');
-assert.ok(ARTICLE_MODELS.length >= 4);
-assert.ok(TRANSLATION_MODELS.length >= 4);
+assert.equal(ARTICLE_MODELS.length, 2);
+assert.equal(TRANSLATION_MODELS.length, 2);
 assert.equal(ARTICLE_MODELS[0], 'minimax:MiniMax-M3');
 assert.equal(ARTICLE_MODELS[1], 'deepseek:deepseek-v4-flash');
 assert.equal(TRANSLATION_MODELS[1], 'deepseek:deepseek-v4-flash');
