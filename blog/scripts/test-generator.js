@@ -8,33 +8,31 @@ import {
   ensureFirstPartyEvidence,
   normalizeDescription,
   parseModelList,
+  parseModelRoute,
   requireStringFields,
   resolveOfficialSources,
   validateTranslationContent,
   validateKnownPlatformClaims,
 } from './generate-article.js';
 
-assert.equal(ARTICLE_MODELS.includes('z-ai/glm-5.2'), false);
-assert.equal(ARTICLE_MODELS.includes('openai/gpt-oss-120b'), false);
-assert.equal(ARTICLE_MODELS.includes('nvidia/nemotron-3-nano-30b-a3b'), false);
-assert.equal(ARTICLE_MODELS.includes('deepseek-ai/deepseek-v4-flash-0731'), false);
-assert.equal(TRANSLATION_MODELS.includes('z-ai/glm-5.2'), false);
-assert.equal(TRANSLATION_MODELS.includes('openai/gpt-oss-120b'), false);
-assert.equal(TRANSLATION_MODELS.includes('deepseek-ai/deepseek-v4-flash-0731'), false);
-assert.equal(TRANSLATION_MODELS[0], 'nvidia/nemotron-3-ultra-550b-a55b');
-assert.ok(ARTICLE_MODELS.length >= 4);
-assert.ok(TRANSLATION_MODELS.length >= 4);
-assert.equal(ARTICLE_MODELS[0], 'nvidia/nemotron-3-ultra-550b-a55b');
-assert.equal(ARTICLE_MODELS[1], 'nvidia/nemotron-3-super-120b-a12b');
-assert.equal(TRANSLATION_MODELS[1], 'nvidia/nemotron-3-super-120b-a12b');
-assert.equal(ARTICLE_MODELS.includes('stepfun-ai/step-3.7-flash'), true);
+assert.equal(ARTICLE_MODELS.includes('stepfun-ai/step-3.7-flash'), false);
+assert.equal(TRANSLATION_MODELS.includes('stepfun-ai/step-3.7-flash'), false);
+assert.equal(TRANSLATION_MODELS[0], 'minimax:MiniMax-M3');
+assert.equal(ARTICLE_MODELS.length, 2);
+assert.equal(TRANSLATION_MODELS.length, 2);
+assert.equal(ARTICLE_MODELS[0], 'minimax:MiniMax-M3');
+assert.equal(ARTICLE_MODELS[1], 'deepseek:deepseek-v4-flash');
+assert.equal(TRANSLATION_MODELS[1], 'deepseek:deepseek-v4-flash');
 assert.deepEqual(parseModelList(' model/a, model/b,model/a ', ['fallback']), ['model/a', 'model/b']);
 assert.deepEqual(parseModelList('', ['fallback']), ['fallback']);
+assert.deepEqual(parseModelRoute('minimax:MiniMax-M3'), { provider: 'minimax', model: 'MiniMax-M3', routeName: 'minimax:MiniMax-M3' });
+assert.deepEqual(parseModelRoute('nvidia/nemotron-test'), { provider: 'nvidia', model: 'nvidia/nemotron-test', routeName: 'nvidia/nemotron-test' });
 
 assert.equal(classifyModelError({ status: 410, message: 'Gone' }), 'permanent');
 assert.equal(classifyModelError({ status: 404, message: 'Not found' }), 'permanent');
 assert.equal(classifyModelError({ status: 429, message: 'Rate limited' }), 'transient');
 assert.equal(classifyModelError({ status: 401, message: 'Unauthorized' }), 'auth');
+assert.equal(classifyModelError({ code: 'PROVIDER_UNCONFIGURED' }), 'unconfigured');
 assert.equal(classifyModelError({ message: 'The operation was aborted' }), 'timeout');
 assert.equal(classifyModelError({ code: 'INVALID_MODEL_OUTPUT', message: 'missing title' }), 'retryable-output');
 assert.throws(() => requireStringFields({}, ['titleEn', 'contentEn'], 'test'), /titleEn, contentEn/);

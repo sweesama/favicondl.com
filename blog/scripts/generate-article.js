@@ -12,11 +12,11 @@
  * - 动态版权年份
  * 
  * v3 基础：
- * - NVIDIA NIM 免费端点的多模型路由
+ * - 跨供应商多模型路由（MiniMax 主用、DeepSeek 备用）
  * - 意图感知 / 自适应长度 / 语义去重 / 现代 SEO / response_format: JSON
  * 
  * 使用方式：
- *   NVIDIA_API_KEY=xxx node generate-article.js
+ *   MINIMAX_API_KEY=xxx DEEPSEEK_API_KEY=xxx node generate-article.js
  */
 
 import OpenAI from 'openai';
@@ -36,32 +36,41 @@ const QUEUE_PATH = path.join(BLOG_DIR, 'queue.json');
 const ARTICLES_PATH = path.join(BLOG_DIR, 'articles.json');
 const SITEMAP_PATH = path.join(ROOT_DIR, 'sitemap.xml');
 
-// API 配置（NVIDIA NIM — OpenAI 兼容接口）
-const API_KEY = process.env.NVIDIA_API_KEY;
-const ai = API_KEY ? new OpenAI({
-  apiKey: API_KEY,
-  baseURL: 'https://integrate.api.nvidia.com/v1',
-}) : null;
+// 三家均提供 OpenAI 兼容接口。密钥按供应商隔离，任何一家失效时都不会阻断其余路由。
+const PROVIDER_CONFIG = Object.freeze({
+  minimax: {
+    label: 'MiniMax',
+    apiKey: process.env.MINIMAX_API_KEY,
+    baseURL: process.env.MINIMAX_BASE_URL || 'https://api.minimaxi.com/v1',
+  },
+  deepseek: {
+    label: 'DeepSeek',
+    apiKey: process.env.DEEPSEEK_API_KEY,
+    baseURL: process.env.DEEPSEEK_BASE_URL || 'https://api.deepseek.com',
+  },
+  nvidia: {
+    label: 'NVIDIA NIM',
+    apiKey: process.env.NVIDIA_API_KEY,
+    baseURL: process.env.NVIDIA_BASE_URL || 'https://integrate.api.nvidia.com/v1',
+  },
+});
+const providerClients = new Map();
 
 function parseModelList(value, fallback) {
   const parsed = String(value || '').split(',').map(item => item.trim()).filter(Boolean);
   return parsed.length > 0 ? [...new Set(parsed)] : fallback;
 }
 
-// NVIDIA 的免费托管端点是开发/原型服务，会轮换且可能限流。
-// 默认池只放入 2026-08-26 在官方目录中仍标记为 Free Endpoint: Available 的文本模型；
-// 名单仍可由环境变量覆盖，运行时会自动熔断失效或持续超时的端点。
+// 路由格式为 provider:model。旧的纯 NVIDIA model id 仍兼容并自动归入 nvidia。
+// M3 使用已订阅的 Token Plan，V4 Flash 是正式 API 备用。NVIDIA 路由仍兼容，
+// 但免费端点不稳定，只在 BLOG_MODEL_LIST / BLOG_TRANSLATION_MODEL_LIST 中显式启用。
 const ARTICLE_MODELS = parseModelList(process.env.BLOG_MODEL_LIST, [
-  'nvidia/nemotron-3-ultra-550b-a55b',
-  'nvidia/nemotron-3-super-120b-a12b',
-  'stepfun-ai/step-3.7-flash',
-  'nvidia/nemotron-3.5-lightning-30b-a3b',
+  'minimax:MiniMax-M3',
+  'deepseek:deepseek-v4-flash',
 ]);
 const TRANSLATION_MODELS = parseModelList(process.env.BLOG_TRANSLATION_MODEL_LIST, [
-  'nvidia/nemotron-3-ultra-550b-a55b',
-  'nvidia/nemotron-3-super-120b-a12b',
-  'stepfun-ai/step-3.7-flash',
-  'nvidia/nemotron-3.5-lightning-30b-a3b',
+  'minimax:MiniMax-M3',
+  'deepseek:deepseek-v4-flash',
 ]);
 const MAX_RETRIES = 2;
 const RETRY_DELAY_MS = 12000;
@@ -147,7 +156,12 @@ const REQUIRED_FIELDS = [
 // ============================================================
 
 async function main() {
-  if (!ai) throw new Error('缺少 NVIDIA_API_KEY 环境变量');
+  const configuredRoutes = [...ARTICLE_MODELS, ...TRANSLATION_MODELS]
+    .map(parseModelRoute)
+    .filter(route => PROVIDER_CONFIG[route.provider]?.apiKey);
+  if (configuredRoutes.length === 0) {
+    throw new Error('没有可用的模型密钥；请配置 MINIMAX_API_KEY 或 DEEPSEEK_API_KEY');
+  }
   console.log('🚀 开始自动生成博客文章...\n');
 
   // --- 前置检查 ---
@@ -574,9 +588,34 @@ function isJsonModeUnsupported(error) {
   return getErrorStatus(error) === 400 && /response[_ -]?format|json[_ -]?object|structured output/i.test(error?.message || '');
 }
 
+function parseModelRoute(routeName) {
+  const raw = String(routeName || '').trim();
+  const separator = raw.indexOf(':');
+  if (separator > 0) {
+    const provider = raw.slice(0, separator);
+    const model = raw.slice(separator + 1);
+    if (PROVIDER_CONFIG[provider] && model) return { provider, model, routeName: raw };
+  }
+  return { provider: 'nvidia', model: raw, routeName: raw };
+}
+
+function getProviderClient(provider) {
+  const config = PROVIDER_CONFIG[provider];
+  if (!config?.apiKey) return null;
+  if (!providerClients.has(provider)) {
+    providerClients.set(provider, new OpenAI({
+      apiKey: config.apiKey,
+      baseURL: config.baseURL,
+      maxRetries: 0,
+    }));
+  }
+  return providerClients.get(provider);
+}
+
 function classifyModelError(error) {
   const status = getErrorStatus(error);
   const message = error?.message || '';
+  if (error?.code === 'PROVIDER_UNCONFIGURED') return 'unconfigured';
   if (status === 401 || status === 403) return 'auth';
   if (status === 404 || status === 410 || status === 400) return 'permanent';
   if (status === 429 || status >= 500 || /quota|RESOURCE_EXHAUSTED|high demand/i.test(message)) return 'transient';
@@ -598,25 +637,34 @@ function requireStringFields(data, fields, label = '模型输出') {
 }
 
 async function requestModel(modelName, prompt, temperature, useJsonMode = true, timeoutMs = API_TIMEOUT_MS) {
+  const route = parseModelRoute(modelName);
+  const client = getProviderClient(route.provider);
+  if (!client) {
+    const error = new Error(`${PROVIDER_CONFIG[route.provider]?.label || route.provider} 未配置 API Key`);
+    error.code = 'PROVIDER_UNCONFIGURED';
+    throw error;
+  }
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(new Error(`API 调用超时(${Math.round(timeoutMs / 1000)}s)`)), timeoutMs);
   const payload = {
-    model: modelName,
+    model: route.model,
     messages: [
       { role: 'system', content: 'You are a professional multilingual technical editor. Return valid JSON only when asked.' },
       { role: 'user', content: prompt },
     ],
     temperature,
     top_p: 0.95,
-    max_tokens: 16384,
+    max_tokens: route.provider === 'minimax' ? 24576 : 16384,
     ...(useJsonMode ? { response_format: { type: 'json_object' } } : {}),
+    ...(route.provider === 'minimax' ? { reasoning_split: true } : {}),
+    ...(route.provider === 'deepseek' ? { thinking: { type: 'disabled' } } : {}),
   };
   try {
-    return await ai.chat.completions.create(payload, { signal: controller.signal });
+    return await client.chat.completions.create(payload, { signal: controller.signal });
   } catch (error) {
     if (useJsonMode && isJsonModeUnsupported(error)) {
       console.log(`  ℹ️ ${modelName} 不支持 response_format，改用提示词 JSON 模式重试`);
-      return await ai.chat.completions.create({ ...payload, response_format: undefined }, { signal: controller.signal });
+      return await client.chat.completions.create({ ...payload, response_format: undefined }, { signal: controller.signal });
     }
     throw error;
   } finally {
@@ -650,7 +698,16 @@ async function callAI(prompt, label, temperature = 0.55, models = ARTICLE_MODELS
         const summary = status ? `HTTP ${status}` : (error.message || '未知错误').substring(0, 120);
         console.log(`  ⚠️ [${label}] ${modelName} 失败: ${summary}`);
 
-        if (kind === 'auth') throw new Error(`NVIDIA API 鉴权失败 (${summary})`);
+        if (kind === 'unconfigured') {
+          disabledModels.add(modelName);
+          console.log(`  ↪ ${modelName} 未配置密钥，本轮跳过`);
+          break;
+        }
+        if (kind === 'auth') {
+          disabledModels.add(modelName);
+          console.log(`  ⛔ ${modelName} 鉴权失败，本轮改用其他供应商`);
+          break;
+        }
         if (kind === 'permanent') {
           disabledModels.add(modelName);
           console.log(`  ⛔ ${modelName} 本轮熔断，后续语言任务不再重复调用`);
@@ -783,7 +840,7 @@ function validateKnownPlatformClaims(data, keyword = '') {
 async function generateArticleContent(keyword, slug, tags, existingArticles, intent, depth, avoidOverlap, sourceUrls) {
   // --- 第 1 步：生成英文正文 + 5 语言元数据 ---
   const mainPrompt = buildMainPrompt(keyword, slug, tags, existingArticles, intent, depth, avoidOverlap, sourceUrls);
-  console.log('🤖 [1/5] 正在调用 NVIDIA NIM API 生成英文文章 + 元数据...');
+  console.log('🤖 [1/5] 正在调用跨供应商模型路由生成英文文章 + 元数据...');
   const mainData = await repairMissingMetadata(await callAI(
       mainPrompt,
       'main',
@@ -1674,6 +1731,7 @@ export {
   ensureFirstPartyEvidence,
   normalizeDescription,
   parseModelList,
+  parseModelRoute,
   requireStringFields,
   repairMissingMetadata,
   resolveOfficialSources,
