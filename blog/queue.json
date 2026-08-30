@@ -2413,7 +2413,9 @@
       "vite-favicon",
       "react-favicon"
     ],
-    "status": "pending"
+    "status": "done",
+    "qualityScore": 85,
+    "qualityGrade": "A"
   },
   {
     "keyword": "react vite favicon not showing",

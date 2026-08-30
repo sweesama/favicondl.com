@@ -1,0 +1,179 @@
+<!DOCTYPE html><html lang="zh"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vite public 文件夹 Favicon 设置完整指南 - Mzu favicondl</title>
+    <meta name="description" content="在 Vite 的 public 文件夹中放置 favicon 的分步指南。包含正确路径、link 标签、深色模式 SVG 与构建验证。">
+    <meta name="keywords" content="vite public folder favicon, vite favicon setup, vite static assets, html favicon link">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/zh/blog/vite-public-folder-favicon.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/vite-public-folder-favicon.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/vite-public-folder-favicon.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/vite-public-folder-favicon.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/vite-public-folder-favicon.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/vite-public-folder-favicon.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/vite-public-folder-favicon.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/zh/blog/vite-public-folder-favicon.html">
+    <meta property="og:title" content="Vite public 文件夹 Favicon 设置完整指南">
+    <meta property="og:description" content="在 Vite 的 public 文件夹中放置 favicon 的分步指南。包含正确路径、link 标签、深色模式 SVG 与构建验证。">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Vite public 文件夹 Favicon 设置完整指南">
+    <meta name="twitter:description" content="在 Vite 的 public 文件夹中放置 favicon 的分步指南。包含正确路径、link 标签、深色模式 SVG 与构建验证。">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Vite public 文件夹 Favicon 设置完整指南",
+  "description": "在 Vite 的 public 文件夹中放置 favicon 的分步指南。包含正确路径、link 标签、深色模式 SVG 与构建验证。",
+  "datePublished": "2026-08-30",
+  "dateModified": "2026-08-30",
+  "author": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "mainEntityOfPage": "https://favicondl.com/zh/blog/vite-public-folder-favicon.html",
+  "inLanguage": "zh-CN"
+}</script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/zh/index.html" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/zh/documentation.html" class="nav-link">文档</a>
+                <a href="/zh/tools.html" class="nav-link">工具</a>
+                <a href="/zh/blog/" class="nav-link">博客</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/vite-public-folder-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/vite-public-folder-favicon.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/vite-public-folder-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/vite-public-folder-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/vite-public-folder-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/zh/index.html" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/zh/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600">Vite public 文件夹 Favicon 设置完整指南</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">vite</span><time class="text-sm text-gray-400">2026-08-30</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">Vite public 文件夹 Favicon 设置完整指南</h1>
+        </header>
+
+        <div class="article-body"><p>你把 <code>favicon.svg</code> 放进了 Vite 的 <code>public</code> 文件夹，保存后，浏览器标签页仍然显示一个空白方块。构建正常，文件就在那里，但浏览器就是找不到它。这种情况发生在开发者把 Vite 的 <code>public</code> 目录当作普通静态文件夹处理时——却忽略了 Vite 提供这些文件的一个关键规则。</p>
+<p><code>public</code> 文件夹是 Vite 为需要稳定、无哈希 URL 的资源准备的逃生舱。Favicon 是教科书式的用例——也是 Vite 初学者最常见的困惑来源。</p>
+<h2>为什么 Favicon 应该放在 Vite 的 public 文件夹</h2>
+<p>Vite 会对 <code>src/</code> 中导入的资源进行哈希处理，以便缓存破坏（比如 <code>assets/logo-a3f9c2.svg</code>）。这对 JS 和 CSS 很好，但对 favicon 来说很糟糕。浏览器会积极缓存 favicon，搜索引擎也需要一个可预测的 URL 来在结果中显示你的图标。</p>
+<p><code>public/</code> 中的文件完全绕过打包器。根据 <a href="https://vite.dev/guide/assets.html#the-public-directory">Vite 官方文档</a>，此目录中的任何内容都会被复制到构建输出的根目录，并在根路径下提供。所以 <code>public/favicon.svg</code> 变成 <code>/favicon.svg</code>——而不是 <code>/public/favicon.svg</code>。只是文件名，前面加一个斜杠。</p>
+<h2>前提条件</h2>
+<ul>
+<li>一个可用的 Vite 项目（运行 <code>npm create vite@latest</code>）</li>
+<li>准备好 SVG、PNG 或 ICO 格式的 favicon 文件</li>
+<li>能访问项目根目录下的 <code>index.html</code></li>
+</ul>
+<h2>步骤 1：将 Favicon 文件放入 <code>public/</code></h2>
+<p>将你的图标文件直接放在项目根目录的 <code>public/</code> 目录中。大多数 Vite 脚手架会自动创建这个文件夹。</p>
+<pre><code>my-vite-app/
+├── public/
+│   ├── favicon.svg
+│   ├── favicon.ico
+│   └── apple-touch-icon.png
+├── src/
+├── index.html
+└── package.json</code></pre>
+<p>使用简单、常规的文件名。浏览器无需额外配置就能在根目录找到 <code>favicon.svg</code>、<code>favicon.ico</code> 和 <code>apple-touch-icon.png</code>。</p>
+<h2>步骤 2：使用根相对路径引用文件</h2>
+<p>打开项目根目录下的 <code>index.html</code>（不是 <code>public/index.html</code>——那个文件在 Vite 中不存在）。在 <code>&lt;head&gt;</code> 中添加 link 标签，使用以 <code>/</code> 开头的绝对路径。这是 Vite 项目中唯一需要硬编码资源路径的地方，因为 <code>public</code> 文件夹有意跳过导入解析器。</p>
+<pre><code>&lt;head&gt;
+  &lt;link rel='icon' type='image/svg+xml' href='/favicon.svg'&gt;
+  &lt;link rel='icon' type='image/x-icon' href='/favicon.ico'&gt;
+  &lt;link rel='apple-touch-icon' href='/apple-touch-icon.png'&gt;
+&lt;/head&gt;</code></pre>
+<p>HTML 规范将 <code>rel='icon'</code> 定义为声明 favicon 的标准方式（<a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">WHATWG HTML Living Standard</a>）。浏览器会根据 <code>type</code> 和 <code>sizes</code> 属性选择最佳匹配。</p>
+<h2>步骤 3：添加深色模式变体</h2>
+<p>现代浏览器支持第二个 SVG，在深色主题下自动激活。添加另一个带有媒体查询的 <code>link</code> 标签，这样当用户的系统切换到深色模式时，他们能看到正确的图标。</p>
+<pre><code>&lt;link rel='icon' type='image/svg+xml' href='/favicon.svg' media='(prefers-color-scheme: light)'&gt;
+&lt;link rel='icon' type='image/svg+xml' href='/favicon-dark.svg' media='(prefers-color-scheme: dark)'&gt;</code></pre>
+<p>关于深色模式 SVG favicon 的更深入覆盖，请参阅我们的 <a href="/zh/blog/favicon-dark-mode.html">favicon 深色模式指南</a>。</p>
+<h2>步骤 4：验证构建输出</h2>
+<p>运行 <code>npm run build</code> 并检查 <code>dist/</code>。你的 favicon 文件应该出现在根目录，未被任何打包器处理。</p>
+<pre><code>dist/
+├── assets/
+├── favicon.svg
+├── favicon.ico
+└── index.html</code></pre>
+<p>你也可以启动 <code>npm run preview</code>，然后在 DevTools 中打开 Network 标签。你应该看到对 <code>favicon.svg</code>、<code>favicon.ico</code> 和 <code>apple-touch-icon.png</code> 的请求返回 200，而不是 404。</p>
+<h2>常见陷阱</h2>
+<p>大多数 Vite favicon 问题都源于以下错误之一。如果你的标签页是空白或显示通用图标，请先检查这个列表。</p>
+<ul>
+<li><strong>在 HTML 中使用 <code>/public/favicon.svg</code>。</strong> <code>public/</code> 段仅存在于源码中。浏览器请求的是 <code>/favicon.svg</code>。</li>
+<li><strong>在 <code>main.js</code> 中导入 favicon。</strong> 这会产生一个哈希 URL，破坏浏览器缓存。让 HTML link 标签来处理。</li>
+<li><strong>将文件放在 <code>src/assets/</code> 中。</strong> 这些文件会被处理并重命名。Favicon 需要可预测的路径以便缓存和 SEO。</li>
+<li><strong>完全忘记 link 标签。</strong> 有些浏览器会自动请求 <code>/favicon.ico</code>，但 Chrome 和 Firefox 越来越需要显式声明才能支持 SVG。</li>
+</ul>
+<h2>当 public 文件夹不够用时</h2>
+<p><code>public</code> 文件夹是静态、不变的 favicon 的正确归属。它为你提供稳定的 URL，浏览器可以可靠地缓存，搜索引擎也可以索引。如果你以后需要动态 favicon——通知徽章、用户头像、实时状态指示器——你需要 JavaScript 在运行时交换 <code>href</code> 属性。我们的 <a href="/zh/blog/dynamic-favicon-javascript.html">动态 favicon JavaScript</a> 指南详细介绍了这种模式。</p>
+<p>需要帮助先生成正确的图标文件吗？Mzu favicondl 可以从单个源图像生成 SVG、PNG、ICO 和 Apple Touch 变体。将它们放入 <code>public/</code>，添加 link 标签，你的 Vite 应用就能在几分钟内拥有专业的标签页外观。</p></div>
+
+        <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
+
+        <div class="cta-box">
+            <h3>几秒钟生成你的 Vite Favicon 文件</h3>
+            <p>把源图片放进 Mzu favicondl，一键获得适配 Vite public 文件夹的 SVG、PNG、ICO 和 Apple Touch 图标。</p>
+            <a href="/zh/index.html" class="cta-btn">免费试用 →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/zh/index.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">首页</a>
+                <a href="/zh/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">博客</a>
+                <a href="/zh/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">隐私政策</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js?v=20260211"></script>
+
+</body></html>

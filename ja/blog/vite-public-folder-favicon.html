@@ -1,0 +1,179 @@
+<!DOCTYPE html><html lang="ja"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vite public フォルダのファビコン設定完全ガイド - Mzu favicondl</title>
+    <meta name="description" content="Viteのpublicフォルダにfaviconを配置する手順を解説。正しいパス、linkタグ、ダークモード用SVG、ビルド確認まで網羅。">
+    <meta name="keywords" content="vite public folder favicon, vite favicon setup, vite static assets, html favicon link">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/ja/blog/vite-public-folder-favicon.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/vite-public-folder-favicon.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/vite-public-folder-favicon.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/vite-public-folder-favicon.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/vite-public-folder-favicon.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/vite-public-folder-favicon.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/vite-public-folder-favicon.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/ja/blog/vite-public-folder-favicon.html">
+    <meta property="og:title" content="Vite public フォルダのファビコン設定完全ガイド">
+    <meta property="og:description" content="Viteのpublicフォルダにfaviconを配置する手順を解説。正しいパス、linkタグ、ダークモード用SVG、ビルド確認まで網羅。">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Vite public フォルダのファビコン設定完全ガイド">
+    <meta name="twitter:description" content="Viteのpublicフォルダにfaviconを配置する手順を解説。正しいパス、linkタグ、ダークモード用SVG、ビルド確認まで網羅。">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Vite public フォルダのファビコン設定完全ガイド",
+  "description": "Viteのpublicフォルダにfaviconを配置する手順を解説。正しいパス、linkタグ、ダークモード用SVG、ビルド確認まで網羅。",
+  "datePublished": "2026-08-30",
+  "dateModified": "2026-08-30",
+  "author": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "mainEntityOfPage": "https://favicondl.com/ja/blog/vite-public-folder-favicon.html",
+  "inLanguage": "ja"
+}</script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/ja/index.html" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/ja/documentation.html" class="nav-link">ドキュメント</a>
+                <a href="/ja/tools.html" class="nav-link">ツール</a>
+                <a href="/ja/blog/" class="nav-link">ブログ</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/vite-public-folder-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/vite-public-folder-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/vite-public-folder-favicon.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/vite-public-folder-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/vite-public-folder-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/ja/index.html" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/ja/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600">Vite public フォルダのファビコン設定完全ガイド</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">vite</span><time class="text-sm text-gray-400">2026-08-30</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">Vite public フォルダのファビコン設定完全ガイド</h1>
+        </header>
+
+        <div class="article-body"><p><code>favicon.svg</code>をViteの<code>public</code>フォルダに入れて保存したのに、ブラウザのタブには白い四角が表示されたまま——そんな経験はありませんか。ビルドは成功し、ファイルもその場に存在するにもかかわらず、ブラウザはそれを見つけられません。これは、開発者がViteの<code>public</code>ディレクトリを単なる静的フォルダのように扱い、Viteがそのファイルを配信する仕組みに関する重要なルールを見落としたときに起こります。</p>
+<p><code>public</code>フォルダは、安定してハッシュ化されないURLを必要とするアセットにとってのViteの抜け道です。faviconはまさにその典型例であり、Vite初心者が最もつまずきやすいポイントでもあります。</p>
+<h2>Viteのpublicフォルダにfaviconを置くべき理由</h2>
+<p>Viteはキャッシュバスティングのために<code>src/</code>内のimportされたアセットをハッシュ化します（<code>assets/logo-a3f9c2.svg</code>のような名前になります）。JSやCSSには効果的ですが、faviconには向いていません。ブラウザはfaviconを積極的にキャッシュしますし、検索エンジンは検索結果にアイコンを表示するために予測可能なURLを必要とします。</p>
+<p><code>public/</code>内のファイルはバンドラーを完全に経由しません。<a href="https://vite.dev/guide/assets.html#the-public-directory">Viteの公式ドキュメント</a>によれば、このディレクトリ内のファイルはすべてビルド出力のルートへそのままコピーされ、ルートパスで配信されます。つまり<code>public/favicon.svg</code>は、<code>/public/favicon.svg</code>ではなく<code>/favicon.svg</code>として配信されます。ファイル名の先頭にスラッシュを付けただけです。</p>
+<h2>前提条件</h2>
+<ul>
+<li>動作するViteプロジェクト（<code>npm create vite@latest</code>を実行）</li>
+<li>SVG、PNG、またはICO形式のfaviconファイル</li>
+<li>プロジェクトルートにある<code>index.html</code>へのアクセス</li>
+</ul>
+<h2>ステップ1：faviconファイルを<code>public/</code>に配置する</h2>
+<p>アイコンファイルをプロジェクトルートの<code>public/</code>ディレクトリに直接配置します。ほとんどのViteのスキャフォールドでは、このフォルダは自動で生成されます。</p>
+<pre><code>my-vite-app/
+├── public/
+│   ├── favicon.svg
+│   ├── favicon.ico
+│   └── apple-touch-icon.png
+├── src/
+├── index.html
+└── package.json</code></pre>
+<p>シンプルで慣用的なファイル名を使用してください。ブラウザは追加の設定なしで、ルートにある<code>favicon.svg</code>、<code>favicon.ico</code>、<code>apple-touch-icon.png</code>を見つけます。</p>
+<h2>ステップ2：ルート相対パスでファイルを参照する</h2>
+<p>プロジェクトルートの<code>index.html</code>を開いてください（<code>public/index.html</code>ではありません — そのファイルはViteには存在しません）。<code>&lt;head&gt;</code>内に、<code>/</code>で始まる絶対パスを使ったlinkタグを追加します。<code>public</code>フォルダは意図的にimportリゾルバーをスキップするため、Viteプロジェクトにおいてアセットパスをハードコードで記述するのはこの場面だけです。</p>
+<pre><code>&lt;head&gt;
+  &lt;link rel='icon' type='image/svg+xml' href='/favicon.svg'&gt;
+  &lt;link rel='icon' type='image/x-icon' href='/favicon.ico'&gt;
+  &lt;link rel='apple-touch-icon' href='/apple-touch-icon.png'&gt;
+&lt;/head&gt;</code></pre>
+<p>HTML仕様では、<code>rel='icon'</code>がfaviconを宣言する標準的な方法として定義されています（<a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">WHATWG HTML Living Standard</a>）。ブラウザは<code>type</code>と<code>sizes</code>属性を基に最適なものを選択します。</p>
+<h2>ステップ3：ダークモード用バリアントを追加する</h2>
+<p>最新のブラウザでは、ダークテーマ使用時に自動的に切り替わる2つ目のSVGがサポートされています。media属性付きのlinkタグを追加することで、ユーザーのシステムがダークモードに切り替わったときに適切なアイコンが表示されるようになります。</p>
+<pre><code>&lt;link rel='icon' type='image/svg+xml' href='/favicon.svg' media='(prefers-color-scheme: light)'&gt;
+&lt;link rel='icon' type='image/svg+xml' href='/favicon-dark.svg' media='(prefers-color-scheme: dark)'&gt;</code></pre>
+<p>ダークモード用SVG faviconについて詳しくは、<a href="/ja/blog/favicon-dark-mode.html">faviconのダークモードガイド</a>をご覧ください。</p>
+<h2>ステップ4：ビルド出力を確認する</h2>
+<p><code>npm run build</code>を実行し、<code>dist/</code>を確認します。faviconファイルがルートに、バンドラーの手を介さずそのまま出力されているはずです。</p>
+<pre><code>dist/
+├── assets/
+├── favicon.svg
+├── favicon.ico
+└── index.html</code></pre>
+<p><code>npm run preview</code>を起動してDevToolsのNetworkタブを開けば確認できます。<code>favicon.svg</code>、<code>favicon.ico</code>、<code>apple-touch-icon.png</code>へのリクエストが404ではなく200を返しているはずです。</p>
+<h2>よくある落とし穴</h2>
+<p>Viteのfaviconに関するバグの多くは、以下のいずれかのミスが原因です。タブが空白だったり、汎用アイコンが表示されたりしている場合は、まずこのリストを確認してください。</p>
+<ul>
+<li><strong>HTML内に<code>/public/favicon.svg</code>と記述している。</strong><code>public/</code>というパスはソース内にのみ存在します。ブラウザは<code>/favicon.svg</code>をリクエストします。</li>
+<li><strong><code>main.js</code>内でfaviconをimportしている。</strong>これによりハッシュ付きURLが生成され、ブラウザのキャッシュが機能しなくなります。HTMLのlinkタグに任せましょう。</li>
+<li><strong>ファイルを<code>src/assets/</code>に配置している。</strong>これらは処理されて名前が変更されます。faviconにはキャッシュとSEOのために予測可能なパスが必要です。</li>
+<li><strong>linkタグ自体を記述していない。</strong>一部のブラウザは<code>/favicon.ico</code>を自動でリクエストしますが、ChromeやFirefoxではSVGサポートのために明示的な宣言が必要になりつつあります。</li>
+</ul>
+<h2>publicフォルダだけでは不十分なケース</h2>
+<p><code>public</code>フォルダは、静的で変動しないfaviconにとって最適な置き場所です。ブラウザが安定してキャッシュでき、検索エンジンがインデックス可能な安定したURLが得られます。後から動的なfavicon（通知バッジ、ユーザーアバター、ライブステータス表示など）が必要になった場合は、実行時に<code>href</code>属性を切り替えるJavaScriptが必要になります。<a href="/ja/blog/dynamic-favicon-javascript.html">動的faviconのJavaScript</a>に関するガイドで、そのパターンを詳しく解説しています。</p>
+<p>まずは適切なアイコンファイルを生成したいとお考えですか？ Mzu favicondlは、1枚のソース画像からSVG、PNG、ICO、Apple Touchの各バリアントを生成します。それらを<code>public/</code>に配置し、linkタグを追加すれば、数分でViteアプリにプロフェッショナルなタブ表示を実装できます。</p></div>
+
+        <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
+
+        <div class="cta-box">
+            <h3>数秒で Vite 用ファビコンファイルを生成</h3>
+            <p>Mzu favicondlにソース画像を投入すれば、Viteのpublicフォルダ ready な SVG、PNG、ICO、Apple Touch バリアントをすぐに取得できます。</p>
+            <a href="/ja/index.html" class="cta-btn">無料で試す →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/ja/index.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">ホーム</a>
+                <a href="/ja/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">ブログ</a>
+                <a href="/ja/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">プライバシー</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js?v=20260211"></script>
+
+</body></html>

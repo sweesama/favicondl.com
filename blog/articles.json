@@ -3248,5 +3248,26 @@
     ],
     "qualityScore": 80,
     "qualityGrade": "A"
+  },
+  {
+    "slug": "vite-public-folder-favicon",
+    "publishDate": "2026-08-30",
+    "titleEn": "Vite Public Folder Favicon: A Complete Setup Guide",
+    "titleZh": "Vite public 文件夹 Favicon 设置完整指南",
+    "titleJa": "Vite public フォルダのファビコン設定完全ガイド",
+    "titleKo": "Vite public 폴더 파비콘 설정 완벽 가이드",
+    "titleEs": "Favicon en la carpeta public de Vite: Guía completa",
+    "descEn": "Step-by-step guide to placing favicon files in Vite's public folder. Learn the right paths, link tags, dark mode SVG, and build verification.",
+    "descZh": "在 Vite 的 public 文件夹中放置 favicon 的分步指南。包含正确路径、link 标签、深色模式 SVG 与构建验证。",
+    "descJa": "Viteのpublicフォルダにfaviconを配置する手順を解説。正しいパス、linkタグ、ダークモード用SVG、ビルド確認まで網羅。",
+    "descKo": "Vite의 public 폴더에 파비콘을 배치하는 단계별 가이드. 올바른 경로, link 태그, 다크 모드 SVG 및 빌드 확인 방법을 안내합니다.",
+    "descEs": "Guía paso a paso para colocar favicons en la carpeta public de Vite. Aprende rutas correctas, link tags, SVG para modo oscuro y verificación del build.",
+    "keyword": "vite public folder favicon",
+    "tags": [
+      "vite",
+      "framework"
+    ],
+    "qualityScore": 85,
+    "qualityGrade": "A"
   }
 ]

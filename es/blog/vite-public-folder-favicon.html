@@ -1,0 +1,179 @@
+<!DOCTYPE html><html lang="es"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favicon en la carpeta public de Vite: Guía completa - Mzu favicondl</title>
+    <meta name="description" content="Guía paso a paso para colocar favicons en la carpeta public de Vite. Aprende rutas correctas, link tags, SVG para modo oscuro y verificación del build.">
+    <meta name="keywords" content="vite public folder favicon, vite favicon setup, vite static assets, html favicon link">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/es/blog/vite-public-folder-favicon.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/vite-public-folder-favicon.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/vite-public-folder-favicon.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/vite-public-folder-favicon.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/vite-public-folder-favicon.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/vite-public-folder-favicon.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/vite-public-folder-favicon.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/es/blog/vite-public-folder-favicon.html">
+    <meta property="og:title" content="Favicon en la carpeta public de Vite: Guía completa">
+    <meta property="og:description" content="Guía paso a paso para colocar favicons en la carpeta public de Vite. Aprende rutas correctas, link tags, SVG para modo oscuro y verificación del build.">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Favicon en la carpeta public de Vite: Guía completa">
+    <meta name="twitter:description" content="Guía paso a paso para colocar favicons en la carpeta public de Vite. Aprende rutas correctas, link tags, SVG para modo oscuro y verificación del build.">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Favicon en la carpeta public de Vite: Guía completa",
+  "description": "Guía paso a paso para colocar favicons en la carpeta public de Vite. Aprende rutas correctas, link tags, SVG para modo oscuro y verificación del build.",
+  "datePublished": "2026-08-30",
+  "dateModified": "2026-08-30",
+  "author": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "mainEntityOfPage": "https://favicondl.com/es/blog/vite-public-folder-favicon.html",
+  "inLanguage": "es"
+}</script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/es/index.html" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/es/documentation.html" class="nav-link">Documentación</a>
+                <a href="/es/tools.html" class="nav-link">Herramientas</a>
+                <a href="/es/blog/" class="nav-link">Blog</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/vite-public-folder-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/vite-public-folder-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/vite-public-folder-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/vite-public-folder-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/vite-public-folder-favicon.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/es/index.html" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/es/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600">Favicon en la carpeta public de Vite: Guía completa</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">vite</span><time class="text-sm text-gray-400">2026-08-30</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">Favicon en la carpeta public de Vite: Guía completa</h1>
+        </header>
+
+        <div class="article-body"><p>Dejaste tu <code>favicon.svg</code> en la carpeta <code>public</code> de Vite, pulsaste guardar y la pestaña del navegador sigue mostrando un cuadrado blanco en blanco. El build funciona, el archivo está ahí mismo y, aun así, el navegador no lo encuentra. Esto ocurre cuando se trata la carpeta <code>public</code> de Vite como cualquier otra carpeta estática y se pasa por alto una regla clave sobre cómo Vite sirve esos archivos.</p>
+<p>La carpeta <code>public</code> es la vía de escape de Vite para los assets que necesitan URLs estables y sin hash. Los favicons son el caso de libro: la razón más habitual de confusión entre quienes empiezan con Vite.</p>
+<h2>Por qué los favicons van en la carpeta public de Vite</h2>
+<p>Vite aplica un hash a los assets importados desde <code>src/</code> para invalidar caché (piensa en <code>assets/logo-a3f9c2.svg</code>). Genial para JS y CSS, pero pésimo para favicons. Los navegadores cachean los favicons de forma agresiva y los buscadores necesitan una URL predecible para mostrar tu icono en los resultados.</p>
+<p>Los archivos en <code>public/</code> se saltan el bundler por completo. Según la <a href="https://vite.dev/guide/assets.html#the-public-directory">documentación oficial de Vite</a>, todo lo que esté en este directorio se copia a la raíz del build y se sirve desde la raíz. Así, <code>public/favicon.svg</code> termina siendo <code>/favicon.svg</code>, no <code>/public/favicon.svg</code>. Solo el nombre del archivo, precedido por una barra.</p>
+<h2>Requisitos previos</h2>
+<ul>
+<li>Un proyecto Vite funcional (ejecuta <code>npm create vite@latest</code>)</li>
+<li>Archivos de favicon listos en SVG, PNG o ICO</li>
+<li>Acceso al <code>index.html</code> en la raíz del proyecto</li>
+</ul>
+<h2>Paso 1: coloca los archivos de favicon en <code>public/</code></h2>
+<p>Coloca tus archivos de icono directamente en el directorio <code>public/</code> en la raíz del proyecto. La mayoría de los scaffolds de Vite crean esta carpeta automáticamente.</p>
+<pre><code>my-vite-app/
+├── public/
+│   ├── favicon.svg
+│   ├── favicon.ico
+│   └── apple-touch-icon.png
+├── src/
+├── index.html
+└── package.json</code></pre>
+<p>Usa nombres de archivo simples y convencionales. Los navegadores encuentran <code>favicon.svg</code>, <code>favicon.ico</code> y <code>apple-touch-icon.png</code> en la raíz sin configuración extra.</p>
+<h2>Paso 2: referencia los archivos con rutas relativas a la raíz</h2>
+<p>Abre <code>index.html</code> en la raíz del proyecto (no <code>public/index.html</code>: ese archivo no existe en Vite). Añade etiquetas link dentro del <code>&lt;head&gt;</code> usando rutas absolutas que empiecen por <code>/</code>. Es el único punto del proyecto Vite donde se hardcodean rutas de assets, porque la carpeta <code>public</code> se salta a propósito el resolver de imports.</p>
+<pre><code>&lt;head&gt;
+  &lt;link rel='icon' type='image/svg+xml' href='/favicon.svg'&gt;
+  &lt;link rel='icon' type='image/x-icon' href='/favicon.ico'&gt;
+  &lt;link rel='apple-touch-icon' href='/apple-touch-icon.png'&gt;
+&lt;/head&gt;</code></pre>
+<p>El estándar HTML define <code>rel='icon'</code> como la forma estándar de declarar favicons (<a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">WHATWG HTML Living Standard</a>). Los navegadores eligen la mejor opción según los atributos <code>type</code> y <code>sizes</code>.</p>
+<h2>Paso 3: añade una variante para modo oscuro</h2>
+<p>Los navegadores modernos admiten un segundo SVG que se activa automáticamente en temas oscuros. Añade otra etiqueta <code>link</code> con una media query para que los usuarios vean el icono correcto cuando su sistema cambie a modo oscuro.</p>
+<pre><code>&lt;link rel='icon' type='image/svg+xml' href='/favicon.svg' media='(prefers-color-scheme: light)'&gt;
+&lt;link rel='icon' type='image/svg+xml' href='/favicon-dark.svg' media='(prefers-color-scheme: dark)'&gt;</code></pre>
+<p>Si quieres profundizar en los favicons SVG para modo oscuro, consulta nuestra <a href="/es/blog/favicon-dark-mode.html">guía de favicon en modo oscuro</a>.</p>
+<h2>Paso 4: comprueba el resultado del build</h2>
+<p>Ejecuta <code>npm run build</code> e inspecciona <code>dist/</code>. Tus archivos de favicon deberían aparecer en la raíz, sin que ningún bundler los haya tocado.</p>
+<pre><code>dist/
+├── assets/
+├── favicon.svg
+├── favicon.ico
+└── index.html</code></pre>
+<p>También puedes arrancar <code>npm run preview</code> y abrir la pestaña Network en DevTools. Deberías ver peticiones a <code>favicon.svg</code>, <code>favicon.ico</code> y <code>apple-touch-icon.png</code> devolviendo 200, no 404.</p>
+<h2>Errores habituales</h2>
+<p>La mayoría de problemas con favicons en Vite vienen de uno de estos errores. Si la pestaña aparece en blanco o muestra un icono genérico, repasa antes esta lista.</p>
+<ul>
+<li><strong>Usar <code>/public/favicon.svg</code> en tu HTML.</strong> El segmento <code>public/</code> solo existe en el código fuente. El navegador pide <code>/favicon.svg</code>.</li>
+<li><strong>Importar el favicon en <code>main.js</code>.</strong> Esto genera una URL con hash y rompe la caché del navegador. Deja que la etiqueta link del HTML se encargue.</li>
+<li><strong>Poner los archivos en <code>src/assets/</code>.</strong> Acaban procesados y renombrados. Los favicons necesitan rutas predecibles para la caché y el SEO.</li>
+<li><strong>Olvidar la etiqueta link por completo.</strong> Algunos navegadores piden automáticamente <code>/favicon.ico</code>, pero Chrome y Firefox exigen cada vez más declaraciones explícitas para soportar SVG.</li>
+</ul>
+<h2>Cuando la carpeta public no basta</h2>
+<p>La carpeta <code>public</code> es el lugar adecuado para favicons estáticos que no cambian. Te ofrece URLs estables que los navegadores cachean de forma fiable y los buscadores pueden indexar. Si más adelante necesitas favicons dinámicos (badges de notificación, avatares de usuario, indicadores de estado en vivo), necesitarás JavaScript para cambiar el atributo <code>href</code> en tiempo de ejecución. Nuestra guía sobre <a href="/es/blog/dynamic-favicon-javascript.html">favicon dinámico con JavaScript</a> cubre ese patrón en detalle.</p>
+<p>¿Necesitas ayuda para generar antes los archivos de icono correctos? Mzu favicondl produce variantes SVG, PNG, ICO y Apple Touch a partir de una única imagen de origen. Suéltalos en <code>public/</code>, añade tus etiquetas link y tu app Vite tendrá una presencia profesional en la pestaña en cuestión de minutos.</p></div>
+
+        <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
+
+        <div class="cta-box">
+            <h3>Genera tus archivos favicon para Vite en segundos</h3>
+            <p>Sube tu imagen fuente a Mzu favicondl y obtén variantes SVG, PNG, ICO y Apple Touch listas para tu carpeta public de Vite.</p>
+            <a href="/es/index.html" class="cta-btn">Pruébalo gratis →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/es/index.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">Inicio</a>
+                <a href="/es/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">Blog</a>
+                <a href="/es/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">Privacidad</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js?v=20260211"></script>
+
+</body></html>
