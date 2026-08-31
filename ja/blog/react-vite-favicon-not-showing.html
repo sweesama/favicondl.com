@@ -1,0 +1,162 @@
+<!DOCTYPE html><html lang="ja"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React Viteファビコンが表示されない？即効修正ガイド - Mzu favicondl</title>
+    <meta name="description" content="React Viteのファビコンが表示されない？ファイルパスの誤りからキャッシュ問題まで、7つの主要原因と修正方法を解説します。">
+    <meta name="keywords" content="react vite favicon, vite favicon not showing, react favicon fix">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/ja/blog/react-vite-favicon-not-showing.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/react-vite-favicon-not-showing.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/react-vite-favicon-not-showing.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/react-vite-favicon-not-showing.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/react-vite-favicon-not-showing.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/react-vite-favicon-not-showing.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/react-vite-favicon-not-showing.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/ja/blog/react-vite-favicon-not-showing.html">
+    <meta property="og:title" content="React Viteファビコンが表示されない？即効修正ガイド">
+    <meta property="og:description" content="React Viteのファビコンが表示されない？ファイルパスの誤りからキャッシュ問題まで、7つの主要原因と修正方法を解説します。">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="React Viteファビコンが表示されない？即効修正ガイド">
+    <meta name="twitter:description" content="React Viteのファビコンが表示されない？ファイルパスの誤りからキャッシュ問題まで、7つの主要原因と修正方法を解説します。">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "React Viteファビコンが表示されない？即効修正ガイド",
+  "description": "React Viteのファビコンが表示されない？ファイルパスの誤りからキャッシュ問題まで、7つの主要原因と修正方法を解説します。",
+  "datePublished": "2026-08-31",
+  "dateModified": "2026-08-31",
+  "author": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "mainEntityOfPage": "https://favicondl.com/ja/blog/react-vite-favicon-not-showing.html",
+  "inLanguage": "ja"
+}</script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/ja/index.html" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/ja/documentation.html" class="nav-link">ドキュメント</a>
+                <a href="/ja/tools.html" class="nav-link">ツール</a>
+                <a href="/ja/blog/" class="nav-link">ブログ</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/react-vite-favicon-not-showing.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/react-vite-favicon-not-showing.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/react-vite-favicon-not-showing.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/react-vite-favicon-not-showing.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/react-vite-favicon-not-showing.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/ja/index.html" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/ja/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600">React Viteファビコンが表示されない？即効修正ガイド</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">react</span><time class="text-sm text-gray-400">2026-08-31</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">React Viteファビコンが表示されない？即効修正ガイド</h1>
+        </header>
+
+        <div class="article-body"><p>新しいReact + Viteアプリを公開し、<code>favicon.ico</code>を<code>public/</code>に置いてdevサーバーを再起動したのに、ブラウザのタブにはViteの雷マークが表示され続ける——あるいは何も表示されない。こうした状況に遭遇したことはないでしょうか。これはReact Viteでfaviconが表示されないという典型的な問題であり、ほとんどの場合は特定の設定ミスが原因です。</p>
+<p>本記事ではまず2分でできる対処法を説明し、その後に根本原因を一つずつ掘り下げていきます。</p>
+<h2>2分でできる対処法</h2>
+<p>プロジェクトルートの<code>index.html</code>を開き、linkタグのパスが<code>/public/</code>ではなく<code>/</code>で始まる絶対パスになっているか確認してください。Viteでは、<code>public/</code>ディレクトリ内のファイルはビルド出力にそのままコピーされ、ルートパスで配信されます(<a href="https://vite.dev/guide/assets.html#the-public-directory">Viteのpublicディレクトリに関するドキュメント</a>参照)。したがって、<code>public/favicon.ico</code>にあるfaviconは<code>/favicon.ico</code>として参照します。</p>
+<pre><code>&amp;lt;link rel='icon' type='image/x-icon' href='/favicon.ico' /&amp;gt;
+&amp;lt;link rel='icon' type='image/svg+xml' href='/icon.svg' /&amp;gt;
+&amp;lt;link rel='apple-touch-icon' href='/apple-touch-icon.png' /&amp;gt;</code></pre>
+<p>ファイルを保存してください。Viteが起動していればHMRが自動で反映します。それでもアイコンが表示されない場合は、ハードリロード(<code>Ctrl+Shift+R</code>または<code>Cmd+Shift+R</code>)を実施し、Networkタブでfavicon URLが200を返しているかを確認しましょう。</p>
+<h2>根本原因の詳細</h2>
+<h3>1. ファイルが<code>src/</code>にあり、<code>public/</code>にない</h3>
+<p>これが最も多いミスです。<code>src/</code>内のファイルはViteのバンドラーを経由するため、モジュールとしてimportする必要があり、最終的にはハッシュ付きのファイル名になります。一方、<code>public/</code>内のファイルはルートパスでそのまま配信されます。<code>src/assets/</code>にfaviconを置いて<code>/favicon.ico</code>で参照しようとしても、そのパスには何も存在しません。<code>public/</code>に移動してください。</p>
+<h3>2. linkタグのパスが誤っている</h3>
+<p>Create React Appから移行してきた開発者の中には、<code>href='%PUBLIC_URL%/favicon.ico'</code>や<code>href='/public/favicon.ico'</code>と書くケースが見られます。Viteには<code>%PUBLIC_URL%</code>という変数は存在せず、<code>/public/</code>はランタイムには存在しないディレクトリ名です。素直に<code>/favicon.ico</code>と指定してください。</p>
+<h3>3. baseパスの不一致</h3>
+<p><code>vite.config.js</code>で<code>base: '/my-app/'</code>を設定している場合、すべてのassetパスにそのプレフィックスを含める必要があります。<code>href='/favicon.ico'</code>のままでは、<code>https://example.com/my-app/</code>配下でアプリが配信されると404になります。相対参照(<code>href='./favicon.ico'</code>)にするか、すべてのパスを設定済みのbaseに合わせて修正してください。</p>
+<h3>4. キャッシュによる誤表示</h3>
+<p>ブラウザはficonを非常に積極的にキャッシュします。Chromeは通常のキャッシュクリアでは消えない独立したSQLiteデータベースにfaviconを保存しています(詳しくは当ブログの<a href="/ja/blog/favicon-cache-clear.html">faviconキャッシュクリアガイド</a>を参照)。パスを修正しても、壊れた状態の古いアイコンが何時間も残り続けることがあります。開発中はクエリ文字列でバージョンを付与して、強制的に再リクエストさせると効果的です。</p>
+<pre><code>&amp;lt;link rel='icon' href='/favicon.ico?v=2' /&amp;gt;</code></pre>
+<h3>5. SPAのルーティングが<code>/favicon.ico</code>を横取りしている</h3>
+<p>React Routerでcatch-allルートを使用している場合、<code>/favicon.ico</code>へのリクエストがReactアプリ側で処理され、アイコンの代わりにHTMLが返されることがあります。Viteのdevサーバーは<code>public/</code>のファイルを優先するため、この問題は主に本番ビルドで発生します。デプロイ先のURLをcurlで叩き、<code>Content-Type</code>ヘッダーを確認して検証してください。</p>
+<h3>6. Reactコンポーネント内のlinkタグ</h3>
+<p>JSXコンポーネント内に配置された<code>&amp;lt;link&amp;gt;</code>タグは、必ずしも期待どおりに<code>&amp;lt;head&amp;gt;</code>へレンダリングされるわけではありません。Reactはこれらをホイストせず、コンポーネントがマウントされた時点で初めてDOMにアタッチされます。動的にアイコンを切り替える場合は<code>react-helmet-async</code>を使用し、静的なfaviconタグは<code>index.html</code>内に直接配置してください。</p>
+<h3>7. SVG faviconの構文エラー</h3>
+<p>ChromeはSVG faviconを<a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">rel='icon'</a>のHTML仕様に厳密準拠でパースします。namespace宣言の欠落や、不正な<code>viewBox</code>属性、外部リソースへの参照があると、サイレントに失敗します。ブラウザタブでSVGを直接開いてテストし、問題がないことを確認したうえで参照してください。</p>
+<h2>予防チェックリスト</h2>
+<ul>
+<li>faviconファイルは必ず<code>public/</code>だけに置く — <code>src/</code>には置かない</li>
+<li>参照はルートから始まる絶対パス(<code>/favicon.ico</code>)を使う</li>
+<li><code>&amp;lt;link rel='icon'&amp;gt;</code>タグはすべて<code>index.html</code>内に配置し、JSXの中には入れない</li>
+<li>開発中はキャッシュバスター用にクエリ文字列をバージョン付けする</li>
+<li><code>curl -I https://yoursite.com/favicon.ico</code>でデプロイ後のビルドを検証する</li>
+<li>アイコンが壊れていると判断する前に、シークレットウィンドウでテストする</li>
+</ul>
+<p>Viteのファイルベースのメタデータアプローチについて詳しくは、当ブログの<a href="/ja/blog/vite-public-folder-favicon.html">Vite publicフォルダfavicon完全ガイド</a>を参照してください。React特有の問題(Helmet、動的アイコンなど)については、<a href="/ja/blog/react-favicon.html">React faviconセットアップガイド</a>がそれらのパターンをカバーしています。</p>
+<h2>まとめ</h2>
+<p>React Viteでfaviconが表示されないという問題は、ほとんどの場合、ファイルの配置場所、パス参照、キャッシュの3点に集約されます。この3つを押さえれば90%は解決します。残りの10%は通常、baseパスの不一致か、Reactコンポーネントがlinkタグを飲み込んでいるケースで、いずれもDevToolsにははっきり痕跡が残ります。</p>
+<p><a href="/ja/index.html">Mzu favicondl</a>でアイコン一式を生成し、ファイルを<code>public/</code>に配置、linkタグを<code>index.html</code>に貼り付ければ、そのまま公開できます。</p></div>
+
+        <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
+
+        <div class="cta-box">
+            <h3>React Vite用ファビコンを一括生成</h3>
+            <p>Mzu favicondlを使えば、1つのソースから全サイズのファビコン（SVG、PNG、ICO）を一括生成できます。</p>
+            <a href="/ja/index.html" class="cta-btn">Mzu favicondlを試す →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/ja/index.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">ホーム</a>
+                <a href="/ja/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">ブログ</a>
+                <a href="/ja/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">プライバシー</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js?v=20260211"></script>
+
+</body></html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html><html lang="zh"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React Vite 网站图标不显示？快速修复指南 - Mzu favicondl</title>
+    <meta name="description" content="React Vite 网站图标不显示？本文详细解析 7 个最常见原因（从路径错误到缓存问题），帮你快速修复。">
+    <meta name="keywords" content="react vite favicon, vite favicon not showing, react favicon fix">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/zh/blog/react-vite-favicon-not-showing.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/react-vite-favicon-not-showing.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/react-vite-favicon-not-showing.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/react-vite-favicon-not-showing.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/react-vite-favicon-not-showing.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/react-vite-favicon-not-showing.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/react-vite-favicon-not-showing.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/zh/blog/react-vite-favicon-not-showing.html">
+    <meta property="og:title" content="React Vite 网站图标不显示？快速修复指南">
+    <meta property="og:description" content="React Vite 网站图标不显示？本文详细解析 7 个最常见原因（从路径错误到缓存问题），帮你快速修复。">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="React Vite 网站图标不显示？快速修复指南">
+    <meta name="twitter:description" content="React Vite 网站图标不显示？本文详细解析 7 个最常见原因（从路径错误到缓存问题），帮你快速修复。">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "React Vite 网站图标不显示？快速修复指南",
+  "description": "React Vite 网站图标不显示？本文详细解析 7 个最常见原因（从路径错误到缓存问题），帮你快速修复。",
+  "datePublished": "2026-08-31",
+  "dateModified": "2026-08-31",
+  "author": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "mainEntityOfPage": "https://favicondl.com/zh/blog/react-vite-favicon-not-showing.html",
+  "inLanguage": "zh-CN"
+}</script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/zh/index.html" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/zh/documentation.html" class="nav-link">文档</a>
+                <a href="/zh/tools.html" class="nav-link">工具</a>
+                <a href="/zh/blog/" class="nav-link">博客</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/react-vite-favicon-not-showing.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/react-vite-favicon-not-showing.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/react-vite-favicon-not-showing.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/react-vite-favicon-not-showing.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/react-vite-favicon-not-showing.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/zh/index.html" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/zh/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600">React Vite 网站图标不显示？快速修复指南</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">react</span><time class="text-sm text-gray-400">2026-08-31</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">React Vite 网站图标不显示？快速修复指南</h1>
+        </header>
+
+        <div class="article-body"><p>你刚上线了一个 React + Vite 项目，把 <code>favicon.ico</code> 丢进 <code>public/</code>，重启了 dev server，浏览器标签页却依然显示 Vite 的闪电图标。更糟的情况是，图标彻底消失。这就是典型的 React Vite favicon 不显示问题，几乎总能追溯到几类具体的配置错误。</p>
+<p>下面先给两分钟的快速修复方案，再解释背后的根本原因。</p>
+<h2>两分钟快速修复</h2>
+<p>打开项目根目录下的 <code>index.html</code>，确认 link 标签使用的是以 <code>/</code> 开头的绝对路径，而不是 <code>/public/</code>。在 Vite 中，<code>public/</code> 目录下的文件会被原样拷贝到构建产物，并以根路径提供服务（参见 <a href="https://vite.dev/guide/assets.html#the-public-directory">Vite public 目录文档</a>）。所以放在 <code>public/favicon.ico</code> 的文件，引用时应该写成 <code>/favicon.ico</code>。</p>
+<pre><code>&amp;lt;link rel='icon' type='image/x-icon' href='/favicon.ico' /&amp;gt;
+&amp;lt;link rel='icon' type='image/svg+xml' href='/icon.svg' /&amp;gt;
+&amp;lt;link rel='apple-touch-icon' href='/apple-touch-icon.png' /&amp;gt;</code></pre>
+<p>保存文件。如果 Vite 正在运行，HMR 会自动接管。如果图标还是没有出现，试试硬刷新（<code>Ctrl+Shift+R</code> 或 <code>Cmd+Shift+R</code>），然后在 Network 面板里看看 favicon URL 是否返回 200。</p>
+<h2>根本原因详解</h2>
+<h3>1. 文件放错了目录：放在 <code>src/</code> 而不是 <code>public/</code></h3>
+<p>这是最常见的错误。<code>src/</code> 下的文件会经过 Vite 的打包流程——它们需要被作为模块导入，最终文件名还会带上 hash。<code>public/</code> 下的文件则会以原始形态、从根路径提供服务。如果你把 favicon 放在 <code>src/assets/</code>，然后期望它在 <code>/favicon.ico</code> 这个位置可用，那它根本不会出现在那里。把文件挪到 <code>public/</code> 即可。</p>
+<h3>2. link 标签里的路径写错了</h3>
+<p>从 Create React App 迁移过来的开发者有时会写成 <code>href='%PUBLIC_URL%/favicon.ico'</code> 或者 <code>href='/public/favicon.ico'</code>。Vite 没有 <code>%PUBLIC_URL%</code> 这个变量，<code>/public/</code> 是一个运行时根本不存在的字面目录名。请直接用 <code>/favicon.ico</code>。</p>
+<h3>3. base 路径不匹配</h3>
+<p>如果你在 <code>vite.config.js</code> 中设置了 <code>base: '/my-app/'</code>，那么所有资源路径都必须带上这个前缀。当应用部署在 <code>https://example.com/my-app/</code> 时，link 标签里写 <code>href='/favicon.ico'</code> 就会 404。可以改成相对引用（<code>href='./favicon.ico'</code>），或者把所有路径都更新为带上配置好的 base 前缀。</p>
+<h3>4. 缓存在骗你</h3>
+<p>浏览器对 favicon 的缓存非常激进。Chrome 把它们存在一个独立的 SQLite 数据库里，普通清缓存操作根本清不掉（这一点我们在 <a href="/zh/blog/favicon-cache-clear.html">favicon 缓存清理指南</a> 中讲过）。哪怕你修好了路径，旧的破损图标也可能赖着不走长达几个小时。开发阶段可以在 URL 上加一个版本号查询参数，强制刷新请求：</p>
+<pre><code>&amp;lt;link rel='icon' href='/favicon.ico?v=2' /&amp;gt;</code></pre>
+<h3>5. SPA 路由拦截了 <code>/favicon.ico</code></h3>
+<p>如果你的项目用了 React Router，并且配了 catch-all 路由，那么对 <code>/favicon.ico</code> 的请求可能会被 React 应用接住，返回 HTML 而不是图标。Vite 的 dev server 会优先处理 <code>public/</code> 下的文件，所以这个问题大多出现在生产构建阶段。可以用 curl 请求部署后的 URL，检查响应头里的 <code>Content-Type</code> 来验证。</p>
+<h3>6. 把 link 标签写在 React 组件里</h3>
+<p>放在 JSX 组件里的 <code>&amp;lt;link&amp;gt;</code> 标签，并不总是按你期望的方式出现在 <code>&amp;lt;head&amp;gt;</code> 中。React 不会把它们提升到 head 节点——它们只会在组件挂载到 DOM 时才生效。如果要动态切换图标，用 <code>react-helmet-async</code>；静态的 favicon 标签直接写在 <code>index.html</code> 里就行。</p>
+<h3>7. SVG favicon 的语法错误</h3>
+<p>Chrome 严格按照 HTML 规范中对 <a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">rel='icon'</a> 的定义来解析 SVG favicon。缺了 namespace 声明、<code>viewBox</code> 属性不合法，或者引用了外部资源，都会导致解析静默失败。在引用之前，可以先把 SVG 直接拖到浏览器标签页里打开测试一下。</p>
+<h2>预防清单</h2>
+<ul>
+<li>favicon 文件一律放在 <code>public/</code>，不要放 <code>src/</code></li>
+<li>用根路径开头的绝对路径（<code>/favicon.ico</code>）来引用它们</li>
+<li>所有 <code>&amp;lt;link rel='icon'&amp;gt;</code> 标签都写在 <code>index.html</code> 里，不要塞到 JSX 里</li>
+<li>开发阶段用版本号查询参数来 bust 缓存</li>
+<li>用 <code>curl -I https://yoursite.com/favicon.ico</code> 验证部署后的构建产物</li>
+<li>在认定图标坏了之前，先开一个无痕窗口测一下</li>
+</ul>
+<p>想更系统地了解 Vite 基于文件系统的元数据处理方式，可以看 <a href="/zh/blog/vite-public-folder-favicon.html">这份 Vite public 目录 favicon 完整指南</a>。如果你的问题跟 React 强相关（Helmet、动态图标），<a href="/zh/blog/react-favicon.html">React favicon 配置指南</a> 也覆盖了相关模式。</p>
+<h2>最后的话</h2>
+<p>React Vite favicon 不显示这个问题，几乎总能归到三类原因：文件位置、路径引用、缓存。这三点搞对了，90% 的问题就解决了。剩下的 10% 通常是 base 路径不匹配，或者某个 React 组件把 link 标签吞掉了——这两种情况在 DevTools 里都能找到明显的痕迹。</p>
+<p>用 <a href="/zh/index.html">Mzu favicondl</a> 生成一整套图标，把文件扔进 <code>public/</code>，把 link 标签粘到 <code>index.html</code> 里，然后就可以上线了。</p></div>
+
+        <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
+
+        <div class="cta-box">
+            <h3>为 React Vite 生成完整图标集</h3>
+            <p>使用 Mzu favicondl 从单一源生成所有尺寸的网站图标，SVG、PNG 和 ICO 一键搞定。</p>
+            <a href="/zh/index.html" class="cta-btn">试用 Mzu favicondl →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/zh/index.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">首页</a>
+                <a href="/zh/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">博客</a>
+                <a href="/zh/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">隐私政策</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js?v=20260211"></script>
+
+</body></html>

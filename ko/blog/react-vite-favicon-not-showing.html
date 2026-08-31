@@ -1,0 +1,162 @@
+<!DOCTYPE html><html lang="ko"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React Vite 파비콘이 표시되지 않나요? 빠른 해결 가이드 - Mzu favicondl</title>
+    <meta name="description" content="React Vite 파비콘이 표시되지 않나요? 파일 경로 오류부터 캐시 문제까지 7가지 주요 원인과 해결법을 알아보세요.">
+    <meta name="keywords" content="react vite favicon, vite favicon not showing, react favicon fix">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/ko/blog/react-vite-favicon-not-showing.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/react-vite-favicon-not-showing.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/react-vite-favicon-not-showing.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/react-vite-favicon-not-showing.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/react-vite-favicon-not-showing.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/react-vite-favicon-not-showing.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/react-vite-favicon-not-showing.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/ko/blog/react-vite-favicon-not-showing.html">
+    <meta property="og:title" content="React Vite 파비콘이 표시되지 않나요? 빠른 해결 가이드">
+    <meta property="og:description" content="React Vite 파비콘이 표시되지 않나요? 파일 경로 오류부터 캐시 문제까지 7가지 주요 원인과 해결법을 알아보세요.">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="React Vite 파비콘이 표시되지 않나요? 빠른 해결 가이드">
+    <meta name="twitter:description" content="React Vite 파비콘이 표시되지 않나요? 파일 경로 오류부터 캐시 문제까지 7가지 주요 원인과 해결법을 알아보세요.">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "React Vite 파비콘이 표시되지 않나요? 빠른 해결 가이드",
+  "description": "React Vite 파비콘이 표시되지 않나요? 파일 경로 오류부터 캐시 문제까지 7가지 주요 원인과 해결법을 알아보세요.",
+  "datePublished": "2026-08-31",
+  "dateModified": "2026-08-31",
+  "author": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "mainEntityOfPage": "https://favicondl.com/ko/blog/react-vite-favicon-not-showing.html",
+  "inLanguage": "ko"
+}</script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/ko/index.html" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/ko/documentation.html" class="nav-link">문서</a>
+                <a href="/ko/tools.html" class="nav-link">도구</a>
+                <a href="/ko/blog/" class="nav-link">블로그</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/react-vite-favicon-not-showing.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/react-vite-favicon-not-showing.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/react-vite-favicon-not-showing.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/react-vite-favicon-not-showing.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/react-vite-favicon-not-showing.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/ko/index.html" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/ko/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600">React Vite 파비콘이 표시되지 않나요? 빠른 해결 가이드</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">react</span><time class="text-sm text-gray-400">2026-08-31</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">React Vite 파비콘이 표시되지 않나요? 빠른 해결 가이드</h1>
+        </header>
+
+        <div class="article-body"><p>새로 만든 React + Vite 앱을 배포하고 <code>favicon.ico</code>를 <code>public/</code>에 넣은 뒤 dev 서버를 재시작했는데, 브라우저 탭에는 여전히 Vite 번개 아이콘이 보입니다. 심지어 아무것도 표시되지 않는 경우도 있죠. 이는 React Vite favicon이 표시되지 않는 고전적인 문제로, 거의 항상 몇 가지 특정 설정 오류 중 하나로 귀결됩니다.</p>
+<p>먼저 2분 만에 해결하는 방법을 알려드리고, 이어서 근본 원인들을 자세히 설명하겠습니다.</p>
+<h2>2분 만에 해결하기</h2>
+<p>프로젝트 루트의 <code>index.html</code>을 열고 link 태그의 경로가 <code>/public/</code>이 아닌 루트 <code>/</code>로 시작하는 절대 경로인지 확인합니다. Vite에서 <code>public/</code> 디렉터리의 파일은 빌드 출력으로 복사되어 루트 경로에서 제공됩니다(<a href="https://vite.dev/guide/assets.html#the-public-directory">Vite public 디렉터리 문서</a> 참조). 따라서 <code>public/favicon.ico</code>의 favicon은 <code>/favicon.ico</code>로 참조해야 합니다.</p>
+<pre><code>&amp;lt;link rel='icon' type='image/x-icon' href='/favicon.ico' /&amp;gt;
+&amp;lt;link rel='icon' type='image/svg+xml' href='/icon.svg' /&amp;gt;
+&amp;lt;link rel='apple-touch-icon' href='/apple-touch-icon.png' /&amp;gt;</code></pre>
+<p>파일을 저장합니다. Vite가 실행 중이라면 HMR이 자동으로 반영합니다. 그래도 아이콘이 표시되지 않으면 강제 새로 고침(<code>Ctrl+Shift+R</code> 또는 <code>Cmd+Shift+R</code>)을 수행하고 Network 탭에서 favicon URL의 응답 코드가 200인지 확인합니다.</p>
+<h2>근본 원인 분석</h2>
+<h3>1. 파일이 <code>src/</code>에 있고 <code>public/</code>에 없는 경우</h3>
+<p>가장 흔한 실수입니다. <code>src/</code>의 파일은 Vite의 번들러를 거치며 모듈로 import되어 파일명에 해시가 붙습니다. 반면 <code>public/</code>의 파일은 그대로 루트 경로에서 제공됩니다. <code>src/assets/</code>에 favicon을 두고 <code>/favicon.ico</code> 경로에 표시되길 기대하면 해당 경로에는 파일이 존재하지 않습니다. <code>public/</code>로 이동시키면 됩니다.</p>
+<h3>2. link 태그의 경로가 잘못된 경우</h3>
+<p>Create React App에서 넘어온 개발자들은 가끔 <code>href='%PUBLIC_URL%/favicon.ico'</code> 또는 <code>href='/public/favicon.ico'</code>처럼 작성합니다. Vite에는 <code>%PUBLIC_URL%</code> 변수가 존재하지 않으며, <code>/public/</code>는 런타임에 존재하지 않는 디렉터리 이름입니다. 평범한 <code>/favicon.ico</code>를 사용해야 합니다.</p>
+<h3>3. base 경로 불일치</h3>
+<p><code>vite.config.js</code>에서 <code>base: '/my-app/'</code>를 설정했다면, 모든 asset 경로에 해당 prefix를 포함해야 합니다. <code>href='/favicon.ico'</code>로 작성한 link 태그는 앱이 <code>https://example.com/my-app/</code>에서 제공될 때 404를 반환합니다. 상대 경로(<code>href='./favicon.ico'</code>)를 사용하거나, 설정한 base를 포함하도록 모든 경로를 수정하면 됩니다.</p>
+<h3>4. 캐시가 잘못된 정보를 보여주는 경우</h3>
+<p>브라우저는 favicon을 매우 공격적으로 캐시합니다. Chrome은 favicon을 일반 캐시 삭제 후에도 살아남는 별도의 SQLite 데이터베이스에 저장합니다(이 부분은 <a href="/ko/blog/favicon-cache-clear.html">favicon 캐시 삭제 가이드</a>에서 다룬 바 있습니다). 경로를 수정한 뒤에도 이전 깨진 아이콘이 몇 시간 동안 그대로 남아 있을 수 있습니다. 개발 중에 쿼리 스트링 버전을 변경하면 새로운 요청을 강제로 만들 수 있습니다.</p>
+<pre><code>&amp;lt;link rel='icon' href='/favicon.ico?v=2' /&amp;gt;</code></pre>
+<h3>5. SPA 라우팅이 <code>/favicon.ico</code>를 가로채는 경우</h3>
+<p>React Router에서 catch-all 라우트를 사용 중이라면, <code>/favicon.ico</code> 요청이 React 앱에 의해 처리되어 아이콘 대신 HTML을 반환할 수 있습니다. Vite의 dev 서버는 <code>public/</code> 파일에 우선순위를 두므로 이 문제는 주로 프로덕션 빌드에서 발생합니다. 배포된 URL을 curl로 요청해 <code>Content-Type</code> 헤더를 확인하면 검증할 수 있습니다.</p>
+<h3>6. React 컴포넌트 내부의 link 태그</h3>
+<p>JSX 컴포넌트 안에 배치한 <code>&amp;lt;link&amp;gt;</code> 태그가 항상 예상대로 <code>&amp;lt;head&amp;gt;</code>에 렌더링되지는 않습니다. React는 link 태그를 자동으로 끌어올리지 않으며, 컴포넌트가 DOM에 마운트될 때에만 적용됩니다. 동적 아이콘이 필요하다면 <code>react-helmet-async</code>를 사용하고, 정적인 favicon 태그는 <code>index.html</code>에 직접 작성해야 합니다.</p>
+<h3>7. SVG favicon 구문 오류</h3>
+<p>Chrome은 <a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">rel='icon'</a>에 대한 HTML 명세를 엄격하게 따라 SVG favicon을 파싱합니다. namespace 선언 누락, 잘못된 <code>viewBox</code> 속성, 외부 리소스 참조는 조용히 실패합니다. 참조하기 전에 브라우저 탭에서 SVG를 직접 열어 테스트해 보시기 바랍니다.</p>
+<h2>예방 체크리스트</h2>
+<ul>
+<li>favicon 파일은 <code>public/</code>에만 둡니다. <code>src/</code>에는 절대 두지 않습니다.</li>
+<li>루트에서 시작하는 절대 경로(<code>/favicon.ico</code>)로 참조합니다.</li>
+<li>모든 <code>&amp;lt;link rel='icon'&amp;gt;</code> 태그는 JSX가 아닌 <code>index.html</code>에 작성합니다.</li>
+<li>개발 중에는 버전 쿼리 스트링을 추가해 캐시를 무효화합니다.</li>
+<li><code>curl -I https://yoursite.com/favicon.ico</code> 명령으로 배포된 빌드를 검증합니다.</li>
+<li>아이콘이 깨졌다고 판단하기 전에 시크릿 창에서 테스트합니다.</li>
+</ul>
+<p>Vite의 파일 기반 메타데이터 접근 방식에 대한 자세한 내용은 <a href="/ko/blog/vite-public-folder-favicon.html">Vite public 폴더 favicon 완전 가이드</a>를 참고하시기 바랍니다. 그리고 이슈가 React에 한정된 것(Helmet, 동적 아이콘 등)이라면 <a href="/ko/blog/react-favicon.html">React favicon 설정 가이드</a>에서 해당 패턴을 다루고 있습니다.</p>
+<h2>마무리</h2>
+<p>React Vite favicon 미표시 문제는 거의 항상 파일 위치, 경로 참조, 캐시 문제로归结됩니다. 이 세 가지만 제대로 처리하면 90%는 해결됩니다. 나머지 10%는 보통 base 경로 불일치이거나 React 컴포넌트가 link 태그를 흡수하는 경우인데, 이 두 가지는 DevTools에서 명확한 흔적을 남깁니다.</p>
+<p><a href="/ko/index.html">Mzu favicondl</a>로 전체 아이콘 세트를 생성하고, 파일들을 <code>public/</code>에 넣은 뒤, link 태그를 <code>index.html</code>에 붙여 넣은 다음 배포하면 됩니다.</p></div>
+
+        <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
+
+        <div class="cta-box">
+            <h3>React Vite 파비콘 세트 생성</h3>
+            <p>Mzu favicondl로 하나의 소스에서 모든 크기의 파비콘을 생성하세요 — SVG, PNG, ICO를 한 번에.</p>
+            <a href="/ko/index.html" class="cta-btn">Mzu favicondl 사용하기 →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/ko/index.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">홈</a>
+                <a href="/ko/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">블로그</a>
+                <a href="/ko/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">개인정보</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js?v=20260211"></script>
+
+</body></html>

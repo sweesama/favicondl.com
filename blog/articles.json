@@ -3269,5 +3269,26 @@
     ],
     "qualityScore": 85,
     "qualityGrade": "A"
+  },
+  {
+    "slug": "react-vite-favicon-not-showing",
+    "publishDate": "2026-08-31",
+    "titleEn": "React Vite Favicon Not Showing? Quick Fixes That Work",
+    "titleZh": "React Vite 网站图标不显示？快速修复指南",
+    "titleJa": "React Viteファビコンが表示されない？即効修正ガイド",
+    "titleKo": "React Vite 파비콘이 표시되지 않나요? 빠른 해결 가이드",
+    "titleEs": "¿El favicon de React Vite no aparece? Solución rápida",
+    "descEn": "React Vite favicon not showing? Fix the 7 most common causes—from wrong file paths to caching—in this focused troubleshooting guide for developers.",
+    "descZh": "React Vite 网站图标不显示？本文详细解析 7 个最常见原因（从路径错误到缓存问题），帮你快速修复。",
+    "descJa": "React Viteのファビコンが表示されない？ファイルパスの誤りからキャッシュ問題まで、7つの主要原因と修正方法を解説します。",
+    "descKo": "React Vite 파비콘이 표시되지 않나요? 파일 경로 오류부터 캐시 문제까지 7가지 주요 원인과 해결법을 알아보세요.",
+    "descEs": "¿El favicon de React Vite no aparece? Descubre las 7 causas más comunes y cómo solucionarlas paso a paso.",
+    "keyword": "react vite favicon not showing",
+    "tags": [
+      "react",
+      "vite"
+    ],
+    "qualityScore": 100,
+    "qualityGrade": "A"
   }
 ]

@@ -2430,7 +2430,9 @@
       "vite-public-folder-favicon",
       "react-favicon"
     ],
-    "status": "pending"
+    "status": "done",
+    "qualityScore": 100,
+    "qualityGrade": "A"
   },
   {
     "keyword": "vue vite favicon public folder",
