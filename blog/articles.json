@@ -3290,5 +3290,26 @@
     ],
     "qualityScore": 100,
     "qualityGrade": "A"
+  },
+  {
+    "slug": "vue-vite-favicon-public-folder",
+    "publishDate": "2026-09-01",
+    "titleEn": "Vue Vite Favicon Public Folder: Step-by-Step Setup",
+    "titleZh": "Vue + Vite favicon 公共文件夹配置教程",
+    "titleJa": "Vue + Viteのfaviconをpublicフォルダに設定する方法",
+    "titleKo": "Vue Vite 파비콘 public 폴더 설정 가이드",
+    "titleEs": "Favicon de Vue Vite en public folder: guía paso a paso",
+    "descEn": "Place your favicon files in a Vue + Vite project's public folder and wire them up in index.html. A focused walkthrough with paths and dark mode tips.",
+    "descZh": "将 favicon 文件放入 Vue + Vite 项目的 public 文件夹并在 index.html 中配置链接标签,包含路径与暗色模式设置。",
+    "descJa": "Vue + Vite プロジェクトの public フォルダにfaviconを配置し、index.htmlでリンクを設定する手順を解説します。",
+    "descKo": "Vue + Vite 프로젝트의 public 폴더에 파비콘 파일을 넣고 index.html에서 연결하는 방법을 단계별로 안내합니다.",
+    "descEs": "Coloca los archivos de favicon en la carpeta public de un proyecto Vue + Vite y configúralos en index.html. Incluye rutas y modo oscuro.",
+    "keyword": "vue vite favicon public folder",
+    "tags": [
+      "vue",
+      "vite"
+    ],
+    "qualityScore": 85,
+    "qualityGrade": "A"
   }
 ]

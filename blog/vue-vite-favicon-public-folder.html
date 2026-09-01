@@ -1,0 +1,452 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Vite Favicon Public Folder: Step-by-Step Setup - Mzu favicondl</title>
+    <meta name="description" content="Place your favicon files in a Vue + Vite project's public folder and wire them up in index.html. A focused walkthrough with paths and dark mode tips.">
+    <meta name="keywords" content="vue vite favicon, public folder favicon, vite favicon setup, vue 3 favicon">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/blog/vue-vite-favicon-public-folder.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/vue-vite-favicon-public-folder.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/vue-vite-favicon-public-folder.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/vue-vite-favicon-public-folder.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/vue-vite-favicon-public-folder.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/vue-vite-favicon-public-folder.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/vue-vite-favicon-public-folder.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/blog/vue-vite-favicon-public-folder.html">
+    <meta property="og:title" content="Vue Vite Favicon Public Folder: Step-by-Step Setup">
+    <meta property="og:description" content="Place your favicon files in a Vue + Vite project's public folder and wire them up in index.html. A focused walkthrough with paths and dark mode tips.">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Vue Vite Favicon Public Folder: Step-by-Step Setup">
+    <meta name="twitter:description" content="Place your favicon files in a Vue + Vite project's public folder and wire them up in index.html. A focused walkthrough with paths and dark mode tips.">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Vue Vite Favicon Public Folder: Step-by-Step Setup",
+  "description": "Place your favicon files in a Vue + Vite project's public folder and wire them up in index.html. A focused walkthrough with paths and dark mode tips.",
+  "datePublished": "2026-09-01",
+  "dateModified": "2026-09-01",
+  "author": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "mainEntityOfPage": "https://favicondl.com/blog/vue-vite-favicon-public-folder.html",
+  "inLanguage": "en"
+}</script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/index.html" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/documentation.html" class="nav-link" data-en="Docs" data-zh="文档">Docs</a>
+                <a href="/tools.html" class="nav-link" data-en="Tools" data-zh="工具">Tools</a>
+                <a href="/blog/" class="nav-link" data-en="Blog" data-zh="博客">Blog</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/vue-vite-favicon-public-folder.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/vue-vite-favicon-public-folder.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/vue-vite-favicon-public-folder.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/vue-vite-favicon-public-folder.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/vue-vite-favicon-public-folder.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/index.html" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600" data-en="Vue Vite Favicon Public Folder: Step-by-Step Setup" data-zh="Vue + Vite favicon 公共文件夹配置教程" data-ja="Vue + Viteのfaviconをpublicフォルダに設定する方法" data-ko="Vue Vite 파비콘 public 폴더 설정 가이드" data-es="Favicon de Vue Vite en public folder: guía paso a paso">Vue Vite Favicon Public Folder: Step-by-Step Setup</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">vue</span><time class="text-sm text-gray-400">2026-09-01</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight" data-en="Vue Vite Favicon Public Folder: Step-by-Step Setup" data-zh="Vue + Vite favicon 公共文件夹配置教程" data-ja="Vue + Viteのfaviconをpublicフォルダに設定する方法" data-ko="Vue Vite 파비콘 public 폴더 설정 가이드" data-es="Favicon de Vue Vite en public folder: guía paso a paso">Vue Vite Favicon Public Folder: Step-by-Step Setup</h1>
+        </header>
+
+        <div class="article-body" data-lang="en">
+            <p>You scaffold a fresh Vue 3 project with Vite, fire up the dev server, and check the browser tab. There's the default Vite logo sitting where your brand icon should be. The fix lives in your project's <code>public/</code> folder, and wiring it correctly takes about three minutes once you know the Vite-specific gotchas.</p>
+
+<h2>Prerequisites</h2>
+<p>You'll need a Vue 3 project running on Vite, plus the favicon files you want to drop in. If you don't have them yet, generate a complete bundle (ICO, PNG, and SVG) using Mzu favicondl and download it ready to use. No webpack quirks, no <code>copy-webpack-plugin</code> rules — Vite handles the public folder as static assets, no configuration needed.</p>
+
+<h2>Step 1: Open the <code>public/</code> Folder</h2>
+<p>Every Vue + Vite scaffold ships with a <code>public/</code> directory at the project root. According to <a href="https://vite.dev/guide/assets.html#the-public-directory">Vite's documentation on the public directory</a>, anything you place here is copied to the build output unchanged and served at the root path.</p>
+<p>That means <code>public/favicon.ico</code> is reachable as <code>/favicon.ico</code>, never <code>/public/favicon.ico</code>. Missing that distinction is the single most common reason Vue apps ship a broken tab icon to production.</p>
+
+<h2>Step 2: Drop In Your Favicon Files</h2>
+<p>Place your entire favicon package directly into <code>public/</code>:</p>
+<pre><code>public/
+├── favicon.ico
+├── favicon-16x16.png
+├── favicon-32x32.png
+├── apple-touch-icon.png
+├── site.webmanifest
+└── favicon.svg</code></pre>
+<p>Vite copies the whole folder to your <code>dist/</code> output as-is — no imports, no transforms. Don't <code>import</code> these files from any Vue component; they're meant to stay outside the bundle. The complete breakdown of which sizes actually matter today lives in our <a href="/blog/favicon-sizes-guide.html">Favicon Sizes Guide</a>.</p>
+
+<h2>Step 3: Add <code>link</code> Tags to <code>index.html</code></h2>
+<p>Open <code>index.html</code> at the project root — the same file where Vite mounts your Vue app. Add <a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">link rel="icon"</a> declarations inside <code>&lt;head&gt;</code>:</p>
+<pre><code>&lt;head&gt;
+  &lt;meta charset="UTF-8" /&gt;
+  &lt;link rel="icon" href="/favicon.svg" type="image/svg+xml" /&gt;
+  &lt;link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32" /&gt;
+  &lt;link rel="icon" href="/favicon.ico" sizes="any" /&gt;
+  &lt;link rel="apple-touch-icon" href="/apple-touch-icon.png" /&gt;
+  &lt;link rel="manifest" href="/site.webmanifest" /&gt;
+&lt;/head&gt;</code></pre>
+<p>Order matters here. Browsers pick the first <code>rel="icon"</code> entry they support, so place the SVG first for crisp scaling, PNG fallbacks next, and the legacy ICO last. All paths start with <code>/</code>, never <code>/public/</code>.</p>
+
+<h2>Step 4: Add Dark Mode SVG Support</h2>
+<p>If you want a dark mode swap, drop the media query inside the SVG itself rather than wiring up Vue reactivity for it:</p>
+<pre><code>&lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"&gt;
+  &lt;style&gt;
+    circle { fill: #1a1a1a; }
+    @media (prefers-color-scheme: dark) {
+      circle { fill: #fafafa; }
+    }
+  &lt;/style&gt;
+  &lt;circle cx="16" cy="16" r="14" /&gt;
+&lt;/svg&gt;</code></pre>
+<p>Browsers swap the fill automatically — no <code>watch()</code> calls, no lifecycle hooks needed in the tab. For a deeper dive into the patterns, check our <a href="/blog/favicon-dark-mode.html">Favicon Dark Mode Guide</a>.</p>
+
+<h2>Step 5: Verify in Dev and Production</h2>
+<p>Run <code>npm run dev</code> and confirm three things:</p>
+<ol>
+<li>DevTools → Network → filter "favicon" shows every file returning <code>200 OK</code>.</li>
+<li>The browser tab shows your icon, not the default Vite mark.</li>
+<li><code>curl http://localhost:5173/favicon.svg</code> returns the SVG bytes.</li>
+</ol>
+<p>Then run <code>npm run build</code> and inspect <code>dist/</code>. Every file from <code>public/</code> should appear at the root of <code>dist/</code>, unchanged. If something is missing in production, your hosting's rewrite rules are likely stripping the path — check <code>vercel.json</code> or <code>_redirects</code>.</p>
+
+<h2>Common Pitfalls</h2>
+<ul>
+<li><strong>Path typo:</strong> Writing <code>/public/favicon.svg</code> instead of <code>/favicon.svg</code>. Vite strips <code>/public/</code> from the served URL — the file never resolves.</li>
+<li><strong>Wrong folder:</strong> Putting files in <code>src/assets/</code> instead of <code>public/</code>. Bundled assets require an <code>import</code> statement and won't render at <code>/favicon.svg</code>.</li>
+<li><strong>Stale browser cache:</strong> Browsers cache the ICO aggressively. Hard-refresh with Cmd/Ctrl + Shift + R, or append <code>?v=2</code> to your icon URL.</li>
+<li><strong>Manifest mismatch:</strong> Your <code>site.webmanifest</code> references icon paths that don't match the actual filenames in <code>public/</code>. Both files need to agree line by line.</li>
+</ul>
+
+<h2>Wrapping Up</h2>
+<p>The Vue + Vite public folder workflow is one of the cleanest favicon setups in modern web dev. Drop your files, wire up the link tags in <code>index.html</code>, and Vite copies everything to <code>dist/</code> exactly where you placed it. No plugin config, no head injection quirks, no Vue Router intercepting your requests — just static assets served from the root path.</p>
+<p>Generate a complete favicon package with Mzu favicondl, paste the link tags into your <code>index.html</code>, and your Vue app will look polished in every browser tab.</p>
+        </div>
+
+        <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
+        <template data-article-lang="zh"><p>用 Vite 初始化一个 Vue 3 项目，跑起 dev server 一看浏览器标签页——挂着的还是默认的 Vite logo。修起来其实就藏在项目的 <code>public/</code> 目录里，只要摸清 Vite 那几个特有的坑，三分钟左右就能搞定。</p>
+
+<h2>环境准备</h2>
+<p>一个跑在 Vite 上的 Vue 3 项目，加上准备放进去的 favicon 文件。如果还没准备，可以用 Mzu favicondl 一键生成完整的 favicon 套件（ICO、PNG、SVG），下下来就能直接用。不用折腾 webpack，也不用配 <code>copy-webpack-plugin</code>——Vite 默认就把 public 目录当静态资源处理，零配置。</p>
+
+<h2>第一步：打开 <code>public/</code> 目录</h2>
+<p>每个 Vue + Vite 脚手架项目根目录都自带一个 <code>public/</code> 目录。<a href="https://vite.dev/guide/assets.html#the-public-directory">Vite 关于 public 目录的文档</a> 明确说过：放在这里的任何文件都会原样拷贝到构建产物里，并以根路径的形式对外提供。</p>
+<p>也就是说，<code>public/favicon.ico</code> 的访问地址是 <code>/favicon.ico</code>，而不是 <code>/public/favicon.ico</code>。分不清这两者的差别，是 Vue 项目上线后标签页图标失效最常见的原因，没有之一。</p>
+
+<h2>第二步：把 favicon 文件丢进去</h2>
+<p>把整包 favicon 文件直接放进 <code>public/</code>：</p>
+<pre><code>public/
+├── favicon.ico
+├── favicon-16x16.png
+├── favicon-32x32.png
+├── apple-touch-icon.png
+├── site.webmanifest
+└── favicon.svg</code></pre>
+<p>Vite 会把整个目录原样拷贝到 <code>dist/</code>——不用 import，也不经过任何转译。千万不要在 Vue 组件里 <code>import</code> 这些文件，它们的定位就是在打包产物之外。目前哪些尺寸真正有用，完整的拆解可以看我们的 <a href="/blog/favicon-sizes-guide.html">Favicon 尺寸指南</a>。</p>
+
+<h2>第三步：在 <code>index.html</code> 里加 <code>link</code> 标签</h2>
+<p>打开项目根目录下的 <code>index.html</code>——Vite 就是从这个文件挂载 Vue 应用的。在 <code>&lt;head&gt;</code> 里加上 <a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">link rel="icon"</a> 声明：</p>
+<pre><code>&lt;head&gt;
+  &lt;meta charset="UTF-8" /&gt;
+  &lt;link rel="icon" href="/favicon.svg" type="image/svg+xml" /&gt;
+  &lt;link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32" /&gt;
+  &lt;link rel="icon" href="/favicon.ico" sizes="any" /&gt;
+  &lt;link rel="apple-touch-icon" href="/apple-touch-icon.png" /&gt;
+  &lt;link rel="manifest" href="/site.webmanifest" /&gt;
+&lt;/head&gt;</code></pre>
+<p>顺序很重要。浏览器会从前往后挑第一个支持的 <code>rel="icon"</code> 条目，所以把 SVG 放最前面保证矢量缩放效果，PNG 兜底放中间，老旧的 ICO 放最后。所有路径都以 <code>/</code> 开头，不要写成 <code>/public/</code>。</p>
+
+<h2>第四步：让 SVG 支持暗色模式</h2>
+<p>如果要做暗色模式切换，直接把媒体查询写在 SVG 文件里就行，没必要在 Vue 里搞响应式：</p>
+<pre><code>&lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"&gt;
+  &lt;style&gt;
+    circle { fill: #1a1a1a; }
+    @media (prefers-color-scheme: dark) {
+      circle { fill: #fafafa; }
+    }
+  &lt;/style&gt;
+  &lt;circle cx="16" cy="16" r="14" /&gt;
+&lt;/svg&gt;</code></pre>
+<p>浏览器会自动切换 fill 颜色——标签页里不需要任何 <code>watch()</code> 调用，也不用生命周期钩子。想深入了解相关模式，可以看我们的 <a href="/blog/favicon-dark-mode.html">Favicon 暗色模式指南</a>。</p>
+
+<h2>第五步：开发与生产环境分别验证</h2>
+<p>跑 <code>npm run dev</code>，确认三件事：</p>
+<ol>
+<li>DevTools → Network，过滤 "favicon"，每个文件都返回 <code>200 OK</code>。</li>
+<li>浏览器标签页显示的是你自己的图标，不是默认的 Vite logo。</li>
+<li><code>curl http://localhost:5173/favicon.svg</code> 能拿到 SVG 的字节内容。</li>
+</ol>
+<p>然后跑 <code>npm run build</code>，打开 <code>dist/</code> 看看。<code>public/</code> 里的每个文件都应该原样出现在 <code>dist/</code> 根目录下。如果生产环境少了文件，大概率是托管平台的 rewrite 规则把路径吃掉了——查一下 <code>vercel.json</code> 或 <code>_redirects</code>。</p>
+
+<h2>常见坑</h2>
+<ul>
+<li><strong>路径写错：</strong>写成了 <code>/public/favicon.svg</code> 而不是 <code>/favicon.svg</code>。Vite 会把 <code>/public/</code> 从访问 URL 里剥掉——文件永远解析不到。</li>
+<li><strong>放错文件夹：</strong>把文件丢进了 <code>src/assets/</code> 而不是 <code>public/</code>。被打包的资源需要 <code>import</code> 才能用，没法直接以 <code>/favicon.svg</code> 的形式渲染出来。</li>
+<li><strong>浏览器缓存顽固：</strong>浏览器对 ICO 缓存非常激进。用 Cmd/Ctrl + Shift + R 硬刷新，或者在图标 URL 后面加 <code>?v=2</code> 这种查询参数。</li>
+<li><strong>manifest 对不上：</strong><code>site.webmanifest</code> 里引用的图标路径和 <code>public/</code> 里实际的文件名不一致。两边的文件名必须逐行核对。</li>
+</ul>
+
+<h2>收尾</h2>
+<p>Vue + Vite 的 public 目录流程，算是现代前端里最干净的 favicon 配置方式之一了。丢文件、在 <code>index.html</code> 里写好 link 标签，Vite 就把所有东西原封不动拷到 <code>dist/</code>。不用配插件，不用纠结 head 注入，Vue Router 也不会拦截你的请求——就是根路径下的静态资源。</p>
+<p>用 Mzu favicondl 生成完整的 favicon 套件，把 link 标签粘到 <code>index.html</code> 里，你的 Vue 应用在每个浏览器的标签页里看着就规整了。</p></template>
+        <template data-article-lang="ja"><p>Vue 3 のプロジェクトを Vite で新規作成して、開発 server を立ち上げ、ブラウザのタブを見てみます。ブランドアイコンを置くべき場所に、デフォルトの Vite ロゴが陣取っているはずです。修正はプロジェクトの <code>public/</code> フォルダで行います。Vite 特有の落とし穴さえ押さえれば、設定は 3 分程度で完了します。</p>
+
+<h2>前提条件</h2>
+<p>必要になるのは、Vite で動作している Vue 3 プロジェクトと、追加したい favicon ファイル一式だけです。まだ用意していない場合は、Mzu favicondl を使って ICO、PNG、SVG を含む完全なバンドルを生成し、そのまま使える状態でダウンロードしてください。Webpack 特有の挙動や <code>copy-webpack-plugin</code> のルールは一切不要です。Vite は public フォルダを static な asset として扱い、設定なしで処理します。</p>
+
+<h2>ステップ 1：<code>public/</code> フォルダを開く</h2>
+<p>Vue + Vite のスキャフォールドには、プロジェクトルートに必ず <code>public/</code> ディレクトリが用意されています。<a href="https://vite.dev/guide/assets.html#the-public-directory">Vite の public ディレクトリに関するドキュメント</a>によれば、ここに置いたファイルは変更されずにビルド出力へコピーされ、ルートパスから配信されます。</p>
+<p>つまり <code>public/favicon.ico</code> は <code>/favicon.ico</code> としてアクセスでき、<code>/public/favicon.ico</code> ではありません。この違いを見落とすことが、Vue アプリで本番環境のタブアイコンが壊れる最もよくある原因です。</p>
+
+<h2>ステップ 2：favicon ファイルを配置する</h2>
+<p>favicon 関連ファイル一式を <code>public/</code> 直下に置いてください。</p>
+<pre><code>public/
+├── favicon.ico
+├── favicon-16x16.png
+├── favicon-32x32.png
+├── apple-touch-icon.png
+├── site.webmanifest
+└── favicon.svg</code></pre>
+<p>Vite はフォルダごと <code>dist/</code> 出力へそのままコピーします。import や変換は一切かかりません。これらのファイルを Vue コンポーネントから <code>import</code> しないでください。これらはバンドルの外側に置くことを前提としています。現在意味のあるサイズについては、<a href="/blog/favicon-sizes-guide.html">Favicon Sizes Guide</a> で詳しく解説しています。</p>
+
+<h2>ステップ 3：<code>index.html</code> に <code>link</code> タグを追加する</h2>
+<p>Vite が Vue アプリをマウントする <code>index.html</code> をプロジェクトルートで開きます。<code>&lt;head&gt;</code> の中に <a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">link rel="icon"</a> の宣言を追加してください。</p>
+<pre><code>&amp;lt;head&amp;gt;
+  &amp;lt;meta charset="UTF-8" /&amp;gt;
+  &amp;lt;link rel="icon" href="/favicon.svg" type="image/svg+xml" /&amp;gt;
+  &amp;lt;link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32" /&amp;gt;
+  &amp;lt;link rel="icon" href="/favicon.ico" sizes="any" /&amp;gt;
+  &amp;lt;link rel="apple-touch-icon" href="/apple-touch-icon.png" /&amp;gt;
+  &amp;lt;link rel="manifest" href="/site.webmanifest" /&amp;gt;
+&amp;lt;/head&amp;gt;</code></pre>
+<p>記述の順序は重要です。ブラウザはサポートしている最初の <code>rel="icon"</code> エントリを採用するため、まず SVG を置き、続いて PNG のフォールバック、最後に ICO という構成にします。すべてのパスは <code>/public/</code> ではなく <code>/</code> から始めてください。</p>
+
+<h2>ステップ 4：ダークモード対応の SVG を追加する</h2>
+<p>ダークモード時にアイコンを切り替えたい場合は、Vue のリアクティビティを使うのではなく、SVG 自体にメディアクエリを記述してください。</p>
+<pre><code>&amp;lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"&amp;gt;
+  &amp;lt;style&amp;gt;
+    circle { fill: #1a1a1a; }
+    @media (prefers-color-scheme: dark) {
+      circle { fill: #fafafa; }
+    }
+  &amp;lt;/style&amp;gt;
+  &amp;lt;circle cx="16" cy="16" r="14" /&amp;gt;
+&amp;lt;/svg&amp;gt;</code></pre>
+<p>ブラウザが自動的に fill を切り替えるため、タブ表示で <code>watch()</code> を呼んだりライフサイクルフックを使う必要はありません。より詳しいパターンについては、<a href="/blog/favicon-dark-mode.html">Favicon Dark Mode Guide</a> を参照してください。</p>
+
+<h2>ステップ 5：開発環境と本番環境で検証する</h2>
+<p><code>npm run dev</code> を実行し、以下の 3 点を確認します。</p>
+<ol>
+<li>DevTools → Network で "favicon" でフィルタし、すべてのファイルが <code>200 OK</code> を返すこと。</li>
+<li>ブラウザのタブにデフォルトの Vite ロゴではなく、自分のアイコンが表示されていること。</li>
+<li><code>curl http://localhost:5173/favicon.svg</code> が SVG のバイト列を返すこと。</li>
+</ol>
+<p>続いて <code>npm run build</code> を実行し、<code>dist/</code> を確認します。<code>public/</code> に置いたすべてのファイルが、変更されず <code>dist/</code> のルートにそのまま出力されているはずです。本番環境で何かが欠けている場合は、ホスティングのリライトルールが原因の可能性が高いので、<code>vercel.json</code> や <code>_redirects</code> を確認してください。</p>
+
+<h2>よくある落とし穴</h2>
+<ul>
+<li><strong>パスの記述ミス：</strong><code>/favicon.svg</code> と書くべきところを <code>/public/favicon.svg</code> と書いてしまうケース。Vite は配信 URL から <code>/public/</code> を取り除くため、ファイルが解決されません。</li>
+<li><strong>配置フォルダの誤り：</strong><code>public/</code> ではなく <code>src/assets/</code> にファイルを置いてしまうケース。バンドルされる asset は <code>import</code> 文が必要で、<code>/favicon.svg</code> では描画されません。</li>
+<li><strong>ブラウザキャッシュの古さ：</strong>ブラウザは ICO を積極的にキャッシュします。Cmd/Ctrl + Shift + R でハードリロードするか、アイコン URL に <code>?v=2</code> を付与してください。</li>
+<li><strong>Manifest の不整合：</strong><code>site.webmanifest</code> が参照しているアイコンパスが、<code>public/</code> 内の実際のファイル名と一致していないケース。両ファイルを一行ずつ突き合わせて整合性を取る必要があります。</li>
+</ul>
+
+<h2>まとめ</h2>
+<p>Vue + Vite の public フォルダを使ったワークフローは、モダンな Web 開発の中でも特にクリーンな favicon 設定の一つです。ファイルを配置し、<code>index.html</code> に link タグを記述すれば、Vite がすべてをそのまま <code>dist/</code> にコピーします。プラグインの設定も、head への注入の挙動も、Vue Router によるリクエストの割り込みも一切なく、ルートパスから配信される static な asset として扱われます。</p>
+<p>Mzu favicondl で favicon パッケージを生成し、<code>index.html</code> に link タグを貼り付ければ、あらゆるブラウザタブで Vue アプリがきちんと見えるようになります。</p></template>
+        <template data-article-lang="ko"><p>Vite로 새 Vue 3 프로젝트를 생성하고 개발 서버를 띄운 뒤 브라우저 탭을 살펴보면, 브랜드 아이콘이 있어야 할 자리에 기본 Vite 로고가 자리 잡고 있습니다. 해결책은 프로젝트의 <code>public/</code> 폴더에 있으며, Vite 관련 함정만 알고 나면 올바르게 연결하는 데 약 3분 정도면 충분합니다.</p>
+
+<h2>사전 요구 사항</h2>
+<p>Vite 기반의 Vue 3 프로젝트와 함께, 적용하려는 favicon 파일이 필요합니다. 아직 준비하지 않았다면 Mzu favicondl을 사용해 ICO, PNG, SVG로 구성된 전체 번들을 생성해 즉시 사용할 수 있도록 다운로드하시기 바랍니다. webpack 관련 특이 사항이나 <code>copy-webpack-plugin</code> 규칙은 필요 없습니다. Vite는 별도의 설정 없이 public 폴더를 정적 자산으로 처리합니다.</p>
+
+<h2>1단계: <code>public/</code> 폴더 열기</h2>
+<p>모든 Vue + Vite 스캐폴드에는 프로젝트 루트에 <code>public/</code> 디렉터리가 포함되어 있습니다. <a href="https://vite.dev/guide/assets.html#the-public-directory">Vite의 public 디렉터리 문서</a>에 따르면, 여기에 배치한 파일은 변환 없이 빌드 출력으로 복사되어 루트 경로에서 제공됩니다.</p>
+<p>즉, <code>public/favicon.ico</code>는 <code>/favicon.ico</code>로 접근할 수 있으며, <code>/public/favicon.ico</code>로는 접근할 수 없습니다. 이 차이를 놓치는 것이 Vue 애플리케이션이 프로덕션 환경에서 깨진 탭 아이콘을 그대로 노출하는 가장 흔한 원인입니다.</p>
+
+<h2>2단계: Favicon 파일 배치하기</h2>
+<p>전체 favicon 패키지를 <code>public/</code> 폴더에 직접 배치합니다.</p>
+<pre><code>public/
+├── favicon.ico
+├── favicon-16x16.png
+├── favicon-32x32.png
+├── apple-touch-icon.png
+├── site.webmanifest
+└── favicon.svg</code></pre>
+<p>Vite는 폴더 전체를 그대로 <code>dist/</code> 출력으로 복사합니다. import나 변환 과정이 발생하지 않습니다. Vue 컴포넌트에서 이 파일들을 <code>import</code>하지 마시기 바랍니다. 번들 외부에 두는 것이 올바른 방식입니다. 오늘날 실제로 의미 있는 사이즈에 대한 자세한 분석은 <a href="/blog/favicon-sizes-guide.html">Favicon Sizes Guide</a>에서 확인하실 수 있습니다.</p>
+
+<h2>3단계: <code>index.html</code>에 <code>link</code> 태그 추가하기</h2>
+<p>프로젝트 루트의 <code>index.html</code> 파일을 엽니다. Vite가 Vue 앱을 마운트하는 바로 그 파일입니다. <code>&lt;head&gt;</code> 안에 <a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">link rel="icon"</a> 선언을 추가합니다.</p>
+<pre><code>&lt;head&gt;
+  &lt;meta charset="UTF-8" /&gt;
+  &lt;link rel="icon" href="/favicon.svg" type="image/svg+xml" /&gt;
+  &lt;link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32" /&gt;
+  &lt;link rel="icon" href="/favicon.ico" sizes="any" /&gt;
+  &lt;link rel="apple-touch-icon" href="/apple-touch-icon.png" /&gt;
+  &lt;link rel="manifest" href="/site.webmanifest" /&gt;
+&lt;/head&gt;</code></pre>
+<p>여기서 순서가 중요합니다. 브라우저는 지원 가능한 첫 번째 <code>rel="icon"</code> 항목을 선택하기 때문에 SVG를 가장 앞에 두고 선명한 스케일링을 확보한 다음 PNG 폴백을 이어서 배치하고, 레거시 ICO는 마지막에 둡니다. 모든 경로는 <code>/</code>로 시작해야 하며 <code>/public/</code>로 시작해서는 안 됩니다.</p>
+
+<h2>4단계: 다크 모드 SVG 지원 추가하기</h2>
+<p>다크 모드 전환을 적용하고 싶다면 Vue의 reactivity를 연결하기보다 SVG 내부에 media query를 직접 삽입하는 방식을 권장합니다.</p>
+<pre><code>&lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"&gt;
+  &lt;style&gt;
+    circle { fill: #1a1a1a; }
+    @media (prefers-color-scheme: dark) {
+      circle { fill: #fafafa; }
+    }
+  &lt;/style&gt;
+  &lt;circle cx="16" cy="16" r="14" /&gt;
+&lt;/svg&gt;</code></pre>
+<p>브라우저가 자동으로 fill 값을 전환합니다. 탭에서 <code>watch()</code> 호출이나 lifecycle hook이 필요하지 않습니다. 패턴에 대한 자세한 내용은 <a href="/blog/favicon-dark-mode.html">Favicon Dark Mode Guide</a>에서 확인하실 수 있습니다.</p>
+
+<h2>5단계: 개발 및 프로덕션 환경에서 검증하기</h2>
+<p><code>npm run dev</code>를 실행하고 다음 세 가지를 확인합니다.</p>
+<ol>
+<li>DevTools → Network → "favicon" 필터에서 모든 파일이 <code>200 OK</code>로 반환되는지 확인합니다.</li>
+<li>브라우저 탭에 기본 Vite 표시가 아닌 사용자의 아이콘이 표시되는지 확인합니다.</li>
+<li><code>curl http://localhost:5173/favicon.svg</code> 명령이 SVG 바이트를 반환하는지 확인합니다.</li>
+</ol>
+<p>이어서 <code>npm run build</code>를 실행하고 <code>dist/</code>를 검사합니다. <code>public/</code>의 모든 파일이 변경 없이 <code>dist/</code> 루트에 나타나야 합니다. 프로덕션 환경에서 누락된 파일이 있다면 호스팅의 rewrite 규칙이 경로를 제거하고 있을 가능성이 높으므로 <code>vercel.json</code> 또는 <code>_redirects</code>를 확인하시기 바랍니다.</p>
+
+<h2>자주 발생하는 문제</h2>
+<ul>
+<li><strong>경로 오타:</strong> <code>/favicon.svg</code> 대신 <code>/public/favicon.svg</code>로 작성하는 경우입니다. Vite는 제공되는 URL에서 <code>/public/</code>을 제거하기 때문에 파일이 절대 해석되지 않습니다.</li>
+<li><strong>잘못된 폴더 사용:</strong> <code>public/</code> 대신 <code>src/assets/</code>에 파일을 배치하는 경우입니다. 번들된 자산은 <code>import</code> 문이 필요하며 <code>/favicon.svg</code> 경로로 렌더링되지 않습니다.</li>
+<li><strong>브라우저 캐시 문제:</strong> 브라우저는 ICO를 적극적으로 캐싱합니다. Cmd/Ctrl + Shift + R로 강력 새로 고침을 하거나 아이콘 URL에 <code>?v=2</code>를 추가하시기 바랍니다.</li>
+<li><strong>Manifest 불일치:</strong> <code>site.webmanifest</code>가 <code>public/</code>의 실제 파일명과 일치하지 않는 아이콘 경로를 참조하는 경우입니다. 두 파일이 줄 단위로 일치해야 합니다.</li>
+</ul>
+
+<h2>마무리</h2>
+<p>Vue + Vite의 public 폴더 워크플로우는 현대 웹 개발에서 가장 깔끔한 favicon 설정 방식 중 하나입니다. 파일을 배치하고 <code>index.html</code>에 link 태그를 연결하기만 하면 Vite가 모든 것을 배치한 위치 그대로 <code>dist/</code>로 복사합니다. 플러그인 설정, head 주입 관련 특이 사항, Vue Router의 요청 가로채기 없이 오직 루트 경로에서 제공되는 정적 자산만으로 구성됩니다.</p>
+<p>Mzu favicondl로 완전한 favicon 패키지를 생성하고 link 태그를 <code>index.html</code>에 붙여 넣으면 Vue 앱이 모든 브라우저 탭에서 완성도 있게 보이게 됩니다.</p></template>
+        <template data-article-lang="es"><p>Creas un proyecto Vue 3 con Vite, arrancas el servidor de desarrollo y miras la pestaña del navegador. Ahí está el logo de Vite por defecto donde debería estar el icono de tu marca. La solución está en la carpeta <code>public/</code> de tu proyecto, y configurarlo correctamente lleva unos tres minutos una vez que conoces los detalles específicos de Vite.</p>
+
+<h2>Requisitos previos</h2>
+<p>Necesitas un proyecto Vue 3 ejecutándose con Vite, además de los archivos de favicon que quieras usar. Si aún no los tienes, genera un paquete completo (ICO, PNG y SVG) con Mzu favicondl y descárgalo listo para usar. Sin rarezas de webpack, sin reglas de <code>copy-webpack-plugin</code> — Vite trata la carpeta public como activos estáticos, sin configuración adicional.</p>
+
+<h2>Paso 1: Abre la carpeta <code>public/</code></h2>
+<p>Todo proyecto Vue + Vite incluye un directorio <code>public/</code> en la raíz del proyecto. Según la <a href="https://vite.dev/guide/assets.html#the-public-directory">documentación de Vite sobre el directorio public</a>, cualquier cosa que coloques aquí se copia sin cambios a la salida de compilación y se sirve en la ruta raíz.</p>
+<p>Eso significa que <code>public/favicon.ico</code> es accesible como <code>/favicon.ico</code>, nunca como <code>/public/favicon.ico</code>. No entender esta distinción es la causa más común de que las aplicaciones Vue lleguen a producción con un icono de pestaña roto.</p>
+
+<h2>Paso 2: Coloca tus archivos de favicon</h2>
+<p>Coloca todo tu paquete de favicon directamente en <code>public/</code>:</p>
+<pre><code>public/
+├── favicon.ico
+├── favicon-16x16.png
+├── favicon-32x32.png
+├── apple-touch-icon.png
+├── site.webmanifest
+└── favicon.svg</code></pre>
+<p>Vite copia toda la carpeta a tu salida <code>dist/</code> tal cual — sin imports, sin transformaciones. No hagas <code>import</code> de estos archivos desde ningún componente Vue; están destinados a permanecer fuera del bundle. El desglose completo de qué tamaños importan realmente hoy está en nuestra <a href="/blog/favicon-sizes-guide.html">Guía de Tamaños de Favicon</a>.</p>
+
+<h2>Paso 3: Añade etiquetas <code>link</code> en <code>index.html</code></h2>
+<p>Abre <code>index.html</code> en la raíz del proyecto — el mismo archivo donde Vite monta tu aplicación Vue. Añade las declaraciones <a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">link rel="icon"</a> dentro de <code>&lt;head&gt;</code>:</p>
+<pre><code>&lt;head&gt;
+  &lt;meta charset="UTF-8" /&gt;
+  &lt;link rel="icon" href="/favicon.svg" type="image/svg+xml" /&gt;
+  &lt;link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32" /&gt;
+  &lt;link rel="icon" href="/favicon.ico" sizes="any" /&gt;
+  &lt;link rel="apple-touch-icon" href="/apple-touch-icon.png" /&gt;
+  &lt;link rel="manifest" href="/site.webmanifest" /&gt;
+&lt;/head&gt;</code></pre>
+<p>El orden importa aquí. Los navegadores eligen la primera entrada <code>rel="icon"</code> que soporten, así que coloca el SVG primero para una escala nítida, los PNG como respaldo a continuación, y el ICO heredado al final. Todas las rutas comienzan con <code>/</code>, nunca con <code>/public/</code>.</p>
+
+<h2>Paso 4: Añade soporte para modo oscuro en SVG</h2>
+<p>Si quieres un cambio para modo oscuro, coloca la media query dentro del propio SVG en lugar de configurar la reactividad de Vue para ello:</p>
+<pre><code>&lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"&gt;
+  &lt;style&gt;
+    circle { fill: #1a1a1a; }
+    @media (prefers-color-scheme: dark) {
+      circle { fill: #fafafa; }
+    }
+  &lt;/style&gt;
+  &lt;circle cx="16" cy="16" r="14" /&gt;
+&lt;/svg&gt;</code></pre>
+<p>Los navegadores cambian el relleno automáticamente — sin llamadas a <code>watch()</code>, sin hooks de ciclo de vida necesarios en la pestaña. Para un análisis más profundo de los patrones, consulta nuestra <a href="/blog/favicon-dark-mode.html">Guía de Modo Oscuro para Favicon</a>.</p>
+
+<h2>Paso 5: Verifica en desarrollo y producción</h2>
+<p>Ejecuta <code>npm run dev</code> y confirma tres cosas:</p>
+<ol>
+<li>DevTools → Red → filtrar "favicon" muestra que cada archivo devuelve <code>200 OK</code>.</li>
+<li>La pestaña del navegador muestra tu icono, no la marca de Vite por defecto.</li>
+<li><code>curl http://localhost:5173/favicon.svg</code> devuelve los bytes del SVG.</li>
+</ol>
+<p>Luego ejecuta <code>npm run build</code> e inspecciona <code>dist/</code>. Cada archivo de <code>public/</code> debería aparecer en la raíz de <code>dist/</code>, sin cambios. Si falta algo en producción, es probable que las reglas de reescritura de tu hosting estén eliminando la ruta — revisa <code>vercel.json</code> o <code>_redirects</code>.</p>
+
+<h2>Errores comunes</h2>
+<ul>
+<li><strong>Error de ruta:</strong> Escribir <code>/public/favicon.svg</code> en lugar de <code>/favicon.svg</code>. Vite elimina <code>/public/</code> de la URL servida — el archivo nunca se resuelve.</li>
+<li><strong>Carpeta incorrecta:</strong> Colocar archivos en <code>src/assets/</code> en lugar de <code>public/</code>. Los activos empaquetados requieren una declaración <code>import</code> y no se mostrarán en <code>/favicon.svg</code>.</li>
+<li><strong>Caché del navegador obsoleta:</strong> Los navegadores cachean el ICO de forma agresiva. Haz una recarga forzada con Cmd/Ctrl + Shift + R, o añade <code>?v=2</code> a la URL de tu icono.</li>
+<li><strong>Manifest desajustado:</strong> Tu <code>site.webmanifest</code> referencia rutas de iconos que no coinciden con los nombres de archivo reales en <code>public/</code>. Ambos archivos deben coincidir línea por línea.</li>
+</ul>
+
+<h2>Conclusión</h2>
+<p>El flujo de trabajo de la carpeta public en Vue + Vite es uno de los sistemas de favicon más limpios en el desarrollo web moderno. Coloca tus archivos, configura las etiquetas link en <code>index.html</code>, y Vite copia todo a <code>dist/</code> exactamente donde lo pusiste. Sin configuración de plugins, sin rarezas de inyección en el head, sin Vue Router interceptando tus solicitudes — solo activos estáticos servidos desde la ruta raíz.</p>
+<p>Genera un paquete completo de favicon con Mzu favicondl, pega las etiquetas link en tu <code>index.html</code>, y tu aplicación Vue se verá pulida en cada pestaña del navegador.</p></template>
+
+        <div class="cta-box">
+            <h3 data-en="Generate Your Vue Favicon Package in Seconds" data-zh="秒级生成你的 Vue favicon 资源包" data-ja="Vue用faviconパッケージを数秒で生成" data-ko="Vue 파비콘 패키지를 몇 초 만에 생성" data-es="Genera tu paquete de favicon para Vue en segundos">Generate Your Vue Favicon Package in Seconds</h3>
+            <p data-en="Drop a complete ICO, PNG, and SVG bundle into your Vue + Vite project's public folder. No sizing math, no manual exports." data-zh="将完整的 ICO、PNG 和 SVG 资源包直接放入你的 Vue + Vite 项目的 public 文件夹。无需手动调整尺寸。" data-ja="ICO、PNG、SVGの完全なバンドルをVue + Viteプロジェクトのpublicフォルダにそのまま配置。サイズ調整は不要です。" data-ko="완성된 ICO, PNG, SVG 패키지를 Vue + Vite 프로젝트의 public 폴더에 바로 넣으세요. 사이즈 조절 없이 바로 사용 가능합니다." data-es="Coloca un paquete completo de ICO, PNG y SVG en la carpeta public de tu proyecto Vue + Vite. Sin cálculos de tamaño ni exportaciones manuales.">Drop a complete ICO, PNG, and SVG bundle into your Vue + Vite project's public folder. No sizing math, no manual exports.</p>
+            <a href="/index.html" class="cta-btn" data-en="Try It Free →" data-zh="免费试用 →" data-ja="無料で試す →" data-ko="무료로 사용해보기 →" data-es="Pruébalo gratis →">Try It Free →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/index.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Home" data-zh="首页">Home</a>
+                <a href="/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Blog" data-zh="博客">Blog</a>
+                <a href="/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Privacy" data-zh="隐私政策">Privacy</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js?v=20260211"></script>
+
+</body></html>

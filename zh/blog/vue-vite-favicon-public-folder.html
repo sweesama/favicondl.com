@@ -1,0 +1,190 @@
+<!DOCTYPE html><html lang="zh"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue + Vite favicon 公共文件夹配置教程 - Mzu favicondl</title>
+    <meta name="description" content="将 favicon 文件放入 Vue + Vite 项目的 public 文件夹并在 index.html 中配置链接标签,包含路径与暗色模式设置。">
+    <meta name="keywords" content="vue vite favicon, public folder favicon, vite favicon setup, vue 3 favicon">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/zh/blog/vue-vite-favicon-public-folder.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/vue-vite-favicon-public-folder.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/vue-vite-favicon-public-folder.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/vue-vite-favicon-public-folder.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/vue-vite-favicon-public-folder.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/vue-vite-favicon-public-folder.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/vue-vite-favicon-public-folder.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/zh/blog/vue-vite-favicon-public-folder.html">
+    <meta property="og:title" content="Vue + Vite favicon 公共文件夹配置教程">
+    <meta property="og:description" content="将 favicon 文件放入 Vue + Vite 项目的 public 文件夹并在 index.html 中配置链接标签,包含路径与暗色模式设置。">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Vue + Vite favicon 公共文件夹配置教程">
+    <meta name="twitter:description" content="将 favicon 文件放入 Vue + Vite 项目的 public 文件夹并在 index.html 中配置链接标签,包含路径与暗色模式设置。">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Vue + Vite favicon 公共文件夹配置教程",
+  "description": "将 favicon 文件放入 Vue + Vite 项目的 public 文件夹并在 index.html 中配置链接标签,包含路径与暗色模式设置。",
+  "datePublished": "2026-09-01",
+  "dateModified": "2026-09-01",
+  "author": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "mainEntityOfPage": "https://favicondl.com/zh/blog/vue-vite-favicon-public-folder.html",
+  "inLanguage": "zh-CN"
+}</script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/zh/index.html" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/zh/documentation.html" class="nav-link">文档</a>
+                <a href="/zh/tools.html" class="nav-link">工具</a>
+                <a href="/zh/blog/" class="nav-link">博客</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/vue-vite-favicon-public-folder.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/vue-vite-favicon-public-folder.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/vue-vite-favicon-public-folder.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/vue-vite-favicon-public-folder.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/vue-vite-favicon-public-folder.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/zh/index.html" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/zh/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600">Vue + Vite favicon 公共文件夹配置教程</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">vue</span><time class="text-sm text-gray-400">2026-09-01</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">Vue + Vite favicon 公共文件夹配置教程</h1>
+        </header>
+
+        <div class="article-body"><p>用 Vite 初始化一个 Vue 3 项目，跑起 dev server 一看浏览器标签页——挂着的还是默认的 Vite logo。修起来其实就藏在项目的 <code>public/</code> 目录里，只要摸清 Vite 那几个特有的坑，三分钟左右就能搞定。</p>
+
+<h2>环境准备</h2>
+<p>一个跑在 Vite 上的 Vue 3 项目，加上准备放进去的 favicon 文件。如果还没准备，可以用 Mzu favicondl 一键生成完整的 favicon 套件（ICO、PNG、SVG），下下来就能直接用。不用折腾 webpack，也不用配 <code>copy-webpack-plugin</code>——Vite 默认就把 public 目录当静态资源处理，零配置。</p>
+
+<h2>第一步：打开 <code>public/</code> 目录</h2>
+<p>每个 Vue + Vite 脚手架项目根目录都自带一个 <code>public/</code> 目录。<a href="https://vite.dev/guide/assets.html#the-public-directory">Vite 关于 public 目录的文档</a> 明确说过：放在这里的任何文件都会原样拷贝到构建产物里，并以根路径的形式对外提供。</p>
+<p>也就是说，<code>public/favicon.ico</code> 的访问地址是 <code>/favicon.ico</code>，而不是 <code>/public/favicon.ico</code>。分不清这两者的差别，是 Vue 项目上线后标签页图标失效最常见的原因，没有之一。</p>
+
+<h2>第二步：把 favicon 文件丢进去</h2>
+<p>把整包 favicon 文件直接放进 <code>public/</code>：</p>
+<pre><code>public/
+├── favicon.ico
+├── favicon-16x16.png
+├── favicon-32x32.png
+├── apple-touch-icon.png
+├── site.webmanifest
+└── favicon.svg</code></pre>
+<p>Vite 会把整个目录原样拷贝到 <code>dist/</code>——不用 import，也不经过任何转译。千万不要在 Vue 组件里 <code>import</code> 这些文件，它们的定位就是在打包产物之外。目前哪些尺寸真正有用，完整的拆解可以看我们的 <a href="/zh/blog/favicon-sizes-guide.html">Favicon 尺寸指南</a>。</p>
+
+<h2>第三步：在 <code>index.html</code> 里加 <code>link</code> 标签</h2>
+<p>打开项目根目录下的 <code>index.html</code>——Vite 就是从这个文件挂载 Vue 应用的。在 <code>&lt;head&gt;</code> 里加上 <a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">link rel="icon"</a> 声明：</p>
+<pre><code>&lt;head&gt;
+  &lt;meta charset="UTF-8" /&gt;
+  &lt;link rel="icon" href="/favicon.svg" type="image/svg+xml" /&gt;
+  &lt;link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32" /&gt;
+  &lt;link rel="icon" href="/favicon.ico" sizes="any" /&gt;
+  &lt;link rel="apple-touch-icon" href="/apple-touch-icon.png" /&gt;
+  &lt;link rel="manifest" href="/site.webmanifest" /&gt;
+&lt;/head&gt;</code></pre>
+<p>顺序很重要。浏览器会从前往后挑第一个支持的 <code>rel="icon"</code> 条目，所以把 SVG 放最前面保证矢量缩放效果，PNG 兜底放中间，老旧的 ICO 放最后。所有路径都以 <code>/</code> 开头，不要写成 <code>/public/</code>。</p>
+
+<h2>第四步：让 SVG 支持暗色模式</h2>
+<p>如果要做暗色模式切换，直接把媒体查询写在 SVG 文件里就行，没必要在 Vue 里搞响应式：</p>
+<pre><code>&lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"&gt;
+  &lt;style&gt;
+    circle { fill: #1a1a1a; }
+    @media (prefers-color-scheme: dark) {
+      circle { fill: #fafafa; }
+    }
+  &lt;/style&gt;
+  &lt;circle cx="16" cy="16" r="14" /&gt;
+&lt;/svg&gt;</code></pre>
+<p>浏览器会自动切换 fill 颜色——标签页里不需要任何 <code>watch()</code> 调用，也不用生命周期钩子。想深入了解相关模式，可以看我们的 <a href="/zh/blog/favicon-dark-mode.html">Favicon 暗色模式指南</a>。</p>
+
+<h2>第五步：开发与生产环境分别验证</h2>
+<p>跑 <code>npm run dev</code>，确认三件事：</p>
+<ol>
+<li>DevTools → Network，过滤 "favicon"，每个文件都返回 <code>200 OK</code>。</li>
+<li>浏览器标签页显示的是你自己的图标，不是默认的 Vite logo。</li>
+<li><code>curl http://localhost:5173/favicon.svg</code> 能拿到 SVG 的字节内容。</li>
+</ol>
+<p>然后跑 <code>npm run build</code>，打开 <code>dist/</code> 看看。<code>public/</code> 里的每个文件都应该原样出现在 <code>dist/</code> 根目录下。如果生产环境少了文件，大概率是托管平台的 rewrite 规则把路径吃掉了——查一下 <code>vercel.json</code> 或 <code>_redirects</code>。</p>
+
+<h2>常见坑</h2>
+<ul>
+<li><strong>路径写错：</strong>写成了 <code>/public/favicon.svg</code> 而不是 <code>/favicon.svg</code>。Vite 会把 <code>/public/</code> 从访问 URL 里剥掉——文件永远解析不到。</li>
+<li><strong>放错文件夹：</strong>把文件丢进了 <code>src/assets/</code> 而不是 <code>public/</code>。被打包的资源需要 <code>import</code> 才能用，没法直接以 <code>/favicon.svg</code> 的形式渲染出来。</li>
+<li><strong>浏览器缓存顽固：</strong>浏览器对 ICO 缓存非常激进。用 Cmd/Ctrl + Shift + R 硬刷新，或者在图标 URL 后面加 <code>?v=2</code> 这种查询参数。</li>
+<li><strong>manifest 对不上：</strong><code>site.webmanifest</code> 里引用的图标路径和 <code>public/</code> 里实际的文件名不一致。两边的文件名必须逐行核对。</li>
+</ul>
+
+<h2>收尾</h2>
+<p>Vue + Vite 的 public 目录流程，算是现代前端里最干净的 favicon 配置方式之一了。丢文件、在 <code>index.html</code> 里写好 link 标签，Vite 就把所有东西原封不动拷到 <code>dist/</code>。不用配插件，不用纠结 head 注入，Vue Router 也不会拦截你的请求——就是根路径下的静态资源。</p>
+<p>用 Mzu favicondl 生成完整的 favicon 套件，把 link 标签粘到 <code>index.html</code> 里，你的 Vue 应用在每个浏览器的标签页里看着就规整了。</p></div>
+
+        <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
+
+        <div class="cta-box">
+            <h3>秒级生成你的 Vue favicon 资源包</h3>
+            <p>将完整的 ICO、PNG 和 SVG 资源包直接放入你的 Vue + Vite 项目的 public 文件夹。无需手动调整尺寸。</p>
+            <a href="/zh/index.html" class="cta-btn">免费试用 →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/zh/index.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">首页</a>
+                <a href="/zh/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">博客</a>
+                <a href="/zh/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">隐私政策</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js?v=20260211"></script>
+
+</body></html>
