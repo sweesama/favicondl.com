@@ -2464,7 +2464,9 @@
       "astro-favicon",
       "static-site-generator-favicon"
     ],
-    "status": "pending"
+    "status": "done",
+    "qualityScore": 80,
+    "qualityGrade": "A"
   },
   {
     "keyword": "remix app favicon links",

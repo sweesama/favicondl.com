@@ -1,0 +1,181 @@
+<!DOCTYPE html><html lang="es"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carpeta pública de favicon en Astro: Guía paso a paso - Mzu favicondl</title>
+    <meta name="description" content="Aprende a configurar correctamente la carpeta pública de favicon en Astro. Nombres de archivo, etiquetas HTML, modo oscuro y verificación de compilación.">
+    <meta name="keywords" content="astro favicon, public folder, favicon setup, astro icons">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/es/blog/astro-favicon-public-folder.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/astro-favicon-public-folder.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/astro-favicon-public-folder.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/astro-favicon-public-folder.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/astro-favicon-public-folder.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/astro-favicon-public-folder.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/astro-favicon-public-folder.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/es/blog/astro-favicon-public-folder.html">
+    <meta property="og:title" content="Carpeta pública de favicon en Astro: Guía paso a paso">
+    <meta property="og:description" content="Aprende a configurar correctamente la carpeta pública de favicon en Astro. Nombres de archivo, etiquetas HTML, modo oscuro y verificación de compilación.">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Carpeta pública de favicon en Astro: Guía paso a paso">
+    <meta name="twitter:description" content="Aprende a configurar correctamente la carpeta pública de favicon en Astro. Nombres de archivo, etiquetas HTML, modo oscuro y verificación de compilación.">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Carpeta pública de favicon en Astro: Guía paso a paso",
+  "description": "Aprende a configurar correctamente la carpeta pública de favicon en Astro. Nombres de archivo, etiquetas HTML, modo oscuro y verificación de compilación.",
+  "datePublished": "2026-09-02",
+  "dateModified": "2026-09-02",
+  "author": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "mainEntityOfPage": "https://favicondl.com/es/blog/astro-favicon-public-folder.html",
+  "inLanguage": "es"
+}</script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/es/index.html" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/es/documentation.html" class="nav-link">Documentación</a>
+                <a href="/es/tools.html" class="nav-link">Herramientas</a>
+                <a href="/es/blog/" class="nav-link">Blog</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/astro-favicon-public-folder.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/astro-favicon-public-folder.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/astro-favicon-public-folder.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/astro-favicon-public-folder.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/astro-favicon-public-folder.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/es/index.html" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/es/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600">Carpeta pública de favicon en Astro: Guía paso a paso</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">astro</span><time class="text-sm text-gray-400">2026-09-02</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">Carpeta pública de favicon en Astro: Guía paso a paso</h1>
+        </header>
+
+        <div class="article-body"><p>Ya lanzaste tu primer sitio con Astro, lo desplegaste y te diste cuenta de que la pestaña del navegador sigue mostrando el logo por defecto de Astro. La solución está en un lugar muy concreto: la configuración del favicon en la carpeta public de Astro.</p>
+<p>A diferencia de Next.js o Nuxt, Astro trata la carpeta public de forma particular. Los archivos que coloques dentro se saltan el pipeline de build de Vite y se copian tal cual al directorio final de salida. Justo lo que necesitas para los assets del favicon, pero eso también implica entender cómo funciona antes de empezar a añadir archivos a ciegas.</p>
+<h2>Cómo funciona el favicon en la carpeta public de Astro</h2>
+<p>Según la <a href="https://docs.astro.build/en/basics/project-structure/#public">documentación de estructura de proyectos de Astro</a>, la carpeta public está pensada para archivos que no necesitan pasar por el proceso de build. Los assets del favicon encajan en esta categoría porque no quieres que Vite les aplique hash, los transforme o los optimice: lo que quieres es que se sirvan en URLs predecibles para que los navegadores puedan encontrarlos.</p>
+<p>Cualquier cosa que sueltes en <code>/public</code> queda disponible en la raíz de tu sitio desplegado. Si metes <code>favicon.svg</code> en <code>public/</code>, vivirá en <code>https://yoursite.com/favicon.svg</code>. Sin imports, sin resolución del bundler, sin complicaciones.</p>
+<h2>Requisitos previos</h2>
+<ul>
+<li>Un proyecto de Astro existente (v3 o v4)</li>
+<li>Archivos de favicon generados con <a href="/es/blog/favicon-sizes-guide.html">Mzu favicondl</a> o desde tu herramienta de diseño</li>
+<li>Acceso a tu carpeta <code>src/layouts/</code> para los tags &lt;link&gt; del HTML</li>
+</ul>
+<h2>Paso 1: genera tus archivos de favicon</h2>
+<p>Antes de tocar la carpeta public, prepara los assets. Para la mayoría de proyectos necesitas cuatro archivos:</p>
+<ul>
+<li><code>favicon.svg</code> — icono vectorial moderno, escala a cualquier tamaño</li>
+<li><code>favicon-32x32.png</code> — fallback para navegadores antiguos</li>
+<li><code>apple-touch-icon.png</code> — PNG de 180x180 para la pantalla de inicio en iOS</li>
+<li><code>favicon.ico</code> — contenedor multiresolución para soporte de navegadores legacy</li>
+</ul>
+<p>Puedes generar el paquete completo con un solo clic usando <a href="/es/index.html">Mzu favicondl</a>, que produce todos los tamaños que necesitas sin redimensionar manualmente.</p>
+<h2>Paso 2: coloca los archivos en la carpeta public</h2>
+<p>Abre la raíz de tu proyecto y localiza el directorio <code>public/</code>. Copia ahí dentro tus archivos de favicon ya preparados. La estructura de carpetas debería verse así:</p>
+<pre><code>your-astro-project/
+├── public/
+│   ├── favicon.svg
+│   ├── favicon-32x32.png
+│   ├── apple-touch-icon.png
+│   └── favicon.ico
+├── src/
+└── astro.config.mjs</code></pre>
+<p>Mantén los nombres en minúsculas y con guiones. A los navegadores les da igual la capitalización, pero tu servidor de despliegue podría servir archivos distintos según el sistema operativo: apégate a una sola convención.</p>
+<h2>Paso 3: añade los link tags en tu layout</h2>
+<p>Los archivos en <code>public/</code> no aparecen en tu HTML de forma automática. Tienes que referenciarlos con tags <code>&amp;lt;link&amp;gt;</code>. Abre tu componente de layout principal (suele ser <code>src/layouts/Layout.astro</code>) y añade este bloque dentro del <code>&amp;lt;head&amp;gt;</code>:</p>
+<pre><code>&amp;lt;link rel='icon' href='/favicon.svg' type='image/svg+xml'&amp;gt;
+&amp;lt;link rel='icon' href='/favicon-32x32.png' sizes='32x32' type='image/png'&amp;gt;
+&amp;lt;link rel='apple-touch-icon' href='/apple-touch-icon.png' sizes='180x180'&amp;gt;
+&amp;lt;link rel='shortcut icon' href='/favicon.ico'&amp;gt;</code></pre>
+<p>Este patrón sigue la <a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">especificación de HTML para rel='icon'</a>: los navegadores modernos prefieren el SVG, los navegadores antiguos hacen fallback al PNG, y el ICO cubre cualquier caso que se haya quedado en el pasado.</p>
+<h2>Paso 4: gestiona el dark mode (opcional)</h2>
+<p>Los favicons claros pueden desaparecer sobre el chrome oscuro del navegador. Añade un segundo SVG con los colores invertidos y una media query que los intercambie:</p>
+<pre><code>&amp;lt;link rel='icon' href='/favicon.svg' type='image/svg+xml'&amp;gt;
+&amp;lt;link rel='icon' href='/favicon-dark.svg' type='image/svg+xml' media='(prefers-color-scheme: dark)'&amp;gt;</code></pre>
+<p>Coloca ambos SVG en <code>public/</code>. El atributo <code>media</code> le indica al navegador cuál cargar según el tema del sistema del usuario, sin necesidad de JavaScript.</p>
+<h2>Paso 5: verifica el build de salida</h2>
+<p>Antes de desplegar, ejecuta tu build de producción y revisa la salida. El contenido de la carpeta public debería aparecer tal cual en <code>dist/</code>:</p>
+<pre><code>npm run build
+ls dist/</code></pre>
+<p>Deberías ver <code>favicon.svg</code>, <code>favicon-32x32.png</code> y los demás en la raíz de <code>dist/</code>. Si no aparecen, comprueba que no los hayas metido por error en un subdirectorio tipo <code>public/assets/</code>: eso los ubicaría en <code>/assets/favicon.svg</code> en vez de en la raíz.</p>
+<h2>Errores habituales</h2>
+<p><strong>Colocar los favicons en <code>src/assets/</code>.</strong> Los archivos que van ahí los procesa Vite, les aplica hash y los agrupa en el bundle; pierdes las URLs predecibles. Usa siempre <code>public/</code> para los archivos de favicon.</p>
+<p><strong>Olvidar limpiar la caché del navegador.</strong> Después de desplegar, haz una recarga forzada (Ctrl+Shift+R) o prueba en una ventana de incógnito. Los navegadores cachean los favicons de forma agresiva, a menudo durante días. Si necesitas forzar la actualización en los navegadores de los usuarios, revisa nuestra guía sobre <a href="/es/blog/favicon-cache-busting.html">mejores prácticas de cache busting para favicons</a>.</p>
+<p><strong>Olvidarse del atributo <code>sizes</code>.</strong> Sin él, los navegadores asumen 16x16 y pueden escalar tu icono hacia arriba, dejándolo borroso. Declara siempre las dimensiones reales.</p>
+<p><strong>Usar extensiones en mayúsculas.</strong> <code>Favicon.PNG</code> funciona en macOS, pero rompe en servidores Linux con sistema de archivos case-sensitive. Apégate a minúsculas: <code>favicon.png</code>.</p>
+<h2>Para terminar</h2>
+<p>La configuración del favicon en la carpeta public de Astro ya está lista. El directorio public te da URLs estables y predecibles sin pelearte con la herramienta de build, justo lo que necesita un favicon. Suelta tus archivos, conecta los link tags, verifica la salida y tus pestañas se verán profesionales en cualquier navegador.</p>
+<p>Si quieres una visión más amplia sobre estrategias de favicon en static site generators (Next.js, Gatsby, Hugo), revisa nuestra <a href="/es/blog/static-site-generator-favicon.html">guía de favicon para static site generators</a>. Y si tu icono no aparece después del despliegue, la solución suele ser más sencilla de lo que parece.</p></div>
+
+        <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
+
+        <div class="cta-box">
+            <h3>Genera tu paquete completo de favicon en segundos</h3>
+            <p>Mzu favicondl crea todos los tamaños y formatos que necesitas — SVG, PNG, ICO y Apple Touch Icon — listos para colocar en tu carpeta pública de Astro.</p>
+            <a href="/es/index.html" class="cta-btn">Pruébalo gratis →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/es/index.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">Inicio</a>
+                <a href="/es/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">Blog</a>
+                <a href="/es/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">Privacidad</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js?v=20260211"></script>
+
+</body></html>

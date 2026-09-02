@@ -1,0 +1,181 @@
+<!DOCTYPE html><html lang="zh"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Astro Favicon 公共文件夹：分步设置指南 - Mzu favicondl</title>
+    <meta name="description" content="学习如何正确配置 Astro favicon 公共文件夹，包括文件名、HTML 标签、深色模式以及构建验证技巧。">
+    <meta name="keywords" content="astro favicon, public folder, favicon setup, astro icons">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/zh/blog/astro-favicon-public-folder.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/astro-favicon-public-folder.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/astro-favicon-public-folder.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/astro-favicon-public-folder.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/astro-favicon-public-folder.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/astro-favicon-public-folder.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/astro-favicon-public-folder.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/zh/blog/astro-favicon-public-folder.html">
+    <meta property="og:title" content="Astro Favicon 公共文件夹：分步设置指南">
+    <meta property="og:description" content="学习如何正确配置 Astro favicon 公共文件夹，包括文件名、HTML 标签、深色模式以及构建验证技巧。">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Astro Favicon 公共文件夹：分步设置指南">
+    <meta name="twitter:description" content="学习如何正确配置 Astro favicon 公共文件夹，包括文件名、HTML 标签、深色模式以及构建验证技巧。">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Astro Favicon 公共文件夹：分步设置指南",
+  "description": "学习如何正确配置 Astro favicon 公共文件夹，包括文件名、HTML 标签、深色模式以及构建验证技巧。",
+  "datePublished": "2026-09-02",
+  "dateModified": "2026-09-02",
+  "author": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "mainEntityOfPage": "https://favicondl.com/zh/blog/astro-favicon-public-folder.html",
+  "inLanguage": "zh-CN"
+}</script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/zh/index.html" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/zh/documentation.html" class="nav-link">文档</a>
+                <a href="/zh/tools.html" class="nav-link">工具</a>
+                <a href="/zh/blog/" class="nav-link">博客</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/astro-favicon-public-folder.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/astro-favicon-public-folder.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/astro-favicon-public-folder.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/astro-favicon-public-folder.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/astro-favicon-public-folder.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/zh/index.html" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/zh/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600">Astro Favicon 公共文件夹：分步设置指南</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">astro</span><time class="text-sm text-gray-400">2026-09-02</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">Astro Favicon 公共文件夹：分步设置指南</h1>
+        </header>
+
+        <div class="article-body"><p>你的第一个 Astro 站点已经上线部署,打开浏览器一看,标签页上还是默认的 Astro logo。问题其实出在一个非常具体的位置:Astro favicon public 目录配置。</p>
+<p>和 Next.js、Nuxt 不太一样,Astro 对 public 目录有自己的处理逻辑。放在里面的文件会绕过 Vite 的构建流程,直接拷贝到最终输出目录。这对 favicon 这种资源来说其实正合适,但前提是你得先搞清楚背后的机制,而不是糊里糊涂地把文件塞进去。</p>
+<h2>Astro favicon public 目录是怎么工作的</h2>
+<p>根据 <a href="https://docs.astro.build/en/basics/project-structure/#public">Astro 官方项目结构文档</a>的说明,public 目录用来存放那些不需要在构建过程中被处理的静态文件。favicon 就属于这一类 —— 你不希望 Vite 给它加 hash、做转码、再压缩一遍,而是希望它以一个稳定的 URL 被访问到,这样浏览器才能找得到。</p>
+<p>你扔进 <code>/public</code> 的任何文件,都会直接出现在部署站点的根路径下。把 <code>favicon.svg</code> 放到 <code>public/</code> 里,它就会落在 <code>https://yoursite.com/favicon.svg</code>。没有 import,没有打包器解析,直接了当。</p>
+<h2>前置条件</h2>
+<ul>
+<li>一个已经创建好的 Astro 项目(v3 或 v4)</li>
+<li>通过 <a href="/zh/blog/favicon-sizes-guide.html">Mzu favicondl</a> 或设计工具生成的 favicon 文件</li>
+<li>能访问到 <code>src/layouts/</code> 目录,用来插入 HTML link 标签</li>
+</ul>
+<h2>第一步:准备好你的 favicon 文件</h2>
+<p>在动 public 目录之前,先把资源准备好。多数情况下,你需要四个文件:</p>
+<ul>
+<li><code>favicon.svg</code> —— 现代化的矢量图标,可以任意缩放</li>
+<li><code>favicon-32x32.png</code> —— 给老版本浏览器兜底用</li>
+<li><code>apple-touch-icon.png</code> —— 180x180 的 PNG,用于 iOS 主屏幕</li>
+<li><code>favicon.ico</code> —— 多分辨率的容器,留给特别老的浏览器</li>
+</ul>
+<p>用 <a href="/zh/index.html">Mzu favicondl</a> 可以一键生成整套文件,不需要自己手动调各种尺寸。</p>
+<h2>第二步:把文件放进 public 目录</h2>
+<p>打开项目根目录,找到 <code>public/</code> 这个文件夹,把准备好的 favicon 文件直接复制进去。目录结构看起来应该是这样:</p>
+<pre><code>your-astro-project/
+├── public/
+│   ├── favicon.svg
+│   ├── favicon-32x32.png
+│   ├── apple-touch-icon.png
+│   └── favicon.ico
+├── src/
+└── astro.config.mjs</code></pre>
+<p>文件名保持小写加连字符的格式。浏览器其实不区分大小写,但你的部署服务器可能要区分 —— 取决于操作系统。统一一个约定最省事。</p>
+<h2>第三步:在布局文件里加上 link 标签</h2>
+<p>放在 public/ 里的文件不会自动出现在 HTML 里,你需要用 <code>&amp;lt;link&amp;gt;</code> 标签显式引用。打开主布局组件(一般是 <code>src/layouts/Layout.astro</code>),在 <code>&amp;lt;head&amp;gt;</code> 里加上这段:</p>
+<pre><code>&amp;lt;link rel='icon' href='/favicon.svg' type='image/svg+xml'&amp;gt;
+&amp;lt;link rel='icon' href='/favicon-32x32.png' sizes='32x32' type='image/png'&amp;gt;
+&amp;lt;link rel='apple-touch-icon' href='/apple-touch-icon.png' sizes='180x180'&amp;gt;
+&amp;lt;link rel='shortcut icon' href='/favicon.ico'&amp;gt;</code></pre>
+<p>这个写法参考了 <a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">HTML 规范里关于 rel='icon' 的部分</a> —— 现代浏览器优先选 SVG,老浏览器回退到 PNG,ICO 再兜一层,基本覆盖所有情况。</p>
+<h2>第四步:处理深色模式(可选)</h2>
+<p>浅色 favicon 在深色浏览器主题下很容易消失。解决办法是再加一个反色的 SVG,配合 media query 自动切换:</p>
+<pre><code>&amp;lt;link rel='icon' href='/favicon.svg' type='image/svg+xml'&amp;gt;
+&amp;lt;link rel='icon' href='/favicon-dark.svg' type='image/svg+xml' media='(prefers-color-scheme: dark)'&amp;gt;</code></pre>
+<p>两个 SVG 都放在 <code>public/</code> 下就行。<code>media</code> 属性告诉浏览器根据用户系统主题去加载对应那个,完全不需要 JavaScript。</p>
+<h2>第五步:检查构建产物</h2>
+<p>部署之前,先跑一次生产环境的构建,看看输出结果。public 里的内容应该原样出现在 <code>dist/</code> 里:</p>
+<pre><code>npm run build
+ls dist/</code></pre>
+<p>你应该能在 <code>dist/</code> 的根目录下看到 <code>favicon.svg</code>、<code>favicon-32x32.png</code> 这些文件。如果看不到,多半是你不小心把它们放到了 <code>public/assets/</code> 这样的子目录里,这样它们就会被发布到 <code>/assets/favicon.svg</code>,而不是站点根路径。</p>
+<h2>常见踩坑</h2>
+<p><strong>把 favicon 放到 <code>src/assets/</code> 里。</strong>那个目录里的文件会被 Vite 处理、打 hash、再打包,URL 就不再稳定了。favicon 文件老老实实放 <code>public/</code>。</p>
+<p><strong>忘记清浏览器缓存。</strong>部署之后,记得强制刷新(Ctrl+Shift+R)或者开个隐身窗口测试。浏览器对 favicon 的缓存非常激进,经常能挂好几天都不更新。如果你想让所有用户的浏览器立刻拿到新版本,可以参考这篇 <a href="/zh/blog/favicon-cache-busting.html">favicon 缓存清理最佳实践</a>。</p>
+<p><strong>漏掉了 <code>sizes</code> 属性。</strong>不写这个属性的话,浏览器会默认按 16x16 来处理,有可能把你的 PNG 放大显示,最后变得糊成一团。一定要写上真实的尺寸。</p>
+<p><strong>用了大写的文件后缀。</strong><code>Favicon.PNG</code> 在 macOS 上没问题,但放到大小写敏感的 Linux 服务器上就找不到了。统一用小写:<code>favicon.png</code>。</p>
+<h2>收尾</h2>
+<p>到这里,Astro favicon public 目录的配置就完成了。public 目录的好处就是给你一个稳定、可预测的 URL,不用跟构建工具较劲 —— 这恰好就是 favicon 需要的。把文件放进去、接上 link 标签、检查一下产物,你的标签页在任何浏览器下都应该显示正常了。</p>
+<p>如果想了解 favicon 在不同静态站点生成器(Next.js、Gatsby、Hugo)上的整体策略,可以看看这篇 <a href="/zh/blog/static-site-generator-favicon.html">静态站点生成器 favicon 配置指南</a>。另外,要是部署之后图标还是不显示,问题往往没你想的那么复杂。</p></div>
+
+        <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
+
+        <div class="cta-box">
+            <h3>几秒内生成完整 Favicon 资源包</h3>
+            <p>Mzu favicondl 可生成你需要的所有尺寸和格式，包括 SVG、PNG、ICO 和 Apple Touch Icon，直接放入 Astro 公共文件夹即可使用。</p>
+            <a href="/zh/index.html" class="cta-btn">免费试用 →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/zh/index.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">首页</a>
+                <a href="/zh/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">博客</a>
+                <a href="/zh/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">隐私政策</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js?v=20260211"></script>
+
+</body></html>

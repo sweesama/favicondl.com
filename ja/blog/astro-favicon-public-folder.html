@@ -1,0 +1,181 @@
+<!DOCTYPE html><html lang="ja"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Astroファビコンのpublicフォルダ設定ガイド - Mzu favicondl</title>
+    <meta name="description" content="Astroファビコンのpublicフォルダを正しく設定する方法を学びましょう。ファイル名、HTMLタグ、ダークモード、ビルド確認のコツも解説。">
+    <meta name="keywords" content="astro favicon, public folder, favicon setup, astro icons">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/ja/blog/astro-favicon-public-folder.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/astro-favicon-public-folder.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/astro-favicon-public-folder.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/astro-favicon-public-folder.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/astro-favicon-public-folder.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/astro-favicon-public-folder.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/astro-favicon-public-folder.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/ja/blog/astro-favicon-public-folder.html">
+    <meta property="og:title" content="Astroファビコンのpublicフォルダ設定ガイド">
+    <meta property="og:description" content="Astroファビコンのpublicフォルダを正しく設定する方法を学びましょう。ファイル名、HTMLタグ、ダークモード、ビルド確認のコツも解説。">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Astroファビコンのpublicフォルダ設定ガイド">
+    <meta name="twitter:description" content="Astroファビコンのpublicフォルダを正しく設定する方法を学びましょう。ファイル名、HTMLタグ、ダークモード、ビルド確認のコツも解説。">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Astroファビコンのpublicフォルダ設定ガイド",
+  "description": "Astroファビコンのpublicフォルダを正しく設定する方法を学びましょう。ファイル名、HTMLタグ、ダークモード、ビルド確認のコツも解説。",
+  "datePublished": "2026-09-02",
+  "dateModified": "2026-09-02",
+  "author": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "mainEntityOfPage": "https://favicondl.com/ja/blog/astro-favicon-public-folder.html",
+  "inLanguage": "ja"
+}</script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/ja/index.html" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/ja/documentation.html" class="nav-link">ドキュメント</a>
+                <a href="/ja/tools.html" class="nav-link">ツール</a>
+                <a href="/ja/blog/" class="nav-link">ブログ</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/astro-favicon-public-folder.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/astro-favicon-public-folder.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/astro-favicon-public-folder.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/astro-favicon-public-folder.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/astro-favicon-public-folder.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/ja/index.html" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/ja/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600">Astroファビコンのpublicフォルダ設定ガイド</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">astro</span><time class="text-sm text-gray-400">2026-09-02</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">Astroファビコンのpublicフォルダ設定ガイド</h1>
+        </header>
+
+        <div class="article-body"><p>初めてのAstroサイトを公開したのに、ブラウザのタブがデフォルトのAstroロゴのままになっている...そんな経験はないでしょうか。修正のポイントは1か所、Astroのfavicon publicフォルダのセットアップにあります。</p>
+<p>Next.jsやNuxtとは異なり、Astroはpublicフォルダの扱いが独特です。このフォルダ内のファイルはViteのビルドパイプラインをバイパスし、最終的な出力ディレクトリへそのままコピーされます。これはfaviconアセットにとってまさに望ましい挙動ですが、闇雲にファイルを追加する前にその仕組みを理解しておく必要があります。</p>
+<h2>Astro favicon publicフォルダの仕組み</h2>
+<p><a href="https://docs.astro.build/en/basics/project-structure/#public">Astroのプロジェクト構造ドキュメント</a>によると、publicフォルダはビルド時に処理を必要としないファイルのための場所です。faviconアセットはこのカテゴリに該当します。Viteによるハッシュ化・変換・最適化は望ましくありません。ブラウザが確実に取得できるよう、予測可能なURLで配信する必要があるからです。</p>
+<p><code>/public</code>に置いたファイルは、デプロイ後のサイトのルート直下から配信されます。<code>public/</code>に<code>favicon.svg</code>を置けば、それは<code>https://yoursite.com/favicon.svg</code>で配信されます。importもバンドラーによる解決も発生しません。</p>
+<h2>前提条件</h2>
+<ul>
+<li>既存のAstroプロジェクト（v3またはv4）</li>
+<li><a href="/ja/blog/favicon-sizes-guide.html">Mzu favicondl</a>またはデザインツールで生成したfaviconファイル</li>
+<li>HTMLのlinkタグを記述するための<code>src/layouts/</code>フォルダへのアクセス権</li>
+</ul>
+<h2>ステップ1: faviconファイルを生成する</h2>
+<p>publicフォルダを触る前に、まずアセットを準備します。多くのプロジェクトでは以下の4ファイルが必要です。</p>
+<ul>
+<li><code>favicon.svg</code> — 最新のベクターアイコン。任意の大きさにスケールする</li>
+<li><code>favicon-32x32.png</code> — 古いブラウザ向けのフォールバック</li>
+<li><code>apple-touch-icon.png</code> — iOSのホーム画面用の180x180 PNG</li>
+<li><code>favicon.ico</code> — レガシー環境向けのマルチレゾリューションコンテナ</li>
+</ul>
+<p>このパッケージ一式は<a href="/ja/index.html">Mzu favicondl</a>を使えばワンクリックで生成でき、手動でリサイズする手間なく必要なサイズが揃います。</p>
+<h2>ステップ2: publicフォルダにファイルを配置する</h2>
+<p>プロジェクトのルートを開き、<code>public/</code>ディレクトリを確認します。用意したfaviconファイルをそのままコピーしてください。フォルダ構成は以下のようになります。</p>
+<pre><code>your-astro-project/
+├── public/
+│   ├── favicon.svg
+│   ├── favicon-32x32.png
+│   ├── apple-touch-icon.png
+│   └── favicon.ico
+├── src/
+└── astro.config.mjs</code></pre>
+<p>ファイル名は小文字とハイフンで統一してください。ブラウザ側は区別しませんが、デプロイ先のサーバーOSによっては大文字小文字の扱いによって配信されるファイルが変わる可能性があります。命名規則は一貫させましょう。</p>
+<h2>ステップ3: layoutにlinkタグを追加する</h2>
+<p>public/に置いたファイルは自動でHTMLに反映されません。<code>&lt;link&gt;</code>タグで参照する必要があります。メインのlayoutコンポーネント（多くは<code>src/layouts/Layout.astro</code>）を開き、<code>&lt;head&gt;</code>内に以下のブロックを追加してください。</p>
+<pre><code>&lt;link rel='icon' href='/favicon.svg' type='image/svg+xml'&gt;
+&lt;link rel='icon' href='/favicon-32x32.png' sizes='32x32' type='image/png'&gt;
+&lt;link rel='apple-touch-icon' href='/apple-touch-icon.png' sizes='180x180'&gt;
+&lt;link rel='shortcut icon' href='/favicon.ico'&gt;</code></pre>
+<p>このパターンは<a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">rel='icon'に関するHTML仕様</a>に沿ったものです。モダンブラウザはSVGを優先し、古いブラウザはPNGにフォールバックし、ICOがレガシー環境を拾います。</p>
+<h2>ステップ4: ダークモードに対応する（任意）</h2>
+<p>明るい配色のfaviconはダークなブラウザUIに対して埋もれてしまいがちです。色を反転させた2つ目のSVGを用意し、メディアクエリで切り替えましょう。</p>
+<pre><code>&lt;link rel='icon' href='/favicon.svg' type='image/svg+xml'&gt;
+&lt;link rel='icon' href='/favicon-dark.svg' type='image/svg+xml' media='(prefers-color-scheme: dark)'&gt;</code></pre>
+<p>両方のSVGを<code>public/</code>に配置してください。<code>media</code>属性によって、ユーザーのシステムテーマに応じてブラウザがどちらを読み込むかを決めます。JavaScriptは不要です。</p>
+<h2>ステップ5: ビルド出力を確認する</h2>
+<p>デプロイ前に本番ビルドを実行し、出力を確認します。publicフォルダの中身は<code>dist/</code>にそのまま現れるはずです。</p>
+<pre><code>npm run build
+ls dist/</code></pre>
+<p><code>favicon.svg</code>、<code>favicon-32x32.png</code>などが<code>dist/</code>のルート直下にあるはずです。もし見つからない場合は、誤って<code>public/assets/</code>のようなサブディレクトリに入れていないか確認してください。その場合、<code>/assets/favicon.svg</code>に配置されてしまい、ルートには来ません。</p>
+<h2>よくある落とし穴</h2>
+<p><strong>faviconを<code>src/assets/</code>に置いている。</strong>ここのファイルはViteによって処理・ハッシュ化・バンドルされるため、予測可能なURLを保てません。faviconファイルは必ず<code>public/</code>を使いましょう。</p>
+<p><strong>ブラウザキャッシュをクリアしていない。</strong>デプロイ後は強制リロード（Ctrl+Shift+R）を行うか、シークレットウィンドウで確認してください。ブラウザはfaviconを数日間にわたって積極的にキャッシュします。ユーザー側のブラウザでも強制的に更新したい場合は、<a href="/ja/blog/favicon-cache-busting.html">faviconのキャッシュバスティングのベストプラクティス</a>を参照してください。</p>
+<p><strong><code>sizes</code>属性の指定漏れ。</strong>これがないとブラウザは16x16と仮定するため、PNGが拡大表示されてぼやけることがあります。実際の寸法は必ず宣言しましょう。</p>
+<p><strong>拡張子が大文字になっている。</strong><code>Favicon.PNG</code>はmacOSでは動きますが、大文字小文字を区別するLinuxサーバーでは壊れます。小文字に統一してください（<code>favicon.png</code>）。</p>
+<h2>まとめ</h2>
+<p>これでAstro favicon publicフォルダのセットアップは完了です。publicディレクトリはビルドツールと競合せず、安定して予測可能なURLを提供してくれます。これはまさにfaviconに必要な特性です。ファイルを配置し、linkタグを結び付けて出力を確認すれば、あらゆるブラウザでタブがプロフェッショナルな見た目になります。</p>
+<p>静的サイトジェネレーター全般（Next.js、Gatsby、Hugo）におけるfavicon戦略の全体像は、<a href="/ja/blog/static-site-generator-favicon.html">静的サイトジェネレーター向けfaviconガイド</a>を参照してください。また、デプロイ後にアイコンが表示されない場合は、想像以上にシンプルな原因であることが多いものです。</p></div>
+
+        <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
+
+        <div class="cta-box">
+            <h3>数秒でファビコン一式を生成</h3>
+            <p>Mzu favicondl は必要なサイズと形式（SVG、PNG、ICO、Apple Touch Icon）をすべて生成し、Astroのpublicフォルダにすぐ配置できます。</p>
+            <a href="/ja/index.html" class="cta-btn">無料で試す →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/ja/index.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">ホーム</a>
+                <a href="/ja/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">ブログ</a>
+                <a href="/ja/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">プライバシー</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js?v=20260211"></script>
+
+</body></html>

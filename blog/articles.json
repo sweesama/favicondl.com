@@ -3311,5 +3311,26 @@
     ],
     "qualityScore": 85,
     "qualityGrade": "A"
+  },
+  {
+    "slug": "astro-favicon-public-folder",
+    "publishDate": "2026-09-02",
+    "titleEn": "Astro Favicon Public Folder: Step-by-Step Setup Guide",
+    "titleZh": "Astro Favicon 公共文件夹：分步设置指南",
+    "titleJa": "Astroファビコンのpublicフォルダ設定ガイド",
+    "titleKo": "Astro 파비콘 public 폴더 설정 가이드",
+    "titleEs": "Carpeta pública de favicon en Astro: Guía paso a paso",
+    "descEn": "Learn exactly how to set up your astro favicon public folder the right way. File names, HTML tags, dark mode, and build verification tips.",
+    "descZh": "学习如何正确配置 Astro favicon 公共文件夹，包括文件名、HTML 标签、深色模式以及构建验证技巧。",
+    "descJa": "Astroファビコンのpublicフォルダを正しく設定する方法を学びましょう。ファイル名、HTMLタグ、ダークモード、ビルド確認のコツも解説。",
+    "descKo": "Astro 파비콘 public 폴더를 올바르게 설정하는 방법을 알아보세요. 파일명, HTML 태그, 다크 모드, 빌드 확인 팁까지 정리했습니다.",
+    "descEs": "Aprende a configurar correctamente la carpeta pública de favicon en Astro. Nombres de archivo, etiquetas HTML, modo oscuro y verificación de compilación.",
+    "keyword": "astro favicon public folder",
+    "tags": [
+      "astro",
+      "framework"
+    ],
+    "qualityScore": 80,
+    "qualityGrade": "A"
   }
 ]
