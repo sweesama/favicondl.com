@@ -1,0 +1,183 @@
+<!DOCTYPE html><html lang="ja"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RemixアプリのFaviconリンク設定完全ガイド - Mzu favicondl</title>
+    <meta name="description" content="RemixアプリのlinksエクスポートにfaviconのHTMLリンクタグを設定する方法を解説します。SVG、ICO、Apple Touch、manifest、ダークモードに対応。">
+    <meta name="keywords" content="remix app favicon links, remix links export, favicon link tag">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/ja/blog/remix-app-favicon-links.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/remix-app-favicon-links.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/remix-app-favicon-links.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/remix-app-favicon-links.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/remix-app-favicon-links.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/remix-app-favicon-links.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/remix-app-favicon-links.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/ja/blog/remix-app-favicon-links.html">
+    <meta property="og:title" content="RemixアプリのFaviconリンク設定完全ガイド">
+    <meta property="og:description" content="RemixアプリのlinksエクスポートにfaviconのHTMLリンクタグを設定する方法を解説します。SVG、ICO、Apple Touch、manifest、ダークモードに対応。">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="RemixアプリのFaviconリンク設定完全ガイド">
+    <meta name="twitter:description" content="RemixアプリのlinksエクスポートにfaviconのHTMLリンクタグを設定する方法を解説します。SVG、ICO、Apple Touch、manifest、ダークモードに対応。">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "RemixアプリのFaviconリンク設定完全ガイド",
+  "description": "RemixアプリのlinksエクスポートにfaviconのHTMLリンクタグを設定する方法を解説します。SVG、ICO、Apple Touch、manifest、ダークモードに対応。",
+  "datePublished": "2026-09-03",
+  "dateModified": "2026-09-03",
+  "author": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "mainEntityOfPage": "https://favicondl.com/ja/blog/remix-app-favicon-links.html",
+  "inLanguage": "ja"
+}</script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/ja/index.html" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/ja/documentation.html" class="nav-link">ドキュメント</a>
+                <a href="/ja/tools.html" class="nav-link">ツール</a>
+                <a href="/ja/blog/" class="nav-link">ブログ</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/remix-app-favicon-links.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/remix-app-favicon-links.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/remix-app-favicon-links.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/remix-app-favicon-links.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/remix-app-favicon-links.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/ja/index.html" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/ja/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600">RemixアプリのFaviconリンク設定完全ガイド</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">remix</span><time class="text-sm text-gray-400">2026-09-03</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">RemixアプリのFaviconリンク設定完全ガイド</h1>
+        </header>
+
+        <div class="article-body"><p>Remixアプリでfaviconの&lt;link&gt;タグを直接<code>app/root.tsx</code>に貼り付けて、Remixが重複を削除したり、静かに無視したりするのを経験したなら、正しいパターンは<code>links</code>エクスポートです。Remix v2では、HTMLのリンク記述子をここに置くことが期待されており、フレームワークがそれらをドキュメントのheadにレンダリングします。（完全なAPIサーフェスについては、公式の<a href="https://v2.remix.run/docs/route/links/">Remixルートlinksドキュメント</a>を参照してください。）</p>
+<h2>前提条件</h2>
+<p>動作するRemix v2プロジェクトと、一連のfaviconファイルが必要です。最新の完全なセットには、以下を用意してください：</p>
+<ul>
+<li><code>/public/favicon.svg</code> — ベクターソース。ダークモード対応</li>
+<li><code>/public/favicon.ico</code> — 古いブラウザ向けのレガシーフォールバック</li>
+<li><code>/public/apple-touch-icon.png</code> — iOSホーム画面用の180×180ピクセル</li>
+<li><code>/public/site.webmanifest</code> — PWAインストール動作用</li>
+</ul>
+<p><code>public/</code>に置いたファイルはサイトルートから提供されるため、<code>/public/favicon.svg</code>は追加のルーティングなしで<code>https://yoursite.com/favicon.svg</code>として解決されます。</p>
+<h2>ステップ1: root.tsxでlinksエクスポートを構築する</h2>
+<p><code>links</code>エクスポートは、<code>&lt;link&gt;</code>記述子の配列を返す関数です。Remixは各記述子をドキュメントのhead内の実際のHTMLタグにマッピングします。適切な型付けのために、<code>@remix-run/node</code>（またはランタイム固有のパッケージ）から<code>LinksFunction</code>を使用してください。</p>
+<pre><code>import type { LinksFunction } from '@remix-run/node';
+
+export const links: LinksFunction = () =&amp;gt; [
+  { rel: 'icon', href: '/favicon.svg', type: 'image/svg+xml' },
+  { rel: 'alternate icon', href: '/favicon.ico', type: 'image/x-icon' },
+];</code></pre>
+<p><code>rel</code>の値はHTML仕様に直接対応します。完全な語彙については、<a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">whatwgのrel=icon定義</a>を参照してください。ブラウザは現在のコンテキストに一致する最初のアイコンを選択するため、シャープなSVGをICOフォールバックの前にリストしてください。</p>
+<h2>ステップ2: Apple Touchとマニフェストのエントリを追加する</h2>
+<p>Remixはリソースタイプに関係なく、すべての記述子を同じ方法で扱います。それらを同じ配列にスタックしてください：</p>
+<pre><code>export const links: LinksFunction = () =&amp;gt; [
+  { rel: 'icon', href: '/favicon.svg', type: 'image/svg+xml' },
+  { rel: 'alternate icon', href: '/favicon.ico', type: 'image/x-icon' },
+  { rel: 'apple-touch-icon', href: '/apple-touch-icon.png', sizes: '180x180' },
+  { rel: 'manifest', href: '/site.webmanifest' },
+];</code></pre>
+<p><code>sizes</code>属性は情報提供用です。ブラウザは特定のレンダリングコンテキストに最適なものを選ぶ際にこれを参照します。Remixエクスポート以外のより広範なfaviconリンクタグパターンについては、<a href="/ja/blog/favicon-html-code.html">favicon HTMLコード例</a>を参照してください。</p>
+<h2>ステップ3: ダークモードSVGをクリーンに配信する</h2>
+<p>ブラウザはアイコンリンクタグの<code>media</code>を尊重します。2つのSVGを配信し、ユーザーのカラースキームに基づいてブラウザに適切な方を選択させることができます。2番目のファイルを<code>/public/favicon-dark.svg</code>として保存し、両方の記述子を追加してください：</p>
+<pre><code>{
+  rel: 'icon',
+  href: '/favicon.svg',
+  type: 'image/svg+xml',
+  media: '(prefers-color-scheme: light)',
+},
+{
+  rel: 'icon',
+  href: '/favicon-dark.svg',
+  type: 'image/svg+xml',
+  media: '(prefers-color-scheme: dark)',
+},</code></pre>
+<p>HTML仕様はアイコンリンクの<code>media</code>記述子を明示的にサポートしているため、これはハックではなく第一級のパターンです。これらのファイルが正しく切り替わるためのSVG側の設定については、<a href="/ja/blog/favicon-dark-mode.html">faviconダークモードガイド</a>でメディアクエリ構文を詳しく説明しています。</p>
+<h2>ステップ4: アイコン更新時にキャッシュをバストする</h2>
+<p>ブラウザは<code>favicon.ico</code>を積極的にキャッシュし、Remixはデフォルトで<code>public/</code>アセットにコンテンツハッシュを追加しません。新しいデザインをリリースする際は、バージョンクエリ文字列を追加してください：</p>
+<pre><code>{ rel: 'icon', href: '/favicon.svg?v=2', type: 'image/svg+xml' }</code></pre>
+<p>アイコンをリリースするたびに<code>v</code>の値を増やしてください。URLに紐づくキャッシュが更新され、ユーザーはすぐに新しいタブグラフィックを表示できます。</p>
+<h2>よくある落とし穴</h2>
+<p>Remixの<code>links</code>エクスポートでアイコンを配線する際は、以下に注意してください：</p>
+<ul>
+<li><strong>生のJSXにタグを置く。</strong><code>root.tsx</code>の<code>&lt;head&gt;</code>内に書かれたタグはレンダリングされますが、Remixの重複排除とSSRの順序付けにより、静かに削除される可能性があります。エクスポートが文書化されたパスです。</li>
+<li><strong><code>type</code>を忘れる。</strong>MIMEヒントがないと、Safariが誤った形式を選択することがあります。<code>image/svg+xml</code>と<code>image/x-icon</code>が安全なデフォルトです。</li>
+<li><strong><code>shortcut icon</code>を使用する。</strong>このレガシー属性はHTML仕様の一部ではなく、最新のブラウザは無視します。代わりに<code>alternate icon</code>を使用してください。</li>
+<li><strong>マニフェストの<code>rel</code>をスキップする。</strong>PWAインストールはアイコンリンクではなく<code>site.webmanifest</code>から読み取ります。同じ<code>links</code>配列から参照してください。</li>
+<li><strong>デプロイ後にアイコンが古いまま。</strong>ブラウザキャッシュはデプロイを生き延びます。アイコン更新時には必ずキャッシュバストを行ってください。</li>
+</ul>
+<h2>まとめ</h2>
+<p>Remixの<code>links</code>エクスポートは、favicon HTMLタグを配線する最もクリーンな場所です。型安全性、予測可能なSSR出力、そしてアイコンスタックを更新する際に編集する単一ファイルが得られます。Mzu favicondlのシャープなベクターソースと組み合わせ、キャッシュバストクエリを配信すれば、Remixアプリはすべてのブラウザタブでプロフェッショナルに見えます。</p></div>
+
+        <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
+
+        <div class="cta-box">
+            <h3>faviconファイルをまとめて準備しませんか？</h3>
+            <p>Mzu favicondlを使えば、SVG、ICO、Apple Touchアイコン、manifestを数秒で生成できます。</p>
+            <a href="/ja/index.html" class="cta-btn">無料で試す →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/ja/index.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">ホーム</a>
+                <a href="/ja/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">ブログ</a>
+                <a href="/ja/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">プライバシー</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js?v=20260211"></script>
+
+</body></html>

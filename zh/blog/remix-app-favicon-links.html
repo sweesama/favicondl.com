@@ -1,0 +1,183 @@
+<!DOCTYPE html><html lang="zh"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remix 应用 Favicon 链接：开发者配置指南 - Mzu favicondl</title>
+    <meta name="description" content="学习如何在 Remix 应用的 links 导出中配置 favicon HTML 链接标签。覆盖 SVG、ICO、Apple Touch、manifest 和暗黑模式。">
+    <meta name="keywords" content="remix app favicon links, remix links export, favicon link tag">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/zh/blog/remix-app-favicon-links.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/remix-app-favicon-links.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/remix-app-favicon-links.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/remix-app-favicon-links.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/remix-app-favicon-links.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/remix-app-favicon-links.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/remix-app-favicon-links.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/zh/blog/remix-app-favicon-links.html">
+    <meta property="og:title" content="Remix 应用 Favicon 链接：开发者配置指南">
+    <meta property="og:description" content="学习如何在 Remix 应用的 links 导出中配置 favicon HTML 链接标签。覆盖 SVG、ICO、Apple Touch、manifest 和暗黑模式。">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Remix 应用 Favicon 链接：开发者配置指南">
+    <meta name="twitter:description" content="学习如何在 Remix 应用的 links 导出中配置 favicon HTML 链接标签。覆盖 SVG、ICO、Apple Touch、manifest 和暗黑模式。">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Remix 应用 Favicon 链接：开发者配置指南",
+  "description": "学习如何在 Remix 应用的 links 导出中配置 favicon HTML 链接标签。覆盖 SVG、ICO、Apple Touch、manifest 和暗黑模式。",
+  "datePublished": "2026-09-03",
+  "dateModified": "2026-09-03",
+  "author": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "mainEntityOfPage": "https://favicondl.com/zh/blog/remix-app-favicon-links.html",
+  "inLanguage": "zh-CN"
+}</script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/zh/index.html" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/zh/documentation.html" class="nav-link">文档</a>
+                <a href="/zh/tools.html" class="nav-link">工具</a>
+                <a href="/zh/blog/" class="nav-link">博客</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/remix-app-favicon-links.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/remix-app-favicon-links.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/remix-app-favicon-links.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/remix-app-favicon-links.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/remix-app-favicon-links.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/zh/index.html" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/zh/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600">Remix 应用 Favicon 链接：开发者配置指南</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">remix</span><time class="text-sm text-gray-400">2026-09-03</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">Remix 应用 Favicon 链接：开发者配置指南</h1>
+        </header>
+
+        <div class="article-body"><p>如果你曾经在 <code>app/root.tsx</code> 里直接写 favicon <code>&lt;link&gt;</code> 标签，结果被 Remix 去重甚至悄悄丢掉——正确做法是用 <code>links</code> 导出。Remix v2 期望 HTML link 描述符就放在这里，框架会自动把它们渲染到文档 head 里。完整 API 见官方 <a href="https://v2.remix.run/docs/route/links/">Remix route links 文档</a>。</p>
+<h2>前置条件</h2>
+<p>你需要一个能跑起来的 Remix v2 项目，外加一组 favicon 文件。要凑齐现代浏览器需要的那一整套，建议准备：</p>
+<ul>
+<li><code>/public/favicon.svg</code> — 矢量源文件，支持深色模式</li>
+<li><code>/public/favicon.ico</code> — 兼容老浏览器的兜底文件</li>
+<li><code>/public/apple-touch-icon.png</code> — 180×180，用于 iOS 主屏幕</li>
+<li><code>/public/site.webmanifest</code> — 用于 PWA 安装行为</li>
+</ul>
+<p>放进 <code>public/</code> 的任何东西都会从站点根路径直接对外提供，所以 <code>/public/favicon.svg</code> 实际就是 <code>https://yoursite.com/favicon.svg</code>，不需要额外路由。</p>
+<h2>步骤 1：在 root.tsx 里写 links 导出</h2>
+<p><code>links</code> 导出是一个返回 <code>&lt;link&gt;</code> 描述符数组的函数。Remix 会把每个描述符映射成文档 head 里的真实 HTML 标签。为了拿到正确的类型，从 <code>@remix-run/node</code>（或你用的运行时对应的包）引入 <code>LinksFunction</code>。</p>
+<pre><code>import type { LinksFunction } from '@remix-run/node';
+
+export const links: LinksFunction = () =&amp;gt; [
+  { rel: 'icon', href: '/favicon.svg', type: 'image/svg+xml' },
+  { rel: 'alternate icon', href: '/favicon.ico', type: 'image/x-icon' },
+];</code></pre>
+<p><code>rel</code> 的取值直接对应 HTML 规范——完整词表见 <a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">whatwg 的 rel=icon 定义</a>。浏览器会按顺序挑第一个匹配当前上下文的图标，所以要把清晰的 SVG 排在 ICO 兜底之前。</p>
+<h2>步骤 2：补上 Apple Touch 和 manifest</h2>
+<p>不管资源类型是什么，Remix 对每个描述符一视同仁。直接堆到同一个数组里：</p>
+<pre><code>export const links: LinksFunction = () =&amp;gt; [
+  { rel: 'icon', href: '/favicon.svg', type: 'image/svg+xml' },
+  { rel: 'alternate icon', href: '/favicon.ico', type: 'image/x-icon' },
+  { rel: 'apple-touch-icon', href: '/apple-touch-icon.png', sizes: '180x180' },
+  { rel: 'manifest', href: '/site.webmanifest' },
+];</code></pre>
+<p><code>sizes</code> 属性只是描述性的——浏览器在挑选最合适的图标时会参考它。如果你想了解 Remix 导出之外的 favicon link 标签写法，可以看我们的 <a href="/zh/blog/favicon-html-code.html">favicon HTML 代码示例</a>。</p>
+<h2>步骤 3：优雅地处理深色模式 SVG</h2>
+<p>浏览器确实会读取 icon link 标签上的 <code>media</code>。你可以准备两个 SVG，让浏览器根据用户的色彩模式自动挑选。把第二个文件存成 <code>/public/favicon-dark.svg</code>，然后加上两个描述符：</p>
+<pre><code>{
+  rel: 'icon',
+  href: '/favicon.svg',
+  type: 'image/svg+xml',
+  media: '(prefers-color-scheme: light)',
+},
+{
+  rel: 'icon',
+  href: '/favicon-dark.svg',
+  type: 'image/svg+xml',
+  media: '(prefers-color-scheme: dark)',
+},</code></pre>
+<p>HTML 规范明确支持 icon link 上的 <code>media</code> 描述符，所以这是一等公民方案，不是野路子。SVG 这一侧如何配置才能让两个文件正确切换，详见我们的 <a href="/zh/blog/favicon-dark-mode.html">favicon 深色模式指南</a>，里面把媒体查询的写法讲得比较细。</p>
+<h2>步骤 4：更新图标时打破缓存</h2>
+<p>浏览器对 favicon.ico 缓存得相当激进，而 Remix 默认不会给 <code>public/</code> 下的资源加内容哈希。发布新设计时，给 URL 拼一个查询字符串：</p>
+<pre><code>{ rel: 'icon', href: '/favicon.svg?v=2', type: 'image/svg+xml' }</code></pre>
+<p>每次发布新图标就把 <code>v</code> 加一。绑定 URL 的缓存会跟着刷新，用户标签页立刻就是新图标。</p>
+<h2>常见坑</h2>
+<p>通过 Remix 的 <code>links</code> 导出接入图标时，留意下面这些：</p>
+<ul>
+<li><strong>把标签直接写在 JSX 里。</strong>在 <code>root.tsx</code> 的 <code>&lt;head&gt;</code> 里直接写标签虽然能渲染出来，但 Remix 的去重和 SSR 排序可能会悄悄把它们干掉。导出才是文档里的标准路径。</li>
+<li><strong>漏写 <code>type</code>。</strong>没有 MIME 提示时，Safari 有时会挑错格式。<code>image/svg+xml</code> 和 <code>image/x-icon</code> 是稳妥的默认值。</li>
+<li><strong>使用 <code>shortcut icon</code>。</strong>这个遗留属性不在 HTML 规范里——现代浏览器会直接忽略。用 <code>alternate icon</code> 替代。</li>
+<li><strong>漏掉 manifest 的 <code>rel</code>。</strong>PWA 安装读的是 <code>site.webmanifest</code>，不是 icon 链接。要在同一个 <code>links</code> 数组里引用它。</li>
+<li><strong>部署后图标还是旧的。</strong>浏览器缓存在部署后依然存在。更新图标时务必加缓存破坏参数。</li>
+</ul>
+<h2>收尾</h2>
+<p>把 favicon HTML 标签接入 Remix，<code>links</code> 导出是最干净的方式——类型有保障、SSR 输出可预测、换图标时只改一个文件。再搭一个来自 Mzu favicondl 的清晰矢量源，加上缓存破坏查询参数，你的 Remix 应用在每个浏览器标签页里都会显得很专业。</p></div>
+
+        <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
+
+        <div class="cta-box">
+            <h3>需要打包所有 favicon 文件？</h3>
+            <p>使用 Mzu favicondl 几秒钟内生成 SVG、ICO、Apple Touch 图标和 manifest 文件。</p>
+            <a href="/zh/index.html" class="cta-btn">免费试用 →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/zh/index.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">首页</a>
+                <a href="/zh/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">博客</a>
+                <a href="/zh/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">隐私政策</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js?v=20260211"></script>
+
+</body></html>

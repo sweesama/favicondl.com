@@ -1,0 +1,419 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remix App Favicon Links: The Developer's Setup Guide - Mzu favicondl</title>
+    <meta name="description" content="Learn how to wire favicon HTML link tags into your Remix app's links export. Covers SVG, ICO, Apple Touch, manifest, dark mode, and cache busting.">
+    <meta name="keywords" content="remix app favicon links, remix links export, favicon link tag">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/blog/remix-app-favicon-links.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/remix-app-favicon-links.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/remix-app-favicon-links.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/remix-app-favicon-links.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/remix-app-favicon-links.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/remix-app-favicon-links.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/remix-app-favicon-links.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/blog/remix-app-favicon-links.html">
+    <meta property="og:title" content="Remix App Favicon Links: The Developer's Setup Guide">
+    <meta property="og:description" content="Learn how to wire favicon HTML link tags into your Remix app's links export. Covers SVG, ICO, Apple Touch, manifest, dark mode, and cache busting.">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Remix App Favicon Links: The Developer's Setup Guide">
+    <meta name="twitter:description" content="Learn how to wire favicon HTML link tags into your Remix app's links export. Covers SVG, ICO, Apple Touch, manifest, dark mode, and cache busting.">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Remix App Favicon Links: The Developer's Setup Guide",
+  "description": "Learn how to wire favicon HTML link tags into your Remix app's links export. Covers SVG, ICO, Apple Touch, manifest, dark mode, and cache busting.",
+  "datePublished": "2026-09-03",
+  "dateModified": "2026-09-03",
+  "author": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "mainEntityOfPage": "https://favicondl.com/blog/remix-app-favicon-links.html",
+  "inLanguage": "en"
+}</script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/index.html" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/documentation.html" class="nav-link" data-en="Docs" data-zh="文档">Docs</a>
+                <a href="/tools.html" class="nav-link" data-en="Tools" data-zh="工具">Tools</a>
+                <a href="/blog/" class="nav-link" data-en="Blog" data-zh="博客">Blog</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/remix-app-favicon-links.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/remix-app-favicon-links.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/remix-app-favicon-links.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/remix-app-favicon-links.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/remix-app-favicon-links.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/index.html" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600" data-en="Remix App Favicon Links: The Developer's Setup Guide" data-zh="Remix 应用 Favicon 链接：开发者配置指南" data-ja="RemixアプリのFaviconリンク設定完全ガイド" data-ko="Remix 앱 Favicon 링크 설정 완벽 가이드" data-es="Enlaces de Favicon en Apps Remix: Guía para Desarrolladores">Remix App Favicon Links: The Developer's Setup Guide</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">remix</span><time class="text-sm text-gray-400">2026-09-03</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight" data-en="Remix App Favicon Links: The Developer's Setup Guide" data-zh="Remix 应用 Favicon 链接：开发者配置指南" data-ja="RemixアプリのFaviconリンク設定完全ガイド" data-ko="Remix 앱 Favicon 링크 설정 완벽 가이드" data-es="Enlaces de Favicon en Apps Remix: Guía para Desarrolladores">Remix App Favicon Links: The Developer's Setup Guide</h1>
+        </header>
+
+        <div class="article-body" data-lang="en">
+            <p>If you've pasted favicon &lt;link&gt; tags directly into <code>app/root.tsx</code> and watched Remix dedupe or silently drop them — the right pattern is the <code>links</code> export. This is where Remix v2 expects HTML link descriptors, and the framework renders them into the document head for you. (See the official <a href="https://v2.remix.run/docs/route/links/">Remix route links documentation</a> for the full API surface.)</p>
+<h2>Prerequisites</h2>
+<p>You need a working Remix v2 project and a stack of favicon files. For the complete modern set, prepare:</p>
+<ul>
+<li><code>/public/favicon.svg</code> — vector source, supports dark mode</li>
+<li><code>/public/favicon.ico</code> — legacy fallback for older browsers</li>
+<li><code>/public/apple-touch-icon.png</code> — 180×180 for iOS home screen</li>
+<li><code>/public/site.webmanifest</code> — for PWA install behavior</li>
+</ul>
+<p>Anything you drop into <code>public/</code> is served from the site root, so <code>/public/favicon.svg</code> resolves to <code>https://yoursite.com/favicon.svg</code> with no extra routing.</p>
+<h2>Step 1: Build the links export in root.tsx</h2>
+<p>The <code>links</code> export is a function returning an array of <code>&lt;link&gt;</code> descriptors. Remix maps each descriptor onto a real HTML tag in the document head. Use <code>LinksFunction</code> from <code>@remix-run/node</code> (or your runtime-specific package) for proper typing.</p>
+<pre><code>import type { LinksFunction } from '@remix-run/node';
+
+export const links: LinksFunction = () =&amp;gt; [
+  { rel: 'icon', href: '/favicon.svg', type: 'image/svg+xml' },
+  { rel: 'alternate icon', href: '/favicon.ico', type: 'image/x-icon' },
+];</code></pre>
+<p>The <code>rel</code> values map directly onto the HTML spec — see <a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">whatwg's rel=icon definition</a> for the full vocabulary. Browsers pick the first icon that matches their current context, so list your crisp SVG before the ICO fallback.</p>
+<h2>Step 2: Add Apple Touch and manifest entries</h2>
+<p>Remix treats every descriptor the same way regardless of resource type. Stack them in the same array:</p>
+<pre><code>export const links: LinksFunction = () =&amp;gt; [
+  { rel: 'icon', href: '/favicon.svg', type: 'image/svg+xml' },
+  { rel: 'alternate icon', href: '/favicon.ico', type: 'image/x-icon' },
+  { rel: 'apple-touch-icon', href: '/apple-touch-icon.png', sizes: '180x180' },
+  { rel: 'manifest', href: '/site.webmanifest' },
+];</code></pre>
+<p>The <code>sizes</code> attribute is informational — browsers consult it when picking the best fit for a given rendering context. For broader favicon link tag patterns beyond the Remix export, see our <a href="/blog/favicon-html-code.html">favicon HTML code examples</a>.</p>
+<h2>Step 3: Ship dark-mode SVGs cleanly</h2>
+<p>Browsers do honor <code>media</code> on icon link tags. You can ship two SVGs and let the browser pick the right one based on the user's color scheme. Save a second file as <code>/public/favicon-dark.svg</code>, then add both descriptors:</p>
+<pre><code>{
+  rel: 'icon',
+  href: '/favicon.svg',
+  type: 'image/svg+xml',
+  media: '(prefers-color-scheme: light)',
+},
+{
+  rel: 'icon',
+  href: '/favicon-dark.svg',
+  type: 'image/svg+xml',
+  media: '(prefers-color-scheme: dark)',
+},</code></pre>
+<p>The HTML spec explicitly supports <code>media</code> descriptors on icon links, so this is a first-class pattern — not a hack. For the SVG-side setup that makes these files swap correctly, our <a href="/blog/favicon-dark-mode.html">favicon dark mode guide</a> walks through the media query syntax in detail.</p>
+<h2>Step 4: Cache-bust when you update icons</h2>
+<p>Browsers cache <code>favicon.ico</code> aggressively, and Remix does not add a content hash to <code>public/</code> assets by default. Append a version query string when you ship a new design:</p>
+<pre><code>{ rel: 'icon', href: '/favicon.svg?v=2', type: 'image/svg+xml' }</code></pre>
+<p>Bump the <code>v</code> value on every icon release. Caches tied to URLs will refresh, and your users see the new tab graphic immediately.</p>
+<h2>Common pitfalls</h2>
+<p>Watch for these when wiring icons through the Remix <code>links</code> export:</p>
+<ul>
+<li><strong>Putting tags in raw JSX.</strong> Tags written inside <code>&lt;head&gt;</code> in <code>root.tsx</code> render, but Remix deduplication and SSR ordering can drop them silently. The export is the documented path.</li>
+<li><strong>Forgetting <code>type</code>.</strong> Without a MIME hint, Safari sometimes picks the wrong format. <code>image/svg+xml</code> and <code>image/x-icon</code> are safe defaults.</li>
+<li><strong>Using <code>shortcut icon</code>.</strong> This legacy attribute is not part of the HTML spec — modern browsers ignore it. Use <code>alternate icon</code> instead.</li>
+<li><strong>Skipping the manifest <code>rel</code>.</strong> PWA installs read from <code>site.webmanifest</code>, not from icon links. Reference it from the same <code>links</code> array.</li>
+<li><strong>Stale icon after deploy.</strong> Browser caches survive deployments. Always cache-bust on icon updates.</li>
+</ul>
+<h2>Wrapping up</h2>
+<p>The Remix <code>links</code> export is the cleanest place to wire favicon HTML tags. You get type safety, predictable SSR output, and a single file to edit when you update your icon stack. Pair it with a sharp vector source from Mzu favicondl, ship a cache-bust query, and your Remix app will look professional in every browser tab.</p>
+        </div>
+
+        <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
+        <template data-article-lang="zh"><p>如果你曾经在 <code>app/root.tsx</code> 里直接写 favicon <code>&lt;link&gt;</code> 标签，结果被 Remix 去重甚至悄悄丢掉——正确做法是用 <code>links</code> 导出。Remix v2 期望 HTML link 描述符就放在这里，框架会自动把它们渲染到文档 head 里。完整 API 见官方 <a href="https://v2.remix.run/docs/route/links/">Remix route links 文档</a>。</p>
+<h2>前置条件</h2>
+<p>你需要一个能跑起来的 Remix v2 项目，外加一组 favicon 文件。要凑齐现代浏览器需要的那一整套，建议准备：</p>
+<ul>
+<li><code>/public/favicon.svg</code> — 矢量源文件，支持深色模式</li>
+<li><code>/public/favicon.ico</code> — 兼容老浏览器的兜底文件</li>
+<li><code>/public/apple-touch-icon.png</code> — 180×180，用于 iOS 主屏幕</li>
+<li><code>/public/site.webmanifest</code> — 用于 PWA 安装行为</li>
+</ul>
+<p>放进 <code>public/</code> 的任何东西都会从站点根路径直接对外提供，所以 <code>/public/favicon.svg</code> 实际就是 <code>https://yoursite.com/favicon.svg</code>，不需要额外路由。</p>
+<h2>步骤 1：在 root.tsx 里写 links 导出</h2>
+<p><code>links</code> 导出是一个返回 <code>&lt;link&gt;</code> 描述符数组的函数。Remix 会把每个描述符映射成文档 head 里的真实 HTML 标签。为了拿到正确的类型，从 <code>@remix-run/node</code>（或你用的运行时对应的包）引入 <code>LinksFunction</code>。</p>
+<pre><code>import type { LinksFunction } from '@remix-run/node';
+
+export const links: LinksFunction = () =&amp;gt; [
+  { rel: 'icon', href: '/favicon.svg', type: 'image/svg+xml' },
+  { rel: 'alternate icon', href: '/favicon.ico', type: 'image/x-icon' },
+];</code></pre>
+<p><code>rel</code> 的取值直接对应 HTML 规范——完整词表见 <a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">whatwg 的 rel=icon 定义</a>。浏览器会按顺序挑第一个匹配当前上下文的图标，所以要把清晰的 SVG 排在 ICO 兜底之前。</p>
+<h2>步骤 2：补上 Apple Touch 和 manifest</h2>
+<p>不管资源类型是什么，Remix 对每个描述符一视同仁。直接堆到同一个数组里：</p>
+<pre><code>export const links: LinksFunction = () =&amp;gt; [
+  { rel: 'icon', href: '/favicon.svg', type: 'image/svg+xml' },
+  { rel: 'alternate icon', href: '/favicon.ico', type: 'image/x-icon' },
+  { rel: 'apple-touch-icon', href: '/apple-touch-icon.png', sizes: '180x180' },
+  { rel: 'manifest', href: '/site.webmanifest' },
+];</code></pre>
+<p><code>sizes</code> 属性只是描述性的——浏览器在挑选最合适的图标时会参考它。如果你想了解 Remix 导出之外的 favicon link 标签写法，可以看我们的 <a href="/blog/favicon-html-code.html">favicon HTML 代码示例</a>。</p>
+<h2>步骤 3：优雅地处理深色模式 SVG</h2>
+<p>浏览器确实会读取 icon link 标签上的 <code>media</code>。你可以准备两个 SVG，让浏览器根据用户的色彩模式自动挑选。把第二个文件存成 <code>/public/favicon-dark.svg</code>，然后加上两个描述符：</p>
+<pre><code>{
+  rel: 'icon',
+  href: '/favicon.svg',
+  type: 'image/svg+xml',
+  media: '(prefers-color-scheme: light)',
+},
+{
+  rel: 'icon',
+  href: '/favicon-dark.svg',
+  type: 'image/svg+xml',
+  media: '(prefers-color-scheme: dark)',
+},</code></pre>
+<p>HTML 规范明确支持 icon link 上的 <code>media</code> 描述符，所以这是一等公民方案，不是野路子。SVG 这一侧如何配置才能让两个文件正确切换，详见我们的 <a href="/blog/favicon-dark-mode.html">favicon 深色模式指南</a>，里面把媒体查询的写法讲得比较细。</p>
+<h2>步骤 4：更新图标时打破缓存</h2>
+<p>浏览器对 favicon.ico 缓存得相当激进，而 Remix 默认不会给 <code>public/</code> 下的资源加内容哈希。发布新设计时，给 URL 拼一个查询字符串：</p>
+<pre><code>{ rel: 'icon', href: '/favicon.svg?v=2', type: 'image/svg+xml' }</code></pre>
+<p>每次发布新图标就把 <code>v</code> 加一。绑定 URL 的缓存会跟着刷新，用户标签页立刻就是新图标。</p>
+<h2>常见坑</h2>
+<p>通过 Remix 的 <code>links</code> 导出接入图标时，留意下面这些：</p>
+<ul>
+<li><strong>把标签直接写在 JSX 里。</strong>在 <code>root.tsx</code> 的 <code>&lt;head&gt;</code> 里直接写标签虽然能渲染出来，但 Remix 的去重和 SSR 排序可能会悄悄把它们干掉。导出才是文档里的标准路径。</li>
+<li><strong>漏写 <code>type</code>。</strong>没有 MIME 提示时，Safari 有时会挑错格式。<code>image/svg+xml</code> 和 <code>image/x-icon</code> 是稳妥的默认值。</li>
+<li><strong>使用 <code>shortcut icon</code>。</strong>这个遗留属性不在 HTML 规范里——现代浏览器会直接忽略。用 <code>alternate icon</code> 替代。</li>
+<li><strong>漏掉 manifest 的 <code>rel</code>。</strong>PWA 安装读的是 <code>site.webmanifest</code>，不是 icon 链接。要在同一个 <code>links</code> 数组里引用它。</li>
+<li><strong>部署后图标还是旧的。</strong>浏览器缓存在部署后依然存在。更新图标时务必加缓存破坏参数。</li>
+</ul>
+<h2>收尾</h2>
+<p>把 favicon HTML 标签接入 Remix，<code>links</code> 导出是最干净的方式——类型有保障、SSR 输出可预测、换图标时只改一个文件。再搭一个来自 Mzu favicondl 的清晰矢量源，加上缓存破坏查询参数，你的 Remix 应用在每个浏览器标签页里都会显得很专业。</p></template>
+        <template data-article-lang="ja"><p>Remixアプリでfaviconの&lt;link&gt;タグを直接<code>app/root.tsx</code>に貼り付けて、Remixが重複を削除したり、静かに無視したりするのを経験したなら、正しいパターンは<code>links</code>エクスポートです。Remix v2では、HTMLのリンク記述子をここに置くことが期待されており、フレームワークがそれらをドキュメントのheadにレンダリングします。（完全なAPIサーフェスについては、公式の<a href="https://v2.remix.run/docs/route/links/">Remixルートlinksドキュメント</a>を参照してください。）</p>
+<h2>前提条件</h2>
+<p>動作するRemix v2プロジェクトと、一連のfaviconファイルが必要です。最新の完全なセットには、以下を用意してください：</p>
+<ul>
+<li><code>/public/favicon.svg</code> — ベクターソース。ダークモード対応</li>
+<li><code>/public/favicon.ico</code> — 古いブラウザ向けのレガシーフォールバック</li>
+<li><code>/public/apple-touch-icon.png</code> — iOSホーム画面用の180×180ピクセル</li>
+<li><code>/public/site.webmanifest</code> — PWAインストール動作用</li>
+</ul>
+<p><code>public/</code>に置いたファイルはサイトルートから提供されるため、<code>/public/favicon.svg</code>は追加のルーティングなしで<code>https://yoursite.com/favicon.svg</code>として解決されます。</p>
+<h2>ステップ1: root.tsxでlinksエクスポートを構築する</h2>
+<p><code>links</code>エクスポートは、<code>&lt;link&gt;</code>記述子の配列を返す関数です。Remixは各記述子をドキュメントのhead内の実際のHTMLタグにマッピングします。適切な型付けのために、<code>@remix-run/node</code>（またはランタイム固有のパッケージ）から<code>LinksFunction</code>を使用してください。</p>
+<pre><code>import type { LinksFunction } from '@remix-run/node';
+
+export const links: LinksFunction = () =&amp;gt; [
+  { rel: 'icon', href: '/favicon.svg', type: 'image/svg+xml' },
+  { rel: 'alternate icon', href: '/favicon.ico', type: 'image/x-icon' },
+];</code></pre>
+<p><code>rel</code>の値はHTML仕様に直接対応します。完全な語彙については、<a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">whatwgのrel=icon定義</a>を参照してください。ブラウザは現在のコンテキストに一致する最初のアイコンを選択するため、シャープなSVGをICOフォールバックの前にリストしてください。</p>
+<h2>ステップ2: Apple Touchとマニフェストのエントリを追加する</h2>
+<p>Remixはリソースタイプに関係なく、すべての記述子を同じ方法で扱います。それらを同じ配列にスタックしてください：</p>
+<pre><code>export const links: LinksFunction = () =&amp;gt; [
+  { rel: 'icon', href: '/favicon.svg', type: 'image/svg+xml' },
+  { rel: 'alternate icon', href: '/favicon.ico', type: 'image/x-icon' },
+  { rel: 'apple-touch-icon', href: '/apple-touch-icon.png', sizes: '180x180' },
+  { rel: 'manifest', href: '/site.webmanifest' },
+];</code></pre>
+<p><code>sizes</code>属性は情報提供用です。ブラウザは特定のレンダリングコンテキストに最適なものを選ぶ際にこれを参照します。Remixエクスポート以外のより広範なfaviconリンクタグパターンについては、<a href="/blog/favicon-html-code.html">favicon HTMLコード例</a>を参照してください。</p>
+<h2>ステップ3: ダークモードSVGをクリーンに配信する</h2>
+<p>ブラウザはアイコンリンクタグの<code>media</code>を尊重します。2つのSVGを配信し、ユーザーのカラースキームに基づいてブラウザに適切な方を選択させることができます。2番目のファイルを<code>/public/favicon-dark.svg</code>として保存し、両方の記述子を追加してください：</p>
+<pre><code>{
+  rel: 'icon',
+  href: '/favicon.svg',
+  type: 'image/svg+xml',
+  media: '(prefers-color-scheme: light)',
+},
+{
+  rel: 'icon',
+  href: '/favicon-dark.svg',
+  type: 'image/svg+xml',
+  media: '(prefers-color-scheme: dark)',
+},</code></pre>
+<p>HTML仕様はアイコンリンクの<code>media</code>記述子を明示的にサポートしているため、これはハックではなく第一級のパターンです。これらのファイルが正しく切り替わるためのSVG側の設定については、<a href="/blog/favicon-dark-mode.html">faviconダークモードガイド</a>でメディアクエリ構文を詳しく説明しています。</p>
+<h2>ステップ4: アイコン更新時にキャッシュをバストする</h2>
+<p>ブラウザは<code>favicon.ico</code>を積極的にキャッシュし、Remixはデフォルトで<code>public/</code>アセットにコンテンツハッシュを追加しません。新しいデザインをリリースする際は、バージョンクエリ文字列を追加してください：</p>
+<pre><code>{ rel: 'icon', href: '/favicon.svg?v=2', type: 'image/svg+xml' }</code></pre>
+<p>アイコンをリリースするたびに<code>v</code>の値を増やしてください。URLに紐づくキャッシュが更新され、ユーザーはすぐに新しいタブグラフィックを表示できます。</p>
+<h2>よくある落とし穴</h2>
+<p>Remixの<code>links</code>エクスポートでアイコンを配線する際は、以下に注意してください：</p>
+<ul>
+<li><strong>生のJSXにタグを置く。</strong><code>root.tsx</code>の<code>&lt;head&gt;</code>内に書かれたタグはレンダリングされますが、Remixの重複排除とSSRの順序付けにより、静かに削除される可能性があります。エクスポートが文書化されたパスです。</li>
+<li><strong><code>type</code>を忘れる。</strong>MIMEヒントがないと、Safariが誤った形式を選択することがあります。<code>image/svg+xml</code>と<code>image/x-icon</code>が安全なデフォルトです。</li>
+<li><strong><code>shortcut icon</code>を使用する。</strong>このレガシー属性はHTML仕様の一部ではなく、最新のブラウザは無視します。代わりに<code>alternate icon</code>を使用してください。</li>
+<li><strong>マニフェストの<code>rel</code>をスキップする。</strong>PWAインストールはアイコンリンクではなく<code>site.webmanifest</code>から読み取ります。同じ<code>links</code>配列から参照してください。</li>
+<li><strong>デプロイ後にアイコンが古いまま。</strong>ブラウザキャッシュはデプロイを生き延びます。アイコン更新時には必ずキャッシュバストを行ってください。</li>
+</ul>
+<h2>まとめ</h2>
+<p>Remixの<code>links</code>エクスポートは、favicon HTMLタグを配線する最もクリーンな場所です。型安全性、予測可能なSSR出力、そしてアイコンスタックを更新する際に編集する単一ファイルが得られます。Mzu favicondlのシャープなベクターソースと組み合わせ、キャッシュバストクエリを配信すれば、Remixアプリはすべてのブラウザタブでプロフェッショナルに見えます。</p></template>
+        <template data-article-lang="ko">Remix 앱 Favicon 링크: 개발자를 위한 설정 가이드
+
+<p>app/root.tsx에 favicon &lt;link&gt; 태그를 그대로 붙여넣었는데 Remix가 중복을 제거하거나 조용히 누락시키는 현상을 보신 적이 있다면, 올바른 패턴은 links export입니다. 이 위치는 Remix v2가 HTML link descriptor를 정의하기를 기대하는 정확한 곳이며, 프레임워크가 이를 자동으로 document head로 렌더링해 줍니다. 전체 API 명세는 공식 <a href="https://v2.remix.run/docs/route/links/">Remix route links 문서</a>를 참고해 주세요.</p>
+<h2>사전 요구사항</h2>
+<p>작동하는 Remix v2 프로젝트와 favicon 파일 묶음이 필요합니다. 모던 셋업을 모두 구성하려면 다음 파일을 준비하세요.</p>
+<ul>
+<li><code>/public/favicon.svg</code> — 벡터 소스, 다크 모드 지원</li>
+<li><code>/public/favicon.ico</code> — 구형 브라우저용 레거시 폴백</li>
+<li><code>/public/apple-touch-icon.png</code> — iOS 홈 화면용 180×180</li>
+<li><code>/public/site.webmanifest</code> — PWA 설치 동작용</li>
+</ul>
+<p><code>public/</code>에 넣은 모든 파일은 사이트 루트에서 그대로 서빙되므로, <code>/public/favicon.svg</code>는 별도의 라우팅 작업 없이 <code>https://yoursite.com/favicon.svg</code>로 해석됩니다.</p>
+<h2>Step 1: root.tsx에 links export 구성하기</h2>
+<p><code>links</code> export는 <code>&lt;link&gt;</code> descriptor 배열을 돌려주는 함수입니다. Remix는 각 descriptor를 document head의 실제 HTML 태그로 매핑합니다. 타입 안전성을 위해 <code>@remix-run/node</code>(또는 런타임별 패키지)에서 <code>LinksFunction</code>을 import해 사용하세요.</p>
+<pre><code>import type { LinksFunction } from '@remix-run/node';
+
+export const links: LinksFunction = () =&amp;gt; [
+  { rel: 'icon', href: '/favicon.svg', type: 'image/svg+xml' },
+  { rel: 'alternate icon', href: '/favicon.ico', type: 'image/x-icon' },
+];</code></pre>
+<p><code>rel</code> 값은 HTML 명세와 1:1로 대응합니다. 사용 가능한 전체 어휘는 <a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">whatwg의 rel=icon 정의</a>를 참고하세요. 브라우저는 현재 컨텍스트에 매칭되는 첫 번째 icon를 선택하므로, 선명한 SVG를 ICO 폴백보다 먼저 배치하세요.</p>
+<h2>Step 2: Apple Touch 및 manifest 항목 추가하기</h2>
+<p>Remix는 리소스 종류와 무관하게 모든 descriptor를 동일한 방식으로 처리합니다. 같은 배열에 차곡차곡 쌓아 두면 됩니다.</p>
+<pre><code>export const links: LinksFunction = () =&amp;gt; [
+  { rel: 'icon', href: '/favicon.svg', type: 'image/svg+xml' },
+  { rel: 'alternate icon', href: '/favicon.ico', type: 'image/x-icon' },
+  { rel: 'apple-touch-icon', href: '/apple-touch-icon.png', sizes: '180x180' },
+  { rel: 'manifest', href: '/site.webmanifest' },
+];</code></pre>
+<p><code>sizes</code> 속성은 정보 제공용이며, 브라우저가 각 렌더링 컨텍스트에 가장 잘 맞는 icon를 고를 때 참고합니다. Remix export를 넘어선 favicon link 태그 패턴은 <a href="/blog/favicon-html-code.html">favicon HTML 코드 예제</a>에서 확인할 수 있습니다.</p>
+<h2>Step 3: 다크 모드 SVG 깔끔하게 배포하기</h2>
+<p>브라우저는 icon link 태그의 <code>media</code> 속성도 그대로 인지합니다. 두 개의 SVG를 배포하고 사용자의 color scheme에 따라 브라우저가 알맞은 파일을 선택하도록 할 수 있습니다. 두 번째 파일을 <code>/public/favicon-dark.svg</code>로 저장한 뒤, 두 descriptor를 모두 추가하세요.</p>
+<pre><code>{
+  rel: 'icon',
+  href: '/favicon.svg',
+  type: 'image/svg+xml',
+  media: '(prefers-color-scheme: light)',
+},
+{
+  rel: 'icon',
+  href: '/favicon-dark.svg',
+  type: 'image/svg+xml',
+  media: '(prefers-color-scheme: dark)',
+},</code></pre>
+<p>HTML 명세는 icon link에서 <code>media</code> descriptor를 명시적으로 지원하므로, 이 패턴은 hack이 아닌 정식 first-class 패턴입니다. 두 SVG가 컬러 스킴에 맞춰 정상적으로 교체되도록 만드는 SVG 측 설정은 <a href="/blog/favicon-dark-mode.html">favicon 다크 모드 가이드</a>에서 media query 문법을 자세히 다룹니다.</p>
+<h2>Step 4: icon 업데이트 시 cache-bust 처리하기</h2>
+<p>브라우저는 <code>favicon.ico</code>를 매우 적극적으로 캐싱하며, Remix는 기본적으로 <code>public/</code> 자산에 content hash를 붙이지 않습니다. 새 디자인을 배포할 때는 버전 쿼리 스트링을 덧붙이세요.</p>
+<pre><code>{ rel: 'icon', href: '/favicon.svg?v=2', type: 'image/svg+xml' }</code></pre>
+<p>icon 릴리스마다 <code>v</code> 값을 올려주세요. URL에 묶인 캐시가 갱신되어, 사용자는 새 탭 그래픽을 즉시 보게 됩니다.</p>
+<h2>자주 발생하는 실수</h2>
+<p>Remix <code>links</code> export로 icon을 연결할 때는 다음 사항에 주의하세요.</p>
+<ul>
+<li><strong>raw JSX에 태그를 직접 넣기.</strong> <code>root.tsx</code>의 <code>&lt;head&gt;</code> 안에 작성된 태그는 렌더링되지만, Remix의 dedup 로직과 SSR 순서 때문에 조용히 누락될 수 있습니다. export가 문서화된 정식 경로입니다.</li>
+<li><strong><code>type</code>을 누락하기.</strong> MIME 힌트가 없으면 Safari가 가끔 잘못된 형식을 선택합니다. <code>image/svg+xml</code>과 <code>image/x-icon</code>이 안전한 기본값입니다.</li>
+<li><strong><code>shortcut icon</code> 사용하기.</strong> 이 레거시 속성은 HTML 명세에 포함되지 않으며, 모던 브라우저는 이를 무시합니다. 대신 <code>alternate icon</code>을 사용하세요.</li>
+<li><strong>manifest <code>rel</code>을 빠뜨리기.</strong> PWA 설치는 icon link가 아니라 <code>site.webmanifest</code>를 읽습니다. 같은 <code>links</code> 배열에서 함께 참조하세요.</li>
+<li><strong>배포 후 icon이 stale 상태로 남기.</strong> 브라우저 캐시는 배포 시점과 무관하게 유지됩니다. icon 업데이트 시에는 반드시 cache-bust 처리를 하세요.</li>
+</ul>
+<h2>마무리</h2>
+<p>Remix <code>links</code> export는 favicon HTML 태그를 연결하기에 가장 깔끔한 위치입니다. 타입 안전성, 예측 가능한 SSR 출력, 그리고 icon 묶음을 업데이트할 때 단 한 파일만 수정하면 되는 단순함을 모두 얻을 수 있습니다. Mzu favicondl의 선명한 벡터 소스와 결합하고 cache-bust 쿼리를 함께 배포하면, 모든 브라우저 탭에서 완성도 높은 Remix 앱을 보여줄 수 있습니다.</p></template>
+        <template data-article-lang="es"><p>Si has pegado etiquetas &lt;link&gt; de favicon directamente en <code>app/root.tsx</code> y has visto cómo Remix las deduplica o las descarta silenciosamente, el patrón correcto es el export <code>links</code>. Aquí es donde Remix v2 espera los descriptores de enlaces HTML, y el framework los renderiza en el head del documento por ti. (Consulta la <a href="https://v2.remix.run/docs/route/links/">documentación oficial de route links en Remix</a> para ver la superficie completa de la API.)</p>
+<h2>Requisitos previos</h2>
+<p>Necesitas un proyecto de Remix v2 en funcionamiento y un conjunto de archivos de favicon. Para el set moderno completo, prepara:</p>
+<ul>
+<li><code>/public/favicon.svg</code> — fuente vectorial, soporta modo oscuro</li>
+<li><code>/public/favicon.ico</code> — fallback legacy para navegadores antiguos</li>
+<li><code>/public/apple-touch-icon.png</code> — 180×180 para la pantalla de inicio de iOS</li>
+<li><code>/public/site.webmanifest</code> — para el comportamiento de instalación PWA</li>
+</ul>
+<p>Todo lo que coloques en <code>public/</code> se sirve desde la raíz del sitio, así que <code>/public/favicon.svg</code> se resuelve en <code>https://yoursite.com/favicon.svg</code> sin enrutamiento adicional.</p>
+<h2>Paso 1: Construye el export links en root.tsx</h2>
+<p>El export <code>links</code> es una función que devuelve un array de descriptores <code>&lt;link&gt;</code>. Remix mapea cada descriptor a una etiqueta HTML real en el head del documento. Usa <code>LinksFunction</code> desde <code>@remix-run/node</code> (o el paquete específico de tu runtime) para un tipado correcto.</p>
+<pre><code>import type { LinksFunction } from '@remix-run/node';
+
+export const links: LinksFunction = () =&amp;gt; [
+  { rel: 'icon', href: '/favicon.svg', type: 'image/svg+xml' },
+  { rel: 'alternate icon', href: '/favicon.ico', type: 'image/x-icon' },
+];</code></pre>
+<p>Los valores de <code>rel</code> se mapean directamente a la especificación HTML — consulta la <a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">definición de rel=icon del whatwg</a> para ver el vocabulario completo. Los navegadores eligen el primer icono que coincida con su contexto actual, así que lista tu SVG nítido antes del fallback ICO.</p>
+<h2>Paso 2: Añade las entradas de Apple Touch y manifest</h2>
+<p>Remix trata cada descriptor de la misma forma independientemente del tipo de recurso. Apílalos en el mismo array:</p>
+<pre><code>export const links: LinksFunction = () =&amp;gt; [
+  { rel: 'icon', href: '/favicon.svg', type: 'image/svg+xml' },
+  { rel: 'alternate icon', href: '/favicon.ico', type: 'image/x-icon' },
+  { rel: 'apple-touch-icon', href: '/apple-touch-icon.png', sizes: '180x180' },
+  { rel: 'manifest', href: '/site.webmanifest' },
+];</code></pre>
+<p>El atributo <code>sizes</code> es informativo — los navegadores lo consultan al elegir el mejor ajuste para un contexto de renderizado dado. Para patrones más amplios de etiquetas link de favicon más allá del export de Remix, consulta nuestros <a href="/blog/favicon-html-code.html">ejemplos de código HTML para favicon</a>.</p>
+<h2>Paso 3: Publica SVGs de modo oscuro de forma limpia</h2>
+<p>Los navegadores sí respetan <code>media</code> en las etiquetas link de iconos. Puedes publicar dos SVGs y dejar que el navegador elija el correcto según el esquema de color del usuario. Guarda un segundo archivo como <code>/public/favicon-dark.svg</code> y luego añade ambos descriptores:</p>
+<pre><code>{
+  rel: 'icon',
+  href: '/favicon.svg',
+  type: 'image/svg+xml',
+  media: '(prefers-color-scheme: light)',
+},
+{
+  rel: 'icon',
+  href: '/favicon-dark.svg',
+  type: 'image/svg+xml',
+  media: '(prefers-color-scheme: dark)',
+},</code></pre>
+<p>La especificación HTML soporta explícitamente descriptores <code>media</code> en los enlaces de iconos, así que este es un patrón de primera clase — no un hack. Para la configuración del lado del SVG que hace que estos archivos cambien correctamente, nuestra <a href="/blog/favicon-dark-mode.html">guía de favicon en modo oscuro</a> explica la sintaxis de media query en detalle.</p>
+<h2>Paso 4: Rompe la caché cuando actualices los iconos</h2>
+<p>Los navegadores cachean <code>favicon.ico</code> de forma agresiva, y Remix no añade un content hash a los assets de <code>public/</code> por defecto. Añade una cadena de versión cuando publiques un nuevo diseño:</p>
+<pre><code>{ rel: 'icon', href: '/favicon.svg?v=2', type: 'image/svg+xml' }</code></pre>
+<p>Incrementa el valor de <code>v</code> en cada release de iconos. Las cachés vinculadas a URLs se refrescarán y tus usuarios verán el nuevo gráfico en la pestaña de inmediato.</p>
+<h2>Errores comunes</h2>
+<p>Ten cuidado con esto cuando conectes iconos a través del export <code>links</code> de Remix:</p>
+<ul>
+<li><strong>Poner las etiquetas en JSX crudo.</strong> Las etiquetas escritas dentro de <code>&lt;head&gt;</code> en <code>root.tsx</code> se renderizan, pero la deduplicación y el orden del SSR en Remix pueden descartarlas silenciosamente. El export es el camino documentado.</li>
+<li><strong>Olvidar <code>type</code>.</strong> Sin una pista de MIME, Safari a veces elige el formato incorrecto. <code>image/svg+xml</code> y <code>image/x-icon</code> son valores seguros por defecto.</li>
+<li><strong>Usar <code>shortcut icon</code>.</strong> Este atributo legacy no forma parte de la especificación HTML — los navegadores modernos lo ignoran. Usa <code>alternate icon</code> en su lugar.</li>
+<li><strong>Omitir el <code>rel</code> del manifest.</strong> Las instalaciones PWA leen desde <code>site.webmanifest</code>, no desde los enlaces de iconos. Haz referencia al mismo array <code>links</code>.</li>
+<li><strong>Icono obsoleto tras el deploy.</strong> Las cachés del navegador sobreviven a los despliegues. Siempre rompe la caché en actualizaciones de iconos.</li>
+</ul>
+<h2>Cierre</h2>
+<p>El export <code>links</code> de Remix es el lugar más limpio para cablear las etiquetas HTML de favicon. Obtienes seguridad de tipos, salida SSR predecible y un único archivo que editar cuando actualices tu stack de iconos. Combínalo con una fuente vectorial nítida de Mzu favicondl, añade una query de cache-busting y tu app Remix lucirá profesional en cada pestaña del navegador.</p></template>
+
+        <div class="cta-box">
+            <h3 data-en="Need every favicon file in one package?" data-zh="需要打包所有 favicon 文件？" data-ja="faviconファイルをまとめて準備しませんか？" data-ko="Favicon 파일을 한 번에 준비하세요" data-es="¿Necesitas todos tus archivos favicon?">Need every favicon file in one package?</h3>
+            <p data-en="Generate SVG, ICO, Apple Touch icons, and manifest files in seconds with Mzu favicondl." data-zh="使用 Mzu favicondl 几秒钟内生成 SVG、ICO、Apple Touch 图标和 manifest 文件。" data-ja="Mzu favicondlを使えば、SVG、ICO、Apple Touchアイコン、manifestを数秒で生成できます。" data-ko="Mzu favicondl로 SVG, ICO, Apple Touch 아이콘 및 manifest 파일을 몇 초 만에 생성하세요." data-es="Genera SVG, ICO, iconos Apple Touch y archivos manifest en segundos con Mzu favicondl.">Generate SVG, ICO, Apple Touch icons, and manifest files in seconds with Mzu favicondl.</p>
+            <a href="/index.html" class="cta-btn" data-en="Try It Free →" data-zh="免费试用 →" data-ja="無料で試す →" data-ko="무료로 사용해보기 →" data-es="Pruébalo gratis →">Try It Free →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/index.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Home" data-zh="首页">Home</a>
+                <a href="/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Blog" data-zh="博客">Blog</a>
+                <a href="/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Privacy" data-zh="隐私政策">Privacy</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js?v=20260211"></script>
+
+</body></html>
