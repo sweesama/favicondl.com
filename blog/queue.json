@@ -2498,7 +2498,9 @@
       "sveltekit-favicon",
       "favicon-html-code"
     ],
-    "status": "pending"
+    "status": "done",
+    "qualityScore": 100,
+    "qualityGrade": "A"
   },
   {
     "keyword": "nuxt app head favicon",

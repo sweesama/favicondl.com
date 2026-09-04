@@ -1,0 +1,187 @@
+<!DOCTYPE html><html lang="zh"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SvelteKit app.html 网站图标：模板配置完整指南 - Mzu favicondl</title>
+    <meta name="description" content="学习如何在 SvelteKit 的 app.html 模板中添加 favicon 链接标签。涵盖 SVG、ICO、Apple Touch 图标和深色模式支持的完整步骤。">
+    <meta name="keywords" content="sveltekit app.html favicon, sveltekit template head, favicon link tag">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/zh/blog/sveltekit-app-html-favicon.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/sveltekit-app-html-favicon.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/sveltekit-app-html-favicon.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/sveltekit-app-html-favicon.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/sveltekit-app-html-favicon.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/sveltekit-app-html-favicon.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/sveltekit-app-html-favicon.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/zh/blog/sveltekit-app-html-favicon.html">
+    <meta property="og:title" content="SvelteKit app.html 网站图标：模板配置完整指南">
+    <meta property="og:description" content="学习如何在 SvelteKit 的 app.html 模板中添加 favicon 链接标签。涵盖 SVG、ICO、Apple Touch 图标和深色模式支持的完整步骤。">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="SvelteKit app.html 网站图标：模板配置完整指南">
+    <meta name="twitter:description" content="学习如何在 SvelteKit 的 app.html 模板中添加 favicon 链接标签。涵盖 SVG、ICO、Apple Touch 图标和深色模式支持的完整步骤。">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "SvelteKit app.html 网站图标：模板配置完整指南",
+  "description": "学习如何在 SvelteKit 的 app.html 模板中添加 favicon 链接标签。涵盖 SVG、ICO、Apple Touch 图标和深色模式支持的完整步骤。",
+  "datePublished": "2026-09-04",
+  "dateModified": "2026-09-04",
+  "author": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "mainEntityOfPage": "https://favicondl.com/zh/blog/sveltekit-app-html-favicon.html",
+  "inLanguage": "zh-CN"
+}</script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/zh/index.html" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/zh/documentation.html" class="nav-link">文档</a>
+                <a href="/zh/tools.html" class="nav-link">工具</a>
+                <a href="/zh/blog/" class="nav-link">博客</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/sveltekit-app-html-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/sveltekit-app-html-favicon.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/sveltekit-app-html-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/sveltekit-app-html-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/sveltekit-app-html-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/zh/index.html" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/zh/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600">SvelteKit app.html 网站图标：模板配置完整指南</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">sveltekit</span><time class="text-sm text-gray-400">2026-09-04</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">SvelteKit app.html 网站图标：模板配置完整指南</h1>
+        </header>
+
+        <div class="article-body"><p>你已经把 SvelteKit 路由搭好、调好了 layout，也把 build 部署上线了。结果打开浏览器标签页一看，还是默认的 Svelte 图标——更糟的是干脆一片空白。解决办法通常都藏在同一个文件里：<code>app.html</code>。</p>
+<p><code>app.html</code> 是 SvelteKit 用来在服务端和客户端渲染每一页的 HTML 外壳。根据 <a href="https://svelte.dev/docs/kit/project-structure">SvelteKit 项目结构文档</a> 的说明，这个模板放在 <code>src/</code> 根目录，是唯一能注入"在每条路由 hydration 后依然保留"标记的地方。这也让它成为放置 favicon <code>&lt;link&gt;</code> 标签的天然位置。</p>
+<h2>为什么用 app.html 而不用 layout？</h2>
+<p>你<em>确实可以</em>在 <code>+layout.svelte</code> 的 <code>&lt;svelte:head&gt;</code> 块里加 favicon 标签，大多数路由下都能正常工作。但 <code>app.html</code> 的渲染早于任何 layout 或组件代码，这就带来了两个实打实的好处：</p>
+<ul>
+<li>浏览器在收到首字节时就会发起 favicon 请求，标签页能更快显示出来。</li>
+<li>从 <code>+layout.svelte</code> 里注入的标签可能被不执行 JavaScript 的爬虫和机器人忽略，而 <code>app.html</code> 输出的始终是纯静态 HTML。</li>
+</ul>
+<h2>前置条件</h2>
+<p>你需要准备：</p>
+<ul>
+<li>一个跑得起来的 SvelteKit 项目（2.x 或更高）。</li>
+<li>放在 <code>static/</code> 下的 favicon 文件。完整一套建议备齐：32×32 的 <code>favicon.ico</code>、180×180 的 <code>apple-touch-icon.png</code>、一个 SVG，以及可选的 <code>site.webmanifest</code>。</li>
+</ul>
+<p>如果还没生成这些文件，可以用 <a href="/zh/index.html">Mzu favicondl</a> 从任意源图一键生成完整尺寸包。</p>
+<h2>Step-by-step：给 app.html 添加 favicon link 标签</h2>
+<h3>1. 找到 app.html 文件</h3>
+<p>打开 <code>src/app.html</code>。默认情况下大致长这样：</p>
+<pre><code>&lt;!doctype html&gt;
+&lt;html lang='en'&gt;
+  &lt;head&gt;
+    &lt;meta charset='utf-8' /&gt;
+    &lt;link rel='icon' href='%sveltekit.assets%/favicon.png' /&gt;
+    &lt;meta name='viewport' content='width=device-width, initial-scale=1' /&gt;
+    %sveltekit.head%
+  &lt;/head&gt;
+  &lt;body data-sveltekit-preload-data='hover'&gt;
+    &lt;div style='display: contents'&gt;%sveltekit.body%&lt;/div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<p>注意 <code>%sveltekit.assets%</code> 和 <code>%sveltekit.head%</code> 这两个占位符——它们会在构建时被替换。可以保留它们，再在上面或下面加新标签。</p>
+<h3>2. 替换默认的 favicon 行</h3>
+<p>脚手架默认只带一个 <code>favicon.png</code> 链接。删掉它，换成一套完整的标签。<a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">HTML 规范</a> 把 <code>rel='icon'</code> 定义为声明图标的官方方式，照着用这个属性就行。</p>
+<pre><code>&lt;link rel='icon' href='%sveltekit.assets%/favicon.svg' type='image/svg+xml' /&gt;
+&lt;link rel='icon' href='%sveltekit.assets%/favicon.ico' sizes='32x32' /&gt;
+&lt;link rel='apple-touch-icon' href='%sveltekit.assets%/apple-touch-icon.png' sizes='180x180' /&gt;
+&lt;link rel='manifest' href='%sveltekit.assets%/site.webmanifest' /&gt;</code></pre>
+<p>SVG 放在最前面，现代浏览器会优先选它。ICO 作为老浏览器的回退方案。Apple Touch 和 manifest 放最后，它们针对的是特定平台。</p>
+<h3>3. 加入深色模式支持</h3>
+<p>如果你的 SVG 图标在深色标签页下需要换种样式（这年头谁还没用深色主题呢？），可以声明两个按 media 区分的来源。我们在 <a href="/zh/blog/favicon-dark-mode.html">favicon 深色模式指南</a> 里用的也是这个套路：</p>
+<pre><code>&lt;link rel='icon' href='%sveltekit.assets%/favicon-light.svg' type='image/svg+xml' media='(prefers-color-scheme: light)' /&gt;
+&lt;link rel='icon' href='%sveltekit.assets%/favicon-dark.svg' type='image/svg+xml' media='(prefers-color-scheme: dark)' /&gt;</code></pre>
+<p>浏览器会读取 <code>media</code> 属性，匹配当前配色方案。</p>
+<h3>4. 把文件放进 static/</h3>
+<p>SvelteKit 会把 <code>static/</code> 下所有内容从站点根路径对外提供。把每个 favicon 文件按标签里引用的原名放进去。一个清爽的结构是：</p>
+<pre><code>static/
+├── favicon.svg
+├── favicon.ico
+├── favicon-light.svg
+├── favicon-dark.svg
+├── apple-touch-icon.png
+└── site.webmanifest</code></pre>
+<h3>5. 重启 dev server</h3>
+<p>Vite 对 HTML 外壳的缓存非常激进。改完 <code>app.html</code> 后，按 <code>Ctrl+C</code> 停掉 dev server，再跑一次 <code>npm run dev</code>。不然你看到的可能还是旧的标记。</p>
+<h2>常见坑</h2>
+<p><strong>把 favicon 标签放进 body。</strong>浏览器只在 <code>&lt;head&gt;</code> 里找图标声明，<code>&lt;body&gt;</code> 里的内容一律忽略，哪怕文件名就叫 <code>app.html</code>。如果不生效，第一件事就是检查这个位置。</p>
+<p><strong>标签里的文件名和 static/ 不一致。</strong>Linux 部署上大小写敏感，<code>favicon.ICO</code> 和 <code>favicon.ico</code> 是两个不同的文件。文件名必须完全对上。</p>
+<p><strong>部署后图标还是旧的。</strong>浏览器对 favicon 的缓存相当顽固——有时能缓存几周。换文件后看不到更新，可以加个查询字符串或 content hash 再部署。这个套路对 <code>static/</code> 下任何静态资源都适用。</p>
+<p><strong>SVG 属性被双重编码。</strong>如果复制来的片段里 <code>type="image/svg+xml"</code> 用的是双引号，贴进 <code>app.html</code> 外壳后 Vite 可能会把它弄坏。HTML 属性里统一用单引号，构建过程就不会出岔子。</p>
+<h2>收尾</h2>
+<p>在 SvelteKit 里，<code>app.html</code> 模板是声明 favicon 最干净的位置——它在任何 JavaScript 运行之前就生效，并且会随每个页面响应一起输出。把完整的 SVG + ICO + Apple Touch 这一套放进 <code>static/</code>，再把对应的 <code>&lt;link&gt;</code> 标签接到 <code>&lt;head&gt;</code> 里，从首次绘制开始每个浏览器标签页就能拿到一张清晰的图标。</p>
+<p>想更全面地了解 SvelteKit 的 favicon 方案——包括 <code>+layout.svelte</code> 的做法和动态图标——可以看我们的 <a href="/zh/blog/sveltekit-favicon.html">SvelteKit favicon 指南</a>。如果需要现成的图标文件，<a href="/zh/index.html">Mzu favicondl</a> 可以从任意源图在几秒内生成完整一套。</p></div>
+
+        <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
+
+        <div class="cta-box">
+            <h3>生成你的 SvelteKit 网站图标套件</h3>
+            <p>上传任意图片，一键获取完整的 favicon 套件——SVG、ICO、Apple Touch 和 manifest 文件——直接放入 static/ 目录即可使用。</p>
+            <a href="/zh/index.html" class="cta-btn">免费试用 →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/zh/index.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">首页</a>
+                <a href="/zh/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">博客</a>
+                <a href="/zh/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">隐私政策</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js?v=20260211"></script>
+
+</body></html>

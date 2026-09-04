@@ -1,0 +1,437 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SvelteKit app.html Favicon: The HTML Template Setup Guide - Mzu favicondl</title>
+    <meta name="description" content="Learn how to add favicon link tags in SvelteKit's app.html template. Step-by-step setup with SVG, ICO, Apple Touch icons, and dark mode support.">
+    <meta name="keywords" content="sveltekit app.html favicon, sveltekit template head, favicon link tag">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/blog/sveltekit-app-html-favicon.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/sveltekit-app-html-favicon.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/sveltekit-app-html-favicon.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/sveltekit-app-html-favicon.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/sveltekit-app-html-favicon.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/sveltekit-app-html-favicon.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/sveltekit-app-html-favicon.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/blog/sveltekit-app-html-favicon.html">
+    <meta property="og:title" content="SvelteKit app.html Favicon: The HTML Template Setup Guide">
+    <meta property="og:description" content="Learn how to add favicon link tags in SvelteKit's app.html template. Step-by-step setup with SVG, ICO, Apple Touch icons, and dark mode support.">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="SvelteKit app.html Favicon: The HTML Template Setup Guide">
+    <meta name="twitter:description" content="Learn how to add favicon link tags in SvelteKit's app.html template. Step-by-step setup with SVG, ICO, Apple Touch icons, and dark mode support.">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "SvelteKit app.html Favicon: The HTML Template Setup Guide",
+  "description": "Learn how to add favicon link tags in SvelteKit's app.html template. Step-by-step setup with SVG, ICO, Apple Touch icons, and dark mode support.",
+  "datePublished": "2026-09-04",
+  "dateModified": "2026-09-04",
+  "author": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "mainEntityOfPage": "https://favicondl.com/blog/sveltekit-app-html-favicon.html",
+  "inLanguage": "en"
+}</script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/index.html" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/documentation.html" class="nav-link" data-en="Docs" data-zh="文档">Docs</a>
+                <a href="/tools.html" class="nav-link" data-en="Tools" data-zh="工具">Tools</a>
+                <a href="/blog/" class="nav-link" data-en="Blog" data-zh="博客">Blog</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/sveltekit-app-html-favicon.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/sveltekit-app-html-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/sveltekit-app-html-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/sveltekit-app-html-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/sveltekit-app-html-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/index.html" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600" data-en="SvelteKit app.html Favicon: The HTML Template Setup Guide" data-zh="SvelteKit app.html 网站图标：模板配置完整指南" data-ja="SvelteKit app.html ファビコン：テンプレート設定ガイド" data-ko="SvelteKit app.html 파비콘: 템플릿 설정 가이드" data-es="Favicon en app.html de SvelteKit: Guía de Configuración">SvelteKit app.html Favicon: The HTML Template Setup Guide</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">sveltekit</span><time class="text-sm text-gray-400">2026-09-04</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight" data-en="SvelteKit app.html Favicon: The HTML Template Setup Guide" data-zh="SvelteKit app.html 网站图标：模板配置完整指南" data-ja="SvelteKit app.html ファビコン：テンプレート設定ガイド" data-ko="SvelteKit app.html 파비콘: 템플릿 설정 가이드" data-es="Favicon en app.html de SvelteKit: Guía de Configuración">SvelteKit app.html Favicon: The HTML Template Setup Guide</h1>
+        </header>
+
+        <div class="article-body" data-lang="en">
+            <p>You've wired up your SvelteKit routes, polished the layouts, and deployed the build. But when you open your live tab, you see the default Svelte logo — or worse, a blank white square. The fix usually lives in one specific file: <code>app.html</code>.</p>
+<p><code>app.html</code> is the HTML shell that SvelteKit uses to render every page on both the server and client. According to the <a href="https://svelte.dev/docs/kit/project-structure">SvelteKit project structure docs</a>, this template sits at the root of <code>src/</code> and is the only place where you can inject markup that survives hydration on every route. That makes it the perfect home for your favicon <code>&lt;link&gt;</code> tags.</p>
+<h2>Why app.html and not the layout?</h2>
+<p>You <em>can</em> add favicon tags inside a <code>+layout.svelte</code> file's <code>&lt;svelte:head&gt;</code> block, and it will work for most routes. But <code>app.html</code> is rendered first, before any layout or component code runs. That gives it two real advantages:</p>
+<ul>
+<li>Favicon requests fire on the very first byte the browser receives, which speeds up tab rendering.</li>
+<li>Tags injected from <code>+layout.svelte</code> can be missed by crawlers and bots that don't execute JavaScript. <code>app.html</code> always ships static HTML.</li>
+</ul>
+<h2>Prerequisites</h2>
+<p>You'll need:</p>
+<ul>
+<li>A working SvelteKit project (2.x or later).</li>
+<li>Your favicon files ready inside <code>static/</code>. For a complete stack, prepare a 32×32 <code>favicon.ico</code>, a 180×180 <code>apple-touch-icon.png</code>, an SVG, and optionally a <code>site.webmanifest</code>.</li>
+</ul>
+<p>If you don't have those files yet, generate them with <a href="/index.html">Mzu favicondl</a> from any source image — it outputs the full size package in one click.</p>
+<h2>Step-by-step: Add favicon link tags to app.html</h2>
+<h3>1. Locate your app.html file</h3>
+<p>Open <code>src/app.html</code>. By default, it looks roughly like this:</p>
+<pre><code>&lt;!doctype html&gt;
+&lt;html lang='en'&gt;
+  &lt;head&gt;
+    &lt;meta charset='utf-8' /&gt;
+    &lt;link rel='icon' href='%sveltekit.assets%/favicon.png' /&gt;
+    &lt;meta name='viewport' content='width=device-width, initial-scale=1' /&gt;
+    %sveltekit.head%
+  &lt;/head&gt;
+  &lt;body data-sveltekit-preload-data='hover'&gt;
+    &lt;div style='display: contents'&gt;%sveltekit.body%&lt;/div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<p>Notice the <code>%sveltekit.assets%</code> and <code>%sveltekit.head%</code> placeholders — those get replaced at build time. You can keep them and add more tags right above or below.</p>
+<h3>2. Replace the default favicon line</h3>
+<p>The starter template ships with a single <code>favicon.png</code> line. Delete it and replace it with a complete set of tags. The <a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">HTML spec</a> defines <code>rel='icon'</code> as the standard way to declare icons, so stick to that attribute.</p>
+<pre><code>&lt;link rel='icon' href='%sveltekit.assets%/favicon.svg' type='image/svg+xml' /&gt;
+&lt;link rel='icon' href='%sveltekit.assets%/favicon.ico' sizes='32x32' /&gt;
+&lt;link rel='apple-touch-icon' href='%sveltekit.assets%/apple-touch-icon.png' sizes='180x180' /&gt;
+&lt;link rel='manifest' href='%sveltekit.assets%/site.webmanifest' /&gt;</code></pre>
+<p>The SVG goes first so modern browsers prefer it. The ICO acts as a fallback for older browsers. Apple Touch and manifest come last because they target specific platforms.</p>
+<h3>3. Add dark mode support</h3>
+<p>If your SVG icon needs a different look in dark tabs (and these days, who isn't running a dark theme?), declare two media-specific sources. This is the same technique we cover in our <a href="/blog/favicon-dark-mode.html">favicon dark mode guide</a>:</p>
+<pre><code>&lt;link rel='icon' href='%sveltekit.assets%/favicon-light.svg' type='image/svg+xml' media='(prefers-color-scheme: light)' /&gt;
+&lt;link rel='icon' href='%sveltekit.assets%/favicon-dark.svg' type='image/svg+xml' media='(prefers-color-scheme: dark)' /&gt;</code></pre>
+<p>The browser evaluates the <code>media</code> attribute and picks the matching icon.</p>
+<h3>4. Drop your files into static/</h3>
+<p>SvelteKit serves everything inside <code>static/</code> from the site root. Place each favicon file there with the exact filename referenced in your tags. A clean structure looks like:</p>
+<pre><code>static/
+├── favicon.svg
+├── favicon.ico
+├── favicon-light.svg
+├── favicon-dark.svg
+├── apple-touch-icon.png
+└── site.webmanifest</code></pre>
+<h3>5. Restart the dev server</h3>
+<p>Vite caches the HTML shell aggressively. After editing <code>app.html</code>, stop your dev server with <code>Ctrl+C</code> and run <code>npm run dev</code> again. Otherwise you may keep seeing stale markup.</p>
+<h2>Common pitfalls</h2>
+<p><strong>Putting favicon tags in the body.</strong> Browsers only look at <code>&lt;head&gt;</code> for icon declarations. Anything inside <code>&lt;body&gt;</code> is ignored, even when the file is named <code>app.html</code>. If yours aren't appearing, this is the first thing to check.</p>
+<p><strong>Mismatched filenames between tags and static/.</strong> Case sensitivity matters on Linux deploys. <code>favicon.ICO</code> and <code>favicon.ico</code> are different files. Match the names exactly.</p>
+<p><strong>Stale icons after deployment.</strong> Browsers cache favicons aggressively — sometimes for weeks. If you swap files and don't see updates, append a query string or content hash, then redeploy. The same pattern works for any static asset in <code>static/</code>.</p>
+<p><strong>Double-encoding SVG attributes.</strong> If you copy a snippet that uses <code>type="image/svg+xml"</code> with double quotes into the <code>app.html</code> shell, Vite can mangle it. Stick with single quotes inside HTML attributes to keep the build happy.</p>
+<h2>Wrapping up</h2>
+<p>The <code>app.html</code> template is the cleanest place to declare favicons in SvelteKit because it runs before any JavaScript and ships with every page response. Drop a complete SVG + ICO + Apple Touch stack into <code>static/</code>, wire the corresponding <code>&lt;link&gt;</code> tags into <code>&lt;head&gt;</code>, and you'll have a crisp icon on every browser tab from the very first paint.</p>
+<p>For a broader look at SvelteKit favicon options — including the <code>+layout.svelte</code> approach and dynamic icons — see our main <a href="/blog/sveltekit-favicon.html">SvelteKit favicon guide</a>. And if you need the actual icon files, <a href="/index.html">Mzu favicondl</a> generates the full size stack from any source image in seconds.</p>
+        </div>
+
+        <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
+        <template data-article-lang="zh"><p>你已经把 SvelteKit 路由搭好、调好了 layout，也把 build 部署上线了。结果打开浏览器标签页一看，还是默认的 Svelte 图标——更糟的是干脆一片空白。解决办法通常都藏在同一个文件里：<code>app.html</code>。</p>
+<p><code>app.html</code> 是 SvelteKit 用来在服务端和客户端渲染每一页的 HTML 外壳。根据 <a href="https://svelte.dev/docs/kit/project-structure">SvelteKit 项目结构文档</a> 的说明，这个模板放在 <code>src/</code> 根目录，是唯一能注入"在每条路由 hydration 后依然保留"标记的地方。这也让它成为放置 favicon <code>&lt;link&gt;</code> 标签的天然位置。</p>
+<h2>为什么用 app.html 而不用 layout？</h2>
+<p>你<em>确实可以</em>在 <code>+layout.svelte</code> 的 <code>&lt;svelte:head&gt;</code> 块里加 favicon 标签，大多数路由下都能正常工作。但 <code>app.html</code> 的渲染早于任何 layout 或组件代码，这就带来了两个实打实的好处：</p>
+<ul>
+<li>浏览器在收到首字节时就会发起 favicon 请求，标签页能更快显示出来。</li>
+<li>从 <code>+layout.svelte</code> 里注入的标签可能被不执行 JavaScript 的爬虫和机器人忽略，而 <code>app.html</code> 输出的始终是纯静态 HTML。</li>
+</ul>
+<h2>前置条件</h2>
+<p>你需要准备：</p>
+<ul>
+<li>一个跑得起来的 SvelteKit 项目（2.x 或更高）。</li>
+<li>放在 <code>static/</code> 下的 favicon 文件。完整一套建议备齐：32×32 的 <code>favicon.ico</code>、180×180 的 <code>apple-touch-icon.png</code>、一个 SVG，以及可选的 <code>site.webmanifest</code>。</li>
+</ul>
+<p>如果还没生成这些文件，可以用 <a href="/index.html">Mzu favicondl</a> 从任意源图一键生成完整尺寸包。</p>
+<h2>Step-by-step：给 app.html 添加 favicon link 标签</h2>
+<h3>1. 找到 app.html 文件</h3>
+<p>打开 <code>src/app.html</code>。默认情况下大致长这样：</p>
+<pre><code>&lt;!doctype html&gt;
+&lt;html lang='en'&gt;
+  &lt;head&gt;
+    &lt;meta charset='utf-8' /&gt;
+    &lt;link rel='icon' href='%sveltekit.assets%/favicon.png' /&gt;
+    &lt;meta name='viewport' content='width=device-width, initial-scale=1' /&gt;
+    %sveltekit.head%
+  &lt;/head&gt;
+  &lt;body data-sveltekit-preload-data='hover'&gt;
+    &lt;div style='display: contents'&gt;%sveltekit.body%&lt;/div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<p>注意 <code>%sveltekit.assets%</code> 和 <code>%sveltekit.head%</code> 这两个占位符——它们会在构建时被替换。可以保留它们，再在上面或下面加新标签。</p>
+<h3>2. 替换默认的 favicon 行</h3>
+<p>脚手架默认只带一个 <code>favicon.png</code> 链接。删掉它，换成一套完整的标签。<a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">HTML 规范</a> 把 <code>rel='icon'</code> 定义为声明图标的官方方式，照着用这个属性就行。</p>
+<pre><code>&lt;link rel='icon' href='%sveltekit.assets%/favicon.svg' type='image/svg+xml' /&gt;
+&lt;link rel='icon' href='%sveltekit.assets%/favicon.ico' sizes='32x32' /&gt;
+&lt;link rel='apple-touch-icon' href='%sveltekit.assets%/apple-touch-icon.png' sizes='180x180' /&gt;
+&lt;link rel='manifest' href='%sveltekit.assets%/site.webmanifest' /&gt;</code></pre>
+<p>SVG 放在最前面，现代浏览器会优先选它。ICO 作为老浏览器的回退方案。Apple Touch 和 manifest 放最后，它们针对的是特定平台。</p>
+<h3>3. 加入深色模式支持</h3>
+<p>如果你的 SVG 图标在深色标签页下需要换种样式（这年头谁还没用深色主题呢？），可以声明两个按 media 区分的来源。我们在 <a href="/blog/favicon-dark-mode.html">favicon 深色模式指南</a> 里用的也是这个套路：</p>
+<pre><code>&lt;link rel='icon' href='%sveltekit.assets%/favicon-light.svg' type='image/svg+xml' media='(prefers-color-scheme: light)' /&gt;
+&lt;link rel='icon' href='%sveltekit.assets%/favicon-dark.svg' type='image/svg+xml' media='(prefers-color-scheme: dark)' /&gt;</code></pre>
+<p>浏览器会读取 <code>media</code> 属性，匹配当前配色方案。</p>
+<h3>4. 把文件放进 static/</h3>
+<p>SvelteKit 会把 <code>static/</code> 下所有内容从站点根路径对外提供。把每个 favicon 文件按标签里引用的原名放进去。一个清爽的结构是：</p>
+<pre><code>static/
+├── favicon.svg
+├── favicon.ico
+├── favicon-light.svg
+├── favicon-dark.svg
+├── apple-touch-icon.png
+└── site.webmanifest</code></pre>
+<h3>5. 重启 dev server</h3>
+<p>Vite 对 HTML 外壳的缓存非常激进。改完 <code>app.html</code> 后，按 <code>Ctrl+C</code> 停掉 dev server，再跑一次 <code>npm run dev</code>。不然你看到的可能还是旧的标记。</p>
+<h2>常见坑</h2>
+<p><strong>把 favicon 标签放进 body。</strong>浏览器只在 <code>&lt;head&gt;</code> 里找图标声明，<code>&lt;body&gt;</code> 里的内容一律忽略，哪怕文件名就叫 <code>app.html</code>。如果不生效，第一件事就是检查这个位置。</p>
+<p><strong>标签里的文件名和 static/ 不一致。</strong>Linux 部署上大小写敏感，<code>favicon.ICO</code> 和 <code>favicon.ico</code> 是两个不同的文件。文件名必须完全对上。</p>
+<p><strong>部署后图标还是旧的。</strong>浏览器对 favicon 的缓存相当顽固——有时能缓存几周。换文件后看不到更新，可以加个查询字符串或 content hash 再部署。这个套路对 <code>static/</code> 下任何静态资源都适用。</p>
+<p><strong>SVG 属性被双重编码。</strong>如果复制来的片段里 <code>type="image/svg+xml"</code> 用的是双引号，贴进 <code>app.html</code> 外壳后 Vite 可能会把它弄坏。HTML 属性里统一用单引号，构建过程就不会出岔子。</p>
+<h2>收尾</h2>
+<p>在 SvelteKit 里，<code>app.html</code> 模板是声明 favicon 最干净的位置——它在任何 JavaScript 运行之前就生效，并且会随每个页面响应一起输出。把完整的 SVG + ICO + Apple Touch 这一套放进 <code>static/</code>，再把对应的 <code>&lt;link&gt;</code> 标签接到 <code>&lt;head&gt;</code> 里，从首次绘制开始每个浏览器标签页就能拿到一张清晰的图标。</p>
+<p>想更全面地了解 SvelteKit 的 favicon 方案——包括 <code>+layout.svelte</code> 的做法和动态图标——可以看我们的 <a href="/blog/sveltekit-favicon.html">SvelteKit favicon 指南</a>。如果需要现成的图标文件，<a href="/index.html">Mzu favicondl</a> 可以从任意源图在几秒内生成完整一套。</p></template>
+        <template data-article-lang="ja"><p>SvelteKit のルーティングを整え、レイアウトを磨き、ビルドをデプロイした。しかしブラウザのタブを開いてみると、デフォルトの Svelte ロゴが表示されている — 最悪の場合は白い空白の四角だ。この問題を解決するのは、たいてい 1 つのファイルです:<code>app.html</code>。</p>
+<p><code>app.html</code> は、SvelteKit がすべてのページをサーバーとクライアントの両方でレンダリングするために使う HTML シェルです。<a href="https://svelte.dev/docs/kit/project-structure">SvelteKit のプロジェクト構造ドキュメント</a>によると、このテンプレートは <code>src/</code> の直下に置かれ、すべてのルートで hydration をまたいで生き残るマークアップを注入できる唯一の場です。つまり、ファビコンの <code>&lt;link&gt;</code> タグを置いておく場所として、これ以上ないほど適しています。</p>
+<h2>なぜ app.html で、レイアウトではないのか?</h2>
+<p><code>+layout.svelte</code> の <code>&lt;svelte:head&gt;</code> ブロック内にファビコンタグを追加することは<em>可能</em>で、ほとんどのルートでは問題なく動作します。しかし <code>app.html</code> は、レイアウトやコンポーネントのコードが実行される前に、最初にレンダリングされます。これには次の 2 つの実用上の利点があります。</p>
+<ul>
+<li>ファビコンのリクエストは、ブラウザが受信する最初のバイトで発生するため、タブのレンダリングが高速化されます。</li>
+<li><code>+layout.svelte</code> から注入されたタグは、JavaScript を実行しないクローラーやボットには取りこぼされる可能性があります。<code>app.html</code> は常に静的な HTML を配信します。</li>
+</ul>
+<h2>前提条件</h2>
+<p>必要なものは次のとおりです。</p>
+<ul>
+<li>動作する SvelteKit プロジェクト (2.x 以降)。</li>
+<li><code>static/</code> 内に用意したファビコンファイル一式。完全な構成としては、32×32 の <code>favicon.ico</code>、180×180 の <code>apple-touch-icon.png</code>、SVG、必要に応じて <code>site.webmanifest</code> を用意してください。</li>
+</ul>
+<p>これらのファイルがまだない場合は、<a href="/index.html">Mzu favicondl</a> を使ってソース画像から生成できます。ワンクリックで全サイズのパッケージが出力されます。</p>
+<h2>ステップバイステップ: app.html にファビコンの link タグを追加する</h2>
+<h3>1. app.html ファイルを見つける</h3>
+<p><code>src/app.html</code> を開いてください。デフォルトではおおよそ次のようになっています。</p>
+<pre><code>&lt;!doctype html&gt;
+&lt;html lang='en'&gt;
+  &lt;head&gt;
+    &lt;meta charset='utf-8' /&gt;
+    &lt;link rel='icon' href='%sveltekit.assets%/favicon.png' /&gt;
+    &lt;meta name='viewport' content='width=device-width, initial-scale=1' /&gt;
+    %sveltekit.head%
+  &lt;/head&gt;
+  &lt;body data-sveltekit-preload-data='hover'&gt;
+    &lt;div style='display: contents'&gt;%sveltekit.body%&lt;/div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<p><code>%sveltekit.assets%</code> と <code>%sveltekit.head%</code> のプレースホルダーに注意してください。これらはビルド時に置き換えられます。このプレースホルダーは残しつつ、その上下にタグを追加できます。</p>
+<h3>2. デフォルトのファビコン行を置き換える</h3>
+<p>スターターテンプレートには <code>favicon.png</code> の行が 1 行だけ含まれています。これを削除し、タグ一式に置き換えます。<a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">HTML 仕様</a>では <code>rel='icon'</code> がアイコンを宣言する標準的な方法であると定義されているため、この属性を使い続けてください。</p>
+<pre><code>&lt;link rel='icon' href='%sveltekit.assets%/favicon.svg' type='image/svg+xml' /&gt;
+&lt;link rel='icon' href='%sveltekit.assets%/favicon.ico' sizes='32x32' /&gt;
+&lt;link rel='apple-touch-icon' href='%sveltekit.assets%/apple-touch-icon.png' sizes='180x180' /&gt;
+&lt;link rel='manifest' href='%sveltekit.assets%/site.webmanifest' /&gt;</code></pre>
+<p>モダンブラウザが優先的に使うよう、SVG を先頭に置きます。ICO は古いブラウザ向けのフォールバックとして機能します。Apple Touch と manifest は特定のプラットフォーム向けなので、最後に配置します。</p>
+<h3>3. ダークモード対応を追加する</h3>
+<p>SVG アイコンがダークタブで異なる見た目になるべき場合 (昨今の環境でダークテーマを使っていない人がどれほどいるでしょうか)、media ごとに 2 つのソースを宣言してください。<a href="/blog/favicon-dark-mode.html">ファビコンのダークモードガイド</a>で扱っているのと同じ手法です。</p>
+<pre><code>&lt;link rel='icon' href='%sveltekit.assets%/favicon-light.svg' type='image/svg+xml' media='(prefers-color-scheme: light)' /&gt;
+&lt;link rel='icon' href='%sveltekit.assets%/favicon-dark.svg' type='image/svg+xml' media='(prefers-color-scheme: dark)' /&gt;</code></pre>
+<p>ブラウザは <code>media</code> 属性を評価し、一致するアイコンを選択します。</p>
+<h3>4. ファイルを static/ に配置する</h3>
+<p>SvelteKit は <code>static/</code> の中身をサイトのルートから配信します。タグで参照されているファイル名と完全に一致させて、各ファビコンファイルを配置してください。整理された構成は次のようになります。</p>
+<pre><code>static/
+├── favicon.svg
+├── favicon.ico
+├── favicon-light.svg
+├── favicon-dark.svg
+├── apple-touch-icon.png
+└── site.webmanifest</code></pre>
+<h3>5. 開発サーバーを再起動する</h3>
+<p>Vite は HTML シェル aggressively にキャッシュします。<code>app.html</code> を編集したあとは、<code>Ctrl+C</code> で開発サーバーを停止し、再度 <code>npm run dev</code> を実行してください。これを怠ると、古いマークアップが表示され続けることがあります。</p>
+<h2>よくある落とし穴</h2>
+<p><strong>ファビコンタグを body 内に置くこと。</strong>ブラウザはアイコン宣言のために <code>&lt;head&gt;</code> のみを参照します。ファイル名が <code>app.html</code> であっても、<code>&lt;body&gt;</code> の中身は無視されます。アイコンが表示されない場合は、まずこの点を確認してください。</p>
+<p><strong>タグと static/ のファイル名が一致していない。</strong>Linux 環境へのデプロイでは大文字小文字が区別されます。<code>favicon.ICO</code> と <code>favicon.ico</code> は別ファイルです。名前を正確に合わせてください。</p>
+<p><strong>デプロイ後にアイコンが古いまま。</strong>ブラウザはファビコンを aggressively にキャッシュし、ときには数週間にわたって保持します。ファイルを差し替えても表示が更新されない場合は、クエリ文字列またはコンテンツハッシュを付与したうえで再デプロイしてください。<code>static/</code> 内の他の静的アセットにも同じパターンが使えます。</p>
+<p><strong>SVG 属性のダブルエンコード。</strong><code>type="image/svg+xml"</code> のようにダブルクォートを使ったスニペットを <code>app.html</code> シェルにコピーすると、Vite がそれを壊してしまうことがあります。ビルドを正常に保つため、HTML 属性内ではシングルクォートを使用してください。</p>
+<h2>まとめ</h2>
+<p><code>app.html</code> テンプレートは、JavaScript よりも先に実行され、すべてのページレスポンスに同梱されるため、SvelteKit でファビコンを宣言する最もクリーンな場所です。SVG + ICO + Apple Touch の完全な構成を <code>static/</code> に配置し、対応する <code>&lt;link&gt;</code> タグを <code>&lt;head&gt;</code> に配線すれば、最初のペイントからすべてのブラウザタブできれいにアイコンが表示されるようになります。</p>
+<p>SvelteKit のファビコン選択肢 (<code>+layout.svelte</code> アプローチや動的アイコンを含む) をより広く見たい場合は、メインの <a href="/blog/sveltekit-favicon.html">SvelteKit ファビコンガイド</a>を参照してください。実際に必要なアイコンファイルがある場合は、<a href="/index.html">Mzu favicondl</a> がソース画像から全サイズのパッケージを数秒で生成します。</p></template>
+        <template data-article-lang="ko"><p>SvelteKit 라우트를 연결하고, 레이아웃을 다듬고, 빌드를 배포하셨나요? 그런데 라이브 탭을 열면 기본 Svelte 로고가 보이거나, 더 나쁘게는 하얀 빈 사각형만 보일 수 있습니다. 이 문제는 대개 한 특정 파일, 즉 <code>app.html</code>에서 해결됩니다.</p>
+<p><code>app.html</code>은 SvelteKit이 서버와 클라이언트 양쪽에서 모든 페이지를 렌더링할 때 사용하는 HTML 셸입니다. <a href="https://svelte.dev/docs/kit/project-structure">SvelteKit 프로젝트 구조 문서</a>에 따르면, 이 템플릿은 <code>src/</code>의 루트에 있으며, 모든 라우트에서 하이드레이션 후에도 유지되는 마크업을 주입할 수 있는 유일한 곳입니다. 따라서 파비콘 <code>&lt;link&gt;</code> 태그를 넣기에 가장 적합한 위치입니다.</p>
+<h2>왜 레이아웃이 아니라 app.html인가?</h2>
+<p><code>+layout.svelte</code> 파일의 <code>&lt;svelte:head&gt;</code> 블록 안에 파비콘 태그를 추가할 수도 있으며, 대부분의 라우트에서 작동합니다. 그러나 <code>app.html</code>은 레이아웃이나 컴포넌트 코드가 실행되기 전에 먼저 렌더링됩니다. 이로 인해 두 가지 실질적인 이점이 있습니다:</p>
+<ul>
+<li>파비콘 요청이 브라우저가 받는 첫 바이트에서 발생하므로 탭 렌더링 속도가 빨라집니다.</li>
+<li><code>+layout.svelte</code>에서 주입된 태그는 JavaScript를 실행하지 않는 크롤러와 봇이 놓칠 수 있습니다. <code>app.html</code>은 항상 정적 HTML을 제공합니다.</li>
+</ul>
+<h2>사전 요구 사항</h2>
+<p>필요한 것은 다음과 같습니다:</p>
+<ul>
+<li>작동하는 SvelteKit 프로젝트(2.x 이상).</li>
+<li><code>static/</code> 안에 준비된 파비콘 파일. 완전한 스택을 위해 32×32 <code>favicon.ico</code>, 180×180 <code>apple-touch-icon.png</code>, SVG, 그리고 선택적으로 <code>site.webmanifest</code>를 준비하세요.</li>
+</ul>
+<p>아직 해당 파일이 없다면, <a href="/index.html">Mzu favicondl</a>을 사용하여 원본 이미지에서 생성하세요. 한 번의 클릭으로 전체 크기 패키지를 출력합니다.</p>
+<h2>단계별: app.html에 파비콘 링크 태그 추가하기</h2>
+<h3>1. app.html 파일 찾기</h3>
+<p><code>src/app.html</code>을 엽니다. 기본적으로 대략 다음과 같습니다:</p>
+<pre><code>&lt;!doctype html&gt;
+&lt;html lang='en'&gt;
+  &lt;head&gt;
+    &lt;meta charset='utf-8' /&gt;
+    &lt;link rel='icon' href='%sveltekit.assets%/favicon.png' /&gt;
+    &lt;meta name='viewport' content='width=device-width, initial-scale=1' /&gt;
+    %sveltekit.head%
+  &lt;/head&gt;
+  &lt;body data-sveltekit-preload-data='hover'&gt;
+    &lt;div style='display: contents'&gt;%sveltekit.body%&lt;/div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<p><code>%sveltekit.assets%</code>와 <code>%sveltekit.head%</code> 플레이스홀더는 빌드 시 대체됩니다. 이들을 유지하고 위나 아래에 태그를 추가할 수 있습니다.</p>
+<h3>2. 기본 파비콘 줄 교체</h3>
+<p>스타터 템플릿에는 단일 <code>favicon.png</code> 줄이 포함되어 있습니다. 이를 삭제하고 전체 태그 세트로 교체하세요. <a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">HTML 사양</a>은 <code>rel='icon'</code>을 아이콘 선언의 표준 방법으로 정의하므로 해당 속성을 사용하세요.</p>
+<pre><code>&lt;link rel='icon' href='%sveltekit.assets%/favicon.svg' type='image/svg+xml' /&gt;
+&lt;link rel='icon' href='%sveltekit.assets%/favicon.ico' sizes='32x32' /&gt;
+&lt;link rel='apple-touch-icon' href='%sveltekit.assets%/apple-touch-icon.png' sizes='180x180' /&gt;
+&lt;link rel='manifest' href='%sveltekit.assets%/site.webmanifest' /&gt;</code></pre>
+<p>SVG를 먼저 배치하여 최신 브라우저가 선호하도록 합니다. ICO는 이전 브라우저를 위한 폴백 역할을 합니다. Apple Touch와 manifest는 특정 플랫폼을 대상으로 하므로 마지막에 둡니다.</p>
+<h3>3. 다크 모드 지원 추가</h3>
+<p>SVG 아이콘이 다크 탭에서 다른 모양을 필요로 한다면(요즘 다크 테마를 사용하지 않는 사람이 있을까요?), 두 개의 미디어별 소스를 선언하세요. 이는 <a href="/blog/favicon-dark-mode.html">파비콘 다크 모드 가이드</a>에서 다루는 것과 동일한 기술입니다:</p>
+<pre><code>&lt;link rel='icon' href='%sveltekit.assets%/favicon-light.svg' type='image/svg+xml' media='(prefers-color-scheme: light)' /&gt;
+&lt;link rel='icon' href='%sveltekit.assets%/favicon-dark.svg' type='image/svg+xml' media='(prefers-color-scheme: dark)' /&gt;</code></pre>
+<p>브라우저는 <code>media</code> 속성을 평가하여 일치하는 아이콘을 선택합니다.</p>
+<h3>4. static/에 파일 넣기</h3>
+<p>SvelteKit은 <code>static/</code> 안의 모든 것을 사이트 루트에서 제공합니다. 각 파비콘 파일을 태그에서 참조한 정확한 파일 이름으로 해당 위치에 배치하세요. 깔끔한 구조는 다음과 같습니다:</p>
+<pre><code>static/
+├── favicon.svg
+├── favicon.ico
+├── favicon-light.svg
+├── favicon-dark.svg
+├── apple-touch-icon.png
+└── site.webmanifest</code></pre>
+<h3>5. 개발 서버 재시작</h3>
+<p>Vite는 HTML 셸을 적극적으로 캐시합니다. <code>app.html</code>을 편집한 후에는 <code>Ctrl+C</code>로 개발 서버를 중지하고 <code>npm run dev</code>를 다시 실행하세요. 그렇지 않으면 이전 마크업이 계속 표시될 수 있습니다.</p>
+<h2>흔한 함정</h2>
+<p><strong>파비콘 태그를 body에 넣는 경우.</strong> 브라우저는 아이콘 선언을 위해 <code>&lt;head&gt;</code>만 확인합니다. <code>&lt;body&gt;</code> 안의 내용은 파일 이름이 <code>app.html</code>이더라도 무시됩니다. 파비콘이 나타나지 않는다면 가장 먼저 확인할 사항입니다.</p>
+<p><strong>태그와 static/의 파일 이름 불일치.</strong> Linux 배포에서는 대소문자 구분이 중요합니다. <code>favicon.ICO</code>와 <code>favicon.ico</code>는 다른 파일입니다. 이름을 정확히 일치시키세요.</p>
+<p><strong>배포 후 오래된 아이콘.</strong> 브라우저는 파비콘을 적극적으로 캐시하며 때로는 몇 주 동안 유지합니다. 파일을 교체했는데 업데이트가 보이지 않으면 쿼리 문자열이나 콘텐츠 해시를 추가한 후 다시 배포하세요. 이 패턴은 <code>static/</code>의 모든 정적 자산에 동일하게 적용됩니다.</p>
+<p><strong>SVG 속성의 이중 인코딩.</strong> <code>type="image/svg+xml"</code>처럼 큰따옴표를 사용하는 스니펫을 <code>app.html</code> 셸에 복사하면 Vite가 망가뜨릴 수 있습니다. HTML 속성에는 작은따옴표를 사용하여 빌드가 정상 작동하도록 하세요.</p>
+<h2>마무리</h2>
+<p><code>app.html</code> 템플릿은 JavaScript보다 먼저 실행되고 모든 페이지 응답에 포함되므로 SvelteKit에서 파비콘을 선언하는 가장 깔끔한 위치입니다. 완전한 SVG + ICO + Apple Touch 스택을 <code>static/</code>에 넣고 해당 <code>&lt;link&gt;</code> 태그를 <code>&lt;head&gt;</code>에 연결하면 첫 페인트부터 모든 브라우저 탭에 선명한 아이콘이 표시됩니다.</p>
+<p>SvelteKit 파비콘 옵션에 대한 더 넓은 시각(<code>+layout.svelte</code> 접근 방식 및 동적 아이콘 포함)은 메인 <a href="/blog/sveltekit-favicon.html">SvelteKit 파비콘 가이드</a>를 참조하세요. 실제 아이콘 파일이 필요하다면 <a href="/index.html">Mzu favicondl</a>이 원본 이미지에서 전체 크기 스택을 몇 초 만에 생성합니다.</p></template>
+        <template data-article-lang="es"><p>Has configurado tus rutas de SvelteKit, pulido los layouts y desplegado la build. Pero cuando abres tu pestaña en vivo, ves el logo de Svelte por defecto — o peor, un cuadrado blanco vacío. La solución suele estar en un archivo específico: <code>app.html</code>.</p>
+<p><code>app.html</code> es la plantilla HTML que SvelteKit usa para renderizar cada página tanto en el servidor como en el cliente. Según la <a href="https://svelte.dev/docs/kit/project-structure">documentación de estructura de proyecto de SvelteKit</a>, esta plantilla se encuentra en la raíz de <code>src/</code> y es el único lugar donde puedes inyectar marcado que sobrevive a la hidratación en cada ruta. Eso lo convierte en el hogar perfecto para tus etiquetas <code>&lt;link&gt;</code> de favicon.</p>
+<h2>¿Por qué app.html y no el layout?</h2>
+<p>Puedes añadir etiquetas de favicon dentro del bloque <code>&lt;svelte:head&gt;</code> de un archivo <code>+layout.svelte</code>, y funcionará para la mayoría de rutas. Pero <code>app.html</code> se renderiza primero, antes de que se ejecute cualquier layout o código de componente. Eso le da dos ventajas reales:</p>
+<ul>
+<li>Las solicitudes de favicon se disparan con el primer byte que recibe el navegador, lo que acelera el renderizado de la pestaña.</li>
+<li>Las etiquetas inyectadas desde <code>+layout.svelte</code> pueden ser ignoradas por rastreadores y bots que no ejecutan JavaScript. <code>app.html</code> siempre envía HTML estático.</li>
+</ul>
+<h2>Requisitos previos</h2>
+<p>Necesitarás:</p>
+<ul>
+<li>Un proyecto SvelteKit funcional (2.x o posterior).</li>
+<li>Tus archivos de favicon listos dentro de <code>static/</code>. Para una pila completa, prepara un <code>favicon.ico</code> de 32×32, un <code>apple-touch-icon.png</code> de 180×180, un SVG y, opcionalmente, un <code>site.webmanifest</code>.</li>
+</ul>
+<p>Si aún no tienes esos archivos, genéralos con <a href="/index.html">Mzu favicondl</a> desde cualquier imagen de origen; genera el paquete completo de tamaños en un clic.</p>
+<h2>Paso a paso: Añadir etiquetas de favicon a app.html</h2>
+<h3>1. Localiza tu archivo app.html</h3>
+<p>Abre <code>src/app.html</code>. Por defecto, se ve más o menos así:</p>
+<pre><code>&lt;!doctype html&gt;
+&lt;html lang='en'&gt;
+  &lt;head&gt;
+    &lt;meta charset='utf-8' /&gt;
+    &lt;link rel='icon' href='%sveltekit.assets%/favicon.png' /&gt;
+    &lt;meta name='viewport' content='width=device-width, initial-scale=1' /&gt;
+    %sveltekit.head%
+  &lt;/head&gt;
+  &lt;body data-sveltekit-preload-data='hover'&gt;
+    &lt;div style='display: contents'&gt;%sveltekit.body%&lt;/div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<p>Observa los placeholders <code>%sveltekit.assets%</code> y <code>%sveltekit.head%</code>; se reemplazan en tiempo de build. Puedes mantenerlos y añadir más etiquetas justo encima o debajo.</p>
+<h3>2. Reemplaza la línea de favicon por defecto</h3>
+<p>La plantilla inicial incluye una única línea con <code>favicon.png</code>. Bórrala y reemplázala con un conjunto completo de etiquetas. La <a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">especificación HTML</a> define <code>rel='icon'</code> como la forma estándar de declarar iconos, así que usa ese atributo.</p>
+<pre><code>&lt;link rel='icon' href='%sveltekit.assets%/favicon.svg' type='image/svg+xml' /&gt;
+&lt;link rel='icon' href='%sveltekit.assets%/favicon.ico' sizes='32x32' /&gt;
+&lt;link rel='apple-touch-icon' href='%sveltekit.assets%/apple-touch-icon.png' sizes='180x180' /&gt;
+&lt;link rel='manifest' href='%sveltekit.assets%/site.webmanifest' /&gt;</code></pre>
+<p>El SVG va primero para que los navegadores modernos lo prefieran. El ICO actúa como respaldo para navegadores antiguos. Apple Touch y manifest van al final porque se dirigen a plataformas específicas.</p>
+<h3>3. Añade soporte para modo oscuro</h3>
+<p>Si tu icono SVG necesita un aspecto diferente en pestañas oscuras (y hoy en día, ¿quién no usa un tema oscuro?), declara dos fuentes con media queries. Esta es la misma técnica que cubrimos en nuestra <a href="/blog/favicon-dark-mode.html">guía de favicon en modo oscuro</a>:</p>
+<pre><code>&lt;link rel='icon' href='%sveltekit.assets%/favicon-light.svg' type='image/svg+xml' media='(prefers-color-scheme: light)' /&gt;
+&lt;link rel='icon' href='%sveltekit.assets%/favicon-dark.svg' type='image/svg+xml' media='(prefers-color-scheme: dark)' /&gt;</code></pre>
+<p>El navegador evalúa el atributo <code>media</code> y selecciona el icono correspondiente.</p>
+<h3>4. Coloca tus archivos en static/</h3>
+<p>SvelteKit sirve todo lo que está dentro de <code>static/</code> desde la raíz del sitio. Coloca cada archivo de favicon allí con el nombre exacto que referencias en tus etiquetas. Una estructura limpia se ve así:</p>
+<pre><code>static/
+├── favicon.svg
+├── favicon.ico
+├── favicon-light.svg
+├── favicon-dark.svg
+├── apple-touch-icon.png
+└── site.webmanifest</code></pre>
+<h3>5. Reinicia el servidor de desarrollo</h3>
+<p>Vite cachea agresivamente la plantilla HTML. Después de editar <code>app.html</code>, detén tu servidor de desarrollo con <code>Ctrl+C</code> y ejecuta <code>npm run dev</code> de nuevo. De lo contrario, podrías seguir viendo marcado obsoleto.</p>
+<h2>Errores comunes</h2>
+<p><strong>Poner etiquetas de favicon en el body.</strong> Los navegadores solo buscan declaraciones de iconos en <code>&lt;head&gt;</code>. Cualquier cosa dentro de <code>&lt;body&gt;</code> se ignora, incluso si el archivo se llama <code>app.html</code>. Si los tuyos no aparecen, esto es lo primero que debes revisar.</p>
+<p><strong>Nombres de archivo que no coinciden entre las etiquetas y static/.</strong> La sensibilidad a mayúsculas importa en despliegues Linux. <code>favicon.ICO</code> y <code>favicon.ico</code> son archivos diferentes. Haz coincidir los nombres exactamente.</p>
+<p><strong>Iconos obsoletos después del despliegue.</strong> Los navegadores cachean los favicons agresivamente — a veces durante semanas. Si cambias archivos y no ves actualizaciones, añade una cadena de consulta o un hash de contenido, y vuelve a desplegar. El mismo patrón funciona para cualquier activo estático en <code>static/</code>.</p>
+<p><strong>Atributos SVG con doble codificación.</strong> Si copias un fragmento que usa <code>type="image/svg+xml"</code> con comillas dobles dentro de la plantilla <code>app.html</code>, Vite puede dañarlo. Usa comillas simples dentro de los atributos HTML para mantener la build feliz.</p>
+<h2>Conclusión</h2>
+<p>La plantilla <code>app.html</code> es el lugar más limpio para declarar favicons en SvelteKit porque se ejecuta antes de cualquier JavaScript y se envía con cada respuesta de página. Coloca una pila completa de SVG + ICO + Apple Touch en <code>static/</code>, conecta las etiquetas <code>&lt;link&gt;</code> correspondientes en <code>&lt;head&gt;</code>, y tendrás un icono nítido en cada pestaña del navegador desde el primer pintado.</p>
+<p>Para una visión más amplia de las opciones de favicon en SvelteKit — incluyendo el enfoque con <code>+layout.svelte</code> e iconos dinámicos — consulta nuestra <a href="/blog/sveltekit-favicon.html">guía principal de favicon en SvelteKit</a>. Y si necesitas los archivos de icono reales, <a href="/index.html">Mzu favicondl</a> genera la pila completa de tamaños desde cualquier imagen de origen en segundos.</p></template>
+
+        <div class="cta-box">
+            <h3 data-en="Generate Your SvelteKit Favicon Stack" data-zh="生成你的 SvelteKit 网站图标套件" data-ja="SvelteKit ファビコンセットを生成" data-ko="SvelteKit 파비콘 세트 생성하기" data-es="Genera tu pack de favicon para SvelteKit">Generate Your SvelteKit Favicon Stack</h3>
+            <p data-en="Upload any image and get a complete favicon package — SVG, ICO, Apple Touch, and manifest — ready to drop into static/." data-zh="上传任意图片，一键获取完整的 favicon 套件——SVG、ICO、Apple Touch 和 manifest 文件——直接放入 static/ 目录即可使用。" data-ja="任意の画像をアップロードして、SVG、ICO、Apple Touch、manifest を含む完全なファビコン パッケージを取得し、static/ に配置できます。" data-ko="아무 이미지를 업로드하면 SVG, ICO, Apple Touch, manifest를 포함한 완전한 파비콘 패키지를 받아 static/ 폴더에 바로 넣을 수 있습니다." data-es="Sube cualquier imagen y obtén un paquete completo de favicon — SVG, ICO, Apple Touch y manifest — listo para colocar en static/.">Upload any image and get a complete favicon package — SVG, ICO, Apple Touch, and manifest — ready to drop into static/.</p>
+            <a href="/index.html" class="cta-btn" data-en="Try It Free →" data-zh="免费试用 →" data-ja="無料で試す →" data-ko="무료로 사용해보기 →" data-es="Pruébalo gratis →">Try It Free →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/index.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Home" data-zh="首页">Home</a>
+                <a href="/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Blog" data-zh="博客">Blog</a>
+                <a href="/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Privacy" data-zh="隐私政策">Privacy</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js?v=20260211"></script>
+
+</body></html>
