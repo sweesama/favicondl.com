@@ -3374,5 +3374,26 @@
     ],
     "qualityScore": 100,
     "qualityGrade": "A"
+  },
+  {
+    "slug": "nuxt-app-head-favicon",
+    "publishDate": "2026-09-05",
+    "titleEn": "Nuxt App Head Favicon: Mastering useHead for Icon Control",
+    "titleZh": "Nuxt 应用 Head Favicon 配置：useHead 与 app.head 完全指南",
+    "titleJa": "Nuxt アプリの Head ファビコン設定：useHead と app.head の活用術",
+    "titleKo": "Nuxt 앱 Head Favicon 설정: useHead와 app.head 완벽 가이드",
+    "titleEs": "Favicon del Head en Nuxt: Guía de useHead y app.head",
+    "descEn": "Set a Nuxt app head favicon using the useHead composable and app.head config. Includes per-page overrides, dark mode, and dynamic swaps.",
+    "descZh": "通过 useHead 组合式函数和 app.head 配置设置 Nuxt 应用图标。包含页面级覆盖、深色模式和动态切换示例。",
+    "descJa": "useHead コンポーザブルと app.head 設定で Nuxt アプリのファビコンを設定。ページ別上書き、ダークモード、動的切替の例を含む。",
+    "descKo": "useHead 컴포저블과 app.head 설정으로 Nuxt 앱 헤드 파비콘 구성하기. 페이지별 재정의, 다크 모드, 동적 전환 예제 포함.",
+    "descEs": "Configura el favicon del head en una app Nuxt con useHead y app.head. Incluye overrides por página, modo oscuro y cambios dinámicos.",
+    "keyword": "nuxt app head favicon",
+    "tags": [
+      "nuxt",
+      "framework"
+    ],
+    "qualityScore": 85,
+    "qualityGrade": "A"
   }
 ]

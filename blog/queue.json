@@ -2515,7 +2515,9 @@
       "nuxt-favicon",
       "vue-favicon"
     ],
-    "status": "pending"
+    "status": "done",
+    "qualityScore": 85,
+    "qualityGrade": "A"
   },
   {
     "keyword": "svg favicon with png fallback",

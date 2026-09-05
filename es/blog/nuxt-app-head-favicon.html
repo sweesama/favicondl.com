@@ -1,0 +1,202 @@
+<!DOCTYPE html><html lang="es"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favicon del Head en Nuxt: Guía de useHead y app.head - Mzu favicondl</title>
+    <meta name="description" content="Configura el favicon del head en una app Nuxt con useHead y app.head. Incluye overrides por página, modo oscuro y cambios dinámicos.">
+    <meta name="keywords" content="nuxt app head favicon, useHead composable, app.head config, nuxt favicon">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/es/blog/nuxt-app-head-favicon.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/nuxt-app-head-favicon.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/nuxt-app-head-favicon.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/nuxt-app-head-favicon.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/nuxt-app-head-favicon.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/nuxt-app-head-favicon.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/nuxt-app-head-favicon.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/es/blog/nuxt-app-head-favicon.html">
+    <meta property="og:title" content="Favicon del Head en Nuxt: Guía de useHead y app.head">
+    <meta property="og:description" content="Configura el favicon del head en una app Nuxt con useHead y app.head. Incluye overrides por página, modo oscuro y cambios dinámicos.">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Favicon del Head en Nuxt: Guía de useHead y app.head">
+    <meta name="twitter:description" content="Configura el favicon del head en una app Nuxt con useHead y app.head. Incluye overrides por página, modo oscuro y cambios dinámicos.">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Favicon del Head en Nuxt: Guía de useHead y app.head",
+  "description": "Configura el favicon del head en una app Nuxt con useHead y app.head. Incluye overrides por página, modo oscuro y cambios dinámicos.",
+  "datePublished": "2026-09-05",
+  "dateModified": "2026-09-05",
+  "author": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "mainEntityOfPage": "https://favicondl.com/es/blog/nuxt-app-head-favicon.html",
+  "inLanguage": "es"
+}</script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/es/index.html" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/es/documentation.html" class="nav-link">Documentación</a>
+                <a href="/es/tools.html" class="nav-link">Herramientas</a>
+                <a href="/es/blog/" class="nav-link">Blog</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/nuxt-app-head-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/nuxt-app-head-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/nuxt-app-head-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/nuxt-app-head-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/nuxt-app-head-favicon.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/es/index.html" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/es/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600">Favicon del Head en Nuxt: Guía de useHead y app.head</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">nuxt</span><time class="text-sm text-gray-400">2026-09-05</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">Favicon del Head en Nuxt: Guía de useHead y app.head</h1>
+        </header>
+
+        <div class="article-body"><p>Has lanzado una aplicación Nuxt y el favicon por defecto todavía aparece en la pestaña del navegador. Peor aún, tu equipo de marketing quiere iconos diferentes en la página de pago y en el panel de administración. Hardcodear etiquetas <code>link</code> no es suficiente: Nuxt te da control programático a través de la configuración <code>app.head</code> y el composable <code>useHead</code>. Entender ambos es la diferencia entre luchar contra tu framework y dejar que trabaje para ti.</p>
+<p>Esta guía se centra específicamente en gestionar tu favicon mediante el sistema de configuración de head de Nuxt, no en el enfoque de metadatos basado en archivos que cubrimos en nuestra <a href="/es/blog/nuxt-favicon.html">guía de favicon para Nuxt</a>. Si necesitas iconos por página, alternancia de modo oscuro o cambios en tiempo de ejecución, la API de head es lo que buscas.</p>
+<h2>Prerrequisitos</h2>
+<ul>
+<li>Proyecto Nuxt 3.x o 4.x</li>
+<li>Archivos de favicon generados (PNG, SVG, ICO) — consulta nuestra <a href="/es/blog/favicon-sizes-guide.html">guía de tamaños de favicon</a> si no estás seguro de cuáles necesitas</li>
+<li>Familiaridad básica con bloques <code>&amp;lt;script setup&amp;gt;</code> de Vue 3</li>
+</ul>
+<h2>Paso 1: Establecer un favicon por defecto mediante app.head</h2>
+<p>La propiedad <code>app.head</code> en <code>nuxt.config.ts</code> es el valor por defecto a nivel de framework. Todo lo que pongas aquí se inyecta en el <code>&amp;lt;head&amp;gt;</code> de cada página, a menos que una página lo sobrescriba.</p>
+<pre><code>// nuxt.config.ts
+export default defineNuxtConfig({
+  app: {
+    head: {
+      link: [
+        { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
+        { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicon-32x32.png' },
+        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+        { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png' }
+      ]
+    }
+  }
+})</code></pre>
+<p>Coloca tus archivos de icono en el directorio <code>public/</code> para que Nuxt los sirva desde la raíz. Según la <a href="https://nuxt.com/docs/4.x/getting-started/seo-meta">documentación de SEO y meta de Nuxt</a>, el array <code>link</code> sigue la misma forma que acepta el motor subyacente <code>unhead</code>, que a su vez coincide con la especificación WHATWG para <code>rel="icon"</code> en <a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">html.spec.whatwg.org</a>.</p>
+<h2>Paso 2: Sobrescribir el favicon por página con useHead</h2>
+<p>A veces quieres un icono diferente en rutas específicas. El composable <code>useHead</code> te permite insertar entradas que sobrescriben la configuración global solo para esa página.</p>
+<pre><code>&amp;lt;script setup lang="ts"&amp;gt;
+useHead({
+  link: [
+    { rel: 'icon', type: 'image/svg+xml', href: '/icons/admin-favicon.svg' }
+  ]
+})
+&amp;lt;/script&amp;gt;
+
+&amp;lt;template&amp;gt;
+  &amp;lt;div&amp;gt;Panel de administración&amp;lt;/div&amp;gt;
+&amp;lt;/template&amp;gt;</code></pre>
+<p>Llama a <code>useHead()</code> al inicio de tu bloque <code>&amp;lt;script setup&amp;gt;</code>. Nuxt maneja la inyección SSR, por lo que la sobrescritura está presente en el HTML inicial — sin parpadeo del icono incorrecto durante la hidratación, sin necesidad de parcheo en el cliente.</p>
+<h2>Paso 3: Intercambiar favicons dinámicamente según el estado</h2>
+<p>¿Quieres que el favicon reaccione a un contador de notificaciones o a un cambio de tema? Combina <code>useHead</code> con un <code>ref</code> reactivo o un <code>computed</code>.</p>
+<pre><code>&amp;lt;script setup lang="ts"&amp;gt;
+const cartCount = useCartCount()
+
+useHead({
+  link: [
+    {
+      rel: 'icon',
+      type: 'image/svg+xml',
+      href: computed(() =&amp;gt;
+        cartCount.value &gt; 0
+          ? `/icons/cart-${cartCount.value}.svg`
+          : '/favicon.svg'
+      )
+    }
+  ]
+})
+&amp;lt;/script&amp;gt;</code></pre>
+<p>El href computado se actualiza cada vez que cambia <code>cartCount</code>. El <code>useHead</code> de Nuxt rastrea la reactividad y reescribe la etiqueta <code>&amp;lt;link&amp;gt;</code> en su lugar — sin recargar la página, sin manipulación manual del DOM. Si quieres llevar esto más allá con insignias basadas en canvas, el patrón subyacente se cubre en nuestra <a href="/es/blog/dynamic-favicon-javascript.html">guía de favicon dinámico con JavaScript</a>.</p>
+<h2>Paso 4: Soporte de favicons en modo oscuro</h2>
+<p>Los navegadores modernos respetan los atributos <code>media</code> en los enlaces de icono. Combínalo con <code>useHead</code> y obtendrás iconos conscientes del tema sin necesidad de JavaScript.</p>
+<pre><code>useHead({
+  link: [
+    { rel: 'icon', type: 'image/svg+xml', href: '/favicon-light.svg', media: '(prefers-color-scheme: light)' },
+    { rel: 'icon', type: 'image/svg+xml', href: '/favicon-dark.svg', media: '(prefers-color-scheme: dark)' }
+  ]
+})</code></pre>
+<p>El navegador elige el correcto según la preferencia del sistema del usuario. Este es el mismo patrón descrito en nuestra <a href="/es/blog/favicon-dark-mode.html">guía de favicon en modo oscuro</a>, pero impulsado a través de la API de head de Nuxt en lugar de HTML crudo.</p>
+<h2>Errores comunes</h2>
+<ul>
+<li><strong>Poner <code>useHead</code> en un componente hijo profundamente anidado.</strong> Aún funciona, pero el tiempo de SSR se vuelve impredecible y corres el riesgo de etiquetas duplicadas. Mantenlo en el <code>&amp;lt;script setup&amp;gt;</code> a nivel de página.</li>
+<li><strong>Olvidar el atributo <code>type</code>.</strong> Cuando múltiples enlaces <code>rel="icon"</code> comparten una ruta o nombre de archivo, los navegadores pueden servir el archivo incorrecto. Siempre establece <code>type</code> para mayor claridad.</li>
+<li><strong>Mezclar metadatos basados en archivos con <code>useHead</code>.</strong> Los iconos basados en archivos de Nuxt (en <code>app/</code> o <code>public/</code>) pueden colisionar con entradas explícitas de <code>app.head</code> y producir etiquetas <code>&amp;lt;link&amp;gt;</code> duplicadas. Elige un enfoque por proyecto.</li>
+<li><strong>Rutas absolutas hardcodeadas.</strong> Usa rutas relativas a la raíz como <code>/favicon.svg</code> para que el icono se cargue correctamente en todas las rutas, subdominios y detrás de proxies inversos.</li>
+</ul>
+<h2>Conclusión</h2>
+<p>La configuración <code>app.head</code> maneja tus valores por defecto; <code>useHead</code> maneja todo lo dinámico. Juntos cubren todos los escenarios de favicon que las aplicaciones Nuxt suelen necesitar — desde un icono estático único hasta intercambios por página e insignias reactivas — sin recurrir a plugins de head de terceros ni luchar contra los valores por defecto de Nuxt.</p>
+<p>Si aún no has generado tus archivos de icono, <a href="/es/index.html">Mzu favicondl</a> produce el paquete completo de múltiples resoluciones (SVG, PNG, ICO, Apple Touch) con un clic. Coloca los archivos en <code>public/</code>, conéctalos en <code>app.head</code>, y tus pestañas se verán profesionales en cuestión de minutos.</p></div>
+
+        <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
+
+        <div class="cta-box">
+            <h3>Genera tu paquete de favicons para Nuxt</h3>
+            <p>Obtén todos los tamaños y formatos de favicon que tu app Nuxt necesita — SVG, PNG, ICO y Apple Touch — en un clic.</p>
+            <a href="/es/index.html" class="cta-btn">Pruébalo gratis →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/es/index.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">Inicio</a>
+                <a href="/es/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">Blog</a>
+                <a href="/es/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">Privacidad</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js?v=20260211"></script>
+
+</body></html>

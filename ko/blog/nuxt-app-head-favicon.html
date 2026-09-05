@@ -1,0 +1,202 @@
+<!DOCTYPE html><html lang="ko"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuxt 앱 Head Favicon 설정: useHead와 app.head 완벽 가이드 - Mzu favicondl</title>
+    <meta name="description" content="useHead 컴포저블과 app.head 설정으로 Nuxt 앱 헤드 파비콘 구성하기. 페이지별 재정의, 다크 모드, 동적 전환 예제 포함.">
+    <meta name="keywords" content="nuxt app head favicon, useHead composable, app.head config, nuxt favicon">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/ko/blog/nuxt-app-head-favicon.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/nuxt-app-head-favicon.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/nuxt-app-head-favicon.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/nuxt-app-head-favicon.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/nuxt-app-head-favicon.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/nuxt-app-head-favicon.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/nuxt-app-head-favicon.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/ko/blog/nuxt-app-head-favicon.html">
+    <meta property="og:title" content="Nuxt 앱 Head Favicon 설정: useHead와 app.head 완벽 가이드">
+    <meta property="og:description" content="useHead 컴포저블과 app.head 설정으로 Nuxt 앱 헤드 파비콘 구성하기. 페이지별 재정의, 다크 모드, 동적 전환 예제 포함.">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Nuxt 앱 Head Favicon 설정: useHead와 app.head 완벽 가이드">
+    <meta name="twitter:description" content="useHead 컴포저블과 app.head 설정으로 Nuxt 앱 헤드 파비콘 구성하기. 페이지별 재정의, 다크 모드, 동적 전환 예제 포함.">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Nuxt 앱 Head Favicon 설정: useHead와 app.head 완벽 가이드",
+  "description": "useHead 컴포저블과 app.head 설정으로 Nuxt 앱 헤드 파비콘 구성하기. 페이지별 재정의, 다크 모드, 동적 전환 예제 포함.",
+  "datePublished": "2026-09-05",
+  "dateModified": "2026-09-05",
+  "author": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "mainEntityOfPage": "https://favicondl.com/ko/blog/nuxt-app-head-favicon.html",
+  "inLanguage": "ko"
+}</script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/ko/index.html" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/ko/documentation.html" class="nav-link">문서</a>
+                <a href="/ko/tools.html" class="nav-link">도구</a>
+                <a href="/ko/blog/" class="nav-link">블로그</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/nuxt-app-head-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/nuxt-app-head-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/nuxt-app-head-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/nuxt-app-head-favicon.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/nuxt-app-head-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/ko/index.html" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/ko/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600">Nuxt 앱 Head Favicon 설정: useHead와 app.head 완벽 가이드</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">nuxt</span><time class="text-sm text-gray-400">2026-09-05</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">Nuxt 앱 Head Favicon 설정: useHead와 app.head 완벽 가이드</h1>
+        </header>
+
+        <div class="article-body"><p>Nuxt 앱을 배포했는데 아직도 탭에 기본 favicon이 표시되고 있나요? 더 나쁜 것은 마케팅 팀이 결제 페이지와 관리자 대시보드에 각각 다른 아이콘을 원한다는 것입니다. link 태그를 하드코딩하는 것으로는 충분하지 않습니다. Nuxt는 <code>app.head</code> 설정과 <code>useHead</code> 컴포저블을 통해 프로그래밍 방식으로 제어할 수 있는 방법을 제공하며, 이 둘을 이해하는 것이 프레임워크와 싸우는 것과 프레임워크가 알아서 동작하게 하는 것의 차이를 만듭니다.</p>
+<p>이 가이드는 파일 기반 메타데이터 접근 방식이 아닌 Nuxt의 head 구성 시스템을 통해 favicon을 관리하는 데 초점을 맞춥니다. 파일 기반 방식에 대한 내용은 <a href="/ko/blog/nuxt-favicon.html">Nuxt favicon 가이드</a>를 참조하세요. 페이지별 아이콘, 다크 모드 전환 또는 런타임 교체가 필요하다면 head API가 바로 그 해답입니다.</p>
+<h2>사전 요구 사항</h2>
+<ul>
+<li>Nuxt 3.x 또는 4.x 프로젝트</li>
+<li>생성된 favicon 파일(PNG, SVG, ICO) — 어떤 파일이 필요한지 잘 모르겠다면 <a href="/ko/blog/favicon-sizes-guide.html">favicon 크기 가이드</a>를 확인하세요.</li>
+<li>Vue 3 <code>&amp;lt;script setup&amp;gt;</code> 블록에 대한 기본적인 이해</li>
+</ul>
+<h2>1단계: app.head로 기본 Favicon 설정</h2>
+<p><code>nuxt.config.ts</code>의 <code>app.head</code> 속성은 프레임워크 전체의 기본값입니다. 여기에 정의된 내용은 페이지에서 재정의하지 않는 한 모든 페이지의 <code>&amp;lt;head&amp;gt;</code>에 주입됩니다.</p>
+<pre><code>// nuxt.config.ts
+export default defineNuxtConfig({
+  app: {
+    head: {
+      link: [
+        { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
+        { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicon-32x32.png' },
+        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+        { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png' }
+      ]
+    }
+  }
+})</code></pre>
+<p>아이콘 파일을 <code>public/</code> 디렉토리에 배치하면 Nuxt가 루트에서 파일을 제공합니다. <a href="https://nuxt.com/docs/4.x/getting-started/seo-meta">Nuxt SEO 및 메타 문서</a>에 따르면 <code>link</code> 배열은 내부적으로 사용되는 <code>unhead</code> 엔진이 허용하는 형태와 동일하며, 이는 <a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">html.spec.whatwg.org</a>의 WHATWG <code>rel="icon"</code> 사양과 일치합니다.</p>
+<h2>2단계: useHead로 페이지별 Favicon 재정의</h2>
+<p>특정 라우트에 다른 아이콘을 사용하고 싶을 때가 있습니다. <code>useHead</code> 컴포저블을 사용하면 해당 페이지에서만 전역 설정을 재정의하는 항목을 추가할 수 있습니다.</p>
+<pre><code>&amp;lt;script setup lang="ts"&amp;gt;
+useHead({
+  link: [
+    { rel: 'icon', type: 'image/svg+xml', href: '/icons/admin-favicon.svg' }
+  ]
+})
+&amp;lt;/script&amp;gt;
+
+&amp;lt;template&amp;gt;
+  &amp;lt;div&amp;gt;Admin Dashboard&amp;lt;/div&amp;gt;
+&amp;lt;/template&amp;gt;</code></pre>
+<p><code>&amp;lt;script setup&amp;gt;</code> 블록 상단에서 <code>useHead()</code>를 호출하세요. Nuxt가 SSR 주입을 처리하므로 초기 HTML에 재정의가 포함되어 하이드레이션 시 잘못된 아이콘이 잠깐 표시되는 문제가 없고 클라이언트 측 패치가 필요하지 않습니다.</p>
+<h2>3단계: 상태에 따라 Favicon 동적으로 교체</h2>
+<p>알림 수나 테마 변경에 따라 favicon이 반응하도록 하시겠습니까? <code>useHead</code>를 반응형 <code>ref</code> 또는 <code>computed</code>와 결합하세요.</p>
+<pre><code>&amp;lt;script setup lang="ts"&amp;gt;
+const cartCount = useCartCount()
+
+useHead({
+  link: [
+    {
+      rel: 'icon',
+      type: 'image/svg+xml',
+      href: computed(() =&amp;gt;
+        cartCount.value &gt; 0
+          ? `/icons/cart-${cartCount.value}.svg`
+          : '/favicon.svg'
+      )
+    }
+  ]
+})
+&amp;lt;/script&amp;gt;</code></pre>
+<p>computed href는 <code>cartCount</code>가 변경될 때마다 업데이트됩니다. Nuxt의 <code>useHead</code>는 반응성을 추적하고 <code>&amp;lt;link&amp;gt;</code> 태그를 제자리에서 다시 작성합니다. 전체 페이지를 다시 로드하거나 수동으로 DOM을 조작할 필요가 없습니다. 캔버스 기반 배지로 더 확장하려면 <a href="/ko/blog/dynamic-favicon-javascript.html">동적 favicon JavaScript 가이드</a>에서 기본 패턴을 다룹니다.</p>
+<h2>4단계: 다크 모드 Favicon 지원</h2>
+<p>최신 브라우저는 아이콘 링크의 <code>media</code> 속성을 지원합니다. 이를 <code>useHead</code>와 결합하면 JavaScript 없이도 테마를 인식하는 아이콘을 얻을 수 있습니다.</p>
+<pre><code>useHead({
+  link: [
+    { rel: 'icon', type: 'image/svg+xml', href: '/favicon-light.svg', media: '(prefers-color-scheme: light)' },
+    { rel: 'icon', type: 'image/svg+xml', href: '/favicon-dark.svg', media: '(prefers-color-scheme: dark)' }
+  ]
+})</code></pre>
+<p>브라우저는 사용자의 시스템 기본 설정에 따라 올바른 아이콘을 선택합니다. 이는 <a href="/ko/blog/favicon-dark-mode.html">favicon 다크 모드 가이드</a>에서 설명한 것과 동일한 패턴이지만, 원시 HTML 대신 Nuxt의 head API를 통해 구현됩니다.</p>
+<h2>일반적인 함정</h2>
+<ul>
+<li><strong>깊이 중첩된 하위 컴포넌트에서 <code>useHead</code>를 호출하는 경우.</strong> 작동은 하지만 SSR 타이밍이 예측 불가능해지고 중복 태그가 발생할 수 있습니다. 페이지 레벨의 <code>&amp;lt;script setup&amp;gt;</code>에 유지하세요.</li>
+<li><strong><code>type</code> 속성을 잊는 경우.</strong> 여러 <code>rel="icon"</code> 링크가 동일한 경로나 파일 이름을 공유하면 브라우저가 잘못된 파일을 제공할 수 있습니다. 명확성을 위해 항상 <code>type</code>을 설정하세요.</li>
+<li><strong>파일 기반 메타데이터와 <code>useHead</code>를 혼합하는 경우.</strong> Nuxt의 파일 기반 아이콘(<code>app/</code> 또는 <code>public/</code> 디렉토리)은 명시적인 <code>app.head</code> 항목과 충돌하여 중복된 <code>&amp;lt;link&amp;gt;</code> 태그를 생성할 수 있습니다. 프로젝트당 하나의 접근 방식을 선택하세요.</li>
+<li><strong>하드코딩된 절대 경로.</strong> <code>/favicon.svg</code>와 같은 루트 상대 경로를 사용하여 라우트, 서브도메인, 리버스 프록시 뒤에서도 아이콘이 올바르게 로드되도록 하세요.</li>
+</ul>
+<h2>마무리</h2>
+<p><code>app.head</code> 설정은 기본값을 처리하고 <code>useHead</code>는 모든 동적 요소를 처리합니다. 이 둘을 함께 사용하면 단일 정적 아이콘에서 페이지별 교체, 반응형 배지에 이르기까지 Nuxt 앱에서 일반적으로 필요한 모든 favicon 시나리오를 처리할 수 있으며, 타사 head 플러그인에 의존하거나 Nuxt의 기본값과 싸울 필요가 없습니다.</p>
+<p>아직 아이콘 파일을 생성하지 않았다면 <a href="/ko/index.html">Mzu favicondl</a>에서 전체 다중 해상도 패키지(SVG, PNG, ICO, Apple Touch)를 한 번의 클릭으로 생성할 수 있습니다. 파일을 <code>public/</code>에 넣고 <code>app.head</code>에 연결하면 몇 분 안에 탭이 전문적으로 보일 것입니다.</p></div>
+
+        <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
+
+        <div class="cta-box">
+            <h3>Nuxt 파비콘 패키지 생성하기</h3>
+            <p>Nuxt 앱에 필요한 모든 파비콘 크기와 형식(SVG, PNG, ICO, Apple Touch)을 한 번에 받으세요.</p>
+            <a href="/ko/index.html" class="cta-btn">무료로 사용해보기 →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/ko/index.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">홈</a>
+                <a href="/ko/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">블로그</a>
+                <a href="/ko/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">개인정보</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js?v=20260211"></script>
+
+</body></html>
