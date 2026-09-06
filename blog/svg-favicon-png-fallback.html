@@ -1,0 +1,422 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SVG Favicon with PNG Fallback: A Step-by-Step HTML Guide - Mzu favicondl</title>
+    <meta name="description" content="Ship a crisp SVG favicon with a reliable PNG fallback. Step-by-step HTML pattern, right file sizes, browser ordering, and pitfalls to avoid.">
+    <meta name="keywords" content="svg favicon, png fallback, rel icon, favicon html, hybrid favicon">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/blog/svg-favicon-png-fallback.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/svg-favicon-png-fallback.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/svg-favicon-png-fallback.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/svg-favicon-png-fallback.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/svg-favicon-png-fallback.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/svg-favicon-png-fallback.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/svg-favicon-png-fallback.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/blog/svg-favicon-png-fallback.html">
+    <meta property="og:title" content="SVG Favicon with PNG Fallback: A Step-by-Step HTML Guide">
+    <meta property="og:description" content="Ship a crisp SVG favicon with a reliable PNG fallback. Step-by-step HTML pattern, right file sizes, browser ordering, and pitfalls to avoid.">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="SVG Favicon with PNG Fallback: A Step-by-Step HTML Guide">
+    <meta name="twitter:description" content="Ship a crisp SVG favicon with a reliable PNG fallback. Step-by-step HTML pattern, right file sizes, browser ordering, and pitfalls to avoid.">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "SVG Favicon with PNG Fallback: A Step-by-Step HTML Guide",
+  "description": "Ship a crisp SVG favicon with a reliable PNG fallback. Step-by-step HTML pattern, right file sizes, browser ordering, and pitfalls to avoid.",
+  "datePublished": "2026-09-06",
+  "dateModified": "2026-09-06",
+  "author": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "mainEntityOfPage": "https://favicondl.com/blog/svg-favicon-png-fallback.html",
+  "inLanguage": "en"
+}</script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/index.html" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/documentation.html" class="nav-link" data-en="Docs" data-zh="文档">Docs</a>
+                <a href="/tools.html" class="nav-link" data-en="Tools" data-zh="工具">Tools</a>
+                <a href="/blog/" class="nav-link" data-en="Blog" data-zh="博客">Blog</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/svg-favicon-png-fallback.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/svg-favicon-png-fallback.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/svg-favicon-png-fallback.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/svg-favicon-png-fallback.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/svg-favicon-png-fallback.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/index.html" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600" data-en="SVG Favicon with PNG Fallback: A Step-by-Step HTML Guide" data-zh="SVG 网站图标 PNG 备用方案：HTML 实战配置" data-ja="SVGファビコンとPNGフォールバック：実装ガイド" data-ko="SVG 파비콘 PNG 폴백 설정 가이드" data-es="Favicon SVG con respaldo PNG: Guía HTML">SVG Favicon with PNG Fallback: A Step-by-Step HTML Guide</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">svg</span><time class="text-sm text-gray-400">2026-09-06</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight" data-en="SVG Favicon with PNG Fallback: A Step-by-Step HTML Guide" data-zh="SVG 网站图标 PNG 备用方案：HTML 实战配置" data-ja="SVGファビコンとPNGフォールバック：実装ガイド" data-ko="SVG 파비콘 PNG 폴백 설정 가이드" data-es="Favicon SVG con respaldo PNG: Guía HTML">SVG Favicon with PNG Fallback: A Step-by-Step HTML Guide</h1>
+        </header>
+
+        <div class="article-body" data-lang="en">
+            <p>You uploaded a sharp SVG favicon, opened Safari, and saw a tiny blurry PNG instead. That's because <strong>not every browser reads SVG favicons yet</strong>. The fix is a hybrid markup: SVG first, PNG behind it for older engines. This guide walks through the exact HTML pattern, the right file sizes, and the pitfalls that make the fallback silently fail.</p>
+
+<h2>Why SVG with PNG Fallback?</h2>
+<p>The HTML living standard lets you declare multiple <code>&lt;link rel='icon'&gt;</code> tags pointing at different formats. According to the <a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">WHATWG HTML spec for rel='icon'</a>, browsers scan the list and pick the last tag they recognize. That ordering is the trick: put SVG last so modern browsers prefer it, and PNG ahead so legacy engines fall back gracefully.</p>
+<p>This pattern matters because some renderers — older Safari builds, in-app webviews, niche mobile browsers — still ignore SVG entirely. Without a PNG behind it, your visitors see a blank tab.</p>
+
+<h2>Prerequisites</h2>
+<ul>
+<li>One SVG favicon (ideally under 2KB, with a square <code>viewBox</code>).</li>
+<li>One or more PNG fallbacks: 32x32 for standard tabs, 16x16 for narrow contexts. Add 180x180 if you do not ship an Apple Touch Icon.</li>
+<li>Edit access to your site's <code>&lt;head&gt;</code> block.</li>
+</ul>
+<p>Need a clean SVG export? See the <a href="/blog/svg-favicon.html">SVG favicon design guide</a> for the basics. You can also skip the manual work with a <a href="/blog/favicon-package-generator.html">favicon package generator</a> that outputs the full set in one click.</p>
+
+<h2>Step-by-Step: Build the SVG + PNG Stack</h2>
+
+<h3>Step 1: Export a Lean SVG</h3>
+<p>Save your artwork as a square SVG with <code>viewBox='0 0 100 100'</code>. Strip out editor metadata, hidden layers, and embedded raster fallbacks — they defeat the purpose. A 1KB SVG beats a 15KB PNG in tab clarity.</p>
+
+<h3>Step 2: Generate PNG Fallbacks</h3>
+<p>Export the same artwork at 32x32 and 16x16. If your logo uses transparency, double-check the PNG actually keeps the alpha channel — some exporters flatten it silently. Save them as <code>favicon-32x32.png</code> and <code>favicon-16x16.png</code>.</p>
+
+<h3>Step 3: Add the Link Tags in the Right Order</h3>
+<p>Drop these tags inside your <code>&lt;head&gt;</code>, before any preconnect or preload hints. The order is critical:</p>
+<pre><code>&amp;lt;link rel='icon' type='image/png' sizes='32x32' href='/favicon-32x32.png'&amp;gt;
+&amp;lt;link rel='icon' type='image/png' sizes='16x16' href='/favicon-16x16.png'&amp;gt;
+&amp;lt;link rel='icon' type='image/svg+xml' href='/favicon.svg'&amp;gt;</code></pre>
+<p>Browsers iterate top-to-bottom and use the last valid match they support. Putting SVG last means Chrome, Firefox, and Safari pick it; older renderers stop at the PNG.</p>
+
+<h3>Step 4: Keep an ICO for Truly Legacy Browsers</h3>
+<p>If your audience still includes IE11 or very old Edge builds, add an ICO at the very front:</p>
+<pre><code>&amp;lt;link rel='icon' type='image/x-icon' href='/favicon.ico'&amp;gt;
+&amp;lt;link rel='icon' type='image/png' sizes='32x32' href='/favicon-32x32.png'&amp;gt;
+&amp;lt;link rel='icon' type='image/svg+xml' href='/favicon.svg'&amp;gt;</code></pre>
+<p>Modern engines ignore the ICO and skip straight to SVG. Legacy browsers that do not understand SVG or <code>type</code>-tagged PNGs still get something.</p>
+
+<h3>Step 5: Add Dark Mode Variants (Optional)</h3>
+<p>SVG lets you ship one file per theme using the <code>media</code> attribute:</p>
+<pre><code>&amp;lt;link rel='icon' type='image/svg+xml' href='/favicon-light.svg' media='(prefers-color-scheme: light)'&amp;gt;
+&amp;lt;link rel='icon' type='image/svg+xml' href='/favicon-dark.svg' media='(prefers-color-scheme: dark)'&amp;gt;
+&amp;lt;link rel='icon' type='image/png' href='/favicon-32x32.png'&amp;gt;</code></pre>
+<p>The trailing PNG guarantees browsers without theme awareness still see something instead of a blank square. You can also embed <code>prefers-color-scheme</code> directly inside a single SVG using a <code>&lt;style&gt;</code> block — that is a more advanced approach but it keeps the head markup lean.</p>
+
+<h3>Step 6: Verify the Stack</h3>
+<p>Open DevTools, hit the Network panel, and reload. You should see every declared icon requested once. If only the PNG loads, your SVG path is wrong or the file is not valid XML. If Safari ignores your PNG, the server is probably serving it with the wrong MIME type — force <code>image/png</code> in your server config rather than relying on auto-detection. You can confirm the served MIME by hovering the request in the Network panel.</p>
+
+<h2>Common Pitfalls</h2>
+<ul>
+<li><strong>Wrong order.</strong> SVG must be last. Browsers scan top-down and stop at the first format their engine supports.</li>
+<li><strong>Missing <code>type</code> attribute.</strong> Without <code>type='image/svg+xml'</code>, some browsers treat the file as a generic resource and skip it.</li>
+<li><strong>PNG with white background.</strong> On dark browser themes, a white-square PNG sticks out. Use transparency or match your site background.</li>
+<li><strong>Cache.</strong> After deploying, browsers often serve a stale favicon for days. Append a version query like <code>?v=2</code> to the PNG to force a refresh.</li>
+<li><strong>XML errors.</strong> Browsers ignore SVG content with parse errors silently. Run your file through an XML validator before deploying.</li>
+<li><strong>Inline webviews.</strong> Some embedded webviews ignore <code>&lt;link&gt;</code> tags entirely and only respect a literal <code>/favicon.ico</code> at the root.</li>
+</ul>
+
+<h2>Wrapping Up</h2>
+<p>The SVG + PNG fallback pattern is the practical compromise: crisp scalable icons where supported, dependable raster icons everywhere else. Three files, one <code>&lt;head&gt;</code> block, no JavaScript required. Get the order right, validate your MIME types, and test on Chrome, Firefox, and Safari before shipping. Your tab presence will stop being a guessing game.</p>
+<p>Need the files pre-built? <a href="/index.html">Mzu favicondl</a> exports a complete SVG + multi-size PNG + ICO package from a single upload, ready to drop into any project.</p>
+        </div>
+
+        <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
+        <template data-article-lang="zh"><p>你上传了一个清晰的 SVG favicon，打开 Safari 却看到一个小而模糊的 PNG。那是因为<strong>并非所有浏览器都支持 SVG favicon</strong>。解决办法是混合标记：SVG 在前，PNG 作为旧版引擎的后备。本指南将逐步介绍确切的 HTML 模式、正确的文件尺寸，以及可能导致后备方案悄然失效的陷阱。</p>
+
+<h2>为什么使用 SVG 加 PNG 后备？</h2>
+<p>HTML 标准允许你声明多个指向不同格式的 <code>&lt;link rel='icon'&gt;</code> 标签。根据 <a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">WHATWG HTML 规范中关于 rel='icon' 的部分</a>，浏览器会扫描列表并选择它们认识的最后一个标签。这个顺序就是关键：将 SVG 放在最后，让现代浏览器优先选择它；将 PNG 放在前面，让旧版引擎优雅降级。</p>
+<p>这种模式很重要，因为一些渲染器——旧版 Safari 构建、应用内 webview、小众移动浏览器——仍然完全忽略 SVG。如果没有 PNG 作为后备，你的访客将看到一个空白标签页。</p>
+
+<h2>前提条件</h2>
+<ul>
+<li>一个 SVG favicon（理想情况下小于 2KB，具有正方形的 <code>viewBox</code>）。</li>
+<li>一个或多个 PNG 后备：32x32 用于标准标签页，16x16 用于窄上下文。如果你没有提供 Apple Touch Icon，请添加 180x180。</li>
+<li>能够编辑你网站的 <code>&lt;head&gt;</code> 块。</li>
+</ul>
+<p>需要干净的 SVG 导出？请参阅 <a href="/blog/svg-favicon.html">SVG favicon 设计指南</a> 了解基础知识。你也可以使用 <a href="/blog/favicon-package-generator.html">favicon 包生成器</a> 一键输出完整集合，省去手动操作。</p>
+
+<h2>分步指南：构建 SVG + PNG 堆栈</h2>
+
+<h3>步骤 1：导出一个精简的 SVG</h3>
+<p>将你的作品保存为带有 <code>viewBox='0 0 100 100'</code> 的正方形 SVG。去除编辑器元数据、隐藏图层和嵌入的位图后备——它们会破坏目的。在标签页清晰度方面，1KB 的 SVG 胜过 15KB 的 PNG。</p>
+
+<h3>步骤 2：生成 PNG 后备</h3>
+<p>将相同的作品导出为 32x32 和 16x16。如果你的标志使用透明度，请仔细检查 PNG 是否保留了 alpha 通道——有些导出器会静默地将其扁平化。将它们保存为 <code>favicon-32x32.png</code> 和 <code>favicon-16x16.png</code>。</p>
+
+<h3>步骤 3：按正确顺序添加链接标签</h3>
+<p>将这些标签放入你的 <code>&lt;head&gt;</code> 中，放在任何 preconnect 或 preload 提示之前。顺序至关重要：</p>
+<pre><code>&amp;lt;link rel='icon' type='image/png' sizes='32x32' href='/favicon-32x32.png'&amp;gt;
+&amp;lt;link rel='icon' type='image/png' sizes='16x16' href='/favicon-16x16.png'&amp;gt;
+&amp;lt;link rel='icon' type='image/svg+xml' href='/favicon.svg'&amp;gt;</code></pre>
+<p>浏览器从上到下迭代，并使用它们支持的最后一个有效匹配。将 SVG 放在最后意味着 Chrome、Firefox 和 Safari 会选择它；旧版渲染器会停在 PNG 上。</p>
+
+<h3>步骤 4：为真正的旧版浏览器保留 ICO</h3>
+<p>如果你的受众仍然包括 IE11 或非常旧的 Edge 版本，请在开头添加一个 ICO：</p>
+<pre><code>&amp;lt;link rel='icon' type='image/x-icon' href='/favicon.ico'&amp;gt;
+&amp;lt;link rel='icon' type='image/png' sizes='32x32' href='/favicon-32x32.png'&amp;gt;
+&amp;lt;link rel='icon' type='image/svg+xml' href='/favicon.svg'&amp;gt;</code></pre>
+<p>现代引擎会忽略 ICO 并直接跳到 SVG。不理解 SVG 或带 <code>type</code> 标签的 PNG 的旧版浏览器仍然能获得一些内容。</p>
+
+<h3>步骤 5：添加深色模式变体（可选）</h3>
+<p>SVG 允许你使用 <code>media</code> 属性为每个主题提供一个文件：</p>
+<pre><code>&amp;lt;link rel='icon' type='image/svg+xml' href='/favicon-light.svg' media='(prefers-color-scheme: light)'&amp;gt;
+&amp;lt;link rel='icon' type='image/svg+xml' href='/favicon-dark.svg' media='(prefers-color-scheme: dark)'&amp;gt;
+&amp;lt;link rel='icon' type='image/png' href='/favicon-32x32.png'&amp;gt;</code></pre>
+<p>尾随的 PNG 确保没有主题感知的浏览器仍然能看到内容，而不是一个空白方块。你也可以直接在单个 SVG 中使用 <code>&lt;style&gt;</code> 块嵌入 <code>prefers-color-scheme</code>——这是一种更高级的方法，但可以保持 head 标记简洁。</p>
+
+<h3>步骤 6：验证堆栈</h3>
+<p>打开 DevTools，点击 Network 面板，然后重新加载。你应该看到每个声明的图标都被请求一次。如果只有 PNG 加载，说明你的 SVG 路径错误或文件不是有效的 XML。如果 Safari 忽略你的 PNG，可能是服务器以错误的 MIME 类型提供它——在服务器配置中强制使用 <code>image/png</code>，而不是依赖自动检测。你可以通过悬停 Network 面板中的请求来确认提供的 MIME。</p>
+
+<h2>常见陷阱</h2>
+<ul>
+<li><strong>顺序错误。</strong> SVG 必须放在最后。浏览器从上到下扫描，并在其引擎支持的第一个格式处停止。</li>
+<li><strong>缺少 <code>type</code> 属性。</strong> 没有 <code>type='image/svg+xml'</code>，某些浏览器会将文件视为通用资源并跳过它。</li>
+<li><strong>带有白色背景的 PNG。</strong> 在深色浏览器主题下，白色方块的 PNG 会显得突兀。使用透明度或匹配你的网站背景。</li>
+<li><strong>缓存。</strong> 部署后，浏览器通常会提供过期的 favicon 数天。向 PNG 附加版本查询，如 <code>?v=2</code>，以强制刷新。</li>
+<li><strong>XML 错误。</strong> 浏览器会静默忽略具有解析错误的 SVG 内容。在部署前通过 XML 验证器运行你的文件。</li>
+<li><strong>内联 webview。</strong> 一些嵌入式 webview 完全忽略 <code>&lt;link&gt;</code> 标签，只尊重根目录下的字面 <code>/favicon.ico</code>。</li>
+</ul>
+
+<h2>总结</h2>
+<p>SVG + PNG 后备模式是实用的折衷方案：在支持的地方提供清晰的矢量图标，在其他地方提供可靠的位图图标。三个文件，一个 <code>&lt;head&gt;</code> 块，无需 JavaScript。确保顺序正确，验证 MIME 类型，并在发布前在 Chrome、Firefox 和 Safari 上测试。你的标签页存在感将不再是一场猜谜游戏。</p>
+<p>需要预构建的文件？<a href="/index.html">Mzu favicondl</a> 从单个上传中导出一个完整的 SVG + 多尺寸 PNG + ICO 包，随时可以放入任何项目。</p></template>
+        <template data-article-lang="ja"><p>シャープなSVGファビコンをアップロードしたのに、Safariで開くと小さくてぼやけたPNGが表示される——そんな経験はありませんか？ その原因は、<strong>すべてのブラウザがまだSVGファビコンに対応しているわけではない</strong>からです。解決策は、SVGを優先しつつ、古いエンジン向けにPNGをフォールバックとして併用するハイブリッドなマークアップです。このガイドでは、正確なHTMLパターン、適切なファイルサイズ、そしてフォールバックが静かに失敗する落とし穴について詳しく解説します。</p>
+
+<h2>なぜSVGとPNGフォールバックなのか？</h2>
+<p>HTML Living Standardでは、異なるフォーマットを指す複数の<code>&lt;link rel='icon'&gt;</code>タグを宣言できます。<a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">WHATWG HTML仕様のrel='icon'</a>によると、ブラウザはリストをスキャンし、認識できる最後のタグを選択します。この順序が鍵となります。つまり、SVGを最後に置くことでモダンブラウザがSVGを優先し、PNGを前に置くことでレガシーエンジンが適切にフォールバックします。</p>
+<p>このパターンが重要なのは、一部のレンダラー（古いSafariビルド、アプリ内ウェブビュー、ニッチなモバイルブラウザなど）がSVGを完全に無視するためです。PNGが背後にないと、訪問者のタブは空白になってしまいます。</p>
+
+<h2>前提条件</h2>
+<ul>
+<li>SVGファビコン1つ（理想的には2KB未満、正方形の<code>viewBox</code>を持つもの）。</li>
+<li>PNGフォールバック1つ以上：標準タブ用に32x32、狭いコンテキスト用に16x16。Apple Touch Iconを提供しない場合は180x180も追加。</li>
+<li>サイトの<code>&lt;head&gt;</code>ブロックを編集できること。</li>
+</ul>
+<p>クリーンなSVG書き出しが必要ですか？ 基本は<a href="/blog/svg-favicon.html">SVGファビコンデザインガイド</a>をご覧ください。また、<a href="/blog/favicon-package-generator.html">ファビコンパッケージジェネレーター</a>を使えば、ワンクリックで完全なセットを出力でき、手作業を省けます。</p>
+
+<h2>ステップバイステップ：SVG + PNGスタックの構築</h2>
+
+<h3>ステップ1：軽量なSVGを書き出す</h3>
+<p>アートワークを正方形のSVG（<code>viewBox='0 0 100 100'</code>）として保存します。エディタのメタデータ、非表示レイヤー、埋め込まれたラスターフォールバックは削除してください。これらは目的を損ないます。1KBのSVGは、タブの鮮明さで15KBのPNGに勝ります。</p>
+
+<h3>ステップ2：PNGフォールバックを生成する</h3>
+<p>同じアートワークを32x32と16x16で書き出します。ロゴが透過を使用している場合、PNGが実際にアルファチャンネルを保持しているか確認してください。一部のエクスポーターは静かに平坦化します。<code>favicon-32x32.png</code>および<code>favicon-16x16.png</code>として保存します。</p>
+
+<h3>ステップ3：正しい順序でリンクタグを追加する</h3>
+<p>これらのタグを<code>&lt;head&gt;</code>内のpreconnectやpreloadヒントの前に配置します。順序が重要です：</p>
+<pre><code>&amp;lt;link rel='icon' type='image/png' sizes='32x32' href='/favicon-32x32.png'&amp;gt;
+&amp;lt;link rel='icon' type='image/png' sizes='16x16' href='/favicon-16x16.png'&amp;gt;
+&amp;lt;link rel='icon' type='image/svg+xml' href='/favicon.svg'&amp;gt;</code></pre>
+<p>ブラウザは上から下に反復処理し、サポートする最後の有効な一致を使用します。SVGを最後に置くことで、Chrome、Firefox、SafariはSVGを選択し、古いレンダラーはPNGで停止します。</p>
+
+<h3>ステップ4：真にレガシーなブラウザのためにICOを維持する</h3>
+<p>対象ユーザーにIE11や非常に古いEdgeビルドが含まれる場合は、先頭にICOを追加します：</p>
+<pre><code>&amp;lt;link rel='icon' type='image/x-icon' href='/favicon.ico'&amp;gt;
+&amp;lt;link rel='icon' type='image/png' sizes='32x32' href='/favicon-32x32.png'&amp;gt;
+&amp;lt;link rel='icon' type='image/svg+xml' href='/favicon.svg'&amp;gt;</code></pre>
+<p>モダンエンジンはICOを無視してSVGに直接スキップします。SVGや<code>type</code>タグ付きPNGを理解しないレガシーブラウザでも、何かは表示されます。</p>
+
+<h3>ステップ5：ダークモードバリアントを追加する（オプション）</h3>
+<p>SVGでは、<code>media</code>属性を使用してテーマごとに1ファイルを配信できます：</p>
+<pre><code>&amp;lt;link rel='icon' type='image/svg+xml' href='/favicon-light.svg' media='(prefers-color-scheme: light)'&amp;gt;
+&amp;lt;link rel='icon' type='image/svg+xml' href='/favicon-dark.svg' media='(prefers-color-scheme: dark)'&amp;gt;
+&amp;lt;link rel='icon' type='image/png' href='/favicon-32x32.png'&amp;gt;</code></pre>
+<p>末尾のPNGにより、テーマ認識がないブラウザでも空白の四角ではなく何かが表示されます。また、単一のSVG内に<code>&lt;style&gt;</code>ブロックを使用して<code>prefers-color-scheme</code>を直接埋め込むこともできます。これはより高度なアプローチですが、headマークアップを簡潔に保てます。</p>
+
+<h3>ステップ6：スタックを検証する</h3>
+<p>DevToolsを開き、Networkパネルを表示してリロードします。宣言したすべてのアイコンが一度リクエストされるはずです。PNGのみが読み込まれる場合、SVGパスが間違っているか、ファイルが有効なXMLではありません。SafariがPNGを無視する場合、サーバーが誤ったMIMEタイプで配信している可能性があります。自動検出に頼らず、サーバー設定で<code>image/png</code>を強制してください。Networkパネルでリクエストにカーソルを合わせると、配信されたMIMEを確認できます。</p>
+
+<h2>よくある落とし穴</h2>
+<ul>
+<li><strong>順序の誤り。</strong> SVGは最後でなければなりません。ブラウザは上から下にスキャンし、エンジンがサポートする最初のフォーマットで停止します。</li>
+<li><strong><code>type</code>属性の欠落。</strong> <code>type='image/svg+xml'</code>がないと、一部のブラウザはファイルを一般的なリソースとして扱い、スキップします。</li>
+<li><strong>白い背景のPNG。</strong> ダークなブラウザテーマでは、白い四角のPNGが目立ちます。透過を使用するか、サイトの背景に合わせてください。</li>
+<li><strong>キャッシュ。</strong> デプロイ後、ブラウザは古いファビコンを数日間配信することがよくあります。PNGに<code>?v=2</code>のようなバージョンクエリを追加して、更新を強制してください。</li>
+<li><strong>XMLエラー。</strong> ブラウザは解析エラーがあるSVGコンテンツを静かに無視します。デプロイ前にXMLバリデーターでファイルを検証してください。</li>
+<li><strong>インラインウェブビュー。</strong> 一部の埋め込みウェブビューは<code>&lt;link&gt;</code>タグを完全に無視し、ルートのリテラルな<code>/favicon.ico</code>のみを尊重します。</li>
+</ul>
+
+<h2>まとめ</h2>
+<p>SVG + PNGフォールバックパターンは実用的な妥協点です。サポートされている場所では鮮明でスケーラブルなアイコン、その他の場所では信頼性の高いラスターアイコンを提供します。3つのファイル、1つの<code>&lt;head&gt;</code>ブロック、JavaScriptは不要です。順序を正しくし、MIMEタイプを検証し、リリース前にChrome、Firefox、Safariでテストしてください。タブの表示が推測ゲームではなくなります。</p>
+<p>ファイルを事前にビルドする必要がありますか？ <a href="/index.html">Mzu favicondl</a>は、単一のアップロードから完全なSVG + マルチサイズPNG + ICOパッケージを書き出し、任意のプロジェクトにすぐにドロップできます。</p></template>
+        <template data-article-lang="ko"><p>선명한 SVG 파비콘을 업로드했는데 Safari에서 작고 흐릿한 PNG가 표시된 적이 있나요? 그 이유는 <strong>아직 모든 브라우저가 SVG 파비콘을 지원하지 않기 때문</strong>입니다. 해결책은 하이브리드 마크업입니다. SVG를 먼저 선언하고, 오래된 엔진을 위해 PNG를 뒤에 배치하는 것입니다. 이 가이드에서는 정확한 HTML 패턴, 적절한 파일 크기, 그리고 폴백이 조용히 실패하게 만드는 함정들을 설명합니다.</p>
+
+<h2>SVG와 PNG 폴백이 필요한 이유</h2>
+<p>HTML living standard에서는 서로 다른 형식을 가리키는 여러 개의 <code>&lt;link rel='icon'&gt;</code> 태그를 선언할 수 있습니다. <a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">WHATWG HTML 스펙의 rel='icon'</a>에 따르면, 브라우저는 목록을 스캔하여 인식하는 마지막 태그를 선택합니다. 이 순서가 핵심입니다. SVG를 마지막에 배치하여 최신 브라우저가 선호하고, PNG를 앞에 배치하여 레거시 엔진이 자연스럽게 폴백되도록 합니다.</p>
+<p>이 패턴이 중요한 이유는 일부 렌더러(구형 Safari 빌드, 인앱 웹뷰, 틈새 모바일 브라우저)가 여전히 SVG를 완전히 무시하기 때문입니다. PNG 폴백이 없으면 방문자는 빈 탭을 보게 됩니다.</p>
+
+<h2>사전 요구 사항</h2>
+<ul>
+<li>SVG 파비콘 하나(가급적 2KB 미만, 정사각형 <code>viewBox</code> 포함).</li>
+<li>PNG 폴백 하나 이상: 표준 탭용 32x32, 좁은 컨텍스트용 16x16. Apple Touch Icon을 제공하지 않는 경우 180x180도 추가하세요.</li>
+<li>사이트의 <code>&lt;head&gt;</code> 블록에 접근 권한.</li>
+</ul>
+<p>깔끔한 SVG 내보내기가 필요하신가요? 기본 사항은 <a href="/blog/svg-favicon.html">SVG 파비콘 디자인 가이드</a>를 참조하세요. <a href="/blog/favicon-package-generator.html">파비콘 패키지 생성기</a>를 사용하면 한 번의 클릭으로 전체 세트를 출력하여 수동 작업을 건너뛸 수도 있습니다.</p>
+
+<h2>단계별: SVG + PNG 스택 구축</h2>
+
+<h3>1단계: 가벼운 SVG 내보내기</h3>
+<p>아트워크를 <code>viewBox='0 0 100 100'</code>인 정사각형 SVG로 저장하세요. 편집기 메타데이터, 숨겨진 레이어, 포함된 래스터 폴백을 제거하세요. 목적을 무색하게 만듭니다. 1KB SVG는 탭 선명도에서 15KB PNG보다 낫습니다.</p>
+
+<h3>2단계: PNG 폴백 생성</h3>
+<p>동일한 아트워크를 32x32 및 16x16으로 내보내세요. 로고에 투명도가 사용된 경우 PNG가 실제로 알파 채널을 유지하는지 다시 확인하세요. 일부 내보내기 도구는 조용히 평면화합니다. 파일을 <code>favicon-32x32.png</code> 및 <code>favicon-16x16.png</code>로 저장하세요.</p>
+
+<h3>3단계: 올바른 순서로 링크 태그 추가</h3>
+<p>이 태그들을 <code>&lt;head&gt;</code> 내부, preconnect 또는 preload 힌트보다 앞에 배치하세요. 순서가 중요합니다:</p>
+<pre><code>&amp;lt;link rel='icon' type='image/png' sizes='32x32' href='/favicon-32x32.png'&amp;gt;
+&amp;lt;link rel='icon' type='image/png' sizes='16x16' href='/favicon-16x16.png'&amp;gt;
+&amp;lt;link rel='icon' type='image/svg+xml' href='/favicon.svg'&amp;gt;</code></pre>
+<p>브라우저는 위에서 아래로 반복하며 지원하는 마지막 유효한 일치 항목을 사용합니다. SVG를 마지막에 배치하면 Chrome, Firefox, Safari가 SVG를 선택하고, 오래된 렌더러는 PNG에서 멈춥니다.</p>
+
+<h3>4단계: 진정한 레거시 브라우저를 위한 ICO 유지</h3>
+<p>사용자층에 IE11 또는 매우 오래된 Edge 빌드가 여전히 포함되어 있다면 맨 앞에 ICO를 추가하세요:</p>
+<pre><code>&amp;lt;link rel='icon' type='image/x-icon' href='/favicon.ico'&amp;gt;
+&amp;lt;link rel='icon' type='image/png' sizes='32x32' href='/favicon-32x32.png'&amp;gt;
+&amp;lt;link rel='icon' type='image/svg+xml' href='/favicon.svg'&amp;gt;</code></pre>
+<p>최신 엔진은 ICO를 무시하고 SVG로 바로 건너&lt;unk&gt;니다. SVG나 <code>type</code> 태그가 지정된 PNG를 이해하지 못하는 레거시 브라우저도 여전히 무언가를 얻습니다.</p>
+
+<h3>5단계: 다크 모드 변형 추가(선택 사항)</h3>
+<p>SVG를 사용하면 <code>media</code> 속성을 사용하여 테마별로 하나의 파일을 제공할 수 있습니다:</p>
+<pre><code>&amp;lt;link rel='icon' type='image/svg+xml' href='/favicon-light.svg' media='(prefers-color-scheme: light)'&amp;gt;
+&amp;lt;link rel='icon' type='image/svg+xml' href='/favicon-dark.svg' media='(prefers-color-scheme: dark)'&amp;gt;
+&amp;lt;link rel='icon' type='image/png' href='/favicon-32x32.png'&amp;gt;</code></pre>
+<p>뒤에 오는 PNG는 테마 인식이 없는 브라우저가 빈 사각형 대신 무언가를 볼 수 있도록 보장합니다. 단일 SVG 내부에 <code>&lt;style&gt;</code> 블록을 사용하여 <code>prefers-color-scheme</code>을 직접 포함할 수도 있습니다. 더 고급 접근 방식이지만 head 마크업을 간결하게 유지합니다.</p>
+
+<h3>6단계: 스택 검증</h3>
+<p>DevTools를 열고 Network 패널로 이동한 후 새로고침하세요. 선언된 모든 아이콘이 한 번씩 요청되는 것을 볼 수 있습니다. PNG만 로드된다면 SVG 경로가 잘못되었거나 파일이 유효한 XML이 아닙니다. Safari가 PNG를 무시한다면 서버가 잘못된 MIME 유형으로 제공하고 있을 가능성이 높습니다. 자동 감지에 의존하지 말고 서버 구성에서 <code>image/png</code>를 강제하세요. Network 패널에서 요청을 가리키면 제공된 MIME을 확인할 수 있습니다.</p>
+
+<h2>일반적인 함정</h2>
+<ul>
+<li><strong>잘못된 순서.</strong> SVG는 마지막이어야 합니다. 브라우저는 위에서 아래로 스캔하여 엔진이 지원하는 첫 번째 형식에서 멈춥니다.</li>
+<li><strong><code>type</code> 속성 누락.</strong> <code>type='image/svg+xml'</code>이 없으면 일부 브라우저는 파일을 일반 리소스로 취급하고 건너&lt;unk&gt;니다.</li>
+<li><strong>흰색 배경의 PNG.</strong> 어두운 브라우저 테마에서 흰색 사각형 PNG는 두드러집니다. 투명도를 사용하거나 사이트 배경과 일치시키세요.</li>
+<li><strong>캐시.</strong> 배포 후 브라우저는 며칠 동안 오래된 파비콘을 제공하는 경우가 많습니다. PNG에 <code>?v=2</code>와 같은 버전 쿼리를 추가하여 새로고침을 강제하세요.</li>
+<li><strong>XML 오류.</strong> 브라우저는 구문 분석 오류가 있는 SVG 콘텐츠를 조용히 무시합니다. 배포 전에 XML 검증기를 통해 파일을 실행하세요.</li>
+<li><strong>인라인 웹뷰.</strong> 일부 임베디드 웹뷰는 <code>&lt;link&gt;</code> 태그를 완전히 무시하고 루트의 리터럴 <code>/favicon.ico</code>만 존중합니다.</li>
+</ul>
+
+<h2>마무리</h2>
+<p>SVG + PNG 폴백 패턴은 실용적인 절충안입니다. 지원되는 곳에서는 선명한 확장 가능 아이콘을, 그 외 모든 곳에서는 안정적인 래스터 아이콘을 제공합니다. 파일 3개, <code>&lt;head&gt;</code> 블록 하나, JavaScript가 필요 없습니다. 순서를 올바르게 하고, MIME 유형을 검증하고, 출시 전에 Chrome, Firefox, Safari에서 테스트하세요. 탭 표시가 더 이상 추측 게임이 되지 않을 것입니다.</p>
+<p>파일이 미리 구축되어 필요하신가요? <a href="/index.html">Mzu favicondl</a>은 단일 업로드로 완전한 SVG + 다중 크기 PNG + ICO 패키지를 내보내어 어떤 프로젝트에든 바로 사용할 수 있습니다.</p></template>
+        <template data-article-lang="es"><p>Subiste un favicon SVG nítido, abriste Safari y viste un PNG diminuto y borroso en su lugar. Eso se debe a que <strong>no todos los navegadores leen favicons SVG todavía</strong>. La solución es un marcado híbrido: SVG primero y PNG detrás para motores más antiguos. Esta guía explica el patrón HTML exacto, los tamaños de archivo adecuados y los errores que hacen que el fallback falle silenciosamente.</p>
+
+<h2>¿Por qué SVG con fallback PNG?</h2>
+<p>El estándar HTML vivo permite declarar múltiples etiquetas <code>&lt;link rel='icon'&gt;</code> apuntando a diferentes formatos. Según la <a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">especificación WHATWG HTML para rel='icon'</a>, los navegadores escanean la lista y eligen la última etiqueta que reconocen. Ese orden es el truco: coloca el SVG al final para que los navegadores modernos lo prefieran, y el PNG antes para que los motores heredados recurran a él sin problemas.</p>
+<p>Este patrón es importante porque algunos renderizadores (versiones antiguas de Safari, webviews integradas, navegadores móviles de nicho) aún ignoran el SVG por completo. Sin un PNG detrás, tus visitantes verán una pestaña en blanco.</p>
+
+<h2>Requisitos previos</h2>
+<ul>
+<li>Un favicon SVG (idealmente de menos de 2KB, con un <code>viewBox</code> cuadrado).</li>
+<li>Uno o más fallbacks PNG: 32x32 para pestañas estándar, 16x16 para contextos estrechos. Añade 180x180 si no incluyes un Apple Touch Icon.</li>
+<li>Acceso de edición al bloque <code>&lt;head&gt;</code> de tu sitio.</li>
+</ul>
+<p>¿Necesitas una exportación SVG limpia? Consulta la <a href="/blog/svg-favicon.html">guía de diseño de favicons SVG</a> para lo básico. También puedes omitir el trabajo manual con un <a href="/blog/favicon-package-generator.html">generador de paquetes de favicons</a> que produce el conjunto completo con un clic.</p>
+
+<h2>Paso a paso: Construye la pila SVG + PNG</h2>
+
+<h3>Paso 1: Exporta un SVG ligero</h3>
+<p>Guarda tu obra como un SVG cuadrado con <code>viewBox='0 0 100 100'</code>. Elimina metadatos del editor, capas ocultas y fallbacks rasterizados incrustados; van en contra del propósito. Un SVG de 1KB supera a un PNG de 15KB en claridad de pestaña.</p>
+
+<h3>Paso 2: Genera los fallbacks PNG</h3>
+<p>Exporta la misma obra a 32x32 y 16x16. Si tu logotipo usa transparencia, verifica que el PNG realmente conserve el canal alfa; algunos exportadores lo eliminan silenciosamente. Guárdalos como <code>favicon-32x32.png</code> y <code>favicon-16x16.png</code>.</p>
+
+<h3>Paso 3: Añade las etiquetas link en el orden correcto</h3>
+<p>Coloca estas etiquetas dentro de tu <code>&lt;head&gt;</code>, antes de cualquier sugerencia de preconnect o preload. El orden es crítico:</p>
+<pre><code>&amp;lt;link rel='icon' type='image/png' sizes='32x32' href='/favicon-32x32.png'&amp;gt;
+&amp;lt;link rel='icon' type='image/png' sizes='16x16' href='/favicon-16x16.png'&amp;gt;
+&amp;lt;link rel='icon' type='image/svg+xml' href='/favicon.svg'&amp;gt;</code></pre>
+<p>Los navegadores iteran de arriba a abajo y usan la última coincidencia válida que soporten. Al poner el SVG al final, Chrome, Firefox y Safari lo eligen; los renderizadores antiguos se detienen en el PNG.</p>
+
+<h3>Paso 4: Mantén un ICO para navegadores realmente heredados</h3>
+<p>Si tu audiencia aún incluye IE11 o versiones muy antiguas de Edge, añade un ICO al principio:</p>
+<pre><code>&amp;lt;link rel='icon' type='image/x-icon' href='/favicon.ico'&amp;gt;
+&amp;lt;link rel='icon' type='image/png' sizes='32x32' href='/favicon-32x32.png'&amp;gt;
+&amp;lt;link rel='icon' type='image/svg+xml' href='/favicon.svg'&amp;gt;</code></pre>
+<p>Los motores modernos ignoran el ICO y saltan directamente al SVG. Los navegadores heredados que no entienden SVG o PNGs con <code>type</code> aún obtienen algo.</p>
+
+<h3>Paso 5: Añade variantes de modo oscuro (opcional)</h3>
+<p>SVG te permite enviar un archivo por tema usando el atributo <code>media</code>:</p>
+<pre><code>&amp;lt;link rel='icon' type='image/svg+xml' href='/favicon-light.svg' media='(prefers-color-scheme: light)'&amp;gt;
+&amp;lt;link rel='icon' type='image/svg+xml' href='/favicon-dark.svg' media='(prefers-color-scheme: dark)'&amp;gt;
+&amp;lt;link rel='icon' type='image/png' href='/favicon-32x32.png'&amp;gt;</code></pre>
+<p>El PNG final garantiza que los navegadores sin conciencia de tema vean algo en lugar de un cuadrado en blanco. También puedes incrustar <code>prefers-color-scheme</code> directamente dentro de un solo SVG usando un bloque <code>&lt;style&gt;</code>; es un enfoque más avanzado, pero mantiene el marcado del head limpio.</p>
+
+<h3>Paso 6: Verifica la pila</h3>
+<p>Abre DevTools, ve al panel de Red y recarga. Deberías ver cada icono declarado solicitado una vez. Si solo carga el PNG, tu ruta SVG es incorrecta o el archivo no es XML válido. Si Safari ignora tu PNG, el servidor probablemente lo está sirviendo con un tipo MIME incorrecto; fuerza <code>image/png</code> en la configuración de tu servidor en lugar de depender de la auto-detección. Puedes confirmar el MIME servido pasando el cursor sobre la solicitud en el panel de Red.</p>
+
+<h2>Errores comunes</h2>
+<ul>
+<li><strong>Orden incorrecto.</strong> El SVG debe ir al final. Los navegadores escanean de arriba a abajo y se detienen en el primer formato que su motor soporta.</li>
+<li><strong>Falta el atributo <code>type</code>.</strong> Sin <code>type='image/svg+xml'</code>, algunos navegadores tratan el archivo como un recurso genérico y lo omiten.</li>
+<li><strong>PNG con fondo blanco.</strong> En temas oscuros del navegador, un PNG de cuadrado blanco resalta. Usa transparencia o combina con el fondo de tu sitio.</li>
+<li><strong>Caché.</strong> Después de implementar, los navegadores a menudo sirven un favicon obsoleto durante días. Añade una consulta de versión como <code>?v=2</code> al PNG para forzar una actualización.</li>
+<li><strong>Errores XML.</strong> Los navegadores ignoran contenido SVG con errores de análisis silenciosamente. Ejecuta tu archivo a través de un validador XML antes de implementar.</li>
+<li><strong>Webviews integradas.</strong> Algunas webviews integradas ignoran las etiquetas <code>&lt;link&gt;</code> por completo y solo respetan un <code>/favicon.ico</code> literal en la raíz.</li>
+</ul>
+
+<h2>Conclusión</h2>
+<p>El patrón de fallback SVG + PNG es el compromiso práctico: iconos nítidos y escalables donde se soportan, iconos rasterizados confiables en cualquier otro lugar. Tres archivos, un bloque <code>&lt;head&gt;</code>, sin necesidad de JavaScript. Acierta con el orden, valida tus tipos MIME y prueba en Chrome, Firefox y Safari antes de publicar. Tu presencia en la pestaña dejará de ser un juego de adivinanzas.</p>
+<p>¿Necesitas los archivos pre-construidos? <a href="/index.html">Mzu favicondl</a> exporta un paquete completo de SVG + PNG multi-tamaño + ICO desde una sola carga, listo para integrar en cualquier proyecto.</p></template>
+
+        <div class="cta-box">
+            <h3 data-en="Generate Your Full SVG + PNG + ICO Stack" data-zh="一键生成完整 SVG + PNG + ICO 图标包" data-ja="SVG + PNG + ICO パッケージを一発生成" data-ko="SVG + PNG + ICO 패키지를 한 번에 생성" data-es="Genera tu paquete SVG + PNG + ICO al instante">Generate Your Full SVG + PNG + ICO Stack</h3>
+            <p data-en="Upload one image and export a ready-to-ship favicon set: SVG, multi-size PNG, ICO, and HTML tags included." data-zh="上传一张图，自动导出 SVG、多种 PNG 尺寸和 ICO 文件，并附带可直接使用的 HTML 代码。" data-ja="1枚の画像から SVG、複数サイズの PNG、ICO を一括出力。HTML タグも付属します。" data-ko="이미지 하나만 업로드하면 SVG, 다양한 크기의 PNG, ICO 파일을 즉시 받아 사용할 수 있습니다." data-es="Sube una imagen y descarga SVG, PNG en varios tamaños e ICO, con las etiquetas HTML listas para copiar.">Upload one image and export a ready-to-ship favicon set: SVG, multi-size PNG, ICO, and HTML tags included.</p>
+            <a href="/index.html" class="cta-btn" data-en="Try It Free →" data-zh="免费试用 →" data-ja="無料で試す →" data-ko="무료로 사용해보기 →" data-es="Pruébalo gratis →">Try It Free →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/index.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Home" data-zh="首页">Home</a>
+                <a href="/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Blog" data-zh="博客">Blog</a>
+                <a href="/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Privacy" data-zh="隐私政策">Privacy</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js?v=20260211"></script>
+
+</body></html>

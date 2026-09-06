@@ -1,0 +1,184 @@
+<!DOCTYPE html><html lang="ja"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SVGファビコンとPNGフォールバック：実装ガイド - Mzu favicondl</title>
+    <meta name="description" content="SVGファビコンを主、PNGを補助として使う実装パターンを解説。コード、サイズ、順序、落とし穴まで。">
+    <meta name="keywords" content="svg favicon, png fallback, rel icon, favicon html, hybrid favicon">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/ja/blog/svg-favicon-png-fallback.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/svg-favicon-png-fallback.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/svg-favicon-png-fallback.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/svg-favicon-png-fallback.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/svg-favicon-png-fallback.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/svg-favicon-png-fallback.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/svg-favicon-png-fallback.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/ja/blog/svg-favicon-png-fallback.html">
+    <meta property="og:title" content="SVGファビコンとPNGフォールバック：実装ガイド">
+    <meta property="og:description" content="SVGファビコンを主、PNGを補助として使う実装パターンを解説。コード、サイズ、順序、落とし穴まで。">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="SVGファビコンとPNGフォールバック：実装ガイド">
+    <meta name="twitter:description" content="SVGファビコンを主、PNGを補助として使う実装パターンを解説。コード、サイズ、順序、落とし穴まで。">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "SVGファビコンとPNGフォールバック：実装ガイド",
+  "description": "SVGファビコンを主、PNGを補助として使う実装パターンを解説。コード、サイズ、順序、落とし穴まで。",
+  "datePublished": "2026-09-06",
+  "dateModified": "2026-09-06",
+  "author": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "mainEntityOfPage": "https://favicondl.com/ja/blog/svg-favicon-png-fallback.html",
+  "inLanguage": "ja"
+}</script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/ja/index.html" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/ja/documentation.html" class="nav-link">ドキュメント</a>
+                <a href="/ja/tools.html" class="nav-link">ツール</a>
+                <a href="/ja/blog/" class="nav-link">ブログ</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/svg-favicon-png-fallback.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/svg-favicon-png-fallback.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/svg-favicon-png-fallback.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/svg-favicon-png-fallback.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/svg-favicon-png-fallback.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/ja/index.html" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/ja/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600">SVGファビコンとPNGフォールバック：実装ガイド</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">svg</span><time class="text-sm text-gray-400">2026-09-06</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">SVGファビコンとPNGフォールバック：実装ガイド</h1>
+        </header>
+
+        <div class="article-body"><p>シャープなSVGファビコンをアップロードしたのに、Safariで開くと小さくてぼやけたPNGが表示される——そんな経験はありませんか？ その原因は、<strong>すべてのブラウザがまだSVGファビコンに対応しているわけではない</strong>からです。解決策は、SVGを優先しつつ、古いエンジン向けにPNGをフォールバックとして併用するハイブリッドなマークアップです。このガイドでは、正確なHTMLパターン、適切なファイルサイズ、そしてフォールバックが静かに失敗する落とし穴について詳しく解説します。</p>
+
+<h2>なぜSVGとPNGフォールバックなのか？</h2>
+<p>HTML Living Standardでは、異なるフォーマットを指す複数の<code>&lt;link rel='icon'&gt;</code>タグを宣言できます。<a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">WHATWG HTML仕様のrel='icon'</a>によると、ブラウザはリストをスキャンし、認識できる最後のタグを選択します。この順序が鍵となります。つまり、SVGを最後に置くことでモダンブラウザがSVGを優先し、PNGを前に置くことでレガシーエンジンが適切にフォールバックします。</p>
+<p>このパターンが重要なのは、一部のレンダラー（古いSafariビルド、アプリ内ウェブビュー、ニッチなモバイルブラウザなど）がSVGを完全に無視するためです。PNGが背後にないと、訪問者のタブは空白になってしまいます。</p>
+
+<h2>前提条件</h2>
+<ul>
+<li>SVGファビコン1つ（理想的には2KB未満、正方形の<code>viewBox</code>を持つもの）。</li>
+<li>PNGフォールバック1つ以上：標準タブ用に32x32、狭いコンテキスト用に16x16。Apple Touch Iconを提供しない場合は180x180も追加。</li>
+<li>サイトの<code>&lt;head&gt;</code>ブロックを編集できること。</li>
+</ul>
+<p>クリーンなSVG書き出しが必要ですか？ 基本は<a href="/ja/blog/svg-favicon.html">SVGファビコンデザインガイド</a>をご覧ください。また、<a href="/ja/blog/favicon-package-generator.html">ファビコンパッケージジェネレーター</a>を使えば、ワンクリックで完全なセットを出力でき、手作業を省けます。</p>
+
+<h2>ステップバイステップ：SVG + PNGスタックの構築</h2>
+
+<h3>ステップ1：軽量なSVGを書き出す</h3>
+<p>アートワークを正方形のSVG（<code>viewBox='0 0 100 100'</code>）として保存します。エディタのメタデータ、非表示レイヤー、埋め込まれたラスターフォールバックは削除してください。これらは目的を損ないます。1KBのSVGは、タブの鮮明さで15KBのPNGに勝ります。</p>
+
+<h3>ステップ2：PNGフォールバックを生成する</h3>
+<p>同じアートワークを32x32と16x16で書き出します。ロゴが透過を使用している場合、PNGが実際にアルファチャンネルを保持しているか確認してください。一部のエクスポーターは静かに平坦化します。<code>favicon-32x32.png</code>および<code>favicon-16x16.png</code>として保存します。</p>
+
+<h3>ステップ3：正しい順序でリンクタグを追加する</h3>
+<p>これらのタグを<code>&lt;head&gt;</code>内のpreconnectやpreloadヒントの前に配置します。順序が重要です：</p>
+<pre><code>&amp;lt;link rel='icon' type='image/png' sizes='32x32' href='/favicon-32x32.png'&amp;gt;
+&amp;lt;link rel='icon' type='image/png' sizes='16x16' href='/favicon-16x16.png'&amp;gt;
+&amp;lt;link rel='icon' type='image/svg+xml' href='/favicon.svg'&amp;gt;</code></pre>
+<p>ブラウザは上から下に反復処理し、サポートする最後の有効な一致を使用します。SVGを最後に置くことで、Chrome、Firefox、SafariはSVGを選択し、古いレンダラーはPNGで停止します。</p>
+
+<h3>ステップ4：真にレガシーなブラウザのためにICOを維持する</h3>
+<p>対象ユーザーにIE11や非常に古いEdgeビルドが含まれる場合は、先頭にICOを追加します：</p>
+<pre><code>&amp;lt;link rel='icon' type='image/x-icon' href='/favicon.ico'&amp;gt;
+&amp;lt;link rel='icon' type='image/png' sizes='32x32' href='/favicon-32x32.png'&amp;gt;
+&amp;lt;link rel='icon' type='image/svg+xml' href='/favicon.svg'&amp;gt;</code></pre>
+<p>モダンエンジンはICOを無視してSVGに直接スキップします。SVGや<code>type</code>タグ付きPNGを理解しないレガシーブラウザでも、何かは表示されます。</p>
+
+<h3>ステップ5：ダークモードバリアントを追加する（オプション）</h3>
+<p>SVGでは、<code>media</code>属性を使用してテーマごとに1ファイルを配信できます：</p>
+<pre><code>&amp;lt;link rel='icon' type='image/svg+xml' href='/favicon-light.svg' media='(prefers-color-scheme: light)'&amp;gt;
+&amp;lt;link rel='icon' type='image/svg+xml' href='/favicon-dark.svg' media='(prefers-color-scheme: dark)'&amp;gt;
+&amp;lt;link rel='icon' type='image/png' href='/favicon-32x32.png'&amp;gt;</code></pre>
+<p>末尾のPNGにより、テーマ認識がないブラウザでも空白の四角ではなく何かが表示されます。また、単一のSVG内に<code>&lt;style&gt;</code>ブロックを使用して<code>prefers-color-scheme</code>を直接埋め込むこともできます。これはより高度なアプローチですが、headマークアップを簡潔に保てます。</p>
+
+<h3>ステップ6：スタックを検証する</h3>
+<p>DevToolsを開き、Networkパネルを表示してリロードします。宣言したすべてのアイコンが一度リクエストされるはずです。PNGのみが読み込まれる場合、SVGパスが間違っているか、ファイルが有効なXMLではありません。SafariがPNGを無視する場合、サーバーが誤ったMIMEタイプで配信している可能性があります。自動検出に頼らず、サーバー設定で<code>image/png</code>を強制してください。Networkパネルでリクエストにカーソルを合わせると、配信されたMIMEを確認できます。</p>
+
+<h2>よくある落とし穴</h2>
+<ul>
+<li><strong>順序の誤り。</strong> SVGは最後でなければなりません。ブラウザは上から下にスキャンし、エンジンがサポートする最初のフォーマットで停止します。</li>
+<li><strong><code>type</code>属性の欠落。</strong> <code>type='image/svg+xml'</code>がないと、一部のブラウザはファイルを一般的なリソースとして扱い、スキップします。</li>
+<li><strong>白い背景のPNG。</strong> ダークなブラウザテーマでは、白い四角のPNGが目立ちます。透過を使用するか、サイトの背景に合わせてください。</li>
+<li><strong>キャッシュ。</strong> デプロイ後、ブラウザは古いファビコンを数日間配信することがよくあります。PNGに<code>?v=2</code>のようなバージョンクエリを追加して、更新を強制してください。</li>
+<li><strong>XMLエラー。</strong> ブラウザは解析エラーがあるSVGコンテンツを静かに無視します。デプロイ前にXMLバリデーターでファイルを検証してください。</li>
+<li><strong>インラインウェブビュー。</strong> 一部の埋め込みウェブビューは<code>&lt;link&gt;</code>タグを完全に無視し、ルートのリテラルな<code>/favicon.ico</code>のみを尊重します。</li>
+</ul>
+
+<h2>まとめ</h2>
+<p>SVG + PNGフォールバックパターンは実用的な妥協点です。サポートされている場所では鮮明でスケーラブルなアイコン、その他の場所では信頼性の高いラスターアイコンを提供します。3つのファイル、1つの<code>&lt;head&gt;</code>ブロック、JavaScriptは不要です。順序を正しくし、MIMEタイプを検証し、リリース前にChrome、Firefox、Safariでテストしてください。タブの表示が推測ゲームではなくなります。</p>
+<p>ファイルを事前にビルドする必要がありますか？ <a href="/ja/index.html">Mzu favicondl</a>は、単一のアップロードから完全なSVG + マルチサイズPNG + ICOパッケージを書き出し、任意のプロジェクトにすぐにドロップできます。</p></div>
+
+        <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
+
+        <div class="cta-box">
+            <h3>SVG + PNG + ICO パッケージを一発生成</h3>
+            <p>1枚の画像から SVG、複数サイズの PNG、ICO を一括出力。HTML タグも付属します。</p>
+            <a href="/ja/index.html" class="cta-btn">無料で試す →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/ja/index.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">ホーム</a>
+                <a href="/ja/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">ブログ</a>
+                <a href="/ja/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">プライバシー</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js?v=20260211"></script>
+
+</body></html>

@@ -2532,7 +2532,9 @@
       "svg-favicon",
       "favicon-file-formats"
     ],
-    "status": "pending"
+    "status": "done",
+    "qualityScore": 100,
+    "qualityGrade": "A"
   },
   {
     "keyword": "svg favicon dark mode media query",

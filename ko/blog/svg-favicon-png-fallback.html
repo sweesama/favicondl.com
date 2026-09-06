@@ -1,0 +1,184 @@
+<!DOCTYPE html><html lang="ko"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SVG 파비콘 PNG 폴백 설정 가이드 - Mzu favicondl</title>
+    <meta name="description" content="SVG 파비콘과 PNG 폴백을 함께 쓰는 단계별 구현 가이드. HTML 코드, 파일 순서, 주의사항 정리.">
+    <meta name="keywords" content="svg favicon, png fallback, rel icon, favicon html, hybrid favicon">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/ko/blog/svg-favicon-png-fallback.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/svg-favicon-png-fallback.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/svg-favicon-png-fallback.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/svg-favicon-png-fallback.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/svg-favicon-png-fallback.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/svg-favicon-png-fallback.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/svg-favicon-png-fallback.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/ko/blog/svg-favicon-png-fallback.html">
+    <meta property="og:title" content="SVG 파비콘 PNG 폴백 설정 가이드">
+    <meta property="og:description" content="SVG 파비콘과 PNG 폴백을 함께 쓰는 단계별 구현 가이드. HTML 코드, 파일 순서, 주의사항 정리.">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="SVG 파비콘 PNG 폴백 설정 가이드">
+    <meta name="twitter:description" content="SVG 파비콘과 PNG 폴백을 함께 쓰는 단계별 구현 가이드. HTML 코드, 파일 순서, 주의사항 정리.">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "SVG 파비콘 PNG 폴백 설정 가이드",
+  "description": "SVG 파비콘과 PNG 폴백을 함께 쓰는 단계별 구현 가이드. HTML 코드, 파일 순서, 주의사항 정리.",
+  "datePublished": "2026-09-06",
+  "dateModified": "2026-09-06",
+  "author": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "mainEntityOfPage": "https://favicondl.com/ko/blog/svg-favicon-png-fallback.html",
+  "inLanguage": "ko"
+}</script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/ko/index.html" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/ko/documentation.html" class="nav-link">문서</a>
+                <a href="/ko/tools.html" class="nav-link">도구</a>
+                <a href="/ko/blog/" class="nav-link">블로그</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/svg-favicon-png-fallback.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/svg-favicon-png-fallback.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/svg-favicon-png-fallback.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/svg-favicon-png-fallback.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/svg-favicon-png-fallback.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/ko/index.html" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/ko/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600">SVG 파비콘 PNG 폴백 설정 가이드</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">svg</span><time class="text-sm text-gray-400">2026-09-06</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">SVG 파비콘 PNG 폴백 설정 가이드</h1>
+        </header>
+
+        <div class="article-body"><p>선명한 SVG 파비콘을 업로드했는데 Safari에서 작고 흐릿한 PNG가 표시된 적이 있나요? 그 이유는 <strong>아직 모든 브라우저가 SVG 파비콘을 지원하지 않기 때문</strong>입니다. 해결책은 하이브리드 마크업입니다. SVG를 먼저 선언하고, 오래된 엔진을 위해 PNG를 뒤에 배치하는 것입니다. 이 가이드에서는 정확한 HTML 패턴, 적절한 파일 크기, 그리고 폴백이 조용히 실패하게 만드는 함정들을 설명합니다.</p>
+
+<h2>SVG와 PNG 폴백이 필요한 이유</h2>
+<p>HTML living standard에서는 서로 다른 형식을 가리키는 여러 개의 <code>&lt;link rel='icon'&gt;</code> 태그를 선언할 수 있습니다. <a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">WHATWG HTML 스펙의 rel='icon'</a>에 따르면, 브라우저는 목록을 스캔하여 인식하는 마지막 태그를 선택합니다. 이 순서가 핵심입니다. SVG를 마지막에 배치하여 최신 브라우저가 선호하고, PNG를 앞에 배치하여 레거시 엔진이 자연스럽게 폴백되도록 합니다.</p>
+<p>이 패턴이 중요한 이유는 일부 렌더러(구형 Safari 빌드, 인앱 웹뷰, 틈새 모바일 브라우저)가 여전히 SVG를 완전히 무시하기 때문입니다. PNG 폴백이 없으면 방문자는 빈 탭을 보게 됩니다.</p>
+
+<h2>사전 요구 사항</h2>
+<ul>
+<li>SVG 파비콘 하나(가급적 2KB 미만, 정사각형 <code>viewBox</code> 포함).</li>
+<li>PNG 폴백 하나 이상: 표준 탭용 32x32, 좁은 컨텍스트용 16x16. Apple Touch Icon을 제공하지 않는 경우 180x180도 추가하세요.</li>
+<li>사이트의 <code>&lt;head&gt;</code> 블록에 접근 권한.</li>
+</ul>
+<p>깔끔한 SVG 내보내기가 필요하신가요? 기본 사항은 <a href="/ko/blog/svg-favicon.html">SVG 파비콘 디자인 가이드</a>를 참조하세요. <a href="/ko/blog/favicon-package-generator.html">파비콘 패키지 생성기</a>를 사용하면 한 번의 클릭으로 전체 세트를 출력하여 수동 작업을 건너뛸 수도 있습니다.</p>
+
+<h2>단계별: SVG + PNG 스택 구축</h2>
+
+<h3>1단계: 가벼운 SVG 내보내기</h3>
+<p>아트워크를 <code>viewBox='0 0 100 100'</code>인 정사각형 SVG로 저장하세요. 편집기 메타데이터, 숨겨진 레이어, 포함된 래스터 폴백을 제거하세요. 목적을 무색하게 만듭니다. 1KB SVG는 탭 선명도에서 15KB PNG보다 낫습니다.</p>
+
+<h3>2단계: PNG 폴백 생성</h3>
+<p>동일한 아트워크를 32x32 및 16x16으로 내보내세요. 로고에 투명도가 사용된 경우 PNG가 실제로 알파 채널을 유지하는지 다시 확인하세요. 일부 내보내기 도구는 조용히 평면화합니다. 파일을 <code>favicon-32x32.png</code> 및 <code>favicon-16x16.png</code>로 저장하세요.</p>
+
+<h3>3단계: 올바른 순서로 링크 태그 추가</h3>
+<p>이 태그들을 <code>&lt;head&gt;</code> 내부, preconnect 또는 preload 힌트보다 앞에 배치하세요. 순서가 중요합니다:</p>
+<pre><code>&amp;lt;link rel='icon' type='image/png' sizes='32x32' href='/favicon-32x32.png'&amp;gt;
+&amp;lt;link rel='icon' type='image/png' sizes='16x16' href='/favicon-16x16.png'&amp;gt;
+&amp;lt;link rel='icon' type='image/svg+xml' href='/favicon.svg'&amp;gt;</code></pre>
+<p>브라우저는 위에서 아래로 반복하며 지원하는 마지막 유효한 일치 항목을 사용합니다. SVG를 마지막에 배치하면 Chrome, Firefox, Safari가 SVG를 선택하고, 오래된 렌더러는 PNG에서 멈춥니다.</p>
+
+<h3>4단계: 진정한 레거시 브라우저를 위한 ICO 유지</h3>
+<p>사용자층에 IE11 또는 매우 오래된 Edge 빌드가 여전히 포함되어 있다면 맨 앞에 ICO를 추가하세요:</p>
+<pre><code>&amp;lt;link rel='icon' type='image/x-icon' href='/favicon.ico'&amp;gt;
+&amp;lt;link rel='icon' type='image/png' sizes='32x32' href='/favicon-32x32.png'&amp;gt;
+&amp;lt;link rel='icon' type='image/svg+xml' href='/favicon.svg'&amp;gt;</code></pre>
+<p>최신 엔진은 ICO를 무시하고 SVG로 바로 건너&lt;unk&gt;니다. SVG나 <code>type</code> 태그가 지정된 PNG를 이해하지 못하는 레거시 브라우저도 여전히 무언가를 얻습니다.</p>
+
+<h3>5단계: 다크 모드 변형 추가(선택 사항)</h3>
+<p>SVG를 사용하면 <code>media</code> 속성을 사용하여 테마별로 하나의 파일을 제공할 수 있습니다:</p>
+<pre><code>&amp;lt;link rel='icon' type='image/svg+xml' href='/favicon-light.svg' media='(prefers-color-scheme: light)'&amp;gt;
+&amp;lt;link rel='icon' type='image/svg+xml' href='/favicon-dark.svg' media='(prefers-color-scheme: dark)'&amp;gt;
+&amp;lt;link rel='icon' type='image/png' href='/favicon-32x32.png'&amp;gt;</code></pre>
+<p>뒤에 오는 PNG는 테마 인식이 없는 브라우저가 빈 사각형 대신 무언가를 볼 수 있도록 보장합니다. 단일 SVG 내부에 <code>&lt;style&gt;</code> 블록을 사용하여 <code>prefers-color-scheme</code>을 직접 포함할 수도 있습니다. 더 고급 접근 방식이지만 head 마크업을 간결하게 유지합니다.</p>
+
+<h3>6단계: 스택 검증</h3>
+<p>DevTools를 열고 Network 패널로 이동한 후 새로고침하세요. 선언된 모든 아이콘이 한 번씩 요청되는 것을 볼 수 있습니다. PNG만 로드된다면 SVG 경로가 잘못되었거나 파일이 유효한 XML이 아닙니다. Safari가 PNG를 무시한다면 서버가 잘못된 MIME 유형으로 제공하고 있을 가능성이 높습니다. 자동 감지에 의존하지 말고 서버 구성에서 <code>image/png</code>를 강제하세요. Network 패널에서 요청을 가리키면 제공된 MIME을 확인할 수 있습니다.</p>
+
+<h2>일반적인 함정</h2>
+<ul>
+<li><strong>잘못된 순서.</strong> SVG는 마지막이어야 합니다. 브라우저는 위에서 아래로 스캔하여 엔진이 지원하는 첫 번째 형식에서 멈춥니다.</li>
+<li><strong><code>type</code> 속성 누락.</strong> <code>type='image/svg+xml'</code>이 없으면 일부 브라우저는 파일을 일반 리소스로 취급하고 건너&lt;unk&gt;니다.</li>
+<li><strong>흰색 배경의 PNG.</strong> 어두운 브라우저 테마에서 흰색 사각형 PNG는 두드러집니다. 투명도를 사용하거나 사이트 배경과 일치시키세요.</li>
+<li><strong>캐시.</strong> 배포 후 브라우저는 며칠 동안 오래된 파비콘을 제공하는 경우가 많습니다. PNG에 <code>?v=2</code>와 같은 버전 쿼리를 추가하여 새로고침을 강제하세요.</li>
+<li><strong>XML 오류.</strong> 브라우저는 구문 분석 오류가 있는 SVG 콘텐츠를 조용히 무시합니다. 배포 전에 XML 검증기를 통해 파일을 실행하세요.</li>
+<li><strong>인라인 웹뷰.</strong> 일부 임베디드 웹뷰는 <code>&lt;link&gt;</code> 태그를 완전히 무시하고 루트의 리터럴 <code>/favicon.ico</code>만 존중합니다.</li>
+</ul>
+
+<h2>마무리</h2>
+<p>SVG + PNG 폴백 패턴은 실용적인 절충안입니다. 지원되는 곳에서는 선명한 확장 가능 아이콘을, 그 외 모든 곳에서는 안정적인 래스터 아이콘을 제공합니다. 파일 3개, <code>&lt;head&gt;</code> 블록 하나, JavaScript가 필요 없습니다. 순서를 올바르게 하고, MIME 유형을 검증하고, 출시 전에 Chrome, Firefox, Safari에서 테스트하세요. 탭 표시가 더 이상 추측 게임이 되지 않을 것입니다.</p>
+<p>파일이 미리 구축되어 필요하신가요? <a href="/ko/index.html">Mzu favicondl</a>은 단일 업로드로 완전한 SVG + 다중 크기 PNG + ICO 패키지를 내보내어 어떤 프로젝트에든 바로 사용할 수 있습니다.</p></div>
+
+        <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
+
+        <div class="cta-box">
+            <h3>SVG + PNG + ICO 패키지를 한 번에 생성</h3>
+            <p>이미지 하나만 업로드하면 SVG, 다양한 크기의 PNG, ICO 파일을 즉시 받아 사용할 수 있습니다.</p>
+            <a href="/ko/index.html" class="cta-btn">무료로 사용해보기 →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/ko/index.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">홈</a>
+                <a href="/ko/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">블로그</a>
+                <a href="/ko/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">개인정보</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js?v=20260211"></script>
+
+</body></html>
