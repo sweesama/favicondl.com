@@ -1,0 +1,183 @@
+<!DOCTYPE html><html lang="ko"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SVG 파비콘 다크모드 미디어 쿼리 단계별 가이드 - Mzu favicondl</title>
+    <meta name="description" content="SVG 파비콘 내부에 prefers-color-scheme 미디어 쿼리를 넣어 다크모드를 자동 전환하는 방법. HTML/CSS 단계별 가이드와 주의사항, 폴백 전략까지 정리합니다.">
+    <meta name="keywords" content="svg favicon, dark mode, media query, prefers-color-scheme">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/ko/blog/svg-favicon-dark-mode-media-query.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/svg-favicon-dark-mode-media-query.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/svg-favicon-dark-mode-media-query.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/svg-favicon-dark-mode-media-query.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/svg-favicon-dark-mode-media-query.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/svg-favicon-dark-mode-media-query.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/svg-favicon-dark-mode-media-query.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/ko/blog/svg-favicon-dark-mode-media-query.html">
+    <meta property="og:title" content="SVG 파비콘 다크모드 미디어 쿼리 단계별 가이드">
+    <meta property="og:description" content="SVG 파비콘 내부에 prefers-color-scheme 미디어 쿼리를 넣어 다크모드를 자동 전환하는 방법. HTML/CSS 단계별 가이드와 주의사항, 폴백 전략까지 정리합니다.">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="SVG 파비콘 다크모드 미디어 쿼리 단계별 가이드">
+    <meta name="twitter:description" content="SVG 파비콘 내부에 prefers-color-scheme 미디어 쿼리를 넣어 다크모드를 자동 전환하는 방법. HTML/CSS 단계별 가이드와 주의사항, 폴백 전략까지 정리합니다.">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "SVG 파비콘 다크모드 미디어 쿼리 단계별 가이드",
+  "description": "SVG 파비콘 내부에 prefers-color-scheme 미디어 쿼리를 넣어 다크모드를 자동 전환하는 방법. HTML/CSS 단계별 가이드와 주의사항, 폴백 전략까지 정리합니다.",
+  "datePublished": "2026-09-07",
+  "dateModified": "2026-09-07",
+  "author": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "mainEntityOfPage": "https://favicondl.com/ko/blog/svg-favicon-dark-mode-media-query.html",
+  "inLanguage": "ko"
+}</script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/ko/index.html" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/ko/documentation.html" class="nav-link">문서</a>
+                <a href="/ko/tools.html" class="nav-link">도구</a>
+                <a href="/ko/blog/" class="nav-link">블로그</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/svg-favicon-dark-mode-media-query.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/svg-favicon-dark-mode-media-query.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/svg-favicon-dark-mode-media-query.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/svg-favicon-dark-mode-media-query.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/svg-favicon-dark-mode-media-query.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/ko/index.html" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/ko/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600">SVG 파비콘 다크모드 미디어 쿼리 단계별 가이드</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">svg</span><time class="text-sm text-gray-400">2026-09-07</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">SVG 파비콘 다크모드 미디어 쿼리 단계별 가이드</h1>
+        </header>
+
+        <div class="article-body"><p>완성도 높은 로고를 업로드하고, 운영체제를 다크 모드로 전환한 다음 사이트를 열었다고 해봅시다. 어두운 탭 바에서 밝은 주황색 브랜드 마크가 빛을 내뿜는 자신을 마주하게 됩니다. 평범한 PNG 파비콘은 시스템 테마를 인식하지 못합니다. 하지만 <code>prefers-color-scheme</code> 미디어 쿼리를 내장한 SVG 파비콘이라면 이 문제를 해결할 수 있습니다.</p>
+<p>본 가이드는 단 하나의 기법에 초점을 맞춥니다. CSS 미디어 쿼리를 <code>.svg</code> 파일 안에 직접 임베드해, 파일 하나로도 테마에 따라 색상이 자동으로 바뀌도록 만드는 방법입니다. HTML에서 <code>&lt;link&gt;</code> 태그 두 개를 교체하는 방식과는 다른 경로이며, 대부분의 사이트에서 가장 깔끔한 방식입니다.</p>
+<h2>사전 준비</h2>
+<p>시작하기 전에 다음 세 가지가 필요합니다.</p>
+<ul>
+<li>깔끔한 <code>viewBox</code> 속성이 정의된 SVG 로고(확장 가능하도록).</li>
+<li>SVG 마크업 원본을 직접 편집할 수 있는 기본 지식.</li>
+<li>사이트 <code>&lt;head&gt;</code>에 link 태그를 추가할 수 있는 권한.</li>
+</ul>
+<p>아직 SVG가 없다면 디자인 툴에서 내보내거나, Mzu favicondl을 사용해 어떤 이미지에서든 깔끔한 벡터를 추출할 수 있습니다.</p>
+<h2>단계별 가이드: SVG 파비콘 안에 미디어 쿼리 추가하기</h2>
+<h3>1단계: 텍스트 에디터에서 SVG 파일 열기</h3>
+<p>SVG는 그 자체로 XML입니다. <code>.svg</code> 파일을 우클릭한 뒤 <strong>연결 프로그램 → TextEdit 또는 VS Code</strong>를 선택하세요. 다음과 같은 내용을 확인할 수 있습니다.</p>
+<pre><code>&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'&gt;
+  &lt;rect width='64' height='64' rx='12' fill='#ff7a00'/&gt;
+  &lt;path d='M20 22 L32 44 L44 22' stroke='#fff' stroke-width='6' fill='none'/&gt;
+&lt;/svg&gt;</code></pre>
+<h3>2단계: 미디어 쿼리가 포함된 <code>&lt;style&gt;</code> 블록 추가하기</h3>
+<p>열린 <code>&lt;svg&gt;</code> 태그 바로 아래에 <code>&lt;style&gt;</code> 요소를 삽입합니다. 그 안에서 라이트 테마용 색상을 정의하고, <code>prefers-color-scheme: dark</code>를 사용해 다크 모드용 색상으로 덮어씁니다.</p>
+<pre><code>&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'&gt;
+  &lt;style&gt;
+    .bg { fill: #ff7a00; }
+    .stroke { stroke: #ffffff; }
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #1a1a1a; }
+      .stroke { stroke: #ffb347; }
+    }
+  &lt;/style&gt;
+  &lt;rect class='bg' width='64' height='64' rx='12'/&gt;
+  &lt;path class='stroke' d='M20 22 L32 44 L44 22' stroke-width='6' fill='none'/&gt;
+&lt;/svg&gt;</code></pre>
+<p>브라우저는 운영체제 테마가 바뀔 때마다 <code>prefers-color-scheme</code>를 다시 평가합니다. 대부분의 최신 브라우저에서는 새로 고침 없이도 파비콘이 즉시 갱신됩니다.</p>
+<h3>3단계: HTML <code>&lt;head&gt;</code>에 링크 추가하기</h3>
+<p>WHATWG HTML Living Standard에 따르면, <code>rel='icon'</code> 링크 타입은 <code>type='image/svg+xml'</code>로 올바른 MIME 타입을 선언하면 SVG를 지원합니다.</p>
+<pre><code>&lt;link rel='icon' href='/favicon.svg' type='image/svg+xml'&gt;</code></pre>
+<p>이 태그는 PNG 또는 ICO 폴백 링크보다 위에 둡니다. Apple Touch 및 web manifest 항목까지 포함한 전체 모던 스택은 <a href="/ko/blog/favicon-html-code.html">favicon HTML 치트시트</a>에서 확인할 수 있습니다.</p>
+<h3>4단계: 래스터 폴백 제공하기</h3>
+<p>모든 브라우저가 파비콘 내부의 CSS를 파싱하지는 않습니다. 특히 구버전 Safari와 일부 임베디드 웹뷰가 그렇습니다. 이런 환경을 위해 32×32 PNG(혹은 멀티 사이즈 ICO)를 함께 제공합니다.</p>
+<pre><code>&lt;link rel='icon' href='/favicon.svg' type='image/svg+xml'&gt;
+&lt;link rel='icon' href='/favicon.ico' sizes='32x32'&gt;</code></pre>
+<p>브라우저는 첫 번째로 일치하는 항목을 사용하므로, SVG가 지원되는 환경에서는 SVG가 우선 적용됩니다.</p>
+<h3>5단계: 두 가지 컬러 스킴 모두에서 테스트하기</h3>
+<p>강제 새로 고침(Ctrl/Cmd + Shift + R)을 수행한 뒤 운영체제 테마를 전환합니다. Chrome, Edge, Firefox에서는 탭 아이콘이 실시간으로 바뀌어야 합니다. 변화가 없다면 아래 함정 항목을 참고하세요.</p>
+<h2>자주 겪는 함정들</h2>
+<h3>함정 1: <code>viewBox</code>를 빠뜨리는 경우</h3>
+<p><code>viewBox</code>가 없으면 SVG는 본질적인 크기 그대로 렌더링되며, 너무 크거나 0이 될 수 있습니다. 반드시 <code>viewBox='0 0 64 64'</code>처럼 선언하세요.</p>
+<h3>함정 2: 인라인 <code>fill</code> 속성이 CSS를 덮어쓰는 경우</h3>
+<p>도형에 이미 <code>fill='#ff7a00'</code> 같은 속성이 들어가 있다면, CSS 클래스는 우선순위 경합에서 밀립니다. 색상을 클래스로 옮기거나 인라인 속성을 완전히 삭제하세요.</p>
+<h3>함정 3: 지나치게 강한 파비콘 캐싱</h3>
+<p>브라우저는 파비콘을 거의 모든 파일보다 강하게 캐싱합니다. SVG를 수정한 뒤에는 테스트 단계에서 쿼리 스트링을 붙여 강제로 다시 불러오게 만드세요. 예: <code>/favicon.svg?v=2</code>. 운영 환경 전략은 <a href="/ko/blog/favicon-cache-busting.html">캐시 무효화 가이드</a>에서 다룹니다.</p>
+<h3>함정 4: Safari 핀 탭은 미디어 쿼리를 무시한다</h3>
+<p>Safari의 핀 탭 기능은 별도의 단색 <code>safari-pinned-tab.svg</code> 파일을 사용합니다. 이 파일 안에 미디어 쿼리를 넣어도 효과가 없습니다. 단색 실루엣으로 디자인하고 <code>&lt;style&gt;</code> 블록은 생략하세요.</p>
+<h3>함정 5: 다크 모드는 '색상 반전'이 아니다</h3>
+<p>브라우저의 실제 탭 배경(Chrome의 경우 보통 <code>#2b2a33</code>, Safari는 거의 검은색) 위에서 충분한 대비를 갖는 다크 모드 팔레트를 선택하세요. 아이콘을 한 번 대비 검사 도구에 통과시켜 두면 이후 지원 요청을 줄일 수 있습니다.</p>
+<h2>마무리</h2>
+<p>SVG 미디어 쿼리 접근법은 단일 출처 원칙을 제공합니다. 단일 파일, 두 가지 테마, JavaScript는 제로. 이미 SVG 로고를 갖고 있는 모든 모던 사이트의 기본값으로 적합하며, 구버전 브라우저용으로 함께 제공해야 할 PNG와 ICO 폴백을 대체하는 것이 아니라 보완하는 방식으로 작동합니다.</p>
+<h2>문서화된 사양 확인하기</h2>
+<p>HTML Standard는 현재 페이지를 대표하는 아이콘의 link 관계로 <a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon"><code>rel='icon'</code></a>을 정의합니다.</p></div>
+
+        <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
+
+        <div class="cta-box">
+            <h3>다크모드 지원 SVG 파비콘을 몇 초 만에 생성</h3>
+            <p>이미지를 업로드하면 다크모드 미디어 쿼리가 내장된 깔끔한 SVG를 즉시 생성합니다. CSS를 직접 작성할 필요 없음.</p>
+            <a href="/ko/index.html" class="cta-btn">무료로 사용해보기 →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/ko/index.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">홈</a>
+                <a href="/ko/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">블로그</a>
+                <a href="/ko/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">개인정보</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js?v=20260211"></script>
+
+</body></html>

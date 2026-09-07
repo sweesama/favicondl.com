@@ -1,0 +1,183 @@
+<!DOCTYPE html><html lang="es"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SVG Favicon y Media Query para Modo Oscuro: Guía Paso a Paso - Mzu favicondl</title>
+    <meta name="description" content="Aprende a usar prefers-color-scheme dentro de un SVG favicon para cambiar colores automáticamente. Guía HTML y CSS con pasos claros y errores comunes.">
+    <meta name="keywords" content="svg favicon, dark mode, media query, prefers-color-scheme">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/es/blog/svg-favicon-dark-mode-media-query.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/svg-favicon-dark-mode-media-query.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/svg-favicon-dark-mode-media-query.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/svg-favicon-dark-mode-media-query.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/svg-favicon-dark-mode-media-query.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/svg-favicon-dark-mode-media-query.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/svg-favicon-dark-mode-media-query.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/es/blog/svg-favicon-dark-mode-media-query.html">
+    <meta property="og:title" content="SVG Favicon y Media Query para Modo Oscuro: Guía Paso a Paso">
+    <meta property="og:description" content="Aprende a usar prefers-color-scheme dentro de un SVG favicon para cambiar colores automáticamente. Guía HTML y CSS con pasos claros y errores comunes.">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="SVG Favicon y Media Query para Modo Oscuro: Guía Paso a Paso">
+    <meta name="twitter:description" content="Aprende a usar prefers-color-scheme dentro de un SVG favicon para cambiar colores automáticamente. Guía HTML y CSS con pasos claros y errores comunes.">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "SVG Favicon y Media Query para Modo Oscuro: Guía Paso a Paso",
+  "description": "Aprende a usar prefers-color-scheme dentro de un SVG favicon para cambiar colores automáticamente. Guía HTML y CSS con pasos claros y errores comunes.",
+  "datePublished": "2026-09-07",
+  "dateModified": "2026-09-07",
+  "author": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "mainEntityOfPage": "https://favicondl.com/es/blog/svg-favicon-dark-mode-media-query.html",
+  "inLanguage": "es"
+}</script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/es/index.html" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/es/documentation.html" class="nav-link">Documentación</a>
+                <a href="/es/tools.html" class="nav-link">Herramientas</a>
+                <a href="/es/blog/" class="nav-link">Blog</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/svg-favicon-dark-mode-media-query.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/svg-favicon-dark-mode-media-query.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/svg-favicon-dark-mode-media-query.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/svg-favicon-dark-mode-media-query.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/svg-favicon-dark-mode-media-query.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/es/index.html" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/es/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600">SVG Favicon y Media Query para Modo Oscuro: Guía Paso a Paso</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">svg</span><time class="text-sm text-gray-400">2026-09-07</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">SVG Favicon y Media Query para Modo Oscuro: Guía Paso a Paso</h1>
+        </header>
+
+        <div class="article-body">Favicon SVG y media query para modo oscuro: guía paso a paso
+
+<p>Subes un logo perfecto, activas el modo oscuro de tu sistema operativo y abres tu sitio... solo para ver cómo tu marca naranja brillante te devuelve la mirada desde una barra de pestañas oscura. Un favicon PNG plano no puede detectar el tema de tu sistema. Pero un favicon SVG con una media query <code>prefers-color-scheme</code> integrada sí puede.</p>
+<p>Esta guía se centra en una técnica concreta: incrustar una media query de CSS directamente dentro de tu archivo <code>.svg</code> para que un único fichero cambie de colores automáticamente. Es un camino distinto al de intercambiar dos etiquetas <code>&lt;link&gt;</code> en HTML, y es el más limpio para la mayoría de los sitios.</p>
+<h2>Requisitos previos</h2>
+<p>Antes de empezar, necesitas tres cosas:</p>
+<ul>
+<li>Un logo SVG con un atributo <code>viewBox</code> limpio (para que escale correctamente).</li>
+<li>Familiaridad básica editando marcado SVG en bruto.</li>
+<li>Control sobre el <code>&lt;head&gt;</code> de tu sitio para añadir una etiqueta link.</li>
+</ul>
+<p>Si todavía no tienes un SVG, exporta uno desde tu herramienta de diseño o usa Mzu favicondl para extraer un vector limpio a partir de cualquier imagen.</p>
+<h2>Paso a paso: añade una media query dentro de tu favicon SVG</h2>
+<h3>Paso 1: abre tu archivo SVG en un editor de texto</h3>
+<p>SVG no es más que XML. Haz clic derecho sobre cualquier archivo <code>.svg</code> y elige <strong>Abrir con → TextEdit o VS Code</strong>. Verás algo como:</p>
+<pre><code>&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'&gt;
+  &lt;rect width='64' height='64' rx='12' fill='#ff7a00'/&gt;
+  &lt;path d='M20 22 L32 44 L44 22' stroke='#fff' stroke-width='6' fill='none'/&gt;
+&lt;/svg&gt;</code></pre>
+<h3>Paso 2: añade un bloque <code>&lt;style&gt;</code> con la media query</h3>
+<p>Inserta un elemento <code>&lt;style&gt;</code> justo después de la etiqueta <code>&lt;svg&gt;</code> de apertura. Dentro, define los colores del tema claro y sobreescríbelos para el modo oscuro usando <code>prefers-color-scheme: dark</code>:</p>
+<pre><code>&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'&gt;
+  &lt;style&gt;
+    .bg { fill: #ff7a00; }
+    .stroke { stroke: #ffffff; }
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #1a1a1a; }
+      .stroke { stroke: #ffb347; }
+    }
+  &lt;/style&gt;
+  &lt;rect class='bg' width='64' height='64' rx='12'/&gt;
+  &lt;path class='stroke' d='M20 22 L32 44 L44 22' stroke-width='6' fill='none'/&gt;
+&lt;/svg&gt;</code></pre>
+<p>El navegador reevalúa <code>prefers-color-scheme</code> cada vez que cambia el tema de tu sistema operativo. Tu favicon se actualiza sin recargar la página en la mayoría de navegadores modernos.</p>
+<h3>Paso 3: enlázalo en el <code>&lt;head&gt;</code> de tu HTML</h3>
+<p>Según el HTML living standard de WHATWG, el tipo de link <code>rel='icon'</code> admite SVG cuando declaras el MIME type correcto con <code>type='image/svg+xml'</code>:</p>
+<pre><code>&lt;link rel='icon' href='/favicon.svg' type='image/svg+xml'&gt;</code></pre>
+<p>Colócalo por encima de cualquier fallback PNG o ICO. <a href="/es/blog/favicon-html-code.html">Consulta nuestro cheat sheet de favicon en HTML</a> para ver el stack moderno completo, incluidas las entradas de Apple Touch y web manifest.</p>
+<h3>Paso 4: ofrece un fallback raster</h3>
+<p>No todos los navegadores procesan CSS dentro de los favicons, sobre todo versiones antiguas de Safari y algunas vistas web embebidas. Sirve un PNG de 32×32 (o un ICO multitaría) para esos clientes:</p>
+<pre><code>&lt;link rel='icon' href='/favicon.svg' type='image/svg+xml'&gt;
+&lt;link rel='icon' href='/favicon.ico' sizes='32x32'&gt;</code></pre>
+<p>Los navegadores usan la primera coincidencia, así que SVG gana donde tenga soporte.</p>
+<h3>Paso 5: prueba ambos esquemas de color</h3>
+<p>Fuerza una recarga completa (Ctrl/Cmd + Shift + R) y cambia el tema de tu sistema operativo. En Chrome, Edge y Firefox el icono de la pestaña debería cambiar en vivo. Si no ocurre nada, pasa a la sección de errores comunes.</p>
+<h2>Errores comunes</h2>
+<h3>Error 1: olvidar el <code>viewBox</code></h3>
+<p>Sin un <code>viewBox</code>, el SVG se renderiza a su tamaño intrínseco, que puede ser enorme o cero. Declara siempre uno: <code>viewBox='0 0 64 64'</code>.</p>
+<h3>Error 2: los atributos <code>fill</code> inline ganan a tu CSS</h3>
+<p>Si tus formas ya llevan <code>fill='#ff7a00'</code> como atributo, tu clase CSS perderá la batalla de especificidad. Mueve el color a una clase, o elimina el atributo inline por completo.</p>
+<h3>Error 3: caché de favicon demasiado agresiva</h3>
+<p>Los navegadores cachean los favicons más que casi cualquier otro archivo. Tras editar tu SVG, añade un query string durante las pruebas: <code>/favicon.svg?v=2</code>. <a href="/es/blog/favicon-cache-busting.html">Nuestra guía de cache busting</a> cubre estrategias para producción.</p>
+<h3>Error 4: las pestañas ancladas de Safari ignoran las media queries</h3>
+<p>La función de pestaña anclada de Safari usa un <code>safari-pinned-tab.svg</code> monocromo aparte. Las media queries dentro de ese archivo no surten efecto. Diseñalo como una silueta de un solo color y omite el bloque <code>&lt;style&gt;</code>.</p>
+<h3>Error 5: el modo oscuro no es 'invertir los colores'</h3>
+<p>Elige una paleta para modo oscuro con contraste real frente al fondo real de la pestaña del navegador (a menudo <code>#2b2a33</code> en Chrome, casi negro en Safari). Pasar tu icono por un comprobador de contraste una vez te ahorrará tickets de soporte más adelante.</p>
+<h2>Conclusión</h2>
+<p>El enfoque con media query dentro del SVG te da una única fuente de verdad: un archivo, dos temas, cero JavaScript. Es el valor por defecto correcto para cualquier sitio moderno que ya tenga un logo SVG, y funciona junto a —no en contra de— los fallbacks PNG e ICO que deberías seguir sirviendo para navegadores antiguos.</p><h2>Consulta los requisitos documentados</h2><p>El HTML Standard define <a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon"><code>rel='icon'</code></a> como la relación de link para un icono que representa la página actual.</p></div>
+
+        <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
+
+        <div class="cta-box">
+            <h3>Genera un favicon SVG listo para modo oscuro en segundos</h3>
+            <p>Sube cualquier imagen y obtén un SVG limpio con media queries para modo oscuro incorporadas. Sin CSS manual.</p>
+            <a href="/es/index.html" class="cta-btn">Pruébalo gratis →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/es/index.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">Inicio</a>
+                <a href="/es/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">Blog</a>
+                <a href="/es/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">Privacidad</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js?v=20260211"></script>
+
+</body></html>

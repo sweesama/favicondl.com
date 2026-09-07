@@ -3416,5 +3416,26 @@
     ],
     "qualityScore": 100,
     "qualityGrade": "A"
+  },
+  {
+    "slug": "svg-favicon-dark-mode-media-query",
+    "publishDate": "2026-09-07",
+    "titleEn": "SVG Favicon Dark Mode Media Query: Step-by-Step Guide",
+    "titleZh": "SVG 网站图标深色模式媒体查询：完整教程",
+    "titleJa": "SVGファビコンのダークモード メディアクエリ完全ガイド",
+    "titleKo": "SVG 파비콘 다크모드 미디어 쿼리 단계별 가이드",
+    "titleEs": "SVG Favicon y Media Query para Modo Oscuro: Guía Paso a Paso",
+    "descEn": "Use the prefers-color-scheme media query inside an SVG favicon to switch colors automatically. Step-by-step HTML and CSS guide with pitfalls and fallback tips.",
+    "descZh": "在 SVG 网站图标内嵌入 prefers-color-scheme 媒体查询，自动切换深浅色主题。包含完整 HTML 与 CSS 步骤、常见坑点和回退方案。",
+    "descJa": "SVGファビコン内に prefers-color-scheme メディアクエリを埋め込んで、OS のテーマに自動対応する方法を解説。HTML/CSS の手順、注意点、フォールバックまで網羅。",
+    "descKo": "SVG 파비콘 내부에 prefers-color-scheme 미디어 쿼리를 넣어 다크모드를 자동 전환하는 방법. HTML/CSS 단계별 가이드와 주의사항, 폴백 전략까지 정리합니다.",
+    "descEs": "Aprende a usar prefers-color-scheme dentro de un SVG favicon para cambiar colores automáticamente. Guía HTML y CSS con pasos claros y errores comunes.",
+    "keyword": "svg favicon dark mode media query",
+    "tags": [
+      "svg",
+      "dark-mode"
+    ],
+    "qualityScore": 100,
+    "qualityGrade": "A"
   }
 ]

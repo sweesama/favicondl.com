@@ -1,0 +1,183 @@
+<!DOCTYPE html><html lang="ja"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SVGファビコンのダークモード メディアクエリ完全ガイド - Mzu favicondl</title>
+    <meta name="description" content="SVGファビコン内に prefers-color-scheme メディアクエリを埋め込んで、OS のテーマに自動対応する方法を解説。HTML/CSS の手順、注意点、フォールバックまで網羅。">
+    <meta name="keywords" content="svg favicon, dark mode, media query, prefers-color-scheme">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/ja/blog/svg-favicon-dark-mode-media-query.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/svg-favicon-dark-mode-media-query.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/svg-favicon-dark-mode-media-query.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/svg-favicon-dark-mode-media-query.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/svg-favicon-dark-mode-media-query.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/svg-favicon-dark-mode-media-query.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/svg-favicon-dark-mode-media-query.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/ja/blog/svg-favicon-dark-mode-media-query.html">
+    <meta property="og:title" content="SVGファビコンのダークモード メディアクエリ完全ガイド">
+    <meta property="og:description" content="SVGファビコン内に prefers-color-scheme メディアクエリを埋め込んで、OS のテーマに自動対応する方法を解説。HTML/CSS の手順、注意点、フォールバックまで網羅。">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="SVGファビコンのダークモード メディアクエリ完全ガイド">
+    <meta name="twitter:description" content="SVGファビコン内に prefers-color-scheme メディアクエリを埋め込んで、OS のテーマに自動対応する方法を解説。HTML/CSS の手順、注意点、フォールバックまで網羅。">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "SVGファビコンのダークモード メディアクエリ完全ガイド",
+  "description": "SVGファビコン内に prefers-color-scheme メディアクエリを埋め込んで、OS のテーマに自動対応する方法を解説。HTML/CSS の手順、注意点、フォールバックまで網羅。",
+  "datePublished": "2026-09-07",
+  "dateModified": "2026-09-07",
+  "author": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "mainEntityOfPage": "https://favicondl.com/ja/blog/svg-favicon-dark-mode-media-query.html",
+  "inLanguage": "ja"
+}</script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/ja/index.html" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/ja/documentation.html" class="nav-link">ドキュメント</a>
+                <a href="/ja/tools.html" class="nav-link">ツール</a>
+                <a href="/ja/blog/" class="nav-link">ブログ</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/svg-favicon-dark-mode-media-query.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/svg-favicon-dark-mode-media-query.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/svg-favicon-dark-mode-media-query.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/svg-favicon-dark-mode-media-query.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/svg-favicon-dark-mode-media-query.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/ja/index.html" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/ja/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600">SVGファビコンのダークモード メディアクエリ完全ガイド</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">svg</span><time class="text-sm text-gray-400">2026-09-07</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">SVGファビコンのダークモード メディアクエリ完全ガイド</h1>
+        </header>
+
+        <div class="article-body"><p>完璧なロゴをアップロードし、OSをダークモードに切り替えてサイトを開いてみると、明るいオレンジ色のブランドマークが暗いタブバーからぎらぎらと目に飛び込んでくる——そんな経験はないでしょうか。フラットなPNG faviconはシステムテーマを認識できません。しかし、<code>prefers-color-scheme</code>を内蔵したSVG faviconであれば話は別です。</p>
+<p>本ガイドで取り上げるのは、<code>.svg</code>ファイル内にCSSのmedia queryを直接埋め込み、単一ファイルで自動的に配色を切り替えるという一つのテクニックです。HTML側で<code>&lt;link&gt;</code>タグを2つ使い分ける方法とは別のアプローチであり、多くのサイトにとっては最もクリーンな選択肢になります。</p>
+<h2>前提条件</h2>
+<p>作業を始める前に、次の3つを用意してください。</p>
+<ul>
+<li>クリーンな<code>viewBox</code>属性を持つSVGロゴ（スケーリング可能であること）。</li>
+<li>SVGの生マークアップを編集するための基礎知識。</li>
+<li>linkタグを追加するためにサイトの<code>&lt;head&gt;</code>を編集できる権限。</li>
+</ul>
+<p>SVGをまだお持ちでない場合は、デザインソフトから書き出すか、Mzuのfavicondlを使って任意の画像からベクターを取得してください。</p>
+<h2>ステップ・バイ・ステップ：SVG favicon内にmedia queryを追加する</h2>
+<h3>ステップ1：SVGファイルをテキストエディタで開く</h3>
+<p>SVGは単なるXMLです。<code>.svg</code>ファイルを右クリックし、<strong>「プログラムから開く → TextEdit または VS Code」</strong>を選んでください。次のような内容が表示されます。</p>
+<pre><code>&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'&gt;
+  &lt;rect width='64' height='64' rx='12' fill='#ff7a00'/&gt;
+  &lt;path d='M20 22 L32 44 L44 22' stroke='#fff' stroke-width='6' fill='none'/&gt;
+&lt;/svg&gt;</code></pre>
+<h3>ステップ2：media queryを含む<code>&lt;style&gt;</code>ブロックを追加する</h3>
+<p>開始タグ<code>&lt;svg&gt;</code>の直後に<code>&lt;style&gt;</code>要素を挿入します。その中でライトテーマ用の配色を定義し、<code>prefers-color-scheme: dark</code>を使ってダークモード時の上書きを指定します。</p>
+<pre><code>&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'&gt;
+  &lt;style&gt;
+    .bg { fill: #ff7a00; }
+    .stroke { stroke: #ffffff; }
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #1a1a1a; }
+      .stroke { stroke: #ffb347; }
+    }
+  &lt;/style&gt;
+  &lt;rect class='bg' width='64' height='64' rx='12'/&gt;
+  &lt;path class='stroke' d='M20 22 L32 44 L44 22' stroke-width='6' fill='none'/&gt;
+&lt;/svg&gt;</code></pre>
+<p>ブラウザはOSのテーマが切り替わるたびに<code>prefers-color-scheme</code>を再評価します。多くのモダンブラウザでは、リロードなしでfaviconが更新されます。</p>
+<h3>ステップ3：HTMLの<code>&lt;head&gt;</code>からリンクする</h3>
+<p>WHATWG HTML Living Standardによれば、<code>rel='icon'</code>リンクタイプは<code>type='image/svg+xml'</code>で正しいMIMEタイプを宣言すればSVGをサポートします。</p>
+<pre><code>&lt;link rel='icon' href='/favicon.svg' type='image/svg+xml'&gt;</code></pre>
+<p>このタグはPNGやICOのフォールバックより上に配置してください。Apple Touchやweb manifestを含む最新のスタック全体については、<a href="/ja/blog/favicon-html-code.html">favicon HTMLチートシート</a>を参照ください。</p>
+<h3>ステップ4：ラスターのフォールバックを用意する</h3>
+<p>すべてのブラウザがfavicon内のCSSを解釈できるわけではありません。特に古いバージョンのSafariや一部の組み込みWebビューはその対象となります。そうしたクライアント向けに32×32のPNG（またはマルチサイズのICO）を用意してください。</p>
+<pre><code>&lt;link rel='icon' href='/favicon.svg' type='image/svg+xml'&gt;
+&lt;link rel='icon' href='/favicon.ico' sizes='32x32'&gt;</code></pre>
+<p>ブラウザは最初にマッチしたものを使うため、SVGが使える環境ではSVGが優先されます。</p>
+<h3>ステップ5：両カラースキームでテストする</h3>
+<p>ハードリロード（Ctrl/Cmd + Shift + R）を実行し、OSのテーマを切り替えてください。Chrome、Edge、Firefoxでは、タブアイコンがライブで切り替わるはずです。何も変わらない場合は、以下の落とし穴を確認してください。</p>
+<h2>よくある落とし穴</h2>
+<h3>落とし穴1：<code>viewBox</code>を忘れる</h3>
+<p><code>viewBox</code>がないと、SVGは本来のサイズで描画され、巨大サイズまたはゼロサイズになることがあります。必ず<code>viewBox='0 0 64 64'</code>のように宣言してください。</p>
+<h3>落とし穴2：インラインの<code>fill</code>属性がCSSを上書きしてしまう</h3>
+<p>図形にすでに<code>fill='#ff7a00'</code>が属性として設定されていると、CSSクラスがspecificityの勝負で負けてしまいます。配色はクラスに移すか、インラインの属性を削除してください。</p>
+<h3>落とし穴3：faviconのキャッシュが強すぎる</h3>
+<p>ブラウザは他のファイル以上にfaviconを積極的にキャッシュします。SVGを編集した後は、テスト時にクエリ文字列を付けて読み込んでください（例：<code>/favicon.svg?v=2</code>）。本番環境での戦略については、<a href="/ja/blog/favicon-cache-busting.html">キャッシュバスティングのガイド</a>を参照ください。</p>
+<h3>落とし穴4：Safariのピン留めタブはmedia queryを無視する</h3>
+<p>Safariのピン留めタブ機能は、別のモノクロ用<code>safari-pinned-tab.svg</code>を使います。このファイル内のmedia queryは効きません。単色のシルエットとしてデザインし、<code>&lt;style&gt;</code>ブロックは省いてください。</p>
+<h3>落とし穴5：ダークモードは「色の反転」ではない</h3>
+<p>ダークモード用の配色は、ブラウザの実際のタブ背景（Chromeでは多くの場合<code>#2b2a33</code>、Safariではニアブラック）に対して十分なコントラストを持つものを採用してください。アイコンをコントラストチェッカーに一度通しておくと、後々のサポート対応の手間を減らせます。</p>
+<h2>まとめ</h2>
+<p>SVGのmedia query方式は、1ファイル・2テーマ・JavaScript不要というクリーンな構成を実現します。すでにSVGロゴを持っているモダンなサイトにとってのデフォルトとして最適であり、旧ブラウザ向けに用意すべきPNGやICOのフォールバックとも（対立するのではなく）共存して動作します。</p>
+<h2>仕様上の要件を確認する</h2>
+<p>HTML Standardでは、現在のページを表すアイコンのリンク関係として<a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon"><code>rel='icon'</code></a>が定義されています。</p></div>
+
+        <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
+
+        <div class="cta-box">
+            <h3>ダークモード対応の SVG ファビコンを数秒で生成</h3>
+            <p>画像をアップロードするだけで、ダークモード対応メディアクエリ付きのクリーンな SVG を生成。手書き CSS は不要です。</p>
+            <a href="/ja/index.html" class="cta-btn">無料で試す →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/ja/index.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">ホーム</a>
+                <a href="/ja/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">ブログ</a>
+                <a href="/ja/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">プライバシー</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js?v=20260211"></script>
+
+</body></html>

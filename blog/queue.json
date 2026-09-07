@@ -2549,7 +2549,9 @@
       "favicon-dark-mode",
       "svg-favicon"
     ],
-    "status": "pending"
+    "status": "done",
+    "qualityScore": 100,
+    "qualityGrade": "A"
   },
   {
     "keyword": "png favicon 96x96 google",

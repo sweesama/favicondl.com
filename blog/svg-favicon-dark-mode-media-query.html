@@ -1,0 +1,413 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SVG Favicon Dark Mode Media Query: Step-by-Step Guide - Mzu favicondl</title>
+    <meta name="description" content="Use the prefers-color-scheme media query inside an SVG favicon to switch colors automatically. Step-by-step HTML and CSS guide with pitfalls and fallback tips.">
+    <meta name="keywords" content="svg favicon, dark mode, media query, prefers-color-scheme">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/blog/svg-favicon-dark-mode-media-query.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/svg-favicon-dark-mode-media-query.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/svg-favicon-dark-mode-media-query.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/svg-favicon-dark-mode-media-query.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/svg-favicon-dark-mode-media-query.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/svg-favicon-dark-mode-media-query.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/svg-favicon-dark-mode-media-query.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/blog/svg-favicon-dark-mode-media-query.html">
+    <meta property="og:title" content="SVG Favicon Dark Mode Media Query: Step-by-Step Guide">
+    <meta property="og:description" content="Use the prefers-color-scheme media query inside an SVG favicon to switch colors automatically. Step-by-step HTML and CSS guide with pitfalls and fallback tips.">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="SVG Favicon Dark Mode Media Query: Step-by-Step Guide">
+    <meta name="twitter:description" content="Use the prefers-color-scheme media query inside an SVG favicon to switch colors automatically. Step-by-step HTML and CSS guide with pitfalls and fallback tips.">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "SVG Favicon Dark Mode Media Query: Step-by-Step Guide",
+  "description": "Use the prefers-color-scheme media query inside an SVG favicon to switch colors automatically. Step-by-step HTML and CSS guide with pitfalls and fallback tips.",
+  "datePublished": "2026-09-07",
+  "dateModified": "2026-09-07",
+  "author": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "mainEntityOfPage": "https://favicondl.com/blog/svg-favicon-dark-mode-media-query.html",
+  "inLanguage": "en"
+}</script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/index.html" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/documentation.html" class="nav-link" data-en="Docs" data-zh="文档">Docs</a>
+                <a href="/tools.html" class="nav-link" data-en="Tools" data-zh="工具">Tools</a>
+                <a href="/blog/" class="nav-link" data-en="Blog" data-zh="博客">Blog</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/svg-favicon-dark-mode-media-query.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/svg-favicon-dark-mode-media-query.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/svg-favicon-dark-mode-media-query.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/svg-favicon-dark-mode-media-query.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/svg-favicon-dark-mode-media-query.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/index.html" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600" data-en="SVG Favicon Dark Mode Media Query: Step-by-Step Guide" data-zh="SVG 网站图标深色模式媒体查询：完整教程" data-ja="SVGファビコンのダークモード メディアクエリ完全ガイド" data-ko="SVG 파비콘 다크모드 미디어 쿼리 단계별 가이드" data-es="SVG Favicon y Media Query para Modo Oscuro: Guía Paso a Paso">SVG Favicon Dark Mode Media Query: Step-by-Step Guide</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">svg</span><time class="text-sm text-gray-400">2026-09-07</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight" data-en="SVG Favicon Dark Mode Media Query: Step-by-Step Guide" data-zh="SVG 网站图标深色模式媒体查询：完整教程" data-ja="SVGファビコンのダークモード メディアクエリ完全ガイド" data-ko="SVG 파비콘 다크모드 미디어 쿼리 단계별 가이드" data-es="SVG Favicon y Media Query para Modo Oscuro: Guía Paso a Paso">SVG Favicon Dark Mode Media Query: Step-by-Step Guide</h1>
+        </header>
+
+        <div class="article-body" data-lang="en">
+            <p>You upload a perfect logo, toggle your OS into dark mode, and open your site — only to watch your bright orange brand mark glare back at you from a dark tab bar. A flat PNG favicon can't see your system theme. But an SVG favicon with a built-in <code>prefers-color-scheme</code> media query can.</p>
+<p>This guide focuses on one specific technique: embedding a CSS media query directly inside your <code>.svg</code> file so a single file swaps colors automatically. It's a different path than swapping two <code>&lt;link&gt;</code> tags in HTML — and it's the cleanest one for most sites.</p>
+<h2>Prerequisites</h2>
+<p>Before you start, you need three things:</p>
+<ul>
+<li>An SVG logo with a clean <code>viewBox</code> attribute (so it scales).</li>
+<li>Basic familiarity with editing raw SVG markup.</li>
+<li>Control of your site's <code>&lt;head&gt;</code> to add a link tag.</li>
+</ul>
+<p>If you don't have an SVG yet, export one from your design tool, or use Mzu favicondl to grab a clean vector from any image.</p>
+<h2>Step-by-Step: Add a Media Query Inside Your SVG Favicon</h2>
+<h3>Step 1: Open your SVG file in a text editor</h3>
+<p>SVG is just XML. Right-click any <code>.svg</code> file and choose <strong>Open with → TextEdit or VS Code</strong>. You'll see something like:</p>
+<pre><code>&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'&gt;
+  &lt;rect width='64' height='64' rx='12' fill='#ff7a00'/&gt;
+  &lt;path d='M20 22 L32 44 L44 22' stroke='#fff' stroke-width='6' fill='none'/&gt;
+&lt;/svg&gt;</code></pre>
+<h3>Step 2: Add a <code>&lt;style&gt;</code> block with the media query</h3>
+<p>Insert a <code>&lt;style&gt;</code> element right after the opening <code>&lt;svg&gt;</code> tag. Inside it, define your light-theme colors and override them for dark mode using <code>prefers-color-scheme: dark</code>:</p>
+<pre><code>&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'&gt;
+  &lt;style&gt;
+    .bg { fill: #ff7a00; }
+    .stroke { stroke: #ffffff; }
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #1a1a1a; }
+      .stroke { stroke: #ffb347; }
+    }
+  &lt;/style&gt;
+  &lt;rect class='bg' width='64' height='64' rx='12'/&gt;
+  &lt;path class='stroke' d='M20 22 L32 44 L44 22' stroke-width='6' fill='none'/&gt;
+&lt;/svg&gt;</code></pre>
+<p>The browser re-evaluates <code>prefers-color-scheme</code> every time your OS theme changes. Your favicon updates without a reload in most modern browsers.</p>
+<h3>Step 3: Link it in your HTML <code>&lt;head&gt;</code></h3>
+<p>Per the WHATWG HTML living standard, the <code>rel='icon'</code> link type supports SVG when you declare the correct MIME type with <code>type='image/svg+xml'</code>:</p>
+<pre><code>&lt;link rel='icon' href='/favicon.svg' type='image/svg+xml'&gt;</code></pre>
+<p>Place this above any PNG or ICO fallback. <a href="/blog/favicon-html-code.html">See our favicon HTML cheat sheet</a> for the full modern stack including Apple Touch and web manifest entries.</p>
+<h3>Step 4: Provide a raster fallback</h3>
+<p>Not every browser parses CSS inside favicons — most notably older Safari versions and some embedded web views. Ship a 32×32 PNG (or a multi-size ICO) for those clients:</p>
+<pre><code>&lt;link rel='icon' href='/favicon.svg' type='image/svg+xml'&gt;
+&lt;link rel='icon' href='/favicon.ico' sizes='32x32'&gt;</code></pre>
+<p>Browsers use the first match, so SVG wins where supported.</p>
+<h3>Step 5: Test in both color schemes</h3>
+<p>Force a hard refresh (Ctrl/Cmd + Shift + R) and toggle your OS theme. In Chrome, Edge, and Firefox, the tab icon should switch live. If nothing happens, jump to the pitfalls below.</p>
+<h2>Common Pitfalls</h2>
+<h3>Pitfall 1: Forgetting the <code>viewBox</code></h3>
+<p>Without a <code>viewBox</code>, the SVG renders at its intrinsic size, which can be huge or zero. Always declare one: <code>viewBox='0 0 64 64'</code>.</p>
+<h3>Pitfall 2: Inline <code>fill</code> attributes override your CSS</h3>
+<p>If your shapes already carry <code>fill='#ff7a00'</code> as an attribute, your CSS class will lose the specificity battle. Move the color into a class, or delete the inline attribute entirely.</p>
+<h3>Pitfall 3: Aggressive favicon caching</h3>
+<p>Browsers cache favicons harder than almost any other file. After editing your SVG, append a query string during testing: <code>/favicon.svg?v=2</code>. <a href="/blog/favicon-cache-busting.html">Our cache-busting guide</a> covers production strategies.</p>
+<h3>Pitfall 4: Safari pinned tabs ignore media queries</h3>
+<p>Safari's pinned-tab feature uses a separate monochrome <code>safari-pinned-tab.svg</code>. Media queries inside that file have no effect. Design it as a single-color silhouette and skip the <code>&lt;style&gt;</code> block.</p>
+<h3>Pitfall 5: Dark mode is not 'invert the colors'</h3>
+<p>Pick a dark-mode palette with real contrast against the browser's actual tab background (often <code>#2b2a33</code> in Chrome, near-black in Safari). Running your icon through a contrast checker once saves support tickets later.</p>
+<h2>Wrapping up</h2>
+<p>The SVG media query approach gives you one source of truth: one file, two themes, zero JavaScript. It's the right default for any modern site that already has an SVG logo, and it works alongside — not against — the PNG and ICO fallbacks you should still ship for older browsers.</p><h2>Check the documented requirements</h2><p>The HTML Standard defines <a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon"><code>rel='icon'</code></a> as the link relationship for an icon representing the current page.</p>
+        </div>
+
+        <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
+        <template data-article-lang="zh"><p>你上传了一个完美的 logo，把系统切到深色模式，打开网站——结果看到亮橙色的品牌标记在深色标签栏上刺眼地反光。普通的 PNG favicon 无法感知系统主题。但带有内置 <code>prefers-color-scheme</code> 媒体查询的 SVG favicon 可以。</p>
+<p>本指南聚焦一种特定技术：把 CSS 媒体查询直接嵌入到 <code>.svg</code> 文件内部，让单一文件自动切换配色。这条路径不同于在 HTML 里换两个 <code>&lt;link&gt;</code> 标签——对大多数网站来说，它是最干净的方案。</p>
+<h2>前置条件</h2>
+<p>开始之前，你需要三样东西：</p>
+<ul>
+<li>一个 SVG logo，带有干净的 <code>viewBox</code> 属性（这样才能缩放）。</li>
+<li>具备基本的 SVG 原始标记编辑经验。</li>
+<li>能够修改网站 <code>&lt;head&gt;</code>，添加 link 标签。</li>
+</ul>
+<p>如果还没有 SVG，可以从设计工具导出一个，或者用 Mzu favicondl 从任意图片中提取干净的矢量版本。</p>
+<h2>分步操作：在 SVG Favicon 中加入媒体查询</h2>
+<h3>第 1 步：用文本编辑器打开 SVG 文件</h3>
+<p>SVG 本质就是 XML。右键任意 <code>.svg</code> 文件，选择<strong>打开方式 → TextEdit 或 VS Code</strong>。你会看到类似这样的内容：</p>
+<pre><code>&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'&gt;
+  &lt;rect width='64' height='64' rx='12' fill='#ff7a00'/&gt;
+  &lt;path d='M20 22 L32 44 L44 22' stroke='#fff' stroke-width='6' fill='none'/&gt;
+&lt;/svg&gt;</code></pre>
+<h3>第 2 步：添加带媒体查询的 <code>&lt;style&gt;</code> 块</h3>
+<p>在开头的 <code>&lt;svg&gt;</code> 标签之后，立刻插入一个 <code>&lt;style&gt;</code> 元素。在里面定义浅色主题的颜色，再用 <code>prefers-color-scheme: dark</code> 在深色模式下覆盖它们：</p>
+<pre><code>&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'&gt;
+  &lt;style&gt;
+    .bg { fill: #ff7a00; }
+    .stroke { stroke: #ffffff; }
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #1a1a1a; }
+      .stroke { stroke: #ffb347; }
+    }
+  &lt;/style&gt;
+  &lt;rect class='bg' width='64' height='64' rx='12'/&gt;
+  &lt;path class='stroke' d='M20 22 L32 44 L44 22' stroke-width='6' fill='none'/&gt;
+&lt;/svg&gt;</code></pre>
+<p>浏览器会在每次系统主题变化时重新评估 <code>prefers-color-scheme</code>。在大多数现代浏览器里，你的 favicon 不用刷新就能更新。</p>
+<h3>第 3 步：在 HTML 的 <code>&lt;head&gt;</code> 中链接它</h3>
+<p>根据 WHATWG HTML 现行标准，<code>rel='icon'</code> link 类型在你声明了 <code>type='image/svg+xml'</code> 这个正确的 MIME 类型时是支持 SVG 的：</p>
+<pre><code>&lt;link rel='icon' href='/favicon.svg' type='image/svg+xml'&gt;</code></pre>
+<p>把它放在任何 PNG 或 ICO 备用文件之前。<a href="/blog/favicon-html-code.html">可以参考我们的 favicon HTML 速查表</a>，里面列出了完整的现代写法，包括 Apple Touch 和 web manifest 条目。</p>
+<h3>第 4 步：提供栅格图备用方案</h3>
+<p>并非所有浏览器都能解析 favicon 内部的 CSS——比较典型的就是旧版 Safari 和某些嵌入式 web view。为这些客户端准备一张 32×32 PNG（或一个多尺寸 ICO）：</p>
+<pre><code>&lt;link rel='icon' href='/favicon.svg' type='image/svg+xml'&gt;
+&lt;link rel='icon' href='/favicon.ico' sizes='32x32'&gt;</code></pre>
+<p>浏览器按顺序匹配第一个能用的，所以在支持 SVG 的环境下 SVG 优先。</p>
+<h3>第 5 步：在两种配色下分别测试</h3>
+<p>强制硬刷新（Ctrl/Cmd + Shift + R），然后切换系统主题。在 Chrome、Edge 和 Firefox 里，标签图标应该会实时切换。如果没反应，跳到下面的坑点部分。</p>
+<h2>常见坑点</h2>
+<h3>坑点 1：忘了写 <code>viewBox</code></h3>
+<p>没有 <code>viewBox</code>，SVG 会按固有尺寸渲染，可能是巨大的，也可能为零。一定要声明一个：<code>viewBox='0 0 64 64'</code>。</p>
+<h3>坑点 2：内联 <code>fill</code> 属性会覆盖你的 CSS</h3>
+<p>如果你的图形已经带了 <code>fill='#ff7a00'</code> 这种属性，你的 CSS 类在特异性上会输掉。把颜色挪到 class 里，或者干脆删掉那个内联属性。</p>
+<h3>坑点 3：favicon 缓存过于顽固</h3>
+<p>浏览器对 favicon 的缓存力度几乎超过任何其他文件。改完 SVG 之后，测试时给它追加一个查询字符串：<code>/favicon.svg?v=2</code>。<a href="/blog/favicon-cache-busting.html">我们的缓存清理指南</a>里有生产环境的应对策略。</p>
+<h3>坑点 4：Safari 固定标签页忽略媒体查询</h3>
+<p>Safari 的固定标签页功能用的是单独的单色 <code>safari-pinned-tab.svg</code>。这个文件里的媒体查询不会生效。把图标设计成单色剪影即可，跳过 <code>&lt;style&gt;</code> 块。</p>
+<h3>坑点 5：深色模式不等于反色</h3>
+<p>挑选一套深色模式配色，要让它和浏览器实际的标签背景之间真有对比度（Chrome 通常是 <code>#2b2a33</code>，Safari 接近纯黑）。用对比度检查工具跑一遍图标，能省下后续一堆支持工单。</p>
+<h2>小结</h2>
+<p>SVG 媒体查询这条路给你一个权威来源：一个文件，两套主题，零 JavaScript。对于已经拥有 SVG logo 的现代站点来说，这就是默认的正确选择；同时它并不排斥你仍然要提供的 PNG 和 ICO 备用方案——两者是并存的，不是对立的。</p><h2>核对文档中的相关要求</h2><p>HTML 标准把 <a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon"><code>rel='icon'</code></a> 定义为表示当前页面图标的 link 关系。</p></template>
+        <template data-article-lang="ja"><p>完璧なロゴをアップロードし、OSをダークモードに切り替えてサイトを開いてみると、明るいオレンジ色のブランドマークが暗いタブバーからぎらぎらと目に飛び込んでくる——そんな経験はないでしょうか。フラットなPNG faviconはシステムテーマを認識できません。しかし、<code>prefers-color-scheme</code>を内蔵したSVG faviconであれば話は別です。</p>
+<p>本ガイドで取り上げるのは、<code>.svg</code>ファイル内にCSSのmedia queryを直接埋め込み、単一ファイルで自動的に配色を切り替えるという一つのテクニックです。HTML側で<code>&lt;link&gt;</code>タグを2つ使い分ける方法とは別のアプローチであり、多くのサイトにとっては最もクリーンな選択肢になります。</p>
+<h2>前提条件</h2>
+<p>作業を始める前に、次の3つを用意してください。</p>
+<ul>
+<li>クリーンな<code>viewBox</code>属性を持つSVGロゴ（スケーリング可能であること）。</li>
+<li>SVGの生マークアップを編集するための基礎知識。</li>
+<li>linkタグを追加するためにサイトの<code>&lt;head&gt;</code>を編集できる権限。</li>
+</ul>
+<p>SVGをまだお持ちでない場合は、デザインソフトから書き出すか、Mzuのfavicondlを使って任意の画像からベクターを取得してください。</p>
+<h2>ステップ・バイ・ステップ：SVG favicon内にmedia queryを追加する</h2>
+<h3>ステップ1：SVGファイルをテキストエディタで開く</h3>
+<p>SVGは単なるXMLです。<code>.svg</code>ファイルを右クリックし、<strong>「プログラムから開く → TextEdit または VS Code」</strong>を選んでください。次のような内容が表示されます。</p>
+<pre><code>&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'&gt;
+  &lt;rect width='64' height='64' rx='12' fill='#ff7a00'/&gt;
+  &lt;path d='M20 22 L32 44 L44 22' stroke='#fff' stroke-width='6' fill='none'/&gt;
+&lt;/svg&gt;</code></pre>
+<h3>ステップ2：media queryを含む<code>&lt;style&gt;</code>ブロックを追加する</h3>
+<p>開始タグ<code>&lt;svg&gt;</code>の直後に<code>&lt;style&gt;</code>要素を挿入します。その中でライトテーマ用の配色を定義し、<code>prefers-color-scheme: dark</code>を使ってダークモード時の上書きを指定します。</p>
+<pre><code>&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'&gt;
+  &lt;style&gt;
+    .bg { fill: #ff7a00; }
+    .stroke { stroke: #ffffff; }
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #1a1a1a; }
+      .stroke { stroke: #ffb347; }
+    }
+  &lt;/style&gt;
+  &lt;rect class='bg' width='64' height='64' rx='12'/&gt;
+  &lt;path class='stroke' d='M20 22 L32 44 L44 22' stroke-width='6' fill='none'/&gt;
+&lt;/svg&gt;</code></pre>
+<p>ブラウザはOSのテーマが切り替わるたびに<code>prefers-color-scheme</code>を再評価します。多くのモダンブラウザでは、リロードなしでfaviconが更新されます。</p>
+<h3>ステップ3：HTMLの<code>&lt;head&gt;</code>からリンクする</h3>
+<p>WHATWG HTML Living Standardによれば、<code>rel='icon'</code>リンクタイプは<code>type='image/svg+xml'</code>で正しいMIMEタイプを宣言すればSVGをサポートします。</p>
+<pre><code>&lt;link rel='icon' href='/favicon.svg' type='image/svg+xml'&gt;</code></pre>
+<p>このタグはPNGやICOのフォールバックより上に配置してください。Apple Touchやweb manifestを含む最新のスタック全体については、<a href="/blog/favicon-html-code.html">favicon HTMLチートシート</a>を参照ください。</p>
+<h3>ステップ4：ラスターのフォールバックを用意する</h3>
+<p>すべてのブラウザがfavicon内のCSSを解釈できるわけではありません。特に古いバージョンのSafariや一部の組み込みWebビューはその対象となります。そうしたクライアント向けに32×32のPNG（またはマルチサイズのICO）を用意してください。</p>
+<pre><code>&lt;link rel='icon' href='/favicon.svg' type='image/svg+xml'&gt;
+&lt;link rel='icon' href='/favicon.ico' sizes='32x32'&gt;</code></pre>
+<p>ブラウザは最初にマッチしたものを使うため、SVGが使える環境ではSVGが優先されます。</p>
+<h3>ステップ5：両カラースキームでテストする</h3>
+<p>ハードリロード（Ctrl/Cmd + Shift + R）を実行し、OSのテーマを切り替えてください。Chrome、Edge、Firefoxでは、タブアイコンがライブで切り替わるはずです。何も変わらない場合は、以下の落とし穴を確認してください。</p>
+<h2>よくある落とし穴</h2>
+<h3>落とし穴1：<code>viewBox</code>を忘れる</h3>
+<p><code>viewBox</code>がないと、SVGは本来のサイズで描画され、巨大サイズまたはゼロサイズになることがあります。必ず<code>viewBox='0 0 64 64'</code>のように宣言してください。</p>
+<h3>落とし穴2：インラインの<code>fill</code>属性がCSSを上書きしてしまう</h3>
+<p>図形にすでに<code>fill='#ff7a00'</code>が属性として設定されていると、CSSクラスがspecificityの勝負で負けてしまいます。配色はクラスに移すか、インラインの属性を削除してください。</p>
+<h3>落とし穴3：faviconのキャッシュが強すぎる</h3>
+<p>ブラウザは他のファイル以上にfaviconを積極的にキャッシュします。SVGを編集した後は、テスト時にクエリ文字列を付けて読み込んでください（例：<code>/favicon.svg?v=2</code>）。本番環境での戦略については、<a href="/blog/favicon-cache-busting.html">キャッシュバスティングのガイド</a>を参照ください。</p>
+<h3>落とし穴4：Safariのピン留めタブはmedia queryを無視する</h3>
+<p>Safariのピン留めタブ機能は、別のモノクロ用<code>safari-pinned-tab.svg</code>を使います。このファイル内のmedia queryは効きません。単色のシルエットとしてデザインし、<code>&lt;style&gt;</code>ブロックは省いてください。</p>
+<h3>落とし穴5：ダークモードは「色の反転」ではない</h3>
+<p>ダークモード用の配色は、ブラウザの実際のタブ背景（Chromeでは多くの場合<code>#2b2a33</code>、Safariではニアブラック）に対して十分なコントラストを持つものを採用してください。アイコンをコントラストチェッカーに一度通しておくと、後々のサポート対応の手間を減らせます。</p>
+<h2>まとめ</h2>
+<p>SVGのmedia query方式は、1ファイル・2テーマ・JavaScript不要というクリーンな構成を実現します。すでにSVGロゴを持っているモダンなサイトにとってのデフォルトとして最適であり、旧ブラウザ向けに用意すべきPNGやICOのフォールバックとも（対立するのではなく）共存して動作します。</p>
+<h2>仕様上の要件を確認する</h2>
+<p>HTML Standardでは、現在のページを表すアイコンのリンク関係として<a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon"><code>rel='icon'</code></a>が定義されています。</p></template>
+        <template data-article-lang="ko"><p>완성도 높은 로고를 업로드하고, 운영체제를 다크 모드로 전환한 다음 사이트를 열었다고 해봅시다. 어두운 탭 바에서 밝은 주황색 브랜드 마크가 빛을 내뿜는 자신을 마주하게 됩니다. 평범한 PNG 파비콘은 시스템 테마를 인식하지 못합니다. 하지만 <code>prefers-color-scheme</code> 미디어 쿼리를 내장한 SVG 파비콘이라면 이 문제를 해결할 수 있습니다.</p>
+<p>본 가이드는 단 하나의 기법에 초점을 맞춥니다. CSS 미디어 쿼리를 <code>.svg</code> 파일 안에 직접 임베드해, 파일 하나로도 테마에 따라 색상이 자동으로 바뀌도록 만드는 방법입니다. HTML에서 <code>&lt;link&gt;</code> 태그 두 개를 교체하는 방식과는 다른 경로이며, 대부분의 사이트에서 가장 깔끔한 방식입니다.</p>
+<h2>사전 준비</h2>
+<p>시작하기 전에 다음 세 가지가 필요합니다.</p>
+<ul>
+<li>깔끔한 <code>viewBox</code> 속성이 정의된 SVG 로고(확장 가능하도록).</li>
+<li>SVG 마크업 원본을 직접 편집할 수 있는 기본 지식.</li>
+<li>사이트 <code>&lt;head&gt;</code>에 link 태그를 추가할 수 있는 권한.</li>
+</ul>
+<p>아직 SVG가 없다면 디자인 툴에서 내보내거나, Mzu favicondl을 사용해 어떤 이미지에서든 깔끔한 벡터를 추출할 수 있습니다.</p>
+<h2>단계별 가이드: SVG 파비콘 안에 미디어 쿼리 추가하기</h2>
+<h3>1단계: 텍스트 에디터에서 SVG 파일 열기</h3>
+<p>SVG는 그 자체로 XML입니다. <code>.svg</code> 파일을 우클릭한 뒤 <strong>연결 프로그램 → TextEdit 또는 VS Code</strong>를 선택하세요. 다음과 같은 내용을 확인할 수 있습니다.</p>
+<pre><code>&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'&gt;
+  &lt;rect width='64' height='64' rx='12' fill='#ff7a00'/&gt;
+  &lt;path d='M20 22 L32 44 L44 22' stroke='#fff' stroke-width='6' fill='none'/&gt;
+&lt;/svg&gt;</code></pre>
+<h3>2단계: 미디어 쿼리가 포함된 <code>&lt;style&gt;</code> 블록 추가하기</h3>
+<p>열린 <code>&lt;svg&gt;</code> 태그 바로 아래에 <code>&lt;style&gt;</code> 요소를 삽입합니다. 그 안에서 라이트 테마용 색상을 정의하고, <code>prefers-color-scheme: dark</code>를 사용해 다크 모드용 색상으로 덮어씁니다.</p>
+<pre><code>&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'&gt;
+  &lt;style&gt;
+    .bg { fill: #ff7a00; }
+    .stroke { stroke: #ffffff; }
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #1a1a1a; }
+      .stroke { stroke: #ffb347; }
+    }
+  &lt;/style&gt;
+  &lt;rect class='bg' width='64' height='64' rx='12'/&gt;
+  &lt;path class='stroke' d='M20 22 L32 44 L44 22' stroke-width='6' fill='none'/&gt;
+&lt;/svg&gt;</code></pre>
+<p>브라우저는 운영체제 테마가 바뀔 때마다 <code>prefers-color-scheme</code>를 다시 평가합니다. 대부분의 최신 브라우저에서는 새로 고침 없이도 파비콘이 즉시 갱신됩니다.</p>
+<h3>3단계: HTML <code>&lt;head&gt;</code>에 링크 추가하기</h3>
+<p>WHATWG HTML Living Standard에 따르면, <code>rel='icon'</code> 링크 타입은 <code>type='image/svg+xml'</code>로 올바른 MIME 타입을 선언하면 SVG를 지원합니다.</p>
+<pre><code>&lt;link rel='icon' href='/favicon.svg' type='image/svg+xml'&gt;</code></pre>
+<p>이 태그는 PNG 또는 ICO 폴백 링크보다 위에 둡니다. Apple Touch 및 web manifest 항목까지 포함한 전체 모던 스택은 <a href="/blog/favicon-html-code.html">favicon HTML 치트시트</a>에서 확인할 수 있습니다.</p>
+<h3>4단계: 래스터 폴백 제공하기</h3>
+<p>모든 브라우저가 파비콘 내부의 CSS를 파싱하지는 않습니다. 특히 구버전 Safari와 일부 임베디드 웹뷰가 그렇습니다. 이런 환경을 위해 32×32 PNG(혹은 멀티 사이즈 ICO)를 함께 제공합니다.</p>
+<pre><code>&lt;link rel='icon' href='/favicon.svg' type='image/svg+xml'&gt;
+&lt;link rel='icon' href='/favicon.ico' sizes='32x32'&gt;</code></pre>
+<p>브라우저는 첫 번째로 일치하는 항목을 사용하므로, SVG가 지원되는 환경에서는 SVG가 우선 적용됩니다.</p>
+<h3>5단계: 두 가지 컬러 스킴 모두에서 테스트하기</h3>
+<p>강제 새로 고침(Ctrl/Cmd + Shift + R)을 수행한 뒤 운영체제 테마를 전환합니다. Chrome, Edge, Firefox에서는 탭 아이콘이 실시간으로 바뀌어야 합니다. 변화가 없다면 아래 함정 항목을 참고하세요.</p>
+<h2>자주 겪는 함정들</h2>
+<h3>함정 1: <code>viewBox</code>를 빠뜨리는 경우</h3>
+<p><code>viewBox</code>가 없으면 SVG는 본질적인 크기 그대로 렌더링되며, 너무 크거나 0이 될 수 있습니다. 반드시 <code>viewBox='0 0 64 64'</code>처럼 선언하세요.</p>
+<h3>함정 2: 인라인 <code>fill</code> 속성이 CSS를 덮어쓰는 경우</h3>
+<p>도형에 이미 <code>fill='#ff7a00'</code> 같은 속성이 들어가 있다면, CSS 클래스는 우선순위 경합에서 밀립니다. 색상을 클래스로 옮기거나 인라인 속성을 완전히 삭제하세요.</p>
+<h3>함정 3: 지나치게 강한 파비콘 캐싱</h3>
+<p>브라우저는 파비콘을 거의 모든 파일보다 강하게 캐싱합니다. SVG를 수정한 뒤에는 테스트 단계에서 쿼리 스트링을 붙여 강제로 다시 불러오게 만드세요. 예: <code>/favicon.svg?v=2</code>. 운영 환경 전략은 <a href="/blog/favicon-cache-busting.html">캐시 무효화 가이드</a>에서 다룹니다.</p>
+<h3>함정 4: Safari 핀 탭은 미디어 쿼리를 무시한다</h3>
+<p>Safari의 핀 탭 기능은 별도의 단색 <code>safari-pinned-tab.svg</code> 파일을 사용합니다. 이 파일 안에 미디어 쿼리를 넣어도 효과가 없습니다. 단색 실루엣으로 디자인하고 <code>&lt;style&gt;</code> 블록은 생략하세요.</p>
+<h3>함정 5: 다크 모드는 '색상 반전'이 아니다</h3>
+<p>브라우저의 실제 탭 배경(Chrome의 경우 보통 <code>#2b2a33</code>, Safari는 거의 검은색) 위에서 충분한 대비를 갖는 다크 모드 팔레트를 선택하세요. 아이콘을 한 번 대비 검사 도구에 통과시켜 두면 이후 지원 요청을 줄일 수 있습니다.</p>
+<h2>마무리</h2>
+<p>SVG 미디어 쿼리 접근법은 단일 출처 원칙을 제공합니다. 단일 파일, 두 가지 테마, JavaScript는 제로. 이미 SVG 로고를 갖고 있는 모든 모던 사이트의 기본값으로 적합하며, 구버전 브라우저용으로 함께 제공해야 할 PNG와 ICO 폴백을 대체하는 것이 아니라 보완하는 방식으로 작동합니다.</p>
+<h2>문서화된 사양 확인하기</h2>
+<p>HTML Standard는 현재 페이지를 대표하는 아이콘의 link 관계로 <a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon"><code>rel='icon'</code></a>을 정의합니다.</p></template>
+        <template data-article-lang="es">Favicon SVG y media query para modo oscuro: guía paso a paso
+
+<p>Subes un logo perfecto, activas el modo oscuro de tu sistema operativo y abres tu sitio... solo para ver cómo tu marca naranja brillante te devuelve la mirada desde una barra de pestañas oscura. Un favicon PNG plano no puede detectar el tema de tu sistema. Pero un favicon SVG con una media query <code>prefers-color-scheme</code> integrada sí puede.</p>
+<p>Esta guía se centra en una técnica concreta: incrustar una media query de CSS directamente dentro de tu archivo <code>.svg</code> para que un único fichero cambie de colores automáticamente. Es un camino distinto al de intercambiar dos etiquetas <code>&lt;link&gt;</code> en HTML, y es el más limpio para la mayoría de los sitios.</p>
+<h2>Requisitos previos</h2>
+<p>Antes de empezar, necesitas tres cosas:</p>
+<ul>
+<li>Un logo SVG con un atributo <code>viewBox</code> limpio (para que escale correctamente).</li>
+<li>Familiaridad básica editando marcado SVG en bruto.</li>
+<li>Control sobre el <code>&lt;head&gt;</code> de tu sitio para añadir una etiqueta link.</li>
+</ul>
+<p>Si todavía no tienes un SVG, exporta uno desde tu herramienta de diseño o usa Mzu favicondl para extraer un vector limpio a partir de cualquier imagen.</p>
+<h2>Paso a paso: añade una media query dentro de tu favicon SVG</h2>
+<h3>Paso 1: abre tu archivo SVG en un editor de texto</h3>
+<p>SVG no es más que XML. Haz clic derecho sobre cualquier archivo <code>.svg</code> y elige <strong>Abrir con → TextEdit o VS Code</strong>. Verás algo como:</p>
+<pre><code>&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'&gt;
+  &lt;rect width='64' height='64' rx='12' fill='#ff7a00'/&gt;
+  &lt;path d='M20 22 L32 44 L44 22' stroke='#fff' stroke-width='6' fill='none'/&gt;
+&lt;/svg&gt;</code></pre>
+<h3>Paso 2: añade un bloque <code>&lt;style&gt;</code> con la media query</h3>
+<p>Inserta un elemento <code>&lt;style&gt;</code> justo después de la etiqueta <code>&lt;svg&gt;</code> de apertura. Dentro, define los colores del tema claro y sobreescríbelos para el modo oscuro usando <code>prefers-color-scheme: dark</code>:</p>
+<pre><code>&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'&gt;
+  &lt;style&gt;
+    .bg { fill: #ff7a00; }
+    .stroke { stroke: #ffffff; }
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #1a1a1a; }
+      .stroke { stroke: #ffb347; }
+    }
+  &lt;/style&gt;
+  &lt;rect class='bg' width='64' height='64' rx='12'/&gt;
+  &lt;path class='stroke' d='M20 22 L32 44 L44 22' stroke-width='6' fill='none'/&gt;
+&lt;/svg&gt;</code></pre>
+<p>El navegador reevalúa <code>prefers-color-scheme</code> cada vez que cambia el tema de tu sistema operativo. Tu favicon se actualiza sin recargar la página en la mayoría de navegadores modernos.</p>
+<h3>Paso 3: enlázalo en el <code>&lt;head&gt;</code> de tu HTML</h3>
+<p>Según el HTML living standard de WHATWG, el tipo de link <code>rel='icon'</code> admite SVG cuando declaras el MIME type correcto con <code>type='image/svg+xml'</code>:</p>
+<pre><code>&lt;link rel='icon' href='/favicon.svg' type='image/svg+xml'&gt;</code></pre>
+<p>Colócalo por encima de cualquier fallback PNG o ICO. <a href="/blog/favicon-html-code.html">Consulta nuestro cheat sheet de favicon en HTML</a> para ver el stack moderno completo, incluidas las entradas de Apple Touch y web manifest.</p>
+<h3>Paso 4: ofrece un fallback raster</h3>
+<p>No todos los navegadores procesan CSS dentro de los favicons, sobre todo versiones antiguas de Safari y algunas vistas web embebidas. Sirve un PNG de 32×32 (o un ICO multitaría) para esos clientes:</p>
+<pre><code>&lt;link rel='icon' href='/favicon.svg' type='image/svg+xml'&gt;
+&lt;link rel='icon' href='/favicon.ico' sizes='32x32'&gt;</code></pre>
+<p>Los navegadores usan la primera coincidencia, así que SVG gana donde tenga soporte.</p>
+<h3>Paso 5: prueba ambos esquemas de color</h3>
+<p>Fuerza una recarga completa (Ctrl/Cmd + Shift + R) y cambia el tema de tu sistema operativo. En Chrome, Edge y Firefox el icono de la pestaña debería cambiar en vivo. Si no ocurre nada, pasa a la sección de errores comunes.</p>
+<h2>Errores comunes</h2>
+<h3>Error 1: olvidar el <code>viewBox</code></h3>
+<p>Sin un <code>viewBox</code>, el SVG se renderiza a su tamaño intrínseco, que puede ser enorme o cero. Declara siempre uno: <code>viewBox='0 0 64 64'</code>.</p>
+<h3>Error 2: los atributos <code>fill</code> inline ganan a tu CSS</h3>
+<p>Si tus formas ya llevan <code>fill='#ff7a00'</code> como atributo, tu clase CSS perderá la batalla de especificidad. Mueve el color a una clase, o elimina el atributo inline por completo.</p>
+<h3>Error 3: caché de favicon demasiado agresiva</h3>
+<p>Los navegadores cachean los favicons más que casi cualquier otro archivo. Tras editar tu SVG, añade un query string durante las pruebas: <code>/favicon.svg?v=2</code>. <a href="/blog/favicon-cache-busting.html">Nuestra guía de cache busting</a> cubre estrategias para producción.</p>
+<h3>Error 4: las pestañas ancladas de Safari ignoran las media queries</h3>
+<p>La función de pestaña anclada de Safari usa un <code>safari-pinned-tab.svg</code> monocromo aparte. Las media queries dentro de ese archivo no surten efecto. Diseñalo como una silueta de un solo color y omite el bloque <code>&lt;style&gt;</code>.</p>
+<h3>Error 5: el modo oscuro no es 'invertir los colores'</h3>
+<p>Elige una paleta para modo oscuro con contraste real frente al fondo real de la pestaña del navegador (a menudo <code>#2b2a33</code> en Chrome, casi negro en Safari). Pasar tu icono por un comprobador de contraste una vez te ahorrará tickets de soporte más adelante.</p>
+<h2>Conclusión</h2>
+<p>El enfoque con media query dentro del SVG te da una única fuente de verdad: un archivo, dos temas, cero JavaScript. Es el valor por defecto correcto para cualquier sitio moderno que ya tenga un logo SVG, y funciona junto a —no en contra de— los fallbacks PNG e ICO que deberías seguir sirviendo para navegadores antiguos.</p><h2>Consulta los requisitos documentados</h2><p>El HTML Standard define <a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon"><code>rel='icon'</code></a> como la relación de link para un icono que representa la página actual.</p></template>
+
+        <div class="cta-box">
+            <h3 data-en="Generate a dark-mode-ready SVG favicon in seconds" data-zh="几秒钟生成支持深色模式的 SVG 网站图标" data-ja="ダークモード対応の SVG ファビコンを数秒で生成" data-ko="다크모드 지원 SVG 파비콘을 몇 초 만에 생성" data-es="Genera un favicon SVG listo para modo oscuro en segundos">Generate a dark-mode-ready SVG favicon in seconds</h3>
+            <p data-en="Upload any image and get a clean SVG with dark-mode media queries built in. No manual CSS required." data-zh="上传任意图片，一键生成内置深色模式媒体查询的 SVG 网站图标，无需手写 CSS。" data-ja="画像をアップロードするだけで、ダークモード対応メディアクエリ付きのクリーンな SVG を生成。手書き CSS は不要です。" data-ko="이미지를 업로드하면 다크모드 미디어 쿼리가 내장된 깔끔한 SVG를 즉시 생성합니다. CSS를 직접 작성할 필요 없음." data-es="Sube cualquier imagen y obtén un SVG limpio con media queries para modo oscuro incorporadas. Sin CSS manual.">Upload any image and get a clean SVG with dark-mode media queries built in. No manual CSS required.</p>
+            <a href="/index.html" class="cta-btn" data-en="Try It Free →" data-zh="免费试用 →" data-ja="無料で試す →" data-ko="무료로 사용해보기 →" data-es="Pruébalo gratis →">Try It Free →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/index.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Home" data-zh="首页">Home</a>
+                <a href="/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Blog" data-zh="博客">Blog</a>
+                <a href="/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Privacy" data-zh="隐私政策">Privacy</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js?v=20260211"></script>
+
+</body></html>
