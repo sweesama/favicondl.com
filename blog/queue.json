@@ -2566,7 +2566,9 @@
       "google-favicon-requirements-48x48",
       "favicon-sizes-guide"
     ],
-    "status": "pending"
+    "status": "done",
+    "qualityScore": 80,
+    "qualityGrade": "A"
   },
   {
     "keyword": "favicon ico multiple sizes 16 32 48",

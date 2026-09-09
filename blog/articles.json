@@ -3437,5 +3437,26 @@
     ],
     "qualityScore": 100,
     "qualityGrade": "A"
+  },
+  {
+    "slug": "png-favicon-96x96-google",
+    "publishDate": "2026-09-09",
+    "titleEn": "PNG Favicon 96x96 for Google: Why This Size Works Best",
+    "titleZh": "PNG 网站图标 96x96 在 Google 中的最佳尺寸",
+    "titleJa": "PNGファビコン 96x96 を Google で使う方法",
+    "titleKo": "PNG 파비콘 96x96 Google 검색 결과 최적화",
+    "titleEs": "PNG Favicon 96x96 para Google: El Tamaño Ideal",
+    "descEn": "Learn why a PNG favicon 96x96 meets Google's recommended range, how the sizes attribute works, and the HTML pattern to serve it correctly.",
+    "descZh": "了解 96x96 PNG 网站图标为何满足 Google 推荐的 48x48 以上要求,学习 sizes 属性的用法和正确的 HTML 写法。",
+    "descJa": "96x96 PNGファビコンがGoogleの48x48以上推奨サイズを満たす理由を解説。sizes属性の仕組みと正しいHTML実装も紹介します。",
+    "descKo": "96x96 PNG 파비콘이 Google의 48x48 이상 권장 크기를 충족하는 이유와 sizes 속성, 올바른 HTML 작성법을 알아보세요.",
+    "descEs": "Descubre por qué un favicon PNG 96x96 cumple con la recomendación de Google y cómo usar el atributo sizes correctamente.",
+    "keyword": "png favicon 96x96 google",
+    "tags": [
+      "png",
+      "google"
+    ],
+    "qualityScore": 80,
+    "qualityGrade": "A"
   }
 ]

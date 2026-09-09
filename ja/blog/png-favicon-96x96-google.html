@@ -1,0 +1,164 @@
+<!DOCTYPE html><html lang="ja"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PNGファビコン 96x96 を Google で使う方法 - Mzu favicondl</title>
+    <meta name="description" content="96x96 PNGファビコンがGoogleの48x48以上推奨サイズを満たす理由を解説。sizes属性の仕組みと正しいHTML実装も紹介します。">
+    <meta name="keywords" content="png favicon 96x96, favicon google size, html icon sizes attribute">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/ja/blog/png-favicon-96x96-google.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/png-favicon-96x96-google.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/png-favicon-96x96-google.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/png-favicon-96x96-google.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/png-favicon-96x96-google.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/png-favicon-96x96-google.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/png-favicon-96x96-google.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/ja/blog/png-favicon-96x96-google.html">
+    <meta property="og:title" content="PNGファビコン 96x96 を Google で使う方法">
+    <meta property="og:description" content="96x96 PNGファビコンがGoogleの48x48以上推奨サイズを満たす理由を解説。sizes属性の仕組みと正しいHTML実装も紹介します。">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="PNGファビコン 96x96 を Google で使う方法">
+    <meta name="twitter:description" content="96x96 PNGファビコンがGoogleの48x48以上推奨サイズを満たす理由を解説。sizes属性の仕組みと正しいHTML実装も紹介します。">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "PNGファビコン 96x96 を Google で使う方法",
+  "description": "96x96 PNGファビコンがGoogleの48x48以上推奨サイズを満たす理由を解説。sizes属性の仕組みと正しいHTML実装も紹介します。",
+  "datePublished": "2026-09-09",
+  "dateModified": "2026-09-09",
+  "author": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "mainEntityOfPage": "https://favicondl.com/ja/blog/png-favicon-96x96-google.html",
+  "inLanguage": "ja"
+}</script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/ja/index.html" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/ja/documentation.html" class="nav-link">ドキュメント</a>
+                <a href="/ja/tools.html" class="nav-link">ツール</a>
+                <a href="/ja/blog/" class="nav-link">ブログ</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/png-favicon-96x96-google.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/png-favicon-96x96-google.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/png-favicon-96x96-google.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/png-favicon-96x96-google.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/png-favicon-96x96-google.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/ja/index.html" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/ja/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600">PNGファビコン 96x96 を Google で使う方法</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">png</span><time class="text-sm text-gray-400">2026-09-09</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">PNGファビコン 96x96 を Google で使う方法</h1>
+        </header>
+
+        <div class="article-body"><p>Googleを開き、自社ブランド名を検索して、ページタイトルの横にあるアイコンをよく見てみてください。ぼやけたり、ピクセル化されていたり、引き伸ばされているように見えるなら、Googleが低解像度のfaviconを強制的に拡大表示しているケースがほとんどです。これはまさに<strong>PNGファavicon 96x96</strong>パターンが解決する問題であり、Googleが内部でより鮮明な候補を選ぶ際に使っている2倍ダウンサンプルロジックと同じ考え方に基づいています。</p>
+
+<h2>96x96 PNGファaviconとは実際には何なのか</h2>
+<p>96x96 PNGファaviconとは、96ピクセル幅×96ピクセル高さの正方形のラスター画像で、<code>image/png</code>というMIMEタイプで配信されます。96ピクセルという寸法には意味があります。デスクトップ検索結果においてページタイトルの横のアイコンを描画する際にGoogle検索が使う48ピクセルのCSSサイズと、ちょうど2倍の関係にあるためです。</p>
+<p>ブラウザや検索エンジンが48x48サイズのアイコンを描画する必要があり、ソースのPNGが96x96であれば、ダウンサンプリングによってエッジが鮮明になり、アンチエイリアスも綺麗に掛かります。一方、ソースが16x16で48x48にアップスケールされると、ぼやけが生じます。96x96というサイズはスイートスポットです。ファイルサイズを10 KB未満に抑えられるほど小さく、あらゆる一般的な描画ターゲットに品質劣化なしで対応できるほど大きいという、ちょうど良いバランスが取れています。</p>
+
+<h2>なぜこのサイズがGoogle検索で重要なのか</h2>
+<p><a href="https://developers.google.com/search/docs/appearance/favicon-in-search?hl=en">Googleの公式faviconドキュメント</a>によると、faviconが検索結果に表示される<em>資格を得る</em>(保証ではなく)のは、Googleがそれをクロールでき、正方形であり、少なくとも8x8ピクセル以上である場合です。Googleは<em>48x48より大きいサイズを推奨</em>しています。</p>
+<p>96x96 PNGはこの推奨範囲内に収まり、表示サイズとちょうど2倍の関係にあるため、Googleのレンダラーは綺麗にダウンサンプリングできます。Googleのクローラーは、<code>&lt;link rel="icon"&gt;</code>宣言やルートの<code>favicon.ico</code>の中から、見つけた中で最も大きな有効な正方形画像を選びます。96x96 PNGはその選定に勝つことが多く、一度選ばれれば、それがSERP(検索結果ページ)でユーザーに表示される画像になります。96x96が他の一般的なサイズの中でどう位置付けられるかについては、<a href="/ja/blog/favicon-sizes-guide.html">faviconサイズ完全ガイド</a>をご覧ください。</p>
+
+<h2>sizes属性がブラウザにどのアイコンを使うか伝える仕組み</h2>
+<p>HTML仕様は、<code>&lt;link rel="icon"&gt;</code>タグの<code>sizes</code>属性を通じて、ブラウザに対しどのアイコンを読み込むかのヒントを与えます。<a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">WHATWG HTML標準</a>で定義されている通り、ユーザーエージェントが特定のサイズ(たとえばGoogle検索結果用の48x48やWindowsタスクバーピン留め用の32x32)のアイコンを必要とする場合、ターゲットのサイズに一致するかそれを超える<code>sizes</code>値を持つ宣言済みのアイコンが選択されます。</p>
+<p>以下が96x96 PNGファaviconを宣言する正規のパターンです:</p>
+<pre><code>&amp;lt;link rel='icon' type='image/png' sizes='96x96' href='/favicons/favicon-96x96.png'&amp;gt;</code></pre>
+<p>フォーマットは正確に<code>"96x96"</code>、小文字、区切り文字は<code>x</code>、という形にする必要があります。ブラウザは<code>"96"</code>、<code>"96 X 96"</code>、空白を含むその他のバリアントを無視します。</p>
+
+<h2>実践的な実装:アイコンセット全体</h2>
+<p>96x96 PNG単体での配信だけでは不十分です。現代のブラウザは階層化されたアイコン群を期待しています。一般的な<code>&lt;head&gt;</code>ブロックは以下のようになります:</p>
+<pre><code>&amp;lt;link rel='icon' type='image/svg+xml' href='/favicon.svg'&amp;gt;
+&amp;lt;link rel='icon' type='image/png' sizes='96x96' href='/favicons/favicon-96x96.png'&amp;gt;
+&amp;lt;link rel='icon' type='image/png' sizes='32x32' href='/favicons/favicon-32x32.png'&amp;gt;
+&amp;lt;link rel='apple-touch-icon' sizes='180x180' href='/favicons/apple-touch-icon.png'&amp;gt;
+&amp;lt;link rel='shortcut icon' href='/favicon.ico'&amp;gt;</code></pre>
+<p>順序が重要です。サイズが大きく優先度の高いアイコンを先に記述してください。ブラウザは必要な<code>sizes</code>に最初にマッチした時点で処理を停止します。ルートの<code>favicon.ico</code>は、ファイルを直接プローブする古いブラウザやcurlスタイルのスクレイパーへの対応として機能します。</p>
+
+<h2>96x96 PNGのベストプラクティス</h2>
+<ul>
+<li><strong>96x96でデザインし、アップスケールは避ける。</strong>ソースSVGから96x96 PNGを新規書き出しすることで、ピクセルグリッドが綺麗に保たれます。32x32エクスポートをアップスケールすると、解消したかったはずのぼやけがそのまま焼き付いてしまいます。</li>
+<li><strong>URLは恒久的に保つ。</strong>Googleが一度アイコンをインデックスした後でURLを変更すると、完全な再クロールが必要になります。Googleのドキュメントによると、これには数日から数週間かかる可能性があります。</li>
+<li><strong>10 KB未満に抑える。</strong>色を絞った96x96 PNGは通常2〜6 KBになります。デプロイ前にOxipngなどのPNG最適化ツールを通すようにしましょう。</li>
+<li><strong>正方形は必須条件。</strong>Googleのクローラーは非正方形の画像を無視します。96x95のようなファイルは検索結果では無効です。</li>
+<li><strong>出稿前に48x48でプレビューする。</strong>Mzu favicondlのようなツールを使って、実際の表示サイズで96x96 PNGをレンダリングしてください。48x48で濁って見えるなら、Googleでも濁って見えます。</li>
+</ul>
+
+<h2>96x96が適さないケース</h2>
+<p>PWAの構築やAndroidホーム画面用アイコンが必要な場合は、<code>site.webmanifest</code>で192x192と512x512のPNGが求められます。これらがプラットフォームで実際に使われるサイズです。そのシナリオについては、<a href="/ja/blog/web-app-manifest-icons-192-512.html">Webアプリマニフェストアイコン設定ガイド</a>を参照してください。一方、ブラウザタブ、アドレスバー、Google検索結果については、96x96とSVGを組み合わせるのが最も鮮明で現実的な構成です。</p>
+
+<h2>推奨構成</h2>
+<p>アップスケールされた小さいファイルではなく本物の96x96 PNGを、独自の<code>&lt;link&gt;</code>タグに<code>sizes='96x96'</code>を付けて配信してください。これにSVGプライマリ、32x32 PNGフォールバック、ルートの<code>favicon.ico</code>を組み合わせます。このスタックであれば、Googleの「48x48より大きい」という推奨を満たしつつ、検索結果で鮮明に表示でき、レガシーブラウザでもグレースフルにフォールバックします。</p></div>
+
+        <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
+
+        <div class="cta-box">
+            <h3>数秒で96x96 PNGファビコンを生成</h3>
+            <p>画像をアップロードするだけで、シャープに最適化された96x96 PNGと完全なファビコンパッケージが手に入ります。</p>
+            <a href="/ja/index.html" class="cta-btn">無料で試す →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/ja/index.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">ホーム</a>
+                <a href="/ja/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">ブログ</a>
+                <a href="/ja/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">プライバシー</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js?v=20260211"></script>
+
+</body></html>
