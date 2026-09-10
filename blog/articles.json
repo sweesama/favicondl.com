@@ -3458,5 +3458,26 @@
     ],
     "qualityScore": 80,
     "qualityGrade": "A"
+  },
+  {
+    "slug": "favicon-ico-multiple-sizes-16-32-48",
+    "publishDate": "2026-09-10",
+    "titleEn": "Favicon ICO Multiple Sizes 16 32 48: A Developer's Guide",
+    "titleZh": "Favicon ICO 多尺寸 16 32 48：开发者完全指南",
+    "titleJa": "Favicon ICO マルチサイズ 16 32 48：開発者ガイド",
+    "titleKo": "Favicon ICO 멀티 사이즈 16 32 48: 개발자 가이드",
+    "titleEs": "Favicon ICO Multitamaño 16 32 48: Guía para Desarrolladores",
+    "descEn": "Learn why favicon ICO files pack 16, 32, and 48 pixel sizes together. Discover what each size does in browser tabs, taskbars, and bookmark bars.",
+    "descZh": "了解为什么 favicon ICO 文件包含 16、32 和 48 像素尺寸。掌握每个尺寸在浏览器标签、任务栏中的实际作用。",
+    "descJa": "Favicon ICO ファイルが 16、32、48 ピクセルサイズを同梱する理由を解説。タブやタスクバーでの各サイズ役割を理解します。",
+    "descKo": "Favicon ICO 파일이 16, 32, 48 픽셀 크기를 함께 담는 이유를 알아보세요. 브라우저 탭, 작업 표시줄에서의 각 크기 역할을 파악합니다.",
+    "descEs": "Aprende por qué los archivos favicon ICO agrupan tamaños 16, 32 y 48. Descubre qué hace cada tamaño en pestañas, barras de tareas y marcadores.",
+    "keyword": "favicon ico multiple sizes 16 32 48",
+    "tags": [
+      "ico",
+      "sizes"
+    ],
+    "qualityScore": 80,
+    "qualityGrade": "A"
   }
 ]

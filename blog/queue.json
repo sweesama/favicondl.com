@@ -2583,7 +2583,9 @@
       "multi-size-favicon-ico",
       "favicon-ico-size"
     ],
-    "status": "pending"
+    "status": "done",
+    "qualityScore": 80,
+    "qualityGrade": "A"
   },
   {
     "keyword": "favicon sizes for mobile home screen",
