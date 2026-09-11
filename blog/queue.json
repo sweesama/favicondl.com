@@ -2600,7 +2600,9 @@
       "favicon-mobile",
       "home-screen-icon"
     ],
-    "status": "pending"
+    "status": "done",
+    "qualityScore": 87,
+    "qualityGrade": "A"
   },
   {
     "keyword": "favicon for android add to home screen",

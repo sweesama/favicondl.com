@@ -3479,5 +3479,26 @@
     ],
     "qualityScore": 80,
     "qualityGrade": "A"
+  },
+  {
+    "slug": "favicon-sizes-mobile-home-screen",
+    "publishDate": "2026-09-11",
+    "titleEn": "Favicon Sizes for Mobile Home Screen: The 2026 Guide",
+    "titleZh": "移动主屏幕图标尺寸：2026 年完整指南",
+    "titleJa": "モバイルホーム画面用ファビコンサイズ：2026年完全ガイド",
+    "titleKo": "모바일 홈 화면 파비콘 사이즈: 2026 완벽 가이드",
+    "titleEs": "Tamaños de favicon para pantalla de inicio móvil: Guía 2026",
+    "descEn": "Learn the exact favicon sizes for mobile home screen in 2026 — 180x180 for iOS, 192x192 and 512x512 for Android — plus HTML and manifest setup.",
+    "descZh": "2026 年移动主屏幕 favicon 尺寸完整指南：180x180 适用于 iOS，192x192 与 512x512 适用于 Android，附 HTML 与 manifest 配置代码。",
+    "descJa": "2026年のモバイルホーム画面用ファビコンサイズを徹底解説。iOS向け180x180、Android向け192x192と512x512、HTMLとマニフェストの設定方法を紹介します。",
+    "descKo": "2026년 모바일 홈 화면 파비콘 사이즈 완벽 가이드 — iOS용 180x180, Android용 192x192·512x512, HTML 및 manifest 설정 방법을 소개합니다.",
+    "descEs": "Guía completa de tamaños de favicon para pantalla de inicio móvil en 2026: 180x180 para iOS, 192x192 y 512x512 para Android, con código HTML y manifest.",
+    "keyword": "favicon sizes for mobile home screen",
+    "tags": [
+      "mobile",
+      "sizes"
+    ],
+    "qualityScore": 87,
+    "qualityGrade": "A"
   }
 ]
