@@ -3500,5 +3500,26 @@
     ],
     "qualityScore": 87,
     "qualityGrade": "A"
+  },
+  {
+    "slug": "android-add-to-home-screen-favicon",
+    "publishDate": "2026-09-12",
+    "titleEn": "Favicon for Android Add to Home Screen: The 2026 Setup",
+    "titleZh": "Android 添加到主屏幕的 Favicon 设置教程 2026",
+    "titleJa": "Android のホーム画面に追加する Favicon 設定：2026 年版",
+    "titleKo": "Android 홈 화면에 추가 Favicon 설정 가이드 2026",
+    "titleEs": "Favicon para Android Añadir a Pantalla de Inicio 2026",
+    "descEn": "Learn the exact favicon for android add to home screen setup. Configure manifest.json, maskable icons, and test the real Chrome install flow on Android devices.",
+    "descZh": "详细介绍如何在 Android Chrome 上正确配置添加到主屏幕的网站图标，包括 manifest.json、maskable 图标和实机安装流程测试。",
+    "descJa": "Android Chrome の「ホーム画面に追加」で正しく表示される Favicon の設定を解説。manifest.json、maskable アイコン、実機テストの手順まで紹介します。",
+    "descKo": "Android Chrome의 '홈 화면에 추가'에서 제대로 표시되는 Favicon 설정 방법을 설명합니다. manifest.json, maskable 아이콘, 실기기 설치 테스트까지 다룹니다.",
+    "descEs": "Aprende a configurar correctamente el favicon para añadir a la pantalla de inicio en Android Chrome. Incluye manifest.json, iconos maskable y prueba real de instalación.",
+    "keyword": "favicon for android add to home screen",
+    "tags": [
+      "android",
+      "pwa"
+    ],
+    "qualityScore": 100,
+    "qualityGrade": "A"
   }
 ]

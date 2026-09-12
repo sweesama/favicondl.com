@@ -1,0 +1,192 @@
+<!DOCTYPE html><html lang="zh"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Android 添加到主屏幕的 Favicon 设置教程 2026 - Mzu favicondl</title>
+    <meta name="description" content="详细介绍如何在 Android Chrome 上正确配置添加到主屏幕的网站图标，包括 manifest.json、maskable 图标和实机安装流程测试。">
+    <meta name="keywords" content="android home screen icon, add to home screen favicon, maskable icon">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/zh/blog/android-add-to-home-screen-favicon.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/android-add-to-home-screen-favicon.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/android-add-to-home-screen-favicon.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/android-add-to-home-screen-favicon.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/android-add-to-home-screen-favicon.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/android-add-to-home-screen-favicon.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/android-add-to-home-screen-favicon.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/zh/blog/android-add-to-home-screen-favicon.html">
+    <meta property="og:title" content="Android 添加到主屏幕的 Favicon 设置教程 2026">
+    <meta property="og:description" content="详细介绍如何在 Android Chrome 上正确配置添加到主屏幕的网站图标，包括 manifest.json、maskable 图标和实机安装流程测试。">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Android 添加到主屏幕的 Favicon 设置教程 2026">
+    <meta name="twitter:description" content="详细介绍如何在 Android Chrome 上正确配置添加到主屏幕的网站图标，包括 manifest.json、maskable 图标和实机安装流程测试。">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Android 添加到主屏幕的 Favicon 设置教程 2026",
+  "description": "详细介绍如何在 Android Chrome 上正确配置添加到主屏幕的网站图标，包括 manifest.json、maskable 图标和实机安装流程测试。",
+  "datePublished": "2026-09-12",
+  "dateModified": "2026-09-12",
+  "author": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "mainEntityOfPage": "https://favicondl.com/zh/blog/android-add-to-home-screen-favicon.html",
+  "inLanguage": "zh-CN"
+}</script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/zh/index.html" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/zh/documentation.html" class="nav-link">文档</a>
+                <a href="/zh/tools.html" class="nav-link">工具</a>
+                <a href="/zh/blog/" class="nav-link">博客</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/android-add-to-home-screen-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/android-add-to-home-screen-favicon.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/android-add-to-home-screen-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/android-add-to-home-screen-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/android-add-to-home-screen-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/zh/index.html" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/zh/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600">Android 添加到主屏幕的 Favicon 设置教程 2026</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">android</span><time class="text-sm text-gray-400">2026-09-12</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">Android 添加到主屏幕的 Favicon 设置教程 2026</h1>
+        </header>
+
+        <div class="article-body"><p>在 Android Chrome 里点开右上角三个点的菜单，选 "添加到主屏幕"，结果桌面上只出现一个用首字母拼出来的占位图标——你精心设计的 favicon 被浏览器完全无视。这篇文章要解决的就是这个场景：如何让 favicon 在 Android Chrome 的桌面安装流程里正确显示。</p>
+<p>用户安装站点时，Android Chrome 不会去读标准的 <code>&lt;link rel='icon'&gt;</code> 标签，它读的是站点对应的 web app manifest。如果 manifest 缺失、格式错误，或者缺少正确的图标条目，Android 主屏幕上的快捷方式就会回退成一张网页截图，或者一个通用的字母图形。</p>
+<h2>前置条件</h2>
+<p>动手之前你需要准备三样东西：</p>
+<ul>
+<li>一个正方形的源图标，建议从矢量文件导出为 512×512 PNG。</li>
+<li>一份可以从站点根目录访问到的 <code>manifest.json</code>，并且响应头必须是有效的 <code>Content-Type: application/manifest+json</code>。</li>
+<li>一台可以测试的 Android 真机或模拟器，运行 Chrome 100 或更高版本。</li>
+</ul>
+<h2>分步配置：Android Chrome 桌面安装的 Favicon</h2>
+<h3>1. 从源文件导出两个尺寸的图标</h3>
+<p>Android Chrome 在安装对话框里优先使用 192×192 图标，在快捷方式添加后短暂出现的 splash 屏里使用 512×512 图标。两个尺寸都导出为 PNG。W3C manifest 规范把这两个尺寸定义为 <code>purpose: 'any'</code> 图标必须包含的 <code>sizes</code> 值。完整 schema 见 <a href="https://www.w3.org/TR/appmanifest/#icons-member">W3C Web App Manifest: icons member</a>。</p>
+<h3>2. 为自适应启动器做一个 maskable 变体</h3>
+<p>Android 启动器会根据设备不同，把正方形图标裁剪成圆形、squircle 或圆角矩形。普通的 512×512 PNG 会被切掉边角。做一个 maskable 版本：完整图案放在画布中央 80% 的安全区内，外围 20% 留作透明边距，让启动器自由裁剪而不会丢细节。</p>
+<p>文件保存为 <code>icon-maskable-512.png</code>。想深入了解安全区的计算，可以参考我们的 <a href="/zh/blog/maskable-icon.html">maskable icon 指南</a>。</p>
+<h3>3. 写 manifest.json</h3>
+<p>把下面内容放到站点根目录，路径自行调整：</p>
+<pre><code>{
+  "name": "Your App Name",
+  "short_name": "Short",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#000000",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}</code></pre>
+<p><code>purpose</code> 字段是 favicon 在 Android 桌面安装流程里看起来清晰还是被切得乱七八糟的关键。manifest 规范中，<code>'any'</code> 表示标准图标，<code>'maskable'</code> 表示专为应对启动器裁剪设计的图标。</p>
+<h3>4. 在每个页面链接 manifest</h3>
+<p>用户可能用来安装的每个页面，其 HTML head 中都必须有 <code>&lt;link&gt;</code> 标签，否则 Android Chrome 找不到 manifest。加上这一行：</p>
+<pre><code>&lt;link rel='manifest' href='/manifest.json'&gt;</code></pre>
+<p>放在 favicon 声明旁边，不要放进 body 里。浏览器在解析关闭 head 之后会忽略后续的 link 标签。</p>
+<h3>5. 设置 theme-color，让顶部栏颜色保持一致</h3>
+<p>既然已经在改 head，就顺便加上 theme-color，从主屏幕打开站点时 Chrome 顶部会染上对应颜色：</p>
+<pre><code>&lt;meta name='theme-color' content='#000000'&gt;</code></pre>
+<h3>6. 跑一遍真实安装流程</h3>
+<p>在 Android Chrome 真机上打开站点，点右上角三个点的菜单，选 "添加到主屏幕"。对话框预览里应该显示你的 192×192 图标，而不是字母或截图。确认添加后回到桌面——图标应当填满形状，且没有裁掉重要细节。</p>
+<p>如果显示的图标不对，继续看下一节。</p>
+<h2>Android 上常见的坑</h2>
+<ul>
+<li><strong>缺少 <code>purpose: 'maskable'</code> 条目</strong>：Android 启动器会裁剪普通 PNG，你的品牌标识可能被切掉一半。</li>
+<li><strong>只提供 <code>icon-512.png</code>，没有 manifest</strong>：Chrome 会回退到截图，在用户壁纸上看会很糟糕。</li>
+<li><strong>manifest 里用 SVG 图标</strong>：Android Chrome 在不同设备上对 SVG manifest 图标的渲染并不稳定。还是用 PNG 稳妥。</li>
+<li><strong>混淆 apple-touch-icon</strong>：<code>apple-touch-icon</code> 标签只对 iOS 有效，Android 完全忽略。</li>
+<li><strong>Chrome 缓存陈旧</strong>：如果你刚改过 <code>manifest.json</code>，但安装对话框里还是旧图标，去 Chrome 设置里清掉站点数据，或者用无痕模式打开。</li>
+</ul>
+<h2>验证成果</h2>
+<p>用 <a href="/zh/blog/favicon-checker-online.html">在线 favicon 检测工具</a> 确认 manifest 能解析、PNG 能通过 HTTPS 正常加载。Mzu favicondl 可以从一个源文件导出 192×192 和 512×512 两份 PNG，并生成对应的 maskable 版本，省掉一次 Figma 操作。然后至少在一台 Pixel 和一台 Samsung 设备上跑一遍完整安装流程——两家的启动器形状差异明显，这正是 maskable 版本不能省的原因。</p>
+<p>想让 favicon 在 Android 桌面安装流程里正确显示，关键就是一份配置正确的 <code>manifest.json</code>：包含 192×192 条目、512×512 maskable 条目，并在每个页面放上 <code>&lt;link rel='manifest'&gt;</code> 标签。不做 maskable 版本，图标会被裁；不做 manifest，Android 直接给你的页面截图。这三件事做到位，用户主屏幕上的快捷方式看起来才像该有的样子。</p></div>
+
+        <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
+
+        <div class="cta-box">
+            <h3>秒级生成 Android 就绪的网站图标</h3>
+            <p>上传你的源图标，Mzu favicondl 将导出 Android Chrome 所需的全部尺寸，包括 maskable 变体。</p>
+            <a href="/zh/index.html" class="cta-btn">免费试用 →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/zh/index.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">首页</a>
+                <a href="/zh/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">博客</a>
+                <a href="/zh/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">隐私政策</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js?v=20260211"></script>
+
+</body></html>

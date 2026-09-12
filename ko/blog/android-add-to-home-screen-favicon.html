@@ -1,0 +1,192 @@
+<!DOCTYPE html><html lang="ko"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Android 홈 화면에 추가 Favicon 설정 가이드 2026 - Mzu favicondl</title>
+    <meta name="description" content="Android Chrome의 '홈 화면에 추가'에서 제대로 표시되는 Favicon 설정 방법을 설명합니다. manifest.json, maskable 아이콘, 실기기 설치 테스트까지 다룹니다.">
+    <meta name="keywords" content="android home screen icon, add to home screen favicon, maskable icon">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/ko/blog/android-add-to-home-screen-favicon.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/android-add-to-home-screen-favicon.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/android-add-to-home-screen-favicon.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/android-add-to-home-screen-favicon.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/android-add-to-home-screen-favicon.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/android-add-to-home-screen-favicon.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/android-add-to-home-screen-favicon.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/ko/blog/android-add-to-home-screen-favicon.html">
+    <meta property="og:title" content="Android 홈 화면에 추가 Favicon 설정 가이드 2026">
+    <meta property="og:description" content="Android Chrome의 '홈 화면에 추가'에서 제대로 표시되는 Favicon 설정 방법을 설명합니다. manifest.json, maskable 아이콘, 실기기 설치 테스트까지 다룹니다.">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Android 홈 화면에 추가 Favicon 설정 가이드 2026">
+    <meta name="twitter:description" content="Android Chrome의 '홈 화면에 추가'에서 제대로 표시되는 Favicon 설정 방법을 설명합니다. manifest.json, maskable 아이콘, 실기기 설치 테스트까지 다룹니다.">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Android 홈 화면에 추가 Favicon 설정 가이드 2026",
+  "description": "Android Chrome의 '홈 화면에 추가'에서 제대로 표시되는 Favicon 설정 방법을 설명합니다. manifest.json, maskable 아이콘, 실기기 설치 테스트까지 다룹니다.",
+  "datePublished": "2026-09-12",
+  "dateModified": "2026-09-12",
+  "author": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "mainEntityOfPage": "https://favicondl.com/ko/blog/android-add-to-home-screen-favicon.html",
+  "inLanguage": "ko"
+}</script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/ko/index.html" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/ko/documentation.html" class="nav-link">문서</a>
+                <a href="/ko/tools.html" class="nav-link">도구</a>
+                <a href="/ko/blog/" class="nav-link">블로그</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/android-add-to-home-screen-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/android-add-to-home-screen-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/android-add-to-home-screen-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/android-add-to-home-screen-favicon.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/android-add-to-home-screen-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/ko/index.html" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/ko/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600">Android 홈 화면에 추가 Favicon 설정 가이드 2026</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">android</span><time class="text-sm text-gray-400">2026-09-12</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">Android 홈 화면에 추가 Favicon 설정 가이드 2026</h1>
+        </header>
+
+        <div class="article-body"><p>Android Chrome에서 점 세 개 메뉴를 누르고 "홈 화면에 추가"를 선택하면, 런처에 일반적인 첫 글자 플레이스홀더가 나타납니다. 브라우저가 정성껏 만든 favicon을 무시한 것입니다. 이 가이드는 favicon for android add to home screen 흐름에서 바로 이 문제를 해결합니다.</p>
+<p>Android Chrome은 사용자가 사이트를 설치할 때 표준 <code>&lt;link rel='icon'&gt;</code> 태그를 읽지 않습니다. 대신 웹 앱 매니페스트(web app manifest)를 읽습니다. 매니페스트가 없거나, 형식이 잘못되었거나, 올바른 아이콘 항목이 빠져 있으면 Android 홈 화면의 바로가기는 스크린샷이나 일반 글리프로 대체됩니다.</p>
+<h2>사전 준비물</h2>
+<p>코드를 건드리기 전에 세 가지가 필요합니다:</p>
+<ul>
+<li>정사각형 소스 아이콘. 이상적으로는 벡터 파일에서 512×512 PNG로 내보낸 것입니다.</li>
+<li>사이트 루트에서 제공되며 유효한 <code>Content-Type: application/manifest+json</code> 헤더를 가진 접근 가능한 <code>manifest.json</code>.</li>
+<li>Chrome 100 이상이 실행되는 테스트 가능한 Android 기기 또는 에뮬레이터.</li>
+</ul>
+<h2>단계별: Favicon for Android Add to Home Screen 구성하기</h2>
+<h3>1. 소스 아트워크에서 두 가지 아이콘 크기 내보내기</h3>
+<p>Android Chrome은 설치 대화상자에는 192×192 아이콘을, 바로가기가 추가된 후 잠깐 나타나는 스플래시 화면에는 512×512 아이콘을 선호합니다. 둘 다 PNG로 내보내세요. W3C 매니페스트 명세는 이를 <code>purpose: 'any'</code> 아이콘의 두 가지 필수 <code>sizes</code> 값으로 정의합니다. 공식 스키마는 <a href="https://www.w3.org/TR/appmanifest/#icons-member">W3C Web App Manifest: icons member</a>를 참고하세요.</p>
+<h3>2. 적응형 런처를 위한 maskable 변형 만들기</h3>
+<p>Android 런처는 기기에 따라 정사각형 아이콘을 원, 스퀴클, 또는 둥근 사각형으로 자릅니다. 일반 512×512 PNG는 모서리가 잘려나갑니다. maskable 버전을 만드세요: 전체 아트가 캔버스 중앙 80%를 차지하는 안전 영역 안에 들어가고, 나머지 20%는 런처가 세부 정보 손실 없이 자를 수 있는 투명 패딩 역할을 합니다.</p>
+<p><code>icon-maskable-512.png</code>로 저장하세요. 안전 영역 계산에 대한 더 자세한 내용은 <a href="/ko/blog/maskable-icon.html">maskable icon 가이드</a>를 참고하세요.</p>
+<h3>3. manifest.json 작성하기</h3>
+<p>사이트 루트에 다음을 추가하고 경로를 조정하세요:</p>
+<pre><code>{
+  "name": "Your App Name",
+  "short_name": "Short",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#000000",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}</code></pre>
+<p><code>purpose</code> 필드는 favicon for android add to home screen이 선명하게 보이는지, 잘려 보이는지를 가르는 핵심 차이입니다. 매니페스트 명세는 표준 아이콘에는 <code>'any'</code>를, 런처 자르기를 견디도록 설계된 아이콘에는 <code>'maskable'</code>을 정의합니다.</p>
+<h3>4. 모든 페이지에서 매니페스트 연결하기</h3>
+<p>Android Chrome은 사용자가 설치할 수 있는 모든 페이지의 HTML head에 <code>&lt;link&gt;</code> 태그가 없으면 매니페스트를 발견하지 못합니다. 다음을 추가하세요:</p>
+<pre><code>&lt;link rel='manifest' href='/manifest.json'&gt;</code></pre>
+<p>본문 안이 아니라 favicon 선언 옆에 두세요. 브라우저는 head 파싱이 끝난 후 발견한 link 태그를 무시합니다.</p>
+<h3>5. 주소 표시줄과 일치하도록 테마 색상 설정하기</h3>
+<p>head에 있는 김에, 홈 화면에서 사이트를 실행할 때 Chrome 상단 바가 물들도록 일치하는 테마 색상을 추가하세요:</p>
+<pre><code>&lt;meta name='theme-color' content='#000000'&gt;</code></pre>
+<h3>6. 실제 설치 흐름 테스트하기</h3>
+<p>실제 기기의 Android Chrome에서 사이트를 여세요. 점 세 개 메뉴를 열고 "홈 화면에 추가"를 탭하세요. 대화상자 미리보기에는 글자나 스크린샷이 아니라 192×192 아이콘이 표시되어야 합니다. 확인하고 런처를 확인하세요 — 아이콘이 중요한 세부 정보를 잘라내지 않고 모양을 채워야 합니다.</p>
+<p>잘못된 아이콘이 보이면 다음 섹션을 읽어보세요.</p>
+<h2>Android에 특화된 일반적인 함정</h2>
+<ul>
+<li><strong><code>purpose: 'maskable'</code> 항목 누락</strong>: Android 런처가 일반 PNG를 자르면서 브랜드 마크가 아이콘 밖으로 반쯤 나갈 수 있습니다.</li>
+<li><strong>매니페스트 없이 <code>icon-512.png</code> 제공</strong>: Chrome이 스크린샷으로 대체하는데, 사용자의 배경화면 위에서 끔찍해 보입니다.</li>
+<li><strong>매니페스트에 SVG 아이콘 사용</strong>: Android Chrome은 모든 기기에서 SVG 매니페스트 아이콘을 안정적으로 렌더링하지 않습니다. PNG를 고수하세요.</li>
+<li><strong>Apple Touch Icon 혼동</strong>: <code>apple-touch-icon</code> 태그는 iOS 전용입니다. Android는 완전히 무시합니다.</li>
+<li><strong>오래된 Chrome 캐시</strong>: 최근에 <code>manifest.json</code>을 편집했는데도 설치 대화상자가 이전 아이콘을 표시하면, Chrome 설정에서 사이트 데이터를 지우거나 시크릿 탭에서 사이트를 여세요.</li>
+</ul>
+<h2>작업 검증하기</h2>
+<p><a href="/ko/blog/favicon-checker-online.html">favicon checker online</a>을 사용하여 매니페스트가 파싱 가능하고 PNG가 HTTPS를 통해 확인되는지 확인하세요. Mzu favicondl은 단일 소스 파일에서 192×192와 512×512 PNG를 모두 내보내고 일치하는 maskable 변형을 생성할 수 있어 수동 Figma 단계를 절약합니다. 그런 다음 최소 하나의 Pixel 기기와 하나의 Samsung 기기에서 설치 흐름을 진행하세요 — 런처 모양이 눈에 띄게 다르며, 이것이 바로 maskable 변형이 중요한 이유입니다.</p>
+<p>favicon for android add to home screen을 구성하는 것은 192×192 항목, 512×512 maskable 항목, 그리고 모든 페이지의 <code>&lt;link rel='manifest'&gt;</code> 태그를 갖춘 제대로 선언된 <code>manifest.json</code>으로 귀결됩니다. maskable 변형을 건너뛰면 아이콘이 잘립니다. 매니페스트를 완전히 건너뛰면 Android가 대신 페이지를 스크린샷으로 찍습니다. 이 세 파일을 제대로 만들면 사용자의 홈 화면에 있는 바로가기가 원래 있어야 할 것처럼 보일 것입니다.</p></div>
+
+        <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
+
+        <div class="cta-box">
+            <h3>Android 호환 Favicon을 몇 초 만에 생성</h3>
+            <p>원본 아이콘을 업로드하면 Mzu favicondl이 maskable 버전을 포함해 Android Chrome에 필요한 모든 크기를 출력합니다.</p>
+            <a href="/ko/index.html" class="cta-btn">무료로 사용해보기 →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/ko/index.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">홈</a>
+                <a href="/ko/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">블로그</a>
+                <a href="/ko/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">개인정보</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js?v=20260211"></script>
+
+</body></html>
