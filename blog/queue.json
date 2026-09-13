@@ -2634,7 +2634,9 @@
       "multiple-favicons",
       "favicon-cache-clear"
     ],
-    "status": "pending"
+    "status": "done",
+    "qualityScore": 95,
+    "qualityGrade": "A"
   },
   {
     "keyword": "multiple favicon link tags order",

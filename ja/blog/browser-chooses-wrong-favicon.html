@@ -1,0 +1,173 @@
+<!DOCTYPE html><html lang="ja"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ブラウザが間違った Favicon を選んでいる？開発者のための正しい修正方法 - Mzu favicondl</title>
+    <meta name="description" content="ブラウザが間違った Favicon を選んでしまう本当の理由を学び、優先順位・サイズ・キャッシュの問題をすばやく解決しましょう。">
+    <meta name="keywords" content="browser wrong favicon, favicon precedence, wrong site icon, favicon fix, browser icon">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/ja/blog/browser-chooses-wrong-favicon.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/browser-chooses-wrong-favicon.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/browser-chooses-wrong-favicon.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/browser-chooses-wrong-favicon.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/browser-chooses-wrong-favicon.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/browser-chooses-wrong-favicon.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/browser-chooses-wrong-favicon.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/ja/blog/browser-chooses-wrong-favicon.html">
+    <meta property="og:title" content="ブラウザが間違った Favicon を選んでいる？開発者のための正しい修正方法">
+    <meta property="og:description" content="ブラウザが間違った Favicon を選んでしまう本当の理由を学び、優先順位・サイズ・キャッシュの問題をすばやく解決しましょう。">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="ブラウザが間違った Favicon を選んでいる？開発者のための正しい修正方法">
+    <meta name="twitter:description" content="ブラウザが間違った Favicon を選んでしまう本当の理由を学び、優先順位・サイズ・キャッシュの問題をすばやく解決しましょう。">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "ブラウザが間違った Favicon を選んでいる？開発者のための正しい修正方法",
+  "description": "ブラウザが間違った Favicon を選んでしまう本当の理由を学び、優先順位・サイズ・キャッシュの問題をすばやく解決しましょう。",
+  "datePublished": "2026-09-13",
+  "dateModified": "2026-09-13",
+  "author": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "mainEntityOfPage": "https://favicondl.com/ja/blog/browser-chooses-wrong-favicon.html",
+  "inLanguage": "ja"
+}</script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/ja/index.html" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/ja/documentation.html" class="nav-link">ドキュメント</a>
+                <a href="/ja/tools.html" class="nav-link">ツール</a>
+                <a href="/ja/blog/" class="nav-link">ブログ</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/browser-chooses-wrong-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/browser-chooses-wrong-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/browser-chooses-wrong-favicon.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/browser-chooses-wrong-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/browser-chooses-wrong-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/ja/index.html" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/ja/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600">ブラウザが間違った Favicon を選んでいる？開発者のための正しい修正方法</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">browser</span><time class="text-sm text-gray-400">2026-09-13</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">ブラウザが間違った Favicon を選んでいる？開発者のための正しい修正方法</h1>
+        </header>
+
+        <div class="article-body"><p>favicon を更新し、新しいファイルをデプロイし、ページを再読み込みしたのに、ブラウザは間違ったアイコンを表示し続けています。数か月前の古いロゴ、別サイトのアイコン、本来そこにあるべきではないぼやけた汎用プレースホルダーなどが表示されることもあります。</p>
+<p>これは開発者が直面する favicon に関する最もよくある不満のひとつです。ファイルはサーバーに存在し、HTML タグも正しく見えます。それなのにブラウザは間違った favicon 資産を選び、デプロイした内容を無視します。</p>
+<p>本稿ではまず即効性のある修正方法を紹介し、その後に根本原因を掘り下げます。</p>
+<h2>2 分でできるクイックフィックス</h2>
+<p>「間違った favicon」が表示される症状の多くは、単一の根本原因に集約されます。<strong>ブラウザの優先順位</strong>です。複数の icon ソースが存在する場合、ブラウザは厳格な参照順序に従い、競合があればその結果が上書きされます。</p>
+<p>まずはこちらのチェックリストを試してください。</p>
+<ol>
+<li>サイトルートにある <code>/favicon.ico</code> を削除してください。多くのブラウザで HTML の宣言より優先されます。</li>
+<li><code>&lt;head&gt;</code> 内に、適切な <code>sizes</code> と <code>type</code> 属性を明示した <code>rel='icon'</code> タグを追加してください。</li>
+<li>キャッシュバスティング用のクエリ文字列（例: <code>?v=2</code>）を付与し、ブラウザに新しいファイルを取得させます。</li>
+<li><code>Ctrl+Shift+R</code> でハードリロードを実行するか、それでも解消しない場合は <a href="/ja/blog/favicon-cache-clear.html">favicon キャッシュクリアガイド</a> を順に確認してください。</li>
+</ol>
+<p>これで解決すれば完了です。解決しない場合は、優先順位の競合によってブラウザが間違った favicon を選んでいるため、ここからより深い診断に入ります。</p>
+<h2>ブラウザが誤ったアイコンを選ぶ理由</h2>
+<p>ブラウザは HTML を盲目的に信用するわけではありません。HTML 仕様で定義された参照手順を実行しており、わずかな不一致でも結果が上書きされることがあります。</p>
+<h3>1. /favicon.ico の罠</h3>
+<p>レガシーな <code>favicon.ico</code> がサイトルートに存在し、かつ HTML 内にモダンな <code>&lt;link rel='icon'&gt;</code> タグを出力している場合、ブラウザは多くのケースで <code>ico</code> ファイルを優先します。多くのブラウザは、他の icon が宣言されていない場合に自動的に <code>/favicon.ico</code> をリクエストし、そのファイルが存在する限り、それを権威ある情報として扱います。</p>
+<p>修正方法: ルートの <code>favicon.ico</code> を削除するか、正確な <code>sizes</code> 属性を付けた link tag で明示的に配信してください。</p>
+<h3>2. sizes 属性の欠落または誤り</h3>
+<p><code>sizes</code> 属性は、各 icon ファイルがどの解像度を持つのかをブラウザに伝えます。これがなければ、ブラウザは 16x16 の PNG を 32x32 の表示コンテキストに拡大し、皆が嫌うピクセル化した見た目になります。</p>
+<p>必ず明示的に宣言してください。</p>
+<pre><code>&lt;link rel='icon' type='image/png' sizes='32x32' href='/icons/favicon-32x32.png'&gt;
+&lt;link rel='icon' type='image/png' sizes='16x16' href='/icons/favicon-16x16.png'&gt;</code></pre>
+<p>HTML 仕様では <code>rel='icon'</code> がサイトアイコンを宣言する標準的な方法とされています。正確な解析ルールについては <a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">WHATWG HTML Living Standard</a> を参照してください。</p>
+<h3>3. type 属性の競合</h3>
+<p><code>type='image/svg+xml'</code> と宣言しているのに、実際の配信ファイルが PNG である場合（あるいはその逆）、ブラウザはそのファイルを完全にスキップし、利用可能な他のリソース — 古いキャッシュを含む — にフォールバックすることがあります。</p>
+<p>MIME タイプが実際のファイルと一致しているか確認してください。よくあるバグとして、ファイル拡張子や HTML 属性では SVG と宣言しているにもかかわらず、CDN が <code>image/png</code> を返すケースがあります。</p>
+<h3>4. Web App Manifest による上書き</h3>
+<p>サイトに <code>site.webmanifest</code> が存在し、独自の <code>icons</code> 配列を含んでいる場合、ブラウザは HTML のリンクタグより manifest のアイコンを優先することがあります。特にモバイルや「Add to Home Screen」フローでは顕著です。</p>
+<p><code>/site.webmanifest</code> を確認し、icons 配列が HTML で宣言しているファイルと一致しているかを確かめてください。サイズやフォーマットの不一致は、プラットフォーム固有のロジックによってブラウザに間違った favicon を選ばせる原因になります。</p>
+<h3>5. CDN とエッジキャッシュの遅延</h3>
+<p>Cloudflare、Fastly などの CDN は static assets を積極的にキャッシュします。デプロイ後でも、エッジノードが古い favicon を数時間から数日にわたって配信し続けることがあります。</p>
+<p>デプロイ後は必ず <code>/favicon.ico</code>、<code>/icons/*</code>、<code>/site.webmanifest</code> のパスについて CDN のキャッシュをパージしてください。さもないと、ブラウザは単に古いエッジのキャッシュによって間違った favicon を選び続けることになります。</p>
+<h3>6. Service Worker の罠</h3>
+<p>Service Worker は、ブラウザの HTTP キャッシュとは独立に favicon のレスポンスをキャッシュできます。PWA がインストール時に icon をキャッシュしてしまうと、Service Worker が更新されるまで古いバージョンが表示され続けます。</p>
+<p>Service Worker のバージョンを上げ、<code>href</code> 値にキャッシュバスティング用のクエリ文字列を含めてください。バージョン付きのファイル名にするのがより安全です。</p>
+<h2>予防: 壊れない icon スタックを構築する</h2>
+<p>問題が解決したら、将来の「間違った favicon」インシデントを防ぐために構成を堅牢化しておきましょう。</p>
+<ul>
+<li><strong>単一の信頼できる情報源</strong>: <a href="/ja/blog/make-favicon-from-image.html">適切な favicon ジェネレータのワークフロー</a> を使い、すべての icon を単一のソースファイルから生成します。</li>
+<li><strong>一貫した命名規則</strong>: サイトルートではなく専用の <code>/icons/</code> ディレクトリを使用します。</li>
+<li><strong>デプロイ時にキャッシュを破壊する</strong>: ビルドパイプラインでファイル名をハッシュ化し（例: <code>favicon-abc123.png</code>）、古いキャッシュを参照不能にします。</li>
+<li><strong>定期的に監査する</strong>: メジャーなリリース前に、複数ブラウザで簡易的な監査を実施します。</li>
+<li><strong>Incognito モードで検証する</strong>: Incognito ウィンドウは多くのキャッシュ層をバイパスするため、正しく動作しているかを正直に確認できます。</li>
+</ul>
+<h2>まとめ</h2>
+<p>ブラウザが間違った favicon を選んでいるケースでは、それがランダムであることはほぼありません。想定外の優先順位に従い、無効化し忘れたキャッシュから取得し、実態と一致しない <code>type</code> 属性を読み取っている、というのが実態です。</p>
+<p>ルートの <code>favicon.ico</code> を削除し、サイズとタイプが正しい明示的なリンクタグを宣言し、manifest を同期させ、デプロイごとにキャッシュをパージする。この一連の作業で「間違った favicon」の大半は解消します。残るエッジケースの大半は、DevTools を数分使えばデバッグできる CDN か Service Worker の罠です。</p></div>
+
+        <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
+
+        <div class="cta-box">
+            <h3>数秒で完璧な Favicon セットを生成</h3>
+            <p>間違ったアイコン選びにさよならを。Mzu favicondl なら、任意の画像からサイズまで正しい Favicon パッケージを生成できます。</p>
+            <a href="/ja/index.html" class="cta-btn">無料で試す →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/ja/index.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">ホーム</a>
+                <a href="/ja/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">ブログ</a>
+                <a href="/ja/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">プライバシー</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js?v=20260211"></script>
+
+</body></html>

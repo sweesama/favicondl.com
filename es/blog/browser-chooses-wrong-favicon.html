@@ -1,0 +1,173 @@
+<!DOCTYPE html><html lang="es"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿El navegador elige el favicon equivocado? La solución real para devs - Mzu favicondl</title>
+    <meta name="description" content="¿Tu navegador elige el favicon equivocado? Descubre las razones reales y cómo arreglar problemas de prioridad, tamaño y caché rápido.">
+    <meta name="keywords" content="browser wrong favicon, favicon precedence, wrong site icon, favicon fix, browser icon">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/es/blog/browser-chooses-wrong-favicon.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/browser-chooses-wrong-favicon.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/browser-chooses-wrong-favicon.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/browser-chooses-wrong-favicon.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/browser-chooses-wrong-favicon.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/browser-chooses-wrong-favicon.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/browser-chooses-wrong-favicon.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/es/blog/browser-chooses-wrong-favicon.html">
+    <meta property="og:title" content="¿El navegador elige el favicon equivocado? La solución real para devs">
+    <meta property="og:description" content="¿Tu navegador elige el favicon equivocado? Descubre las razones reales y cómo arreglar problemas de prioridad, tamaño y caché rápido.">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="¿El navegador elige el favicon equivocado? La solución real para devs">
+    <meta name="twitter:description" content="¿Tu navegador elige el favicon equivocado? Descubre las razones reales y cómo arreglar problemas de prioridad, tamaño y caché rápido.">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "¿El navegador elige el favicon equivocado? La solución real para devs",
+  "description": "¿Tu navegador elige el favicon equivocado? Descubre las razones reales y cómo arreglar problemas de prioridad, tamaño y caché rápido.",
+  "datePublished": "2026-09-13",
+  "dateModified": "2026-09-13",
+  "author": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "mainEntityOfPage": "https://favicondl.com/es/blog/browser-chooses-wrong-favicon.html",
+  "inLanguage": "es"
+}</script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/es/index.html" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/es/documentation.html" class="nav-link">Documentación</a>
+                <a href="/es/tools.html" class="nav-link">Herramientas</a>
+                <a href="/es/blog/" class="nav-link">Blog</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/browser-chooses-wrong-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/browser-chooses-wrong-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/browser-chooses-wrong-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/browser-chooses-wrong-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/browser-chooses-wrong-favicon.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/es/index.html" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/es/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600">¿El navegador elige el favicon equivocado? La solución real para devs</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">browser</span><time class="text-sm text-gray-400">2026-09-13</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">¿El navegador elige el favicon equivocado? La solución real para devs</h1>
+        </header>
+
+        <div class="article-body"><p>Actualizaste tu favicon, desplegaste los archivos nuevos y recargaste la página, pero el navegador sigue mostrando el icono incorrecto. Quizá es un logo viejo de hace seis meses, el icono de otro sitio o un placeholder genérico borroso que no debería estar ahí.</p>
+<p>Esta es una de las frustraciones más comunes con favicons que enfrentan los desarrolladores. Los archivos existen en el servidor. Las etiquetas HTML parecen correctas. Y aun así, el navegador elige favicons equivocados e ignora lo que realmente desplegaste.</p>
+<p>Aquí va primero la solución rápida, seguida de las razones reales por las que ocurre.</p>
+<h2>La solución rápida de 2 minutos</h2>
+<p>La mayoría de los síntomas de "favicon incorrecto" se reducen a una sola causa raíz: <strong>la precedencia del navegador</strong>. Cuando existen múltiples fuentes de iconos, los navegadores siguen un orden de búsqueda estricto, y cualquier conflicto secuestra el resultado.</p>
+<p>Aplica esta checklist primero:</p>
+<ol>
+<li>Elimina cualquier <code>/favicon.ico</code> en la raíz de tu sitio. Sobrescribe las declaraciones HTML en muchos navegadores.</li>
+<li>Añade etiquetas explícitas <code>rel="icon"</code> en tu <code>&lt;head&gt;</code> con los atributos <code>sizes</code> y <code>type</code> correctos.</li>
+<li>Añade un query string de cache-busting (por ejemplo, <code>?v=2</code>) para forzar al navegador a obtener el archivo nuevo.</li>
+<li>Recarga con <code>Ctrl+Shift+R</code> o sigue nuestra <a href="/es/blog/favicon-cache-clear.html">guía para limpiar la caché del favicon</a> en casos tercos.</li>
+</ol>
+<p>Si con eso se resuelve, listo. Si no, el navegador está eligiendo favicons incorrectos por un conflicto de precedencia, y empieza el diagnóstico a fondo.</p>
+<h2>Por qué los navegadores eligen el icono incorrecto</h2>
+<p>Los navegadores no confían ciegamente en tu HTML. Aplican una secuencia de búsqueda definida por la especificación de HTML, y cualquier desajuste puede secuestrar el resultado.</p>
+<h3>1. La trampa del /favicon.ico</h3>
+<p>Si vive un <code>favicon.ico</code> antiguo en la raíz de tu sitio <em>y</em> además envías etiquetas modernas <code>&lt;link rel="icon"&gt;</code> en tu HTML, los navegadores suelen preferir el archivo <code>ico</code>. Muchos navegadores solicitan automáticamente <code>/favicon.ico</code> cuando no se declara otro icono y tratan ese archivo como autoritativo una vez que existe.</p>
+<p>La solución: borra el <code>favicon.ico</code> de la raíz, o sírvelo explícitamente con una etiqueta link y un atributo <code>sizes</code> preciso para que el navegador sepa qué es.</p>
+<h3>2. Atributo sizes ausente o incorrecto</h3>
+<p>El atributo <code>sizes</code> indica al navegador qué resolución contiene cada archivo de icono. Sin él, el navegador puede escalar un PNG de 16x16 para mostrarlo en un contexto de 32x32, dando ese aspecto pixelado que nadie quiere.</p>
+<p>Decláralo siempre de forma explícita:</p>
+<pre><code>&lt;link rel='icon' type='image/png' sizes='32x32' href='/icons/favicon-32x32.png'&gt;
+&lt;link rel='icon' type='image/png' sizes='16x16' href='/icons/favicon-16x16.png'&gt;</code></pre>
+<p>La especificación de HTML define <code>rel="icon"</code> como la forma estándar de declarar los iconos del sitio. Consulta el <a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">WHATWG HTML Living Standard</a> para las reglas exactas de parseo.</p>
+<h3>3. Conflictos en el atributo type</h3>
+<p>Si declaras <code>type="image/svg+xml"</code> pero el archivo servido es en realidad un PNG (o viceversa), los navegadores pueden saltarse ese archivo por completo y recurrir a cualquier otro disponible, incluida una versión vieja en caché.</p>
+<p>Verifica que tus MIME types coincidan con la realidad. Un bug común: un CDN sirve <code>image/png</code> aun cuando la extensión del archivo y el atributo HTML dicen SVG.</p>
+<h3>4. Override del Web App Manifest</h3>
+<p>Cuando tu sitio tiene un <code>site.webmanifest</code> con su propio array <code>icons</code>, los navegadores pueden preferir los iconos del manifest por encima de tus link tags HTML, especialmente en móvil y en flujos de "Añadir a pantalla de inicio".</p>
+<p>Revisa <code>/site.webmanifest</code> y asegúrate de que el array de icons apunte a los mismos archivos que declara tu HTML. Tamaños o formatos que no coincidan harán que el navegador elija favicons equivocados según la lógica específica de cada plataforma.</p>
+<h3>5. Retraso en la caché de CDN y edge</h3>
+<p>Cloudflare, Fastly y CDNs similares cachean de forma agresiva los assets estáticos. Incluso después de desplegar, los nodos edge pueden seguir sirviendo el favicon viejo durante horas o días.</p>
+<p>Purga la caché de tu CDN para las rutas <code>/favicon.ico</code>, <code>/icons/*</code> y <code>/site.webmanifest</code> tras cada despliegue; si no, el navegador elige favicons incorrectos únicamente por edges desactualizados.</p>
+<h3>6. Trampas del Service Worker</h3>
+<p>Los service workers pueden cachear las respuestas del favicon de forma independiente a la caché HTTP del navegador. Si tu PWA cachea el icono en la primera instalación, los usuarios seguirán viendo la versión vieja hasta que el service worker se actualice.</p>
+<p>Incrementa la versión de tu service worker y usa un query string de cache-busting en el valor de <code>href</code>. Un nombre de archivo versionado es aún más seguro.</p>
+<h2>Prevención: construye un stack de iconos a prueba de balas</h2>
+<p>Una vez resuelto el problema inmediato, refuerza tu setup para evitar futuros incidentes de "favicon incorrecto":</p>
+<ul>
+<li><strong>Única fuente de verdad</strong>: genera todos los iconos desde un único archivo fuente siguiendo <a href="/es/blog/make-favicon-from-image.html">un flujo de trabajo adecuado con un favicon generator</a>.</li>
+<li><strong>Naming consistente</strong>: usa un directorio dedicado <code>/icons/</code>, no la raíz del sitio.</li>
+<li><strong>Cache-busting en cada deploy</strong>: hashea los nombres de archivo en tu pipeline de build (por ejemplo, <code>favicon-abc123.png</code>) para que las cachés viejas queden inaccesibles.</li>
+<li><strong>Audita con regularidad</strong>: haz una auditoría rápida entre navegadores antes de releases importantes.</li>
+<li><strong>Prueba en incógnito</strong>: las ventanas de incógnito evitan la mayoría de capas de caché y te dan una vista honesta.</li>
+</ul>
+<h2>Conclusión</h2>
+<p>Cuando el navegador elige favicons incorrectos, casi nunca es algo aleatorio. Está siguiendo un orden de precedencia que no contemplaste, leyendo de una caché que olvidaste invalidar o interpretando un atributo <code>type</code> que no coincide con el archivo servido.</p>
+<p>Elimina el <code>favicon.ico</code> de la raíz, declara link tags explícitos con sizes y types correctos, mantén tu manifest sincronizado y purga las cachés en cada deploy. Esa secuencia resuelve la mayoría de los casos de "favicon incorrecto", y los edge cases restantes suelen apuntar a una trampa de CDN o service worker que puedes depurar con DevTools en unos minutos.</p></div>
+
+        <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
+
+        <div class="cta-box">
+            <h3>Genera un paquete de favicons limpio en segundos</h3>
+            <p>Deja de pelearte con iconos incorrectos. Mzu favicondl genera un paquete completo de favicons con el tamaño correcto desde cualquier imagen.</p>
+            <a href="/es/index.html" class="cta-btn">Pruébalo gratis →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/es/index.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">Inicio</a>
+                <a href="/es/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">Blog</a>
+                <a href="/es/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">Privacidad</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js?v=20260211"></script>
+
+</body></html>
