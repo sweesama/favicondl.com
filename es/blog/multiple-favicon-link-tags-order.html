@@ -1,0 +1,161 @@
+<!DOCTYPE html><html lang="es"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orden de múltiples etiquetas link de favicon: guía para devs - Mzu favicondl</title>
+    <meta name="description" content="Aprende el orden correcto de múltiples etiquetas link de favicon. Descubre cómo las reglas del navegador afectan al icono de tu pestaña.">
+    <meta name="keywords" content="favicon link tags, multiple favicons, html icon order, rel icon">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/es/blog/multiple-favicon-link-tags-order.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/multiple-favicon-link-tags-order.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/multiple-favicon-link-tags-order.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/multiple-favicon-link-tags-order.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/multiple-favicon-link-tags-order.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/multiple-favicon-link-tags-order.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/multiple-favicon-link-tags-order.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/es/blog/multiple-favicon-link-tags-order.html">
+    <meta property="og:title" content="Orden de múltiples etiquetas link de favicon: guía para devs">
+    <meta property="og:description" content="Aprende el orden correcto de múltiples etiquetas link de favicon. Descubre cómo las reglas del navegador afectan al icono de tu pestaña.">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Orden de múltiples etiquetas link de favicon: guía para devs">
+    <meta name="twitter:description" content="Aprende el orden correcto de múltiples etiquetas link de favicon. Descubre cómo las reglas del navegador afectan al icono de tu pestaña.">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Orden de múltiples etiquetas link de favicon: guía para devs",
+  "description": "Aprende el orden correcto de múltiples etiquetas link de favicon. Descubre cómo las reglas del navegador afectan al icono de tu pestaña.",
+  "datePublished": "2026-09-14",
+  "dateModified": "2026-09-14",
+  "author": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "mainEntityOfPage": "https://favicondl.com/es/blog/multiple-favicon-link-tags-order.html",
+  "inLanguage": "es"
+}</script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/es/index.html" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/es/documentation.html" class="nav-link">Documentación</a>
+                <a href="/es/tools.html" class="nav-link">Herramientas</a>
+                <a href="/es/blog/" class="nav-link">Blog</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/multiple-favicon-link-tags-order.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/multiple-favicon-link-tags-order.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/multiple-favicon-link-tags-order.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/multiple-favicon-link-tags-order.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/multiple-favicon-link-tags-order.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/es/index.html" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/es/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600">Orden de múltiples etiquetas link de favicon: guía para devs</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">html</span><time class="text-sm text-gray-400">2026-09-14</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">Orden de múltiples etiquetas link de favicon: guía para devs</h1>
+        </header>
+
+        <div class="article-body"><p>Subiste un favicon SVG, dos PNG de respaldo y un ICO para navegadores antiguos, y Safari sigue mostrando el ICO en tu pestaña. Los archivos están bien. El problema es el orden de tus link tags de favicon.</p>
+<p>Los navegadores no toman la primera etiqueta <code>&lt;link&gt;</code> que ven. Según la <a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">especificación HTML de WHATWG</a>, el user agent elige el icono más apropiado a partir de los atributos <code>sizes</code>, <code>media</code> y <code>type</code>. Cuando varios iconos empatan en idoneidad, el navegador puede recurrir al último declarado. Eso convierte el orden de tus link tags en una palanca real, no en una decisión puramente estilística.</p>
+<h2>Requisitos previos</h2>
+<p>Necesitas acceso al <code>&lt;head&gt;</code> de tu sitio y al menos dos archivos de favicon listos (SVG, PNG o ICO). Una comprensión básica de las etiquetas link de HTML ayuda; si necesitas repasar, consulta nuestro cheatsheet de <a href="/es/blog/favicon-html-code.html">favicon HTML code examples</a>.</p>
+<h2>Paso a paso: ordenar varios link tags de favicon</h2>
+<h3>Paso 1: entiende las reglas de selección del navegador</h3>
+<p>Los navegadores puntúan cada icono declarado según el contexto actual: densidad de pantalla, tamaño de pestaña, modo oscuro y formatos compatibles. Gana el mejor ajuste. En caso de empate, gana la última declaración coincidente. Una pila mal ordenada puede hacer que los navegadores modernos se salten tu SVG nítido y recurran a un PNG borroso, incluso cuando soportan vectores sin problema.</p>
+<h3>Paso 2: ordena de más específico a más general</h3>
+<p>Coloca tu formato más capaz primero y tu fallback universal al final:</p>
+<pre><code>&amp;lt;link rel='icon' type='image/svg+xml' href='/icon.svg'&amp;gt;
+&amp;lt;link rel='icon' type='image/png' sizes='32x32' href='/icon-32.png'&amp;gt;
+&amp;lt;link rel='icon' type='image/png' sizes='16x16' href='/icon-16.png'&amp;gt;
+&amp;lt;link rel='icon' href='/favicon.ico'&amp;gt;</code></pre>
+<p>El SVG va primero porque escala a cualquier densidad de píxeles. Los PNG de respaldo van después para navegadores que no admiten favicons SVG. El ICO queda al final como red de seguridad universal para sistemas heredados que no declaran un formato.</p>
+<h3>Paso 3: añade atributos type para eliminar ambigüedad</h3>
+<p>Sin <code>type</code>, el navegador puede asumir formato ICO (el valor histórico por defecto) y saltarse tu PNG o SVG por completo. Añadir <code>type='image/svg+xml'</code> o <code>type='image/x-icon'</code> le indica exactamente qué esperar, así puede descartar archivos incompatibles sin descargarlos.</p>
+<h3>Paso 4: usa sizes para ajustarte a contextos reales</h3>
+<p>El atributo <code>sizes</code> describe a qué contextos de renderizado apunta cada icono. Un PNG de 16×16 encaja en las pestañas del navegador. Un PNG de 32×32 sirve para barras de tareas y barras de marcadores de alta densidad. Para la pantalla de inicio de iOS, declara un Apple Touch Icon aparte:</p>
+<pre><code>&amp;lt;link rel='apple-touch-icon' sizes='180x180' href='/apple-touch-icon.png'&amp;gt;</code></pre>
+<p>Los Apple Touch Icon siguen un camino de selección distinto y no compiten con los favicons normales por el slot de la pestaña, así que colócalos después de tu pila principal de favicons.</p>
+<h3>Paso 5: coloca los SVG de modo oscuro arriba</h3>
+<p>Si soportas modo oscuro, el atributo <code>media</code> te permite declarar dos variantes SVG:</p>
+<pre><code>&amp;lt;link rel='icon' type='image/svg+xml' href='/icon-light.svg' media='(prefers-color-scheme: light)'&amp;gt;
+&amp;lt;link rel='icon' type='image/svg+xml' href='/icon-dark.svg' media='(prefers-color-scheme: dark)'&amp;gt;
+&amp;lt;link rel='icon' type='image/svg+xml' href='/icon.svg'&amp;gt;</code></pre>
+<p>Solo una media query coincide en cada entorno, así que el navegador se queda con esa. El SVG sin filtro actúa como último fallback para navegadores que no respetan las media queries en absoluto.</p>
+<h2>Errores comunes</h2>
+<ul>
+<li><strong>Poner el ICO primero.</strong> Los navegadores modernos pueden hacer match con el tipo ICO y tomarlo antes de evaluar tu SVG. Pon siempre el ICO al final.</li>
+<li><strong>Omitir los atributos type.</strong> El navegador recurre al ICO como suposición por defecto, lo que puede ocultar tu PNG o SVG por completo.</li>
+<li><strong>Usar <code>rel='shortcut icon'</code>.</strong> Es un atributo heredado de la era IE. La <a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">especificación de WHATWG</a> define <code>rel='icon'</code> como el estándar. La mayoría de los navegadores todavía interpretan la forma antigua, pero no aporta nada y puede confundir la selección en edge cases.</li>
+<li><strong>Mezclar tamaños sin agrupar.</strong> No disperses un PNG de 16×16 después de un PNG de 32×32 si ambos apuntan al mismo slot de renderizado. Agrupa los tamaños que sirven al mismo contexto.</li>
+<li><strong>Olvidar el cache busting.</strong> Los navegadores cachean los favicons de forma agresiva. Si reordenas las etiquetas y el icono no se actualiza, añade una cadena de versión como <code>?v=2</code>: consulta nuestra <a href="/es/blog/favicon-cache-busting.html">favicon cache busting guide</a> para ver el flujo completo.</li>
+</ul>
+<h2>Cierre</h2>
+<p>El orden importa porque los navegadores eligen el icono más adecuado de tu pila, y los empates se resuelven con la última declaración. Pon tu mejor formato primero, tus fallbacks después y añade los atributos <code>type</code> y <code>sizes</code> para eliminar cualquier ambigüedad. Si tu icono sigue sin actualizarse tras reordenar, el siguiente sospechoso suele ser la caché. Usa <a href="/es/index.html">Mzu favicondl</a> para generar un paquete de iconos limpio y con el tamaño correcto y sáltate los pasos manuales de redimensionado.</p></div>
+
+        <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
+
+        <div class="cta-box">
+            <h3>Genera un paquete de favicons perfecto en segundos</h3>
+            <p>Mzu favicondl genera archivos ICO, PNG y SVG en los tamaños correctos para que te centres en el orden de tus etiquetas.</p>
+            <a href="/es/index.html" class="cta-btn">Pruébalo gratis →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/es/index.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">Inicio</a>
+                <a href="/es/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">Blog</a>
+                <a href="/es/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">Privacidad</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js?v=20260211"></script>
+
+</body></html>

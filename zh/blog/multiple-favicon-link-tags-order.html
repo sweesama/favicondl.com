@@ -1,0 +1,161 @@
+<!DOCTYPE html><html lang="zh"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>多个Favicon链接标签顺序：开发者完整指南 - Mzu favicondl</title>
+    <meta name="description" content="掌握多个favicon链接标签的正确顺序。了解浏览器选择规则如何决定图标显示，避免Safari等浏览器显示错误的标签图标。">
+    <meta name="keywords" content="favicon link tags, multiple favicons, html icon order, rel icon">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/zh/blog/multiple-favicon-link-tags-order.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/multiple-favicon-link-tags-order.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/multiple-favicon-link-tags-order.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/multiple-favicon-link-tags-order.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/multiple-favicon-link-tags-order.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/multiple-favicon-link-tags-order.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/multiple-favicon-link-tags-order.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/zh/blog/multiple-favicon-link-tags-order.html">
+    <meta property="og:title" content="多个Favicon链接标签顺序：开发者完整指南">
+    <meta property="og:description" content="掌握多个favicon链接标签的正确顺序。了解浏览器选择规则如何决定图标显示，避免Safari等浏览器显示错误的标签图标。">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="多个Favicon链接标签顺序：开发者完整指南">
+    <meta name="twitter:description" content="掌握多个favicon链接标签的正确顺序。了解浏览器选择规则如何决定图标显示，避免Safari等浏览器显示错误的标签图标。">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "多个Favicon链接标签顺序：开发者完整指南",
+  "description": "掌握多个favicon链接标签的正确顺序。了解浏览器选择规则如何决定图标显示，避免Safari等浏览器显示错误的标签图标。",
+  "datePublished": "2026-09-14",
+  "dateModified": "2026-09-14",
+  "author": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "mainEntityOfPage": "https://favicondl.com/zh/blog/multiple-favicon-link-tags-order.html",
+  "inLanguage": "zh-CN"
+}</script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/zh/index.html" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/zh/documentation.html" class="nav-link">文档</a>
+                <a href="/zh/tools.html" class="nav-link">工具</a>
+                <a href="/zh/blog/" class="nav-link">博客</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/multiple-favicon-link-tags-order.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/multiple-favicon-link-tags-order.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/multiple-favicon-link-tags-order.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/multiple-favicon-link-tags-order.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/multiple-favicon-link-tags-order.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/zh/index.html" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/zh/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600">多个Favicon链接标签顺序：开发者完整指南</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">html</span><time class="text-sm text-gray-400">2026-09-14</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">多个Favicon链接标签顺序：开发者完整指南</h1>
+        </header>
+
+        <div class="article-body"><p>你上传了 SVG favicon、两张 PNG 备用图，还为旧浏览器准备了一个 ICO——结果 Safari 在标签页里依然显示那个 ICO。文件本身没问题。问题出在你的 favicon link 标签顺序上。</p>
+<p>浏览器并不会直接抓取它们看到的第一个 <code>&lt;link&gt;</code> 标签。根据 <a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">WHATWG HTML 规范</a>，用户代理会根据 <code>sizes</code>、<code>media</code> 和 <code>type</code> 属性来挑选最合适的图标。当多个图标匹配度相同时，浏览器可能会使用最后声明的那个。这意味着 link 标签的顺序是一个真正起作用的关键开关，而不是单纯的风格选择。</p>
+<h2>前置条件</h2>
+<p>你需要能访问站点的 HTML <code>&lt;head&gt;</code>，并且至少准备两个 favicon 文件（SVG、PNG 或 ICO）。具备 HTML link 标签的基础知识会有帮助——如果需要复习，可以参考我们的 <a href="/zh/blog/favicon-html-code.html">favicon HTML 代码示例</a>速查表。</p>
+<h2>分步骤操作：排列多个 favicon link 标签</h2>
+<h3>步骤 1：理解浏览器的选择规则</h3>
+<p>浏览器会根据当前上下文对每个声明的图标打分：显示密度、标签页尺寸、深色模式偏好，以及所支持的格式。得分最高者胜出。打平时，默认取最后一个匹配的声明。一组顺序混乱的标签栈，可能导致现代浏览器跳过你那张清晰锐利的 SVG，反而去抓一张模糊的 PNG——哪怕它们完全支持矢量格式。</p>
+<h3>步骤 2：从最具体到最通用排列</h3>
+<p>把能力最强的格式放在最前面，把通用的兜底格式放在最后：</p>
+<pre><code>&amp;lt;link rel='icon' type='image/svg+xml' href='/icon.svg'&amp;gt;
+&amp;lt;link rel='icon' type='image/png' sizes='32x32' href='/icon-32.png'&amp;gt;
+&amp;lt;link rel='icon' type='image/png' sizes='16x16' href='/icon-16.png'&amp;gt;
+&amp;lt;link rel='icon' href='/favicon.ico'&amp;gt;</code></pre>
+<p>SVG 排在最前面，因为它可以适配任意像素密度。PNG 兜底放在后面，照顾那些不支持 SVG favicon 的浏览器。ICO 放在最后，作为那些不声明格式的旧系统的通用兜底。</p>
+<h3>步骤 3：加上 type 属性以消除歧义</h3>
+<p>如果没有 <code>type</code>，浏览器可能会默认按 ICO 格式处理（这是历史上的默认假设），从而直接跳过你的 PNG 或 SVG。加上 <code>type='image/svg+xml'</code> 或 <code>type='image/x-icon'</code> 后，浏览器就能准确知道该期待什么，从而在下载前跳过不兼容的文件。</p>
+<h3>步骤 4：用 sizes 匹配真实使用场景</h3>
+<p><code>sizes</code> 属性用来描述每个图标所针对的渲染场景。16×16 的 PNG 适合浏览器标签页。32×32 的 PNG 适合任务栏和高 DPI 书签栏。针对 iOS 主屏幕，则需要单独声明一个 Apple Touch Icon：</p>
+<pre><code>&amp;lt;link rel='apple-touch-icon' sizes='180x180' href='/apple-touch-icon.png'&amp;gt;</code></pre>
+<p>Apple Touch Icon 走的是另一套选择流程，不会和普通 favicon 抢占标签页位置——所以把它放在主 favicon 栈的后面即可。</p>
+<h3>步骤 5：把深色模式 SVG 放在最前面</h3>
+<p>如果你支持深色模式，可以用 <code>media</code> 属性声明两个 SVG 变体：</p>
+<pre><code>&amp;lt;link rel='icon' type='image/svg+xml' href='/icon-light.svg' media='(prefers-color-scheme: light)'&amp;gt;
+&amp;lt;link rel='icon' type='image/svg+xml' href='/icon-dark.svg' media='(prefers-color-scheme: dark)'&amp;gt;
+&amp;lt;link rel='icon' type='image/svg+xml' href='/icon.svg'&amp;gt;</code></pre>
+<p>在任何给定环境下，只有一个 media query 会匹配，因此浏览器只会选中那一个。未带媒体查询的 SVG 作为最终兜底，照顾那些完全不识别 media query 的浏览器。</p>
+<h2>常见坑</h2>
+<ul>
+<li><strong>把 ICO 放在最前面。</strong>现代浏览器可能会匹配到 ICO 的 type，然后直接抓走它，根本不会评估你的 SVG。永远把 ICO 放在最后。</li>
+<li><strong>省略 type 属性。</strong>浏览器会默认假设为 ICO，这可能让你的 PNG 或 SVG 完全被遮住。</li>
+<li><strong>使用 <code>rel='shortcut icon'</code>。</strong>这是 IE 时代遗留的写法。<a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">WHATWG 规范</a>定义的标准是 <code>rel='icon'</code>。大多数浏览器依然能解析旧写法，但它没有任何额外作用，反而在边界场景下可能干扰选择。</li>
+<li><strong>不分组地混用 sizes。</strong>如果两个 PNG 针对的是同一渲染位置，别把 16×16 散乱地放在 32×16 之后。把服务于同一场景的尺寸归在一起。</li>
+<li><strong>忘了缓存清理。</strong>浏览器对 favicon 缓存得非常激进。如果你调整了标签顺序但图标没更新，可以加一个版本查询字符串，比如 <code>?v=2</code>——完整流程可以参考我们的 <a href="/zh/blog/favicon-cache-busting.html">favicon 缓存清理指南</a>。</li>
+</ul>
+<h2>小结</h2>
+<p>顺序之所以重要，是因为浏览器会从你的标签栈中挑出最匹配的那张图标，而打平时默认取最后一个声明。把能力最强的格式放最前面，兜底格式放后面，再加上 <code>type</code> 和 <code>sizes</code> 属性消除所有歧义。如果你重排之后图标依然不更新，下一个排查重点通常是缓存。可以使用 <a href="/zh/index.html">Mzu favicondl</a> 生成一份干净、尺寸正确的图标包，跳过手动调整尺寸的繁琐步骤。</p></div>
+
+        <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
+
+        <div class="cta-box">
+            <h3>几秒钟生成完美的favicon图标包</h3>
+            <p>Mzu favicondl为你生成正确尺寸的ICO、PNG和SVG文件，让你专注于链接标签的顺序。</p>
+            <a href="/zh/index.html" class="cta-btn">免费试用 →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/zh/index.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">首页</a>
+                <a href="/zh/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">博客</a>
+                <a href="/zh/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">隐私政策</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js?v=20260211"></script>
+
+</body></html>
