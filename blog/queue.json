@@ -2668,7 +2668,9 @@
       "svg-favicon-png-fallback",
       "favicon-file-formats"
     ],
-    "status": "pending"
+    "status": "done",
+    "qualityScore": 95,
+    "qualityGrade": "A"
   },
   {
     "keyword": "favicon compatibility test",
