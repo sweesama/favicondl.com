@@ -1,0 +1,179 @@
+<!DOCTYPE html><html lang="ko"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>파비콘 호환성 테스트: 개발자를 위한 완벽 가이드 - Mzu favicondl</title>
+    <meta name="description" content="브라우저, 기기, 형식을 아우르는 파비콘 호환성 테스트를 실행하세요. SVG, ICO, 다크 모드 문제를 사용자가 알아차리기 전에 잡아냅니다.">
+    <meta name="keywords" content="favicon compatibility test, browser favicon test, favicon format check">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/ko/blog/favicon-compatibility-test.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/favicon-compatibility-test.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/favicon-compatibility-test.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/favicon-compatibility-test.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/favicon-compatibility-test.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/favicon-compatibility-test.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/favicon-compatibility-test.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/ko/blog/favicon-compatibility-test.html">
+    <meta property="og:title" content="파비콘 호환성 테스트: 개발자를 위한 완벽 가이드">
+    <meta property="og:description" content="브라우저, 기기, 형식을 아우르는 파비콘 호환성 테스트를 실행하세요. SVG, ICO, 다크 모드 문제를 사용자가 알아차리기 전에 잡아냅니다.">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="파비콘 호환성 테스트: 개발자를 위한 완벽 가이드">
+    <meta name="twitter:description" content="브라우저, 기기, 형식을 아우르는 파비콘 호환성 테스트를 실행하세요. SVG, ICO, 다크 모드 문제를 사용자가 알아차리기 전에 잡아냅니다.">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "파비콘 호환성 테스트: 개발자를 위한 완벽 가이드",
+  "description": "브라우저, 기기, 형식을 아우르는 파비콘 호환성 테스트를 실행하세요. SVG, ICO, 다크 모드 문제를 사용자가 알아차리기 전에 잡아냅니다.",
+  "datePublished": "2026-09-16",
+  "dateModified": "2026-09-16",
+  "author": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "mainEntityOfPage": "https://favicondl.com/ko/blog/favicon-compatibility-test.html",
+  "inLanguage": "ko"
+}</script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/ko/index.html" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/ko/documentation.html" class="nav-link">문서</a>
+                <a href="/ko/tools.html" class="nav-link">도구</a>
+                <a href="/ko/blog/" class="nav-link">블로그</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/favicon-compatibility-test.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/favicon-compatibility-test.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/favicon-compatibility-test.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/favicon-compatibility-test.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/favicon-compatibility-test.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/ko/index.html" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/ko/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600">파비콘 호환성 테스트: 개발자를 위한 완벽 가이드</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">testing</span><time class="text-sm text-gray-400">2026-09-16</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">파비콘 호환성 테스트: 개발자를 위한 완벽 가이드</h1>
+        </header>
+
+        <div class="article-body"><p>새 SVG favicon을 프로덕션에 배포했습니다. Chrome 데스크톱에서는 완벽해 보였습니다. 그런데 Slack에서 한 사용자가 Safari iOS 스크린샷을 공유했는데, 탭에 빈 흰색 사각형이 표시됩니다. "내 컴퓨터에서는 잘 보인다"와 "어디서나 작동한다" 사이의 이 간극을 바로 <strong>favicon compatibility test</strong>가 메우기 위해 설계되었습니다.</p>
+<p>favicon compatibility test는 단순한 시각적 확인 이상입니다. 브라우저, 운영체제, 검색 엔진이 실제로 favicon을 요청하는 모든 환경에 대해 아이콘 스택을 검증하는 체계적인 감사입니다. 일반적인 favicon tester와 진정한 compatibility test의 차이는 범위에 있습니다 — 형식, 크기, 컨텍스트, 렌더링 모드까지 포함합니다.</p>
+<h2>Favicon Compatibility Test가 실제로 확인하는 것</h2>
+<p>대부분의 개발자는 "compatibility"가 "표시되는가"를 의미한다고 생각합니다. 실제 compatibility는 최소 다섯 가지 차원을 포괄하며, 하나라도 빠지면 프로덕션에서 조용한 실패가 발생합니다:</p>
+<ul>
+<li><strong>Format compatibility</strong> — SVG, PNG, ICO, 레거시 GIF는 브라우저마다 다르게 동작합니다.</li>
+<li><strong>Resolution compatibility</strong> — 16x16, 32x32, 48x48, 96x96, 180x180, 192x192, 512x512는 각각 특정 컨텍스트를 대상으로 합니다.</li>
+<li><strong>Context compatibility</strong> — 브라우저 탭, 주소 표시줄, 북마크 바, Pinned Tab, 홈 화면, Google 검색 결과.</li>
+<li><strong>Theme compatibility</strong> — 라이트 모드, 다크 모드, Safari의 tinted 탭.</li>
+<li><strong>Crawl compatibility</strong> — Googlebot이 안정적인 URL에서 아이콘 파일을 실제로 가져올 수 있는지 여부.</li>
+</ul>
+<p>각 차원은 서로 다른 실패 모드를 가집니다. ICO 파일은 256KB를 초과하면 Safari에서 깨집니다. SVG favicon은 Chrome에서 단색으로 렌더링되지만, 올바르게 작성했을 때만 <code>prefers-color-scheme</code>을 존중합니다. WHATWG 명세는 명시적인 크기 힌트와 함께 <code>rel='icon'</code>을 정의하며, 브라우저는 이 힌트를 사용해 올바른 파일을 선택합니다(<a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">WHATWG HTML Living Standard</a>).</p>
+<h2>Mzu favicondl로 Compatibility Test 실행하기</h2>
+<p>Mzu favicondl은 compatibility test를 단일 스크린샷이 아닌 계층화된 워크플로로 취급합니다. URL을 붙여넣으면 도구가 사이트가 노출하는 모든 아이콘 파일을 가져옵니다 — HTML <code>&lt;link&gt;</code> 태그, 루트 <code>/favicon.ico</code>, <code>site.webmanifest</code>, Apple Touch 참조까지 포함합니다. 그런 다음 브라우저가 실제로 사용하는 컨텍스트에서 각 파일을 검사할 수 있습니다.</p>
+<p>테스트 워크플로는 세 단계로 구성됩니다:</p>
+<ol>
+<li><strong>Inventory</strong> — 사이트가 제공하는 모든 아이콘 파일을 수집합니다. manifest에 숨겨진 파일도 포함합니다.</li>
+<li><strong>Render check</strong> — 중요한 크기(16, 32, 48, 96, 180)에서 각 파일을 미리 봅니다.</li>
+<li><strong>Format conversion</strong> — 스택의 빈틈을 채우기 위해 누락된 형식(SVG에서 ICO, ICO에서 PNG)을 생성합니다.</li>
+</ol>
+<p>이 단계적 접근이 중요한 이유는 대부분의 compatibility 실패가 렌더링 버그가 아니라 누락된 파일이기 때문입니다. 사이트가 <code>rel='icon' type='image/svg+xml'</code>을 선언했지만 404를 반환하면 Safari에는 아이콘이 전혀 없게 됩니다. Mzu favicondl의 inventory 단계는 이러한 빈틈을 즉시 드러냅니다.</p>
+<h3>참조 HTML 스택</h3>
+<p>아래 compatibility matrix를 통과하는 최소 HTML link 태그 스택입니다. <code>&lt;head&gt;</code>에 배치하세요:</p>
+<pre><code>&lt;link rel='icon' href='/icon.svg' type='image/svg+xml'&gt;
+&lt;link rel='icon' href='/icon-96.png' sizes='96x96' type='image/png'&gt;
+&lt;link rel='icon' href='/favicon.ico' sizes='32x32'&gt;
+&lt;link rel='apple-touch-icon' href='/apple-touch-icon.png' sizes='180x180'&gt;
+&lt;link rel='mask-icon' href='/safari-pinned.svg' color='#1a1a1a'&gt;
+&lt;link rel='manifest' href='/site.webmanifest'&gt;</code></pre>
+<h2>테스트해야 할 Compatibility Matrix</h2>
+<p>집중적인 favicon compatibility test는 출시된 모든 기기를 다룰 필요가 없습니다. 현대 브라우저가 실제로 사용하는 표면을 다루면 됩니다. 배포 전에 실행할 것을 권장하는 matrix는 다음과 같습니다:</p>
+<table>
+<thead>
+<tr><th>Context</th><th>Minimum File</th><th>Common Failure</th></tr>
+</thead>
+<tbody>
+<tr><td>Browser tab (Chrome, Firefox, Edge)</td><td>SVG or 32x32 PNG</td><td>Missing <code>sizes</code> attribute on link</td></tr>
+<tr><td>Browser tab (Safari)</td><td>SVG or 32x32 PNG</td><td>ICO file exceeds 256KB</td></tr>
+<tr><td>Address bar</td><td>16x16 PNG or ICO entry</td><td>No multi-size ICO provided</td></tr>
+<tr><td>Pinned Tab (Safari)</td><td>Monochrome SVG</td><td>Using full-color SVG instead</td></tr>
+<tr><td>Add to Home Screen (iOS)</td><td>180x180 PNG</td><td>Transparent background (iOS adds white)</td></tr>
+<tr><td>Add to Home Screen (Android)</td><td>192x192 + 512x512 maskable</td><td>Missing maskable safe zone</td></tr>
+<tr><td>Google search result</td><td>Crawlable, square, ≥48x48</td><td>CDN blocks Googlebot</td></tr>
+</tbody>
+</table>
+<p>스택에 어느 행이든 빈틈이 있다면, 바로 그곳에서 compatibility test가 실패합니다. 해결책은 보통 단일 파일 변환이며, Mzu favicondl이 이 단계를 직접 처리합니다.</p>
+<h2>깨끗한 Compatibility 결과를 위한 Pro Tips</h2>
+<p>세 가지 패턴이 일관되게 compatibility test를 깨뜨리며, 모두 피할 수 있습니다.</p>
+<p><strong>같은 SVG를 다른 크기로 두 번 제공하지 마세요.</strong> <code>&lt;link rel='icon'&gt;</code>의 <code>sizes</code> 속성은 힌트이지 스위치가 아닙니다. SVG는 해상도 독립적이므로 브라우저는 SVG 파일에 대해 이 속성을 무시합니다. WHATWG 명세에 따라 확장 가능한 아이콘을 선언하는 올바른 방법은 <code>sizes='any'</code>를 추가하는 것입니다.</p>
+<p><strong>다크 모드는 배포 후가 아니라 배포 전에 테스트하세요.</strong> 투명 SVG 위의 검은 로고는 Chrome의 다크 탭 스트립에서 보이지 않습니다. Mzu favicondl을 사용하면 SVG를 라이트 및 다크 배경에 나란히 미리 볼 수 있습니다. 대비가 실패하면 SVG 자체 내부에 <code>prefers-color-scheme</code> 미디어 쿼리를 추가하세요.</p>
+<p><strong>항상 multi-size ICO를 포함하세요.</strong> 오늘날에도 루트 <code>/favicon.ico</code> 파일은 브라우저, 크롤러, 오래된 RSS 리더가 요청합니다. 16, 32, 48 픽셀 항목이 있는 multi-size ICO는 모든 레거시 컨텍스트를 하나의 파일로 커버합니다.</p>
+<p>스택에 실제로 필요한 파일에 대한 더 자세한 체크리스트는 <a href="/ko/blog/favicon-audit-checklist.html">2026 favicon audit checklist</a>를 참조하세요. 그리고 새 아이콘을 배포하기 전에 모든 브라우저 컨텍스트를 시각적으로 확인하고 싶다면, <a href="/ko/blog/favicon-tester-all-browsers.html">all-browsers favicon tester</a>가 워크플로의 그 측면을 안내합니다.</p>
+<h2>마무리</h2>
+<p>favicon compatibility test는 노트북에서 아이콘이 렌더링되는지에 관한 것이 아닙니다. 모든 브라우저, OS, 검색 엔진, 렌더링 모드가 올바른 파일을 가져오고, 파싱하고, 표시할 수 있는지에 관한 것입니다. 이를 다섯 차원의 감사 — format, resolution, context, theme, crawl — 로 취급하면 추측이 체크리스트로 바뀝니다. Mzu favicondl은 inventory와 변환 파이프라인을 제공하며, 여러분의 역할은 배포 전에 matrix를 행별로 검토하는 것입니다.</p></div>
+
+        <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
+
+        <div class="cta-box">
+            <h3>호환성 테스트 실행하기</h3>
+            <p>URL을 붙여넣으면 모든 브라우저와 기기에서의 파비콘 동작을 즉시 확인할 수 있습니다.</p>
+            <a href="/ko/index.html" class="cta-btn">무료로 사용해보기 →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/ko/index.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">홈</a>
+                <a href="/ko/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">블로그</a>
+                <a href="/ko/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">개인정보</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js?v=20260211"></script>
+
+</body></html>

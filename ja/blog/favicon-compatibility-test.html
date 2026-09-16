@@ -1,0 +1,179 @@
+<!DOCTYPE html><html lang="ja"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ファビコン互換性テスト：開発者向け完全ガイド - Mzu favicondl</title>
+    <meta name="description" content="ブラウザ、デバイス、形式を横断する favicon 互換性テストを実施します。SVG、ICO、ダークモードの問題をユーザーが気づく前に発見できます。">
+    <meta name="keywords" content="favicon compatibility test, browser favicon test, favicon format check">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/ja/blog/favicon-compatibility-test.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/favicon-compatibility-test.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/favicon-compatibility-test.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/favicon-compatibility-test.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/favicon-compatibility-test.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/favicon-compatibility-test.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/favicon-compatibility-test.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/ja/blog/favicon-compatibility-test.html">
+    <meta property="og:title" content="ファビコン互換性テスト：開発者向け完全ガイド">
+    <meta property="og:description" content="ブラウザ、デバイス、形式を横断する favicon 互換性テストを実施します。SVG、ICO、ダークモードの問題をユーザーが気づく前に発見できます。">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="ファビコン互換性テスト：開発者向け完全ガイド">
+    <meta name="twitter:description" content="ブラウザ、デバイス、形式を横断する favicon 互換性テストを実施します。SVG、ICO、ダークモードの問題をユーザーが気づく前に発見できます。">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "ファビコン互換性テスト：開発者向け完全ガイド",
+  "description": "ブラウザ、デバイス、形式を横断する favicon 互換性テストを実施します。SVG、ICO、ダークモードの問題をユーザーが気づく前に発見できます。",
+  "datePublished": "2026-09-16",
+  "dateModified": "2026-09-16",
+  "author": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "mainEntityOfPage": "https://favicondl.com/ja/blog/favicon-compatibility-test.html",
+  "inLanguage": "ja"
+}</script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/ja/index.html" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/ja/documentation.html" class="nav-link">ドキュメント</a>
+                <a href="/ja/tools.html" class="nav-link">ツール</a>
+                <a href="/ja/blog/" class="nav-link">ブログ</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/favicon-compatibility-test.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/favicon-compatibility-test.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/favicon-compatibility-test.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/favicon-compatibility-test.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/favicon-compatibility-test.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/ja/index.html" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/ja/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600">ファビコン互換性テスト：開発者向け完全ガイド</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">testing</span><time class="text-sm text-gray-400">2026-09-16</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">ファビコン互換性テスト：開発者向け完全ガイド</h1>
+        </header>
+
+        <div class="article-body"><p>新しいSVG faviconを本番環境にデプロイしました。Chromeデスクトップでは完璧に見えました。ところが、SlackでユーザーがSafari iOSのスクリーンショットを共有し、あなたのタブには空白の白い四角が表示されていました。「自分のマシンでは問題ない」と「どこでも動作する」の間のギャップこそ、<strong>favicon compatibility test</strong>が埋めるために設計されたものです。</p>
+<p>favicon compatibility testは単なる視覚チェックではありません。ブラウザ、OS、検索エンジンが実際にfaviconをリクエストするあらゆる環境に対して、アイコンスタックを検証する構造化された監査です。一般的なfavicon testerと本物の互換性テストの違いは、フォーマット、サイズ、コンテキスト、レンダリングモードといった範囲の広さにあります。</p>
+<h2>Favicon Compatibility Testが実際にチェックするもの</h2>
+<p>ほとんどの開発者は「互換性」を「表示されるかどうか」と捉えています。本当の互換性は少なくとも5つの次元をカバーし、1つでも欠けると本番環境でサイレント障害が発生します。</p>
+<ul>
+<li><strong>フォーマット互換性</strong> — SVG、PNG、ICO、レガシーGIFはブラウザによって動作が異なります。</li>
+<li><strong>解像度互換性</strong> — 16x16、32x32、48x48、96x96、180x180、192x192、512x512はそれぞれ特定のコンテキストを対象とします。</li>
+<li><strong>コンテキスト互換性</strong> — ブラウザタブ、アドレスバー、ブックマークバー、Pinned Tab、ホーム画面、Google検索結果。</li>
+<li><strong>テーマ互換性</strong> — ライトモード、ダークモード、Safariのtinted tabs。</li>
+<li><strong>クロール互換性</strong> — Googlebotが安定したURLからアイコンファイルを実際に取得できるかどうか。</li>
+</ul>
+<p>各次元には異なる障害モードがあります。ICOファイルは256KBを超えるとSafariで壊れます。SVG faviconはChromeでフラットカラーをレンダリングしますが、正しく記述された場合にのみ<code>prefers-color-scheme</code>を尊重します。WHATWG仕様は明示的なサイズヒントを持つ<code>rel='icon'</code>を定義しており、ブラウザはこれらのヒントを使用して適切なファイルを選択します（<a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">WHATWG HTML Living Standard</a>）。</p>
+<h2>Mzu favicondlで互換性テストを実行する</h2>
+<p>Mzu favicondlは、互換性テストを単一のスクリーンショットではなく、階層化されたワークフローとして扱います。URLを貼り付けると、ツールはサイトが公開しているすべてのアイコンファイルを取得します — HTMLの<code>&lt;link&gt;</code>タグ、ルートの<code>/favicon.ico</code>、<code>site.webmanifest</code>、Apple Touch参照などです。その後、ブラウザが実際に使用するコンテキストで各ファイルを検査できます。</p>
+<p>テストワークフローには3つの段階があります。</p>
+<ol>
+<li><strong>インベントリ</strong> — サイトが提供するすべてのアイコンファイルを収集します。マニフェスト内の隠れたファイルも含みます。</li>
+<li><strong>レンダリングチェック</strong> — 重要なサイズ（16、32、48、96、180）で各ファイルをプレビューします。</li>
+<li><strong>フォーマット変換</strong> — 不足しているフォーマット（SVGからICO、ICOからPNG）を生成し、スタックのギャップを埋めます。</li>
+</ol>
+<p>この段階的なアプローチが重要なのは、ほとんどの互換性障害はレンダリングバグではなく、ファイルの欠落だからです。サイトが<code>rel='icon' type='image/svg+xml'</code>を宣言していても404を返す場合、Safariにはアイコンがまったく表示されません。Mzu favicondlのインベントリステップは、これらのギャップを即座に明らかにします。</p>
+<h3>参照HTMLスタック</h3>
+<p>以下は、下記の互換性マトリクスを通過する最小限のHTML linkタグスタックです。これを<code>&lt;head&gt;</code>に配置してください。</p>
+<pre><code>&lt;link rel='icon' href='/icon.svg' type='image/svg+xml'&gt;
+&lt;link rel='icon' href='/icon-96.png' sizes='96x96' type='image/png'&gt;
+&lt;link rel='icon' href='/favicon.ico' sizes='32x32'&gt;
+&lt;link rel='apple-touch-icon' href='/apple-touch-icon.png' sizes='180x180'&gt;
+&lt;link rel='mask-icon' href='/safari-pinned.svg' color='#1a1a1a'&gt;
+&lt;link rel='manifest' href='/site.webmanifest'&gt;</code></pre>
+<h2>テストすべき互換性マトリクス</h2>
+<p>焦点を絞ったfavicon compatibility testは、これまでに出荷されたすべてのデバイスをカバーする必要はありません。現代のブラウザが実際に使用するサーフェスをカバーする必要があります。以下は、デプロイ前に実行することを推奨するマトリクスです。</p>
+<table>
+<thead>
+<tr><th>コンテキスト</th><th>最小ファイル</th><th>よくある障害</th></tr>
+</thead>
+<tbody>
+<tr><td>ブラウザタブ（Chrome、Firefox、Edge）</td><td>SVGまたは32x32 PNG</td><td>linkに<code>sizes</code>属性がない</td></tr>
+<tr><td>ブラウザタブ（Safari）</td><td>SVGまたは32x32 PNG</td><td>ICOファイルが256KBを超える</td></tr>
+<tr><td>アドレスバー</td><td>16x16 PNGまたはICOエントリ</td><td>マルチサイズICOが提供されていない</td></tr>
+<tr><td>Pinned Tab（Safari）</td><td>モノクロSVG</td><td>フルカラーSVGを使用している</td></tr>
+<tr><td>ホーム画面に追加（iOS）</td><td>180x180 PNG</td><td>透明背景（iOSが白を追加）</td></tr>
+<tr><td>ホーム画面に追加（Android）</td><td>192x192 + 512x512 maskable</td><td>maskableセーフゾーンがない</td></tr>
+<tr><td>Google検索結果</td><td>クロール可能、正方形、≥48x48</td><td>CDNがGooglebotをブロック</td></tr>
+</tbody>
+</table>
+<p>スタックのいずれかの行にギャップがある場合、そこが互換性テストの失敗点です。修正は通常、単一のファイル変換であり、Mzu favicondlが直接処理するステップです。</p>
+<h2>クリーンな互換性結果を得るためのプロのヒント</h2>
+<p>互換性テストを一貫して壊す3つのパターンがあり、すべて回避可能です。</p>
+<p><strong>同じSVGを異なるサイズで二重に提供しないでください。</strong> <code>&lt;link rel='icon'&gt;</code>の<code>sizes</code>属性はヒントであり、スイッチではありません。SVGは解像度に依存しないため、ブラウザはSVGファイルに対してこれを無視します。WHATWG仕様に従ってスケーラブルアイコンを宣言する正しい方法は、<code>sizes='any'</code>を追加することです。</p>
+<p><strong>ダークモードは出荷後ではなく、出荷前にテストしてください。</strong> 透明なSVG上の黒いロゴは、Chromeのダークタブストリップでは見えなくなります。Mzu favicondlでは、SVGをライト背景とダーク背景の両方で並べてプレビューできます。コントラストが不十分な場合は、SVG自体に<code>prefers-color-scheme</code>メディアクエリを追加してください。</p>
+<p><strong>常にマルチサイズICOを含めてください。</strong> 今日でも、ルートの<code>/favicon.ico</code>ファイルはブラウザ、クローラー、古いRSSリーダーによってリクエストされます。16、32、48ピクセルのエントリを持つマルチサイズICOは、1つのファイルですべてのレガシーコンテキストをカバーします。</p>
+<p>スタックに実際に必要なファイルの詳細なチェックリストについては、<a href="/ja/blog/favicon-audit-checklist.html">2026 favicon audit checklist</a>をご覧ください。また、新しいアイコンをデプロイする前に、すべてのブラウザコンテキストを視覚的に確認したい場合は、<a href="/ja/blog/favicon-tester-all-browsers.html">all-browsers favicon tester</a>がワークフローのその側面を説明しています。</p>
+<h2>まとめ</h2>
+<p>favicon compatibility testは、あなたのラップトップでアイコンがレンダリングされるかどうかの問題ではありません。すべてのブラウザ、OS、検索エンジン、レンダリングモードが正しいファイルを取得、解析、表示できるかどうかの問題です。これをフォーマット、解像度、コンテキスト、テーマ、クロールの5次元監査として扱うことで、推測がチェックリストに変わります。Mzu favicondlはインベントリと変換パイプラインを提供します。あなたの仕事は、デプロイ前にマトリクスを行ごとに確認することです。</p></div>
+
+        <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
+
+        <div class="cta-box">
+            <h3>互換性テストを実行する</h3>
+            <p>URL を貼り付けるだけで、すべてのブラウザとデバイスでの favicon の動作をすぐに確認できます。</p>
+            <a href="/ja/index.html" class="cta-btn">無料で試す →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/ja/index.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">ホーム</a>
+                <a href="/ja/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">ブログ</a>
+                <a href="/ja/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">プライバシー</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js?v=20260211"></script>
+
+</body></html>

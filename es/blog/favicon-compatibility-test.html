@@ -1,0 +1,179 @@
+<!DOCTYPE html><html lang="es"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test de compatibilidad de favicon: guía completa para desarrolladores - Mzu favicondl</title>
+    <meta name="description" content="Ejecuta un test de compatibilidad de favicon completo en navegadores, dispositivos y formatos. Detecta problemas de SVG, ICO y modo oscuro antes que tus usuarios.">
+    <meta name="keywords" content="favicon compatibility test, browser favicon test, favicon format check">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/es/blog/favicon-compatibility-test.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/favicon-compatibility-test.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/favicon-compatibility-test.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/favicon-compatibility-test.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/favicon-compatibility-test.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/favicon-compatibility-test.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/favicon-compatibility-test.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/es/blog/favicon-compatibility-test.html">
+    <meta property="og:title" content="Test de compatibilidad de favicon: guía completa para desarrolladores">
+    <meta property="og:description" content="Ejecuta un test de compatibilidad de favicon completo en navegadores, dispositivos y formatos. Detecta problemas de SVG, ICO y modo oscuro antes que tus usuarios.">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Test de compatibilidad de favicon: guía completa para desarrolladores">
+    <meta name="twitter:description" content="Ejecuta un test de compatibilidad de favicon completo en navegadores, dispositivos y formatos. Detecta problemas de SVG, ICO y modo oscuro antes que tus usuarios.">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Test de compatibilidad de favicon: guía completa para desarrolladores",
+  "description": "Ejecuta un test de compatibilidad de favicon completo en navegadores, dispositivos y formatos. Detecta problemas de SVG, ICO y modo oscuro antes que tus usuarios.",
+  "datePublished": "2026-09-16",
+  "dateModified": "2026-09-16",
+  "author": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "mainEntityOfPage": "https://favicondl.com/es/blog/favicon-compatibility-test.html",
+  "inLanguage": "es"
+}</script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/es/index.html" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/es/documentation.html" class="nav-link">Documentación</a>
+                <a href="/es/tools.html" class="nav-link">Herramientas</a>
+                <a href="/es/blog/" class="nav-link">Blog</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/favicon-compatibility-test.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/favicon-compatibility-test.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/favicon-compatibility-test.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/favicon-compatibility-test.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/favicon-compatibility-test.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/es/index.html" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/es/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600">Test de compatibilidad de favicon: guía completa para desarrolladores</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">testing</span><time class="text-sm text-gray-400">2026-09-16</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">Test de compatibilidad de favicon: guía completa para desarrolladores</h1>
+        </header>
+
+        <div class="article-body"><p>Has subido tu nuevo favicon SVG a producción. Chrome de escritorio se veía perfecto. Luego un usuario comparte en Slack una captura desde Safari iOS y tu pestaña muestra un cuadrado blanco vacío. Esa brecha entre "se ve bien en mi máquina" y "funciona en todas partes" es exactamente lo que un <strong>favicon compatibility test</strong> está diseñado para cerrar.</p>
+<p>Un favicon compatibility test es más que una revisión visual. Es una auditoría estructurada que verifica tu stack de iconos en cada entorno donde los navegadores, sistemas operativos y motores de búsqueda realmente solicitan favicons. La diferencia entre un favicon tester genérico y un verdadero compatibility test es la amplitud: formatos, tamaños, contextos y modos de renderizado.</p>
+<h2>Qué verifica realmente un Favicon Compatibility Test</h2>
+<p>La mayoría de los desarrolladores piensa que "compatibilidad" significa "¿aparece o no?". La compatibilidad real cubre al menos cinco dimensiones, y omitir una deja un fallo silencioso en producción:</p>
+<ul>
+<li><strong>Compatibilidad de formato</strong>: SVG, PNG, ICO y GIF heredado se comportan de manera diferente en cada navegador.</li>
+<li><strong>Compatibilidad de resolución</strong>: 16x16, 32x32, 48x48, 96x96, 180x180, 192x192, 512x512, cada uno apunta a un contexto específico.</li>
+<li><strong>Compatibilidad de contexto</strong>: pestaña del navegador, barra de direcciones, barra de marcadores, Pinned Tab, pantalla de inicio, resultados de búsqueda de Google.</li>
+<li><strong>Compatibilidad de tema</strong>: modo claro, modo oscuro y pestañas tintadas en Safari.</li>
+<li><strong>Compatibilidad de rastreo</strong>: si Googlebot puede realmente obtener tus archivos de iconos desde una URL estable.</li>
+</ul>
+<p>Cada dimensión tiene un modo de fallo distinto. Los archivos ICO se rompen en Safari si superan los 256KB. Los favicons SVG renderizan colores planos en Chrome pero solo respetan <code>prefers-color-scheme</code> cuando están escritos correctamente. La especificación WHATWG define <code>rel='icon'</code> con indicaciones explícitas de tamaño, y los navegadores usan esas indicaciones para elegir el archivo correcto (<a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">WHATWG HTML Living Standard</a>).</p>
+<h2>Ejecutar un Compatibility Test con Mzu favicondl</h2>
+<p>Mzu favicondl trata el compatibility test como un flujo de trabajo por capas en lugar de una sola captura de pantalla. Pegas una URL y la herramienta extrae cada archivo de icono que el sitio expone: etiquetas HTML <code>&lt;link&gt;</code>, el <code>/favicon.ico</code> raíz, <code>site.webmanifest</code> y referencias de Apple Touch. Luego puedes inspeccionar cada archivo en los contextos en que los navegadores realmente los usan.</p>
+<p>El flujo de prueba tiene tres etapas:</p>
+<ol>
+<li><strong>Inventario</strong>: recopilar cada archivo de icono que sirve tu sitio, incluidos los ocultos en el manifest.</li>
+<li><strong>Verificación de renderizado</strong>: previsualizar cada archivo en los tamaños que importan (16, 32, 48, 96, 180).</li>
+<li><strong>Conversión de formato</strong>: generar los formatos faltantes (ICO desde SVG, PNG desde ICO) para llenar los huecos en tu stack.</li>
+</ol>
+<p>Este enfoque por etapas importa porque la mayoría de los fallos de compatibilidad no son errores de renderizado, son archivos faltantes. Un sitio puede declarar <code>rel='icon' type='image/svg+xml'</code> pero servir un 404, dejando a Safari sin ningún icono. El paso de inventario de Mzu favicondl saca a la luz esos huecos de inmediato.</p>
+<h3>Stack HTML de referencia</h3>
+<p>Este es el stack mínimo de etiquetas link HTML que pasa la matriz de compatibilidad de abajo. Colócalo en tu <code>&lt;head&gt;</code>:</p>
+<pre><code>&lt;link rel='icon' href='/icon.svg' type='image/svg+xml'&gt;
+&lt;link rel='icon' href='/icon-96.png' sizes='96x96' type='image/png'&gt;
+&lt;link rel='icon' href='/favicon.ico' sizes='32x32'&gt;
+&lt;link rel='apple-touch-icon' href='/apple-touch-icon.png' sizes='180x180'&gt;
+&lt;link rel='mask-icon' href='/safari-pinned.svg' color='#1a1a1a'&gt;
+&lt;link rel='manifest' href='/site.webmanifest'&gt;</code></pre>
+<h2>La matriz de compatibilidad contra la que deberías probar</h2>
+<p>Un favicon compatibility test enfocado no necesita cubrir todos los dispositivos jamás lanzados. Necesita cubrir las superficies que los navegadores modernos realmente usan. Esta es la matriz que recomendamos ejecutar antes de cualquier despliegue:</p>
+<table>
+<thead>
+<tr><th>Contexto</th><th>Archivo mínimo</th><th>Fallo común</th></tr>
+</thead>
+<tbody>
+<tr><td>Pestaña del navegador (Chrome, Firefox, Edge)</td><td>SVG o PNG de 32x32</td><td>Falta el atributo <code>sizes</code> en el link</td></tr>
+<tr><td>Pestaña del navegador (Safari)</td><td>SVG o PNG de 32x32</td><td>El archivo ICO supera los 256KB</td></tr>
+<tr><td>Barra de direcciones</td><td>PNG de 16x16 o entrada ICO</td><td>No se proporciona un ICO multi-tamaño</td></tr>
+<tr><td>Pinned Tab (Safari)</td><td>SVG monocromo</td><td>Usar SVG a todo color en su lugar</td></tr>
+<tr><td>Agregar a pantalla de inicio (iOS)</td><td>PNG de 180x180</td><td>Fondo transparente (iOS añade blanco)</td></tr>
+<tr><td>Agregar a pantalla de inicio (Android)</td><td>192x192 + 512x512 maskable</td><td>Falta la zona segura maskable</td></tr>
+<tr><td>Resultado de búsqueda de Google</td><td>Rastreable, cuadrado, ≥48x48</td><td>La CDN bloquea a Googlebot</td></tr>
+</tbody>
+</table>
+<p>Si tu stack tiene un hueco en alguna fila, ahí es donde fallará tu compatibility test. La solución suele ser una sola conversión de archivo, y ese paso lo maneja directamente Mzu favicondl.</p>
+<h2>Consejos pro para un resultado de compatibilidad limpio</h2>
+<p>Tres patrones rompen sistemáticamente los compatibility tests, y todos son evitables.</p>
+<p><strong>No sirvas el mismo SVG dos veces con tamaños diferentes.</strong> El atributo <code>sizes</code> en <code>&lt;link rel='icon'&gt;</code> es una indicación, no un interruptor. Los navegadores lo ignoran para archivos SVG porque SVG es independiente de la resolución. Añadir <code>sizes='any'</code> es la forma correcta de declarar un icono escalable según la especificación WHATWG.</p>
+<p><strong>Prueba el modo oscuro antes de desplegar, no después.</strong> Un logo negro sobre un SVG transparente se ve invisible en la franja de pestañas oscuras de Chrome. Mzu favicondl te permite previsualizar tu SVG sobre fondos claros y oscuros en paralelo. Si el contraste falla, añade una media query <code>prefers-color-scheme</code> dentro del propio SVG.</p>
+<p><strong>Incluye siempre un ICO multi-tamaño.</strong> Incluso hoy, el archivo <code>/favicon.ico</code> raíz es solicitado por navegadores, rastreadores y lectores RSS antiguos. Un ICO multi-tamaño con entradas de 16, 32 y 48 píxeles cubre todos los contextos heredados en un solo archivo.</p>
+<p>Para una lista de verificación más detallada sobre qué archivos necesita realmente tu stack, consulta nuestro <a href="/es/blog/favicon-audit-checklist.html">checklist de auditoría de favicons 2026</a>. Y si estás a punto de desplegar un nuevo icono y quieres confirmar visualmente cada contexto del navegador, el <a href="/es/blog/favicon-tester-all-browsers.html">favicon tester para todos los navegadores</a> recorre esa parte del flujo de trabajo.</p>
+<h2>Para cerrar</h2>
+<p>Un favicon compatibility test no se trata de si tu icono se renderiza en tu portátil. Se trata de si cada navegador, sistema operativo, motor de búsqueda y modo de renderizado puede obtener, analizar y mostrar el archivo correcto. Tratarlo como una auditoría de cinco dimensiones (formato, resolución, contexto, tema y rastreo) convierte una suposición en una lista de verificación. Mzu favicondl te da el inventario y el pipeline de conversión; tu trabajo es recorrer la matriz fila por fila antes de cada despliegue.</p></div>
+
+        <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
+
+        <div class="cta-box">
+            <h3>Ejecuta tu test de compatibilidad</h3>
+            <p>Pega cualquier URL y comprueba al instante cómo se comporta tu favicon en todos los navegadores y dispositivos.</p>
+            <a href="/es/index.html" class="cta-btn">Pruébalo gratis →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/es/index.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">Inicio</a>
+                <a href="/es/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">Blog</a>
+                <a href="/es/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">Privacidad</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js?v=20260211"></script>
+
+</body></html>
