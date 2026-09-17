@@ -2702,7 +2702,9 @@
       "favicon-from-logo",
       "favicon-generator-free"
     ],
-    "status": "pending"
+    "status": "done",
+    "qualityScore": 95,
+    "qualityGrade": "A"
   },
   {
     "keyword": "make favicon from initials",
