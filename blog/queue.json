@@ -2719,7 +2719,9 @@
       "favicon-generator-text",
       "favicon-emoji"
     ],
-    "status": "pending"
+    "status": "done",
+    "qualityScore": 87,
+    "qualityGrade": "A"
   },
   {
     "keyword": "make favicon from emoji online",
