@@ -2736,7 +2736,9 @@
       "favicon-emoji",
       "favicon-generator-text"
     ],
-    "status": "pending"
+    "status": "done",
+    "qualityScore": 80,
+    "qualityGrade": "A"
   },
   {
     "keyword": "jpg to favicon converter",
