@@ -1,3 +1,116 @@
-{
-  "content": "<p>打开 Google，搜索你的品牌，仔细看搜索结果标题旁边的小图标。如果它看起来模糊、有锯齿或者被拉伸了，大概率是你提供的 favicon 分辨率太低，被 Google 放大显示了。<strong>96x96 PNG favicon</strong> 这个方案正好解决这个问题——它用的就是 Google 内部挑选最清晰候选图标时的"两倍降采样"逻辑。</p>\n\n<h2>96x96 PNG Favicon 到底是什么</h2>\n<p>96x96 PNG favicon 是一张正方形位图，宽和高各 96 像素，MIME 类型为 <code>image/png</code>。96 像素这个尺寸不是随便选的——它正好是 Google 搜索在桌面端结果页中渲染标题旁图标所用 48 像素 CSS 尺寸的 2 倍。</p>\n<p>当浏览器或搜索引擎需要绘制 48x48 的图标，而你的源 PNG 是 96x96 时，降采样可以得到清晰的边缘和干净的反走样效果。但如果源图只有 16x16，被放大到 48x48，就会变模糊。96x96 处在一个恰到好处的位置——文件体积可以轻松控制在 10 KB 以内，又足够喂饱所有常见的渲染目标而不损失画质。</p>\n\n<h2>为什么这个尺寸对 Google 搜索很重要</h2>\n<p>根据 <a href='https://developers.google.com/search/docs/appearance/favicon-in-search?hl=en'>Google 官方的 favicon 文档</a>，只要 favicon 能被 Google 抓取、是方形、且至少 8x8 像素，它就"有资格"（注意：不是一定）出现在搜索结果中。Google <em>建议</em>使用大于 48x48 的尺寸。</p>\n<p>96x96 的 PNG 正好落在这个推荐范围内，并且恰好是显示尺寸的 2 倍，这给 Google 的渲染器提供了一个干净的降采样源。Google 的爬虫会在你声明的 <code>&lt;link rel=\"icon\"&gt;</code> 和根目录的 <code>favicon.ico</code> 中挑出最大的合法方形图——96x96 的 PNG 经常胜出，而一旦被选中，用户在搜索结果里看到的就是它。想了解 96x96 在所有常见尺寸中的位置，可以看我们的 <a href='/blog/favicon-sizes-guide.html'>完整 favicon 尺寸指南</a>。</p>\n\n<h2>sizes 属性如何告诉浏览器该用哪张图</h2>\n<p>HTML 规范允许通过 <code>&lt;link rel=\"icon\"&gt;</code> 标签上的 <code>sizes</code> 属性给浏览器一个提示，告诉它应该加载哪个图标。根据 <a href='https://html.spec.whatwg.org/multipage/links.html#rel-icon'>WHATWG HTML 标准</a>的定义，当用户代理需要某个特定尺寸的图标时（比如 Google 结果要的 48x48，或者 Windows 任务栏固定图标要的 32x32），它会从你声明的图标中选出 <code>sizes</code> 值匹配或超过目标尺寸的那一个。</p>\n<p>下面是声明 96x96 PNG favicon 的标准写法：</p>\n<pre><code>&amp;lt;link rel='icon' type='image/png' sizes='96x96' href='/favicons/favicon-96x96.png'&amp;gt;</code></pre>\n<p>注意格式要严格：<code>\"96x96\"</code>，全小写，用 <code>x</code> 作分隔符。浏览器会忽略 <code>\"96\"</code>、<code>\"96 X 96\"</code> 或任何带空白的变体。</p>\n\n<h2>实际落地：完整的图标栈</h2>\n<p>只放一个 96x96 的 PNG 是不够的——现代浏览器期望看到一组分层递进的图标。一个典型的 <code>&lt;head&gt;</code> 块长这样：</p>\n<pre><code>&amp;lt;link rel='icon' type='image/svg+xml' href='/favicon.svg'&amp;gt;\n&amp;lt;link rel='icon' type='image/png' sizes='96x96' href='/favicons/favicon-96x96.png'&amp;gt;\n&amp;lt;link rel='icon' type='image/png' sizes='32x32' href='/favicons/favicon-32x32.png'&amp;gt;\n&amp;lt;link rel='apple-touch-icon' sizes='180x180' href='/favicons/apple-touch-icon.png'&amp;gt;\n&amp;lt;link rel='shortcut icon' href='/favicon.ico'&amp;gt;</code></pre>\n<p>顺序很重要：把更大、优先级更高的图标放在前面。浏览器在找到第一个尺寸匹配的图标后就会停止匹配。根目录下的 <code>favicon.ico</code> 是用来兜底那些老旧浏览器以及直接探测文件的爬虫工具。</p>\n\n<h2>96x96 PNG 的最佳实践</h2>\n<ul>\n<li><strong>按 96x96 设计，不要放大。</strong>从源 SVG 直接导出一张全新的 96x96 PNG，得到的是干净的像素网格。把一张 32x32 的图放大导出，模糊感会被直接写进文件里——而这恰恰是你想修复的问题。</li>\n<li><strong>URL 要永久不变。</strong>Google 一旦索引了你的图标，更改 URL 就会触发完全重新抓取——Google 文档提到这可能需要数天到数周。</li>\n<li><strong>控制在 10 KB 以内。</strong>色彩受限的 96x96 PNG 一般在 2 到 6 KB 之间。部署前用 Oxipng 这类 PNG 优化器压一遍。</li>\n<li><strong>必须是正方形。</strong>Google 的爬虫会忽略非方形图片。96x95 的文件对搜索结果来说就是无效的。</li>\n<li><strong>上线前先在 48x48 下预览。</strong>用类似 Mzu favicondl 这种工具把 96x96 PNG 渲染到实际显示尺寸——如果在 48x48 下看起来发糊，到 Google 上也一样糊。</li>\n</ul>\n\n<h2>什么时候 96x96 不是最优解</h2>\n<p>如果你在做一个 PWA，或者需要 Android 主屏图标，那 <code>site.webmanifest</code> 要求的是 192x192 和 512x512 的 PNG——这是平台实际使用的尺寸。这种情况下，按我们的 <a href='/blog/web-app-manifest-icons-192-512.html'>web app manifest 图标配置指南</a>来操作。不过，对于浏览器标签页、地址栏，以及 Google 搜索结果，96x96 搭配一个 SVG 是最清晰、也是最现实的组合。</p>\n\n<h2>结论</h2>\n<p>用一张真正的 96x96 PNG（而不是从更小的图放大而来的），用 <code>sizes='96x96'</code> 在独立的 <code>&lt;link&gt;</code> 标签中声明。再配合一个 SVG 主力图、一个 32x32 PNG 兜底，以及根目录下的 <code>favicon.ico</code>。这一套既满足 Google \"大于 48x48\" 的建议，在搜索结果里看起来也很锐利，在老旧浏览器上还能优雅降级。</p>"
+` format. Then the actual response starts after `</mm:think>`.
+
+OK so my response should be:
+```
+<mm:think>[thinking content]</mm:think>{JSON}
+```
+
+Let me write the final output now.
+
+One last thing - I want to double-check my opening doesn't start with a banned opening. My opening is: "Your client just emailed you their logo as a JPG..." - this is a specific scenario, not a banned opening. Good.
+
+Let me also verify the internal links I'm using are correctly referenced:
+- /blog/what-is-favicon.html ✓ (exists in the list)
+- /blog/png-to-favicon.html ✓ (exists in the list)
+
+Good.
+
+Let me also verify my use of the WHATWG source:
+- https://html.spec.whatwg.org/multipage/links.html#rel-icon ✓ (in approved sources)
+
+Good.
+
+I'm ready to output the JSON.
+
+Actually wait - I need to double-check one thing about my opening. The instructions say to use a "real platform example only when it is observable or supported by a first-party source link." My opening uses a hypothetical client scenario. That's fine - it's not claiming a specific real platform observation.
+
+OK, let me also re-read the brand voice: "Like Apple docs meets a dev blog post. Clean, confident, opinionated." 
+
+Looking at my content - is it confident and opinionated? Yes, I make clear recommendations ("Put your highest-quality PNG first", "JPG should be your last resort"). Good.
+
+Is it clean? Yes, short paragraphs, clear sections, no fluff.
+
+OK let me also count the meta keywords one more time:
+"jpg to favicon, jpg to ico, image to favicon, favicon converter, convert jpg favicon"
+j-p-g(3) (4)t-o(6) (7)f-a-v-i-c-o-n(14),(15) (16)j-p-g(19) (20)t-o(22) (23)i-c-o(26),(27) (28)i-m-a-g-e(33) (34)t-o(36) (37)f-a-v-i-c-o-n(44),(45) (46)f-a-v-i-c-o-n(53) (54)c-o-n-v-e-r-t-e-r(63),(64) (65)c-o-n-v-e-r-t(72) (73)j-p-g(76) (77)f-a-v-i-c-o-n(84)
+= 84 chars (with spaces) or 77 chars without commas... let me actually just count:
+
+"jpg to favicon, jpg to ico, image to favicon, favicon converter, convert jpg favicon"
+
+Let me count carefully:
+j(1)p(2)g(3) (4)t(5)o(6) (7)f(8)a(9)v(10)i(11)c(12)o(13)n(14),(15) (16)j(17)p(18)g(19) (20)t(21)o(22) (23)i(24)c(25)o(26),(27) (28)i(29)m(30)a(31)g(32)e(33) (34)t(35)o(36) (37)f(38)a(39)v(40)i(41)c(42)o(43)n(44),(45) (46)f(47)a(48)v(49)i(50)c(51)o(52)n(53) (54)c(55)o(56)n(57)v(58)e(59)r(60)t(61)e(62)r(63),(64) (65)c(66)o(67)n(68)v(69)e(70)r(71)t(72) (73)j(74)p(75)g(76) (77)f(78)a(79)v(80)i(81)c(82)o(83)n(84)
+
+= 84 characters. Under 90 ✓
+
+Good.
+
+Now let me also verify my title character count one more time:
+"JPG to Favicon Converter: From Photo to Browser Tab Icon"
+J(1)P(2)G(3) (4)t(5)o(6) (7)F(8)a(9)v(10)i(11)c(12)o(13)n(14) (15)C(16)o(17)n(18)v(19)e(20)r(21)t(22)e(23)r(24):(25) (26)F(27)r(28)o(29)m(30) (31)P(32)h(33)o(34)t(35)o(36) (37)t(38)o(39) (40)B(41)r(42)o(43)w(44)s(45)e(46)r(47) (48)T(49)a(50)b(51) (52)I(53)c(54)o(55)n(56)
+= 56 chars ✓ within 50-60 range
+
+Excellent. Now I'll output the JSON.
+
+Wait, I also want to think about whether the title is engaging enough. "JPG to Favicon Converter: From Photo to Browser Tab Icon" - it's specific and clear, mentions the keyword, and tells the reader what they'll get. Good.
+
+Let me finalize everything now.
+
+Actually, I just realized I should re-read once more. Let me look at the section "The HTML Stack You Need". I claim "Here is the minimal pattern that works in Chrome, Firefox, Safari, and Edge today:" - this is fine, not making a date claim, just stating current behavior.
+
+And "Order can influence which icon browsers pick" - I'm being appropriately hedged.
+
+OK I'm ready. Final JSON output incoming.
+
+Oh wait, I should also reconsider the requirement: "Internal links: relative paths (/blog/xxx.html). Link to 1-2 existing articles." I have 2 internal links:
+1. /blog/what-is-favicon.html
+2. /blog/png-to-favicon.html
+
+That's within the 1-2 range. Good.
+
+Alright, writing the JSON now.
+
+Actually one more sanity check. I want to verify the content doesn't have any double quotes that need escaping. Let me scan through my HTML content again:
+
+"<p>Your client just emailed you their logo as a JPG. It looks fine in their PDF and on their business cards, but the moment you drop it into a 16×16 favicon slot, the colors muddy and the edges blur into a pixelated mess. That is the core problem a <strong>JPG to favicon converter</strong> solves: turning a lossy, opaque image into a sharp, multi-format icon stack that survives the browser tab.</p>..."
+
+I don't see any double quotes anywhere in my HTML content. 
+
+OK final JSON output now.
+
+Hmm, I also want to be careful with the apostrophes. In JSON strings delimited by double quotes, single quotes and apostrophes don't need escaping. So "JPG's lossy encoder" is fine in JSON.
+
+Final output:</mm:think>{
+  "titleEn": "JPG to Favicon Converter: From Photo to Browser Tab Icon",
+  "titleZh": "JPG 转 Favicon 转换器：从照片到浏览器标签图标",
+  "titleJa": "JPG→ファビコン変換：写真からタブアイコンを作成",
+  "titleKo": "JPG를 파비콘으로 변환하는 도구: 사진에서 브라우저 탭 아이콘 만들기",
+  "titleEs": "Convertidor de JPG a Favicon: De foto a icono de pestaña",
+  "descEn": "Convert JPG to favicon with Mzu favicondl. Upload any photo or logo, download ICO, multi-size PNG, and SVG files plus a full HTML link stack.",
+  "descZh": "使用 Mzu favicondl 将 JPG 转换为 favicon。上传照片或 logo,下载 ICO、多尺寸 PNG 和 SVG 文件,附带完整的 HTML 链接代码。",
+  "descJa": "Mzu favicondlでJPGをファビコンに変換。写真やロゴをアップロードして、ICO、複数サイズPNG、SVG、HTMLリンクスタックをダウンロードできます。",
+  "descKo": "Mzu favicondl로 JPG를 파비콘으로 변환하세요. 사진이나 로고를 업로드하고 ICO, 다양한 크기의 PNG, SVG와 전체 HTML 링크 스택을 받으세요.",
+  "descEs": "Convierte JPG a favicon con Mzu favicondl. Sube cualquier foto o logo y descarga archivos ICO, PNG en varios tamaños y SVG con el stack HTML completo.",
+  "metaKeywords": "jpg to favicon, jpg to ico, image to favicon, favicon converter, convert jpg favicon",
+  "breadcrumbEn": "JPG to Favicon Converter",
+  "breadcrumbZh": "JPG 转 Favicon 转换器",
+  "breadcrumbJa": "JPG→ファビコン変換",
+  "breadcrumbKo": "JPG 파비콘 변환기",
+  "breadcrumbEs": "Conversor de JPG a Favicon",
+  "contentEn": "<p>Your client just emailed you their logo as a JPG. It looks fine in their PDF and on their business cards, but the moment you drop it into a 16×16 favicon slot, the colors muddy and the edges blur into a pixelated mess. That is the core problem a <strong>JPG to favicon converter</strong> solves: turning a lossy, opaque image into a sharp, multi-format icon stack that survives the browser tab.</p>\n<p>JPG is a strange source format for a favicon. It was designed for photographs, not logos. It throws away color information to stay small, and it does not support transparency at all. That is why every browser tab you have ever opened with an icon is showing a PNG, SVG, or ICO — never a raw JPG. The conversion is about rescuing sharpness from compression and packaging the result into formats that browsers actually understand.</p>\n<h2>What Mzu favicondl Does With Your JPG</h2>\n<p>The tool accepts your uploaded JPG and re-encodes it into a full favicon package. You get a multi-size ICO file for legacy browsers, individual PNG sizes (16, 32, 48, 96, 192, 512) for modern <code>link rel='icon'</code> tags, and an SVG output when your source image has clean vector-friendly shapes.</p>\n<p>If you want a primer on what a favicon actually is and why the format stack matters, see the <a href='/blog/what-is-favicon.html'>complete beginner guide</a>. For the conversion workflow itself, Mzu favicondl handles three jobs at once: resizing, color normalization, and format packaging.</p>\n<h2>Getting Started</h2>\n<ol>\n<li>Open <a href='/index.html'>favicondl.com</a> and upload your JPG. Drag-and-drop works.</li>\n<li>Select your target sizes. The default package covers the modern web stack (16, 32, 48, 96, 180, 192, 512).</li>\n<li>Preview the result against light and dark browser tab backgrounds before downloading.</li>\n<li>Download the ZIP and drop the files into your project root or <code>/public</code> directory.</li>\n<li>Wire them into your HTML using the link tags described below.</li>\n</ol>\n<h2>The HTML Stack You Need</h2>\n<p>Modern browsers parse the <code>link rel='icon'</code> attribute to discover favicons, as documented in the <a href='https://html.spec.whatwg.org/multipage/links.html#rel-icon'>HTML living standard</a>. Here is the minimal pattern that works in Chrome, Firefox, Safari, and Edge today:</p>\n<pre><code>&lt;link rel='icon' type='image/png' sizes='32x32' href='/favicon-32x32.png'&gt;\n&lt;link rel='icon' type='image/png' sizes='96x96' href='/favicon-96x96.png'&gt;\n&lt;link rel='apple-touch-icon' sizes='180x180' href='/apple-touch-icon.png'&gt;\n&lt;link rel='icon' type='image/x-icon' href='/favicon.ico'&gt;</code></pre>\n<p>Order can influence which icon browsers pick. Put your highest-quality PNG first and your ICO fallback at the bottom for older browser support.</p>\n<h2>JPG-Specific Problems You Will Hit</h2>\n<p>JPG was not built for tiny icons. Expect these issues before you upload:</p>\n<ul>\n<li><strong>No transparency.</strong> The browser tab background bleeds through transparent PNGs but never through JPGs. If your logo sits on a white card, you will get a white square in dark mode.</li>\n<li><strong>Compression artifacts at small sizes.</strong> JPG's lossy encoder keeps edges and gradients looking smooth at 1080p, but at 16×16 those same artifacts become visible halos around your logo.</li>\n<li><strong>Color shifts.</strong> JPG throws away chroma detail. A bright red in your source might land as a muddy orange in the favicon.</li>\n<li><strong>No animation, no alpha.</strong> If you wanted a transparent or animated favicon, you needed PNG or APNG from the start.</li>\n</ul>\n<p>The fix is to upload the highest-quality JPG you have. The tool resamples your image with smoothing that preserves more detail than simple pixel scaling. You will still lose some sharpness, so pre-simplify the artwork if you can — fewer details at 16×16 means a cleaner result.</p>\n<h2>Pro Tips for the Cleanest Output</h2>\n<p>Start with the largest JPG you can find. Logos emailed at 300×300 give you less to work with than the original 2000×2000 export from the designer's archive. If the JPG looks fuzzy on your monitor before you upload it, the favicon will look worse.</p>\n<p>Crop before you convert. A favicon is a square. JPG logos often arrive with extra whitespace or non-square framing. Center your mark in a square canvas before uploading, and the conversion tool does not have to make guessing decisions about what to crop.</p>\n<p>If your JPG was exported from a vector source, check whether you still have the original SVG or AI file. Mzu favicondl can convert an SVG directly into a sharper favicon package than any raster at high DPI.</p>\n<p>For more on building a full favicon package from a raster source, the <a href='/blog/png-to-favicon.html'>PNG to favicon guide</a> covers the same workflow with PNG inputs and goes deeper on multi-size packaging.</p>\n<h2>When to Skip JPG Entirely</h2>\n<p>If you have access to the original vector file — an SVG, an AI file, an EPS — convert that to favicon instead. JPG should be your last resort, used only when a client hands you a flattened image and nothing else. The tool handles JPG well, but it cannot recover detail that the encoder threw away years ago.</p>\n<p>That said, for a quick deploy or a personal project, JPG is fine. The conversion takes seconds, the output package covers every major browser and device, and you ship with a professional icon stack the same afternoon. If your current site shows the default gray globe in browser tabs, this is the fastest way to fix it.</p>",
+  "ctaTitleEn": "Convert Your JPG to a Full Favicon Package",
+  "ctaTitleZh": "将 JPG 转换为完整 Favicon 资源包",
+  "ctaTitleJa": "JPGを完全なファビコンパッケージに変換",
+  "ctaTitleKo": "JPG를 완전한 파비콘 패키지로 변환하세요",
+  "ctaTitleEs": "Convierte tu JPG en un paquete completo de favicon",
+  "ctaDescEn": "Upload any JPG and download a complete icon stack — ICO, PNG, SVG, and Apple Touch files — in under a minute.",
+  "ctaDescZh": "上传任意 JPG,一分钟内下载完整的图标包 —— ICO、PNG、SVG 和 Apple Touch 文件。",
+  "ctaDescJa": "JPGをアップロードして、ICO、PNG、SVG、Apple Touchアイコンを1分以内にダウンロードできます。",
+  "ctaDescKo": "JPG를 업로드하고 1분 이내에 ICO, PNG, SVG, Apple Touch 아이콘 파일을 받으세요.",
+  "ctaDescEs": "Sube cualquier JPG y descarga en menos de un minuto un paquete con ICO, PNG, SVG e iconos Apple Touch.",
+  "ctaBtnEn": "Try It Free →",
+  "ctaBtnZh": "免费试用 →",
+  "ctaBtnJa": "無料で試す →",
+  "ctaBtnKo": "무료로 사용해보기 →",
+  "ctaBtnEs": "Pruébalo gratis →",
+  "ctaLink": "/index.html"
 }

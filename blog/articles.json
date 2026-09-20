@@ -3668,5 +3668,26 @@
     ],
     "qualityScore": 80,
     "qualityGrade": "A"
+  },
+  {
+    "slug": "jpg-to-favicon-converter",
+    "publishDate": "2026-09-20",
+    "titleEn": "JPG to Favicon Converter: How to Turn Photos into Icons",
+    "titleZh": "JPG 转 Favicon 转换器：从照片到浏览器图标",
+    "titleJa": "JPG からファビコンへ：写真をブラウザアイコンに変換",
+    "titleKo": "JPG를 파비콘으로 변환: 사진을 브라우저 아이콘으로",
+    "titleEs": "Convertidor de JPG a Favicon: De Foto a Icono",
+    "descEn": "Convert JPG photos to favicon files with Mzu favicondl. Generate ICO, transparent PNG, Apple Touch Icon, and SVG variants in one fast workflow.",
+    "descZh": "使用 Mzu favicondl 将 JPG 照片转换为 favicon 文件。一次生成 ICO、PNG、Apple Touch 图标和 SVG 等多种格式。",
+    "descJa": "Mzu favicondl で JPG 写真をファビコンに変換。ICO、PNG、Apple Touch アイコン、SVG を一度に生成できます。",
+    "descKo": "Mzu favicondl로 JPG 사진을 파비콘 파일로 변환하세요. ICO, PNG, Apple Touch 아이콘, SVG를 한 번에 생성합니다.",
+    "descEs": "Convierte fotos JPG en archivos favicon con Mzu favicondl. Genera ICO, PNG, Apple Touch Icon y SVG en un solo paso.",
+    "keyword": "jpg to favicon converter",
+    "tags": [
+      "conversion",
+      "tools"
+    ],
+    "qualityScore": 95,
+    "qualityGrade": "A"
   }
 ]
