@@ -380,7 +380,9 @@ function translateMeta($, lang, pageMeta, page, article) {
   const articleDescription = getArticleText(article, 'desc', lang);
   const resolvedMeta = article
     ? {
-        title: `${articleTitle} - Mzu favicondl`,
+        // Article titles are keyword-first and carry no brand suffix (it was
+        // truncated in SERPs and pushed titles past ~60 characters).
+        title: articleTitle,
         description: articleDescription,
         ogTitle: articleTitle,
         ogDescription: articleDescription,
