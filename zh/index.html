@@ -1,8 +1,8 @@
 <!DOCTYPE html><html lang="zh"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mzu favicondl - Favicon 下载器与提取器</title>
-    <meta name="description" content="即时下载和提取任何网站的 Favicon。直接复制 URL 和 HTML 代码片段。免费、快速、可靠。">
+    <title>Favicon 下载器与提取器 - 免费下载任意网站图标 | favicondl</title>
+    <meta name="description" content="免费在线下载和提取任意网站的 favicon 图标：自动找出最清晰的 SVG、PNG 或 ICO，一键下载 PNG，复制直链和 HTML 代码。无需注册。">
     <meta name="keywords" content="favicon downloader, extract website icon, download favicon, free favicon generator">
     <meta name="baidu-site-verification" content="codeva-TQEbMwU84J">
     <meta name="robots" content="index, follow">
@@ -25,14 +25,14 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://favicondl.com/zh/">
-    <meta property="og:title" content="Mzu favicondl - Favicon 下载器与提取器">
-    <meta property="og:description" content="即时下载和提取任何网站的 Favicon。免费、快速、可靠。">
+    <meta property="og:title" content="Favicon 下载器与提取器 - 免费下载任意网站图标 | favicondl">
+    <meta property="og:description" content="免费下载和提取任意网站的 favicon 图标，自动选出最清晰的版本。">
     <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Mzu favicondl - Favicon 下载器与提取器">
-    <meta name="twitter:description" content="即时下载和提取任何网站的 Favicon。免费、快速、可靠。">
+    <meta name="twitter:title" content="Favicon 下载器与提取器 - 免费下载任意网站图标 | favicondl">
+    <meta name="twitter:description" content="免费下载和提取任意网站的 favicon 图标，自动选出最清晰的版本。">
     <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
 
     <!-- Google Analytics (replace GA_MEASUREMENT_ID with your real ID) -->
@@ -82,6 +82,96 @@
         "query-input": "required name=url"
       }
     }
+    </script>
+
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "下载网站的 favicon 合法吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Favicon 是公开文件，每个浏览器打开网站时都会下载它，所以把它保存下来在技术上没有区别。不过图标通常是网站所有者 Logo 或商标的一部分。用它来标示链接指向哪个网站（比如书签、仪表盘、链接预览）是常见做法；把它当作你自己的品牌标识则不行。拿不准时，请查看该公司的品牌使用规范。以上只是一般信息，不构成法律意见。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "为什么下载的 favicon 看起来很模糊？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "通常是因为网站只发布了很小的图标，或者导出时被放大了。关闭按所选尺寸导出即可保留原始分辨率。如果网站只有 16 px 或 32 px 的 ICO，任何工具都补不回缺失的细节。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "可以批量下载 favicon 吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "可以。批量 Favicon 下载工具一次最多支持 100 个域名，结果可以打包成一个 ZIP 下载，也可以逐个保存为图片。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "有免费的 favicon API 吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "有。https://favicondl.com/api/extract?url=github.com 会直接跳转到我们找到的最佳图标，所以可以直接写进 <img> 标签。加上 &format=json 则会返回图标地址和它的来源。不需要 key，也不需要账号；请在你自己那边做好缓存。详见 API 文档。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "favicon grabber、fetcher 和 extractor 有什么区别？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "没有本质区别。“favicon grabber”“favicon fetcher”“favicon finder”和“favicon extractor”是同一类工具的不同叫法：输入一个网站，它帮你找到并下载这个网站的图标。这个 favicon 下载器都能做到。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "为什么有些网站返回的是一个通用地球图标，或者没有图标？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "有些网站会拦截自动化请求、需要登录或人机验证、在页面加载后才用 JavaScript 添加图标，或者根本没有 favicon。这些情况下我们会退回到 Google 的 favicon 服务，它可能返回一张很小的图，或者一个默认的地球图标。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "下载到的是什么格式？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "下载按钮始终保存为 PNG，哪里都能用。如果你需要原始格式，结果里的直链指向网站上的原始文件，可能是 ICO、PNG、SVG 或 WebP。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "能用在 localhost 或内网网站上吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "不能。提取器运行在我们的服务器上，只能访问公开网站。它看不到 localhost、你的内网或需要登录的页面，我们的图片代理也会拒绝私有地址。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "可以把我自己的图片做成 favicon 吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "可以。工具页里的图片转 Favicon 工具能把 Logo 转成多种尺寸的 PNG 和一个 ICO 文件，并连同 Web Manifest 和要粘贴到网站里的 HTML 标签一起打包成 ZIP。图片在你的浏览器里处理，不会上传。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "我自己的网站需要哪些 favicon 尺寸？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "对大多数网站来说，一个给浏览器用的 SVG 或 32×32 PNG、一个 180×180 的 Apple touch icon，再加 192×192 和 512×512 两个 manifest 图标就够了。我们的 Favicon 尺寸指南逐一做了说明。"
+      }
+    }
+  ],
+  "inLanguage": "zh-CN"
+}
     </script>
 
     <!-- Tailwind CSS -->
@@ -456,7 +546,8 @@
     <!-- Hero Section -->
     <section class="pt-20 pb-16 px-6">
         <div class="max-w-3xl mx-auto text-center">
-            <h1 class="text-5xl font-semibold text-gray-900 tracking-tight mb-4">一键下载任意网站图标。</h1>
+            <h1 class="text-5xl font-semibold text-gray-900 tracking-tight mb-4">Favicon 下载器与提取器</h1>
+            <p class="text-xl text-gray-500 mb-6">一键下载任意网站的图标。</p>
 
             <div class="flex justify-center mb-8 fade-in" style="animation-delay: 0.1s;">
                 <div class="inline-flex items-center gap-2 px-3 py-1.5 bg-green-50 border border-green-100 rounded-full">
@@ -811,7 +902,7 @@
 
                 <p>无论你是为链接预览开发功能的工程师、收集品牌素材的设计师，还是只是想查看某个网站图标的用户，我们的 favicon 提取器都能胜任。我们支持从 16×16 到 512×512 的尺寸，并且每次下载都会附带可直接复制的 HTML 代码片段和直链，方便集成到你的项目中。Favicon 是显示在浏览器标签页、书签和搜索结果中的小图标，对于品牌识别和用户体验都非常重要。</p>
 
-                <p>Learn more about the favicon standard from the <a href="https://developer.mozilla.org/en-US/docs/Glossary/Favicon" target="_blank" rel="noopener" class="text-blue-600 hover:underline">MDN Web Docs</a>.</p>
+                <p>想深入了解 favicon 标准，可以阅读 <a href="https://developer.mozilla.org/zh-CN/docs/Glossary/Favicon" target="_blank" rel="noopener" class="text-blue-600 hover:underline">MDN Web 文档</a>。</p>
 
                 <h3 class="text-lg font-semibold text-gray-900 mt-10 mb-4">什么是高质量 Favicon？</h3>
                 <p>高质量的 favicon 不只是传统的 16x16 ICO 文件。现代应用、社交媒体链接预览和 AI 代理通常需要 180px、256px、512px 等高分辨率资源，这些资源通常来自 SVG 矢量图、Web App Manifest 和 Apple Touch Icon。Mzu favicondl 会在可能的情况下优先提取这些更高质量的图标来源。</p>
@@ -863,6 +954,101 @@ with open("icon.png", "wb") as f:
         </div>
     </section>
 
+    <section class="py-16 px-6 bg-white border-t border-gray-100">
+        <div class="max-w-3xl mx-auto text-gray-600 text-sm leading-relaxed">
+            <h2 id="how-to" class="text-2xl font-semibold text-gray-900 mb-6">如何下载任意网站的 Favicon 图标</h2>
+            <ol class="space-y-4 list-decimal pl-5">
+                <li><strong class="text-gray-900">输入域名或网址。</strong>在本页顶部的输入框里输入 <code>github.com</code> 这样的域名，或者直接粘贴完整的网页地址。<code>https://</code> 和 <code>www.</code> 都可以省略。</li>
+                <li><strong class="text-gray-900">选择尺寸。</strong>可选 16、32、48、64 或 128 px。预览区始终显示我们能找到的最佳图标。<em>按所选尺寸导出</em>默认是打开的，会把 PNG 缩放到你选的尺寸；关掉它，文件就会保持原始分辨率。</li>
+                <li><strong class="text-gray-900">下载或复制。</strong>点击<em>下载</em>把图标保存为 PNG，或者复制现成的 <code>&lt;link&gt;</code> HTML 标签，以及原始文件的直链。</li>
+            </ol>
+            <p class="mt-4">就这么简单：无需注册账号，无需安装浏览器扩展，也不用上传任何文件。如果你需要原始的 <code>.ico</code> 或 <code>.svg</code> 文件而不是 PNG，打开结果里显示的直链另存即可。</p>
+
+            <h2 id="what-we-extract" class="text-2xl font-semibold text-gray-900 mt-14 mb-6">Favicon 提取器会查找哪些图标</h2>
+            <p class="mb-4">网站很少只放一个图标。一个典型的网站通常有传统的 <code>favicon.ico</code>、几张 PNG、给 iPhone 用的 Apple touch icon，以及给 Android 用的 Web App Manifest。我们的 favicon 提取器会像普通浏览器一样加载首页（并跟随 <code>www</code> 跳转到裸域名之类的重定向），读取页面 HTML 中所有 <code>&lt;link rel="…icon…"&gt;</code> 标签，打开页面引用的 manifest 收集其中列出的图标，同时尝试 <code>/favicon.ico</code> 和 <code>/apple-touch-icon.png</code> 这两个常见路径。每个文件都会被真正下载下来，确认确实是图片，并测量它的实际像素尺寸。</p>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left text-sm border border-gray-200 rounded-lg">
+                    <thead class="bg-gray-50 text-gray-900">
+                        <tr><th class="p-3 border-b border-gray-200">图标类型</th><th class="p-3 border-b border-gray-200">声明位置</th><th class="p-3 border-b border-gray-200">常见尺寸</th><th class="p-3 border-b border-gray-200">用途</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="p-3 border-b border-gray-100">ICO 图标</td><td class="p-3 border-b border-gray-100"><code>/favicon.ico</code> 或 <code>rel="icon"</code> / <code>rel="shortcut icon"</code></td><td class="p-3 border-b border-gray-100">16×16、32×32、48×48（一个文件里常含多个尺寸）</td><td class="p-3 border-b border-gray-100">浏览器标签页、书签、旧版浏览器</td></tr>
+                        <tr><td class="p-3 border-b border-gray-100">PNG 图标</td><td class="p-3 border-b border-gray-100"><code>rel="icon" type="image/png" sizes="32x32"</code></td><td class="p-3 border-b border-gray-100">16 到 96 px</td><td class="p-3 border-b border-gray-100">现代浏览器标签页和搜索结果</td></tr>
+                        <tr><td class="p-3 border-b border-gray-100">SVG 图标</td><td class="p-3 border-b border-gray-100"><code>rel="icon" type="image/svg+xml"</code></td><td class="p-3 border-b border-gray-100">可缩放矢量图</td><td class="p-3 border-b border-gray-100">任何尺寸都清晰，可适配深色模式</td></tr>
+                        <tr><td class="p-3 border-b border-gray-100">Apple touch icon</td><td class="p-3 border-b border-gray-100"><code>rel="apple-touch-icon"</code> 或 <code>/apple-touch-icon.png</code></td><td class="p-3 border-b border-gray-100">180×180</td><td class="p-3 border-b border-gray-100">iPhone 和 iPad 主屏幕快捷方式</td></tr>
+                        <tr><td class="p-3 border-b border-gray-100">Manifest 图标</td><td class="p-3 border-b border-gray-100"><code>rel="manifest"</code>（site.webmanifest、manifest.json）</td><td class="p-3 border-b border-gray-100">192×192、512×512</td><td class="p-3 border-b border-gray-100">Android 主屏幕和已安装的 Web 应用</td></tr>
+                        <tr><td class="p-3">Safari 固定标签页图标</td><td class="p-3"><code>rel="mask-icon"</code></td><td class="p-3">单色 SVG</td><td class="p-3">旧版 Safari 的固定标签页</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="mt-4">如果一个网站以上这些都没有提供（比如它拦截自动化请求，或者只用 JavaScript 加载图标），我们会退回到 Google 的公开 favicon 服务，这样你仍然能拿到一张可用的图标，只是尺寸可能偏小。想深入了解各个尺寸分别用在哪里，可以看我们的 <a href="/zh/blog/favicon-sizes-guide.html" class="text-blue-600 hover:underline">Favicon 尺寸指南</a>。</p>
+
+            <h2 id="highest-resolution" class="text-2xl font-semibold text-gray-900 mt-14 mb-6">如何获取最高清的图标</h2>
+            <p class="mb-4">提取器会给找到的每个图标排序，把最清晰的那个放在第一位。全彩 SVG 优先，因为它放大也不会丢失细节；其次是实测尺寸最大的正方形图片，通常是 512 或 192 px 的 manifest 图标，或 180 px 的 Apple touch icon；传统的 ICO 文件往往只有 16 或 32 像素宽，所以通常排在最后。Safari 的单色 mask 图标排位也很靠后。下载器还会列出找到的其他尺寸，你可以换一个来用。</p>
+            <ul class="space-y-2 list-disc pl-5">
+                <li><strong class="text-gray-900">保留原始尺寸。</strong>关闭<em>按所选尺寸导出</em>，下载的 PNG 就会保留源文件的完整分辨率。</li>
+                <li><strong class="text-gray-900">不要放大很小的图标。</strong>把 16 px 的 ICO 放大到 128 px 只会更模糊。如果网站没有发布更大的版本，那个小文件就是能拿到的最佳版本。</li>
+                <li><strong class="text-gray-900">看清图标来源。</strong>在 API 的 JSON 响应里，<code>source</code> 字段会告诉你图标来自网站本身（<code>direct</code> 或 <code>html</code>），还是来自 Google 备用服务（<code>google_s2</code>），后者分辨率通常更低。</li>
+                <li><strong class="text-gray-900">需要的是 Logo 而不是图标？</strong>Favicon 本来就是为小尺寸设计的。印刷或营销用途，请使用该公司官方的媒体资料包或品牌页面。</li>
+            </ul>
+
+            <div class="grid sm:grid-cols-2 gap-4 mt-14">
+                <a href="/zh/bulk-favicon-downloader.html" class="block bg-gray-50 border border-gray-100 rounded-2xl p-6 hover:border-gray-300 transition-colors">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">批量下载 Favicon</h3>
+                    <p>每行一个域名，一次最多粘贴 100 个，把所有图标打包成 ZIP 下载，或者逐个保存为图片，可按域名或序号命名。</p>
+                </a>
+                <a href="/zh/documentation.html" class="block bg-gray-50 border border-gray-100 rounded-2xl p-6 hover:border-gray-300 transition-colors">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">免费 Favicon API</h3>
+                    <p>一个 GET 请求就能按网址获取任意网站的图标。不需要 API key，也不用注册；可以直接跳转到图片，也可以返回包含图标地址和来源的 JSON。</p>
+                </a>
+            </div>
+
+            <h2 id="faq" class="text-2xl font-semibold text-gray-900 mt-14 mb-6">常见问题</h2>
+            <div class="space-y-6">
+                <div>
+                    <h3 class="text-base font-semibold text-gray-900 mb-1">下载网站的 favicon 合法吗？</h3>
+                    <p>Favicon 是公开文件，每个浏览器打开网站时都会下载它，所以把它保存下来在技术上没有区别。不过图标通常是网站所有者 Logo 或商标的一部分。用它来标示链接指向哪个网站（比如书签、仪表盘、链接预览）是常见做法；把它当作你自己的品牌标识则不行。拿不准时，请查看该公司的品牌使用规范。以上只是一般信息，不构成法律意见。</p>
+                </div>
+                <div>
+                    <h3 class="text-base font-semibold text-gray-900 mb-1">为什么下载的 favicon 看起来很模糊？</h3>
+                    <p>通常是因为网站只发布了很小的图标，或者导出时被放大了。关闭<em>按所选尺寸导出</em>即可保留原始分辨率。如果网站只有 16 px 或 32 px 的 ICO，任何工具都补不回缺失的细节。</p>
+                </div>
+                <div>
+                    <h3 class="text-base font-semibold text-gray-900 mb-1">可以批量下载 favicon 吗？</h3>
+                    <p>可以。<a href="/zh/bulk-favicon-downloader.html" class="text-blue-600 hover:underline">批量 Favicon 下载工具</a>一次最多支持 100 个域名，结果可以打包成一个 ZIP 下载，也可以逐个保存为图片。</p>
+                </div>
+                <div>
+                    <h3 class="text-base font-semibold text-gray-900 mb-1">有免费的 favicon API 吗？</h3>
+                    <p>有。<code>https://favicondl.com/api/extract?url=github.com</code> 会直接跳转到我们找到的最佳图标，所以可以直接写进 <code>&lt;img&gt;</code> 标签。加上 <code>&amp;format=json</code> 则会返回图标地址和它的来源。不需要 key，也不需要账号；请在你自己那边做好缓存。详见 <a href="/zh/documentation.html" class="text-blue-600 hover:underline">API 文档</a>。</p>
+                </div>
+                <div>
+                    <h3 class="text-base font-semibold text-gray-900 mb-1">favicon grabber、fetcher 和 extractor 有什么区别？</h3>
+                    <p>没有本质区别。“favicon grabber”“favicon fetcher”“favicon finder”和“favicon extractor”是同一类工具的不同叫法：输入一个网站，它帮你找到并下载这个网站的图标。这个 favicon 下载器都能做到。</p>
+                </div>
+                <div>
+                    <h3 class="text-base font-semibold text-gray-900 mb-1">为什么有些网站返回的是一个通用地球图标，或者没有图标？</h3>
+                    <p>有些网站会拦截自动化请求、需要登录或人机验证、在页面加载后才用 JavaScript 添加图标，或者根本没有 favicon。这些情况下我们会退回到 Google 的 favicon 服务，它可能返回一张很小的图，或者一个默认的地球图标。</p>
+                </div>
+                <div>
+                    <h3 class="text-base font-semibold text-gray-900 mb-1">下载到的是什么格式？</h3>
+                    <p><em>下载</em>按钮始终保存为 PNG，哪里都能用。如果你需要原始格式，结果里的直链指向网站上的原始文件，可能是 ICO、PNG、SVG 或 WebP。</p>
+                </div>
+                <div>
+                    <h3 class="text-base font-semibold text-gray-900 mb-1">能用在 localhost 或内网网站上吗？</h3>
+                    <p>不能。提取器运行在我们的服务器上，只能访问公开网站。它看不到 <code>localhost</code>、你的内网或需要登录的页面，我们的图片代理也会拒绝私有地址。</p>
+                </div>
+                <div>
+                    <h3 class="text-base font-semibold text-gray-900 mb-1">可以把我自己的图片做成 favicon 吗？</h3>
+                    <p>可以。<a href="/zh/tools.html" class="text-blue-600 hover:underline">工具页</a>里的<em>图片转 Favicon</em> 工具能把 Logo 转成多种尺寸的 PNG 和一个 ICO 文件，并连同 Web Manifest 和要粘贴到网站里的 HTML 标签一起打包成 ZIP。图片在你的浏览器里处理，不会上传。</p>
+                </div>
+                <div>
+                    <h3 class="text-base font-semibold text-gray-900 mb-1">我自己的网站需要哪些 favicon 尺寸？</h3>
+                    <p>对大多数网站来说，一个给浏览器用的 SVG 或 32×32 PNG、一个 180×180 的 Apple touch icon，再加 192×192 和 512×512 两个 manifest 图标就够了。我们的 <a href="/zh/blog/favicon-sizes-guide.html" class="text-blue-600 hover:underline">Favicon 尺寸指南</a>逐一做了说明。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- CTA -->
     <section class="py-16 px-6 bg-gray-50">
         <div class="max-w-3xl mx-auto text-center">
@@ -886,7 +1072,7 @@ with open("icon.png", "wb") as f:
                 <a href="/zh/documentation.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">文档</a>
                 <a href="/zh/tools.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">工具</a>
                 <a href="/zh/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">博客</a>
-
+                <a href="/zh/bulk-favicon-downloader.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">批量下载</a>
                 <a href="/zh/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">隐私政策</a>
             </div>
         </div>

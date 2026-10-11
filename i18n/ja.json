@@ -6,10 +6,10 @@
   },
   "_pages": {
     "index": {
-      "title": "Mzu favicondl - ファビコンダウンローダー＆エクストラクター",
-      "description": "あらゆるウェブサイトのファビコンを即座にダウンロード・抽出。コピー可能なURLとHTMLスニペット。無料・高速・安心。",
-      "ogTitle": "Mzu favicondl - ファビコンダウンローダー＆エクストラクター",
-      "ogDescription": "あらゆるウェブサイトのファビコンを即座にダウンロード・抽出。無料・高速・安心。"
+      "title": "ファビコン ダウンロード・抽出ツール - 無料・どのサイトでも | favicondl",
+      "description": "あらゆるウェブサイトのファビコンを無料でダウンロード・抽出。最も高画質な SVG・PNG・ICO を自動で見つけ、PNG で保存、URL や HTML タグもコピーできます。登録不要。",
+      "ogTitle": "ファビコン ダウンロード・抽出ツール - 無料・どのサイトでも | favicondl",
+      "ogDescription": "あらゆるサイトのファビコンを無料でダウンロード。最も高画質なアイコンを自動で選びます。"
     },
     "tools": {
       "title": "ツール - Mzu favicondl",
@@ -18,10 +18,10 @@
       "ogDescription": "画像からファビコン変換、一括処理、フォーマット変換ツール。無料で簡単。"
     },
     "documentation": {
-      "title": "ドキュメント - Mzu favicondl",
-      "description": "Mzu favicondl ドキュメント - ファビコンURLテンプレートと使用ガイド",
-      "ogTitle": "ドキュメント - Mzu favicondl",
-      "ogDescription": "コピーして使えるファビコンURLテンプレートと完全ガイド。"
+      "title": "無料ファビコン API - キー不要、URL でサイトのアイコンを取得 | favicondl",
+      "description": "無料のファビコン API。GET リクエスト 1 回でドメインや URL からサイトのアイコンを返します。img タグにそのまま使え、JSON も取得可能。API キー・登録不要。Google S2 や DuckDuckGo との比較付き。",
+      "ogTitle": "無料ファビコン API - キー不要、URL でサイトのアイコンを取得 | favicondl",
+      "ogDescription": "GET リクエスト 1 回で、あらゆるサイトのファビコンを取得。API キー不要。"
     },
     "privacy": {
       "title": "プライバシーポリシー - Mzu favicondl",
@@ -29,6 +29,12 @@
     },
     "404": {
       "title": "404 - ページが見つかりません | Mzu favicondl"
+    },
+    "bulk-favicon-downloader": {
+      "title": "ファビコン一括ダウンロード - 最大 100 サイト、ZIP 対応 | favicondl",
+      "description": "無料のファビコン一括ダウンロードツール。最大 100 個のドメインを貼り付けるだけで、すべてのサイトのアイコンを ZIP または個別ファイルでまとめて保存できます。登録・API キー不要。",
+      "ogTitle": "ファビコン一括ダウンロード - 最大 100 サイト、ZIP 対応 | favicondl",
+      "ogDescription": "最大 100 個のドメインのファビコンをまとめてダウンロード。無料・登録不要。"
     }
   },
   "_strings": {
@@ -39,7 +45,6 @@
     "Privacy": "プライバシー",
     "Copied!": "コピーしました！",
     "Done!": "完了！",
-
     "Download any website favicon. Instantly.": "あらゆるウェブサイトのファビコンを即座にダウンロード。",
     "Enter a domain or URL to extract the favicon, copy the link, or download as PNG.": "ドメインまたはURLを入力してファビコンを抽出、リンクをコピー、PNGでダウンロード。",
     "Try:": "試す：",
@@ -76,7 +81,6 @@
     "Need more tools?": "もっとツールが必要ですか？",
     "Convert images to favicons, batch process, and more.": "画像からファビコンへの変換、一括処理など。",
     "Explore Tools": "ツールを見る",
-
     "Handy favicon tools for conversion, batch processing, and more.": "変換、一括処理などの便利なファビコンツール。",
     "Image to Favicon": "画像→ファビコン",
     "Convert any image into multi-size favicon files (PNG/JPG/SVG/WebP/GIF).": "あらゆる画像をマルチサイズのファビコンに変換（PNG/JPG/SVG/WebP/GIF対応）。",
@@ -134,7 +138,6 @@
     "Result": "結果",
     "Convert another": "別のファイルを変換",
     "Back to tools": "ツール一覧に戻る",
-
     "Copy-ready favicon URL templates (based on free services).": "コピーして使えるファビコンURLテンプレート（無料サービスベース）。",
     "On this page": "目次",
     "Overview": "概要",
@@ -205,9 +208,60 @@
     "Up to 10000 requests per day": "1日あたり最大10000リクエスト",
     "Commercial Use": "商用利用",
     "Commercial users are recommended to contact us for a higher usage quota and priority support": "商用ユーザーには、より高い使用量と優先サポートについてお問い合わせいただくことをお勧めします",
-
     "Page not found": "ページが見つかりません",
     "The page you're looking for doesn't exist or has been moved.": "お探しのページは存在しないか、移動されました。",
-    "Back to Home": "ホームに戻る"
+    "Back to Home": "ホームに戻る",
+    "Processed 10,000+ icons in the last 24h": "過去24時間で10,000件以上のアイコンを処理",
+    "Copy-ready URL templates and HTML snippets for quick integration.": "すぐに組み込める、コピーして使える URL テンプレートと HTML スニペット。",
+    "Whether you're a web developer building a link preview, a designer collecting brand assets, or just curious about a site's icon, our favicon extractor handles it all. We support sizes from 16×16 to 512×512 pixels, and every download comes with copy-ready HTML snippets and direct URLs for easy integration into your project. Favicons (short for \"favorite icons\") are the small icons displayed in browser tabs, bookmarks, and search results. They play a key role in brand recognition and user experience.": "リンクプレビューを作る Web 開発者でも、ブランド素材を集めるデザイナーでも、あるサイトのアイコンが気になっただけの方でも、このファビコン抽出ツールにお任せください。16×16 から 512×512 ピクセルまでのサイズに対応し、ダウンロードのたびにコピーして使える HTML スニペットと直接 URL が付くので、プロジェクトへの組み込みも簡単です。ファビコン（「favorite icon」の略）は、ブラウザのタブやブックマーク、検索結果に表示される小さなアイコンで、ブランドの認知やユーザー体験に大きく関わります。",
+    "What is a High-Quality Favicon?": "高品質なファビコンとは？",
+    "A high-quality favicon goes beyond the legacy 16x16 ICO format. Modern applications, social media link previews, and AI agents require high-resolution assets such as 180px, 256px, and 512px icons, often derived from SVG vectors, web app manifests, and Apple touch icons. Mzu favicondl prioritizes these richer sources over deprecated standard favicons whenever possible.": "高品質なファビコンは、昔ながらの 16x16 の ICO 形式にとどまりません。最近のアプリ、SNS のリンクプレビュー、AI エージェントには 180px、256px、512px といった高解像度のアイコンが必要で、その多くは SVG ベクター、Web App Manifest、Apple touch icon から得られます。Mzu favicondl は、可能な限り旧来のファビコンよりもこうした高品質なソースを優先します。",
+    "Integration Guide for AI Agents & Developers": "AI エージェントと開発者向けの組み込みガイド",
+    "Use these copy-ready examples to integrate favicon fetching into your scripts, tools, and workflows.": "スクリプトやツール、ワークフローにファビコン取得を組み込むための、コピーして使えるサンプルです。",
+    "Free Favicon Generator & Tools": "無料ファビコン作成ツール集",
+    "Create favicons from any image, batch download website icons, and convert between PNG, ICO, SVG formats — all free, no signup.": "どんな画像からでもファビコンを作成し、サイトのアイコンを一括ダウンロード、PNG・ICO・SVG の形式変換もできます。すべて無料・登録不要。",
+    "Mzu favicondl provides copy-ready favicon URL templates and a favicon extractor UI. Its own extraction API finds the real icons a website publishes, and an image proxy makes them downloadable from browser code.": "Mzu favicondl は、コピーして使えるファビコン URL テンプレートとファビコン抽出 UI を提供しています。独自の抽出 API がサイトの公開している実際のアイコンを見つけ、画像プロキシによってブラウザのコードからもダウンロードできるようにします。",
+    "Find and download a usable favicon for a domain or URL": "ドメインや URL から使えるファビコンを見つけてダウンロード",
+    "The target domain or URL, e.g. example.com": "対象のドメインまたは URL（例：example.com）",
+    "Use json for metadata; omit it for a downloadable image redirect": "メタデータが必要なら json を指定。省略するとダウンロード可能な画像へリダイレクトします",
+    "Supports domains and full website URLs:": "ドメインとサイトの完全な URL の両方に対応：",
+    "Privacy Policy": "プライバシーポリシー",
+    "Last updated: February 10, 2026": "最終更新日：2026年2月10日",
+    "1. Introduction": "1. はじめに",
+    "Mzu favicondl (\"we\", \"our\", or \"the Service\") is a free online tool for downloading and extracting website favicons. We are committed to protecting your privacy. This Privacy Policy explains what information we collect and how we use it.": "Mzu favicondl（以下「当サービス」）は、ウェブサイトのファビコンをダウンロード・抽出するための無料オンラインツールです。当サービスはお客様のプライバシーの保護に努めています。本プライバシーポリシーでは、収集する情報とその利用方法について説明します。",
+    "2. Information We Collect": "2. 収集する情報",
+    "We collect minimal information:": "収集する情報は最小限です：",
+    "Domain names you enter for favicon extraction (processed in real-time, not stored)": "ファビコン抽出のために入力されたドメイン名（リアルタイムで処理し、保存しません）",
+    "Language preference (stored locally in your browser via localStorage)": "言語設定（localStorage によりお使いのブラウザ内に保存）",
+    "Standard web analytics data (page views, browser type, country) if analytics is enabled": "アナリティクスが有効な場合の標準的なアクセス解析データ（ページビュー、ブラウザの種類、国）",
+    "3. How We Use Information": "3. 情報の利用目的",
+    "To provide the favicon extraction and download service": "ファビコンの抽出・ダウンロードサービスを提供するため",
+    "To remember your language preference across visits": "次回以降の訪問でも言語設定を保持するため",
+    "To understand usage patterns and improve the Service": "利用状況を把握し、サービスを改善するため",
+    "4. Data Storage": "4. データの保存",
+    "All image processing (resizing, format conversion) happens entirely in your browser. No images are uploaded to or stored on our servers. The Cloudflare Worker proxy processes requests in real-time without logging.": "画像処理（リサイズ、形式変換）はすべてお使いのブラウザ内で行われます。画像が当社のサーバーにアップロードされたり保存されたりすることはありません。Cloudflare Worker のプロキシはログを残さずにリアルタイムでリクエストを処理します。",
+    "5. Cookies & Local Storage": "5. Cookie とローカルストレージ",
+    "We use browser localStorage to save your language preference. We do not use tracking cookies. Third-party services (analytics, ads) may use their own cookies — please refer to their respective privacy policies.": "言語設定の保存にはブラウザの localStorage を使用しています。トラッキング Cookie は使用していません。外部サービス（アクセス解析、広告）が独自の Cookie を使用する場合があるため、それぞれのプライバシーポリシーをご確認ください。",
+    "6. Third-Party Services": "6. 外部サービス",
+    "Google Favicon Service — used as a fallback source for favicon images": "Google ファビコンサービス — ファビコン画像の代替取得元として使用",
+    "Cloudflare Workers — used for favicon discovery and CORS proxying": "Cloudflare Workers — ファビコンの検出と CORS プロキシに使用",
+    "Google Analytics — used for anonymous usage statistics (if enabled)": "Google アナリティクス — 匿名の利用統計に使用（有効な場合）",
+    "CDN services (jsDelivr, cdnjs) — used to load open-source libraries": "CDN サービス（jsDelivr、cdnjs）— オープンソースライブラリの読み込みに使用",
+    "7. Children's Privacy": "7. 子どものプライバシー",
+    "Our Service is not directed at children under 13. We do not knowingly collect personal information from children.": "当サービスは 13 歳未満の子どもを対象としていません。子どもの個人情報を故意に収集することはありません。",
+    "8. Changes to This Policy": "8. 本ポリシーの変更",
+    "We may update this Privacy Policy from time to time. Any changes will be posted on this page with an updated revision date.": "本プライバシーポリシーは随時更新することがあります。変更した場合は、改定日を更新してこのページに掲載します。",
+    "9. Contact": "9. お問い合わせ",
+    "If you have any questions about this Privacy Policy, please open an issue on our GitHub repository.": "本プライバシーポリシーについてご質問がある場合は、GitHub リポジトリで Issue を作成してください。",
+    "Favicon Guide & Blog": "ファビコンガイド＆ブログ",
+    "Professional guides on favicons — sizes, formats, troubleshooting, and best practices.": "ファビコンのサイズ、形式、トラブル対策、ベストプラクティスを解説する専門ガイド。",
+    "New articles coming soon!": "新しい記事を近日公開予定です！",
+    "Previous": "前へ",
+    "Page": "ページ",
+    "of": "/",
+    "Next": "次へ",
+    "Ready to grab some favicons?": "さっそくファビコンを取得しましょう",
+    "Download and extract any website's favicon instantly. Free and fast.": "あらゆるサイトのファビコンをすぐにダウンロード・抽出。無料で高速。",
+    "Try Mzu favicondl →": "Mzu favicondl を使ってみる →"
   }
 }

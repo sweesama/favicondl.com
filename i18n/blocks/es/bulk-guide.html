@@ -1,0 +1,59 @@
+<section class="py-16 px-6 bg-white border-t border-gray-100">
+        <div class="max-w-3xl mx-auto text-gray-600 text-sm leading-relaxed">
+            <h2 class="text-2xl font-semibold text-gray-900 mb-6">Cómo descargar favicons en lote</h2>
+            <ol class="space-y-4 list-decimal pl-5">
+                <li><strong class="text-gray-900">Pega tu lista.</strong>Escribe un dominio por línea en el cuadro de arriba, hasta 100 a la vez. Sirven tanto dominios sueltos (<code>github.com</code>) como URL completas; el protocolo, <code>www.</code> y cualquier ruta se eliminan automáticamente. Las líneas sin punto se omiten.</li>
+                <li><strong class="text-gray-900">Elige las opciones.</strong>Elige un tamaño, decide entre ZIP o archivos individuales y si los archivos se nombran por dominio (<code>github.com-favicon.png</code>) o por su posición en la lista (<code>001-github.com-favicon.png</code>).</li>
+                <li><strong class="text-gray-900">Inicia y descarga.</strong>Haz clic en <em>Iniciar</em>. Se consultan hasta seis sitios en paralelo y una barra de progreso muestra cuánto falta. Revisa la cuadrícula de vista previa y pulsa el botón de descarga de abajo (ZIP o todos los archivos).</li>
+            </ol>
+
+            <h2 class="text-2xl font-semibold text-gray-900 mt-14 mb-6">Qué hace cada opción</h2>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left text-sm border border-gray-200 rounded-lg">
+                    <thead class="bg-gray-50 text-gray-900"><tr><th class="p-3 border-b border-gray-200">Opción</th><th class="p-3 border-b border-gray-200">Valores</th><th class="p-3 border-b border-gray-200">Qué significa</th></tr></thead>
+                    <tbody>
+                        <tr><td class="p-3 border-b border-gray-100">Tamaño</td><td class="p-3 border-b border-gray-100">Estándar (16/32) o Grande (64+)</td><td class="p-3 border-b border-gray-100">Grande pide iconos más grandes. Cuando un sitio publica su propio icono obtienes ese archivo; el tamaño importa sobre todo cuando recurrimos al servicio de favicons de Google.</td></tr>
+                        <tr><td class="p-3 border-b border-gray-100">Salida</td><td class="p-3 border-b border-gray-100">ZIP o archivos individuales</td><td class="p-3 border-b border-gray-100">El ZIP reúne todo en una sola descarga. Los archivos individuales se guardan uno a uno; algunos navegadores te pedirán antes permiso para descargar varios archivos.</td></tr>
+                        <tr><td class="p-3">Nomenclatura</td><td class="p-3">Por dominio o por índice</td><td class="p-3">Por índice mantiene el orden de tu lista, algo práctico para emparejar los iconos con las filas de una hoja de cálculo.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2 class="text-2xl font-semibold text-gray-900 mt-14 mb-6">De dónde salen los iconos</h2>
+            <p class="mb-4">Cada dominio pasa por el mismo extractor de favicons que nuestro <a href="/" class="text-blue-600 hover:underline">descargador de favicons para un solo sitio</a>. Lee las etiquetas <code>&lt;link rel="icon"&gt;</code> y de Apple touch icon y el manifiesto de la aplicación web de la página de inicio, prueba archivos habituales como <code>/favicon.ico</code> y <code>/apple-touch-icon.png</code>, comprueba que cada archivo sea realmente una imagen y prefiere los iconos SVG y PNG grandes frente a los ICO pequeños.</p>
+            <p>Si un sitio bloquea las peticiones automáticas o no tiene icono, la herramienta recurre al servicio público de favicons de Google, así que todas las filas de tu lista obtienen una imagen. La cuadrícula de vista previa muestra cada resultado antes de descargar, para que detectes los genéricos.</p>
+
+            <h2 class="text-2xl font-semibold text-gray-900 mt-14 mb-6">Usos habituales</h2>
+            <ul class="space-y-2 list-disc pl-5">
+                <li><strong class="text-gray-900">Directorios de enlaces y listas de recursos</strong>: añade un icono junto a cada herramienta o sitio que enumeres.</li>
+                <li><strong class="text-gray-900">Paneles y herramientas internas</strong>: muestra a qué servicio pertenece cada fila, integración o alerta.</li>
+                <li><strong class="text-gray-900">Gestores de marcadores y pestañas</strong>: precarga los iconos de un conjunto conocido de sitios.</li>
+                <li><strong class="text-gray-900">Análisis de competencia y de mercado</strong>: coloca los iconos de marca junto a una hoja de cálculo de empresas.</li>
+            </ul>
+            <p class="mt-4">¿Lo necesitas en código en lugar de en el navegador? La <a href="documentation.html" class="text-blue-600 hover:underline">API de favicon gratuita</a> devuelve los mismos iconos, un dominio por petición, sin clave de API.</p>
+
+            <h2 id="faq" class="text-2xl font-semibold text-gray-900 mt-14 mb-6">Preguntas frecuentes</h2>
+            <div class="space-y-6">
+                <div>
+                    <h3 class="text-base font-semibold text-gray-900 mb-1">¿Cuántos sitios puedo descargar a la vez?</h3>
+                    <p>Hasta 100 dominios por ejecución. Si tu lista es más larga, divídela en tandas de 100.</p>
+                </div>
+                <div>
+                    <h3 class="text-base font-semibold text-gray-900 mb-1">¿El descargador masivo de favicons es gratuito?</h3>
+                    <p>Sí. Sin cuenta, sin clave de API y sin pagos. Por favor, procesa solo las listas que de verdad necesites.</p>
+                </div>
+                <div>
+                    <h3 class="text-base font-semibold text-gray-900 mb-1">¿Por qué algunos iconos aparecen como un globo genérico?</h3>
+                    <p>Ese sitio no tiene favicon o bloqueó nuestra consulta, así que el resultado vino del servicio de respaldo de Google. Prueba ese dominio en el descargador de favicons para un solo sitio, que además intenta algunas fuentes extra desde tu navegador.</p>
+                </div>
+                <div>
+                    <h3 class="text-base font-semibold text-gray-900 mb-1">¿Puedo subir un archivo CSV?</h3>
+                    <p>No directamente. Copia la columna de dominios de tu hoja de cálculo y pégala en el cuadro; cada línea se convierte en un dominio.</p>
+                </div>
+                <div>
+                    <h3 class="text-base font-semibold text-gray-900 mb-1">¿Puedo usar los favicons descargados?</h3>
+                    <p>Los favicons suelen formar parte del logotipo o la marca registrada de una empresa. Mostrarlos junto a enlaces a esos sitios es una práctica habitual; usarlos como tu propia marca, no. Si tienes dudas, consulta las directrices de cada marca.</p>
+                </div>
+            </div>
+        </div>
+    </section>

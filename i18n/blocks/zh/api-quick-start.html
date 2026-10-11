@@ -1,0 +1,35 @@
+<section id="quick-start" class="mb-12">
+                    <div class="bg-white rounded-lg shadow-sm p-8 text-gray-600">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-6">快速开始</h2>
+                        <p class="mb-4">favicondl 的 favicon API 只需一个 GET 请求，就能把任意域名或网址转换成它的 favicon。不需要 API key，不需要账号，也不需要 SDK。可以直接写进 <code>&lt;img&gt;</code> 标签：</p>
+                        <div class="code-block mb-6">
+                            <pre class="p-4 text-sm"><code class="language-html">&lt;img src="https://favicondl.com/api/extract?url=github.com" width="32" height="32" alt="GitHub 的 favicon"&gt;</code></pre>
+                        </div>
+                        <p class="mb-4">也可以请求 JSON，查看找到了哪个文件、来自哪里：</p>
+                        <div class="code-block mb-4">
+                            <pre class="p-4 text-sm"><code class="language-bash">curl "https://favicondl.com/api/extract?url=github.com&amp;format=json"</code></pre>
+                        </div>
+                        <div class="code-block mb-6">
+                            <pre class="p-4 text-sm"><code class="language-json">{
+  "ok": true,
+  "domain": "github.com",
+  "size": 128,
+  "iconUrl": "https://github.githubassets.com/favicons/favicon.svg",
+  "proxyUrl": "https://favicondl.com/api/proxy?url=https%3A%2F%2Fgithub.githubassets.com%2Ffavicons%2Ffavicon.svg",
+  "source": "html",
+  "rel": "icon",
+  "format": "svg",
+  "width": null,
+  "height": null,
+  "pageUrl": "https://github.com/",
+  "candidates": [
+    { "url": "https://github.githubassets.com/favicons/favicon.svg", "format": "svg", "vector": true, "source": "html", "rel": "icon", "proxyUrl": "…" },
+    { "url": "https://github.githubassets.com/assets/app-icon-512-7f9c4ff2e960.png", "format": "png", "width": 512, "height": 512, "source": "manifest", "rel": "manifest", "proxyUrl": "…" },
+    { "url": "https://github.com/favicon.ico", "format": "ico", "width": 32, "height": 32, "source": "direct", "rel": "favicon.ico", "proxyUrl": "…" }
+  ]
+}</code></pre>
+                        </div>
+                        <p class="mb-4"><code>iconUrl</code> 是网站上的原始文件。<code>proxyUrl</code> 通过我们的代理返回同一张图片，并带有 <code>Access-Control-Allow-Origin: *</code>，所以你可以把它画到 canvas 上，或在浏览器端代码里直接 fetch。</p>
+                        <p><code>format</code>、<code>width</code> 和 <code>height</code> 描述的是我们实测的所选文件（SVG 的 <code>width</code>/<code>height</code> 为 <code>null</code>）。<code>candidates</code> 列出同一网站最多 8 个其他经过验证的图标（不同尺寸和格式），方便你换一个用；上面的示例做了删减。如果最终退回到了 Google 或 DuckDuckGo，这个列表为空。</p>
+                    </div>
+                </section>

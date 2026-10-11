@@ -1,0 +1,59 @@
+<section class="py-16 px-6 bg-white border-t border-gray-100">
+        <div class="max-w-3xl mx-auto text-gray-600 text-sm leading-relaxed">
+            <h2 class="text-2xl font-semibold text-gray-900 mb-6">ファビコンを一括ダウンロードする方法</h2>
+            <ol class="space-y-4 list-decimal pl-5">
+                <li><strong class="text-gray-900">リストを貼り付けます。</strong>上の入力欄に 1 行に 1 つずつドメインを入力します。一度に最大 100 個までです。ドメインだけ（<code>github.com</code>）でも完全な URL でも構いません。プロトコル、<code>www.</code>、パスは自動で取り除かれます。ドットを含まない行はスキップされます。</li>
+                <li><strong class="text-gray-900">オプションを選びます。</strong>サイズを選び、ZIP か個別ファイルかを選んで、ファイル名をドメイン名（<code>github.com-favicon.png</code>）にするか、リスト内の順番（<code>001-github.com-favicon.png</code>）にするかを決めます。</li>
+                <li><strong class="text-gray-900">開始してダウンロードします。</strong><em>開始</em>をクリックします。最大 6 サイトを並行して調べ、進捗バーで進み具合がわかります。プレビューを確認したら、下のダウンロードボタン（ZIP またはすべてのファイル）をクリックします。</li>
+            </ol>
+
+            <h2 class="text-2xl font-semibold text-gray-900 mt-14 mb-6">各オプションの意味</h2>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left text-sm border border-gray-200 rounded-lg">
+                    <thead class="bg-gray-50 text-gray-900"><tr><th class="p-3 border-b border-gray-200">オプション</th><th class="p-3 border-b border-gray-200">選択肢</th><th class="p-3 border-b border-gray-200">意味</th></tr></thead>
+                    <tbody>
+                        <tr><td class="p-3 border-b border-gray-100">サイズ</td><td class="p-3 border-b border-gray-100">標準（16/32）または大（64+）</td><td class="p-3 border-b border-gray-100">大を選ぶと大きめのアイコンを求めます。サイトが独自のアイコンを公開していればそのファイルが手に入るため、この設定が主に効くのは Google のファビコンサービスにフォールバックしたときです。</td></tr>
+                        <tr><td class="p-3 border-b border-gray-100">出力</td><td class="p-3 border-b border-gray-100">ZIP または個別ファイル</td><td class="p-3 border-b border-gray-100">ZIP はすべてを 1 回のダウンロードにまとめます。個別ファイルは 1 つずつ保存され、ブラウザによっては複数ファイルのダウンロードを許可するよう求められます。</td></tr>
+                        <tr><td class="p-3">命名方法</td><td class="p-3">ドメイン別または番号別</td><td class="p-3">番号別にするとリストの順番が保たれるので、スプレッドシートの行とアイコンを照らし合わせるときに便利です。</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2 class="text-2xl font-semibold text-gray-900 mt-14 mb-6">アイコンの取得元</h2>
+            <p class="mb-4">各ドメインは、<a href="/" class="text-blue-600 hover:underline">1 サイト用のファビコンダウンローダー</a>と同じ抽出処理を通ります。トップページの <code>&lt;link rel="icon"&gt;</code> や Apple touch icon のタグ、Web App Manifest を読み取り、<code>/favicon.ico</code> や <code>/apple-touch-icon.png</code> といった定番ファイルも試し、それぞれが本当に画像か確認したうえで、小さな ICO より SVG や大きな PNG を優先します。</p>
+            <p>自動アクセスをブロックしているサイトやアイコンのないサイトでは Google の公開ファビコンサービスにフォールバックするので、リストのどの行にも必ず画像が付きます。ダウンロード前にプレビューで各結果を確認できるので、汎用アイコンになったものもすぐわかります。</p>
+
+            <h2 class="text-2xl font-semibold text-gray-900 mt-14 mb-6">主な使い道</h2>
+            <ul class="space-y-2 list-disc pl-5">
+                <li><strong class="text-gray-900">リンク集やリソース一覧</strong>：掲載しているツールやサイトの横にアイコンを付けられます。</li>
+                <li><strong class="text-gray-900">ダッシュボードや社内ツール</strong>：各行、連携、アラートがどのサービスのものかを表示できます。</li>
+                <li><strong class="text-gray-900">ブックマーク・タブ管理ツール</strong>：決まったサイト群のアイコンをあらかじめ読み込めます。</li>
+                <li><strong class="text-gray-900">競合調査・市場調査</strong>：企業リストのスプレッドシートにブランドアイコンを並べられます。</li>
+            </ul>
+            <p class="mt-4">ブラウザではなくコードで使いたい場合は、<a href="documentation.html" class="text-blue-600 hover:underline">無料ファビコン API</a> が同じアイコンを 1 リクエストにつき 1 ドメイン分返します。API キーは不要です。</p>
+
+            <h2 id="faq" class="text-2xl font-semibold text-gray-900 mt-14 mb-6">よくある質問</h2>
+            <div class="space-y-6">
+                <div>
+                    <h3 class="text-base font-semibold text-gray-900 mb-1">一度に何サイトまでダウンロードできますか？</h3>
+                    <p>1 回につき最大 100 ドメインです。それより長いリストは 100 個ずつに分けてください。</p>
+                </div>
+                <div>
+                    <h3 class="text-base font-semibold text-gray-900 mb-1">ファビコン一括ダウンロードは無料ですか？</h3>
+                    <p>無料です。アカウントも API キーも支払いも不要です。実際に必要なリストだけを処理してください。</p>
+                </div>
+                <div>
+                    <h3 class="text-base font-semibold text-gray-900 mb-1">地球儀のような汎用アイコンになるものがあるのはなぜ？</h3>
+                    <p>そのサイトにファビコンがないか、こちらからの取得をブロックしたため、Google のフォールバックサービスの結果になっています。そのドメインは 1 サイト用のファビコンダウンローダーで試してみてください。ブラウザからいくつかの取得元も追加で試します。</p>
+                </div>
+                <div>
+                    <h3 class="text-base font-semibold text-gray-900 mb-1">CSV ファイルをアップロードできますか？</h3>
+                    <p>直接はできません。スプレッドシートのドメインの列をコピーして入力欄に貼り付ければ、1 行が 1 ドメインになります。</p>
+                </div>
+                <div>
+                    <h3 class="text-base font-semibold text-gray-900 mb-1">ダウンロードしたファビコンは使ってもいいですか？</h3>
+                    <p>ファビコンは多くの場合、企業のロゴや商標の一部です。そのサイトへのリンクの横に表示するのは一般的ですが、自分のブランドとして使うのは不適切です。迷ったときは各ブランドのガイドラインを確認してください。</p>
+                </div>
+            </div>
+        </div>
+    </section>

@@ -1,0 +1,622 @@
+<!DOCTYPE html><html lang="ja"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ファビコン一括ダウンロード - 最大 100 サイト、ZIP 対応 | favicondl</title>
+    <meta name="description" content="無料のファビコン一括ダウンロードツール。最大 100 個のドメインを貼り付けるだけで、すべてのサイトのアイコンを ZIP または個別ファイルでまとめて保存できます。登録・API キー不要。">
+    <meta name="keywords" content="bulk favicon downloader, batch favicon download, download favicons from multiple websites, favicon zip">
+    <meta name="baidu-site-verification" content="codeva-TQEbMwU84J">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/ja/bulk-favicon-downloader.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/bulk-favicon-downloader.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/bulk-favicon-downloader.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/bulk-favicon-downloader.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/bulk-favicon-downloader.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/bulk-favicon-downloader.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/bulk-favicon-downloader.html">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://favicondl.com/ja/bulk-favicon-downloader.html">
+    <meta property="og:title" content="ファビコン一括ダウンロード - 最大 100 サイト、ZIP 対応 | favicondl">
+    <meta property="og:description" content="最大 100 個のドメインのファビコンをまとめてダウンロード。無料・登録不要。">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="ファビコン一括ダウンロード - 最大 100 サイト、ZIP 対応 | favicondl">
+    <meta name="twitter:description" content="最大 100 個のドメインのファビコンをまとめてダウンロード。無料・登録不要。">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <!-- Google Analytics (replace GA_MEASUREMENT_ID with your real ID) -->
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'GA_MEASUREMENT_ID');
+    </script> -->
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Anime.js for animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+
+    <!-- Custom styles -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+        * {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            background: #fafafa;
+        }
+
+        .nav-link {
+            color: #1d1d1f;
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .nav-link:hover {
+            color: #0071e3;
+        }
+
+        /* Language Dropdown */
+        .lang-dropdown {
+            position: relative;
+        }
+
+        .lang-btn {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 10px;
+            border-radius: 8px;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            transition: background 0.2s;
+            font-size: 14px;
+            font-weight: 500;
+            color: #1d1d1f;
+        }
+
+        .lang-btn:hover {
+            background: #f5f5f7;
+        }
+
+        .lang-menu {
+            position: absolute;
+            right: 0;
+            top: calc(100% + 6px);
+            min-width: 140px;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            padding: 4px;
+            z-index: 60;
+            opacity: 0;
+            transform: translateY(-4px) scale(0.98);
+            transition: opacity 0.15s ease, transform 0.15s ease;
+            pointer-events: none;
+        }
+
+        .lang-menu.show {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            pointer-events: auto;
+        }
+
+        .lang-option {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            width: 100%;
+            padding: 8px 12px;
+            border: none;
+            background: none;
+            font-size: 14px;
+            color: #1d1d1f;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: background 0.15s;
+        }
+
+        .lang-option:hover {
+            background: #f5f5f7;
+        }
+
+        .lang-option.active {
+            color: #0071e3;
+            font-weight: 600;
+        }
+
+        .lang-mobile-group {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            padding: 4px 12px;
+        }
+
+        .lang-mobile-btn {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            border-radius: 8px;
+            border: 1px solid transparent;
+            background: transparent;
+            font-size: 14px;
+            color: #1d1d1f;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .lang-mobile-btn:hover {
+            background: #f5f5f7;
+        }
+
+        .lang-mobile-btn.active {
+            background: #f0f5ff;
+            border-color: rgba(0, 113, 227, 0.3);
+            color: #0071e3;
+            font-weight: 500;
+        }
+
+        .btn-primary {
+            background: #0071e3;
+            color: #fff;
+            padding: 12px 24px;
+            border-radius: 980px;
+            font-size: 14px;
+            font-weight: 500;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-primary:hover {
+            background: #0077ed;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #0071e3;
+            padding: 12px 24px;
+            border-radius: 980px;
+            font-size: 14px;
+            font-weight: 500;
+            border: 1px solid rgba(0, 113, 227, 0.25);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(0, 113, 227, 0.08);
+        }
+
+        .gradient-bg {
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+        }
+
+        .glass-effect {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .drop-zone {
+            border: 2px dashed #d1d5db;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .drop-zone.drag-over {
+            border-color: #3b82f6;
+            background-color: #eff6ff;
+        }
+
+        .tool-card {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .loading-spinner {
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .preview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+            gap: 1rem;
+        }
+
+        .size-preview {
+            text-align: center;
+            padding: 1rem;
+            background: #f8fafc;
+            border-radius: 8px;
+            border: 2px solid transparent;
+            transition: all 0.2s ease;
+        }
+
+        .size-preview:hover {
+            border-color: #3b82f6;
+            background: #eff6ff;
+        }
+
+        .size-preview.selected {
+            border-color: #3b82f6;
+            background: #eff6ff;
+        }
+    </style>
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-7QLC8QV609');
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "name": "ファビコン一括ダウンロード",
+      "url": "https://favicondl.com/ja/bulk-favicon-downloader.html",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Web",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "description": "無料のファビコン一括ダウンロードツール。最大 100 個のドメインを貼り付けるだけで、すべてのサイトのアイコンを ZIP または個別ファイルでまとめて保存できます。登録・API キー不要。",
+      "inLanguage": "ja"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "一度に何サイトまでダウンロードできますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "1 回につき最大 100 ドメインです。それより長いリストは 100 個ずつに分けてください。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "ファビコン一括ダウンロードは無料ですか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "無料です。アカウントも API キーも支払いも不要です。実際に必要なリストだけを処理してください。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "地球儀のような汎用アイコンになるものがあるのはなぜ？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "そのサイトにファビコンがないか、こちらからの取得をブロックしたため、Google のフォールバックサービスの結果になっています。そのドメインは 1 サイト用のファビコンダウンローダーで試してみてください。ブラウザからいくつかの取得元も追加で試します。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "CSV ファイルをアップロードできますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "直接はできません。スプレッドシートのドメインの列をコピーして入力欄に貼り付ければ、1 行が 1 ドメインになります。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "ダウンロードしたファビコンは使ってもいいですか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "ファビコンは多くの場合、企業のロゴや商標の一部です。そのサイトへのリンクの横に表示するのは一般的ですが、自分のブランドとして使うのは不適切です。迷ったときは各ブランドのガイドラインを確認してください。"
+          }
+        }
+      ],
+      "inLanguage": "ja"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "ホーム",
+          "item": "https://favicondl.com/ja/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "ツール",
+          "item": "https://favicondl.com/ja/tools.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "ファビコン一括ダウンロード",
+          "item": "https://favicondl.com/ja/bulk-favicon-downloader.html"
+        }
+      ],
+      "inLanguage": "ja"
+    }
+  ]
+}
+    </script>
+</head>
+
+<body class="text-gray-900">
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/ja/" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="hidden md:flex items-center gap-8">
+                <a href="/ja/" class="nav-link">ホーム</a>
+                <a href="/ja/documentation.html" class="nav-link">ドキュメント</a>
+                <a href="/ja/tools.html" class="nav-link">ツール</a>
+                <a href="/ja/blog/" class="nav-link">ブログ</a>
+            </div>
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="nav-link p-2">
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="md:hidden hidden">
+            <div class="px-4 pt-3 pb-4 space-y-2 bg-white/90 backdrop-blur-xl border-t border-gray-200/50">
+                <a href="/ja/" class="nav-link block px-3 py-2 rounded-md text-base">ホーム</a>
+                <a href="/ja/documentation.html" class="nav-link block px-3 py-2 rounded-md text-base">ドキュメント</a>
+                <a href="/ja/tools.html" class="nav-link block px-3 py-2 rounded-md text-base">ツール</a>
+                <a href="/ja/blog/" class="nav-link block px-3 py-2 rounded-md text-base">ブログ</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <section class="pt-16 pb-6 px-6">
+        <div class="max-w-3xl mx-auto text-center">
+            <nav class="text-sm text-gray-400 mb-6"><a href="/ja/" class="hover:text-gray-600">ホーム</a><span class="mx-2">/</span><a href="/ja/tools.html" class="hover:text-gray-600">ツール</a><span class="mx-2">/</span><span class="text-gray-600">ファビコン一括ダウンロード</span></nav>
+            <h1 class="text-5xl font-semibold text-gray-900 tracking-tight mb-4">ファビコン一括ダウンロード</h1>
+            <p class="text-xl text-gray-500">最大 100 個のドメインを貼り付けて、すべてのファビコンを ZIP ファイル 1 つで、または個別の画像としてまとめてダウンロード。無料・登録不要。</p>
+        </div>
+    </section>
+
+    <section id="batch-processor" class="py-12 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div class="bg-gray-50 rounded-2xl p-8">
+                <!-- Input Area -->
+                <div class="mb-8">
+                    <label for="domains-input" class="block text-lg font-medium text-gray-900 mb-4">
+                        <span>ドメインを入力（1行に1つ）</span>
+                    </label>
+                    <textarea id="domains-input" rows="6" placeholder="example.com
+google.com
+github.com
+stackoverflow.com" data-en-placeholder="example.com
+google.com
+github.com
+stackoverflow.com" data-zh-placeholder="例如：example.com
+google.com
+github.com
+stackoverflow.com" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"></textarea>
+                    <div class="flex justify-between items-center mt-4">
+                        <p class="text-sm text-gray-500">最大100ドメイン</p>
+                        <div class="space-x-2">
+                            <button onclick="loadSampleDomains()" class="px-4 py-2 text-blue-600 hover:bg-blue-50 rounded-lg transition-colors">
+                                <span>サンプルを読み込む</span>
+                            </button>
+                            <button onclick="clearDomains()" class="px-4 py-2 text-gray-600 hover:bg-gray-100 rounded-lg transition-colors">
+                                <span>クリア</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Processing Options -->
+                <div class="mb-8">
+                    <h3 class="text-lg font-medium mb-4">オプション</h3>
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">サイズ</label>
+                            <select id="batch-size" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                                <option value="small">標準（16/32）</option>
+                                <option value="large">大（64+）</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">出力</label>
+                            <select id="batch-format" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                                <option value="individual">個別ファイル</option>
+                                <option value="zip">ZIP</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">命名方法</label>
+                            <select id="batch-naming" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                                <option value="domain">ドメイン別</option>
+                                <option value="index">番号別</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Process Button -->
+                <div class="text-center mb-8">
+                    <button id="process-batch" class="btn-primary disabled:opacity-50 disabled:cursor-not-allowed">
+                        <span>開始</span>
+                    </button>
+                </div>
+
+                <!-- Progress -->
+                <div id="batch-progress" class="hidden mb-8">
+                    <div class="bg-white rounded-lg p-6">
+                        <div class="flex justify-between items-center mb-2">
+                            <h4 class="font-medium">進捗</h4>
+                            <span id="progress-text" class="text-sm text-gray-600">0/0</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div id="progress-bar" class="bg-green-600 h-2 rounded-full transition-all duration-300" style="width: 0%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Results -->
+                <div id="batch-results" class="hidden">
+                    <h3 class="text-lg font-medium mb-4">結果</h3>
+                    <div id="results-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                        <!-- Results will be inserted here -->
+                    </div>
+                    <div class="text-center mt-8">
+                        <button id="download-batch" class="btn-primary">
+                            <span>すべてダウンロード</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 px-6 bg-white border-t border-gray-100">
+        <div class="max-w-3xl mx-auto text-gray-600 text-sm leading-relaxed">
+            <h2 class="text-2xl font-semibold text-gray-900 mb-6">ファビコンを一括ダウンロードする方法</h2>
+            <ol class="space-y-4 list-decimal pl-5">
+                <li><strong class="text-gray-900">リストを貼り付けます。</strong>上の入力欄に 1 行に 1 つずつドメインを入力します。一度に最大 100 個までです。ドメインだけ（<code>github.com</code>）でも完全な URL でも構いません。プロトコル、<code>www.</code>、パスは自動で取り除かれます。ドットを含まない行はスキップされます。</li>
+                <li><strong class="text-gray-900">オプションを選びます。</strong>サイズを選び、ZIP か個別ファイルかを選んで、ファイル名をドメイン名（<code>github.com-favicon.png</code>）にするか、リスト内の順番（<code>001-github.com-favicon.png</code>）にするかを決めます。</li>
+                <li><strong class="text-gray-900">開始してダウンロードします。</strong><em>開始</em>をクリックします。最大 6 サイトを並行して調べ、進捗バーで進み具合がわかります。プレビューを確認したら、下のダウンロードボタン（ZIP またはすべてのファイル）をクリックします。</li>
+            </ol>
+
+            <h2 class="text-2xl font-semibold text-gray-900 mt-14 mb-6">各オプションの意味</h2>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left text-sm border border-gray-200 rounded-lg">
+                    <thead class="bg-gray-50 text-gray-900"><tr><th class="p-3 border-b border-gray-200">オプション</th><th class="p-3 border-b border-gray-200">選択肢</th><th class="p-3 border-b border-gray-200">意味</th></tr></thead>
+                    <tbody>
+                        <tr><td class="p-3 border-b border-gray-100">サイズ</td><td class="p-3 border-b border-gray-100">標準（16/32）または大（64+）</td><td class="p-3 border-b border-gray-100">大を選ぶと大きめのアイコンを求めます。サイトが独自のアイコンを公開していればそのファイルが手に入るため、この設定が主に効くのは Google のファビコンサービスにフォールバックしたときです。</td></tr>
+                        <tr><td class="p-3 border-b border-gray-100">出力</td><td class="p-3 border-b border-gray-100">ZIP または個別ファイル</td><td class="p-3 border-b border-gray-100">ZIP はすべてを 1 回のダウンロードにまとめます。個別ファイルは 1 つずつ保存され、ブラウザによっては複数ファイルのダウンロードを許可するよう求められます。</td></tr>
+                        <tr><td class="p-3">命名方法</td><td class="p-3">ドメイン別または番号別</td><td class="p-3">番号別にするとリストの順番が保たれるので、スプレッドシートの行とアイコンを照らし合わせるときに便利です。</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2 class="text-2xl font-semibold text-gray-900 mt-14 mb-6">アイコンの取得元</h2>
+            <p class="mb-4">各ドメインは、<a href="/ja/" class="text-blue-600 hover:underline">1 サイト用のファビコンダウンローダー</a>と同じ抽出処理を通ります。トップページの <code>&lt;link rel="icon"&gt;</code> や Apple touch icon のタグ、Web App Manifest を読み取り、<code>/favicon.ico</code> や <code>/apple-touch-icon.png</code> といった定番ファイルも試し、それぞれが本当に画像か確認したうえで、小さな ICO より SVG や大きな PNG を優先します。</p>
+            <p>自動アクセスをブロックしているサイトやアイコンのないサイトでは Google の公開ファビコンサービスにフォールバックするので、リストのどの行にも必ず画像が付きます。ダウンロード前にプレビューで各結果を確認できるので、汎用アイコンになったものもすぐわかります。</p>
+
+            <h2 class="text-2xl font-semibold text-gray-900 mt-14 mb-6">主な使い道</h2>
+            <ul class="space-y-2 list-disc pl-5">
+                <li><strong class="text-gray-900">リンク集やリソース一覧</strong>：掲載しているツールやサイトの横にアイコンを付けられます。</li>
+                <li><strong class="text-gray-900">ダッシュボードや社内ツール</strong>：各行、連携、アラートがどのサービスのものかを表示できます。</li>
+                <li><strong class="text-gray-900">ブックマーク・タブ管理ツール</strong>：決まったサイト群のアイコンをあらかじめ読み込めます。</li>
+                <li><strong class="text-gray-900">競合調査・市場調査</strong>：企業リストのスプレッドシートにブランドアイコンを並べられます。</li>
+            </ul>
+            <p class="mt-4">ブラウザではなくコードで使いたい場合は、<a href="/ja/documentation.html" class="text-blue-600 hover:underline">無料ファビコン API</a> が同じアイコンを 1 リクエストにつき 1 ドメイン分返します。API キーは不要です。</p>
+
+            <h2 id="faq" class="text-2xl font-semibold text-gray-900 mt-14 mb-6">よくある質問</h2>
+            <div class="space-y-6">
+                <div>
+                    <h3 class="text-base font-semibold text-gray-900 mb-1">一度に何サイトまでダウンロードできますか？</h3>
+                    <p>1 回につき最大 100 ドメインです。それより長いリストは 100 個ずつに分けてください。</p>
+                </div>
+                <div>
+                    <h3 class="text-base font-semibold text-gray-900 mb-1">ファビコン一括ダウンロードは無料ですか？</h3>
+                    <p>無料です。アカウントも API キーも支払いも不要です。実際に必要なリストだけを処理してください。</p>
+                </div>
+                <div>
+                    <h3 class="text-base font-semibold text-gray-900 mb-1">地球儀のような汎用アイコンになるものがあるのはなぜ？</h3>
+                    <p>そのサイトにファビコンがないか、こちらからの取得をブロックしたため、Google のフォールバックサービスの結果になっています。そのドメインは 1 サイト用のファビコンダウンローダーで試してみてください。ブラウザからいくつかの取得元も追加で試します。</p>
+                </div>
+                <div>
+                    <h3 class="text-base font-semibold text-gray-900 mb-1">CSV ファイルをアップロードできますか？</h3>
+                    <p>直接はできません。スプレッドシートのドメインの列をコピーして入力欄に貼り付ければ、1 行が 1 ドメインになります。</p>
+                </div>
+                <div>
+                    <h3 class="text-base font-semibold text-gray-900 mb-1">ダウンロードしたファビコンは使ってもいいですか？</h3>
+                    <p>ファビコンは多くの場合、企業のロゴや商標の一部です。そのサイトへのリンクの横に表示するのは一般的ですが、自分のブランドとして使うのは不適切です。迷ったときは各ブランドのガイドラインを確認してください。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 px-6 border-t border-gray-200">
+        <div class="max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+            <p class="text-gray-400 text-sm">©
+                <script>document.write(new Date().getFullYear())</script> Mzu favicondl
+            </p>
+            <div class="flex gap-6">
+                <a href="/ja/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">ホーム</a>
+                <a href="/ja/documentation.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">ドキュメント</a>
+                <a href="/ja/tools.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">ツール</a>
+                <a href="/ja/bulk-favicon-downloader.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">Bulk Download</a>
+                <a href="/ja/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">ブログ</a>
+                <a href="/ja/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">プライバシー</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Success Toast -->
+    <div id="success-toast" class="fixed top-20 right-6 bg-gray-900 text-white px-5 py-3 rounded-xl shadow-lg transform translate-x-[200%] transition-transform duration-300 z-50 flex items-center gap-2 text-sm">
+        <svg class="w-4 h-4 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+        </svg>
+        <span id="toast-message">完了！</span>
+    </div>
+
+    <script src="/tools.js?v=20261012b"></script>
+
+</body></html>

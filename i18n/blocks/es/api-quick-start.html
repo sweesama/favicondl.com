@@ -1,0 +1,35 @@
+<section id="quick-start" class="mb-12">
+                    <div class="bg-white rounded-lg shadow-sm p-8 text-gray-600">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-6">Inicio rápido</h2>
+                        <p class="mb-4">La API de favicons de favicondl convierte cualquier dominio o URL en su favicon con una sola petición GET. Sin clave de API, sin cuenta y sin SDK. Úsala directamente en una etiqueta <code>&lt;img&gt;</code>:</p>
+                        <div class="code-block mb-6">
+                            <pre class="p-4 text-sm"><code class="language-html">&lt;img src="https://favicondl.com/api/extract?url=github.com" width="32" height="32" alt="Favicon de GitHub"&gt;</code></pre>
+                        </div>
+                        <p class="mb-4">O pide JSON para ver qué archivo se encontró y de dónde procede:</p>
+                        <div class="code-block mb-4">
+                            <pre class="p-4 text-sm"><code class="language-bash">curl "https://favicondl.com/api/extract?url=github.com&amp;format=json"</code></pre>
+                        </div>
+                        <div class="code-block mb-6">
+                            <pre class="p-4 text-sm"><code class="language-json">{
+  "ok": true,
+  "domain": "github.com",
+  "size": 128,
+  "iconUrl": "https://github.githubassets.com/favicons/favicon.svg",
+  "proxyUrl": "https://favicondl.com/api/proxy?url=https%3A%2F%2Fgithub.githubassets.com%2Ffavicons%2Ffavicon.svg",
+  "source": "html",
+  "rel": "icon",
+  "format": "svg",
+  "width": null,
+  "height": null,
+  "pageUrl": "https://github.com/",
+  "candidates": [
+    { "url": "https://github.githubassets.com/favicons/favicon.svg", "format": "svg", "vector": true, "source": "html", "rel": "icon", "proxyUrl": "…" },
+    { "url": "https://github.githubassets.com/assets/app-icon-512-7f9c4ff2e960.png", "format": "png", "width": 512, "height": 512, "source": "manifest", "rel": "manifest", "proxyUrl": "…" },
+    { "url": "https://github.com/favicon.ico", "format": "ico", "width": 32, "height": 32, "source": "direct", "rel": "favicon.ico", "proxyUrl": "…" }
+  ]
+}</code></pre>
+                        </div>
+                        <p class="mb-4"><code>iconUrl</code> es el archivo original del sitio web. <code>proxyUrl</code> sirve la misma imagen a través de nuestro proxy con <code>Access-Control-Allow-Origin: *</code>, para que puedas dibujarla en un canvas o pedirla con fetch desde el navegador.</p>
+                        <p><code>format</code>, <code>width</code> y <code>height</code> describen el archivo elegido tal como lo medimos (<code>width</code>/<code>height</code> son <code>null</code> en los SVG). <code>candidates</code> enumera hasta 8 iconos verificados más del mismo sitio (otros tamaños y formatos) para que puedas elegir otro; la lista de arriba está recortada. Queda vacía cuando hemos tenido que recurrir a Google o DuckDuckGo.</p>
+                    </div>
+                </section>

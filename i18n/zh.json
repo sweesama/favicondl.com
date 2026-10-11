@@ -6,10 +6,10 @@
   },
   "_pages": {
     "index": {
-      "title": "Mzu favicondl - Favicon 下载器与提取器",
-      "description": "即时下载和提取任何网站的 Favicon。直接复制 URL 和 HTML 代码片段。免费、快速、可靠。",
-      "ogTitle": "Mzu favicondl - Favicon 下载器与提取器",
-      "ogDescription": "即时下载和提取任何网站的 Favicon。免费、快速、可靠。"
+      "title": "Favicon 下载器与提取器 - 免费下载任意网站图标 | favicondl",
+      "description": "免费在线下载和提取任意网站的 favicon 图标：自动找出最清晰的 SVG、PNG 或 ICO，一键下载 PNG，复制直链和 HTML 代码。无需注册。",
+      "ogTitle": "Favicon 下载器与提取器 - 免费下载任意网站图标 | favicondl",
+      "ogDescription": "免费下载和提取任意网站的 favicon 图标，自动选出最清晰的版本。"
     },
     "tools": {
       "title": "工具 - Mzu favicondl",
@@ -18,10 +18,10 @@
       "ogDescription": "图片转 Favicon、批量处理、格式转换工具。免费好用。"
     },
     "documentation": {
-      "title": "文档 - Mzu favicondl",
-      "description": "Mzu favicondl 文档 - Favicon URL 模板与使用指南",
-      "ogTitle": "文档 - Mzu favicondl",
-      "ogDescription": "可直接复制使用的 Favicon URL 模板与完整使用指南。"
+      "title": "免费 Favicon API - 无需 Key，按网址获取网站图标 | favicondl",
+      "description": "免费 favicon API：一个 GET 请求按域名或网址返回网站图标，可直接用于 img 标签，也可返回 JSON。无需 API key，无需注册，附与 Google S2、DuckDuckGo 的对比。",
+      "ogTitle": "免费 Favicon API - 无需 Key，按网址获取网站图标 | favicondl",
+      "ogDescription": "一个 GET 请求按网址获取任意网站的 favicon。无需 API key。"
     },
     "privacy": {
       "title": "隐私政策 - Mzu favicondl",
@@ -29,6 +29,12 @@
     },
     "404": {
       "title": "404 - 页面未找到 | Mzu favicondl"
+    },
+    "bulk-favicon-downloader": {
+      "title": "批量下载 Favicon - 一次最多 100 个网站，打包 ZIP | favicondl",
+      "description": "免费批量下载网站图标：粘贴最多 100 个域名，一次性把所有 favicon 打包成 ZIP 或逐个下载。无需注册，无需 API key。",
+      "ogTitle": "批量下载 Favicon - 一次最多 100 个网站，打包 ZIP | favicondl",
+      "ogDescription": "粘贴最多 100 个域名，一次性下载所有网站图标。免费，无需注册。"
     }
   },
   "_strings": {}

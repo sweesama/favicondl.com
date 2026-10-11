@@ -1,0 +1,14 @@
+<section id="how-it-works" class="mb-12">
+                    <div class="bg-white rounded-lg shadow-sm p-8 text-gray-600">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-6">API 如何选出图标</h2>
+                        <ol class="list-decimal pl-5 space-y-3 mb-4">
+                            <li><strong class="text-gray-900">首页</strong>会像普通浏览器一样被请求，并跟随重定向（包括 <code>www</code> ↔ 裸域名）。页面里所有图标相关的 <code>&lt;link&gt;</code> 都会被读取：<code>icon</code>、<code>shortcut icon</code>、<code>apple-touch-icon</code>、<code>apple-touch-icon-precomposed</code> 和 <code>mask-icon</code>。相对链接和协议相对链接（<code>//cdn…</code>）会按最终页面地址或页面的 <code>&lt;base&gt;</code> 标签解析（<code>source: "html"</code>）。</li>
+                            <li><strong class="text-gray-900">Web App Manifest</strong>：打开页面引用的 manifest，读取其中的图标列表，192px 和 512px 的图标通常就在这里（<code>source: "manifest"</code>）。</li>
+                            <li><strong class="text-gray-900">常见路径</strong> <code>/favicon.ico</code> 和 <code>/apple-touch-icon.png</code> 也会尝试（<code>source: "direct"</code>）。</li>
+                            <li><strong class="text-gray-900">每个候选都会被下载并检查</strong>：内容必须真的是图片（PNG、ICO、SVG、WebP、JPEG、GIF 等），并且会测量它的真实像素尺寸，而不是相信文件名。</li>
+                            <li><strong class="text-gray-900">Google 的 favicon 服务，其次是 DuckDuckGo</strong>，只有在网站本身的图标都不可用时才会使用，并按你请求的 <code>size</code> 获取（<code>source: "google_s2"</code> 或 <code>"duckduckgo"</code>）。</li>
+                        </ol>
+                        <p class="mb-4">通过验证的候选会按清晰度排序：全彩 SVG 优先，其次是尺寸最大的正方形 PNG/ICO/WebP。Safari 的单色 <code>mask-icon</code> 和只标注为 <code>maskable</code> 的 manifest 图标排位较低，因为它们看起来和普通的 favicon 不一样。从网站上找到的图标按原始尺寸返回；<code>size</code> 参数只影响备用来源。</p>
+                        <p>如果拿到的是 <code>google_s2</code>，说明这个网站要么没有我们能访问到的图标，要么拦截了我们的请求（比如返回了人机验证页面）。如果只查一个网站，首页上的 <a href="/" class="text-blue-600 hover:underline">favicon 下载器</a>还会直接从你的浏览器尝试几个额外来源，并列出找到的所有尺寸供你选择。</p>
+                    </div>
+                </section>

@@ -1,8 +1,8 @@
 <!DOCTYPE html><html lang="ja"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ドキュメント - Mzu favicondl</title>
-    <meta name="description" content="Mzu favicondl ドキュメント - ファビコンURLテンプレートと使用ガイド">
+    <title>無料ファビコン API - キー不要、URL でサイトのアイコンを取得 | favicondl</title>
+    <meta name="description" content="無料のファビコン API。GET リクエスト 1 回でドメインや URL からサイトのアイコンを返します。img タグにそのまま使え、JSON も取得可能。API キー・登録不要。Google S2 や DuckDuckGo との比較付き。">
     <meta name="keywords" content="favicon API, free favicon API, get favicon from URL, favicon URL, Google S2 favicon alternative, website icon API">
     <meta name="baidu-site-verification" content="codeva-TQEbMwU84J">
     <meta name="robots" content="index, follow">
@@ -25,14 +25,14 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://favicondl.com/ja/documentation.html">
-    <meta property="og:title" content="ドキュメント - Mzu favicondl">
-    <meta property="og:description" content="コピーして使えるファビコンURLテンプレートと完全ガイド。">
+    <meta property="og:title" content="無料ファビコン API - キー不要、URL でサイトのアイコンを取得 | favicondl">
+    <meta property="og:description" content="GET リクエスト 1 回で、あらゆるサイトのファビコンを取得。API キー不要。">
     <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="ドキュメント - Mzu favicondl">
-    <meta name="twitter:description" content="コピーして使えるファビコンURLテンプレートと完全ガイド。">
+    <meta name="twitter:title" content="無料ファビコン API - キー不要、URL でサイトのアイコンを取得 | favicondl">
+    <meta name="twitter:description" content="GET リクエスト 1 回で、あらゆるサイトのファビコンを取得。API キー不要。">
     <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
 
     <!-- Google Analytics (replace GA_MEASUREMENT_ID with your real ID) -->
@@ -342,8 +342,8 @@
     <!-- Header Section -->
     <section class="pt-16 pb-10 px-6">
         <div class="max-w-3xl mx-auto text-center">
-            <h1 class="text-5xl font-semibold text-gray-900 tracking-tight mb-4">Favicon API &amp; URL Guide</h1>
-            <p class="text-xl text-gray-500">コピーして使えるファビコンURLテンプレート（無料サービスベース）。</p>
+            <h1 class="text-5xl font-semibold text-gray-900 tracking-tight mb-4">無料ファビコン API</h1>
+            <p class="text-xl text-gray-500">GET リクエスト 1 回で、URL からあらゆるサイトのファビコンを取得。API キー不要、登録不要。</p>
         </div>
     </section>
 
@@ -356,7 +356,9 @@
                     <nav class="bg-white rounded-lg shadow-sm p-6">
                         <h3 class="font-semibold text-gray-900 mb-4">目次</h3>
                         <ul class="space-y-2">
-
+                            <li><a href="#quick-start" class="text-gray-600 hover:text-blue-600 text-sm block py-1">クイックスタート</a></li>
+                            <li><a href="#how-it-works" class="text-gray-600 hover:text-blue-600 text-sm block py-1">アイコンの選び方</a></li>
+                            <li><a href="#comparison" class="text-gray-600 hover:text-blue-600 text-sm block py-1">サービス比較</a></li>
                             <li>
                                 <a href="#overview" class="text-blue-600 hover:text-blue-800 text-sm block py-1">概要</a>
                             </li>
@@ -388,13 +390,87 @@
 
             <!-- Main Content -->
             <div class="lg:col-span-3">
+                <section id="quick-start" class="mb-12">
+                    <div class="bg-white rounded-lg shadow-sm p-8 text-gray-600">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-6">クイックスタート</h2>
+                        <p class="mb-4">favicondl のファビコン API は、GET リクエスト 1 回であらゆるドメインや URL をそのファビコンに変換します。API キーもアカウントも SDK も不要です。<code>&lt;img&gt;</code> タグにそのまま書けます。</p>
+                        <div class="code-block mb-6">
+                            <pre class="p-4 text-sm"><code class="language-html">&lt;img src="https://favicondl.com/api/extract?url=github.com" width="32" height="32" alt="GitHub のファビコン"&gt;</code></pre>
+                        </div>
+                        <p class="mb-4">JSON をリクエストすれば、どのファイルが見つかり、どこから取得したかを確認できます。</p>
+                        <div class="code-block mb-4">
+                            <pre class="p-4 text-sm"><code class="language-bash">curl "https://favicondl.com/api/extract?url=github.com&amp;format=json"</code></pre>
+                        </div>
+                        <div class="code-block mb-6">
+                            <pre class="p-4 text-sm"><code class="language-json">{
+  "ok": true,
+  "domain": "github.com",
+  "size": 128,
+  "iconUrl": "https://github.githubassets.com/favicons/favicon.svg",
+  "proxyUrl": "https://favicondl.com/api/proxy?url=https%3A%2F%2Fgithub.githubassets.com%2Ffavicons%2Ffavicon.svg",
+  "source": "html",
+  "rel": "icon",
+  "format": "svg",
+  "width": null,
+  "height": null,
+  "pageUrl": "https://github.com/",
+  "candidates": [
+    { "url": "https://github.githubassets.com/favicons/favicon.svg", "format": "svg", "vector": true, "source": "html", "rel": "icon", "proxyUrl": "…" },
+    { "url": "https://github.githubassets.com/assets/app-icon-512-7f9c4ff2e960.png", "format": "png", "width": 512, "height": 512, "source": "manifest", "rel": "manifest", "proxyUrl": "…" },
+    { "url": "https://github.com/favicon.ico", "format": "ico", "width": 32, "height": 32, "source": "direct", "rel": "favicon.ico", "proxyUrl": "…" }
+  ]
+}</code></pre>
+                        </div>
+                        <p class="mb-4"><code>iconUrl</code> はサイト上の元ファイルです。<code>proxyUrl</code> は同じ画像を当社のプロキシ経由で <code>Access-Control-Allow-Origin: *</code> 付きで返すので、canvas に描画したりブラウザのコードから fetch したりできます。</p>
+                        <p><code>format</code>、<code>width</code>、<code>height</code> は、選ばれたファイルを当社で実測した値です（SVG の場合 <code>width</code>/<code>height</code> は <code>null</code>）。<code>candidates</code> には、同じサイトで検証済みのほかのアイコン（サイズや形式が異なるもの）が最大 8 個並ぶので、別のものを選べます。上の例は一部を省略しています。Google や DuckDuckGo にフォールバックした場合は空になります。</p>
+                    </div>
+                </section>
+
+                <section id="how-it-works" class="mb-12">
+                    <div class="bg-white rounded-lg shadow-sm p-8 text-gray-600">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-6">API がアイコンを選ぶ仕組み</h2>
+                        <ol class="list-decimal pl-5 space-y-3 mb-4">
+                            <li><strong class="text-gray-900">トップページ</strong>を通常のブラウザと同じようにリクエストし、リダイレクト（<code>www</code> ↔ 素のドメインを含む）を追跡します。アイコン関連の <code>&lt;link&gt;</code> をすべて読み取ります：<code>icon</code>、<code>shortcut icon</code>、<code>apple-touch-icon</code>、<code>apple-touch-icon-precomposed</code>、<code>mask-icon</code>。相対リンクやプロトコル相対リンク（<code>//cdn…</code>）は、最終的なページ URL またはその <code>&lt;base&gt;</code> タグを基準に解決します（<code>source: "html"</code>）。</li>
+                            <li><strong class="text-gray-900">Web App Manifest</strong>：ページからリンクされた manifest を開いてアイコン一覧を読みます。192px や 512px のアイコンはここにあることが多いです（<code>source: "manifest"</code>）。</li>
+                            <li><strong class="text-gray-900">定番のパス</strong> <code>/favicon.ico</code> と <code>/apple-touch-icon.png</code> も試します（<code>source: "direct"</code>）。</li>
+                            <li><strong class="text-gray-900">候補はすべてダウンロードして確認します</strong>。中身が本当に画像（PNG、ICO、SVG、WebP、JPEG、GIF など）であることを確かめ、ファイル名を信じるのではなく実際のピクセルサイズを測ります。</li>
+                            <li><strong class="text-gray-900">Google のファビコンサービス、次いで DuckDuckGo</strong> は、サイト上のアイコンがどれも使えなかったときだけ、リクエストした <code>size</code> で使用します（<code>source: "google_s2"</code> または <code>"duckduckgo"</code>）。</li>
+                        </ol>
+                        <p class="mb-4">検証済みの候補は、最も鮮明なファイルが選ばれるように順位付けされます。フルカラーの SVG が最優先で、次に最も大きい正方形の PNG/ICO/WebP です。Safari の単色 <code>mask-icon</code> や、<code>maskable</code> とだけ指定された manifest アイコンは、通常のファビコンとは見た目が異なるため順位を下げています。サイトで見つかったアイコンは元のサイズのまま返され、<code>size</code> パラメーターはフォールバックにのみ影響します。</p>
+                        <p><code>google_s2</code> が返ってきた場合、そのサイトには当社から取得できるアイコンがないか、リクエストがブロックされています（ボット確認ページが返された場合など）。1 サイトだけなら、トップページの<a href="/ja/" class="text-blue-600 hover:underline">ファビコンダウンローダー</a>がブラウザから直接いくつかの取得元も試し、見つかったすべてのサイズを表示するので、そこから選べます。</p>
+                    </div>
+                </section>
+
+                <section id="comparison" class="mb-12">
+                    <div class="bg-white rounded-lg shadow-sm p-8 text-gray-600">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-6">ファビコン API 比較：favicondl・Google S2・DuckDuckGo・Icon Horse</h2>
+                        <p class="mb-4">4 つのサービスはいずれも無料で使い始められ、API キーも不要です。違いは返ってくる内容です。</p>
+                        <div class="overflow-x-auto">
+                            <table class="parameter-table">
+                                <thead>
+                                    <tr><th></th><th>favicondl</th><th>Google S2</th><th>DuckDuckGo</th><th>Icon Horse</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>エンドポイント</td><td><code>/api/extract?url=example.com</code></td><td><code>google.com/s2/favicons?domain=example.com&amp;sz=64</code></td><td><code>icons.duckduckgo.com/ip3/example.com.ico</code></td><td><code>icon.horse/icon/example.com</code></td></tr>
+                                    <tr><td>API キー</td><td>不要</td><td>不要</td><td>不要</td><td>不要（無料プラン）</td></tr>
+                                    <tr><td>公開されている無料枠</td><td>なし（フェアユース）</td><td>非公開</td><td>非公開</td><td>無料プランで月 1,000 アイコン</td></tr>
+                                    <tr><td>サイズ指定</td><td><code>size</code>（16〜512、Google フォールバック用）</td><td><code>sz</code></td><td>なし</td><td>記載なし</td></tr>
+                                    <tr><td>返ってくるもの</td><td>見つかればサイトの元ファイル（SVG、PNG、ICO など）</td><td>PNG または JPEG（実測）</td><td>ICO（実測）</td><td>PNG（実測）</td></tr>
+                                    <tr><td>JSON メタデータ</td><td>あり（<code>format=json</code>：アイコン URL、取得元、形式、実測ピクセルサイズ、最大 8 個の代替アイコン）</td><td>なし</td><td>なし</td><td>なし</td></tr>
+                                    <tr><td>github.com のテスト結果</td><td>favicon.svg（ベクター）</td><td>sz=16 で 16×16 PNG、sz=256 で 180×180</td><td>16×16 と 32×32 を含む ICO</td><td>256×256 PNG</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p class="mt-4 text-sm">結果は 2026 年 10 月 12 日に当社が実際にリクエストしたものです。Icon Horse の無料枠は<a href="https://icon.horse/" rel="noopener" class="text-blue-600 hover:underline">料金ページ</a>によります。外部サービスは予告なく変わることがあるため、本番環境で利用する前に各サービスの規約を確認してください。</p>
+                    </div>
+                </section>
 
                 <!-- Overview Section -->
                 <section id="overview" class="mb-12">
                     <div class="bg-white rounded-lg shadow-sm p-8">
                         <h2 class="text-2xl font-bold text-gray-900 mb-6">概要</h2>
                         <p class="text-gray-600 mb-6">
-                            <span>Mzu favicondl provides copy-ready favicon URL templates and a favicon extractor UI. Its own extraction API finds the real icons a website publishes, and an image proxy makes them downloadable from browser code.</span>
+                            <span>Mzu favicondl は、コピーして使えるファビコン URL テンプレートとファビコン抽出 UI を提供しています。独自の抽出 API がサイトの公開している実際のアイコンを見つけ、画像プロキシによってブラウザのコードからもダウンロードできるようにします。</span>
                         </p>
 
                         <div class="grid md:grid-cols-3 gap-6 mb-6">
@@ -455,7 +531,7 @@
                                 </div>
                                 <button class="copy-button" onclick="copyToClipboard('https://favicondl.com/api/extract?url=example.com&amp;size=128')">コピー</button>
                             </div>
-                            <p class="text-gray-600 mb-4">Find and download a usable favicon for a domain or URL</p>
+                            <p class="text-gray-600 mb-4">ドメインや URL から使えるファビコンを見つけてダウンロード</p>
 
                             <h4 class="font-semibold mb-2">ベースURL：</h4>
                             <code class="block bg-gray-100 p-3 rounded text-sm mb-4">https://favicondl.com/api/extract</code>
@@ -487,8 +563,7 @@
                                     <td>string</td>
                                     <td>はい</td>
                                     <td>-</td>
-                                    <td>The target domain or URL, e.g.
-                                        example.com</td>
+                                    <td>対象のドメインまたは URL（例：example.com）</td>
                                 </tr>
                                 <tr>
                                     <td><code>size</code></td>
@@ -502,7 +577,7 @@
                                     <td>string</td>
                                     <td>いいえ</td>
                                     <td>redirect</td>
-                                    <td>Use json for metadata; omit it for a downloadable image redirect</td>
+                                    <td>メタデータが必要なら json を指定。省略するとダウンロード可能な画像へリダイレクトします</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -513,7 +588,7 @@
                             <div class="space-y-4">
                                 <div class="border-l-4 border-blue-500 pl-4">
                                     <h5 class="font-medium">url</h5>
-                                    <p class="text-gray-600 text-sm">Supports domains and full website URLs:</p>
+                                    <p class="text-gray-600 text-sm">ドメインとサイトの完全な URL の両方に対応：</p>
                                     <ul class="text-sm text-gray-600 mt-1 space-y-1">
                                         <li>• example.com</li>
                                         <li>• www.example.com</li>
@@ -799,7 +874,7 @@ file_put_contents('example-favicon', getFavicon('example.com', 128));
                 <a href="/ja/documentation.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">ドキュメント</a>
                 <a href="/ja/tools.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">ツール</a>
                 <a href="/ja/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">ブログ</a>
-
+                <a href="/ja/bulk-favicon-downloader.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">一括ダウンロード</a>
                 <a href="/ja/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">プライバシー</a>
             </div>
         </div>

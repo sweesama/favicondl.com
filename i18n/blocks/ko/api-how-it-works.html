@@ -1,0 +1,14 @@
+<section id="how-it-works" class="mb-12">
+                    <div class="bg-white rounded-lg shadow-sm p-8 text-gray-600">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-6">API가 아이콘을 고르는 방식</h2>
+                        <ol class="list-decimal pl-5 space-y-3 mb-4">
+                            <li><strong class="text-gray-900">홈페이지</strong>를 일반 브라우저처럼 요청하고 리디렉션(<code>www</code> ↔ 기본 도메인 포함)을 따라갑니다. 아이콘 관련 <code>&lt;link&gt;</code>를 모두 읽습니다: <code>icon</code>, <code>shortcut icon</code>, <code>apple-touch-icon</code>, <code>apple-touch-icon-precomposed</code>, <code>mask-icon</code>. 상대 경로와 프로토콜 상대 경로(<code>//cdn…</code>)는 최종 페이지 URL이나 <code>&lt;base&gt;</code> 태그를 기준으로 해석합니다(<code>source: "html"</code>).</li>
+                            <li><strong class="text-gray-900">웹 앱 매니페스트</strong>: 페이지에 연결된 매니페스트를 열어 아이콘 목록을 읽습니다. 192px, 512px 아이콘은 대개 여기에 있습니다(<code>source: "manifest"</code>).</li>
+                            <li><strong class="text-gray-900">잘 알려진 경로</strong>인 <code>/favicon.ico</code>와 <code>/apple-touch-icon.png</code>도 시도합니다(<code>source: "direct"</code>).</li>
+                            <li><strong class="text-gray-900">모든 후보를 내려받아 확인합니다</strong>: 내용이 정말 이미지(PNG, ICO, SVG, WebP, JPEG, GIF 등)인지 확인하고, 파일 이름을 믿는 대신 실제 픽셀 크기를 측정합니다.</li>
+                            <li><strong class="text-gray-900">Google 파비콘 서비스, 그다음 DuckDuckGo</strong>는 사이트의 아이콘을 하나도 쓸 수 없을 때만, 요청한 <code>size</code>로 사용합니다(<code>source: "google_s2"</code> 또는 <code>"duckduckgo"</code>).</li>
+                        </ol>
+                        <p class="mb-4">검증된 후보는 가장 선명한 파일이 선택되도록 순위를 매깁니다. 풀컬러 SVG가 먼저이고, 그다음이 가장 큰 정사각형 PNG/ICO/WebP입니다. Safari의 단색 <code>mask-icon</code>과 <code>maskable</code>로만 표시된 매니페스트 아이콘은 일반 파비콘과 모양이 달라 낮은 순위를 줍니다. 웹사이트에서 찾은 아이콘은 원본 크기 그대로 반환되며, <code>size</code> 매개변수는 대체 서비스에만 영향을 줍니다.</p>
+                        <p><code>google_s2</code>가 나왔다면 그 사이트에 저희가 접근할 수 있는 아이콘이 없거나 요청이 차단된 것입니다(예: 봇 확인 페이지). 사이트 하나만 확인한다면 홈페이지의 <a href="/" class="text-blue-600 hover:underline">파비콘 다운로더</a>가 브라우저에서 직접 몇 가지 출처를 더 시도하고, 찾은 모든 크기를 보여 주므로 그중에서 고를 수 있습니다.</p>
+                    </div>
+                </section>

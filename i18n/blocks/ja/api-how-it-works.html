@@ -1,0 +1,14 @@
+<section id="how-it-works" class="mb-12">
+                    <div class="bg-white rounded-lg shadow-sm p-8 text-gray-600">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-6">API がアイコンを選ぶ仕組み</h2>
+                        <ol class="list-decimal pl-5 space-y-3 mb-4">
+                            <li><strong class="text-gray-900">トップページ</strong>を通常のブラウザと同じようにリクエストし、リダイレクト（<code>www</code> ↔ 素のドメインを含む）を追跡します。アイコン関連の <code>&lt;link&gt;</code> をすべて読み取ります：<code>icon</code>、<code>shortcut icon</code>、<code>apple-touch-icon</code>、<code>apple-touch-icon-precomposed</code>、<code>mask-icon</code>。相対リンクやプロトコル相対リンク（<code>//cdn…</code>）は、最終的なページ URL またはその <code>&lt;base&gt;</code> タグを基準に解決します（<code>source: "html"</code>）。</li>
+                            <li><strong class="text-gray-900">Web App Manifest</strong>：ページからリンクされた manifest を開いてアイコン一覧を読みます。192px や 512px のアイコンはここにあることが多いです（<code>source: "manifest"</code>）。</li>
+                            <li><strong class="text-gray-900">定番のパス</strong> <code>/favicon.ico</code> と <code>/apple-touch-icon.png</code> も試します（<code>source: "direct"</code>）。</li>
+                            <li><strong class="text-gray-900">候補はすべてダウンロードして確認します</strong>。中身が本当に画像（PNG、ICO、SVG、WebP、JPEG、GIF など）であることを確かめ、ファイル名を信じるのではなく実際のピクセルサイズを測ります。</li>
+                            <li><strong class="text-gray-900">Google のファビコンサービス、次いで DuckDuckGo</strong> は、サイト上のアイコンがどれも使えなかったときだけ、リクエストした <code>size</code> で使用します（<code>source: "google_s2"</code> または <code>"duckduckgo"</code>）。</li>
+                        </ol>
+                        <p class="mb-4">検証済みの候補は、最も鮮明なファイルが選ばれるように順位付けされます。フルカラーの SVG が最優先で、次に最も大きい正方形の PNG/ICO/WebP です。Safari の単色 <code>mask-icon</code> や、<code>maskable</code> とだけ指定された manifest アイコンは、通常のファビコンとは見た目が異なるため順位を下げています。サイトで見つかったアイコンは元のサイズのまま返され、<code>size</code> パラメーターはフォールバックにのみ影響します。</p>
+                        <p><code>google_s2</code> が返ってきた場合、そのサイトには当社から取得できるアイコンがないか、リクエストがブロックされています（ボット確認ページが返された場合など）。1 サイトだけなら、トップページの<a href="/" class="text-blue-600 hover:underline">ファビコンダウンローダー</a>がブラウザから直接いくつかの取得元も試し、見つかったすべてのサイズを表示するので、そこから選べます。</p>
+                    </div>
+                </section>

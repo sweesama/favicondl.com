@@ -6,10 +6,10 @@
   },
   "_pages": {
     "index": {
-      "title": "Mzu favicondl - Descargador y Extractor de Favicons",
-      "description": "Descarga y extrae el favicon de cualquier sitio web al instante. URLs y fragmentos HTML listos para copiar. Gratis, rápido y confiable.",
-      "ogTitle": "Mzu favicondl - Descargador y Extractor de Favicons",
-      "ogDescription": "Descarga y extrae el favicon de cualquier sitio web al instante. Gratis, rápido y confiable."
+      "title": "Descargar favicon de cualquier web - Extractor gratis | favicondl",
+      "description": "Descarga y extrae gratis el favicon de cualquier sitio web: encuentra automáticamente el SVG, PNG o ICO más nítido, guárdalo en PNG y copia la URL directa o la etiqueta HTML. Sin registro.",
+      "ogTitle": "Descargar favicon de cualquier web - Extractor gratis | favicondl",
+      "ogDescription": "Descarga gratis el favicon de cualquier web. Elegimos automáticamente el icono más nítido."
     },
     "tools": {
       "title": "Herramientas - Mzu favicondl",
@@ -18,10 +18,10 @@
       "ogDescription": "Imagen a favicon, procesamiento por lotes y herramientas de conversión. Gratis y fácil de usar."
     },
     "documentation": {
-      "title": "Documentación - Mzu favicondl",
-      "description": "Documentación de Mzu favicondl - Plantillas de URL de favicon y guía de uso",
-      "ogTitle": "Documentación - Mzu favicondl",
-      "ogDescription": "Plantillas de URL de favicon listas para copiar y guía completa."
+      "title": "API de favicon gratuita - Sin clave, icono de cualquier web por URL | favicondl",
+      "description": "API de favicon gratuita: una petición GET devuelve el icono de un sitio a partir de su dominio o URL, lista para usar en una etiqueta img o como JSON. Sin clave de API ni registro. Incluye comparativa con Google S2 y DuckDuckGo.",
+      "ogTitle": "API de favicon gratuita - Sin clave, icono de cualquier web por URL | favicondl",
+      "ogDescription": "Obtén el favicon de cualquier web con una sola petición GET. Sin clave de API."
     },
     "privacy": {
       "title": "Política de Privacidad - Mzu favicondl",
@@ -29,6 +29,12 @@
     },
     "404": {
       "title": "404 - Página no encontrada | Mzu favicondl"
+    },
+    "bulk-favicon-downloader": {
+      "title": "Descargar favicons en lote - Hasta 100 sitios en ZIP | favicondl",
+      "description": "Descargador masivo de favicons gratis: pega hasta 100 dominios y descarga todos los iconos a la vez en un ZIP o como archivos sueltos. Sin registro ni clave de API.",
+      "ogTitle": "Descargar favicons en lote - Hasta 100 sitios en ZIP | favicondl",
+      "ogDescription": "Pega hasta 100 dominios y descarga todos sus favicons a la vez. Gratis y sin registro."
     }
   },
   "_strings": {
@@ -39,7 +45,6 @@
     "Privacy": "Privacidad",
     "Copied!": "¡Copiado!",
     "Done!": "¡Listo!",
-
     "Download any website favicon. Instantly.": "Descarga el favicon de cualquier sitio web. Al instante.",
     "Enter a domain or URL to extract the favicon, copy the link, or download as PNG.": "Ingresa un dominio o URL para extraer el favicon, copiar el enlace o descargar como PNG.",
     "Try:": "Prueba:",
@@ -76,7 +81,6 @@
     "Need more tools?": "¿Necesitas más herramientas?",
     "Convert images to favicons, batch process, and more.": "Convierte imágenes a favicons, procesamiento por lotes y más.",
     "Explore Tools": "Explorar herramientas",
-
     "Handy favicon tools for conversion, batch processing, and more.": "Herramientas prácticas de favicon para conversión, procesamiento por lotes y más.",
     "Image to Favicon": "Imagen a Favicon",
     "Convert any image into multi-size favicon files (PNG/JPG/SVG/WebP/GIF).": "Convierte cualquier imagen en archivos favicon de múltiples tamaños (PNG/JPG/SVG/WebP/GIF).",
@@ -134,7 +138,6 @@
     "Result": "Resultado",
     "Convert another": "Convertir otro",
     "Back to tools": "Volver a herramientas",
-
     "Copy-ready favicon URL templates (based on free services).": "Plantillas de URL de favicon listas para copiar (basadas en servicios gratuitos).",
     "On this page": "En esta página",
     "Overview": "Descripción general",
@@ -205,9 +208,60 @@
     "Up to 10000 requests per day": "Hasta 10000 solicitudes por día",
     "Commercial Use": "Uso comercial",
     "Commercial users are recommended to contact us for a higher usage quota and priority support": "Se recomienda a los usuarios comerciales contactarnos para una cuota de uso mayor y soporte prioritario",
-
     "Page not found": "Página no encontrada",
     "The page you're looking for doesn't exist or has been moved.": "La página que buscas no existe o ha sido movida.",
-    "Back to Home": "Volver al inicio"
+    "Back to Home": "Volver al inicio",
+    "Processed 10,000+ icons in the last 24h": "Más de 10.000 iconos procesados en las últimas 24 h",
+    "Copy-ready URL templates and HTML snippets for quick integration.": "Plantillas de URL y fragmentos HTML listos para copiar e integrar.",
+    "Whether you're a web developer building a link preview, a designer collecting brand assets, or just curious about a site's icon, our favicon extractor handles it all. We support sizes from 16×16 to 512×512 pixels, and every download comes with copy-ready HTML snippets and direct URLs for easy integration into your project. Favicons (short for \"favorite icons\") are the small icons displayed in browser tabs, bookmarks, and search results. They play a key role in brand recognition and user experience.": "Tanto si eres un desarrollador web creando una vista previa de enlaces, un diseñador reuniendo recursos de marca o simplemente tienes curiosidad por el icono de un sitio, nuestro extractor de favicons se encarga de todo. Admitimos tamaños de 16×16 a 512×512 píxeles, y cada descarga incluye fragmentos HTML listos para copiar y URL directas para integrarlos fácilmente en tu proyecto. Los favicons (abreviatura de «favorite icons») son los pequeños iconos que aparecen en las pestañas del navegador, los marcadores y los resultados de búsqueda. Son clave para el reconocimiento de marca y la experiencia de usuario.",
+    "What is a High-Quality Favicon?": "¿Qué es un favicon de alta calidad?",
+    "A high-quality favicon goes beyond the legacy 16x16 ICO format. Modern applications, social media link previews, and AI agents require high-resolution assets such as 180px, 256px, and 512px icons, often derived from SVG vectors, web app manifests, and Apple touch icons. Mzu favicondl prioritizes these richer sources over deprecated standard favicons whenever possible.": "Un favicon de alta calidad va más allá del antiguo formato ICO de 16x16. Las aplicaciones modernas, las vistas previas de enlaces en redes sociales y los agentes de IA necesitan iconos de alta resolución, como los de 180, 256 y 512 px, que suelen obtenerse de vectores SVG, manifiestos de aplicaciones web y Apple touch icons. Mzu favicondl prioriza estas fuentes más completas frente a los favicons estándar obsoletos siempre que es posible.",
+    "Integration Guide for AI Agents & Developers": "Guía de integración para agentes de IA y desarrolladores",
+    "Use these copy-ready examples to integrate favicon fetching into your scripts, tools, and workflows.": "Usa estos ejemplos listos para copiar e integra la obtención de favicons en tus scripts, herramientas y flujos de trabajo.",
+    "Free Favicon Generator & Tools": "Generador de favicons y herramientas gratis",
+    "Create favicons from any image, batch download website icons, and convert between PNG, ICO, SVG formats — all free, no signup.": "Crea favicons a partir de cualquier imagen, descarga en lote iconos de sitios web y convierte entre PNG, ICO y SVG; todo gratis y sin registro.",
+    "Mzu favicondl provides copy-ready favicon URL templates and a favicon extractor UI. Its own extraction API finds the real icons a website publishes, and an image proxy makes them downloadable from browser code.": "Mzu favicondl ofrece plantillas de URL de favicon listas para copiar y una interfaz para extraer favicons. Su propia API de extracción encuentra los iconos reales que publica un sitio web, y un proxy de imágenes permite descargarlos desde código del navegador.",
+    "Find and download a usable favicon for a domain or URL": "Encuentra y descarga un favicon utilizable para un dominio o una URL",
+    "The target domain or URL, e.g. example.com": "El dominio o la URL de destino, p. ej. example.com",
+    "Use json for metadata; omit it for a downloadable image redirect": "Usa json para obtener metadatos; omítelo para recibir una redirección a la imagen descargable",
+    "Supports domains and full website URLs:": "Admite dominios y URL completas de sitios web:",
+    "Privacy Policy": "Política de privacidad",
+    "Last updated: February 10, 2026": "Última actualización: 10 de febrero de 2026",
+    "1. Introduction": "1. Introducción",
+    "Mzu favicondl (\"we\", \"our\", or \"the Service\") is a free online tool for downloading and extracting website favicons. We are committed to protecting your privacy. This Privacy Policy explains what information we collect and how we use it.": "Mzu favicondl («nosotros» o «el Servicio») es una herramienta en línea gratuita para descargar y extraer los favicons de sitios web. Nos comprometemos a proteger tu privacidad. Esta Política de privacidad explica qué información recopilamos y cómo la usamos.",
+    "2. Information We Collect": "2. Información que recopilamos",
+    "We collect minimal information:": "Recopilamos la mínima información posible:",
+    "Domain names you enter for favicon extraction (processed in real-time, not stored)": "Los nombres de dominio que introduces para extraer favicons (se procesan en tiempo real y no se guardan)",
+    "Language preference (stored locally in your browser via localStorage)": "Tu preferencia de idioma (guardada localmente en tu navegador mediante localStorage)",
+    "Standard web analytics data (page views, browser type, country) if analytics is enabled": "Datos estándar de analítica web (páginas vistas, tipo de navegador, país) si la analítica está activada",
+    "3. How We Use Information": "3. Cómo usamos la información",
+    "To provide the favicon extraction and download service": "Para prestar el servicio de extracción y descarga de favicons",
+    "To remember your language preference across visits": "Para recordar tu preferencia de idioma entre visitas",
+    "To understand usage patterns and improve the Service": "Para entender cómo se usa el Servicio y mejorarlo",
+    "4. Data Storage": "4. Almacenamiento de datos",
+    "All image processing (resizing, format conversion) happens entirely in your browser. No images are uploaded to or stored on our servers. The Cloudflare Worker proxy processes requests in real-time without logging.": "Todo el procesamiento de imágenes (redimensionado, conversión de formato) se realiza íntegramente en tu navegador. No se sube ni se guarda ninguna imagen en nuestros servidores. El proxy de Cloudflare Worker procesa las peticiones en tiempo real sin registrarlas.",
+    "5. Cookies & Local Storage": "5. Cookies y almacenamiento local",
+    "We use browser localStorage to save your language preference. We do not use tracking cookies. Third-party services (analytics, ads) may use their own cookies — please refer to their respective privacy policies.": "Usamos el localStorage del navegador para guardar tu preferencia de idioma. No usamos cookies de seguimiento. Los servicios de terceros (analítica, anuncios) pueden usar sus propias cookies; consulta sus respectivas políticas de privacidad.",
+    "6. Third-Party Services": "6. Servicios de terceros",
+    "Google Favicon Service — used as a fallback source for favicon images": "Servicio de favicons de Google: se usa como fuente de respaldo para las imágenes de favicon",
+    "Cloudflare Workers — used for favicon discovery and CORS proxying": "Cloudflare Workers: se usa para detectar favicons y como proxy CORS",
+    "Google Analytics — used for anonymous usage statistics (if enabled)": "Google Analytics: se usa para estadísticas de uso anónimas (si está activado)",
+    "CDN services (jsDelivr, cdnjs) — used to load open-source libraries": "Servicios CDN (jsDelivr, cdnjs): se usan para cargar bibliotecas de código abierto",
+    "7. Children's Privacy": "7. Privacidad de los menores",
+    "Our Service is not directed at children under 13. We do not knowingly collect personal information from children.": "Nuestro Servicio no está dirigido a menores de 13 años. No recopilamos a sabiendas información personal de menores.",
+    "8. Changes to This Policy": "8. Cambios en esta política",
+    "We may update this Privacy Policy from time to time. Any changes will be posted on this page with an updated revision date.": "Podemos actualizar esta Política de privacidad de vez en cuando. Cualquier cambio se publicará en esta página con la fecha de revisión actualizada.",
+    "9. Contact": "9. Contacto",
+    "If you have any questions about this Privacy Policy, please open an issue on our GitHub repository.": "Si tienes alguna pregunta sobre esta Política de privacidad, abre una issue en nuestro repositorio de GitHub.",
+    "Favicon Guide & Blog": "Guía y blog de favicons",
+    "Professional guides on favicons — sizes, formats, troubleshooting, and best practices.": "Guías profesionales sobre favicons: tamaños, formatos, solución de problemas y buenas prácticas.",
+    "New articles coming soon!": "¡Pronto habrá nuevos artículos!",
+    "Previous": "Anterior",
+    "Page": "Página",
+    "of": "de",
+    "Next": "Siguiente",
+    "Ready to grab some favicons?": "¿Listo para conseguir favicons?",
+    "Download and extract any website's favicon instantly. Free and fast.": "Descarga y extrae al instante el favicon de cualquier sitio web. Gratis y rápido.",
+    "Try Mzu favicondl →": "Probar Mzu favicondl →"
   }
 }
