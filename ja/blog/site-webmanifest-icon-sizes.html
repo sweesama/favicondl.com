@@ -66,7 +66,7 @@
 <body>
     <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
         <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
-            <a href="/ja/index.html" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <a href="/ja/" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
             <div class="flex items-center gap-8">
                 <a href="/ja/documentation.html" class="nav-link">ドキュメント</a>
                 <a href="/ja/tools.html" class="nav-link">ツール</a>
@@ -90,7 +90,7 @@
 
     <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
         <nav class="text-sm text-gray-400 mb-8">
-            <a href="/ja/index.html" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/ja/" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
             <a href="/ja/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
             <span class="text-gray-600">site webmanifest icon sizes：必要なサイズだけ</span>
         </nav>
@@ -101,7 +101,7 @@
         </header>
 
         <div class="article-body">
-            <p>PWAをスマホにインストールした後、ホーム画面に表示されたアイコンがピクセルだらけでボヤけていたら、それは site webmanifest の icon sizes 設定に問題がある可能性が高いです。Androidは単に一番大きい画像を縮小して表示してくれるわけではありません。manifest.json に宣言された内容に基づいて、積極的にクロップ、スケーリング、マスク処理を行います。</p><p>私がこれを痛感したのは、自作アプリをPixelで見たときはくっきり綺麗だったのに、Xperiaで確認したら小さくて中心からずれた謎の画像になっていた時でした。原因は画像の解像度ではなく、manifest の設定にありました。</p><p>manifest ファイル自体の基礎知識については、<a href="/ja/blog/favicon-webmanifest.html">favicon site.webmanifest の開発者ガイド</a>を参照してください。本記事では、icons 配列と、宣言すべき正確なサイズについてのみ深く掘り下げます。</p><h2>前提条件</h2><p>高解像度のソース画像（最低512x512ピクセル）とテキストエディタを用意してください。ソースファイルがない場合は、<a href="/ja/blog/favicon-generator-free.html">Mzu favicondl</a> を使って既存のロゴや画像から生成できます。</p><h2>ステップバイステップ：Manifest Icons の設定</h2><p>堅牢な icons 配列を構築しましょう。現代のAndroidとPWAサポートにおいて、実際に重要な3つのエントリに焦点を当てます。</p><h3>1. 192x192 標準 PNG</h3><p>これがベースラインです。Androidはほとんどの標準的なディスプレイで、アプリランチャーのアイコンとしてこのサイズを使用します。これを明示的に宣言する必要があります。</p><p>ブラウザが512x512の画像をダウンスケールしてくれることを期待してはいけません。Androidのレンダリングエンジンは、スケールダウン時に奇妙な補間を適用することがあり、アイコンが本来よりもぼやけて見えることがあります。専用の192x192 PNGを用意しましょう。</p><h3>2. 512x512 高解像度 PNG</h3><p>これはスプラッシュ画面のアイコンです。PWAが起動すると、Service Workerが起動するまでの間、Androidはこの画像を白い背景の上に表示します。manifest で1つだけアイコンを宣言するなら、これにすべきです（でも正直に言って、それはやめておきましょう）。</p><h3>3. Maskable Icon（超重要）</h3><p>Android 13以降やモダンなChrome OSは、Adaptive Iconsを使用します。maskable icon を宣言しないと、OSは標準アイコンを白い円の中に配置します。見た目が最悪です。</p><p>maskable icon には、中央に「セーフゾーン」が必要です。OSが任意の形状（円、スクワークル、角丸四角）にクロップしてもロゴが切り取られないよう、デザインにパディングを設ける必要があります。設計面の詳細については、<a href="/ja/blog/maskable-icon.html">maskable icon ガイド</a>で解説しています。</p><h3>完全なコード</h3><p>今すぐ manifest.json に貼り付けるべき、正確な icons 配列は以下の通りです：</p><pre><code>{
+            <p>PWAをスマホにインストールした後、ホーム画面に表示されたアイコンがピクセルだらけでボヤけていたら、それは site webmanifest の icon sizes 設定に問題がある可能性が高いです。Androidは単に一番大きい画像を縮小して表示してくれるわけではありません。manifest.json に宣言された内容に基づいて、積極的にクロップ、スケーリング、マスク処理を行います。</p><p>私がこれを痛感したのは、自作アプリをPixelで見たときはくっきり綺麗だったのに、Xperiaで確認したら小さくて中心からずれた謎の画像になっていた時でした。原因は画像の解像度ではなく、manifest の設定にありました。</p><p>manifest ファイル自体の基礎知識については、<a href="/ja/blog/favicon-webmanifest.html">favicon site.webmanifest の開発者ガイド</a>を参照してください。本記事では、icons 配列と、宣言すべき正確なサイズについてのみ深く掘り下げます。</p><h2>前提条件</h2><p>高解像度のソース画像（最低512x512ピクセル）とテキストエディタを用意してください。ソースファイルがない場合は、<a href="/ja/">Mzu favicondl</a> を使って既存のロゴや画像から生成できます。</p><h2>ステップバイステップ：Manifest Icons の設定</h2><p>堅牢な icons 配列を構築しましょう。現代のAndroidとPWAサポートにおいて、実際に重要な3つのエントリに焦点を当てます。</p><h3>1. 192x192 標準 PNG</h3><p>これがベースラインです。Androidはほとんどの標準的なディスプレイで、アプリランチャーのアイコンとしてこのサイズを使用します。これを明示的に宣言する必要があります。</p><p>ブラウザが512x512の画像をダウンスケールしてくれることを期待してはいけません。Androidのレンダリングエンジンは、スケールダウン時に奇妙な補間を適用することがあり、アイコンが本来よりもぼやけて見えることがあります。専用の192x192 PNGを用意しましょう。</p><h3>2. 512x512 高解像度 PNG</h3><p>これはスプラッシュ画面のアイコンです。PWAが起動すると、Service Workerが起動するまでの間、Androidはこの画像を白い背景の上に表示します。manifest で1つだけアイコンを宣言するなら、これにすべきです（でも正直に言って、それはやめておきましょう）。</p><h3>3. Maskable Icon（超重要）</h3><p>Android 13以降やモダンなChrome OSは、Adaptive Iconsを使用します。maskable icon を宣言しないと、OSは標準アイコンを白い円の中に配置します。見た目が最悪です。</p><p>maskable icon には、中央に「セーフゾーン」が必要です。OSが任意の形状（円、スクワークル、角丸四角）にクロップしてもロゴが切り取られないよう、デザインにパディングを設ける必要があります。設計面の詳細については、<a href="/ja/blog/maskable-icon.html">maskable icon ガイド</a>で解説しています。</p><h3>完全なコード</h3><p>今すぐ manifest.json に貼り付けるべき、正確な icons 配列は以下の通りです：</p><pre><code>{
   "name": "My Awesome App",
   "icons": [
     {
@@ -129,7 +129,7 @@
         <div class="cta-box">
             <h3>マニフェストアイコンを今すぐ生成</h3>
             <p>サイズの推測はもう終わり。Mzu favicondl を使って、1枚の画像から完璧な 192x192、512x512、マスカブルアイコンを数秒で生成しましょう。</p>
-            <a href="/ja/index.html" class="cta-btn">無料で試す →</a>
+            <a href="/ja/" class="cta-btn">無料で試す →</a>
         </div>
     </article>
 
@@ -137,7 +137,7 @@
         <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
             <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
             <div class="flex gap-6">
-                <a href="/ja/index.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">ホーム</a>
+                <a href="/ja/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">ホーム</a>
                 <a href="/ja/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">ブログ</a>
                 <a href="/ja/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">プライバシー</a>
             </div>

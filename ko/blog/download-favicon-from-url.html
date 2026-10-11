@@ -66,7 +66,7 @@
 <body>
     <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
         <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
-            <a href="/ko/index.html" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <a href="/ko/" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
             <div class="flex items-center gap-8">
                 <a href="/ko/documentation.html" class="nav-link">문서</a>
                 <a href="/ko/tools.html" class="nav-link">도구</a>
@@ -90,7 +90,7 @@
 
     <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
         <nav class="text-sm text-gray-400 mb-8">
-            <a href="/ko/index.html" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/ko/" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
             <a href="/ko/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
             <span class="text-gray-600">웹사이트 URL에서 파비콘 다운로드하는 방법: 2026 개발자 워크플로우</span>
         </nav>
@@ -109,13 +109,13 @@
     {'src': '/android-chrome-192x192.png', 'sizes': '192x192', 'type': 'image/png'},
     {'src': '/android-chrome-512x512.png', 'sizes': '512x512', 'type': 'image/png'}
   ]
-}</code></pre><p>여기에서 고해상도 아이콘을 찾을 수 있습니다. 자신의 프로젝트에 완벽합니다.</p><h3>3단계: Mzu favicondl로 무거운 작업 자동화</h3><p>매 사이트를 수동으로 검사하는 것은 금방 지루해집니다. 그래서 제가 <a href="/ko/index.html">Mzu favicondl</a>을 만들었습니다. 전체 프로세스를 자동화합니다. URL을 붙여넣으면 페이지의 HTML, 매니페스트, Apple Touch 태그를 스캔합니다. SVG, PNG, ICO, 그리고 레거시 Windows 타일 아이콘까지 모든 파비콘 변형을 반환합니다.</p><p>더 이상 추측하지 마세요. 더 이상 404 에러는 없습니다. 다운로드 가능한 파일의 깔끔한 목록만 제공됩니다.</p><h2>파비콘 다운로드 시 흔한 실수</h2><p>올바른 도구를 사용하더라도 실수할 수 있습니다. 제가 가장 자주 보는 실수는 다음과 같습니다:</p><ul><li><strong>잘못된 크기 선택</strong>: 기본 <code>/favicon.ico</code>는 종종 16x16입니다. 대시보드나 앱 아이콘의 경우 매니페스트에서 최소 192x192를 선택해야 합니다.</li><li><strong>다크 모드 변형 무시</strong>: 일부 사이트는 <code>media='(prefers-color-scheme: dark)'</code>를 사용하여 다크 모드에서 다른 파비콘을 제공합니다. 라이트 버전을 다운로드하면 어두운 배경에서 아이콘이 사라집니다.</li><li><strong>SVG 무시</strong>: SVG 파비콘은 어떤 크기에서도 선명합니다. 사이트에서 SVG를 제공한다면 그것을 가져오세요. 가장 미래 지향적인 포맷입니다.</li></ul><p>문제 해결에 대한 더 자세한 내용은 <a href="/ko/blog/favicon-not-showing.html">파비콘이 표시되지 않는 이유</a> 가이드를 확인하세요. 서버 측에서 동일한 문제를 다룹니다.</p><h2>실제 사례: Stripe의 파비콘 스택</h2><p>프로페셔널한 설정이 어떤지 보여드리겠습니다. Stripe는 CDN에서 여러 변형으로 파비콘을 제공합니다. 사이트를 검사했을 때 다음을 발견했습니다:</p><ul><li>최신 브라우저용 SVG 파비콘</li><li>레거시 브라우저용 32x32 PNG 폴백</li><li>180x180 Apple Touch 아이콘</li><li>192x192 및 512x512 아이콘이 포함된 웹 매니페스트</li></ul><p>또한 캐시 무효화 쿼리 문자열(<code>?v=123</code>)을 사용하여 업데이트를 강제합니다. 브랜드 일관성을 중요시하는 사이트를 구축한다면(그래야 합니다), 이 패턴을 따라야 합니다.</p><h2>2026년을 위한 프로 팁</h2><p>수년간 이 작업을 하면서 배운 몇 가지 팁입니다:</p><ul><li><strong>항상 SVG를 먼저 다운로드하세요</strong>. 가장 작은 파일이며 완벽하게 확장됩니다. 레거시 브라우저 지원이 필요한 경우에만 PNG로 폴백하세요.</li><li><strong>Apple Touch 아이콘은 별도로 확인하세요</strong>. 이 아이콘은 종종 표준 파비콘보다 해상도가 높으며 앱 아이콘으로 훌륭합니다.</li><li><strong>PWA 아이콘에는 매니페스트를 사용하세요</strong>. 사이트가 프로그레시브 웹 앱인 경우 매니페스트에 최고 품질의 아이콘이 있습니다.</li></ul><p>크기와 포맷에 대한 완전한 참조는 <a href="/ko/blog/favicon-sizes-guide.html">파비콘 크기 가이드</a>를 읽어보세요. 레티나 디스플레이에서 흐릿한 아이콘을 제공하는 것을 방지할 수 있습니다.</p><h2>결론</h2><p>웹사이트 URL에서 파비콘을 다운로드하는 것은 추측 게임이 될 필요가 없습니다. DevTools를 사용하여 실제 URL을 찾고, 매니페스트에서 고해상도 변형을 확인하고, Mzu favicondl로 자동화를 처리하세요. 모든 기기에서 아이콘이 선명하게 표시될 때, 미래의 당신과 사용자가 감사할 것입니다.</p>
+}</code></pre><p>여기에서 고해상도 아이콘을 찾을 수 있습니다. 자신의 프로젝트에 완벽합니다.</p><h3>3단계: Mzu favicondl로 무거운 작업 자동화</h3><p>매 사이트를 수동으로 검사하는 것은 금방 지루해집니다. 그래서 제가 <a href="/ko/">Mzu favicondl</a>을 만들었습니다. 전체 프로세스를 자동화합니다. URL을 붙여넣으면 페이지의 HTML, 매니페스트, Apple Touch 태그를 스캔합니다. SVG, PNG, ICO, 그리고 레거시 Windows 타일 아이콘까지 모든 파비콘 변형을 반환합니다.</p><p>더 이상 추측하지 마세요. 더 이상 404 에러는 없습니다. 다운로드 가능한 파일의 깔끔한 목록만 제공됩니다.</p><h2>파비콘 다운로드 시 흔한 실수</h2><p>올바른 도구를 사용하더라도 실수할 수 있습니다. 제가 가장 자주 보는 실수는 다음과 같습니다:</p><ul><li><strong>잘못된 크기 선택</strong>: 기본 <code>/favicon.ico</code>는 종종 16x16입니다. 대시보드나 앱 아이콘의 경우 매니페스트에서 최소 192x192를 선택해야 합니다.</li><li><strong>다크 모드 변형 무시</strong>: 일부 사이트는 <code>media='(prefers-color-scheme: dark)'</code>를 사용하여 다크 모드에서 다른 파비콘을 제공합니다. 라이트 버전을 다운로드하면 어두운 배경에서 아이콘이 사라집니다.</li><li><strong>SVG 무시</strong>: SVG 파비콘은 어떤 크기에서도 선명합니다. 사이트에서 SVG를 제공한다면 그것을 가져오세요. 가장 미래 지향적인 포맷입니다.</li></ul><p>문제 해결에 대한 더 자세한 내용은 <a href="/ko/blog/favicon-not-showing.html">파비콘이 표시되지 않는 이유</a> 가이드를 확인하세요. 서버 측에서 동일한 문제를 다룹니다.</p><h2>실제 사례: Stripe의 파비콘 스택</h2><p>프로페셔널한 설정이 어떤지 보여드리겠습니다. Stripe는 CDN에서 여러 변형으로 파비콘을 제공합니다. 사이트를 검사했을 때 다음을 발견했습니다:</p><ul><li>최신 브라우저용 SVG 파비콘</li><li>레거시 브라우저용 32x32 PNG 폴백</li><li>180x180 Apple Touch 아이콘</li><li>192x192 및 512x512 아이콘이 포함된 웹 매니페스트</li></ul><p>또한 캐시 무효화 쿼리 문자열(<code>?v=123</code>)을 사용하여 업데이트를 강제합니다. 브랜드 일관성을 중요시하는 사이트를 구축한다면(그래야 합니다), 이 패턴을 따라야 합니다.</p><h2>2026년을 위한 프로 팁</h2><p>수년간 이 작업을 하면서 배운 몇 가지 팁입니다:</p><ul><li><strong>항상 SVG를 먼저 다운로드하세요</strong>. 가장 작은 파일이며 완벽하게 확장됩니다. 레거시 브라우저 지원이 필요한 경우에만 PNG로 폴백하세요.</li><li><strong>Apple Touch 아이콘은 별도로 확인하세요</strong>. 이 아이콘은 종종 표준 파비콘보다 해상도가 높으며 앱 아이콘으로 훌륭합니다.</li><li><strong>PWA 아이콘에는 매니페스트를 사용하세요</strong>. 사이트가 프로그레시브 웹 앱인 경우 매니페스트에 최고 품질의 아이콘이 있습니다.</li></ul><p>크기와 포맷에 대한 완전한 참조는 <a href="/ko/blog/favicon-sizes-guide.html">파비콘 크기 가이드</a>를 읽어보세요. 레티나 디스플레이에서 흐릿한 아이콘을 제공하는 것을 방지할 수 있습니다.</p><h2>결론</h2><p>웹사이트 URL에서 파비콘을 다운로드하는 것은 추측 게임이 될 필요가 없습니다. DevTools를 사용하여 실제 URL을 찾고, 매니페스트에서 고해상도 변형을 확인하고, Mzu favicondl로 자동화를 처리하세요. 모든 기기에서 아이콘이 선명하게 표시될 때, 미래의 당신과 사용자가 감사할 것입니다.</p>
         </div>
 
         <div class="cta-box">
             <h3>모든 파비콘을 즉시 다운로드</h3>
             <p>URL을 붙여넣으면 모든 파비콘 변형을 즉시 얻을 수 있습니다. DevTools가 필요 없습니다.</p>
-            <a href="/ko/index.html" class="cta-btn">무료로 사용해보기 →</a>
+            <a href="/ko/" class="cta-btn">무료로 사용해보기 →</a>
         </div>
     </article>
 
@@ -123,7 +123,7 @@
         <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
             <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
             <div class="flex gap-6">
-                <a href="/ko/index.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">홈</a>
+                <a href="/ko/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">홈</a>
                 <a href="/ko/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">블로그</a>
                 <a href="/ko/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">개인정보</a>
             </div>

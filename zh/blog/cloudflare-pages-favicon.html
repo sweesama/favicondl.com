@@ -66,7 +66,7 @@
 <body>
     <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
         <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
-            <a href="/zh/index.html" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <a href="/zh/" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
             <div class="flex items-center gap-8">
                 <a href="/zh/documentation.html" class="nav-link">文档</a>
                 <a href="/zh/tools.html" class="nav-link">工具</a>
@@ -90,7 +90,7 @@
 
     <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
         <nav class="text-sm text-gray-400 mb-8">
-            <a href="/zh/index.html" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/zh/" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
             <a href="/zh/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
             <span class="text-gray-600">Cloudflare Pages 网站图标设置指南 (2026 版)</span>
         </nav>
@@ -101,7 +101,7 @@
         </header>
 
         <div class="article-body">
-            <p>刚在 Cloudflare Pages 上部署完第一个静态站，结果浏览器标签页还是那个默认的蓝色火箭图标？这种“半成品”的感觉确实让人抓狂。在 WordPress 里你点几下后台就能搞定，Next.js 里把文件丢进特定目录也行，但在 2026 年的 Cloudflare Pages 环境下，思路得变一变。这是一个纯粹的静态环境，服务器不会猜你的图标藏在哪，你必须显式地告诉它。</p><p>很多开发者以为只要在根目录扔个 <code>favicon.ico</code> 就万事大吉。这在某些旧浏览器上或许能跑通，但绝对过不了现代 Web 标准的考核。我们需要一套更健壮的方案，不仅要适配 Apple 设备和 Android 主屏，还得完美支持深色模式。这篇指南将帮你理清头绪，直接给出能立刻让站点看起来专业的文件结构和代码。</p><h2>为什么默认配置行不通</h2><p>Cloudflare Pages 之所以快，是因为它从边缘节点直接分发静态资源。但这也意味着它没有后端来动态生成图标，或者处理缺失文件的复杂路由。如果你只依赖隐式的 <code>/favicon.ico</code> 请求，你的日志里可能会看到一堆 404 错误，更糟糕的是，Safari 里可能会显示一个破碎的图片图标。</p><p>看看 GitHub 是怎么处理静态站点的。他们绝不会只上传一个文件。他们会为现代浏览器提供矢量 SVG，为移动设备提供高分辨率 PNG，同时保留旧版 Windows 系统需要的 legacy ICO。这种多格式策略确保了无论用户是用 iPhone 16 还是老旧的企业笔记本，你的品牌标识都能清晰锐利。我们将把这套策略复用到你的 Cloudflare 项目中。</p><h2>2026 年基于文件的元数据策略</h2><p>在 Cloudflare Pages 上设置 <strong>favicon</strong> 最靠谱的方法，是把 <code>public</code> 目录视为唯一的真理来源。Cloudflare Pages 会直接将这个文件夹映射到你的域名根目录。图标本身不需要构建步骤，但引用它们的 HTML 代码必须精准无误。</p><h3>第一步：准备图标资源</h3><p>在碰代码之前，你得先搞定正确的文件。千万别只是简单缩放你的 Logo。复杂的 Logo 缩到 16x16 像素时，看起来就像一团模糊的墨迹。你需要简化版本。如果你的 SVG Logo 很复杂，建议用 <a href="/zh/blog/make-favicon-from-image.html">Mzu favicondl</a> 这类工具，专门生成一个高对比度、适合浏览器标签页显示的简化版。</p><p>你的本地项目文件夹里必须准备好这三个文件：</p><ul><li><code>favicon.ico</code>: 遗留容器文件。是的，为了兼容某些企业代理和老旧浏览器，我们还得留着它。</li><li><code>icon.svg</code>: 现代标准。支持深色模式，且能无损缩放到任意尺寸。</li><li><code>apple-touch-icon.png</code>: 180x180 像素的 PNG，专供 iOS 主屏幕使用。</li></ul><h3>第二步：整理目录结构</h3><p>Cloudflare Pages 期望文件位于 <code>public</code> 文件夹的根目录（或者是你的构建输出目录）。如果你想用最简单的配置，千万别把图标嵌套在 <code>/images</code> 或 <code>/assets</code> 文件夹里。浏览器默认就在根 URL 下寻找图标。</p><p>请严格按照以下结构放置文件：</p><pre><code>public/
+            <p>刚在 Cloudflare Pages 上部署完第一个静态站，结果浏览器标签页还是那个默认的蓝色火箭图标？这种“半成品”的感觉确实让人抓狂。在 WordPress 里你点几下后台就能搞定，Next.js 里把文件丢进特定目录也行，但在 2026 年的 Cloudflare Pages 环境下，思路得变一变。这是一个纯粹的静态环境，服务器不会猜你的图标藏在哪，你必须显式地告诉它。</p><p>很多开发者以为只要在根目录扔个 <code>favicon.ico</code> 就万事大吉。这在某些旧浏览器上或许能跑通，但绝对过不了现代 Web 标准的考核。我们需要一套更健壮的方案，不仅要适配 Apple 设备和 Android 主屏，还得完美支持深色模式。这篇指南将帮你理清头绪，直接给出能立刻让站点看起来专业的文件结构和代码。</p><h2>为什么默认配置行不通</h2><p>Cloudflare Pages 之所以快，是因为它从边缘节点直接分发静态资源。但这也意味着它没有后端来动态生成图标，或者处理缺失文件的复杂路由。如果你只依赖隐式的 <code>/favicon.ico</code> 请求，你的日志里可能会看到一堆 404 错误，更糟糕的是，Safari 里可能会显示一个破碎的图片图标。</p><p>看看 GitHub 是怎么处理静态站点的。他们绝不会只上传一个文件。他们会为现代浏览器提供矢量 SVG，为移动设备提供高分辨率 PNG，同时保留旧版 Windows 系统需要的 legacy ICO。这种多格式策略确保了无论用户是用 iPhone 16 还是老旧的企业笔记本，你的品牌标识都能清晰锐利。我们将把这套策略复用到你的 Cloudflare 项目中。</p><h2>2026 年基于文件的元数据策略</h2><p>在 Cloudflare Pages 上设置 <strong>favicon</strong> 最靠谱的方法，是把 <code>public</code> 目录视为唯一的真理来源。Cloudflare Pages 会直接将这个文件夹映射到你的域名根目录。图标本身不需要构建步骤，但引用它们的 HTML 代码必须精准无误。</p><h3>第一步：准备图标资源</h3><p>在碰代码之前，你得先搞定正确的文件。千万别只是简单缩放你的 Logo。复杂的 Logo 缩到 16x16 像素时，看起来就像一团模糊的墨迹。你需要简化版本。如果你的 SVG Logo 很复杂，建议用 <a href="/zh/">Mzu favicondl</a> 这类工具，专门生成一个高对比度、适合浏览器标签页显示的简化版。</p><p>你的本地项目文件夹里必须准备好这三个文件：</p><ul><li><code>favicon.ico</code>: 遗留容器文件。是的，为了兼容某些企业代理和老旧浏览器，我们还得留着它。</li><li><code>icon.svg</code>: 现代标准。支持深色模式，且能无损缩放到任意尺寸。</li><li><code>apple-touch-icon.png</code>: 180x180 像素的 PNG，专供 iOS 主屏幕使用。</li></ul><h3>第二步：整理目录结构</h3><p>Cloudflare Pages 期望文件位于 <code>public</code> 文件夹的根目录（或者是你的构建输出目录）。如果你想用最简单的配置，千万别把图标嵌套在 <code>/images</code> 或 <code>/assets</code> 文件夹里。浏览器默认就在根 URL 下寻找图标。</p><p>请严格按照以下结构放置文件：</p><pre><code>public/
   index.html
   favicon.ico
   icon.svg
@@ -116,13 +116,13 @@
 &lt;link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"&gt;
 
 &lt;!-- Android/PWA 的 Web App Manifest --&gt;
-&lt;link rel="manifest" href="/manifest.json"&gt;</code></pre><p>注意这里的顺序。我们把 SVG 放在最前面。现代浏览器会优先加载它并忽略后面的内容；旧版浏览器则会跳过 SVG，直接抓取 ICO。这是在保证兼容性的同时，避免页面加载臃肿的最优解。</p><h2>常见陷阱与避坑指南</h2><p>即使代码完全正确，问题也可能出在其他地方。最常见的问题就是缓存。Cloudflare 的缓存策略非常激进。如果你更新了图标但用户看到的还是旧的，别怀疑代码有 bug，那是 CDN 在作怪。</p><h3>缓存清除技巧 (Cache Buster)</h3><p>如果你部署了新图标却死活不更新，那就得强制浏览器去拉取新版本了。给文件路径加上查询字符串（Query String）。这是静态站点的标准操作。</p><pre><code>&lt;link rel="icon" type="image/svg+xml" href="/icon.svg?v=20260101"&gt;</code></pre><p>每次更新图片时，修改版本号。这招能“骗”过浏览器，让它以为这是一个新文件，从而立即绕过 Cloudflare 的边缘缓存。</p><h3>检查你的构建流程</h3><p>如果你用的是 React、Vue 或 Astro 这类框架，务必确认构建流程没有误删你的图标。有些构建工具在部署前会清理 <code>dist</code> 或 <code>build</code> 文件夹。请验证你的 <code>public</code> 文件夹内容是否被正确复制到了最终的输出目录。如果你用的是自定义构建脚本，确保里面包含了复制静态资源的 <code>copy</code> 命令。</p><h2>测试你的实现</h2><p>别只依赖本地预览。一定要部署到生产环境，用无痕模式测试。打开浏览器控制台，查看网络请求。你应该能看到 <code>icon.svg</code> 和 <code>favicon.ico</code> 返回 200 OK 状态。如果看到 404，请再次检查文件路径。</p><p>想要更彻底的审计？用 <a href="/zh/blog/check-website-favicon.html">Mzu favicondl</a> 扫描你的在线 URL。它会精准告诉你哪些图标缺失、深色模式 SVG 是否有效，以及 Apple Touch Icon 尺寸是否正确。这能帮你省下在移动端调试数小时的宝贵时间。</p><p>在 Cloudflare Pages 上设置 <strong>favicon</strong> 并不需要搞神秘。通过基于文件的方案配合正确的 HTML 标签，你能确保站点在所有设备上都显得专业。别再让那个默认的火箭图标代表你的品牌了，从今天开始，掌控浏览器标签页上的品牌标识吧。</p>
+&lt;link rel="manifest" href="/manifest.json"&gt;</code></pre><p>注意这里的顺序。我们把 SVG 放在最前面。现代浏览器会优先加载它并忽略后面的内容；旧版浏览器则会跳过 SVG，直接抓取 ICO。这是在保证兼容性的同时，避免页面加载臃肿的最优解。</p><h2>常见陷阱与避坑指南</h2><p>即使代码完全正确，问题也可能出在其他地方。最常见的问题就是缓存。Cloudflare 的缓存策略非常激进。如果你更新了图标但用户看到的还是旧的，别怀疑代码有 bug，那是 CDN 在作怪。</p><h3>缓存清除技巧 (Cache Buster)</h3><p>如果你部署了新图标却死活不更新，那就得强制浏览器去拉取新版本了。给文件路径加上查询字符串（Query String）。这是静态站点的标准操作。</p><pre><code>&lt;link rel="icon" type="image/svg+xml" href="/icon.svg?v=20260101"&gt;</code></pre><p>每次更新图片时，修改版本号。这招能“骗”过浏览器，让它以为这是一个新文件，从而立即绕过 Cloudflare 的边缘缓存。</p><h3>检查你的构建流程</h3><p>如果你用的是 React、Vue 或 Astro 这类框架，务必确认构建流程没有误删你的图标。有些构建工具在部署前会清理 <code>dist</code> 或 <code>build</code> 文件夹。请验证你的 <code>public</code> 文件夹内容是否被正确复制到了最终的输出目录。如果你用的是自定义构建脚本，确保里面包含了复制静态资源的 <code>copy</code> 命令。</p><h2>测试你的实现</h2><p>别只依赖本地预览。一定要部署到生产环境，用无痕模式测试。打开浏览器控制台，查看网络请求。你应该能看到 <code>icon.svg</code> 和 <code>favicon.ico</code> 返回 200 OK 状态。如果看到 404，请再次检查文件路径。</p><p>想要更彻底的审计？用 <a href="/zh/">Mzu favicondl</a> 扫描你的在线 URL。它会精准告诉你哪些图标缺失、深色模式 SVG 是否有效，以及 Apple Touch Icon 尺寸是否正确。这能帮你省下在移动端调试数小时的宝贵时间。</p><p>在 Cloudflare Pages 上设置 <strong>favicon</strong> 并不需要搞神秘。通过基于文件的方案配合正确的 HTML 标签，你能确保站点在所有设备上都显得专业。别再让那个默认的火箭图标代表你的品牌了，从今天开始，掌控浏览器标签页上的品牌标识吧。</p>
         </div>
 
         <div class="cta-box">
             <h3>立即生成您的完美网站图标</h3>
             <p>在几秒钟内为您的 Cloudflare Pages 站点创建优化的 SVG、ICO 和 PNG 图标。免费且易于使用。</p>
-            <a href="/zh/index.html" class="cta-btn">免费试用 →</a>
+            <a href="/zh/" class="cta-btn">免费试用 →</a>
         </div>
     </article>
 
@@ -130,7 +130,7 @@
         <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
             <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
             <div class="flex gap-6">
-                <a href="/zh/index.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">首页</a>
+                <a href="/zh/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">首页</a>
                 <a href="/zh/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">博客</a>
                 <a href="/zh/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">隐私政策</a>
             </div>

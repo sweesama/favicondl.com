@@ -66,7 +66,7 @@
 <body>
     <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
         <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
-            <a href="/ja/index.html" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <a href="/ja/" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
             <div class="flex items-center gap-8">
                 <a href="/ja/documentation.html" class="nav-link">ドキュメント</a>
                 <a href="/ja/tools.html" class="nav-link">ツール</a>
@@ -90,7 +90,7 @@
 
     <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
         <nav class="text-sm text-gray-400 mb-8">
-            <a href="/ja/index.html" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/ja/" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
             <a href="/ja/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
             <span class="text-gray-600">Next.js Appleアイコン設定：2026年App Routerガイド</span>
         </nav>
@@ -100,7 +100,7 @@
             <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">Next.js Appleアイコン設定：2026年App Routerガイド</h1>
         </header>
 
-        <div class="article-body"><p>Next.js サイトを iPhone で開いて、ホーム画面に追加したときに空白のグレーの四角形が表示された経験はありませんか？ それは、Apple touch icon が設定されていないからです。ブラウザのタブの favicon は正常に見えても、iOS は別のファイルを使用します。そして、Next.js にはそれを配信するための特定の方法があります。</p><p>このガイドでは、App Router のファイルベースのメタデータシステムを使用した <strong>Next.js での Apple アイコン設定</strong> について説明します。カスタム API ルートや <code>_document.tsx</code> への手動の <code>&lt;link&gt;</code> タグの追加は不要です。適切なフォルダにファイルを置くだけで完了します。</p><h2>前提条件</h2><p>始める前に、以下のものを用意してください：</p><ul><li>App Router を使用している Next.js プロジェクト（バージョン 13.2 以降）。</li><li>アイコン用の画像ファイル。Apple はタッチアイコンに 180×180 の PNG を推奨していますが、これについては後ほど説明します。</li><li>プロジェクトの <code>app/</code> ディレクトリに関する基本的な知識。</li></ul><h2>ステップ 1: Apple Touch Icon を準備する</h2><p>Apple のタッチアイコンは、ユーザーがサイトをホーム画面に追加したときに iOS が使用する PNG ファイルです。推奨サイズは 180×180 ピクセルですが、iPad Pro 用に 167×167、古い iPad 用に 152×152 を提供することもできます。ただし、iOS は 180×180 のアイコンを自動的に縮小するため、1 つのファイルだけで十分です。</p><p>既製のアイコンがない場合は、<a href="/ja/blog/favicon-generator-free.html">Mzu favicondl</a> などのツールを使用してロゴから生成できます。このツールは、適切な透明度とパディングを持つ 180×180 の PNG をエクスポートできます。</p><h2>ステップ 2: ファイルを App ディレクトリに配置する</h2><p>Next.js App Router では、<code>apple-icon.png</code>（または <code>apple-icon.jpg</code>）を <code>app/</code> ディレクトリに直接追加できます。Next.js が自動的にそれを検出し、サイトのルートで配信します。ファイルは <code>layout.tsx</code> と同じフォルダ（通常は <code>app/</code>）に配置する必要があります。</p><p>フォルダ構造の例は次のとおりです：</p><pre><code>app/
+        <div class="article-body"><p>Next.js サイトを iPhone で開いて、ホーム画面に追加したときに空白のグレーの四角形が表示された経験はありませんか？ それは、Apple touch icon が設定されていないからです。ブラウザのタブの favicon は正常に見えても、iOS は別のファイルを使用します。そして、Next.js にはそれを配信するための特定の方法があります。</p><p>このガイドでは、App Router のファイルベースのメタデータシステムを使用した <strong>Next.js での Apple アイコン設定</strong> について説明します。カスタム API ルートや <code>_document.tsx</code> への手動の <code>&lt;link&gt;</code> タグの追加は不要です。適切なフォルダにファイルを置くだけで完了します。</p><h2>前提条件</h2><p>始める前に、以下のものを用意してください：</p><ul><li>App Router を使用している Next.js プロジェクト（バージョン 13.2 以降）。</li><li>アイコン用の画像ファイル。Apple はタッチアイコンに 180×180 の PNG を推奨していますが、これについては後ほど説明します。</li><li>プロジェクトの <code>app/</code> ディレクトリに関する基本的な知識。</li></ul><h2>ステップ 1: Apple Touch Icon を準備する</h2><p>Apple のタッチアイコンは、ユーザーがサイトをホーム画面に追加したときに iOS が使用する PNG ファイルです。推奨サイズは 180×180 ピクセルですが、iPad Pro 用に 167×167、古い iPad 用に 152×152 を提供することもできます。ただし、iOS は 180×180 のアイコンを自動的に縮小するため、1 つのファイルだけで十分です。</p><p>既製のアイコンがない場合は、<a href="/ja/">Mzu favicondl</a> などのツールを使用してロゴから生成できます。このツールは、適切な透明度とパディングを持つ 180×180 の PNG をエクスポートできます。</p><h2>ステップ 2: ファイルを App ディレクトリに配置する</h2><p>Next.js App Router では、<code>apple-icon.png</code>（または <code>apple-icon.jpg</code>）を <code>app/</code> ディレクトリに直接追加できます。Next.js が自動的にそれを検出し、サイトのルートで配信します。ファイルは <code>layout.tsx</code> と同じフォルダ（通常は <code>app/</code>）に配置する必要があります。</p><p>フォルダ構造の例は次のとおりです：</p><pre><code>app/
 ├── layout.tsx
 ├── page.tsx
 ├── apple-icon.png
@@ -112,14 +112,14 @@ export const metadata: Metadata = {
       { url: '/apple-icon.png', sizes: '180x180', type: 'image/png' },
     ],
   },
-};</code></pre><p>この方法では、<code>rel</code>、<code>sizes</code>、<code>type</code> 属性を完全に制御できます。また、Android PWA 用の <code>maskable</code> アイコンを追加するためにも使用できますが、それは別のトピックです。</p><h2>よくある落とし穴</h2><p>遭遇する可能性のあるいくつかの問題を以下に示します：</p><ul><li><strong>ファイルが見つからない：</strong> ファイル名を再確認してください。正確に <code>apple-icon.png</code> または <code>apple-icon.jpg</code> である必要があります。Next.js は <code>apple-touch-icon.png</code> を認識しません。</li><li><strong>キャッシュの問題：</strong> iOS はアイコンを積極的にキャッシュします。アイコンを変更しても更新されない場合は、Safari のキャッシュをクリアするか、別のデバイスで試してください。</li><li><strong>サイズの誤り：</strong> Apple は 180×180 を推奨していますが、異なるサイズを使用すると iOS がスケーリングします。スケーリングによりぼやけが生じる可能性があるため、推奨サイズに従ってください。</li><li><strong>透明度：</strong> iOS は Apple touch icon の透明度をサポートしていません。PNG に透明な領域があると、黒く表示されます。アイコンは不透明な背景にしてください。</li></ul><h2>まとめ</h2><p>Next.js での Apple touch icon の設定は、ファイルベースの規約を知っていれば簡単です。適切なサイズの PNG を <code>app/</code> フォルダに置くだけで、Next.js が残りを処理します。より高度なシナリオでは、metadata API を使用してプログラムで制御できます。</p><p>アイコン自体を生成する必要がある場合は、<a href="/ja/blog/favicon-generator-free.html">Mzu favicondl</a> を使用して、ロゴから必要なすべてのサイズを作成してみてください。また、Next.js での favicon 設定の詳細については、<a href="/ja/blog/nextjs-favicon.html">Next.js Favicon ガイド</a> を参照してください。</p><h2>ドキュメントに記載されている要件を確認する</h2><p>Next.js は、favicon とアプリアイコンについて、<a href="https://nextjs.org/docs/app/api-reference/file-conventions/metadata/app-icons">メタデータファイル規約</a> で文書化しています。</p></div>
+};</code></pre><p>この方法では、<code>rel</code>、<code>sizes</code>、<code>type</code> 属性を完全に制御できます。また、Android PWA 用の <code>maskable</code> アイコンを追加するためにも使用できますが、それは別のトピックです。</p><h2>よくある落とし穴</h2><p>遭遇する可能性のあるいくつかの問題を以下に示します：</p><ul><li><strong>ファイルが見つからない：</strong> ファイル名を再確認してください。正確に <code>apple-icon.png</code> または <code>apple-icon.jpg</code> である必要があります。Next.js は <code>apple-touch-icon.png</code> を認識しません。</li><li><strong>キャッシュの問題：</strong> iOS はアイコンを積極的にキャッシュします。アイコンを変更しても更新されない場合は、Safari のキャッシュをクリアするか、別のデバイスで試してください。</li><li><strong>サイズの誤り：</strong> Apple は 180×180 を推奨していますが、異なるサイズを使用すると iOS がスケーリングします。スケーリングによりぼやけが生じる可能性があるため、推奨サイズに従ってください。</li><li><strong>透明度：</strong> iOS は Apple touch icon の透明度をサポートしていません。PNG に透明な領域があると、黒く表示されます。アイコンは不透明な背景にしてください。</li></ul><h2>まとめ</h2><p>Next.js での Apple touch icon の設定は、ファイルベースの規約を知っていれば簡単です。適切なサイズの PNG を <code>app/</code> フォルダに置くだけで、Next.js が残りを処理します。より高度なシナリオでは、metadata API を使用してプログラムで制御できます。</p><p>アイコン自体を生成する必要がある場合は、<a href="/ja/">Mzu favicondl</a> を使用して、ロゴから必要なすべてのサイズを作成してみてください。また、Next.js での favicon 設定の詳細については、<a href="/ja/blog/nextjs-favicon.html">Next.js Favicon ガイド</a> を参照してください。</p><h2>ドキュメントに記載されている要件を確認する</h2><p>Next.js は、favicon とアプリアイコンについて、<a href="https://nextjs.org/docs/app/api-reference/file-conventions/metadata/app-icons">メタデータファイル規約</a> で文書化しています。</p></div>
 
         <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
 
         <div class="cta-box">
             <h3>今すぐAppleアイコンを生成</h3>
             <p>Mzu favicondlを使って、Next.jsアプリ用の完璧な180x180 PNGを作成しましょう。</p>
-            <a href="/ja/index.html" class="cta-btn">無料で試す →</a>
+            <a href="/ja/" class="cta-btn">無料で試す →</a>
         </div>
     </article>
 
@@ -127,7 +127,7 @@ export const metadata: Metadata = {
         <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
             <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
             <div class="flex gap-6">
-                <a href="/ja/index.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">ホーム</a>
+                <a href="/ja/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">ホーム</a>
                 <a href="/ja/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">ブログ</a>
                 <a href="/ja/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">プライバシー</a>
             </div>

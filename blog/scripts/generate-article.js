@@ -136,7 +136,7 @@ const ALLOWED_CONTENT_TAGS = new Set([
 const VOID_CONTENT_TAGS = new Set(['br']);
 
 // CTA 链接白名单
-const VALID_CTA_LINKS = ['/index.html', '/tools.html', '/documentation.html'];
+const VALID_CTA_LINKS = ['/', '/tools.html', '/documentation.html'];
 
 // AI 输出必须包含的字段
 const REQUIRED_FIELDS = [
@@ -409,7 +409,7 @@ REQUIRED INSTEAD:
 - Audience: web developers and designers, all levels.
 - NEVER use hype words ("amazing", "revolutionary", "game-changer", "unlock", "supercharge").
 - Do not promote competing favicon-download tools. Browser vendors, web platforms, and standards bodies may be named when they are relevant sources.
-- Brand: always "Mzu favicondl" (lowercase "favicondl").
+- Brand: always "Mzu favicondl" (lowercase "favicondl"). If you link the brand name, link it to the homepage (<a href='/'>Mzu favicondl</a>), never to a blog post.
 - Date volatile requirements, prices, rankings, or product behavior. Do not add "2026" merely to make a claim sound current.
 
 === EVIDENCE RULES ===
@@ -505,7 +505,7 @@ CRITICAL: Do NOT use literal newlines inside string values. Export strings as si
   "ctaBtnJa": "無料で試す →",
   "ctaBtnKo": "무료로 사용해보기 →",
   "ctaBtnEs": "Pruébalo gratis →",
-  "ctaLink": "/index.html"
+  "ctaLink": "/"
 }`;
 }
 
@@ -742,7 +742,7 @@ async function repairMissingMetadata(data, keyword) {
   if (!data.contentEn || !data.titleEn) {
     throw new Error('英文主输出缺少 titleEn 或 contentEn，不能安全地局部修复');
   }
-  if (!data.ctaLink) data.ctaLink = '/index.html';
+  if (!data.ctaLink || data.ctaLink === '/index.html') data.ctaLink = '/';
   const missing = MAIN_REQUIRED_FIELDS.filter(field => !data[field] || (typeof data[field] === 'string' && !data[field].trim()));
   if (missing.length === 0) return data;
 
@@ -1203,8 +1203,8 @@ function validateArticleData(data, keyword, depth, sourceUrls = []) {
 
   // --- 7. CTA 链接白名单 ---
   if (data.ctaLink && !VALID_CTA_LINKS.includes(data.ctaLink)) {
-    warnings.push(`CTA 链接 "${data.ctaLink}" 已自动修正为 /index.html`);
-    data.ctaLink = '/index.html';
+    warnings.push(`CTA 链接 "${data.ctaLink}" 已自动修正为 /`);
+    data.ctaLink = '/';
   }
 
   // --- 8. 禁止标签检查 ---
@@ -1539,7 +1539,7 @@ function buildHTML(data, queueItem, publishDate) {
 <body>
     <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
         <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
-            <a href="/index.html" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <a href="/" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
             <div class="flex items-center gap-8">
                 <a href="/documentation.html" class="nav-link" data-en="Docs" data-zh="文档">Docs</a>
                 <a href="/tools.html" class="nav-link" data-en="Tools" data-zh="工具">Tools</a>
@@ -1551,7 +1551,7 @@ function buildHTML(data, queueItem, publishDate) {
 
     <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
         <nav class="text-sm text-gray-400 mb-8">
-            <a href="/index.html" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
             <a href="/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
             <span class="text-gray-600" data-en="${esc(data.breadcrumbEn)}" data-zh="${esc(data.breadcrumbZh)}">${esc(data.breadcrumbEn)}</span>
         </nav>
@@ -1582,7 +1582,7 @@ function buildHTML(data, queueItem, publishDate) {
         <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
             <p class="text-gray-400 text-sm">&copy; ${new Date().getFullYear()} Mzu favicondl</p>
             <div class="flex gap-6">
-                <a href="/index.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Home" data-zh="首页">Home</a>
+                <a href="/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Home" data-zh="首页">Home</a>
                 <a href="/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Blog" data-zh="博客">Blog</a>
                 <a href="/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Privacy" data-zh="隐私政策">Privacy</a>
             </div>

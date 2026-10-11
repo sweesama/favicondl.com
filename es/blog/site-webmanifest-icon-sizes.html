@@ -66,7 +66,7 @@
 <body>
     <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
         <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
-            <a href="/es/index.html" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <a href="/es/" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
             <div class="flex items-center gap-8">
                 <a href="/es/documentation.html" class="nav-link">Documentación</a>
                 <a href="/es/tools.html" class="nav-link">Herramientas</a>
@@ -90,7 +90,7 @@
 
     <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
         <nav class="text-sm text-gray-400 mb-8">
-            <a href="/es/index.html" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/es/" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
             <a href="/es/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
             <span class="text-gray-600">site webmanifest icon sizes: las que necesitas</span>
         </nav>
@@ -101,7 +101,7 @@
         </header>
 
         <div class="article-body">
-            <p>¿Te ha pasado que instalas una PWA en tu móvil y, al ver el icono en la pantalla de inicio, parece un borrón pixelado de los años 90? Seguramente el problema no es tu diseño, sino que tus site webmanifest icon sizes están mal configurados. Android no se limita a reducir tu imagen más grande; la recorta, la escala y le aplica máscaras de forma agresiva según lo que declares en tu <code>manifest.json</code>.</p><p>Lo sufrí en mis propias carnes hace poco. Tenía una app que se veía nítida en mi Pixel, pero en un Samsung de un colega el icono aparecía minúsculo y descentrado. El problema no era la calidad del archivo, sino la configuración del manifest.</p><p>Si necesitas repasar los conceptos básicos del manifest, échale un ojo a nuestra <a href="/es/blog/favicon-webmanifest.html">guía de favicon site.webmanifest para developers</a>. Aquí vamos a ir directo al grano: al array de iconos y las dimensiones exactas que deves declarar.</p><h2>Requisitos previos</h2><p>Vas a necesitar una imagen de alta resolución (como mínimo 512x512 píxeles) y tu editor de código favorito. Si no tienes un archivo fuente a mano, pásate por <a href="/es/blog/favicon-generator-free.html">Mzu favicondl</a> y genera uno a partir de un logo o imagen existente.</p><h2>Paso a paso: configurando los iconos del manifest</h2><p>Vamos a montar un array de <code>icons</code> a prueba de balas. Nos centraremos en las tres entradas que de verdad importan para el soporte moderno de PWA en Android.</p><h3>1. El PNG estándar de 192x192</h3><p>Esta es tu línea base. Android utiliza este tamaño para el icono del launcher en la mayoría de pantallas estándar. Debes declararlo explícitamente, sin excepciones.</p><p>No te fíes del navegador para que reduzca tu imagen de 512x512. El motor de renderizado de Android a veces aplica una interpolación rara al escalar hacia abajo, dejando tu icono con un aspecto borroso. Proporciona un PNG de 192x192 dedicado.</p><h3>2. El PNG de alta resolución de 512x512</h3><p>Este es el icono del splash screen. Cuando tu PWA arranca, Android muestra esta imagen sobre un fondo blanco mientras el service worker carga. Si solo declaras un icono en tu manifest, que sea este ( aunque te recomiendo no conformarte con uno solo).</p><h3>3. El icono Maskable (Crucial)</h3><p>Android 13+ y las versiones modernas de Chrome OS usan iconos adaptativos. Si no declaras un icono maskable, el sistema operativo mete tu icono estándar dentro de un círculo blanco. El resultado es de lo más cutre.</p><p>Los iconos maskable requieren una 'safe zone' en el centro. Tienes que añadir padding a tu diseño para que el sistema operativo pueda recortarlo en cualquier forma (círculo, squircle, cuadrado redondeado) sin cortar tu logo. Explicamos el lado del diseño en nuestra <a href="/es/blog/maskable-icon.html">guía de iconos maskable</a>.</p><h3>El código completo</h3><p>Aquí tienes el array de <code>icons</code> exacto que deberías pegar en tu <code>manifest.json</code> ahora mismo:</p><pre><code>{
+            <p>¿Te ha pasado que instalas una PWA en tu móvil y, al ver el icono en la pantalla de inicio, parece un borrón pixelado de los años 90? Seguramente el problema no es tu diseño, sino que tus site webmanifest icon sizes están mal configurados. Android no se limita a reducir tu imagen más grande; la recorta, la escala y le aplica máscaras de forma agresiva según lo que declares en tu <code>manifest.json</code>.</p><p>Lo sufrí en mis propias carnes hace poco. Tenía una app que se veía nítida en mi Pixel, pero en un Samsung de un colega el icono aparecía minúsculo y descentrado. El problema no era la calidad del archivo, sino la configuración del manifest.</p><p>Si necesitas repasar los conceptos básicos del manifest, échale un ojo a nuestra <a href="/es/blog/favicon-webmanifest.html">guía de favicon site.webmanifest para developers</a>. Aquí vamos a ir directo al grano: al array de iconos y las dimensiones exactas que deves declarar.</p><h2>Requisitos previos</h2><p>Vas a necesitar una imagen de alta resolución (como mínimo 512x512 píxeles) y tu editor de código favorito. Si no tienes un archivo fuente a mano, pásate por <a href="/es/">Mzu favicondl</a> y genera uno a partir de un logo o imagen existente.</p><h2>Paso a paso: configurando los iconos del manifest</h2><p>Vamos a montar un array de <code>icons</code> a prueba de balas. Nos centraremos en las tres entradas que de verdad importan para el soporte moderno de PWA en Android.</p><h3>1. El PNG estándar de 192x192</h3><p>Esta es tu línea base. Android utiliza este tamaño para el icono del launcher en la mayoría de pantallas estándar. Debes declararlo explícitamente, sin excepciones.</p><p>No te fíes del navegador para que reduzca tu imagen de 512x512. El motor de renderizado de Android a veces aplica una interpolación rara al escalar hacia abajo, dejando tu icono con un aspecto borroso. Proporciona un PNG de 192x192 dedicado.</p><h3>2. El PNG de alta resolución de 512x512</h3><p>Este es el icono del splash screen. Cuando tu PWA arranca, Android muestra esta imagen sobre un fondo blanco mientras el service worker carga. Si solo declaras un icono en tu manifest, que sea este ( aunque te recomiendo no conformarte con uno solo).</p><h3>3. El icono Maskable (Crucial)</h3><p>Android 13+ y las versiones modernas de Chrome OS usan iconos adaptativos. Si no declaras un icono maskable, el sistema operativo mete tu icono estándar dentro de un círculo blanco. El resultado es de lo más cutre.</p><p>Los iconos maskable requieren una 'safe zone' en el centro. Tienes que añadir padding a tu diseño para que el sistema operativo pueda recortarlo en cualquier forma (círculo, squircle, cuadrado redondeado) sin cortar tu logo. Explicamos el lado del diseño en nuestra <a href="/es/blog/maskable-icon.html">guía de iconos maskable</a>.</p><h3>El código completo</h3><p>Aquí tienes el array de <code>icons</code> exacto que deberías pegar en tu <code>manifest.json</code> ahora mismo:</p><pre><code>{
   "name": "My Awesome App",
   "icons": [
     {
@@ -129,7 +129,7 @@
         <div class="cta-box">
             <h3>Genera tus iconos de manifest ahora</h3>
             <p>Deja de adivinar dimensiones. Usa Mzu favicondl para generar iconos perfectos de 192x192, 512x512 y maskable desde una sola imagen en segundos.</p>
-            <a href="/es/index.html" class="cta-btn">Pruébalo gratis →</a>
+            <a href="/es/" class="cta-btn">Pruébalo gratis →</a>
         </div>
     </article>
 
@@ -137,7 +137,7 @@
         <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
             <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
             <div class="flex gap-6">
-                <a href="/es/index.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">Inicio</a>
+                <a href="/es/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">Inicio</a>
                 <a href="/es/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">Blog</a>
                 <a href="/es/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">Privacidad</a>
             </div>

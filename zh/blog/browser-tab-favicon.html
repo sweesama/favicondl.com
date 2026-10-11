@@ -66,7 +66,7 @@
 <body>
     <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
         <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
-            <a href="/zh/index.html" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <a href="/zh/" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
             <div class="flex items-center gap-8">
                 <a href="/zh/documentation.html" class="nav-link">文档</a>
                 <a href="/zh/tools.html" class="nav-link">工具</a>
@@ -90,7 +90,7 @@
 
     <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
         <nav class="text-sm text-gray-400 mb-8">
-            <a href="/zh/index.html" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/zh/" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
             <a href="/zh/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
             <span class="text-gray-600">为什么你的浏览器标签页图标总是显示错误？（附修复方案）</span>
         </nav>
@@ -102,13 +102,13 @@
 
         <div class="article-body">
             <p>如果你和我一样，浏览器里永远挤着40多个标签页。你早就不看标题了——它们被压缩成了两个字母。你完全靠标签页左侧那 16x16 像素的小图标来导航。这就是你的 favicon in browser tab。如果你的网站没有它，用户就再也找不到你了。</p><h2>Favicon in Browser Tab 的隐藏威力</h2><p>浏览器标签页图标是用户导航的终极锚点。想想 Bilibili 或 GitHub。当你在 GitHub 打开一个 Pull Request 时，标签图标是标准的黑色（或白色）。但当 PR 被合并后，GitHub 会动态地将标签图标切换为紫色的合并符号。（这是一个极其聪明的用户体验设计）。他们不仅仅是在做品牌展示，而是直接在标签栏中传达状态信息。</p><h3>标签页图标的解析原理</h3><p>浏览器会优先读取 HTML 文档的 <code>&lt;head&gt;</code> 部分，来决定在标签页中渲染什么。如果找不到 link 标签，它们会盲目地向你的服务器根目录请求 <code>/favicon.ico</code>。这种回退机制是 90 年代的遗物，这也是为什么你的服务器日志里总是充满 404 错误的原因。</p><h3>现代实现策略</h3><p>我对 2026 年的强烈建议？放弃将独立的 ICO 文件作为主要图标源。今天的浏览器更喜欢可缩放的矢量图形。你应该为现代浏览器明确声明一个 SVG 图标，并提供一个 PNG 作为回退方案。</p><pre><code>&lt;link rel='icon' type='image/svg+xml' href='/icon.svg'&gt;
-&lt;link rel='icon' type='image/png' href='/icon.png' sizes='32x32'&gt;</code></pre><p>这样可以确保无论用户使用的是标准显示器还是高 DPI 的视网膜屏幕，你的图标都能保持绝对清晰。</p><h3>为标签栏做设计</h3><p>标签栏是一个“恶劣”的视觉环境。它的颜色会根据用户的操作系统主题、浏览器主题以及标签页是否激活而不断变化。</p><ul><li><strong>保持简单：</strong> 不要把完整的 Logo 文字塞进 16 像素里。使用独特的字母组合或符号。</li><li><strong>使用透明度：</strong> 在深灰色的 Safari 标签页上，一个纯白色的实心方块看起来非常糟糕。</li><li><strong>测试深色模式：</strong> 确保你的图标在深色背景下依然清晰可见。</li></ul><p>如果你总是搞不定确切的尺寸和格式，我通常会把源文件丢进 <a href="/zh/blog/favicon-generator-free.html">Mzu favicondl</a> 来生成所需的完整图标包。你的 favicon in browser tab 是网站在用户屏幕上的永久广告牌，请务必认真对待。如果你需要验证当前配置在不同浏览器中的表现，请查看我们关于 <a href="/zh/blog/check-website-favicon.html">如何检查网站 favicon</a> 的指南。</p>
+&lt;link rel='icon' type='image/png' href='/icon.png' sizes='32x32'&gt;</code></pre><p>这样可以确保无论用户使用的是标准显示器还是高 DPI 的视网膜屏幕，你的图标都能保持绝对清晰。</p><h3>为标签栏做设计</h3><p>标签栏是一个“恶劣”的视觉环境。它的颜色会根据用户的操作系统主题、浏览器主题以及标签页是否激活而不断变化。</p><ul><li><strong>保持简单：</strong> 不要把完整的 Logo 文字塞进 16 像素里。使用独特的字母组合或符号。</li><li><strong>使用透明度：</strong> 在深灰色的 Safari 标签页上，一个纯白色的实心方块看起来非常糟糕。</li><li><strong>测试深色模式：</strong> 确保你的图标在深色背景下依然清晰可见。</li></ul><p>如果你总是搞不定确切的尺寸和格式，我通常会把源文件丢进 <a href="/zh/">Mzu favicondl</a> 来生成所需的完整图标包。你的 favicon in browser tab 是网站在用户屏幕上的永久广告牌，请务必认真对待。如果你需要验证当前配置在不同浏览器中的表现，请查看我们关于 <a href="/zh/blog/check-website-favicon.html">如何检查网站 favicon</a> 的指南。</p>
         </div>
 
         <div class="cta-box">
             <h3>立即修复你的浏览器标签页图标</h3>
             <p>生成清晰、现代的 SVG 和 PNG favicon，在每个浏览器标签页中都完美显示。</p>
-            <a href="/zh/index.html" class="cta-btn">免费生成 Favicon →</a>
+            <a href="/zh/" class="cta-btn">免费生成 Favicon →</a>
         </div>
     </article>
 
@@ -116,7 +116,7 @@
         <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
             <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
             <div class="flex gap-6">
-                <a href="/zh/index.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">首页</a>
+                <a href="/zh/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">首页</a>
                 <a href="/zh/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">博客</a>
                 <a href="/zh/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">隐私政策</a>
             </div>

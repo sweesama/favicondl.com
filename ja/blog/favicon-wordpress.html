@@ -66,7 +66,7 @@
 <body>
     <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
         <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
-            <a href="/ja/index.html" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <a href="/ja/" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
             <div class="flex items-center gap-8">
                 <a href="/ja/documentation.html" class="nav-link">ドキュメント</a>
                 <a href="/ja/tools.html" class="nav-link">ツール</a>
@@ -90,7 +90,7 @@
 
     <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
         <nav class="text-sm text-gray-400 mb-8">
-            <a href="/ja/index.html" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/ja/" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
             <a href="/ja/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
             <span class="text-gray-600">WordPressにファビコンを設定する方法：2026年版ガイド</span>
         </nav>
@@ -101,7 +101,7 @@
         </header>
 
         <div class="article-body">
-            <p>ブラウザのタブを見て、自分のWordPressサイトにまだ一般的な灰色の地球儀やデフォルトの「W」ロゴが表示されていることにイライラした経験があるなら、それはあなただけではありません。それは「趣味のプロジェクト」と「人々が実際に信頼するブランド」を分ける、ほんの些細なディテールです。2026年にもなれば、ユーザーはデスクトップのタブからモバイルのホーム画面のブックマークまで、シームレスな視覚体験を期待しています。</p><h2>WordPressの「サイトアイコン」 vs. 従来のFavicon</h2><p>WordPressには独自の方法があります。ダッシュボードではfaviconとは呼ばず、<strong>サイトアイコン</strong>と呼びます。良い点は、WordPressが多くの面倒な作業（複数サイズの生成など）を自動的に処理してくれることです。悪い点は、もし適当な低解像度のPNGをアップロードしてしまうと、iPhoneやMacBook Proのような高密度ディスプレイではぼやけて表示されてしまうことです。</p><p>始める前に、正方形の画像が必要です。512x512ピクセルのPNGまたはSVGを推奨します。もしあなたのロゴが長方形なら、無理やり押しつぶさないでください。シンプルで正方形のバージョンを作成する必要があります。<strong>Stripe</strong>を見てみましょう。彼らのメインロゴはワードマークですが、faviconは紫色の背景に太字でシンプルな「S」です。これは16x16ピクセルでも判読可能です。複雑なロゴをお持ちの場合は、<a href="/ja/blog/favicon-generator-free.html">Mzu favicondl</a>のようなツールを使って、アップロードする前に小さいサイズでどのように見えるかテストしてください。</p><h2>方法1：モダンな方法（ブロックテーマとサイトエディター）</h2><p>モダンなブロックテーマ（Twenty Twenty-FourやTwenty Twenty-Fiveなど）を使用している場合、カスタマイザーはしばしば非表示になっています。2026年における設定の見つけ方は以下の通りです。</p><ol><li>WordPressダッシュボードから<strong>外観 &gt; エディター</strong>に移動します。</li><li><strong>スタイル</strong>アイコン（右上の半円のアイコン）をクリックします。</li><li><strong>編集</strong>（鉛筆）アイコンをクリックしてスタイル設定に入ります。</li><li><strong>サイトの基本情報</strong>を探します（テーマによっては「一般」や「ヘッダー」の下にネストされていることもあります）。</li><li><strong>サイトアイコンを選択</strong>をクリックし、512x512のファイルをアップロードします。</li></ol><h2>方法2：クラシックな方法（カスタマイザー）</h2><p>まだクラシックテーマを実行している方や、Elementorのようなページビルダーを使用している方にとって、昔ながらのカスタマイザーは最高の味方です。より速く、より直接的です。</p><ol><li><strong>外観 &gt; カスタマイズ</strong>に移動します。</li><li><strong>サイトの基本情報</strong>タブを見つけます。</li><li><strong>サイトアイコン</strong>のセクションまでスクロールダウンします。</li><li>画像をアップロードします。WordPressがブラウザタブやモバイルアプリのアイコンとしてどのように表示されるかのプレビューを表示してくれます。</li></ol><p>変更が反映されない場合、それはほとんどの場合キャッシュの問題です。<a href="/ja/blog/favicon-not-showing.html">faviconが表示されない</a>場合のガイドをチェックして、一般的な原因のトラブルシューティングを行ってください。</p><h2>方法3：開発者向けの方法（手動でのコード追加）</h2><p>時には、WordPressの組み込み機能では十分な制御ができないことがあります。例えば、スケーリングやダークモード対応に優れたモダンな<a href="/ja/blog/svg-favicon.html">SVG favicon</a>を使いたい場合などです。その場合は、UIをスキップして直接コードを記述します。</p><p>faviconファイル（ICO, PNG, SVG）をテーマフォルダ（例：<code>/wp-content/themes/your-theme/assets/favicons/</code>）にアップロードします。次に、このコードを<code>functions.php</code>ファイルに追加します。</p><pre><code>function mzu_custom_favicon() {
+            <p>ブラウザのタブを見て、自分のWordPressサイトにまだ一般的な灰色の地球儀やデフォルトの「W」ロゴが表示されていることにイライラした経験があるなら、それはあなただけではありません。それは「趣味のプロジェクト」と「人々が実際に信頼するブランド」を分ける、ほんの些細なディテールです。2026年にもなれば、ユーザーはデスクトップのタブからモバイルのホーム画面のブックマークまで、シームレスな視覚体験を期待しています。</p><h2>WordPressの「サイトアイコン」 vs. 従来のFavicon</h2><p>WordPressには独自の方法があります。ダッシュボードではfaviconとは呼ばず、<strong>サイトアイコン</strong>と呼びます。良い点は、WordPressが多くの面倒な作業（複数サイズの生成など）を自動的に処理してくれることです。悪い点は、もし適当な低解像度のPNGをアップロードしてしまうと、iPhoneやMacBook Proのような高密度ディスプレイではぼやけて表示されてしまうことです。</p><p>始める前に、正方形の画像が必要です。512x512ピクセルのPNGまたはSVGを推奨します。もしあなたのロゴが長方形なら、無理やり押しつぶさないでください。シンプルで正方形のバージョンを作成する必要があります。<strong>Stripe</strong>を見てみましょう。彼らのメインロゴはワードマークですが、faviconは紫色の背景に太字でシンプルな「S」です。これは16x16ピクセルでも判読可能です。複雑なロゴをお持ちの場合は、<a href="/ja/">Mzu favicondl</a>のようなツールを使って、アップロードする前に小さいサイズでどのように見えるかテストしてください。</p><h2>方法1：モダンな方法（ブロックテーマとサイトエディター）</h2><p>モダンなブロックテーマ（Twenty Twenty-FourやTwenty Twenty-Fiveなど）を使用している場合、カスタマイザーはしばしば非表示になっています。2026年における設定の見つけ方は以下の通りです。</p><ol><li>WordPressダッシュボードから<strong>外観 &gt; エディター</strong>に移動します。</li><li><strong>スタイル</strong>アイコン（右上の半円のアイコン）をクリックします。</li><li><strong>編集</strong>（鉛筆）アイコンをクリックしてスタイル設定に入ります。</li><li><strong>サイトの基本情報</strong>を探します（テーマによっては「一般」や「ヘッダー」の下にネストされていることもあります）。</li><li><strong>サイトアイコンを選択</strong>をクリックし、512x512のファイルをアップロードします。</li></ol><h2>方法2：クラシックな方法（カスタマイザー）</h2><p>まだクラシックテーマを実行している方や、Elementorのようなページビルダーを使用している方にとって、昔ながらのカスタマイザーは最高の味方です。より速く、より直接的です。</p><ol><li><strong>外観 &gt; カスタマイズ</strong>に移動します。</li><li><strong>サイトの基本情報</strong>タブを見つけます。</li><li><strong>サイトアイコン</strong>のセクションまでスクロールダウンします。</li><li>画像をアップロードします。WordPressがブラウザタブやモバイルアプリのアイコンとしてどのように表示されるかのプレビューを表示してくれます。</li></ol><p>変更が反映されない場合、それはほとんどの場合キャッシュの問題です。<a href="/ja/blog/favicon-not-showing.html">faviconが表示されない</a>場合のガイドをチェックして、一般的な原因のトラブルシューティングを行ってください。</p><h2>方法3：開発者向けの方法（手動でのコード追加）</h2><p>時には、WordPressの組み込み機能では十分な制御ができないことがあります。例えば、スケーリングやダークモード対応に優れたモダンな<a href="/ja/blog/svg-favicon.html">SVG favicon</a>を使いたい場合などです。その場合は、UIをスキップして直接コードを記述します。</p><p>faviconファイル（ICO, PNG, SVG）をテーマフォルダ（例：<code>/wp-content/themes/your-theme/assets/favicons/</code>）にアップロードします。次に、このコードを<code>functions.php</code>ファイルに追加します。</p><pre><code>function mzu_custom_favicon() {
     echo '&lt;link rel="icon" href="' . get_stylesheet_directory_uri() . '/assets/favicons/favicon.svg" type="image/svg+xml"&gt;';
     echo '&lt;link rel="apple-touch-icon" href="' . get_stylesheet_directory_uri() . '/assets/favicons/apple-touch-icon.png"&gt;';
 }
@@ -111,7 +111,7 @@ add_action("wp_head", "mzu_custom_favicon");</code></pre><p>この方法によ�
 <div class="cta-box">
             <h3>Create Your WordPress Favicon Now</h3>
             <p>Convert your logo into the perfect 512x512 Site Icon and all necessary formats with Mzu favicondl.</p>
-            <a href="/ja/index.html" class="cta-btn">Generate Free Favicon →</a>
+            <a href="/ja/" class="cta-btn">Generate Free Favicon →</a>
         </div>
     </article>
 
@@ -119,7 +119,7 @@ add_action("wp_head", "mzu_custom_favicon");</code></pre><p>この方法によ�
         <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
             <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
             <div class="flex gap-6">
-                <a href="/ja/index.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">ホーム</a>
+                <a href="/ja/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">ホーム</a>
                 <a href="/ja/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">ブログ</a>
                 <a href="/ja/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">プライバシー</a>
             </div>

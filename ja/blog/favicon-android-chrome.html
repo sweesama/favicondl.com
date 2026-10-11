@@ -66,7 +66,7 @@
 <body>
     <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
         <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
-            <a href="/ja/index.html" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <a href="/ja/" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
             <div class="flex items-center gap-8">
                 <a href="/ja/documentation.html" class="nav-link">ドキュメント</a>
                 <a href="/ja/tools.html" class="nav-link">ツール</a>
@@ -90,7 +90,7 @@
 
     <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
         <nav class="text-sm text-gray-400 mb-8">
-            <a href="/ja/index.html" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/ja/" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
             <a href="/ja/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
             <span class="text-gray-600">Android版Chromeでファビコンを正しく表示させる2026年版ガイド</span>
         </nav>
@@ -101,7 +101,7 @@
         </header>
 
         <div class="article-body">
-            <p>AndroidのChromeでウェブサイトを開いた際、タブ切り替え画面で自分のサイトだけがぼやけた四角いアイコンになっていて、がっかりしたことはありませんか？デスクトップでは綺麗に見えていても、高解像度なAndroid端末では32x32のアイコンは力不足です。2026年現在、<strong>favicon for android chrome</strong>を正しく設定するには、単にICOファイルを置くだけでは不十分です。</p><p><strong>Google</strong>のYouTubeや検索サービスを見ると、ブラウザの枠を超えてアプリのような一体感があることに気づくでしょう。アドレスバーの色がサイトのデザインと同期し、アイコンは常に鮮明です。今回は、その「プロの仕上がり」を自分のサイトで実現する方法を解説します。</p><h2>Android Chrome向け設定の3本柱</h2><p>Androidでサイトをネイティブアプリのように見せるには、高解像度PNG、ウェブアプリマニフェスト、そしてテーマカラー設定の3つが必要です。</p><h3>1. 192x192 PNG：モバイルの標準</h3><p>Android Chromeにおいて、192x192ピクセルは「黄金のサイズ」です。これ以下のサイズだと、最新のスマホ画面ではボケて見えてしまいます。透過PNGを使用するのがベストです。<a href="/ja/blog/favicon-generator-free.html">Mzu favicondl</a>を使えば、元のロゴからこのサイズを簡単に書き出せます。</p><h3>2. manifest.jsonの重要性</h3><p>Chromeは <code>manifest.json</code> を通じてアイコンの役割を理解します。ここで重要なのが <code>purpose: maskable</code> の設定です。これがないと、Androidの機種によってアイコンが変に切り抜かれてしまうことがあります。</p><pre><code>{
+            <p>AndroidのChromeでウェブサイトを開いた際、タブ切り替え画面で自分のサイトだけがぼやけた四角いアイコンになっていて、がっかりしたことはありませんか？デスクトップでは綺麗に見えていても、高解像度なAndroid端末では32x32のアイコンは力不足です。2026年現在、<strong>favicon for android chrome</strong>を正しく設定するには、単にICOファイルを置くだけでは不十分です。</p><p><strong>Google</strong>のYouTubeや検索サービスを見ると、ブラウザの枠を超えてアプリのような一体感があることに気づくでしょう。アドレスバーの色がサイトのデザインと同期し、アイコンは常に鮮明です。今回は、その「プロの仕上がり」を自分のサイトで実現する方法を解説します。</p><h2>Android Chrome向け設定の3本柱</h2><p>Androidでサイトをネイティブアプリのように見せるには、高解像度PNG、ウェブアプリマニフェスト、そしてテーマカラー設定の3つが必要です。</p><h3>1. 192x192 PNG：モバイルの標準</h3><p>Android Chromeにおいて、192x192ピクセルは「黄金のサイズ」です。これ以下のサイズだと、最新のスマホ画面ではボケて見えてしまいます。透過PNGを使用するのがベストです。<a href="/ja/">Mzu favicondl</a>を使えば、元のロゴからこのサイズを簡単に書き出せます。</p><h3>2. manifest.jsonの重要性</h3><p>Chromeは <code>manifest.json</code> を通じてアイコンの役割を理解します。ここで重要なのが <code>purpose: maskable</code> の設定です。これがないと、Androidの機種によってアイコンが変に切り抜かれてしまうことがあります。</p><pre><code>{
   'icons': [
     {
       'src': '/icon-192.png',
@@ -116,7 +116,7 @@
         <div class="cta-box">
             <h3>Android用アイコンを今すぐ生成</h3>
             <p>Mzu favicondl を使って、Android版Chromeに最適な192x192 PNGとマニフェストを数秒で作成しましょう。</p>
-            <a href="/ja/index.html" class="cta-btn">生成を開始する →</a>
+            <a href="/ja/" class="cta-btn">生成を開始する →</a>
         </div>
     </article>
 
@@ -124,7 +124,7 @@
         <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
             <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
             <div class="flex gap-6">
-                <a href="/ja/index.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">ホーム</a>
+                <a href="/ja/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">ホーム</a>
                 <a href="/ja/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">ブログ</a>
                 <a href="/ja/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">プライバシー</a>
             </div>

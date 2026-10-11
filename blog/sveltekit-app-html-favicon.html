@@ -66,7 +66,7 @@
 <body>
     <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
         <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
-            <a href="/index.html" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <a href="/" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
             <div class="flex items-center gap-8">
                 <a href="/documentation.html" class="nav-link" data-en="Docs" data-zh="文档">Docs</a>
                 <a href="/tools.html" class="nav-link" data-en="Tools" data-zh="工具">Tools</a>
@@ -90,7 +90,7 @@
 
     <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
         <nav class="text-sm text-gray-400 mb-8">
-            <a href="/index.html" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
             <a href="/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
             <span class="text-gray-600" data-en="SvelteKit app.html Favicon: The HTML Template Setup Guide" data-zh="SvelteKit app.html 网站图标：模板配置完整指南" data-ja="SvelteKit app.html ファビコン：テンプレート設定ガイド" data-ko="SvelteKit app.html 파비콘: 템플릿 설정 가이드" data-es="Favicon en app.html de SvelteKit: Guía de Configuración">SvelteKit app.html Favicon: The HTML Template Setup Guide</span>
         </nav>
@@ -115,7 +115,7 @@
 <li>A working SvelteKit project (2.x or later).</li>
 <li>Your favicon files ready inside <code>static/</code>. For a complete stack, prepare a 32×32 <code>favicon.ico</code>, a 180×180 <code>apple-touch-icon.png</code>, an SVG, and optionally a <code>site.webmanifest</code>.</li>
 </ul>
-<p>If you don't have those files yet, generate them with <a href="/index.html">Mzu favicondl</a> from any source image — it outputs the full size package in one click.</p>
+<p>If you don't have those files yet, generate them with <a href="/">Mzu favicondl</a> from any source image — it outputs the full size package in one click.</p>
 <h2>Step-by-step: Add favicon link tags to app.html</h2>
 <h3>1. Locate your app.html file</h3>
 <p>Open <code>src/app.html</code>. By default, it looks roughly like this:</p>
@@ -162,7 +162,7 @@
 <p><strong>Double-encoding SVG attributes.</strong> If you copy a snippet that uses <code>type="image/svg+xml"</code> with double quotes into the <code>app.html</code> shell, Vite can mangle it. Stick with single quotes inside HTML attributes to keep the build happy.</p>
 <h2>Wrapping up</h2>
 <p>The <code>app.html</code> template is the cleanest place to declare favicons in SvelteKit because it runs before any JavaScript and ships with every page response. Drop a complete SVG + ICO + Apple Touch stack into <code>static/</code>, wire the corresponding <code>&lt;link&gt;</code> tags into <code>&lt;head&gt;</code>, and you'll have a crisp icon on every browser tab from the very first paint.</p>
-<p>For a broader look at SvelteKit favicon options — including the <code>+layout.svelte</code> approach and dynamic icons — see our main <a href="/blog/sveltekit-favicon.html">SvelteKit favicon guide</a>. And if you need the actual icon files, <a href="/index.html">Mzu favicondl</a> generates the full size stack from any source image in seconds.</p>
+<p>For a broader look at SvelteKit favicon options — including the <code>+layout.svelte</code> approach and dynamic icons — see our main <a href="/blog/sveltekit-favicon.html">SvelteKit favicon guide</a>. And if you need the actual icon files, <a href="/">Mzu favicondl</a> generates the full size stack from any source image in seconds.</p>
         </div>
 
         <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
@@ -180,7 +180,7 @@
 <li>一个跑得起来的 SvelteKit 项目（2.x 或更高）。</li>
 <li>放在 <code>static/</code> 下的 favicon 文件。完整一套建议备齐：32×32 的 <code>favicon.ico</code>、180×180 的 <code>apple-touch-icon.png</code>、一个 SVG，以及可选的 <code>site.webmanifest</code>。</li>
 </ul>
-<p>如果还没生成这些文件，可以用 <a href="/index.html">Mzu favicondl</a> 从任意源图一键生成完整尺寸包。</p>
+<p>如果还没生成这些文件，可以用 <a href="/">Mzu favicondl</a> 从任意源图一键生成完整尺寸包。</p>
 <h2>Step-by-step：给 app.html 添加 favicon link 标签</h2>
 <h3>1. 找到 app.html 文件</h3>
 <p>打开 <code>src/app.html</code>。默认情况下大致长这样：</p>
@@ -227,7 +227,7 @@
 <p><strong>SVG 属性被双重编码。</strong>如果复制来的片段里 <code>type="image/svg+xml"</code> 用的是双引号，贴进 <code>app.html</code> 外壳后 Vite 可能会把它弄坏。HTML 属性里统一用单引号，构建过程就不会出岔子。</p>
 <h2>收尾</h2>
 <p>在 SvelteKit 里，<code>app.html</code> 模板是声明 favicon 最干净的位置——它在任何 JavaScript 运行之前就生效，并且会随每个页面响应一起输出。把完整的 SVG + ICO + Apple Touch 这一套放进 <code>static/</code>，再把对应的 <code>&lt;link&gt;</code> 标签接到 <code>&lt;head&gt;</code> 里，从首次绘制开始每个浏览器标签页就能拿到一张清晰的图标。</p>
-<p>想更全面地了解 SvelteKit 的 favicon 方案——包括 <code>+layout.svelte</code> 的做法和动态图标——可以看我们的 <a href="/blog/sveltekit-favicon.html">SvelteKit favicon 指南</a>。如果需要现成的图标文件，<a href="/index.html">Mzu favicondl</a> 可以从任意源图在几秒内生成完整一套。</p></template>
+<p>想更全面地了解 SvelteKit 的 favicon 方案——包括 <code>+layout.svelte</code> 的做法和动态图标——可以看我们的 <a href="/blog/sveltekit-favicon.html">SvelteKit favicon 指南</a>。如果需要现成的图标文件，<a href="/">Mzu favicondl</a> 可以从任意源图在几秒内生成完整一套。</p></template>
         <template data-article-lang="ja"><p>SvelteKit のルーティングを整え、レイアウトを磨き、ビルドをデプロイした。しかしブラウザのタブを開いてみると、デフォルトの Svelte ロゴが表示されている — 最悪の場合は白い空白の四角だ。この問題を解決するのは、たいてい 1 つのファイルです:<code>app.html</code>。</p>
 <p><code>app.html</code> は、SvelteKit がすべてのページをサーバーとクライアントの両方でレンダリングするために使う HTML シェルです。<a href="https://svelte.dev/docs/kit/project-structure">SvelteKit のプロジェクト構造ドキュメント</a>によると、このテンプレートは <code>src/</code> の直下に置かれ、すべてのルートで hydration をまたいで生き残るマークアップを注入できる唯一の場です。つまり、ファビコンの <code>&lt;link&gt;</code> タグを置いておく場所として、これ以上ないほど適しています。</p>
 <h2>なぜ app.html で、レイアウトではないのか?</h2>
@@ -242,7 +242,7 @@
 <li>動作する SvelteKit プロジェクト (2.x 以降)。</li>
 <li><code>static/</code> 内に用意したファビコンファイル一式。完全な構成としては、32×32 の <code>favicon.ico</code>、180×180 の <code>apple-touch-icon.png</code>、SVG、必要に応じて <code>site.webmanifest</code> を用意してください。</li>
 </ul>
-<p>これらのファイルがまだない場合は、<a href="/index.html">Mzu favicondl</a> を使ってソース画像から生成できます。ワンクリックで全サイズのパッケージが出力されます。</p>
+<p>これらのファイルがまだない場合は、<a href="/">Mzu favicondl</a> を使ってソース画像から生成できます。ワンクリックで全サイズのパッケージが出力されます。</p>
 <h2>ステップバイステップ: app.html にファビコンの link タグを追加する</h2>
 <h3>1. app.html ファイルを見つける</h3>
 <p><code>src/app.html</code> を開いてください。デフォルトではおおよそ次のようになっています。</p>
@@ -289,7 +289,7 @@
 <p><strong>SVG 属性のダブルエンコード。</strong><code>type="image/svg+xml"</code> のようにダブルクォートを使ったスニペットを <code>app.html</code> シェルにコピーすると、Vite がそれを壊してしまうことがあります。ビルドを正常に保つため、HTML 属性内ではシングルクォートを使用してください。</p>
 <h2>まとめ</h2>
 <p><code>app.html</code> テンプレートは、JavaScript よりも先に実行され、すべてのページレスポンスに同梱されるため、SvelteKit でファビコンを宣言する最もクリーンな場所です。SVG + ICO + Apple Touch の完全な構成を <code>static/</code> に配置し、対応する <code>&lt;link&gt;</code> タグを <code>&lt;head&gt;</code> に配線すれば、最初のペイントからすべてのブラウザタブできれいにアイコンが表示されるようになります。</p>
-<p>SvelteKit のファビコン選択肢 (<code>+layout.svelte</code> アプローチや動的アイコンを含む) をより広く見たい場合は、メインの <a href="/blog/sveltekit-favicon.html">SvelteKit ファビコンガイド</a>を参照してください。実際に必要なアイコンファイルがある場合は、<a href="/index.html">Mzu favicondl</a> がソース画像から全サイズのパッケージを数秒で生成します。</p></template>
+<p>SvelteKit のファビコン選択肢 (<code>+layout.svelte</code> アプローチや動的アイコンを含む) をより広く見たい場合は、メインの <a href="/blog/sveltekit-favicon.html">SvelteKit ファビコンガイド</a>を参照してください。実際に必要なアイコンファイルがある場合は、<a href="/">Mzu favicondl</a> がソース画像から全サイズのパッケージを数秒で生成します。</p></template>
         <template data-article-lang="ko"><p>SvelteKit 라우트를 연결하고, 레이아웃을 다듬고, 빌드를 배포하셨나요? 그런데 라이브 탭을 열면 기본 Svelte 로고가 보이거나, 더 나쁘게는 하얀 빈 사각형만 보일 수 있습니다. 이 문제는 대개 한 특정 파일, 즉 <code>app.html</code>에서 해결됩니다.</p>
 <p><code>app.html</code>은 SvelteKit이 서버와 클라이언트 양쪽에서 모든 페이지를 렌더링할 때 사용하는 HTML 셸입니다. <a href="https://svelte.dev/docs/kit/project-structure">SvelteKit 프로젝트 구조 문서</a>에 따르면, 이 템플릿은 <code>src/</code>의 루트에 있으며, 모든 라우트에서 하이드레이션 후에도 유지되는 마크업을 주입할 수 있는 유일한 곳입니다. 따라서 파비콘 <code>&lt;link&gt;</code> 태그를 넣기에 가장 적합한 위치입니다.</p>
 <h2>왜 레이아웃이 아니라 app.html인가?</h2>
@@ -304,7 +304,7 @@
 <li>작동하는 SvelteKit 프로젝트(2.x 이상).</li>
 <li><code>static/</code> 안에 준비된 파비콘 파일. 완전한 스택을 위해 32×32 <code>favicon.ico</code>, 180×180 <code>apple-touch-icon.png</code>, SVG, 그리고 선택적으로 <code>site.webmanifest</code>를 준비하세요.</li>
 </ul>
-<p>아직 해당 파일이 없다면, <a href="/index.html">Mzu favicondl</a>을 사용하여 원본 이미지에서 생성하세요. 한 번의 클릭으로 전체 크기 패키지를 출력합니다.</p>
+<p>아직 해당 파일이 없다면, <a href="/">Mzu favicondl</a>을 사용하여 원본 이미지에서 생성하세요. 한 번의 클릭으로 전체 크기 패키지를 출력합니다.</p>
 <h2>단계별: app.html에 파비콘 링크 태그 추가하기</h2>
 <h3>1. app.html 파일 찾기</h3>
 <p><code>src/app.html</code>을 엽니다. 기본적으로 대략 다음과 같습니다:</p>
@@ -351,7 +351,7 @@
 <p><strong>SVG 속성의 이중 인코딩.</strong> <code>type="image/svg+xml"</code>처럼 큰따옴표를 사용하는 스니펫을 <code>app.html</code> 셸에 복사하면 Vite가 망가뜨릴 수 있습니다. HTML 속성에는 작은따옴표를 사용하여 빌드가 정상 작동하도록 하세요.</p>
 <h2>마무리</h2>
 <p><code>app.html</code> 템플릿은 JavaScript보다 먼저 실행되고 모든 페이지 응답에 포함되므로 SvelteKit에서 파비콘을 선언하는 가장 깔끔한 위치입니다. 완전한 SVG + ICO + Apple Touch 스택을 <code>static/</code>에 넣고 해당 <code>&lt;link&gt;</code> 태그를 <code>&lt;head&gt;</code>에 연결하면 첫 페인트부터 모든 브라우저 탭에 선명한 아이콘이 표시됩니다.</p>
-<p>SvelteKit 파비콘 옵션에 대한 더 넓은 시각(<code>+layout.svelte</code> 접근 방식 및 동적 아이콘 포함)은 메인 <a href="/blog/sveltekit-favicon.html">SvelteKit 파비콘 가이드</a>를 참조하세요. 실제 아이콘 파일이 필요하다면 <a href="/index.html">Mzu favicondl</a>이 원본 이미지에서 전체 크기 스택을 몇 초 만에 생성합니다.</p></template>
+<p>SvelteKit 파비콘 옵션에 대한 더 넓은 시각(<code>+layout.svelte</code> 접근 방식 및 동적 아이콘 포함)은 메인 <a href="/blog/sveltekit-favicon.html">SvelteKit 파비콘 가이드</a>를 참조하세요. 실제 아이콘 파일이 필요하다면 <a href="/">Mzu favicondl</a>이 원본 이미지에서 전체 크기 스택을 몇 초 만에 생성합니다.</p></template>
         <template data-article-lang="es"><p>Has configurado tus rutas de SvelteKit, pulido los layouts y desplegado la build. Pero cuando abres tu pestaña en vivo, ves el logo de Svelte por defecto — o peor, un cuadrado blanco vacío. La solución suele estar en un archivo específico: <code>app.html</code>.</p>
 <p><code>app.html</code> es la plantilla HTML que SvelteKit usa para renderizar cada página tanto en el servidor como en el cliente. Según la <a href="https://svelte.dev/docs/kit/project-structure">documentación de estructura de proyecto de SvelteKit</a>, esta plantilla se encuentra en la raíz de <code>src/</code> y es el único lugar donde puedes inyectar marcado que sobrevive a la hidratación en cada ruta. Eso lo convierte en el hogar perfecto para tus etiquetas <code>&lt;link&gt;</code> de favicon.</p>
 <h2>¿Por qué app.html y no el layout?</h2>
@@ -366,7 +366,7 @@
 <li>Un proyecto SvelteKit funcional (2.x o posterior).</li>
 <li>Tus archivos de favicon listos dentro de <code>static/</code>. Para una pila completa, prepara un <code>favicon.ico</code> de 32×32, un <code>apple-touch-icon.png</code> de 180×180, un SVG y, opcionalmente, un <code>site.webmanifest</code>.</li>
 </ul>
-<p>Si aún no tienes esos archivos, genéralos con <a href="/index.html">Mzu favicondl</a> desde cualquier imagen de origen; genera el paquete completo de tamaños en un clic.</p>
+<p>Si aún no tienes esos archivos, genéralos con <a href="/">Mzu favicondl</a> desde cualquier imagen de origen; genera el paquete completo de tamaños en un clic.</p>
 <h2>Paso a paso: Añadir etiquetas de favicon a app.html</h2>
 <h3>1. Localiza tu archivo app.html</h3>
 <p>Abre <code>src/app.html</code>. Por defecto, se ve más o menos así:</p>
@@ -413,12 +413,12 @@
 <p><strong>Atributos SVG con doble codificación.</strong> Si copias un fragmento que usa <code>type="image/svg+xml"</code> con comillas dobles dentro de la plantilla <code>app.html</code>, Vite puede dañarlo. Usa comillas simples dentro de los atributos HTML para mantener la build feliz.</p>
 <h2>Conclusión</h2>
 <p>La plantilla <code>app.html</code> es el lugar más limpio para declarar favicons en SvelteKit porque se ejecuta antes de cualquier JavaScript y se envía con cada respuesta de página. Coloca una pila completa de SVG + ICO + Apple Touch en <code>static/</code>, conecta las etiquetas <code>&lt;link&gt;</code> correspondientes en <code>&lt;head&gt;</code>, y tendrás un icono nítido en cada pestaña del navegador desde el primer pintado.</p>
-<p>Para una visión más amplia de las opciones de favicon en SvelteKit — incluyendo el enfoque con <code>+layout.svelte</code> e iconos dinámicos — consulta nuestra <a href="/blog/sveltekit-favicon.html">guía principal de favicon en SvelteKit</a>. Y si necesitas los archivos de icono reales, <a href="/index.html">Mzu favicondl</a> genera la pila completa de tamaños desde cualquier imagen de origen en segundos.</p></template>
+<p>Para una visión más amplia de las opciones de favicon en SvelteKit — incluyendo el enfoque con <code>+layout.svelte</code> e iconos dinámicos — consulta nuestra <a href="/blog/sveltekit-favicon.html">guía principal de favicon en SvelteKit</a>. Y si necesitas los archivos de icono reales, <a href="/">Mzu favicondl</a> genera la pila completa de tamaños desde cualquier imagen de origen en segundos.</p></template>
 
         <div class="cta-box">
             <h3 data-en="Generate Your SvelteKit Favicon Stack" data-zh="生成你的 SvelteKit 网站图标套件" data-ja="SvelteKit ファビコンセットを生成" data-ko="SvelteKit 파비콘 세트 생성하기" data-es="Genera tu pack de favicon para SvelteKit">Generate Your SvelteKit Favicon Stack</h3>
             <p data-en="Upload any image and get a complete favicon package — SVG, ICO, Apple Touch, and manifest — ready to drop into static/." data-zh="上传任意图片，一键获取完整的 favicon 套件——SVG、ICO、Apple Touch 和 manifest 文件——直接放入 static/ 目录即可使用。" data-ja="任意の画像をアップロードして、SVG、ICO、Apple Touch、manifest を含む完全なファビコン パッケージを取得し、static/ に配置できます。" data-ko="아무 이미지를 업로드하면 SVG, ICO, Apple Touch, manifest를 포함한 완전한 파비콘 패키지를 받아 static/ 폴더에 바로 넣을 수 있습니다." data-es="Sube cualquier imagen y obtén un paquete completo de favicon — SVG, ICO, Apple Touch y manifest — listo para colocar en static/.">Upload any image and get a complete favicon package — SVG, ICO, Apple Touch, and manifest — ready to drop into static/.</p>
-            <a href="/index.html" class="cta-btn" data-en="Try It Free →" data-zh="免费试用 →" data-ja="無料で試す →" data-ko="무료로 사용해보기 →" data-es="Pruébalo gratis →">Try It Free →</a>
+            <a href="/" class="cta-btn" data-en="Try It Free →" data-zh="免费试用 →" data-ja="無料で試す →" data-ko="무료로 사용해보기 →" data-es="Pruébalo gratis →">Try It Free →</a>
         </div>
     </article>
 
@@ -426,7 +426,7 @@
         <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
             <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
             <div class="flex gap-6">
-                <a href="/index.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Home" data-zh="首页">Home</a>
+                <a href="/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Home" data-zh="首页">Home</a>
                 <a href="/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Blog" data-zh="博客">Blog</a>
                 <a href="/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Privacy" data-zh="隐私政策">Privacy</a>
             </div>

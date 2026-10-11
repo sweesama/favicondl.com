@@ -66,7 +66,7 @@
 <body>
     <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
         <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
-            <a href="/es/index.html" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <a href="/es/" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
             <div class="flex items-center gap-8">
                 <a href="/es/documentation.html" class="nav-link">Documentación</a>
                 <a href="/es/tools.html" class="nav-link">Herramientas</a>
@@ -90,7 +90,7 @@
 
     <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
         <nav class="text-sm text-gray-400 mb-8">
-            <a href="/es/index.html" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/es/" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
             <a href="/es/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
             <span class="text-gray-600">Configuración de Favicon en Django: Guía Profesional 2026</span>
         </nav>
@@ -101,7 +101,7 @@
         </header>
 
         <div class="article-body">
-            <p>Acabas de terminar una vista preciosa en Django, tu middleware vuela y tus consultas a la base de datos están optimizadas. De repente, miras la terminal y ves esa molesta línea roja: <code>GET /favicon.ico HTTP/1.1 404</code>. Es una molestia menor, pero para un desarrollador profesional, esos 404 son ruido que oculta problemas reales.</p><p>Los navegadores están programados para buscar un archivo <code>favicon.ico</code> en la raíz de tu dominio (ej. ejemplo.com/favicon.ico) sin importar lo que diga tu HTML. Si no manejas esto específicamente en Django, el framework intentará encontrar un patrón de URL, fallará y registrará un error. Vamos a arreglarlo de la manera correcta, asegurando que tu sitio se vea tan pulido como GitHub o Stripe.</p><h3>Paso 1: Prepara tus activos</h3><p>Antes de tocar el código, necesitas los archivos. En 2026, un solo archivo <code>.ico</code> no es suficiente. Deberías tener un SVG para navegadores modernos y un ICO para los antiguos. Si no los tienes listos, puedes usar <a href="/es/blog/favicon-generator-free.html">Mzu favicondl</a> para generar un paquete completo desde tu logo.</p><p>Coloca tu <code>favicon.ico</code> y <code>favicon.svg</code> dentro de tu directorio static. Una estructura típica se ve así:</p><pre><code>my_project/
+            <p>Acabas de terminar una vista preciosa en Django, tu middleware vuela y tus consultas a la base de datos están optimizadas. De repente, miras la terminal y ves esa molesta línea roja: <code>GET /favicon.ico HTTP/1.1 404</code>. Es una molestia menor, pero para un desarrollador profesional, esos 404 son ruido que oculta problemas reales.</p><p>Los navegadores están programados para buscar un archivo <code>favicon.ico</code> en la raíz de tu dominio (ej. ejemplo.com/favicon.ico) sin importar lo que diga tu HTML. Si no manejas esto específicamente en Django, el framework intentará encontrar un patrón de URL, fallará y registrará un error. Vamos a arreglarlo de la manera correcta, asegurando que tu sitio se vea tan pulido como GitHub o Stripe.</p><h3>Paso 1: Prepara tus activos</h3><p>Antes de tocar el código, necesitas los archivos. En 2026, un solo archivo <code>.ico</code> no es suficiente. Deberías tener un SVG para navegadores modernos y un ICO para los antiguos. Si no los tienes listos, puedes usar <a href="/es/">Mzu favicondl</a> para generar un paquete completo desde tu logo.</p><p>Coloca tu <code>favicon.ico</code> y <code>favicon.svg</code> dentro de tu directorio static. Una estructura típica se ve así:</p><pre><code>my_project/
 ├── static/
 │   └── images/
 │       ├── favicon.ico
@@ -121,7 +121,7 @@ urlpatterns = [
         <div class="cta-box">
             <h3>Genera tu paquete de favicon para Django</h3>
             <p>No te conformes con un icono borroso. Usa Mzu favicondl para crear archivos SVG e ICO de alta calidad para tu proyecto Django en segundos.</p>
-            <a href="/es/index.html" class="cta-btn">Empezar a generar →</a>
+            <a href="/es/" class="cta-btn">Empezar a generar →</a>
         </div>
     </article>
 
@@ -129,7 +129,7 @@ urlpatterns = [
         <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
             <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
             <div class="flex gap-6">
-                <a href="/es/index.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">Inicio</a>
+                <a href="/es/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">Inicio</a>
                 <a href="/es/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">Blog</a>
                 <a href="/es/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">Privacidad</a>
             </div>

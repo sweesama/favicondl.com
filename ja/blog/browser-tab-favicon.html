@@ -66,7 +66,7 @@
 <body>
     <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
         <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
-            <a href="/ja/index.html" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <a href="/ja/" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
             <div class="flex items-center gap-8">
                 <a href="/ja/documentation.html" class="nav-link">ドキュメント</a>
                 <a href="/ja/tools.html" class="nav-link">ツール</a>
@@ -90,7 +90,7 @@
 
     <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
         <nav class="text-sm text-gray-400 mb-8">
-            <a href="/ja/index.html" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/ja/" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
             <a href="/ja/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
             <span class="text-gray-600">ブラウザタブのファビコンが表示されない理由と確実な解決策</span>
         </nav>
@@ -102,13 +102,13 @@
 
         <div class="article-body">
             <p>私のように、ブラウザのタブを常に40個以上開いているなら、もうタブのタイトルなんて読んでいないはずです。文字は省略され、左端にある16x16ピクセルの小さな画像だけが頼りです。この小さな画像こそが favicon in browser tab であり、これが設定されていないサイトは、タブの海に沈んで二度と見つけられません。</p><h2>Favicon in Browser Tab の重要性</h2><p>ブラウザタブのファビコンは、ユーザーナビゲーションの究極のアンカーです。GitHubを例に考えてみましょう。Pull Requestを開いたとき、タブのアイコンは標準の黒（または白）です。しかし、そのPRがマージされると、GitHubは動的にタブアイコンを紫色のマージ記号に切り替えます。（これは素晴らしいUXの工夫です）。彼らは単にブランドをアピールしているのではなく、タブバーで直接状態を伝えているのです。</p><h3>タブアイコンの仕組み</h3><p>ブラウザは、そのタブに何を描画するかを決定するために、HTMLドキュメントの <code>&lt;head&gt;</code> を優先的に読み込みます。linkタグが見つからない場合、サーバーのルートから <code>/favicon.ico</code> を盲目的にリクエストします。このフォールバック動作は90年代の名残ですが、サーバーログに404エラーが無限に記録される原因でもあります。</p><h3>モダンな実装戦略</h3><p>2026年における私の強い推奨事項は、単独のICOファイルをメインソースとして使用するのをやめることです。現在のブラウザはスケーラブルなベクターグラフィックスを求めています。モダンブラウザ向けにSVGを明示的に宣言し、フォールバックとしてPNGを提供すべきです。</p><pre><code>&lt;link rel='icon' type='image/svg+xml' href='/icon.svg'&gt;
-&lt;link rel='icon' type='image/png' href='/icon.png' sizes='32x32'&gt;</code></pre><p>これにより、ユーザーが標準モニターを使用していようと、高DPIのRetinaディスプレイを使用していようと、アイコンは常に鮮明に保たれます。</p><h3>タブバー向けのデザイン</h3><p>タブバーは過酷な環境です。ユーザーのOSテーマ、ブラウザテーマ、アクティブ/非アクティブ状態によって色が変化します。</p><ul><li><strong>シンプルに保つ：</strong> 16ピクセルの中にロゴの文字をすべて詰め込まないでください。特徴的なシンボルを使用しましょう。</li><li><strong>透明度を活用する：</strong> ダークグレーのSafariタブに真っ白な四角形は最悪の見栄えです。</li><li><strong>ダークモードのテスト：</strong> 暗い背景でもアイコンが視認できるか確認してください。</li></ul><p>正確なサイズやフォーマットを揃えるのが面倒な場合は、私はいつもソースファイルを <a href="/ja/blog/favicon-generator-free.html">Mzu favicondl</a> に通して、必要なファイルを一式生成しています。あなたの favicon in browser tab は、ユーザーの画面上に常駐する看板です。敬意を持って扱いましょう。現在の設定が各ブラウザでどう見えるか確認したい場合は、<a href="/ja/blog/check-website-favicon.html">ウェブサイトのファビコンを確認する方法</a> のガイドをご覧ください。</p>
+&lt;link rel='icon' type='image/png' href='/icon.png' sizes='32x32'&gt;</code></pre><p>これにより、ユーザーが標準モニターを使用していようと、高DPIのRetinaディスプレイを使用していようと、アイコンは常に鮮明に保たれます。</p><h3>タブバー向けのデザイン</h3><p>タブバーは過酷な環境です。ユーザーのOSテーマ、ブラウザテーマ、アクティブ/非アクティブ状態によって色が変化します。</p><ul><li><strong>シンプルに保つ：</strong> 16ピクセルの中にロゴの文字をすべて詰め込まないでください。特徴的なシンボルを使用しましょう。</li><li><strong>透明度を活用する：</strong> ダークグレーのSafariタブに真っ白な四角形は最悪の見栄えです。</li><li><strong>ダークモードのテスト：</strong> 暗い背景でもアイコンが視認できるか確認してください。</li></ul><p>正確なサイズやフォーマットを揃えるのが面倒な場合は、私はいつもソースファイルを <a href="/ja/">Mzu favicondl</a> に通して、必要なファイルを一式生成しています。あなたの favicon in browser tab は、ユーザーの画面上に常駐する看板です。敬意を持って扱いましょう。現在の設定が各ブラウザでどう見えるか確認したい場合は、<a href="/ja/blog/check-website-favicon.html">ウェブサイトのファビコンを確認する方法</a> のガイドをご覧ください。</p>
         </div>
 
         <div class="cta-box">
             <h3>ブラウザタブのアイコンを今すぐ修正</h3>
             <p>すべてのブラウザタブで完璧に見える、鮮明でモダンなSVGおよびPNGファビコンを生成します。</p>
-            <a href="/ja/index.html" class="cta-btn">無料でファビコンを作成 →</a>
+            <a href="/ja/" class="cta-btn">無料でファビコンを作成 →</a>
         </div>
     </article>
 
@@ -116,7 +116,7 @@
         <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
             <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
             <div class="flex gap-6">
-                <a href="/ja/index.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">ホーム</a>
+                <a href="/ja/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">ホーム</a>
                 <a href="/ja/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">ブログ</a>
                 <a href="/ja/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">プライバシー</a>
             </div>

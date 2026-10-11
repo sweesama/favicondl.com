@@ -66,7 +66,7 @@
 <body>
     <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
         <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
-            <a href="/ko/index.html" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <a href="/ko/" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
             <div class="flex items-center gap-8">
                 <a href="/ko/documentation.html" class="nav-link">문서</a>
                 <a href="/ko/tools.html" class="nav-link">도구</a>
@@ -90,7 +90,7 @@
 
     <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
         <nav class="text-sm text-gray-400 mb-8">
-            <a href="/ko/index.html" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/ko/" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
             <a href="/ko/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
             <span class="text-gray-600">Next.js Apple 아이콘 설정: 2026년 App Router 가이드</span>
         </nav>
@@ -100,7 +100,7 @@
             <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">Next.js Apple 아이콘 설정: 2026년 App Router 가이드</h1>
         </header>
 
-        <div class="article-body"><p>iPhone에서 Next.js 사이트를 홈 화면에 추가했을 때 빈 회색 사각형이 표시된 적이 있다면, Apple 터치 아이콘이 누락된 것입니다. 브라우저 탭의 파비콘은 정상적으로 보일 수 있지만, iOS는 별도의 파일을 사용하며 Next.js는 이를 제공하는 특정한 방법이 있습니다.</p><p>이 가이드에서는 App Router의 파일 기반 메타데이터 시스템을 사용한 <strong>Next.js Apple 아이콘 설정</strong> 방법을 안내합니다. 사용자 정의 API 라우트나 <code>_document.tsx</code>에 수동으로 <code>&lt;link&gt;</code> 태그를 작성할 필요 없이, 올바른 폴더에 파일을 넣기만 하면 됩니다.</p><h2>사전 요구 사항</h2><p>시작하기 전에 다음이 준비되어 있는지 확인하세요:</p><ul><li>App Router를 사용하는 Next.js 프로젝트(버전 13.2 이상).</li><li>아이콘용 이미지 파일. Apple은 터치 아이콘에 180×180 PNG를 권장하지만, 잠시 후에 자세히 다루겠습니다.</li><li>프로젝트의 <code>app/</code> 디렉토리에 대한 기본적인 이해.</li></ul><h2>1단계: Apple 터치 아이콘 준비</h2><p>Apple 터치 아이콘은 사용자가 사이트를 홈 화면에 추가할 때 iOS가 사용하는 PNG 파일입니다. 권장 크기는 180×180 픽셀이며, iPad Pro용 167×167, 구형 iPad용 152×152도 제공할 수 있습니다. 그러나 iOS는 180×180 아이콘을 자동으로 축소하므로 하나의 파일만 있으면 됩니다.</p><p>준비된 아이콘이 없다면 <a href="/ko/blog/favicon-generator-free.html">Mzu favicondl</a>과 같은 도구를 사용하여 로고에서 생성할 수 있습니다. 올바른 투명도와 패딩이 적용된 180×180 PNG를 내보낼 수 있습니다.</p><h2>2단계: App 디렉토리에 파일 배치</h2><p>Next.js App Router에서는 <code>apple-icon.png</code>(또는 <code>apple-icon.jpg</code>)를 <code>app/</code> 디렉토리에 직접 추가할 수 있습니다. Next.js는 이를 자동으로 감지하여 사이트 루트에서 제공합니다. 파일은 <code>layout.tsx</code>와 같은 폴더(일반적으로 <code>app/</code>)에 배치해야 합니다.</p><p>다음은 폴더 구조 예시입니다:</p><pre><code>app/
+        <div class="article-body"><p>iPhone에서 Next.js 사이트를 홈 화면에 추가했을 때 빈 회색 사각형이 표시된 적이 있다면, Apple 터치 아이콘이 누락된 것입니다. 브라우저 탭의 파비콘은 정상적으로 보일 수 있지만, iOS는 별도의 파일을 사용하며 Next.js는 이를 제공하는 특정한 방법이 있습니다.</p><p>이 가이드에서는 App Router의 파일 기반 메타데이터 시스템을 사용한 <strong>Next.js Apple 아이콘 설정</strong> 방법을 안내합니다. 사용자 정의 API 라우트나 <code>_document.tsx</code>에 수동으로 <code>&lt;link&gt;</code> 태그를 작성할 필요 없이, 올바른 폴더에 파일을 넣기만 하면 됩니다.</p><h2>사전 요구 사항</h2><p>시작하기 전에 다음이 준비되어 있는지 확인하세요:</p><ul><li>App Router를 사용하는 Next.js 프로젝트(버전 13.2 이상).</li><li>아이콘용 이미지 파일. Apple은 터치 아이콘에 180×180 PNG를 권장하지만, 잠시 후에 자세히 다루겠습니다.</li><li>프로젝트의 <code>app/</code> 디렉토리에 대한 기본적인 이해.</li></ul><h2>1단계: Apple 터치 아이콘 준비</h2><p>Apple 터치 아이콘은 사용자가 사이트를 홈 화면에 추가할 때 iOS가 사용하는 PNG 파일입니다. 권장 크기는 180×180 픽셀이며, iPad Pro용 167×167, 구형 iPad용 152×152도 제공할 수 있습니다. 그러나 iOS는 180×180 아이콘을 자동으로 축소하므로 하나의 파일만 있으면 됩니다.</p><p>준비된 아이콘이 없다면 <a href="/ko/">Mzu favicondl</a>과 같은 도구를 사용하여 로고에서 생성할 수 있습니다. 올바른 투명도와 패딩이 적용된 180×180 PNG를 내보낼 수 있습니다.</p><h2>2단계: App 디렉토리에 파일 배치</h2><p>Next.js App Router에서는 <code>apple-icon.png</code>(또는 <code>apple-icon.jpg</code>)를 <code>app/</code> 디렉토리에 직접 추가할 수 있습니다. Next.js는 이를 자동으로 감지하여 사이트 루트에서 제공합니다. 파일은 <code>layout.tsx</code>와 같은 폴더(일반적으로 <code>app/</code>)에 배치해야 합니다.</p><p>다음은 폴더 구조 예시입니다:</p><pre><code>app/
 ├── layout.tsx
 ├── page.tsx
 ├── apple-icon.png
@@ -112,14 +112,14 @@ export const metadata: Metadata = {
       { url: '/apple-icon.png', sizes: '180x180', type: 'image/png' },
     ],
   },
-};</code></pre><p>이 방법을 사용하면 <code>rel</code>, <code>sizes</code>, <code>type</code> 속성을 완전히 제어할 수 있습니다. 또한 Android PWA용 maskable 아이콘을 추가하는 데 사용할 수도 있지만, 이는 별도의 주제입니다.</p><h2>일반적인 문제</h2><p>다음은 발생할 수 있는 몇 가지 문제입니다:</p><ul><li><strong>파일을 찾을 수 없음:</strong> 파일 이름을 다시 확인하세요. <code>apple-icon.png</code> 또는 <code>apple-icon.jpg</code>여야 합니다. Next.js는 <code>apple-touch-icon.png</code>를 인식하지 못합니다.</li><li><strong>캐시 문제:</strong> iOS는 아이콘을 적극적으로 캐시합니다. 아이콘을 변경했는데 업데이트가 보이지 않으면 Safari의 캐시를 지우거나 다른 기기를 사용해 보세요.</li><li><strong>잘못된 크기:</strong> Apple은 180×180을 권장하지만, 다른 크기를 사용하면 iOS가 크기를 조정합니다. 크기 조정은 흐림을 유발할 수 있으므로 권장 크기를 사용하는 것이 좋습니다.</li><li><strong>투명도:</strong> iOS는 Apple 터치 아이콘에서 투명도를 지원하지 않습니다. PNG에 투명한 영역이 있으면 검은색으로 표시됩니다. 아이콘의 배경이 불투명한지 확인하세요.</li></ul><h2>결론</h2><p>Next.js에서 Apple 터치 아이콘을 설정하는 것은 파일 기반 규칙을 알면 간단합니다. 적절한 크기의 PNG를 <code>app/</code> 폴더에 넣으면 Next.js가 나머지를 처리합니다. 더 고급 시나리오의 경우 metadata API를 통해 프로그래밍 방식으로 제어할 수 있습니다.</p><p>아이콘 자체를 생성해야 한다면 <a href="/ko/blog/favicon-generator-free.html">Mzu favicondl</a>을 사용하여 로고에서 필요한 모든 크기를 만들어 보세요. Next.js에서 파비콘 설정에 대한 더 자세한 내용은 <a href="/ko/blog/nextjs-favicon.html">Next.js Favicon 가이드</a>를 확인하세요.</p><h2>문서화된 요구 사항 확인</h2><p>Next.js는 <a href="https://nextjs.org/docs/app/api-reference/file-conventions/metadata/app-icons">메타데이터 파일 규칙</a>에서 파비콘과 앱 아이콘을 문서화하고 있습니다.</p></div>
+};</code></pre><p>이 방법을 사용하면 <code>rel</code>, <code>sizes</code>, <code>type</code> 속성을 완전히 제어할 수 있습니다. 또한 Android PWA용 maskable 아이콘을 추가하는 데 사용할 수도 있지만, 이는 별도의 주제입니다.</p><h2>일반적인 문제</h2><p>다음은 발생할 수 있는 몇 가지 문제입니다:</p><ul><li><strong>파일을 찾을 수 없음:</strong> 파일 이름을 다시 확인하세요. <code>apple-icon.png</code> 또는 <code>apple-icon.jpg</code>여야 합니다. Next.js는 <code>apple-touch-icon.png</code>를 인식하지 못합니다.</li><li><strong>캐시 문제:</strong> iOS는 아이콘을 적극적으로 캐시합니다. 아이콘을 변경했는데 업데이트가 보이지 않으면 Safari의 캐시를 지우거나 다른 기기를 사용해 보세요.</li><li><strong>잘못된 크기:</strong> Apple은 180×180을 권장하지만, 다른 크기를 사용하면 iOS가 크기를 조정합니다. 크기 조정은 흐림을 유발할 수 있으므로 권장 크기를 사용하는 것이 좋습니다.</li><li><strong>투명도:</strong> iOS는 Apple 터치 아이콘에서 투명도를 지원하지 않습니다. PNG에 투명한 영역이 있으면 검은색으로 표시됩니다. 아이콘의 배경이 불투명한지 확인하세요.</li></ul><h2>결론</h2><p>Next.js에서 Apple 터치 아이콘을 설정하는 것은 파일 기반 규칙을 알면 간단합니다. 적절한 크기의 PNG를 <code>app/</code> 폴더에 넣으면 Next.js가 나머지를 처리합니다. 더 고급 시나리오의 경우 metadata API를 통해 프로그래밍 방식으로 제어할 수 있습니다.</p><p>아이콘 자체를 생성해야 한다면 <a href="/ko/">Mzu favicondl</a>을 사용하여 로고에서 필요한 모든 크기를 만들어 보세요. Next.js에서 파비콘 설정에 대한 더 자세한 내용은 <a href="/ko/blog/nextjs-favicon.html">Next.js Favicon 가이드</a>를 확인하세요.</p><h2>문서화된 요구 사항 확인</h2><p>Next.js는 <a href="https://nextjs.org/docs/app/api-reference/file-conventions/metadata/app-icons">메타데이터 파일 규칙</a>에서 파비콘과 앱 아이콘을 문서화하고 있습니다.</p></div>
 
         <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
 
         <div class="cta-box">
             <h3>지금 Apple 아이콘 생성</h3>
             <p>Mzu favicondl을 사용하여 Next.js 앱용 완벽한 180x180 PNG를 만드세요.</p>
-            <a href="/ko/index.html" class="cta-btn">무료로 사용해보기 →</a>
+            <a href="/ko/" class="cta-btn">무료로 사용해보기 →</a>
         </div>
     </article>
 
@@ -127,7 +127,7 @@ export const metadata: Metadata = {
         <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
             <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
             <div class="flex gap-6">
-                <a href="/ko/index.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">홈</a>
+                <a href="/ko/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">홈</a>
                 <a href="/ko/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">블로그</a>
                 <a href="/ko/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">개인정보</a>
             </div>

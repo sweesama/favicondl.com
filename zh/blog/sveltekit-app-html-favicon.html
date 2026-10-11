@@ -66,7 +66,7 @@
 <body>
     <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
         <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
-            <a href="/zh/index.html" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <a href="/zh/" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
             <div class="flex items-center gap-8">
                 <a href="/zh/documentation.html" class="nav-link">文档</a>
                 <a href="/zh/tools.html" class="nav-link">工具</a>
@@ -90,7 +90,7 @@
 
     <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
         <nav class="text-sm text-gray-400 mb-8">
-            <a href="/zh/index.html" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/zh/" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
             <a href="/zh/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
             <span class="text-gray-600">SvelteKit app.html 网站图标：模板配置完整指南</span>
         </nav>
@@ -114,7 +114,7 @@
 <li>一个跑得起来的 SvelteKit 项目（2.x 或更高）。</li>
 <li>放在 <code>static/</code> 下的 favicon 文件。完整一套建议备齐：32×32 的 <code>favicon.ico</code>、180×180 的 <code>apple-touch-icon.png</code>、一个 SVG，以及可选的 <code>site.webmanifest</code>。</li>
 </ul>
-<p>如果还没生成这些文件，可以用 <a href="/zh/index.html">Mzu favicondl</a> 从任意源图一键生成完整尺寸包。</p>
+<p>如果还没生成这些文件，可以用 <a href="/zh/">Mzu favicondl</a> 从任意源图一键生成完整尺寸包。</p>
 <h2>Step-by-step：给 app.html 添加 favicon link 标签</h2>
 <h3>1. 找到 app.html 文件</h3>
 <p>打开 <code>src/app.html</code>。默认情况下大致长这样：</p>
@@ -161,14 +161,14 @@
 <p><strong>SVG 属性被双重编码。</strong>如果复制来的片段里 <code>type="image/svg+xml"</code> 用的是双引号，贴进 <code>app.html</code> 外壳后 Vite 可能会把它弄坏。HTML 属性里统一用单引号，构建过程就不会出岔子。</p>
 <h2>收尾</h2>
 <p>在 SvelteKit 里，<code>app.html</code> 模板是声明 favicon 最干净的位置——它在任何 JavaScript 运行之前就生效，并且会随每个页面响应一起输出。把完整的 SVG + ICO + Apple Touch 这一套放进 <code>static/</code>，再把对应的 <code>&lt;link&gt;</code> 标签接到 <code>&lt;head&gt;</code> 里，从首次绘制开始每个浏览器标签页就能拿到一张清晰的图标。</p>
-<p>想更全面地了解 SvelteKit 的 favicon 方案——包括 <code>+layout.svelte</code> 的做法和动态图标——可以看我们的 <a href="/zh/blog/sveltekit-favicon.html">SvelteKit favicon 指南</a>。如果需要现成的图标文件，<a href="/zh/index.html">Mzu favicondl</a> 可以从任意源图在几秒内生成完整一套。</p></div>
+<p>想更全面地了解 SvelteKit 的 favicon 方案——包括 <code>+layout.svelte</code> 的做法和动态图标——可以看我们的 <a href="/zh/blog/sveltekit-favicon.html">SvelteKit favicon 指南</a>。如果需要现成的图标文件，<a href="/zh/">Mzu favicondl</a> 可以从任意源图在几秒内生成完整一套。</p></div>
 
         <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
 
         <div class="cta-box">
             <h3>生成你的 SvelteKit 网站图标套件</h3>
             <p>上传任意图片，一键获取完整的 favicon 套件——SVG、ICO、Apple Touch 和 manifest 文件——直接放入 static/ 目录即可使用。</p>
-            <a href="/zh/index.html" class="cta-btn">免费试用 →</a>
+            <a href="/zh/" class="cta-btn">免费试用 →</a>
         </div>
     </article>
 
@@ -176,7 +176,7 @@
         <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
             <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
             <div class="flex gap-6">
-                <a href="/zh/index.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">首页</a>
+                <a href="/zh/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">首页</a>
                 <a href="/zh/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">博客</a>
                 <a href="/zh/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">隐私政策</a>
             </div>
