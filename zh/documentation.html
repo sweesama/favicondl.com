@@ -3,7 +3,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>文档 - Mzu favicondl</title>
     <meta name="description" content="Mzu favicondl 文档 - Favicon URL 模板与使用指南">
-    <meta name="keywords" content="favicon API, favicon URL, favicon documentation, favicon guide, website icon API">
+    <meta name="keywords" content="favicon API, free favicon API, get favicon from URL, favicon URL, Google S2 favicon alternative, website icon API">
     <meta name="baidu-site-verification" content="codeva-TQEbMwU84J">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://favicondl.com/zh/documentation.html">
@@ -356,6 +356,7 @@
                     <nav class="bg-white rounded-lg shadow-sm p-6">
                         <h3 class="font-semibold text-gray-900 mb-4">文档导航</h3>
                         <ul class="space-y-2">
+
                             <li>
                                 <a href="#overview" class="text-blue-600 hover:text-blue-800 text-sm block py-1">概述</a>
                             </li>
@@ -387,6 +388,7 @@
 
             <!-- Main Content -->
             <div class="lg:col-span-3">
+
                 <!-- Overview Section -->
                 <section id="overview" class="mb-12">
                     <div class="bg-white rounded-lg shadow-sm p-8">
@@ -492,7 +494,7 @@
                                     <td>number</td>
                                     <td>否</td>
                                     <td>128</td>
-                                    <td>期望的图标尺寸，范围会限制在 16 到 512 像素</td>
+                                    <td>回退尺寸（16–512 像素）。仅在回退到 Google favicon 服务时使用；从网站本身找到的图标按原始尺寸返回。</td>
                                 </tr>
                                 <tr>
                                     <td><code>format</code></td>
@@ -521,12 +523,12 @@
 
                                 <div class="border-l-4 border-green-500 pl-4">
                                     <h5 class="font-medium">尺寸</h5>
-                                    <p class="text-gray-600 text-sm">期望的图标尺寸，范围为 16 到 512 像素：</p>
+                                    <p class="text-gray-600 text-sm">Google favicon 服务的回退尺寸，范围 16 到 512 像素：</p>
                                     <ul class="text-sm text-gray-600 mt-1 space-y-1">
                                         <li>• <code>16</code> - 16x16</li>
                                         <li>• <code>32</code> - 32x32</li>
                                         <li>• <code>128</code> - 128x128</li>
-                                        <li>• <code>512</code> - 512x512 when supported</li>
+                                        <li>• <code>512</code> - 512x512</li>
                                     </ul>
                                 </div>
                             </div>
@@ -550,7 +552,7 @@
   "domain": "example.com",
   "size": 128,
   "iconUrl": "https://example.com/favicon.svg",
-  "proxyUrl": "https://favicondl.com/api/proxy?url=...",
+  "proxyUrl": "https://icy-glade-6d04favicon.sweeyeah.workers.dev/api/proxy?url=...",
   "source": "html"
 }</code></pre>
                         </div>
@@ -562,11 +564,8 @@
                                 <button class="copy-button" onclick="copyCode('error-response')">复制代码</button>
                             </div>
                             <pre class="p-4 text-sm"><code id="error-response" class="language-json">{
-  "success": false,
-  "error": "Domain not found",
-  "message": "Unable to find favicon for the specified domain",
-  "code": 404,
-  "timestamp": "2026-01-15T10:30:00Z"
+  "ok": false,
+  "error": "Missing url"
 }</code></pre>
                         </div>
 
@@ -644,9 +643,9 @@ with open("example-favicon", "wb") as output:
                                     <span class="text-gray-300 text-sm">PHP</span>
                                     <button class="copy-button" onclick="copyCode('php-example')">复制代码</button>
                                 </div>
-                                <pre class="p-4 text-sm"><code id="php-example" class="language-php"><!--?php
+                                <pre class="p-4 text-sm"><code id="php-example" class="language-php">&lt;?php
 function getFavicon(string $url, int $size = 128): string {
-    $endpoint = 'https://favicondl.com/api/extract?url=' . urlencode($url) . '&size=' . $size;
+    $endpoint = 'https://favicondl.com/api/extract?url=' . urlencode($url) . '&amp;size=' . $size;
     $context = stream_context_create(['http' =&gt; ['follow_location' =&gt; 1, 'timeout' =&gt; 15]]);
     $icon = file_get_contents($endpoint, false, $context);
     if ($icon === false) {
@@ -656,7 +655,7 @@ function getFavicon(string $url, int $size = 128): string {
 }
 
 file_put_contents('example-favicon', getFavicon('example.com', 128));
-?--></code></pre>
+?&gt;</code></pre>
                             </div>
                         </div>
 
@@ -668,14 +667,11 @@ file_put_contents('example-favicon', getFavicon('example.com', 128));
                                     <span class="text-gray-300 text-sm">HTML</span>
                                     <button class="copy-button" onclick="copyCode('html-example')">复制代码</button>
                                 </div>
-                                <pre class="p-4 text-sm"><code id="html-example" class="language-html">&lt;!-- 在HTML中直接引用favicon --&gt;
-&lt;img src="https://favicondl.com/api/extract?url=example.com&amp;size=32" alt="example.com favicon" width="32" height="32"&gt;
+                                <pre class="p-4 text-sm"><code id="html-example" class="language-html">&lt;!-- Show a site icon next to a link --&gt;
+&lt;img src="https://favicondl.com/api/extract?url=example.com" alt="example.com favicon" width="32" height="32"&gt;
 
-&lt;!-- 使用大尺寸图标 --&gt;
-&lt;img src="https://favicondl.com/api/extract?url=example.com&amp;size=128" alt="example.com favicon" width="128" height="128"&gt;
-
-&lt;!-- 作为网站favicon --&gt;
-&lt;link rel="icon" type="image/png" href="https://favicondl.com/api/extract?url=example.com&amp;size=32"&gt;</code></pre>
+&lt;!-- Larger Google fallback size, if the site has no icon of its own --&gt;
+&lt;img src="https://favicondl.com/api/extract?url=example.com&amp;size=128" alt="example.com favicon" width="128" height="128"&gt;</code></pre>
                             </div>
                         </div>
                     </div>
@@ -686,13 +682,13 @@ file_put_contents('example-favicon', getFavicon('example.com', 128));
                     <div class="bg-white rounded-lg shadow-sm p-8">
                         <h2 class="text-2xl font-bold text-gray-900 mb-6">错误处理</h2>
 
-                        <p class="text-gray-600 mb-6">API在遇到错误时会返回相应的HTTP状态码和错误信息。</p>
+                        <p class="text-gray-600 mb-6">出错时会返回 HTTP 状态码和一段简短的 JSON，其中 ok 为 false，并附带错误信息。</p>
 
                         <table class="parameter-table">
                             <thead>
                                 <tr>
                                     <th>HTTP状态码</th>
-                                    <th>错误代码</th>
+                                    <th>错误信息</th>
                                     <th>描述</th>
                                     <th>解决方法</th>
                                 </tr>
@@ -700,33 +696,39 @@ file_put_contents('example-favicon', getFavicon('example.com', 128));
                             <tbody>
                                 <tr>
                                     <td>400</td>
-                                    <td>invalid_domain</td>
-                                    <td>域名格式不正确</td>
-                                    <td>检查域名格式，确保是有效的域名</td>
+                                    <td><code>Missing url</code></td>
+                                    <td>未传入 url 或 domain 参数</td>
+                                    <td>在请求中加上 ?url=example.com</td>
                                 </tr>
                                 <tr>
-                                    <td>404</td>
-                                    <td>domain_not_found</td>
-                                    <td>找不到指定的域名</td>
-                                    <td>确认域名是否正确，网站是否可访问</td>
+                                    <td>400</td>
+                                    <td><code>Invalid format</code></td>
+                                    <td>format 既不是 json 也不是 redirect</td>
+                                    <td>使用 format=json，或省略该参数以获得重定向</td>
                                 </tr>
                                 <tr>
-                                    <td>404</td>
-                                    <td>favicon_not_found</td>
-                                    <td>网站没有favicon图标</td>
-                                    <td>该网站可能没有设置favicon图标</td>
+                                    <td>400</td>
+                                    <td><code>Invalid domain</code></td>
+                                    <td>无法将该值解析为主机名</td>
+                                    <td>传入 example.com 这样的域名或完整的 https:// 网址</td>
                                 </tr>
                                 <tr>
-                                    <td>429</td>
-                                    <td>rate_limit_exceeded</td>
-                                    <td>请求频率过高</td>
-                                    <td>降低请求频率，稍后重试</td>
+                                    <td>405</td>
+                                    <td><code>Method not allowed</code></td>
+                                    <td>仅支持 GET 请求</td>
+                                    <td>改用 GET 请求</td>
                                 </tr>
                                 <tr>
-                                    <td>500</td>
-                                    <td>internal_error</td>
-                                    <td>服务器内部错误</td>
-                                    <td>服务暂时不可用，请稍后重试</td>
+                                    <td>502</td>
+                                    <td><code>Favicon extraction failed</code></td>
+                                    <td>提取器未能返回图标</td>
+                                    <td>稍后重试</td>
+                                </tr>
+                                <tr>
+                                    <td>504</td>
+                                    <td><code>Favicon extraction timed out</code></td>
+                                    <td>查找时间超过约 9 秒</td>
+                                    <td>重试；响应慢的网站第二次通常能成功</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -754,12 +756,12 @@ file_put_contents('example-favicon', getFavicon('example.com', 128));
                                     <svg class="w-5 h-5 text-yellow-400 mr-2" fill="currentColor" viewBox="0 0 20 20">
                                         <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path>
                                     </svg>
-                                    <h3 class="font-semibold text-yellow-900">请求限制</h3>
+                                    <h3 class="font-semibold text-yellow-900">合理使用</h3>
                                 </div>
                                 <ul class="text-yellow-700 text-sm space-y-1">
-                                    <li>• <span>每分钟最多 100 个请求</span></li>
-                                    <li>• <span>每小时最多 1000 个请求</span></li>
-                                    <li>• <span>每日最多 10000 个请求</span></li>
+                                    <li>• <span>没有 API key，也没有公布固定配额</span></li>
+                                    <li>• <span>成功的响应会在边缘节点缓存 5 分钟</span></li>
+                                    <li>• <span>请在你自己的系统中缓存图标，避免批量抓取</span></li>
                                 </ul>
                             </div>
 
@@ -770,7 +772,7 @@ file_put_contents('example-favicon', getFavicon('example.com', 128));
                                     </svg>
                                     <h3 class="font-semibold text-blue-900">商业使用</h3>
                                 </div>
-                                <p class="text-blue-700 text-sm">商业用户建议联系我们获取更高的使用配额和优先支持</p>
+                                <p class="text-blue-700 text-sm">没有付费套餐，也没有 SLA。如果是高频或关键业务使用，请把需要的图标保存到你自己的存储中。</p>
                             </div>
                         </div>
                     </div>

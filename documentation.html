@@ -1,9 +1,9 @@
 <!DOCTYPE html><html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Favicon API &amp; URL Guide - Mzu favicondl</title>
-    <meta name="description" content="Mzu favicondl API documentation and URL usage guide. Copy-ready code templates for JavaScript, Python, PHP, and HTML. No API key needed.">
-    <meta name="keywords" content="favicon API, favicon URL, favicon documentation, favicon guide, website icon API">
+    <title>Free Favicon API – No Key, Get Any Site Icon by URL | favicondl</title>
+    <meta name="description" content="Free favicon API: get any website's icon by URL with one GET request, no API key. Redirect to the image or get JSON with the icon URL and its source.">
+    <meta name="keywords" content="favicon API, free favicon API, get favicon from URL, favicon URL, Google S2 favicon alternative, website icon API">
     <meta name="baidu-site-verification" content="codeva-TQEbMwU84J">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://favicondl.com/documentation.html">
@@ -25,14 +25,14 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://favicondl.com/documentation.html">
-    <meta property="og:title" content="Favicon API &amp; URL Guide - Mzu favicondl">
-    <meta property="og:description" content="Favicon API docs with copy-ready code templates for JS, Python, PHP. Free, no API key needed.">
+    <meta property="og:title" content="Free Favicon API – No Key, Get Any Site Icon by URL | favicondl">
+    <meta property="og:description" content="Free favicon API: get any website's icon by URL with one GET request, no API key. Redirect to the image or get JSON with the icon URL and its source.">
     <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Favicon API &amp; URL Guide - Mzu favicondl">
-    <meta name="twitter:description" content="Favicon API docs with copy-ready code templates. Free, no API key needed.">
+    <meta name="twitter:title" content="Free Favicon API – No Key, Get Any Site Icon by URL | favicondl">
+    <meta name="twitter:description" content="Free favicon API: get any website's icon by URL with one GET request, no API key. Redirect to the image or get JSON with the icon URL and its source.">
     <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
 
     <!-- Google Analytics (replace GA_MEASUREMENT_ID with your real ID) -->
@@ -342,9 +342,8 @@
     <!-- Header Section -->
     <section class="pt-16 pb-10 px-6">
         <div class="max-w-3xl mx-auto text-center">
-            <h1 class="text-5xl font-semibold text-gray-900 tracking-tight mb-4" data-en="Favicon API &amp; URL Guide" data-zh="Favicon API 与 URL 使用指南">Favicon API &amp; URL Guide</h1>
-            <p class="text-xl text-gray-500" data-en="Copy-ready favicon URL templates (based on free services)." data-zh="可直接复制使用的 favicon URL 模板（基于免费服务）。">Copy-ready favicon URL templates (based on free services).
-            </p>
+            <h1 class="text-5xl font-semibold text-gray-900 tracking-tight mb-4" data-en="Free Favicon API" data-zh="Favicon API 与 URL 使用指南" data-ja="Favicon API &amp; URL Guide" data-ko="Favicon API &amp; URL Guide" data-es="Favicon API &amp; URL Guide">Free Favicon API</h1>
+            <p class="text-xl text-gray-500" data-en="Get any website's favicon by URL with one GET request. No API key, no sign-up." data-zh="可直接复制使用的 favicon URL 模板（基于免费服务）。" data-ja="コピーして使えるファビコンURLテンプレート（無料サービスベース）。" data-ko="복사하여 사용할 수 있는 파비콘 URL 템플릿 (무료 서비스 기반)." data-es="Plantillas de URL de favicon listas para copiar (basadas en servicios gratuitos).">Get any website's favicon by URL with one GET request. No API key, no sign-up.</p>
         </div>
     </section>
 
@@ -358,6 +357,9 @@
                         <h3 class="font-semibold text-gray-900 mb-4" data-en="On this page" data-zh="文档导航">On this page
                         </h3>
                         <ul class="space-y-2">
+                            <li data-i18n-only="en"><a href="#quick-start" class="text-gray-600 hover:text-blue-600 text-sm block py-1">Quick start</a></li>
+                            <li data-i18n-only="en"><a href="#how-it-works" class="text-gray-600 hover:text-blue-600 text-sm block py-1">How it picks an icon</a></li>
+                            <li data-i18n-only="en"><a href="#comparison" class="text-gray-600 hover:text-blue-600 text-sm block py-1">Comparison</a></li>
                             <li>
                                 <a href="#overview" class="text-blue-600 hover:text-blue-800 text-sm block py-1" data-en="Overview" data-zh="概述">Overview</a>
                             </li>
@@ -389,6 +391,69 @@
 
             <!-- Main Content -->
             <div class="lg:col-span-3">
+                <section id="quick-start" class="mb-12" data-i18n-only="en">
+                    <!-- English-only API landing content (removed from localized builds by i18n/build.js) -->
+                    <div class="bg-white rounded-lg shadow-sm p-8 text-gray-600">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-6">Quick start</h2>
+                        <p class="mb-4">The favicondl favicon API turns any domain or URL into its favicon with a single GET request. There is no API key, no account and no SDK. Use it straight in an <code>&lt;img&gt;</code> tag:</p>
+                        <div class="code-block mb-6">
+                            <pre class="p-4 text-sm"><code class="language-html">&lt;img src="https://favicondl.com/api/extract?url=github.com" width="32" height="32" alt="GitHub favicon"&gt;</code></pre>
+                        </div>
+                        <p class="mb-4">Or ask for JSON to see which file was found and where it came from:</p>
+                        <div class="code-block mb-4">
+                            <pre class="p-4 text-sm"><code class="language-bash">curl "https://favicondl.com/api/extract?url=github.com&amp;format=json"</code></pre>
+                        </div>
+                        <div class="code-block mb-6">
+                            <pre class="p-4 text-sm"><code class="language-json">{
+  "ok": true,
+  "domain": "github.com",
+  "size": 128,
+  "iconUrl": "https://github.com/favicon.svg",
+  "proxyUrl": "https://icy-glade-6d04favicon.sweeyeah.workers.dev/api/proxy?url=https%3A%2F%2Fgithub.com%2Ffavicon.svg",
+  "source": "direct"
+}</code></pre>
+                        </div>
+                        <p><code>iconUrl</code> is the original file on the website. <code>proxyUrl</code> serves the same image through our proxy with <code>Access-Control-Allow-Origin: *</code>, so you can draw it on a canvas or fetch it from browser code.</p>
+                    </div>
+                </section>
+
+                <section id="how-it-works" class="mb-12" data-i18n-only="en">
+                    <div class="bg-white rounded-lg shadow-sm p-8 text-gray-600">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-6">How the API picks an icon</h2>
+                        <ol class="list-decimal pl-5 space-y-3 mb-4">
+                            <li><strong class="text-gray-900">Well-known paths</strong> such as <code>/favicon.svg</code>, <code>/apple-touch-icon.png</code>, <code>/android-chrome-512x512.png</code> and <code>/favicon.ico</code> are checked first (<code>source: "direct"</code>).</li>
+                            <li><strong class="text-gray-900">The page HTML</strong> is read for every <code>&lt;link rel="…icon…"&gt;</code> tag, and linked web app manifests are opened for their icon lists (<code>source: "html"</code>).</li>
+                            <li><strong class="text-gray-900">Google's favicon service</strong> is used as a last resort, at the <code>size</code> you request (<code>source: "google_s2"</code>).</li>
+                        </ol>
+                        <p class="mb-4">Within each step, candidates are ranked so the sharpest file wins: SVG first, then Apple touch and Android icons, then larger pixel sizes (512, 256, 192, 180 …), with ICO files last. Icons found on the website are returned at their original size; the <code>size</code> parameter only affects the Google fallback.</p>
+                        <p>If you get <code>google_s2</code>, the site either has no icon at the usual locations or blocked our automated request. For a single site, the <a href="/" class="text-blue-600 hover:underline">favicon downloader</a> on our homepage also tries a few extra sources directly from your browser.</p>
+                    </div>
+                </section>
+
+                <section id="comparison" class="mb-12" data-i18n-only="en">
+                    <div class="bg-white rounded-lg shadow-sm p-8 text-gray-600">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-6">Favicon API comparison: favicondl vs Google S2, DuckDuckGo and Icon Horse</h2>
+                        <p class="mb-4">All four services are free to start with and need no API key. They differ in what they return:</p>
+                        <div class="overflow-x-auto">
+                            <table class="parameter-table">
+                                <thead>
+                                    <tr><th></th><th>favicondl</th><th>Google S2</th><th>DuckDuckGo</th><th>Icon Horse</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>Endpoint</td><td><code>/api/extract?url=example.com</code></td><td><code>google.com/s2/favicons?domain=example.com&amp;sz=64</code></td><td><code>icons.duckduckgo.com/ip3/example.com.ico</code></td><td><code>icon.horse/icon/example.com</code></td></tr>
+                                    <tr><td>API key</td><td>No</td><td>No</td><td>No</td><td>No (free plan)</td></tr>
+                                    <tr><td>Published free quota</td><td>None (fair use)</td><td>None published</td><td>None published</td><td>1,000 icons/month on the free plan</td></tr>
+                                    <tr><td>Size parameter</td><td><code>size</code> (16–512, for the Google fallback)</td><td><code>sz</code></td><td>No</td><td>Not documented</td></tr>
+                                    <tr><td>What you get back</td><td>The site's original file (SVG, PNG, ICO …) when found</td><td>PNG or JPEG (observed)</td><td>ICO (observed)</td><td>PNG (observed)</td></tr>
+                                    <tr><td>JSON metadata</td><td>Yes (<code>format=json</code>: icon URL and source)</td><td>No</td><td>No</td><td>No</td></tr>
+                                    <tr><td>Result for github.com in our test</td><td>favicon.svg (vector)</td><td>16×16 PNG at sz=16, 180×180 at sz=256</td><td>ICO with 16×16 and 32×32</td><td>256×256 PNG</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p class="mt-4 text-sm">Results come from our own requests on 12 October 2026; the Icon Horse quota is taken from <a href="https://icon.horse/" rel="noopener" class="text-blue-600 hover:underline">its pricing section</a>. Third-party services can change at any time, so check each provider's terms before relying on it in production.</p>
+                    </div>
+                </section>
+
                 <!-- Overview Section -->
                 <section id="overview" class="mb-12">
                     <div class="bg-white rounded-lg shadow-sm p-8">
@@ -505,7 +570,7 @@
                                     <td>number</td>
                                     <td data-en="No" data-zh="否">No</td>
                                     <td>128</td>
-                                    <td data-en="The preferred icon size in pixels, clamped to 16-512" data-zh="期望的图标尺寸，范围会限制在 16 到 512 像素">The preferred icon size in pixels, clamped to 16-512</td>
+                                    <td data-en="Fallback size in pixels (16–512). Only used when we fall back to Google's favicon service; icons found on the site itself are returned at their original size." data-zh="回退尺寸（16–512 像素）。仅在回退到 Google favicon 服务时使用；从网站本身找到的图标按原始尺寸返回。" data-ja="フォールバック時のサイズ（16〜512ピクセル）。Google のファビコンサービスにフォールバックする場合のみ使用され、サイト自体で見つかったアイコンは元のサイズのまま返されます。" data-ko="대체 크기(16–512픽셀). Google 파비콘 서비스로 대체할 때만 사용되며, 사이트 자체에서 찾은 아이콘은 원본 크기로 반환됩니다." data-es="Tamaño de respaldo en píxeles (16–512). Solo se usa cuando recurrimos al servicio de favicons de Google; los iconos encontrados en el propio sitio se devuelven en su tamaño original.">Fallback size in pixels (16–512). Only used when we fall back to Google's favicon service; icons found on the site itself are returned at their original size.</td>
                                 </tr>
                                 <tr>
                                     <td><code>format</code></td>
@@ -535,12 +600,12 @@
 
                                 <div class="border-l-4 border-green-500 pl-4">
                                     <h5 class="font-medium" data-en="size" data-zh="尺寸">size</h5>
-                                    <p class="text-gray-600 text-sm" data-en="Preferred icon size, from 16 to 512 pixels:" data-zh="期望的图标尺寸，范围为 16 到 512 像素：">Preferred icon size, from 16 to 512 pixels:</p>
+                                    <p class="text-gray-600 text-sm" data-en="Fallback size for the Google favicon service, from 16 to 512 pixels:" data-zh="Google favicon 服务的回退尺寸，范围 16 到 512 像素：" data-ja="Google ファビコンサービス用のフォールバックサイズ（16〜512ピクセル）：" data-ko="Google 파비콘 서비스용 대체 크기, 16~512픽셀:" data-es="Tamaño de respaldo para el servicio de favicons de Google, de 16 a 512 píxeles:">Fallback size for the Google favicon service, from 16 to 512 pixels:</p>
                                     <ul class="text-sm text-gray-600 mt-1 space-y-1">
                                         <li>• <code>16</code> - 16x16</li>
                                         <li>• <code>32</code> - 32x32</li>
                                         <li>• <code>128</code> - 128x128</li>
-                                        <li>• <code>512</code> - 512x512 when supported</li>
+                                        <li>• <code>512</code> - 512x512</li>
                                     </ul>
                                 </div>
                             </div>
@@ -566,7 +631,7 @@
   "domain": "example.com",
   "size": 128,
   "iconUrl": "https://example.com/favicon.svg",
-  "proxyUrl": "https://favicondl.com/api/proxy?url=...",
+  "proxyUrl": "https://icy-glade-6d04favicon.sweeyeah.workers.dev/api/proxy?url=...",
   "source": "html"
 }</code></pre>
                         </div>
@@ -580,11 +645,8 @@
                                 <button class="copy-button" onclick="copyCode('error-response')" data-en="Copy" data-zh="复制代码">Copy</button>
                             </div>
                             <pre class="p-4 text-sm"><code id="error-response" class="language-json">{
-  "success": false,
-  "error": "Domain not found",
-  "message": "Unable to find favicon for the specified domain",
-  "code": 404,
-  "timestamp": "2026-01-15T10:30:00Z"
+  "ok": false,
+  "error": "Missing url"
 }</code></pre>
                         </div>
 
@@ -666,9 +728,9 @@ with open("example-favicon", "wb") as output:
                                     <span class="text-gray-300 text-sm" data-en="PHP" data-zh="PHP">PHP</span>
                                     <button class="copy-button" onclick="copyCode('php-example')" data-en="Copy" data-zh="复制代码">Copy</button>
                                 </div>
-                                <pre class="p-4 text-sm"><code id="php-example" class="language-php"><!--?php
+                                <pre class="p-4 text-sm"><code id="php-example" class="language-php">&lt;?php
 function getFavicon(string $url, int $size = 128): string {
-    $endpoint = 'https://favicondl.com/api/extract?url=' . urlencode($url) . '&size=' . $size;
+    $endpoint = 'https://favicondl.com/api/extract?url=' . urlencode($url) . '&amp;size=' . $size;
     $context = stream_context_create(['http' =&gt; ['follow_location' =&gt; 1, 'timeout' =&gt; 15]]);
     $icon = file_get_contents($endpoint, false, $context);
     if ($icon === false) {
@@ -678,7 +740,7 @@ function getFavicon(string $url, int $size = 128): string {
 }
 
 file_put_contents('example-favicon', getFavicon('example.com', 128));
-?--></code></pre>
+?&gt;</code></pre>
                             </div>
                         </div>
 
@@ -691,14 +753,11 @@ file_put_contents('example-favicon', getFavicon('example.com', 128));
                                     <span class="text-gray-300 text-sm" data-en="HTML" data-zh="HTML">HTML</span>
                                     <button class="copy-button" onclick="copyCode('html-example')" data-en="Copy" data-zh="复制代码">Copy</button>
                                 </div>
-                                <pre class="p-4 text-sm"><code id="html-example" class="language-html">&lt;!-- 在HTML中直接引用favicon --&gt;
-&lt;img src="https://favicondl.com/api/extract?url=example.com&amp;size=32" alt="example.com favicon" width="32" height="32"&gt;
+                                <pre class="p-4 text-sm"><code id="html-example" class="language-html">&lt;!-- Show a site icon next to a link --&gt;
+&lt;img src="https://favicondl.com/api/extract?url=example.com" alt="example.com favicon" width="32" height="32"&gt;
 
-&lt;!-- 使用大尺寸图标 --&gt;
-&lt;img src="https://favicondl.com/api/extract?url=example.com&amp;size=128" alt="example.com favicon" width="128" height="128"&gt;
-
-&lt;!-- 作为网站favicon --&gt;
-&lt;link rel="icon" type="image/png" href="https://favicondl.com/api/extract?url=example.com&amp;size=32"&gt;</code></pre>
+&lt;!-- Larger Google fallback size, if the site has no icon of its own --&gt;
+&lt;img src="https://favicondl.com/api/extract?url=example.com&amp;size=128" alt="example.com favicon" width="128" height="128"&gt;</code></pre>
                             </div>
                         </div>
                     </div>
@@ -709,14 +768,13 @@ file_put_contents('example-favicon', getFavicon('example.com', 128));
                     <div class="bg-white rounded-lg shadow-sm p-8">
                         <h2 class="text-2xl font-bold text-gray-900 mb-6" data-en="Errors" data-zh="错误处理">Errors</h2>
 
-                        <p class="text-gray-600 mb-6" data-en="The API returns the corresponding HTTP status code and error message when an error occurs." data-zh="API在遇到错误时会返回相应的HTTP状态码和错误信息。">The API returns the corresponding HTTP status code
-                            and error message when an error occurs.</p>
+                        <p class="text-gray-600 mb-6" data-en="Errors return an HTTP status code and a small JSON body with ok set to false and an error message." data-zh="出错时会返回 HTTP 状态码和一段简短的 JSON，其中 ok 为 false，并附带错误信息。" data-ja="エラー時は HTTP ステータスコードと、ok が false でエラーメッセージを含む短い JSON を返します。" data-ko="오류 시 HTTP 상태 코드와 ok가 false이고 오류 메시지가 담긴 짧은 JSON을 반환합니다." data-es="Los errores devuelven un código de estado HTTP y un JSON breve con ok en false y un mensaje de error.">Errors return an HTTP status code and a small JSON body with ok set to false and an error message.</p>
 
                         <table class="parameter-table">
                             <thead>
                                 <tr>
                                     <th data-en="HTTP Status Code" data-zh="HTTP状态码">HTTP Status Code</th>
-                                    <th data-en="Error Code" data-zh="错误代码">Error Code</th>
+                                    <th data-en="Error message" data-zh="错误信息" data-ja="エラーメッセージ" data-ko="오류 메시지" data-es="Mensaje de error">Error message</th>
                                     <th data-en="Description" data-zh="描述">Description</th>
                                     <th data-en="Solution" data-zh="解决方法">Solution</th>
                                 </tr>
@@ -724,37 +782,39 @@ file_put_contents('example-favicon', getFavicon('example.com', 128));
                             <tbody>
                                 <tr>
                                     <td>400</td>
-                                    <td>invalid_domain</td>
-                                    <td data-en="Invalid domain format" data-zh="域名格式不正确">Invalid domain format</td>
-                                    <td data-en="Check the domain format, ensure it is a valid domain" data-zh="检查域名格式，确保是有效的域名">Check the domain format, ensure it is a valid domain
-                                    </td>
+                                    <td><code>Missing url</code></td>
+                                    <td data-en="No url or domain parameter was sent" data-zh="未传入 url 或 domain 参数" data-ja="url または domain パラメーターが送信されていません" data-ko="url 또는 domain 매개변수가 전송되지 않았습니다" data-es="No se envió el parámetro url ni domain">No url or domain parameter was sent</td>
+                                    <td data-en="Add ?url=example.com to the request" data-zh="在请求中加上 ?url=example.com" data-ja="リクエストに ?url=example.com を追加してください" data-ko="요청에 ?url=example.com을 추가하세요" data-es="Añade ?url=example.com a la solicitud">Add ?url=example.com to the request</td>
                                 </tr>
                                 <tr>
-                                    <td>404</td>
-                                    <td>domain_not_found</td>
-                                    <td data-en="Domain not found" data-zh="找不到指定的域名">Domain not found</td>
-                                    <td data-en="Confirm the domain is correct and the website is accessible" data-zh="确认域名是否正确，网站是否可访问">Confirm the domain is correct and the website is
-                                        accessible</td>
+                                    <td>400</td>
+                                    <td><code>Invalid format</code></td>
+                                    <td data-en="format is neither json nor redirect" data-zh="format 既不是 json 也不是 redirect" data-ja="format が json でも redirect でもありません" data-ko="format이 json도 redirect도 아닙니다" data-es="format no es json ni redirect">format is neither json nor redirect</td>
+                                    <td data-en="Use format=json, or omit it for a redirect" data-zh="使用 format=json，或省略该参数以获得重定向" data-ja="format=json を指定するか、省略してリダイレクトを受け取ってください" data-ko="format=json을 사용하거나 생략하여 리디렉션을 받으세요" data-es="Usa format=json u omítelo para obtener una redirección">Use format=json, or omit it for a redirect</td>
                                 </tr>
                                 <tr>
-                                    <td>404</td>
-                                    <td>favicon_not_found</td>
-                                    <td data-en="Favicon not found" data-zh="网站没有favicon图标">Favicon not found</td>
-                                    <td data-en="The website may not have set a favicon" data-zh="该网站可能没有设置favicon图标">
-                                        The website may not have set a favicon</td>
+                                    <td>400</td>
+                                    <td><code>Invalid domain</code></td>
+                                    <td data-en="The value could not be read as a hostname" data-zh="无法将该值解析为主机名" data-ja="値をホスト名として解析できません" data-ko="값을 호스트 이름으로 해석할 수 없습니다" data-es="El valor no se pudo interpretar como un nombre de host">The value could not be read as a hostname</td>
+                                    <td data-en="Send a domain such as example.com or a full https:// URL" data-zh="传入 example.com 这样的域名或完整的 https:// 网址" data-ja="example.com のようなドメインか、完全な https:// URL を送信してください" data-ko="example.com 같은 도메인이나 전체 https:// URL을 보내세요" data-es="Envía un dominio como example.com o una URL https:// completa">Send a domain such as example.com or a full https:// URL</td>
                                 </tr>
                                 <tr>
-                                    <td>429</td>
-                                    <td>rate_limit_exceeded</td>
-                                    <td data-en="Rate limit exceeded" data-zh="请求频率过高">Rate limit exceeded</td>
-                                    <td data-en="Reduce the request frequency and try again later" data-zh="降低请求频率，稍后重试">Reduce the request frequency and try again later</td>
+                                    <td>405</td>
+                                    <td><code>Method not allowed</code></td>
+                                    <td data-en="Only GET requests are supported" data-zh="仅支持 GET 请求" data-ja="GET リクエストのみ対応しています" data-ko="GET 요청만 지원됩니다" data-es="Solo se admiten solicitudes GET">Only GET requests are supported</td>
+                                    <td data-en="Send a GET request" data-zh="改用 GET 请求" data-ja="GET リクエストを送信してください" data-ko="GET 요청을 보내세요" data-es="Envía una solicitud GET">Send a GET request</td>
                                 </tr>
                                 <tr>
-                                    <td>500</td>
-                                    <td>internal_error</td>
-                                    <td data-en="Internal server error" data-zh="服务器内部错误">Internal server error</td>
-                                    <td data-en="The service is temporarily unavailable, please try again later" data-zh="服务暂时不可用，请稍后重试">The service is temporarily unavailable, please try again
-                                        later</td>
+                                    <td>502</td>
+                                    <td><code>Favicon extraction failed</code></td>
+                                    <td data-en="The extractor could not return an icon" data-zh="提取器未能返回图标" data-ja="抽出処理がアイコンを返せませんでした" data-ko="추출기가 아이콘을 반환하지 못했습니다" data-es="El extractor no pudo devolver un icono">The extractor could not return an icon</td>
+                                    <td data-en="Retry later" data-zh="稍后重试" data-ja="しばらくしてから再試行してください" data-ko="나중에 다시 시도하세요" data-es="Inténtalo más tarde">Retry later</td>
+                                </tr>
+                                <tr>
+                                    <td>504</td>
+                                    <td><code>Favicon extraction timed out</code></td>
+                                    <td data-en="The lookup took longer than about 9 seconds" data-zh="查找时间超过约 9 秒" data-ja="検索に約 9 秒以上かかりました" data-ko="조회에 약 9초 이상 걸렸습니다" data-es="La búsqueda tardó más de unos 9 segundos">The lookup took longer than about 9 seconds</td>
+                                    <td data-en="Retry; slow sites often succeed on a second attempt" data-zh="重试；响应慢的网站第二次通常能成功" data-ja="再試行してください。遅いサイトは 2 回目で成功することがよくあります" data-ko="다시 시도하세요. 느린 사이트는 두 번째 시도에서 성공하는 경우가 많습니다" data-es="Reintenta; los sitios lentos suelen funcionar al segundo intento">Retry; slow sites often succeed on a second attempt</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -784,16 +844,12 @@ file_put_contents('example-favicon', getFavicon('example.com', 128));
                                     <svg class="w-5 h-5 text-yellow-400 mr-2" fill="currentColor" viewBox="0 0 20 20">
                                         <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path>
                                     </svg>
-                                    <h3 class="font-semibold text-yellow-900" data-en="Rate Limit" data-zh="请求限制">Rate
-                                        Limit</h3>
+                                    <h3 class="font-semibold text-yellow-900" data-en="Fair use" data-zh="合理使用" data-ja="フェアユース" data-ko="공정 사용" data-es="Uso razonable">Fair use</h3>
                                 </div>
                                 <ul class="text-yellow-700 text-sm space-y-1">
-                                    <li>• <span data-en="Up to 100 requests per minute" data-zh="每分钟最多 100 个请求">Up to
-                                            100 requests per minute</span></li>
-                                    <li>• <span data-en="Up to 1000 requests per hour" data-zh="每小时最多 1000 个请求">Up to
-                                            1000 requests per hour</span></li>
-                                    <li>• <span data-en="Up to 10000 requests per day" data-zh="每日最多 10000 个请求">Up to
-                                            10000 requests per day</span></li>
+                                    <li>• <span data-en="There is no API key and no fixed published quota" data-zh="没有 API key，也没有公布固定配额" data-ja="API キーはなく、公開された固定の上限もありません" data-ko="API 키가 없으며 공개된 고정 할당량도 없습니다" data-es="No hay API key ni una cuota fija publicada">There is no API key and no fixed published quota</span></li>
+                                    <li>• <span data-en="Successful responses are cached at the edge for 5 minutes" data-zh="成功的响应会在边缘节点缓存 5 分钟" data-ja="成功したレスポンスはエッジで 5 分間キャッシュされます" data-ko="성공한 응답은 엣지에서 5분간 캐시됩니다" data-es="Las respuestas correctas se almacenan en caché en el edge durante 5 minutos">Successful responses are cached at the edge for 5 minutes</span></li>
+                                    <li>• <span data-en="Please cache icons on your side and avoid bulk crawling" data-zh="请在你自己的系统中缓存图标，避免批量抓取" data-ja="アイコンはご自身の側でキャッシュし、大量のクロールは避けてください" data-ko="아이콘은 직접 캐시하고 대량 크롤링은 피해 주세요" data-es="Guarda en caché los iconos por tu cuenta y evita el rastreo masivo">Please cache icons on your side and avoid bulk crawling</span></li>
                                 </ul>
                             </div>
 
@@ -805,8 +861,7 @@ file_put_contents('example-favicon', getFavicon('example.com', 128));
                                     <h3 class="font-semibold text-blue-900" data-en="Commercial Use" data-zh="商业使用">
                                         Commercial Use</h3>
                                 </div>
-                                <p class="text-blue-700 text-sm" data-en="Commercial users are recommended to contact us for a higher usage quota and priority support" data-zh="商业用户建议联系我们获取更高的使用配额和优先支持">Commercial users are recommended to contact us
-                                    for a higher usage quota and priority support</p>
+                                <p class="text-blue-700 text-sm" data-en="There is no paid tier or SLA. For high-volume or business-critical use, store the icons you need in your own storage." data-zh="没有付费套餐，也没有 SLA。如果是高频或关键业务使用，请把需要的图标保存到你自己的存储中。" data-ja="有料プランや SLA はありません。大量利用や業務上重要な用途では、必要なアイコンをご自身のストレージに保存してください。" data-ko="유료 요금제나 SLA는 없습니다. 대량 사용이나 중요한 업무 용도라면 필요한 아이콘을 자체 저장소에 보관하세요." data-es="No hay plan de pago ni SLA. Para un uso intensivo o crítico, guarda los iconos que necesites en tu propio almacenamiento.">There is no paid tier or SLA. For high-volume or business-critical use, store the icons you need in your own storage.</p>
                             </div>
                         </div>
                     </div>

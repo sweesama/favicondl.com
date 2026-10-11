@@ -3,7 +3,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ドキュメント - Mzu favicondl</title>
     <meta name="description" content="Mzu favicondl ドキュメント - ファビコンURLテンプレートと使用ガイド">
-    <meta name="keywords" content="favicon API, favicon URL, favicon documentation, favicon guide, website icon API">
+    <meta name="keywords" content="favicon API, free favicon API, get favicon from URL, favicon URL, Google S2 favicon alternative, website icon API">
     <meta name="baidu-site-verification" content="codeva-TQEbMwU84J">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://favicondl.com/ja/documentation.html">
@@ -356,6 +356,7 @@
                     <nav class="bg-white rounded-lg shadow-sm p-6">
                         <h3 class="font-semibold text-gray-900 mb-4">目次</h3>
                         <ul class="space-y-2">
+
                             <li>
                                 <a href="#overview" class="text-blue-600 hover:text-blue-800 text-sm block py-1">概要</a>
                             </li>
@@ -387,6 +388,7 @@
 
             <!-- Main Content -->
             <div class="lg:col-span-3">
+
                 <!-- Overview Section -->
                 <section id="overview" class="mb-12">
                     <div class="bg-white rounded-lg shadow-sm p-8">
@@ -493,7 +495,7 @@
                                     <td>number</td>
                                     <td>いいえ</td>
                                     <td>128</td>
-                                    <td>The preferred icon size in pixels, clamped to 16-512</td>
+                                    <td>フォールバック時のサイズ（16〜512ピクセル）。Google のファビコンサービスにフォールバックする場合のみ使用され、サイト自体で見つかったアイコンは元のサイズのまま返されます。</td>
                                 </tr>
                                 <tr>
                                     <td><code>format</code></td>
@@ -522,12 +524,12 @@
 
                                 <div class="border-l-4 border-green-500 pl-4">
                                     <h5 class="font-medium">size</h5>
-                                    <p class="text-gray-600 text-sm">Preferred icon size, from 16 to 512 pixels:</p>
+                                    <p class="text-gray-600 text-sm">Google ファビコンサービス用のフォールバックサイズ（16〜512ピクセル）：</p>
                                     <ul class="text-sm text-gray-600 mt-1 space-y-1">
                                         <li>• <code>16</code> - 16x16</li>
                                         <li>• <code>32</code> - 32x32</li>
                                         <li>• <code>128</code> - 128x128</li>
-                                        <li>• <code>512</code> - 512x512 when supported</li>
+                                        <li>• <code>512</code> - 512x512</li>
                                     </ul>
                                 </div>
                             </div>
@@ -551,7 +553,7 @@
   "domain": "example.com",
   "size": 128,
   "iconUrl": "https://example.com/favicon.svg",
-  "proxyUrl": "https://favicondl.com/api/proxy?url=...",
+  "proxyUrl": "https://icy-glade-6d04favicon.sweeyeah.workers.dev/api/proxy?url=...",
   "source": "html"
 }</code></pre>
                         </div>
@@ -563,11 +565,8 @@
                                 <button class="copy-button" onclick="copyCode('error-response')">コピー</button>
                             </div>
                             <pre class="p-4 text-sm"><code id="error-response" class="language-json">{
-  "success": false,
-  "error": "Domain not found",
-  "message": "Unable to find favicon for the specified domain",
-  "code": 404,
-  "timestamp": "2026-01-15T10:30:00Z"
+  "ok": false,
+  "error": "Missing url"
 }</code></pre>
                         </div>
 
@@ -645,9 +644,9 @@ with open("example-favicon", "wb") as output:
                                     <span class="text-gray-300 text-sm">PHP</span>
                                     <button class="copy-button" onclick="copyCode('php-example')">コピー</button>
                                 </div>
-                                <pre class="p-4 text-sm"><code id="php-example" class="language-php"><!--?php
+                                <pre class="p-4 text-sm"><code id="php-example" class="language-php">&lt;?php
 function getFavicon(string $url, int $size = 128): string {
-    $endpoint = 'https://favicondl.com/api/extract?url=' . urlencode($url) . '&size=' . $size;
+    $endpoint = 'https://favicondl.com/api/extract?url=' . urlencode($url) . '&amp;size=' . $size;
     $context = stream_context_create(['http' =&gt; ['follow_location' =&gt; 1, 'timeout' =&gt; 15]]);
     $icon = file_get_contents($endpoint, false, $context);
     if ($icon === false) {
@@ -657,7 +656,7 @@ function getFavicon(string $url, int $size = 128): string {
 }
 
 file_put_contents('example-favicon', getFavicon('example.com', 128));
-?--></code></pre>
+?&gt;</code></pre>
                             </div>
                         </div>
 
@@ -669,14 +668,11 @@ file_put_contents('example-favicon', getFavicon('example.com', 128));
                                     <span class="text-gray-300 text-sm">HTML</span>
                                     <button class="copy-button" onclick="copyCode('html-example')">コピー</button>
                                 </div>
-                                <pre class="p-4 text-sm"><code id="html-example" class="language-html">&lt;!-- 在HTML中直接引用favicon --&gt;
-&lt;img src="https://favicondl.com/api/extract?url=example.com&amp;size=32" alt="example.com favicon" width="32" height="32"&gt;
+                                <pre class="p-4 text-sm"><code id="html-example" class="language-html">&lt;!-- Show a site icon next to a link --&gt;
+&lt;img src="https://favicondl.com/api/extract?url=example.com" alt="example.com favicon" width="32" height="32"&gt;
 
-&lt;!-- 使用大尺寸图标 --&gt;
-&lt;img src="https://favicondl.com/api/extract?url=example.com&amp;size=128" alt="example.com favicon" width="128" height="128"&gt;
-
-&lt;!-- 作为网站favicon --&gt;
-&lt;link rel="icon" type="image/png" href="https://favicondl.com/api/extract?url=example.com&amp;size=32"&gt;</code></pre>
+&lt;!-- Larger Google fallback size, if the site has no icon of its own --&gt;
+&lt;img src="https://favicondl.com/api/extract?url=example.com&amp;size=128" alt="example.com favicon" width="128" height="128"&gt;</code></pre>
                             </div>
                         </div>
                     </div>
@@ -687,13 +683,13 @@ file_put_contents('example-favicon', getFavicon('example.com', 128));
                     <div class="bg-white rounded-lg shadow-sm p-8">
                         <h2 class="text-2xl font-bold text-gray-900 mb-6">エラー</h2>
 
-                        <p class="text-gray-600 mb-6">エラー発生時、APIは対応するHTTPステータスコードとエラーメッセージを返します。</p>
+                        <p class="text-gray-600 mb-6">エラー時は HTTP ステータスコードと、ok が false でエラーメッセージを含む短い JSON を返します。</p>
 
                         <table class="parameter-table">
                             <thead>
                                 <tr>
                                     <th>HTTPステータスコード</th>
-                                    <th>エラーコード</th>
+                                    <th>エラーメッセージ</th>
                                     <th>説明</th>
                                     <th>解決策</th>
                                 </tr>
@@ -701,33 +697,39 @@ file_put_contents('example-favicon', getFavicon('example.com', 128));
                             <tbody>
                                 <tr>
                                     <td>400</td>
-                                    <td>invalid_domain</td>
-                                    <td>ドメイン形式が無効</td>
-                                    <td>ドメイン形式を確認し、有効なドメインであることを確認してください</td>
+                                    <td><code>Missing url</code></td>
+                                    <td>url または domain パラメーターが送信されていません</td>
+                                    <td>リクエストに ?url=example.com を追加してください</td>
                                 </tr>
                                 <tr>
-                                    <td>404</td>
-                                    <td>domain_not_found</td>
-                                    <td>ドメインが見つかりません</td>
-                                    <td>ドメインが正しく、ウェブサイトにアクセス可能であることを確認してください</td>
+                                    <td>400</td>
+                                    <td><code>Invalid format</code></td>
+                                    <td>format が json でも redirect でもありません</td>
+                                    <td>format=json を指定するか、省略してリダイレクトを受け取ってください</td>
                                 </tr>
                                 <tr>
-                                    <td>404</td>
-                                    <td>favicon_not_found</td>
-                                    <td>ファビコンが見つかりません</td>
-                                    <td>ウェブサイトがファビコンを設定していない可能性があります</td>
+                                    <td>400</td>
+                                    <td><code>Invalid domain</code></td>
+                                    <td>値をホスト名として解析できません</td>
+                                    <td>example.com のようなドメインか、完全な https:// URL を送信してください</td>
                                 </tr>
                                 <tr>
-                                    <td>429</td>
-                                    <td>rate_limit_exceeded</td>
-                                    <td>レート制限超過</td>
-                                    <td>リクエスト頻度を減らし、後で再試行してください</td>
+                                    <td>405</td>
+                                    <td><code>Method not allowed</code></td>
+                                    <td>GET リクエストのみ対応しています</td>
+                                    <td>GET リクエストを送信してください</td>
                                 </tr>
                                 <tr>
-                                    <td>500</td>
-                                    <td>internal_error</td>
-                                    <td>内部サーバーエラー</td>
-                                    <td>サービスが一時的に利用できません。後で再試行してください</td>
+                                    <td>502</td>
+                                    <td><code>Favicon extraction failed</code></td>
+                                    <td>抽出処理がアイコンを返せませんでした</td>
+                                    <td>しばらくしてから再試行してください</td>
+                                </tr>
+                                <tr>
+                                    <td>504</td>
+                                    <td><code>Favicon extraction timed out</code></td>
+                                    <td>検索に約 9 秒以上かかりました</td>
+                                    <td>再試行してください。遅いサイトは 2 回目で成功することがよくあります</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -755,12 +757,12 @@ file_put_contents('example-favicon', getFavicon('example.com', 128));
                                     <svg class="w-5 h-5 text-yellow-400 mr-2" fill="currentColor" viewBox="0 0 20 20">
                                         <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path>
                                     </svg>
-                                    <h3 class="font-semibold text-yellow-900">リクエスト制限</h3>
+                                    <h3 class="font-semibold text-yellow-900">フェアユース</h3>
                                 </div>
                                 <ul class="text-yellow-700 text-sm space-y-1">
-                                    <li>• <span>1分あたり最大100リクエスト</span></li>
-                                    <li>• <span>1時間あたり最大1000リクエスト</span></li>
-                                    <li>• <span>1日あたり最大10000リクエスト</span></li>
+                                    <li>• <span>API キーはなく、公開された固定の上限もありません</span></li>
+                                    <li>• <span>成功したレスポンスはエッジで 5 分間キャッシュされます</span></li>
+                                    <li>• <span>アイコンはご自身の側でキャッシュし、大量のクロールは避けてください</span></li>
                                 </ul>
                             </div>
 
@@ -771,7 +773,7 @@ file_put_contents('example-favicon', getFavicon('example.com', 128));
                                     </svg>
                                     <h3 class="font-semibold text-blue-900">商用利用</h3>
                                 </div>
-                                <p class="text-blue-700 text-sm">商用ユーザーには、より高い使用量と優先サポートについてお問い合わせいただくことをお勧めします</p>
+                                <p class="text-blue-700 text-sm">有料プランや SLA はありません。大量利用や業務上重要な用途では、必要なアイコンをご自身のストレージに保存してください。</p>
                             </div>
                         </div>
                     </div>

@@ -3,7 +3,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Documentación - Mzu favicondl</title>
     <meta name="description" content="Documentación de Mzu favicondl - Plantillas de URL de favicon y guía de uso">
-    <meta name="keywords" content="favicon API, favicon URL, favicon documentation, favicon guide, website icon API">
+    <meta name="keywords" content="favicon API, free favicon API, get favicon from URL, favicon URL, Google S2 favicon alternative, website icon API">
     <meta name="baidu-site-verification" content="codeva-TQEbMwU84J">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://favicondl.com/es/documentation.html">
@@ -356,6 +356,7 @@
                     <nav class="bg-white rounded-lg shadow-sm p-6">
                         <h3 class="font-semibold text-gray-900 mb-4">En esta página</h3>
                         <ul class="space-y-2">
+
                             <li>
                                 <a href="#overview" class="text-blue-600 hover:text-blue-800 text-sm block py-1">Descripción general</a>
                             </li>
@@ -387,6 +388,7 @@
 
             <!-- Main Content -->
             <div class="lg:col-span-3">
+
                 <!-- Overview Section -->
                 <section id="overview" class="mb-12">
                     <div class="bg-white rounded-lg shadow-sm p-8">
@@ -493,7 +495,7 @@
                                     <td>number</td>
                                     <td>No</td>
                                     <td>128</td>
-                                    <td>The preferred icon size in pixels, clamped to 16-512</td>
+                                    <td>Tamaño de respaldo en píxeles (16–512). Solo se usa cuando recurrimos al servicio de favicons de Google; los iconos encontrados en el propio sitio se devuelven en su tamaño original.</td>
                                 </tr>
                                 <tr>
                                     <td><code>format</code></td>
@@ -522,12 +524,12 @@
 
                                 <div class="border-l-4 border-green-500 pl-4">
                                     <h5 class="font-medium">size</h5>
-                                    <p class="text-gray-600 text-sm">Preferred icon size, from 16 to 512 pixels:</p>
+                                    <p class="text-gray-600 text-sm">Tamaño de respaldo para el servicio de favicons de Google, de 16 a 512 píxeles:</p>
                                     <ul class="text-sm text-gray-600 mt-1 space-y-1">
                                         <li>• <code>16</code> - 16x16</li>
                                         <li>• <code>32</code> - 32x32</li>
                                         <li>• <code>128</code> - 128x128</li>
-                                        <li>• <code>512</code> - 512x512 when supported</li>
+                                        <li>• <code>512</code> - 512x512</li>
                                     </ul>
                                 </div>
                             </div>
@@ -551,7 +553,7 @@
   "domain": "example.com",
   "size": 128,
   "iconUrl": "https://example.com/favicon.svg",
-  "proxyUrl": "https://favicondl.com/api/proxy?url=...",
+  "proxyUrl": "https://icy-glade-6d04favicon.sweeyeah.workers.dev/api/proxy?url=...",
   "source": "html"
 }</code></pre>
                         </div>
@@ -563,11 +565,8 @@
                                 <button class="copy-button" onclick="copyCode('error-response')">Copiar</button>
                             </div>
                             <pre class="p-4 text-sm"><code id="error-response" class="language-json">{
-  "success": false,
-  "error": "Domain not found",
-  "message": "Unable to find favicon for the specified domain",
-  "code": 404,
-  "timestamp": "2026-01-15T10:30:00Z"
+  "ok": false,
+  "error": "Missing url"
 }</code></pre>
                         </div>
 
@@ -645,9 +644,9 @@ with open("example-favicon", "wb") as output:
                                     <span class="text-gray-300 text-sm">PHP</span>
                                     <button class="copy-button" onclick="copyCode('php-example')">Copiar</button>
                                 </div>
-                                <pre class="p-4 text-sm"><code id="php-example" class="language-php"><!--?php
+                                <pre class="p-4 text-sm"><code id="php-example" class="language-php">&lt;?php
 function getFavicon(string $url, int $size = 128): string {
-    $endpoint = 'https://favicondl.com/api/extract?url=' . urlencode($url) . '&size=' . $size;
+    $endpoint = 'https://favicondl.com/api/extract?url=' . urlencode($url) . '&amp;size=' . $size;
     $context = stream_context_create(['http' =&gt; ['follow_location' =&gt; 1, 'timeout' =&gt; 15]]);
     $icon = file_get_contents($endpoint, false, $context);
     if ($icon === false) {
@@ -657,7 +656,7 @@ function getFavicon(string $url, int $size = 128): string {
 }
 
 file_put_contents('example-favicon', getFavicon('example.com', 128));
-?--></code></pre>
+?&gt;</code></pre>
                             </div>
                         </div>
 
@@ -669,14 +668,11 @@ file_put_contents('example-favicon', getFavicon('example.com', 128));
                                     <span class="text-gray-300 text-sm">HTML</span>
                                     <button class="copy-button" onclick="copyCode('html-example')">Copiar</button>
                                 </div>
-                                <pre class="p-4 text-sm"><code id="html-example" class="language-html">&lt;!-- 在HTML中直接引用favicon --&gt;
-&lt;img src="https://favicondl.com/api/extract?url=example.com&amp;size=32" alt="example.com favicon" width="32" height="32"&gt;
+                                <pre class="p-4 text-sm"><code id="html-example" class="language-html">&lt;!-- Show a site icon next to a link --&gt;
+&lt;img src="https://favicondl.com/api/extract?url=example.com" alt="example.com favicon" width="32" height="32"&gt;
 
-&lt;!-- 使用大尺寸图标 --&gt;
-&lt;img src="https://favicondl.com/api/extract?url=example.com&amp;size=128" alt="example.com favicon" width="128" height="128"&gt;
-
-&lt;!-- 作为网站favicon --&gt;
-&lt;link rel="icon" type="image/png" href="https://favicondl.com/api/extract?url=example.com&amp;size=32"&gt;</code></pre>
+&lt;!-- Larger Google fallback size, if the site has no icon of its own --&gt;
+&lt;img src="https://favicondl.com/api/extract?url=example.com&amp;size=128" alt="example.com favicon" width="128" height="128"&gt;</code></pre>
                             </div>
                         </div>
                     </div>
@@ -687,13 +683,13 @@ file_put_contents('example-favicon', getFavicon('example.com', 128));
                     <div class="bg-white rounded-lg shadow-sm p-8">
                         <h2 class="text-2xl font-bold text-gray-900 mb-6">Errores</h2>
 
-                        <p class="text-gray-600 mb-6">La API devuelve el código de estado HTTP y mensaje de error correspondientes cuando ocurre un error.</p>
+                        <p class="text-gray-600 mb-6">Los errores devuelven un código de estado HTTP y un JSON breve con ok en false y un mensaje de error.</p>
 
                         <table class="parameter-table">
                             <thead>
                                 <tr>
                                     <th>Código de estado HTTP</th>
-                                    <th>Código de error</th>
+                                    <th>Mensaje de error</th>
                                     <th>Descripción</th>
                                     <th>Solución</th>
                                 </tr>
@@ -701,33 +697,39 @@ file_put_contents('example-favicon', getFavicon('example.com', 128));
                             <tbody>
                                 <tr>
                                     <td>400</td>
-                                    <td>invalid_domain</td>
-                                    <td>Formato de dominio inválido</td>
-                                    <td>Verifica el formato del dominio y asegúrate de que sea válido</td>
+                                    <td><code>Missing url</code></td>
+                                    <td>No se envió el parámetro url ni domain</td>
+                                    <td>Añade ?url=example.com a la solicitud</td>
                                 </tr>
                                 <tr>
-                                    <td>404</td>
-                                    <td>domain_not_found</td>
-                                    <td>Dominio no encontrado</td>
-                                    <td>Confirma que el dominio es correcto y el sitio web es accesible</td>
+                                    <td>400</td>
+                                    <td><code>Invalid format</code></td>
+                                    <td>format no es json ni redirect</td>
+                                    <td>Usa format=json u omítelo para obtener una redirección</td>
                                 </tr>
                                 <tr>
-                                    <td>404</td>
-                                    <td>favicon_not_found</td>
-                                    <td>Favicon no encontrado</td>
-                                    <td>El sitio web puede no tener un favicon configurado</td>
+                                    <td>400</td>
+                                    <td><code>Invalid domain</code></td>
+                                    <td>El valor no se pudo interpretar como un nombre de host</td>
+                                    <td>Envía un dominio como example.com o una URL https:// completa</td>
                                 </tr>
                                 <tr>
-                                    <td>429</td>
-                                    <td>rate_limit_exceeded</td>
-                                    <td>Límite de solicitudes excedido</td>
-                                    <td>Reduce la frecuencia de solicitudes e intenta más tarde</td>
+                                    <td>405</td>
+                                    <td><code>Method not allowed</code></td>
+                                    <td>Solo se admiten solicitudes GET</td>
+                                    <td>Envía una solicitud GET</td>
                                 </tr>
                                 <tr>
-                                    <td>500</td>
-                                    <td>internal_error</td>
-                                    <td>Error interno del servidor</td>
-                                    <td>El servicio no está disponible temporalmente, intenta más tarde</td>
+                                    <td>502</td>
+                                    <td><code>Favicon extraction failed</code></td>
+                                    <td>El extractor no pudo devolver un icono</td>
+                                    <td>Inténtalo más tarde</td>
+                                </tr>
+                                <tr>
+                                    <td>504</td>
+                                    <td><code>Favicon extraction timed out</code></td>
+                                    <td>La búsqueda tardó más de unos 9 segundos</td>
+                                    <td>Reintenta; los sitios lentos suelen funcionar al segundo intento</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -755,12 +757,12 @@ file_put_contents('example-favicon', getFavicon('example.com', 128));
                                     <svg class="w-5 h-5 text-yellow-400 mr-2" fill="currentColor" viewBox="0 0 20 20">
                                         <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path>
                                     </svg>
-                                    <h3 class="font-semibold text-yellow-900">Límite de solicitudes</h3>
+                                    <h3 class="font-semibold text-yellow-900">Uso razonable</h3>
                                 </div>
                                 <ul class="text-yellow-700 text-sm space-y-1">
-                                    <li>• <span>Hasta 100 solicitudes por minuto</span></li>
-                                    <li>• <span>Hasta 1000 solicitudes por hora</span></li>
-                                    <li>• <span>Hasta 10000 solicitudes por día</span></li>
+                                    <li>• <span>No hay API key ni una cuota fija publicada</span></li>
+                                    <li>• <span>Las respuestas correctas se almacenan en caché en el edge durante 5 minutos</span></li>
+                                    <li>• <span>Guarda en caché los iconos por tu cuenta y evita el rastreo masivo</span></li>
                                 </ul>
                             </div>
 
@@ -771,7 +773,7 @@ file_put_contents('example-favicon', getFavicon('example.com', 128));
                                     </svg>
                                     <h3 class="font-semibold text-blue-900">Uso comercial</h3>
                                 </div>
-                                <p class="text-blue-700 text-sm">Se recomienda a los usuarios comerciales contactarnos para una cuota de uso mayor y soporte prioritario</p>
+                                <p class="text-blue-700 text-sm">No hay plan de pago ni SLA. Para un uso intensivo o crítico, guarda los iconos que necesites en tu propio almacenamiento.</p>
                             </div>
                         </div>
                     </div>
