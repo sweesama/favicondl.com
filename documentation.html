@@ -408,12 +408,23 @@
   "ok": true,
   "domain": "github.com",
   "size": 128,
-  "iconUrl": "https://github.com/favicon.svg",
-  "proxyUrl": "https://icy-glade-6d04favicon.sweeyeah.workers.dev/api/proxy?url=https%3A%2F%2Fgithub.com%2Ffavicon.svg",
-  "source": "direct"
+  "iconUrl": "https://github.githubassets.com/favicons/favicon.svg",
+  "proxyUrl": "https://favicondl.com/api/proxy?url=https%3A%2F%2Fgithub.githubassets.com%2Ffavicons%2Ffavicon.svg",
+  "source": "html",
+  "rel": "icon",
+  "format": "svg",
+  "width": null,
+  "height": null,
+  "pageUrl": "https://github.com/",
+  "candidates": [
+    { "url": "https://github.githubassets.com/favicons/favicon.svg", "format": "svg", "vector": true, "source": "html", "rel": "icon", "proxyUrl": "…" },
+    { "url": "https://github.githubassets.com/assets/app-icon-512-7f9c4ff2e960.png", "format": "png", "width": 512, "height": 512, "source": "manifest", "rel": "manifest", "proxyUrl": "…" },
+    { "url": "https://github.com/favicon.ico", "format": "ico", "width": 32, "height": 32, "source": "direct", "rel": "favicon.ico", "proxyUrl": "…" }
+  ]
 }</code></pre>
                         </div>
-                        <p><code>iconUrl</code> is the original file on the website. <code>proxyUrl</code> serves the same image through our proxy with <code>Access-Control-Allow-Origin: *</code>, so you can draw it on a canvas or fetch it from browser code.</p>
+                        <p class="mb-4"><code>iconUrl</code> is the original file on the website. <code>proxyUrl</code> serves the same image through our proxy with <code>Access-Control-Allow-Origin: *</code>, so you can draw it on a canvas or fetch it from browser code.</p>
+                        <p><code>format</code>, <code>width</code> and <code>height</code> describe the chosen file as we measured it (<code>width</code>/<code>height</code> are <code>null</code> for SVG). <code>candidates</code> lists up to 8 other verified icons from the same site (different sizes and formats) so you can pick another one; the list above is shortened. It is empty when we had to fall back to Google or DuckDuckGo.</p>
                     </div>
                 </section>
 
@@ -421,12 +432,14 @@
                     <div class="bg-white rounded-lg shadow-sm p-8 text-gray-600">
                         <h2 class="text-2xl font-bold text-gray-900 mb-6">How the API picks an icon</h2>
                         <ol class="list-decimal pl-5 space-y-3 mb-4">
-                            <li><strong class="text-gray-900">Well-known paths</strong> such as <code>/favicon.svg</code>, <code>/apple-touch-icon.png</code>, <code>/android-chrome-512x512.png</code> and <code>/favicon.ico</code> are checked first (<code>source: "direct"</code>).</li>
-                            <li><strong class="text-gray-900">The page HTML</strong> is read for every <code>&lt;link rel="…icon…"&gt;</code> tag, and linked web app manifests are opened for their icon lists (<code>source: "html"</code>).</li>
-                            <li><strong class="text-gray-900">Google's favicon service</strong> is used as a last resort, at the <code>size</code> you request (<code>source: "google_s2"</code>).</li>
+                            <li><strong class="text-gray-900">The homepage</strong> is requested like a normal browser would, following redirects (including <code>www</code> ↔ bare domain). Every icon <code>&lt;link&gt;</code> is read: <code>icon</code>, <code>shortcut icon</code>, <code>apple-touch-icon</code>, <code>apple-touch-icon-precomposed</code> and <code>mask-icon</code>. Relative and protocol-relative (<code>//cdn…</code>) links are resolved against the final page URL or its <code>&lt;base&gt;</code> tag (<code>source: "html"</code>).</li>
+                            <li><strong class="text-gray-900">The web app manifest</strong> linked from the page is opened for its icon list, which is often where the 192px and 512px icons are (<code>source: "manifest"</code>).</li>
+                            <li><strong class="text-gray-900">Well-known paths</strong> <code>/favicon.ico</code> and <code>/apple-touch-icon.png</code> are tried as well (<code>source: "direct"</code>).</li>
+                            <li><strong class="text-gray-900">Every candidate is downloaded and checked</strong>: the bytes must really be an image (PNG, ICO, SVG, WebP, JPEG, GIF …), and we measure its real pixel size instead of trusting the file name.</li>
+                            <li><strong class="text-gray-900">Google's favicon service, then DuckDuckGo,</strong> are used only if nothing on the site works, at the <code>size</code> you request (<code>source: "google_s2"</code> or <code>"duckduckgo"</code>).</li>
                         </ol>
-                        <p class="mb-4">Within each step, candidates are ranked so the sharpest file wins: SVG first, then Apple touch and Android icons, then larger pixel sizes (512, 256, 192, 180 …), with ICO files last. Icons found on the website are returned at their original size; the <code>size</code> parameter only affects the Google fallback.</p>
-                        <p>If you get <code>google_s2</code>, the site either has no icon at the usual locations or blocked our automated request. For a single site, the <a href="/" class="text-blue-600 hover:underline">favicon downloader</a> on our homepage also tries a few extra sources directly from your browser.</p>
+                        <p class="mb-4">The verified candidates are ranked so the sharpest file wins: a full-colour SVG first, then the largest square PNG/ICO/WebP. Safari's single-colour <code>mask-icon</code> and manifest icons marked only as <code>maskable</code> are ranked lower because they do not look like the normal favicon. Icons found on the website are returned at their original size; the <code>size</code> parameter only affects the fallbacks.</p>
+                        <p>If you get <code>google_s2</code>, the site either has no icon we could reach or blocked our request (for example a bot challenge page). For a single site, the <a href="/" class="text-blue-600 hover:underline">favicon downloader</a> on our homepage also tries a few extra sources directly from your browser and shows every size it found so you can pick one.</p>
                     </div>
                 </section>
 
@@ -445,7 +458,7 @@
                                     <tr><td>Published free quota</td><td>None (fair use)</td><td>None published</td><td>None published</td><td>1,000 icons/month on the free plan</td></tr>
                                     <tr><td>Size parameter</td><td><code>size</code> (16–512, for the Google fallback)</td><td><code>sz</code></td><td>No</td><td>Not documented</td></tr>
                                     <tr><td>What you get back</td><td>The site's original file (SVG, PNG, ICO …) when found</td><td>PNG or JPEG (observed)</td><td>ICO (observed)</td><td>PNG (observed)</td></tr>
-                                    <tr><td>JSON metadata</td><td>Yes (<code>format=json</code>: icon URL and source)</td><td>No</td><td>No</td><td>No</td></tr>
+                                    <tr><td>JSON metadata</td><td>Yes (<code>format=json</code>: icon URL, source, format, measured pixel size and up to 8 alternative icons)</td><td>No</td><td>No</td><td>No</td></tr>
                                     <tr><td>Result for github.com in our test</td><td>favicon.svg (vector)</td><td>16×16 PNG at sz=16, 180×180 at sz=256</td><td>ICO with 16×16 and 32×32</td><td>256×256 PNG</td></tr>
                                 </tbody>
                             </table>
@@ -459,10 +472,7 @@
                     <div class="bg-white rounded-lg shadow-sm p-8">
                         <h2 class="text-2xl font-bold text-gray-900 mb-6" data-en="Overview" data-zh="概述">Overview</h2>
                         <p class="text-gray-600 mb-6">
-                            <span data-en="Mzu favicondl provides copy-ready favicon URL templates and a favicon extractor UI. By default, it uses a Cloudflare Worker to discover real icons and proxy images for downloads." data-zh="Mzu favicondl 提供可直接复制的 favicon URL 模板与图标提取页面。默认启用 Cloudflare Worker 来发现更真实的图标来源，并通过图片代理支持下载。">Mzu
-                                favicondl provides copy-ready favicon URL templates and a favicon extractor UI. By
-                                default, it uses a Cloudflare Worker to discover real icons and proxy images for
-                                downloads.</span>
+                            <span data-en="Mzu favicondl provides copy-ready favicon URL templates and a favicon extractor UI. Its own extraction API finds the real icons a website publishes, and an image proxy makes them downloadable from browser code." data-zh="Mzu favicondl 提供可直接复制的 favicon URL 模板与图标提取页面。自有的提取接口会找出网站实际提供的图标，并通过图片代理支持在浏览器里直接下载。">Mzu favicondl provides copy-ready favicon URL templates and a favicon extractor UI. Its own extraction API finds the real icons a website publishes, and an image proxy makes them downloadable from browser code.</span>
                         </p>
 
                         <div class="grid md:grid-cols-3 gap-6 mb-6">
@@ -631,8 +641,14 @@
   "domain": "example.com",
   "size": 128,
   "iconUrl": "https://example.com/favicon.svg",
-  "proxyUrl": "https://icy-glade-6d04favicon.sweeyeah.workers.dev/api/proxy?url=...",
-  "source": "html"
+  "proxyUrl": "https://favicondl.com/api/proxy?url=...",
+  "source": "html",
+  "rel": "icon",
+  "format": "svg",
+  "width": null,
+  "height": null,
+  "pageUrl": "https://example.com/",
+  "candidates": [ ... ]
 }</code></pre>
                         </div>
 
@@ -811,10 +827,10 @@ file_put_contents('example-favicon', getFavicon('example.com', 128));
                                     <td data-en="Retry later" data-zh="稍后重试" data-ja="しばらくしてから再試行してください" data-ko="나중에 다시 시도하세요" data-es="Inténtalo más tarde">Retry later</td>
                                 </tr>
                                 <tr>
-                                    <td>504</td>
-                                    <td><code>Favicon extraction timed out</code></td>
-                                    <td data-en="The lookup took longer than about 9 seconds" data-zh="查找时间超过约 9 秒" data-ja="検索に約 9 秒以上かかりました" data-ko="조회에 약 9초 이상 걸렸습니다" data-es="La búsqueda tardó más de unos 9 segundos">The lookup took longer than about 9 seconds</td>
-                                    <td data-en="Retry; slow sites often succeed on a second attempt" data-zh="重试；响应慢的网站第二次通常能成功" data-ja="再試行してください。遅いサイトは 2 回目で成功することがよくあります" data-ko="다시 시도하세요. 느린 사이트는 두 번째 시도에서 성공하는 경우가 많습니다" data-es="Reintenta; los sitios lentos suelen funcionar al segundo intento">Retry; slow sites often succeed on a second attempt</td>
+                                    <td>415</td>
+                                    <td><code>Target is not an image</code></td>
+                                    <td data-en="Only from /api/proxy: the URL did not return real image data" data-zh="仅 /api/proxy 返回：该地址返回的不是真正的图片数据" data-ja="/api/proxy のみ：その URL は実際の画像データを返しませんでした" data-ko="/api/proxy 전용: 해당 URL이 실제 이미지 데이터를 반환하지 않았습니다" data-es="Solo en /api/proxy: la URL no devolvió datos de imagen reales">Only from /api/proxy: the URL did not return real image data</td>
+                                    <td data-en="Use an iconUrl or candidates[].url returned by /api/extract" data-zh="改用 /api/extract 返回的 iconUrl 或 candidates[].url" data-ja="/api/extract が返した iconUrl または candidates[].url を使ってください" data-ko="/api/extract가 반환한 iconUrl 또는 candidates[].url을 사용하세요" data-es="Usa un iconUrl o candidates[].url devuelto por /api/extract">Use an iconUrl or candidates[].url returned by /api/extract</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -848,7 +864,7 @@ file_put_contents('example-favicon', getFavicon('example.com', 128));
                                 </div>
                                 <ul class="text-yellow-700 text-sm space-y-1">
                                     <li>• <span data-en="There is no API key and no fixed published quota" data-zh="没有 API key，也没有公布固定配额" data-ja="API キーはなく、公開された固定の上限もありません" data-ko="API 키가 없으며 공개된 고정 할당량도 없습니다" data-es="No hay API key ni una cuota fija publicada">There is no API key and no fixed published quota</span></li>
-                                    <li>• <span data-en="Successful responses are cached at the edge for 5 minutes" data-zh="成功的响应会在边缘节点缓存 5 分钟" data-ja="成功したレスポンスはエッジで 5 分間キャッシュされます" data-ko="성공한 응답은 엣지에서 5분간 캐시됩니다" data-es="Las respuestas correctas se almacenan en caché en el edge durante 5 minutos">Successful responses are cached at the edge for 5 minutes</span></li>
+                                    <li>• <span data-en="Icons found on the site are cached at the edge for 24 hours; Google/DuckDuckGo fallbacks for 10 minutes" data-zh="从网站本身找到的图标在边缘节点缓存 24 小时；回退到 Google/DuckDuckGo 的结果缓存 10 分钟" data-ja="サイトで見つかったアイコンはエッジで 24 時間、Google/DuckDuckGo へのフォールバックは 10 分間キャッシュされます" data-ko="사이트에서 찾은 아이콘은 엣지에서 24시간, Google/DuckDuckGo 대체 결과는 10분간 캐시됩니다" data-es="Los iconos encontrados en el sitio se guardan en caché en el edge 24 horas; los resultados de Google/DuckDuckGo, 10 minutos">Icons found on the site are cached at the edge for 24 hours; Google/DuckDuckGo fallbacks for 10 minutes</span></li>
                                     <li>• <span data-en="Please cache icons on your side and avoid bulk crawling" data-zh="请在你自己的系统中缓存图标，避免批量抓取" data-ja="アイコンはご自身の側でキャッシュし、大量のクロールは避けてください" data-ko="아이콘은 직접 캐시하고 대량 크롤링은 피해 주세요" data-es="Guarda en caché los iconos por tu cuenta y evita el rastreo masivo">Please cache icons on your side and avoid bulk crawling</span></li>
                                 </ul>
                             </div>

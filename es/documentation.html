@@ -394,7 +394,7 @@
                     <div class="bg-white rounded-lg shadow-sm p-8">
                         <h2 class="text-2xl font-bold text-gray-900 mb-6">Descripción general</h2>
                         <p class="text-gray-600 mb-6">
-                            <span>Mzu favicondl proporciona plantillas de URL de favicon listas para copiar y una interfaz de extracción de favicons. Por defecto, utiliza un Cloudflare Worker para descubrir iconos reales y proxy de imágenes para descargas.</span>
+                            <span>Mzu favicondl provides copy-ready favicon URL templates and a favicon extractor UI. Its own extraction API finds the real icons a website publishes, and an image proxy makes them downloadable from browser code.</span>
                         </p>
 
                         <div class="grid md:grid-cols-3 gap-6 mb-6">
@@ -553,8 +553,14 @@
   "domain": "example.com",
   "size": 128,
   "iconUrl": "https://example.com/favicon.svg",
-  "proxyUrl": "https://icy-glade-6d04favicon.sweeyeah.workers.dev/api/proxy?url=...",
-  "source": "html"
+  "proxyUrl": "https://favicondl.com/api/proxy?url=...",
+  "source": "html",
+  "rel": "icon",
+  "format": "svg",
+  "width": null,
+  "height": null,
+  "pageUrl": "https://example.com/",
+  "candidates": [ ... ]
 }</code></pre>
                         </div>
 
@@ -726,10 +732,10 @@ file_put_contents('example-favicon', getFavicon('example.com', 128));
                                     <td>Inténtalo más tarde</td>
                                 </tr>
                                 <tr>
-                                    <td>504</td>
-                                    <td><code>Favicon extraction timed out</code></td>
-                                    <td>La búsqueda tardó más de unos 9 segundos</td>
-                                    <td>Reintenta; los sitios lentos suelen funcionar al segundo intento</td>
+                                    <td>415</td>
+                                    <td><code>Target is not an image</code></td>
+                                    <td>Solo en /api/proxy: la URL no devolvió datos de imagen reales</td>
+                                    <td>Usa un iconUrl o candidates[].url devuelto por /api/extract</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -761,7 +767,7 @@ file_put_contents('example-favicon', getFavicon('example.com', 128));
                                 </div>
                                 <ul class="text-yellow-700 text-sm space-y-1">
                                     <li>• <span>No hay API key ni una cuota fija publicada</span></li>
-                                    <li>• <span>Las respuestas correctas se almacenan en caché en el edge durante 5 minutos</span></li>
+                                    <li>• <span>Los iconos encontrados en el sitio se guardan en caché en el edge 24 horas; los resultados de Google/DuckDuckGo, 10 minutos</span></li>
                                     <li>• <span>Guarda en caché los iconos por tu cuenta y evita el rastreo masivo</span></li>
                                 </ul>
                             </div>

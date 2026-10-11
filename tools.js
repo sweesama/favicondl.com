@@ -146,13 +146,44 @@ class FaviconTools {
         }
     }
 
+    getApiBase() {
+        try {
+            const { protocol, origin } = window.location;
+            if (protocol === 'http:' || protocol === 'https:') return origin;
+        } catch {
+        }
+        return 'https://favicondl.com';
+    }
+
     buildProxyUrl(targetUrl) {
+        const apiBase = this.getApiBase();
+        if (apiBase) return `${apiBase}/api/proxy?url=${encodeURIComponent(String(targetUrl))}`;
         const base = String(this.workerBaseUrl || '').trim();
         if (!base) return String(targetUrl);
         return `${base}/api/proxy?url=${encodeURIComponent(String(targetUrl))}`;
     }
 
     async fetchFaviconViaWorker(domain, size, timeoutMs = 8000) {
+        // Same-origin extractor first (better coverage, validated images),
+        // legacy Cloudflare Worker as a fallback.
+        const apiBase = this.getApiBase();
+        if (apiBase) {
+            const controller = new AbortController();
+            const timer = setTimeout(() => controller.abort(), 14000);
+            try {
+                const response = await fetch(
+                    `${apiBase}/api/extract?url=${encodeURIComponent(domain)}&size=${encodeURIComponent(size)}&format=json`,
+                    { signal: controller.signal }
+                );
+                if (response.ok) {
+                    const data = await response.json();
+                    if (data?.ok && (data.proxyUrl || data.iconUrl)) return data;
+                }
+            } catch {
+            } finally {
+                clearTimeout(timer);
+            }
+        }
         const base = String(this.workerBaseUrl || '').trim();
         if (!base) return null;
 
@@ -178,6 +209,9 @@ class FaviconTools {
 
     getBatchDownloadUrl(url) {
         const value = String(url || '');
+        if (value.startsWith(`${this.getApiBase()}/api/proxy?`)) {
+            return value;
+        }
         if (this.workerBaseUrl && value.startsWith(`${this.workerBaseUrl}/api/proxy?`)) {
             return value;
         }

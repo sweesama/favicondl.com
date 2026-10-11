@@ -394,7 +394,7 @@
                     <div class="bg-white rounded-lg shadow-sm p-8">
                         <h2 class="text-2xl font-bold text-gray-900 mb-6">概要</h2>
                         <p class="text-gray-600 mb-6">
-                            <span>Mzu favicondlはコピー可能なファビコンURLテンプレートとファビコン抽出UIを提供します。デフォルトではCloudflare Workerを使用してアイコンを検出し、ダウンロード用に画像をプロキシします。</span>
+                            <span>Mzu favicondl provides copy-ready favicon URL templates and a favicon extractor UI. Its own extraction API finds the real icons a website publishes, and an image proxy makes them downloadable from browser code.</span>
                         </p>
 
                         <div class="grid md:grid-cols-3 gap-6 mb-6">
@@ -553,8 +553,14 @@
   "domain": "example.com",
   "size": 128,
   "iconUrl": "https://example.com/favicon.svg",
-  "proxyUrl": "https://icy-glade-6d04favicon.sweeyeah.workers.dev/api/proxy?url=...",
-  "source": "html"
+  "proxyUrl": "https://favicondl.com/api/proxy?url=...",
+  "source": "html",
+  "rel": "icon",
+  "format": "svg",
+  "width": null,
+  "height": null,
+  "pageUrl": "https://example.com/",
+  "candidates": [ ... ]
 }</code></pre>
                         </div>
 
@@ -726,10 +732,10 @@ file_put_contents('example-favicon', getFavicon('example.com', 128));
                                     <td>しばらくしてから再試行してください</td>
                                 </tr>
                                 <tr>
-                                    <td>504</td>
-                                    <td><code>Favicon extraction timed out</code></td>
-                                    <td>検索に約 9 秒以上かかりました</td>
-                                    <td>再試行してください。遅いサイトは 2 回目で成功することがよくあります</td>
+                                    <td>415</td>
+                                    <td><code>Target is not an image</code></td>
+                                    <td>/api/proxy のみ：その URL は実際の画像データを返しませんでした</td>
+                                    <td>/api/extract が返した iconUrl または candidates[].url を使ってください</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -761,7 +767,7 @@ file_put_contents('example-favicon', getFavicon('example.com', 128));
                                 </div>
                                 <ul class="text-yellow-700 text-sm space-y-1">
                                     <li>• <span>API キーはなく、公開された固定の上限もありません</span></li>
-                                    <li>• <span>成功したレスポンスはエッジで 5 分間キャッシュされます</span></li>
+                                    <li>• <span>サイトで見つかったアイコンはエッジで 24 時間、Google/DuckDuckGo へのフォールバックは 10 分間キャッシュされます</span></li>
                                     <li>• <span>アイコンはご自身の側でキャッシュし、大量のクロールは避けてください</span></li>
                                 </ul>
                             </div>
