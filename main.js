@@ -16,6 +16,9 @@ class FaviconTool {
         this.currentLang = this.loadSavedLanguage();
         this.faviconCache = new Map(); // 缓存已获取的favicon
         this.workerBaseUrl = this.initWorkerBaseUrl();
+        this.apiBase = this.initApiBase();
+        this.candidateCache = new Map(); // domain -> icon candidates from /api/extract
+        this.selectedIconUrl = '';
         this.fetchSeq = 0;
         this.init();
     }
@@ -170,10 +173,31 @@ class FaviconTool {
         }
     }
 
+    // Same-origin API (Vercel function) when the page is served over http(s);
+    // the legacy Cloudflare Worker is only used if that is unavailable.
+    initApiBase() {
+        try {
+            const { protocol, origin } = window.location;
+            if (protocol === 'http:' || protocol === 'https:') return origin;
+        } catch {
+        }
+        return 'https://favicondl.com';
+    }
+
     async fetchFaviconViaWorker(domain, size) {
+        const sz = typeof size === 'number' ? size : 128;
+        if (this.apiBase) {
+            const apiUrl = `${this.apiBase}/api/extract?url=${encodeURIComponent(domain)}&size=${encodeURIComponent(sz)}&format=json`;
+            const apiData = await this.fetchJsonWithTimeout(apiUrl, 14000);
+            if (apiData && apiData.ok) {
+                if (Array.isArray(apiData.candidates)) {
+                    this.candidateCache.set(this.cleanDomain(domain), apiData.candidates);
+                }
+                return apiData;
+            }
+        }
         const base = this.workerBaseUrl;
         if (!base) return null;
-        const sz = typeof size === 'number' ? size : 128;
         const url = `${base}/api/favicon?domain=${encodeURIComponent(domain)}&size=${encodeURIComponent(sz)}`;
         const data = await this.fetchJsonWithTimeout(url, 8000);
         if (!data || !data.ok) return null;
@@ -465,7 +489,7 @@ class FaviconTool {
 
         let workerLowQualityFallback = '';
 
-        for (const d of domains) {
+        for (const d of domains.slice(0, 1)) {
             const workerData = await this.fetchFaviconViaWorker(d, fetchSz);
             if (workerData?.proxyUrl) {
                 if (String(workerData.source || '').toLowerCase() === 'google_s2') {
@@ -567,12 +591,16 @@ class FaviconTool {
         // 检查缓存
         const cacheKey = `${this.currentDomain}-${this.currentSize}`;
         if (!forceRefresh && this.faviconCache.has(cacheKey)) {
+            this.selectedIconUrl = '';
             this.showPreview(this.faviconCache.get(cacheKey));
+            this.renderCandidates(this.candidateCache.get(this.currentDomain) || [], this.faviconCache.get(cacheKey));
             this.showLoading(false);
             return;
         }
 
         const seq = ++this.fetchSeq;
+        this.selectedIconUrl = '';
+        this.renderCandidates([]);
         const quickUrl = this.getQuickFaviconUrl(this.currentDomain, this.currentSize);
         this.showPreview(quickUrl);
 
@@ -590,6 +618,7 @@ class FaviconTool {
             }
 
             this.faviconCache.set(cacheKey, faviconUrl);
+            this.renderCandidates(this.candidateCache.get(this.currentDomain) || [], faviconUrl);
             if (this.isAggregatorUrl(faviconUrl) && !this.isAggregatorUrl(quickUrl)) {
                 return;
             }
@@ -738,6 +767,10 @@ class FaviconTool {
         this.setDownloadButtonLoading(true);
 
         try {
+            if (this.selectedIconUrl) {
+                const ok = await this.tryDownloadFromUrl(this.selectedIconUrl, filename, makeTransparent, exportSize);
+                if (ok) return;
+            }
             const workerData = await this.fetchFaviconViaWorker(this.currentDomain, fetchSz);
             if (workerData?.proxyUrl) {
                 const ok = await this.tryDownloadFromUrl(workerData.proxyUrl, filename, makeTransparent, exportSize);
@@ -1094,6 +1127,9 @@ class FaviconTool {
     }
 
     buildProxyUrl(originalUrl) {
+        if (this.apiBase) {
+            return `${this.apiBase}/api/proxy?url=${encodeURIComponent(String(originalUrl))}`;
+        }
         if (this.workerBaseUrl) {
             return `${this.workerBaseUrl}/api/proxy?url=${encodeURIComponent(String(originalUrl))}`;
         }
@@ -1109,6 +1145,81 @@ class FaviconTool {
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
+    }
+
+    // ==================== 候选图标（多尺寸/格式） ====================
+    candidateLabel(c) {
+        const fmt = String(c.format || '').toUpperCase();
+        if (c.vector) return c.rel === 'mask-icon' ? 'SVG (mono)' : 'SVG';
+        if (c.width && c.height) return `${c.width}×${c.height} ${fmt}`;
+        return fmt || '?';
+    }
+
+    renderCandidates(candidates, activeUrl) {
+        const card = document.querySelector('#preview-section .preview-card');
+        if (!card) return;
+        let box = document.getElementById('icon-candidates');
+        const list = Array.isArray(candidates) ? candidates.filter((c) => c && c.proxyUrl) : [];
+        if (list.length < 2) {
+            if (box) box.remove();
+            return;
+        }
+        if (!box) {
+            box = document.createElement('div');
+            box.id = 'icon-candidates';
+            box.className = 'mb-8 pb-8 border-b border-gray-100';
+            const firstRow = card.firstElementChild;
+            if (firstRow && firstRow.nextSibling) card.insertBefore(box, firstRow.nextSibling);
+            else card.appendChild(box);
+        }
+        const titles = {
+            en: 'Icons found on this site (pick one to preview and download)',
+            zh: '在该网站找到的图标（点击选择要预览和下载的版本）',
+            ja: 'このサイトで見つかったアイコン（クリックで選択）',
+            ko: '이 사이트에서 찾은 아이콘 (클릭해서 선택)',
+            es: 'Iconos encontrados en este sitio (elige uno para ver y descargar)',
+        };
+        box.innerHTML = '';
+        const title = document.createElement('p');
+        title.className = 'text-sm text-gray-500 mb-3';
+        title.textContent = titles[this.currentLang] || titles.en;
+        box.appendChild(title);
+        const row = document.createElement('div');
+        row.className = 'flex flex-wrap gap-2';
+        box.appendChild(row);
+
+        for (const c of list) {
+            const btn = document.createElement('button');
+            btn.type = 'button';
+            const stripBust = (u) => String(u || '').replace(/[?&]v=\d+$/, '');
+            const isActive = activeUrl && (stripBust(activeUrl) === c.proxyUrl || stripBust(activeUrl) === c.url);
+            btn.className = `flex flex-col items-center gap-1 p-2 rounded-xl border ${isActive ? 'border-blue-500 bg-blue-50' : 'border-gray-200 hover:border-gray-400'}`;
+            btn.title = c.url;
+            const img = document.createElement('img');
+            img.src = c.proxyUrl;
+            img.alt = this.candidateLabel(c);
+            img.width = 32;
+            img.height = 32;
+            img.loading = 'lazy';
+            img.className = 'w-8 h-8 object-contain';
+            img.onerror = () => btn.remove();
+            const label = document.createElement('span');
+            label.className = 'text-xs text-gray-500 whitespace-nowrap';
+            label.textContent = this.candidateLabel(c);
+            btn.appendChild(img);
+            btn.appendChild(label);
+            btn.addEventListener('click', () => {
+                this.selectedIconUrl = c.proxyUrl;
+                this.showPreview(c.proxyUrl);
+                row.querySelectorAll('button').forEach((b) => {
+                    b.classList.remove('border-blue-500', 'bg-blue-50');
+                    b.classList.add('border-gray-200');
+                });
+                btn.classList.remove('border-gray-200');
+                btn.classList.add('border-blue-500', 'bg-blue-50');
+            });
+            row.appendChild(btn);
+        }
     }
 
     // ==================== 工具方法 ====================
@@ -1138,6 +1249,8 @@ class FaviconTool {
         if (previewSection) previewSection.classList.add('hidden');
         
         this.currentDomain = '';
+        this.selectedIconUrl = '';
+        this.renderCandidates([]);
         this.hideError();
         domainInput?.focus();
     }

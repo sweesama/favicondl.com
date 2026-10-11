@@ -6,11 +6,12 @@ FaviconDL (https://favicondl.com) is a free web tool and API for downloading web
 
 Extracting a good favicon is often more involved than reading one `<link rel="icon">` tag: many sites only list a small `/favicon.ico` there, while larger icons sit in the web app manifest or at well-known paths. FaviconDL's extractor:
 
-1. Reads `<link rel="icon">`, `apple-touch-icon` and `mask-icon` tags on the page.
+1. Loads the homepage with browser-like headers, following redirects (including www and bare domain), and reads every icon `<link>`: `icon`, `shortcut icon`, `apple-touch-icon(-precomposed)` and `mask-icon`, resolving relative and protocol-relative URLs.
 2. Reads icons listed in the site's web app manifest (for example Android 192px/512px icons).
-3. Checks well-known paths such as `/favicon.svg`, `/apple-touch-icon.png` and `/favicon.ico`.
-4. Ranks the candidates, preferring SVG and larger PNG icons over ICO files.
-5. Falls back to Google's public favicon service (`source: "google_s2"`) when the site blocks the request or no icon is found.
+3. Tries the well-known paths `/favicon.ico` and `/apple-touch-icon.png`.
+4. Downloads each candidate, checks the bytes are a real image and measures its pixel size.
+5. Ranks the verified icons: full-colour SVG first, then the largest square raster image; single-colour mask icons rank lower.
+6. Falls back to Google's public favicon service, then DuckDuckGo (`source: "google_s2"` or `"duckduckgo"`), only when nothing on the site works.
 
 Other pages: bulk download for up to 100 domains (https://favicondl.com/bulk-favicon-downloader.html), image-to-favicon generator and converter (https://favicondl.com/tools.html), and API documentation (https://favicondl.com/documentation.html).
 
@@ -24,7 +25,7 @@ The API is a single GET endpoint:
 - **Default response**: HTTP 302 redirect to a downloadable image URL.
 - **JSON response**: Add `&format=json` when you need the resolved icon URL and source metadata.
 - **Size**: `16` to `512` (default `128`). Icons found on the site are returned at their native size; `size` mainly applies to the Google fallback.
-- **Usage**: free, fair use; responses are cached at the edge for about 5 minutes, so please cache results on your side too.
+- **Usage**: free, fair use; icons found on the site are cached at the edge for about 24 hours (fallback results for about 10 minutes), so please cache results on your side too.
 
 ### cURL Example
 ```bash
@@ -57,7 +58,7 @@ with open("stripe-favicon", "wb") as output:
 GET https://favicondl.com/api/extract?url=github.com&size=128&format=json
 ```
 
-The JSON response contains `ok`, `domain`, `size`, `iconUrl`, `proxyUrl`, and `source`.
+The JSON response contains `ok`, `domain`, `size`, `iconUrl`, `proxyUrl` and `source` (`html`, `manifest`, `direct`, `google_s2` or `duckduckgo`), plus `rel`, `format`, `width`, `height` (measured; `null` for SVG), `pageUrl` and `candidates`: up to 8 other verified icons from the site with their own `url`, `proxyUrl`, `format` and size.
 
 ### JavaScript (Fetch) Example
 ```javascript

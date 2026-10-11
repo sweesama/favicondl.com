@@ -394,7 +394,7 @@
                     <div class="bg-white rounded-lg shadow-sm p-8">
                         <h2 class="text-2xl font-bold text-gray-900 mb-6">개요</h2>
                         <p class="text-gray-600 mb-6">
-                            <span>Mzu favicondl은 복사 가능한 파비콘 URL 템플릿과 파비콘 추출 UI를 제공합니다. 기본적으로 Cloudflare Worker를 사용하여 실제 아이콘을 찾고 다운로드를 위해 이미지를 프록시합니다.</span>
+                            <span>Mzu favicondl provides copy-ready favicon URL templates and a favicon extractor UI. Its own extraction API finds the real icons a website publishes, and an image proxy makes them downloadable from browser code.</span>
                         </p>
 
                         <div class="grid md:grid-cols-3 gap-6 mb-6">
@@ -553,8 +553,14 @@
   "domain": "example.com",
   "size": 128,
   "iconUrl": "https://example.com/favicon.svg",
-  "proxyUrl": "https://icy-glade-6d04favicon.sweeyeah.workers.dev/api/proxy?url=...",
-  "source": "html"
+  "proxyUrl": "https://favicondl.com/api/proxy?url=...",
+  "source": "html",
+  "rel": "icon",
+  "format": "svg",
+  "width": null,
+  "height": null,
+  "pageUrl": "https://example.com/",
+  "candidates": [ ... ]
 }</code></pre>
                         </div>
 
@@ -726,10 +732,10 @@ file_put_contents('example-favicon', getFavicon('example.com', 128));
                                     <td>나중에 다시 시도하세요</td>
                                 </tr>
                                 <tr>
-                                    <td>504</td>
-                                    <td><code>Favicon extraction timed out</code></td>
-                                    <td>조회에 약 9초 이상 걸렸습니다</td>
-                                    <td>다시 시도하세요. 느린 사이트는 두 번째 시도에서 성공하는 경우가 많습니다</td>
+                                    <td>415</td>
+                                    <td><code>Target is not an image</code></td>
+                                    <td>/api/proxy 전용: 해당 URL이 실제 이미지 데이터를 반환하지 않았습니다</td>
+                                    <td>/api/extract가 반환한 iconUrl 또는 candidates[].url을 사용하세요</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -761,7 +767,7 @@ file_put_contents('example-favicon', getFavicon('example.com', 128));
                                 </div>
                                 <ul class="text-yellow-700 text-sm space-y-1">
                                     <li>• <span>API 키가 없으며 공개된 고정 할당량도 없습니다</span></li>
-                                    <li>• <span>성공한 응답은 엣지에서 5분간 캐시됩니다</span></li>
+                                    <li>• <span>사이트에서 찾은 아이콘은 엣지에서 24시간, Google/DuckDuckGo 대체 결과는 10분간 캐시됩니다</span></li>
                                     <li>• <span>아이콘은 직접 캐시하고 대량 크롤링은 피해 주세요</span></li>
                                 </ul>
                             </div>

@@ -550,7 +550,7 @@ stackoverflow.com" class="w-full px-4 py-3 border border-gray-300 rounded-lg foc
             </div>
 
             <h2 class="text-2xl font-semibold text-gray-900 mt-14 mb-6">Where the icons come from</h2>
-            <p class="mb-4">Each domain goes through the same favicon extractor as our <a href="/" class="text-blue-600 hover:underline">single-site favicon downloader</a>. It checks well-known files such as <code>/favicon.svg</code>, <code>/apple-touch-icon.png</code> and <code>/favicon.ico</code>, reads the <code>&lt;link rel="icon"&gt;</code> tags and web app manifest on the homepage, and prefers SVG and large PNG icons over small ICO files.</p>
+            <p class="mb-4">Each domain goes through the same favicon extractor as our <a href="/" class="text-blue-600 hover:underline">single-site favicon downloader</a>. It reads the <code>&lt;link rel="icon"&gt;</code> and Apple touch icon tags and the web app manifest on the homepage, tries well-known files such as <code>/favicon.ico</code> and <code>/apple-touch-icon.png</code>, checks that each file really is an image, and prefers SVG and large PNG icons over small ICO files.</p>
             <p>If a site blocks automated requests or has no icon, the tool falls back to Google's public favicon service, so every row in your list still gets an image. The preview grid shows each result before you download, so you can spot the generic ones.</p>
 
             <h2 class="text-2xl font-semibold text-gray-900 mt-14 mb-6">Common uses</h2>
@@ -613,6 +613,6 @@ stackoverflow.com" class="w-full px-4 py-3 border border-gray-300 rounded-lg foc
         <span id="toast-message" data-en="Done!" data-zh="完成！">Done!</span>
     </div>
 
-    <script src="/tools.js?v=20260211b"></script>
+    <script src="/tools.js?v=20261012a"></script>
 
 </body></html>

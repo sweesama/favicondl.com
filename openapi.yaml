@@ -76,7 +76,42 @@ paths:
                     format: uri
                   source:
                     type: string
-                    enum: [direct, html, google_s2]
+                    description: Where the chosen icon was found.
+                    enum: [html, manifest, direct, google_s2, duckduckgo]
+                  rel:
+                    type: string
+                    nullable: true
+                    description: The link rel or manifest entry the icon came from.
+                  format:
+                    type: string
+                    nullable: true
+                    description: Detected image format (svg, png, ico, webp, jpeg, gif ...).
+                  width:
+                    type: integer
+                    nullable: true
+                    description: Measured width in pixels; null for SVG.
+                  height:
+                    type: integer
+                    nullable: true
+                  pageUrl:
+                    type: string
+                    nullable: true
+                    description: Final homepage URL after redirects.
+                  candidates:
+                    type: array
+                    description: Up to 8 verified icons from the site, best first. Empty when a fallback service was used.
+                    items:
+                      type: object
+                      properties:
+                        url: { type: string, format: uri }
+                        proxyUrl: { type: string, format: uri }
+                        source: { type: string }
+                        rel: { type: string }
+                        format: { type: string }
+                        width: { type: integer, nullable: true }
+                        height: { type: integer, nullable: true }
+                        vector: { type: boolean }
+                        bytes: { type: integer }
         '400':
           description: Missing URL or invalid format
         '502':

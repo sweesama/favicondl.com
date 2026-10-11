@@ -1,4 +1,9 @@
 {
+  "functions": {
+    "api/extract.js": { "maxDuration": 20 },
+    "api/favicon.js": { "maxDuration": 20 },
+    "api/proxy.js": { "maxDuration": 20 }
+  },
   "redirects": [
     { "source": "/index.html", "destination": "/", "permanent": true }
   ],

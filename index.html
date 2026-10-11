@@ -968,7 +968,7 @@ with open("icon.png", "wb") as f:
             <p class="mt-4">That is all there is to it: no account, no browser extension and no upload. If you need the original <code>.ico</code> or <code>.svg</code> file rather than a PNG, open the direct URL shown in the result and save it from there.</p>
 
             <h2 id="what-we-extract" class="text-2xl font-semibold text-gray-900 mt-14 mb-6">What the favicon extractor looks for</h2>
-            <p class="mb-4">Websites rarely publish just one icon. A typical site has a classic <code>favicon.ico</code>, a few PNGs, an Apple touch icon for iPhones and a web app manifest for Android. Our favicon extractor checks the well-known file paths (such as <code>/favicon.ico</code>, <code>/favicon.svg</code>, <code>/apple-touch-icon.png</code> and <code>/android-chrome-512x512.png</code>), reads every <code>&lt;link rel="…icon…"&gt;</code> tag in the page HTML, and opens any linked manifest to collect the icons listed inside it.</p>
+            <p class="mb-4">Websites rarely publish just one icon. A typical site has a classic <code>favicon.ico</code>, a few PNGs, an Apple touch icon for iPhones and a web app manifest for Android. Our favicon extractor loads the homepage like a normal browser (following redirects such as <code>www</code> to the bare domain), reads every <code>&lt;link rel="…icon…"&gt;</code> tag in the page HTML, opens any linked manifest to collect the icons listed inside it, and also tries the well-known paths <code>/favicon.ico</code> and <code>/apple-touch-icon.png</code>. Each file is downloaded and checked to make sure it really is an image, and its actual pixel size is measured.</p>
             <div class="overflow-x-auto">
                 <table class="w-full text-left text-sm border border-gray-200 rounded-lg">
                     <thead class="bg-gray-50 text-gray-900">
@@ -987,7 +987,7 @@ with open("icon.png", "wb") as f:
             <p class="mt-4">When a site exposes none of these (for example because it blocks automated requests or only loads its icon with JavaScript), we fall back to Google's public favicon service so you still get a usable, if smaller, image. For a deeper look at which size is used where, see our <a href="/blog/favicon-sizes-guide.html" class="text-blue-600 hover:underline">favicon sizes guide</a>.</p>
 
             <h2 id="highest-resolution" class="text-2xl font-semibold text-gray-900 mt-14 mb-6">How to get the highest-resolution icon</h2>
-            <p class="mb-4">The extractor ranks every icon it finds and returns the sharpest one first. SVG files win because they scale without losing detail. After that come Apple touch icons and Android/manifest icons, ordered by size (512, 256, 192, 180 px and down). The classic ICO file is used last, because it is usually only 16 or 32 pixels wide.</p>
+            <p class="mb-4">The extractor ranks every icon it finds and returns the sharpest one first. A full-colour SVG wins because it scales without losing detail. After that comes the largest square image by its measured size, which is usually a 512 or 192 px manifest icon or a 180 px Apple touch icon; the classic ICO file usually ends up last because it is often only 16 or 32 pixels wide. Safari's single-colour mask icon is ranked low. The downloader also shows the other sizes it found, so you can pick a different one.</p>
             <ul class="space-y-2 list-disc pl-5">
                 <li><strong class="text-gray-900">Keep the original size.</strong> Leave <em>Export at selected size</em> switched off, and the PNG you download keeps the full resolution of the source file.</li>
                 <li><strong class="text-gray-900">Do not upscale tiny icons.</strong> Enlarging a 16 px ICO to 128 px only makes it blurrier. If a site publishes nothing bigger, that small file is genuinely the best version available.</li>
@@ -1088,6 +1088,6 @@ with open("icon.png", "wb") as f:
         <span id="toast-message" data-en="Copied!" data-zh="已复制！">Copied!</span>
     </div>
 
-    <script src="main.js?v=20260211c"></script>
+    <script src="main.js?v=20261012a"></script>
 
 </body></html>
