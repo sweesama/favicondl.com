@@ -186,6 +186,15 @@ for (const lang of LANGUAGES) {
     }
   }
 
+  if (lang !== 'en') {
+    for (const page of CORE_PAGES) {
+      const localized = fs.readFileSync(path.join(ROOT, lang, page), 'utf-8');
+      if (localized.includes('data-i18n-only="en"')) {
+        fail(`${lang}/${page}: English-only block leaked into localized page`);
+      }
+    }
+  }
+
   const notFoundFile = lang === 'en'
     ? path.join(ROOT, '404.html')
     : path.join(ROOT, lang, '404.html');

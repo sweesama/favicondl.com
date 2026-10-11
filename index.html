@@ -2,7 +2,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Favicon Downloader &amp; Extractor - Free, Any Website | favicondl</title>
-    <meta name="description" content="Free online favicon downloader &amp; extractor. Download any website's icon instantly with copy-ready HTML snippets and direct URLs. Fast, reliable, no signup.">
+    <meta name="description" content="Free favicon downloader &amp; extractor. Grab any site's ICO, PNG, SVG or Apple touch icon in the highest resolution, bulk download, or use the no-key API.">
     <meta name="keywords" content="favicon downloader, extract website icon, download favicon, free favicon generator">
     <meta name="baidu-site-verification" content="codeva-TQEbMwU84J">
     <meta name="robots" content="index, follow">
@@ -26,13 +26,13 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://favicondl.com/">
     <meta property="og:title" content="Favicon Downloader &amp; Extractor - Free, Any Website | favicondl">
-    <meta property="og:description" content="Free online favicon downloader &amp; extractor. Get any website's icon instantly with HTML snippets and direct URLs.">
+    <meta property="og:description" content="Free favicon downloader &amp; extractor. Grab any site's ICO, PNG, SVG or Apple touch icon in the highest resolution, bulk download, or use the no-key API.">
     <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Favicon Downloader &amp; Extractor - Free, Any Website | favicondl">
-    <meta name="twitter:description" content="Free online favicon downloader &amp; extractor. Get any website's icon instantly with HTML snippets and direct URLs.">
+    <meta name="twitter:description" content="Free favicon downloader &amp; extractor. Grab any site's ICO, PNG, SVG or Apple touch icon in the highest resolution, bulk download, or use the no-key API.">
     <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
 
     <!-- Google Analytics (replace GA_MEASUREMENT_ID with your real ID) -->
@@ -82,6 +82,95 @@
         "query-input": "required name=url"
       }
     }
+    </script>
+
+    <script type="application/ld+json" data-i18n-only="en">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is it legal to download a website's favicon?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A favicon is a public file that every browser downloads when it opens the site, so saving it is technically no different. The icon is usually part of the owner's logo or trademark, though. Using it to show which site a link points to (in bookmarks, dashboards or link previews) is common practice; using it as your own branding is not. When in doubt, check the company's brand guidelines. This is general information, not legal advice."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does my downloaded favicon look blurry?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Usually the site only publishes a small icon, or the image was enlarged on export. Turn off Export at selected size to keep the original resolution. If only a 16 px or 32 px ICO exists, no tool can add the missing detail."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I download favicons in bulk?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The batch tool on the Tools page accepts up to 100 domains at once and lets you download the results as one ZIP file or as separate images."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there a free favicon API?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. https://favicondl.com/api/extract?url=github.com redirects straight to the best icon we found, so you can use it in an <img> tag. Add &format=json to get the icon URL and where it came from instead. No key or account is needed; please cache results on your side. Details are in the API documentation."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between a favicon grabber, fetcher and extractor?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nothing important. \"Favicon grabber\", \"favicon fetcher\", \"favicon finder\" and \"favicon extractor\" are different names for the same kind of tool: you give it a website and it finds and downloads the site's icon. This favicon downloader does all of them."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why do some websites return a generic globe or no favicon?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Some sites block automated requests, sit behind a login or bot check, add their icon with JavaScript after the page loads, or simply have no favicon. In those cases we fall back to Google's favicon service, which may return a small image or a default globe icon."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which file format will I get?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The Download button always saves a PNG, which works everywhere. The direct URL in the result points to the original file on the website, which may be ICO, PNG, SVG or WebP, if you need that exact format."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does it work with localhost or private sites?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. The extractor only fetches public websites. Local addresses such as localhost, private network IPs and .local hosts are blocked, and pages behind a login cannot be read."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I turn my own image into a favicon?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The Image to Favicon tool on the Tools page converts a logo into multiple PNG sizes and an ICO file, and packs them into a ZIP together with a web manifest and the HTML tags to paste into your site. The image is processed in your browser and is not uploaded."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which favicon sizes does my own site need?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For most sites, an SVG or 32×32 PNG for browsers, a 180×180 Apple touch icon and 192×192 plus 512×512 manifest icons cover everything. Our favicon sizes guide explains each one."
+      }
+    }
+  ]
+}
     </script>
 
     <!-- Tailwind CSS -->
@@ -456,9 +545,8 @@
     <!-- Hero Section -->
     <section class="pt-20 pb-16 px-6">
         <div class="max-w-3xl mx-auto text-center">
-            <h1 class="text-5xl font-semibold text-gray-900 tracking-tight mb-4" data-en="Download any website favicon. Instantly." data-zh="一键下载任意网站图标。">
-                Download any website favicon. Instantly.
-            </h1>
+            <h1 class="text-5xl font-semibold text-gray-900 tracking-tight mb-4" data-en="Favicon Downloader &amp; Extractor" data-zh="一键下载任意网站图标。" data-ja="あらゆるウェブサイトのファビコンを即座にダウンロード。" data-ko="모든 웹사이트의 파비콘을 즉시 다운로드." data-es="Descarga el favicon de cualquier sitio web. Al instante.">Favicon Downloader &amp; Extractor</h1>
+            <p class="text-xl text-gray-500 mb-6" data-i18n-only="en">Download any website favicon. Instantly.</p>
 
             <div class="flex justify-center mb-8 fade-in" style="animation-delay: 0.1s;">
                 <div class="inline-flex items-center gap-2 px-3 py-1.5 bg-green-50 border border-green-100 rounded-full">
@@ -863,6 +951,102 @@ with open("icon.png", "wb") as f:
     f.write(response.content)</code></pre>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 px-6 bg-white border-t border-gray-100" data-i18n-only="en">
+        <!-- In-depth guide (English only; removed from localized builds by i18n/build.js) -->
+        <div class="max-w-3xl mx-auto text-gray-600 text-sm leading-relaxed">
+            <h2 id="how-to" class="text-2xl font-semibold text-gray-900 mb-6">How to download a favicon from any website</h2>
+            <ol class="space-y-4 list-decimal pl-5">
+                <li><strong class="text-gray-900">Enter a domain or URL.</strong> Type something like <code>github.com</code> into the box at the top of this page, or paste a full page address. You can leave out <code>https://</code> and <code>www.</code>.</li>
+                <li><strong class="text-gray-900">Pick a size.</strong> Choose 16, 32, 48, 64 or 128 px. The preview always shows the best icon we could find. Turn on <em>Export at selected size</em> only if you need exactly that pixel size; leave it off to keep the file at its original resolution.</li>
+                <li><strong class="text-gray-900">Download or copy.</strong> Click <em>Download</em> to save the icon as a PNG, or copy the ready-made <code>&lt;link&gt;</code> HTML tag or the direct URL of the original file.</li>
+            </ol>
+            <p class="mt-4">That is all there is to it: no account, no browser extension and no upload. If you need the original <code>.ico</code> or <code>.svg</code> file rather than a PNG, open the direct URL shown in the result and save it from there.</p>
+
+            <h2 id="what-we-extract" class="text-2xl font-semibold text-gray-900 mt-14 mb-6">What the favicon extractor looks for</h2>
+            <p class="mb-4">Websites rarely publish just one icon. A typical site has a classic <code>favicon.ico</code>, a few PNGs, an Apple touch icon for iPhones and a web app manifest for Android. Our favicon extractor checks the well-known file paths (such as <code>/favicon.ico</code>, <code>/favicon.svg</code>, <code>/apple-touch-icon.png</code> and <code>/android-chrome-512x512.png</code>), reads every <code>&lt;link rel="…icon…"&gt;</code> tag in the page HTML, and opens any linked manifest to collect the icons listed inside it.</p>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left text-sm border border-gray-200 rounded-lg">
+                    <thead class="bg-gray-50 text-gray-900">
+                        <tr><th class="p-3 border-b border-gray-200">Icon type</th><th class="p-3 border-b border-gray-200">Where it is declared</th><th class="p-3 border-b border-gray-200">Typical sizes</th><th class="p-3 border-b border-gray-200">Used for</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="p-3 border-b border-gray-100">ICO favicon</td><td class="p-3 border-b border-gray-100"><code>/favicon.ico</code> or <code>rel="icon"</code> / <code>rel="shortcut icon"</code></td><td class="p-3 border-b border-gray-100">16×16, 32×32, 48×48 (often several in one file)</td><td class="p-3 border-b border-gray-100">Browser tabs, bookmarks, older browsers</td></tr>
+                        <tr><td class="p-3 border-b border-gray-100">PNG favicon</td><td class="p-3 border-b border-gray-100"><code>rel="icon" type="image/png" sizes="32x32"</code></td><td class="p-3 border-b border-gray-100">16 to 96 px</td><td class="p-3 border-b border-gray-100">Modern browser tabs and search results</td></tr>
+                        <tr><td class="p-3 border-b border-gray-100">SVG favicon</td><td class="p-3 border-b border-gray-100"><code>rel="icon" type="image/svg+xml"</code></td><td class="p-3 border-b border-gray-100">Scalable vector</td><td class="p-3 border-b border-gray-100">Sharp at any size; can adapt to dark mode</td></tr>
+                        <tr><td class="p-3 border-b border-gray-100">Apple touch icon</td><td class="p-3 border-b border-gray-100"><code>rel="apple-touch-icon"</code> or <code>/apple-touch-icon.png</code></td><td class="p-3 border-b border-gray-100">180×180</td><td class="p-3 border-b border-gray-100">iPhone and iPad home screen shortcuts</td></tr>
+                        <tr><td class="p-3 border-b border-gray-100">Manifest icons</td><td class="p-3 border-b border-gray-100"><code>rel="manifest"</code> (site.webmanifest, manifest.json)</td><td class="p-3 border-b border-gray-100">192×192, 512×512</td><td class="p-3 border-b border-gray-100">Android home screen and installed web apps</td></tr>
+                        <tr><td class="p-3">Safari pinned tab</td><td class="p-3"><code>rel="mask-icon"</code></td><td class="p-3">Single-colour SVG</td><td class="p-3">Pinned tabs in older Safari versions</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="mt-4">When a site exposes none of these (for example because it blocks automated requests or only loads its icon with JavaScript), we fall back to Google's public favicon service so you still get a usable, if smaller, image. For a deeper look at which size is used where, see our <a href="/blog/favicon-sizes-guide.html" class="text-blue-600 hover:underline">favicon sizes guide</a>.</p>
+
+            <h2 id="highest-resolution" class="text-2xl font-semibold text-gray-900 mt-14 mb-6">How to get the highest-resolution icon</h2>
+            <p class="mb-4">The extractor ranks every icon it finds and returns the sharpest one first. SVG files win because they scale without losing detail. After that come Apple touch icons and Android/manifest icons, ordered by size (512, 256, 192, 180 px and down). The classic ICO file is used last, because it is usually only 16 or 32 pixels wide.</p>
+            <ul class="space-y-2 list-disc pl-5">
+                <li><strong class="text-gray-900">Keep the original size.</strong> Leave <em>Export at selected size</em> switched off, and the PNG you download keeps the full resolution of the source file.</li>
+                <li><strong class="text-gray-900">Do not upscale tiny icons.</strong> Enlarging a 16 px ICO to 128 px only makes it blurrier. If a site publishes nothing bigger, that small file is genuinely the best version available.</li>
+                <li><strong class="text-gray-900">Check where the icon came from.</strong> In the API's JSON response, <code>source</code> tells you whether the icon came from the site itself (<code>direct</code> or <code>html</code>) or from the Google fallback (<code>google_s2</code>), which is usually lower resolution.</li>
+                <li><strong class="text-gray-900">Need a logo, not an icon?</strong> A favicon is designed to be tiny. For print or marketing work, use the company's official press kit or brand page instead.</li>
+            </ul>
+
+            <div class="grid sm:grid-cols-2 gap-4 mt-14">
+                <a href="tools.html" class="block bg-gray-50 border border-gray-100 rounded-2xl p-6 hover:border-gray-300 transition-colors">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Bulk favicon downloader</h3>
+                    <p>Paste up to 100 domains, one per line, and download all their favicons as a ZIP file or as individual images, named by domain or by number.</p>
+                </a>
+                <a href="documentation.html" class="block bg-gray-50 border border-gray-100 rounded-2xl p-6 hover:border-gray-300 transition-colors">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Free favicon API</h3>
+                    <p>Fetch any site's icon by URL with a single GET request. No API key, no sign-up; get a redirect to the image or JSON with the icon URL and its source.</p>
+                </a>
+            </div>
+
+            <h2 id="faq" class="text-2xl font-semibold text-gray-900 mt-14 mb-6">Frequently asked questions</h2>
+            <div class="space-y-6">
+                <div>
+                    <h3 class="text-base font-semibold text-gray-900 mb-1">Is it legal to download a website's favicon?</h3>
+                    <p>A favicon is a public file that every browser downloads when it opens the site, so saving it is technically no different. The icon is usually part of the owner's logo or trademark, though. Using it to show which site a link points to (in bookmarks, dashboards or link previews) is common practice; using it as your own branding is not. When in doubt, check the company's brand guidelines. This is general information, not legal advice.</p>
+                </div>
+                <div>
+                    <h3 class="text-base font-semibold text-gray-900 mb-1">Why does my downloaded favicon look blurry?</h3>
+                    <p>Usually the site only publishes a small icon, or the image was enlarged on export. Turn off <em>Export at selected size</em> to keep the original resolution. If only a 16 px or 32 px ICO exists, no tool can add the missing detail.</p>
+                </div>
+                <div>
+                    <h3 class="text-base font-semibold text-gray-900 mb-1">Can I download favicons in bulk?</h3>
+                    <p>Yes. The batch tool on the <a href="tools.html" class="text-blue-600 hover:underline">Tools page</a> accepts up to 100 domains at once and lets you download the results as one ZIP file or as separate images.</p>
+                </div>
+                <div>
+                    <h3 class="text-base font-semibold text-gray-900 mb-1">Is there a free favicon API?</h3>
+                    <p>Yes. <code>https://favicondl.com/api/extract?url=github.com</code> redirects straight to the best icon we found, so you can use it in an <code>&lt;img&gt;</code> tag. Add <code>&amp;format=json</code> to get the icon URL and where it came from instead. No key or account is needed; please cache results on your side. Details are in the <a href="documentation.html" class="text-blue-600 hover:underline">API documentation</a>.</p>
+                </div>
+                <div>
+                    <h3 class="text-base font-semibold text-gray-900 mb-1">What is the difference between a favicon grabber, fetcher and extractor?</h3>
+                    <p>Nothing important. "Favicon grabber", "favicon fetcher", "favicon finder" and "favicon extractor" are different names for the same kind of tool: you give it a website and it finds and downloads the site's icon. This favicon downloader does all of them.</p>
+                </div>
+                <div>
+                    <h3 class="text-base font-semibold text-gray-900 mb-1">Why do some websites return a generic globe or no favicon?</h3>
+                    <p>Some sites block automated requests, sit behind a login or bot check, add their icon with JavaScript after the page loads, or simply have no favicon. In those cases we fall back to Google's favicon service, which may return a small image or a default globe icon.</p>
+                </div>
+                <div>
+                    <h3 class="text-base font-semibold text-gray-900 mb-1">Which file format will I get?</h3>
+                    <p>The <em>Download</em> button always saves a PNG, which works everywhere. The direct URL in the result points to the original file on the website, which may be ICO, PNG, SVG or WebP, if you need that exact format.</p>
+                </div>
+                <div>
+                    <h3 class="text-base font-semibold text-gray-900 mb-1">Does it work with localhost or private sites?</h3>
+                    <p>No. The extractor only fetches public websites. Local addresses such as <code>localhost</code>, private network IPs and <code>.local</code> hosts are blocked, and pages behind a login cannot be read.</p>
+                </div>
+                <div>
+                    <h3 class="text-base font-semibold text-gray-900 mb-1">Can I turn my own image into a favicon?</h3>
+                    <p>Yes. The <em>Image to Favicon</em> tool on the <a href="tools.html" class="text-blue-600 hover:underline">Tools page</a> converts a logo into multiple PNG sizes and an ICO file, and packs them into a ZIP together with a web manifest and the HTML tags to paste into your site. The image is processed in your browser and is not uploaded.</p>
+                </div>
+                <div>
+                    <h3 class="text-base font-semibold text-gray-900 mb-1">Which favicon sizes does my own site need?</h3>
+                    <p>For most sites, an SVG or 32×32 PNG for browsers, a 180×180 Apple touch icon and 192×192 plus 512×512 manifest icons cover everything. Our <a href="/blog/favicon-sizes-guide.html" class="text-blue-600 hover:underline">favicon sizes guide</a> explains each one.</p>
                 </div>
             </div>
         </div>
