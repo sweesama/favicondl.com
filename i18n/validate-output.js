@@ -76,7 +76,7 @@ for (const article of articles) {
     }
     const $ = load(rawHtml, { decodeEntities: false });
     const suffix = SUFFIX[lang];
-    const expectedTitle = `${article[`title${suffix}`] || article.titleEn} - Mzu favicondl`;
+    const expectedTitle = article[`title${suffix}`] || article.titleEn;
     const expectedDescription = article[`desc${suffix}`] || article.descEn;
     const expectedCanonical = expectedUrl(article.slug, lang);
 

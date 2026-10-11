@@ -473,7 +473,7 @@ Return ONLY valid JSON.
 CRITICAL: Do NOT use literal newlines inside string values. Export strings as single continuous lines and use \n for line breaks. Do NOT leave unescaped double quotes inside strings.
 
 {
-  "titleEn": "Engaging title with keyword (50-60 chars)",
+  "titleEn": "Keyword-first title, max 60 chars, no brand suffix",
   "titleZh": "自然的中文标题",
   "titleJa": "日本語タイトル",
   "titleKo": "한국어 제목",
@@ -1497,7 +1497,7 @@ function buildHTML(data, queueItem, publishDate) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>${esc(data.titleEn)} - Mzu favicondl</title>
+    <title>${esc(data.titleEn)}</title>
     <meta name="description" content="${esc(data.descEn)}">
     <meta name="keywords" content="${esc(data.metaKeywords)}">
     <meta name="robots" content="index, follow">
