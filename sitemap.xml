@@ -8,9 +8,15 @@
   </url>
   <url>
     <loc>https://favicondl.com/tools.html</loc>
-    <lastmod>2026-02-10</lastmod>
+    <lastmod>2026-10-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://favicondl.com/bulk-favicon-downloader.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://favicondl.com/documentation.html</loc>

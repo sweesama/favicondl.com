@@ -1,0 +1,618 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bulk Favicon Downloader – Up to 100 Sites, ZIP | favicondl</title>
+    <meta name="description" content="Free bulk favicon downloader: paste up to 100 domains and download every website icon at once as a ZIP or as separate files. No signup, no API key.">
+    <meta name="keywords" content="bulk favicon downloader, batch favicon download, download favicons from multiple websites, favicon zip">
+    <meta name="baidu-site-verification" content="codeva-TQEbMwU84J">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/bulk-favicon-downloader.html">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://favicondl.com/bulk-favicon-downloader.html">
+    <meta property="og:title" content="Bulk Favicon Downloader – Up to 100 Sites, ZIP | favicondl">
+    <meta property="og:description" content="Free bulk favicon downloader: paste up to 100 domains and download every website icon at once as a ZIP or as separate files. No signup, no API key.">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Bulk Favicon Downloader – Up to 100 Sites, ZIP | favicondl">
+    <meta name="twitter:description" content="Free bulk favicon downloader: paste up to 100 domains and download every website icon at once as a ZIP or as separate files. No signup, no API key.">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <!-- Google Analytics (replace GA_MEASUREMENT_ID with your real ID) -->
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'GA_MEASUREMENT_ID');
+    </script> -->
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Anime.js for animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+
+    <!-- Custom styles -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+        * {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            background: #fafafa;
+        }
+
+        .nav-link {
+            color: #1d1d1f;
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .nav-link:hover {
+            color: #0071e3;
+        }
+
+        /* Language Dropdown */
+        .lang-dropdown {
+            position: relative;
+        }
+
+        .lang-btn {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 10px;
+            border-radius: 8px;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            transition: background 0.2s;
+            font-size: 14px;
+            font-weight: 500;
+            color: #1d1d1f;
+        }
+
+        .lang-btn:hover {
+            background: #f5f5f7;
+        }
+
+        .lang-menu {
+            position: absolute;
+            right: 0;
+            top: calc(100% + 6px);
+            min-width: 140px;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            padding: 4px;
+            z-index: 60;
+            opacity: 0;
+            transform: translateY(-4px) scale(0.98);
+            transition: opacity 0.15s ease, transform 0.15s ease;
+            pointer-events: none;
+        }
+
+        .lang-menu.show {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            pointer-events: auto;
+        }
+
+        .lang-option {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            width: 100%;
+            padding: 8px 12px;
+            border: none;
+            background: none;
+            font-size: 14px;
+            color: #1d1d1f;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: background 0.15s;
+        }
+
+        .lang-option:hover {
+            background: #f5f5f7;
+        }
+
+        .lang-option.active {
+            color: #0071e3;
+            font-weight: 600;
+        }
+
+        .lang-mobile-group {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            padding: 4px 12px;
+        }
+
+        .lang-mobile-btn {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            border-radius: 8px;
+            border: 1px solid transparent;
+            background: transparent;
+            font-size: 14px;
+            color: #1d1d1f;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .lang-mobile-btn:hover {
+            background: #f5f5f7;
+        }
+
+        .lang-mobile-btn.active {
+            background: #f0f5ff;
+            border-color: rgba(0, 113, 227, 0.3);
+            color: #0071e3;
+            font-weight: 500;
+        }
+
+        .btn-primary {
+            background: #0071e3;
+            color: #fff;
+            padding: 12px 24px;
+            border-radius: 980px;
+            font-size: 14px;
+            font-weight: 500;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-primary:hover {
+            background: #0077ed;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #0071e3;
+            padding: 12px 24px;
+            border-radius: 980px;
+            font-size: 14px;
+            font-weight: 500;
+            border: 1px solid rgba(0, 113, 227, 0.25);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(0, 113, 227, 0.08);
+        }
+
+        .gradient-bg {
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+        }
+
+        .glass-effect {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .drop-zone {
+            border: 2px dashed #d1d5db;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .drop-zone.drag-over {
+            border-color: #3b82f6;
+            background-color: #eff6ff;
+        }
+
+        .tool-card {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .loading-spinner {
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .preview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+            gap: 1rem;
+        }
+
+        .size-preview {
+            text-align: center;
+            padding: 1rem;
+            background: #f8fafc;
+            border-radius: 8px;
+            border: 2px solid transparent;
+            transition: all 0.2s ease;
+        }
+
+        .size-preview:hover {
+            border-color: #3b82f6;
+            background: #eff6ff;
+        }
+
+        .size-preview.selected {
+            border-color: #3b82f6;
+            background: #eff6ff;
+        }
+    </style>
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-7QLC8QV609');
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "name": "Bulk Favicon Downloader",
+      "url": "https://favicondl.com/bulk-favicon-downloader.html",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Web",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "description": "Free bulk favicon downloader: paste up to 100 domains and download every website icon at once as a ZIP or as separate files. No signup, no API key."
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How many websites can I download at once?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Up to 100 domains per run. For a longer list, split it into batches of 100."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is the bulk favicon downloader free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. There is no account, no API key and no payment. Please keep runs to lists you actually need."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why do some icons look like a generic globe?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "That site either has no favicon or blocked our lookup, so the result came from Google's fallback service. Try the single-site favicon downloader for that domain, which also tries a few extra sources from your browser."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I upload a CSV file?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Not directly. Copy the column of domains from your spreadsheet and paste it into the box; each line becomes one domain."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use the downloaded favicons?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Favicons are usually part of a company's logo or trademark. Showing them next to links to those sites is common practice; using them as your own branding is not. Check each brand's guidelines if you are unsure."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://favicondl.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Tools",
+          "item": "https://favicondl.com/tools.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Bulk Favicon Downloader",
+          "item": "https://favicondl.com/bulk-favicon-downloader.html"
+        }
+      ]
+    }
+  ]
+}
+    </script>
+</head>
+
+<body class="text-gray-900">
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="hidden md:flex items-center gap-8">
+                <a href="/" class="nav-link" data-en="Home" data-zh="首页">Home</a>
+                <a href="documentation.html" class="nav-link" data-en="Docs" data-zh="文档">Docs</a>
+                <a href="tools.html" class="nav-link" data-en="Tools" data-zh="工具">Tools</a>
+                <a href="/blog/" class="nav-link" data-en="Blog" data-zh="博客">Blog</a>
+            </div>
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="nav-link p-2">
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="md:hidden hidden">
+            <div class="px-4 pt-3 pb-4 space-y-2 bg-white/90 backdrop-blur-xl border-t border-gray-200/50">
+                <a href="/" class="nav-link block px-3 py-2 rounded-md text-base" data-en="Home" data-zh="首页">Home</a>
+                <a href="documentation.html" class="nav-link block px-3 py-2 rounded-md text-base" data-en="Docs" data-zh="文档">Docs</a>
+                <a href="tools.html" class="nav-link block px-3 py-2 rounded-md text-base" data-en="Tools" data-zh="工具">Tools</a>
+                <a href="/blog/" class="nav-link block px-3 py-2 rounded-md text-base" data-en="Blog" data-zh="博客">Blog</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <section class="pt-16 pb-6 px-6">
+        <div class="max-w-3xl mx-auto text-center">
+            <nav class="text-sm text-gray-400 mb-6"><a href="/" class="hover:text-gray-600">Home</a><span class="mx-2">/</span><a href="tools.html" class="hover:text-gray-600">Tools</a><span class="mx-2">/</span><span class="text-gray-600">Bulk Favicon Downloader</span></nav>
+            <h1 class="text-5xl font-semibold text-gray-900 tracking-tight mb-4">Bulk Favicon Downloader</h1>
+            <p class="text-xl text-gray-500">Paste up to 100 domains and download all their favicons at once, as one ZIP file or as separate images. Free, no signup.</p>
+        </div>
+    </section>
+
+    <section id="batch-processor" class="py-12 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div class="bg-gray-50 rounded-2xl p-8">
+                <!-- Input Area -->
+                <div class="mb-8">
+                    <label for="domains-input" class="block text-lg font-medium text-gray-900 mb-4">
+                        <span data-en="Enter domains (one per line)" data-zh="输入域名列表（每行一个域名）">Enter domains (one per
+                            line)</span>
+                    </label>
+                    <textarea id="domains-input" rows="6" placeholder="example.com
+google.com
+github.com
+stackoverflow.com" data-en-placeholder="example.com
+google.com
+github.com
+stackoverflow.com" data-zh-placeholder="例如：example.com
+google.com
+github.com
+stackoverflow.com" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"></textarea>
+                    <div class="flex justify-between items-center mt-4">
+                        <p class="text-sm text-gray-500" data-en="Up to 100 domains" data-zh="支持最多100个域名">Up to 100
+                            domains</p>
+                        <div class="space-x-2">
+                            <button onclick="loadSampleDomains()" class="px-4 py-2 text-blue-600 hover:bg-blue-50 rounded-lg transition-colors">
+                                <span data-en="Load samples" data-zh="加载示例">Load samples</span>
+                            </button>
+                            <button onclick="clearDomains()" class="px-4 py-2 text-gray-600 hover:bg-gray-100 rounded-lg transition-colors">
+                                <span data-en="Clear" data-zh="清空">Clear</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Processing Options -->
+                <div class="mb-8">
+                    <h3 class="text-lg font-medium mb-4" data-en="Options" data-zh="处理选项">Options</h3>
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2" data-en="Size" data-zh="图标尺寸">Size</label>
+                            <select id="batch-size" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                                <option value="small" data-en="Standard (16/32)" data-zh="标准尺寸 (16x16, 32x32)">Standard
+                                    (16/32)</option>
+                                <option value="large" data-en="Large (64+)" data-zh="大尺寸 (64x64+)">Large (64+)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2" data-en="Output" data-zh="输出格式">Output</label>
+                            <select id="batch-format" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                                <option value="individual" data-en="Individual files" data-zh="单独文件">Individual files
+                                </option>
+                                <option value="zip" data-en="ZIP" data-zh="ZIP压缩包">ZIP</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2" data-en="Naming" data-zh="命名方式">Naming</label>
+                            <select id="batch-naming" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                                <option value="domain" data-en="By domain" data-zh="按域名命名">By domain</option>
+                                <option value="index" data-en="By index" data-zh="按序号命名">By index</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Process Button -->
+                <div class="text-center mb-8">
+                    <button id="process-batch" class="btn-primary disabled:opacity-50 disabled:cursor-not-allowed">
+                        <span data-en="Start" data-zh="开始批量处理">Start</span>
+                    </button>
+                </div>
+
+                <!-- Progress -->
+                <div id="batch-progress" class="hidden mb-8">
+                    <div class="bg-white rounded-lg p-6">
+                        <div class="flex justify-between items-center mb-2">
+                            <h4 class="font-medium" data-en="Progress" data-zh="处理进度">Progress</h4>
+                            <span id="progress-text" class="text-sm text-gray-600">0/0</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div id="progress-bar" class="bg-green-600 h-2 rounded-full transition-all duration-300" style="width: 0%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Results -->
+                <div id="batch-results" class="hidden">
+                    <h3 class="text-lg font-medium mb-4" data-en="Results" data-zh="处理结果">Results</h3>
+                    <div id="results-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                        <!-- Results will be inserted here -->
+                    </div>
+                    <div class="text-center mt-8">
+                        <button id="download-batch" class="btn-primary">
+                            <span data-en="Download all" data-zh="下载全部结果">Download all</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="py-16 px-6 bg-white border-t border-gray-100">
+        <div class="max-w-3xl mx-auto text-gray-600 text-sm leading-relaxed">
+            <h2 class="text-2xl font-semibold text-gray-900 mb-6">How to download favicons in bulk</h2>
+            <ol class="space-y-4 list-decimal pl-5">
+                <li><strong class="text-gray-900">Paste your list.</strong> Enter one domain per line in the box above, up to 100 at a time. Plain domains (<code>github.com</code>) and full URLs both work; the protocol, <code>www.</code> and any path are stripped automatically. Lines without a dot are skipped.</li>
+                <li><strong class="text-gray-900">Choose your options.</strong> Pick a size, choose ZIP or individual files, and decide whether files are named by domain (<code>github.com-favicon.png</code>) or by position in your list (<code>001-github.com-favicon.png</code>).</li>
+                <li><strong class="text-gray-900">Start and download.</strong> Click <em>Start</em>. Up to six sites are looked up in parallel and a progress bar shows how far along you are. Check the preview grid, then click <em>Download ZIP</em> (or <em>Download all files</em>).</li>
+            </ol>
+
+            <h2 class="text-2xl font-semibold text-gray-900 mt-14 mb-6">What the options do</h2>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left text-sm border border-gray-200 rounded-lg">
+                    <thead class="bg-gray-50 text-gray-900"><tr><th class="p-3 border-b border-gray-200">Option</th><th class="p-3 border-b border-gray-200">Choices</th><th class="p-3 border-b border-gray-200">What it means</th></tr></thead>
+                    <tbody>
+                        <tr><td class="p-3 border-b border-gray-100">Size</td><td class="p-3 border-b border-gray-100">Standard (16/32) or Large (64+)</td><td class="p-3 border-b border-gray-100">Large asks for bigger icons. When a site publishes its own icon you get that file; the size choice matters most when we fall back to Google's favicon service.</td></tr>
+                        <tr><td class="p-3 border-b border-gray-100">Output</td><td class="p-3 border-b border-gray-100">ZIP or individual files</td><td class="p-3 border-b border-gray-100">ZIP bundles everything into one download. Individual files are saved one by one; some browsers ask you to allow multiple downloads first.</td></tr>
+                        <tr><td class="p-3">Naming</td><td class="p-3">By domain or by index</td><td class="p-3">By index keeps the order of your list, which is handy when you match icons back to a spreadsheet.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2 class="text-2xl font-semibold text-gray-900 mt-14 mb-6">Where the icons come from</h2>
+            <p class="mb-4">Each domain goes through the same favicon extractor as our <a href="/" class="text-blue-600 hover:underline">single-site favicon downloader</a>. It checks well-known files such as <code>/favicon.svg</code>, <code>/apple-touch-icon.png</code> and <code>/favicon.ico</code>, reads the <code>&lt;link rel="icon"&gt;</code> tags and web app manifest on the homepage, and prefers SVG and large PNG icons over small ICO files.</p>
+            <p>If a site blocks automated requests or has no icon, the tool falls back to Google's public favicon service, so every row in your list still gets an image. The preview grid shows each result before you download, so you can spot the generic ones.</p>
+
+            <h2 class="text-2xl font-semibold text-gray-900 mt-14 mb-6">Common uses</h2>
+            <ul class="space-y-2 list-disc pl-5">
+                <li><strong class="text-gray-900">Link directories and resource lists</strong>: add an icon next to every tool or site you list.</li>
+                <li><strong class="text-gray-900">Dashboards and internal tools</strong>: show which service each row, integration or alert belongs to.</li>
+                <li><strong class="text-gray-900">Bookmark and tab managers</strong>: pre-load icons for a known set of sites.</li>
+                <li><strong class="text-gray-900">Competitor and market research</strong>: put brand icons beside a spreadsheet of companies.</li>
+            </ul>
+            <p class="mt-4">Need this in code instead of a browser? The <a href="documentation.html" class="text-blue-600 hover:underline">free favicon API</a> returns the same icons for one domain per request, with no API key.</p>
+
+            <h2 id="faq" class="text-2xl font-semibold text-gray-900 mt-14 mb-6">Frequently asked questions</h2>
+            <div class="space-y-6">
+                <div>
+                    <h3 class="text-base font-semibold text-gray-900 mb-1">How many websites can I download at once?</h3>
+                    <p>Up to 100 domains per run. For a longer list, split it into batches of 100.</p>
+                </div>
+                <div>
+                    <h3 class="text-base font-semibold text-gray-900 mb-1">Is the bulk favicon downloader free?</h3>
+                    <p>Yes. There is no account, no API key and no payment. Please keep runs to lists you actually need.</p>
+                </div>
+                <div>
+                    <h3 class="text-base font-semibold text-gray-900 mb-1">Why do some icons look like a generic globe?</h3>
+                    <p>That site either has no favicon or blocked our lookup, so the result came from Google's fallback service. Try the single-site favicon downloader for that domain, which also tries a few extra sources from your browser.</p>
+                </div>
+                <div>
+                    <h3 class="text-base font-semibold text-gray-900 mb-1">Can I upload a CSV file?</h3>
+                    <p>Not directly. Copy the column of domains from your spreadsheet and paste it into the box; each line becomes one domain.</p>
+                </div>
+                <div>
+                    <h3 class="text-base font-semibold text-gray-900 mb-1">Can I use the downloaded favicons?</h3>
+                    <p>Favicons are usually part of a company's logo or trademark. Showing them next to links to those sites is common practice; using them as your own branding is not. Check each brand's guidelines if you are unsure.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 px-6 border-t border-gray-200">
+        <div class="max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+            <p class="text-gray-400 text-sm">©
+                <script>document.write(new Date().getFullYear())</script> Mzu favicondl
+            </p>
+            <div class="flex gap-6">
+                <a href="/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Home" data-zh="首页">Home</a>
+                <a href="documentation.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Docs" data-zh="文档">Docs</a>
+                <a href="tools.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Tools" data-zh="工具">Tools</a>
+                <a href="bulk-favicon-downloader.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">Bulk Download</a>
+                <a href="/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Blog" data-zh="博客">Blog</a>
+                <a href="privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Privacy" data-zh="隐私政策">Privacy</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Success Toast -->
+    <div id="success-toast" class="fixed top-20 right-6 bg-gray-900 text-white px-5 py-3 rounded-xl shadow-lg transform translate-x-[200%] transition-transform duration-300 z-50 flex items-center gap-2 text-sm">
+        <svg class="w-4 h-4 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+        </svg>
+        <span id="toast-message" data-en="Done!" data-zh="完成！">Done!</span>
+    </div>
+
+    <script src="/tools.js?v=20260211b"></script>
+
+</body></html>
