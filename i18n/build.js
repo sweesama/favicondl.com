@@ -415,6 +415,11 @@ function buildPage(html, lang, page, translations) {
   const pageName = page.replace('.html', '');
   const article = getArticleRecord(page);
 
+  // 0. English-only blocks (e.g. long-form homepage guide + FAQPage JSON-LD)
+  //    have no translations yet; drop them from localized pages instead of
+  //    shipping untranslated English text.
+  $('[data-i18n-only="en"]').remove();
+
   // 1. Meta 标签
   translateMeta($, lang, t._pages?.[pageName], page, article);
   applyArticleIndexingPolicy($, article);
