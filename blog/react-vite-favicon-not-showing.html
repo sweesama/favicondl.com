@@ -102,6 +102,7 @@
 
         <div class="article-body" data-lang="en">
             <p>You shipped a new React + Vite app, dropped your <code>favicon.ico</code> into <code>public/</code>, restarted the dev server — and the browser tab still shows the Vite lightning bolt. Or worse, nothing at all. This is the classic React Vite favicon not showing problem, and it almost always traces back to one of a handful of specific misconfigurations.</p>
+<p>If you are still setting up icons rather than troubleshooting, our <a href="/blog/vite-favicon.html">Vite favicon guide</a> covers the full setup.</p>
 <p>Here's the two-minute fix first, then the root causes explained.</p>
 <h2>The 2-Minute Fix</h2>
 <p>Open <code>index.html</code> in your project root and verify the link tags use absolute paths starting with <code>/</code>, not <code>/public/</code>. In Vite, files in the <code>public/</code> directory are copied to the build output and served at the root path (see the <a href="https://vite.dev/guide/assets.html#the-public-directory">Vite public directory docs</a>). So <code>favicon.ico</code> in <code>public/favicon.ico</code> is referenced as <code>/favicon.ico</code>.</p>

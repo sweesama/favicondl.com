@@ -102,6 +102,7 @@
 
         <div class="article-body" data-lang="en">
             <p>You dropped <code>favicon.svg</code> into Vite's <code>public</code> folder, hit save, and the browser tab still shows a blank white square. The build works, the file is right there, yet the browser can't find it. This happens when developers treat Vite's <code>public</code> directory like any other static folder — and miss one critical rule about how Vite serves those files.</p>
+<p>This is a focused walkthrough of the <code>public/</code> folder. For the complete picture, including dark mode, Apple touch icons and common pitfalls, start with our <a href="/blog/vite-favicon.html">Vite favicon guide</a>.</p>
 <p>The <code>public</code> folder is Vite's escape hatch for assets that need stable, unhashed URLs. Favicons are the textbook use case — and the most common source of confusion for Vite beginners.</p>
 <h2>Why Favicons Belong in Vite's Public Folder</h2>
 <p>Vite hashes imported assets in <code>src/</code> for cache-busting (think <code>assets/logo-a3f9c2.svg</code>). Great for JS and CSS, terrible for favicons. Browsers cache favicons aggressively, and search engines need a predictable URL to show your icon in results.</p>
