@@ -1,8 +1,8 @@
 <!DOCTYPE html><html lang="zh"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>文档 - Mzu favicondl</title>
-    <meta name="description" content="Mzu favicondl 文档 - Favicon URL 模板与使用指南">
+    <title>免费 Favicon API - 无需 Key，按网址获取网站图标 | favicondl</title>
+    <meta name="description" content="免费 favicon API：一个 GET 请求按域名或网址返回网站图标，可直接用于 img 标签，也可返回 JSON。无需 API key，无需注册，附与 Google S2、DuckDuckGo 的对比。">
     <meta name="keywords" content="favicon API, free favicon API, get favicon from URL, favicon URL, Google S2 favicon alternative, website icon API">
     <meta name="baidu-site-verification" content="codeva-TQEbMwU84J">
     <meta name="robots" content="index, follow">
@@ -25,14 +25,14 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://favicondl.com/zh/documentation.html">
-    <meta property="og:title" content="文档 - Mzu favicondl">
-    <meta property="og:description" content="可直接复制使用的 Favicon URL 模板与完整使用指南。">
+    <meta property="og:title" content="免费 Favicon API - 无需 Key，按网址获取网站图标 | favicondl">
+    <meta property="og:description" content="一个 GET 请求按网址获取任意网站的 favicon。无需 API key。">
     <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="文档 - Mzu favicondl">
-    <meta name="twitter:description" content="可直接复制使用的 Favicon URL 模板与完整使用指南。">
+    <meta name="twitter:title" content="免费 Favicon API - 无需 Key，按网址获取网站图标 | favicondl">
+    <meta name="twitter:description" content="一个 GET 请求按网址获取任意网站的 favicon。无需 API key。">
     <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
 
     <!-- Google Analytics (replace GA_MEASUREMENT_ID with your real ID) -->
@@ -342,8 +342,8 @@
     <!-- Header Section -->
     <section class="pt-16 pb-10 px-6">
         <div class="max-w-3xl mx-auto text-center">
-            <h1 class="text-5xl font-semibold text-gray-900 tracking-tight mb-4">Favicon API 与 URL 使用指南</h1>
-            <p class="text-xl text-gray-500">可直接复制使用的 favicon URL 模板（基于免费服务）。</p>
+            <h1 class="text-5xl font-semibold text-gray-900 tracking-tight mb-4">免费 Favicon API</h1>
+            <p class="text-xl text-gray-500">一个 GET 请求，按网址获取任意网站的 favicon。无需 API key，无需注册。</p>
         </div>
     </section>
 
@@ -356,7 +356,9 @@
                     <nav class="bg-white rounded-lg shadow-sm p-6">
                         <h3 class="font-semibold text-gray-900 mb-4">文档导航</h3>
                         <ul class="space-y-2">
-
+                            <li><a href="#quick-start" class="text-gray-600 hover:text-blue-600 text-sm block py-1">快速开始</a></li>
+                            <li><a href="#how-it-works" class="text-gray-600 hover:text-blue-600 text-sm block py-1">如何选出图标</a></li>
+                            <li><a href="#comparison" class="text-gray-600 hover:text-blue-600 text-sm block py-1">服务对比</a></li>
                             <li>
                                 <a href="#overview" class="text-blue-600 hover:text-blue-800 text-sm block py-1">概述</a>
                             </li>
@@ -388,6 +390,80 @@
 
             <!-- Main Content -->
             <div class="lg:col-span-3">
+                <section id="quick-start" class="mb-12">
+                    <div class="bg-white rounded-lg shadow-sm p-8 text-gray-600">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-6">快速开始</h2>
+                        <p class="mb-4">favicondl 的 favicon API 只需一个 GET 请求，就能把任意域名或网址转换成它的 favicon。不需要 API key，不需要账号，也不需要 SDK。可以直接写进 <code>&lt;img&gt;</code> 标签：</p>
+                        <div class="code-block mb-6">
+                            <pre class="p-4 text-sm"><code class="language-html">&lt;img src="https://favicondl.com/api/extract?url=github.com" width="32" height="32" alt="GitHub 的 favicon"&gt;</code></pre>
+                        </div>
+                        <p class="mb-4">也可以请求 JSON，查看找到了哪个文件、来自哪里：</p>
+                        <div class="code-block mb-4">
+                            <pre class="p-4 text-sm"><code class="language-bash">curl "https://favicondl.com/api/extract?url=github.com&amp;format=json"</code></pre>
+                        </div>
+                        <div class="code-block mb-6">
+                            <pre class="p-4 text-sm"><code class="language-json">{
+  "ok": true,
+  "domain": "github.com",
+  "size": 128,
+  "iconUrl": "https://github.githubassets.com/favicons/favicon.svg",
+  "proxyUrl": "https://favicondl.com/api/proxy?url=https%3A%2F%2Fgithub.githubassets.com%2Ffavicons%2Ffavicon.svg",
+  "source": "html",
+  "rel": "icon",
+  "format": "svg",
+  "width": null,
+  "height": null,
+  "pageUrl": "https://github.com/",
+  "candidates": [
+    { "url": "https://github.githubassets.com/favicons/favicon.svg", "format": "svg", "vector": true, "source": "html", "rel": "icon", "proxyUrl": "…" },
+    { "url": "https://github.githubassets.com/assets/app-icon-512-7f9c4ff2e960.png", "format": "png", "width": 512, "height": 512, "source": "manifest", "rel": "manifest", "proxyUrl": "…" },
+    { "url": "https://github.com/favicon.ico", "format": "ico", "width": 32, "height": 32, "source": "direct", "rel": "favicon.ico", "proxyUrl": "…" }
+  ]
+}</code></pre>
+                        </div>
+                        <p class="mb-4"><code>iconUrl</code> 是网站上的原始文件。<code>proxyUrl</code> 通过我们的代理返回同一张图片，并带有 <code>Access-Control-Allow-Origin: *</code>，所以你可以把它画到 canvas 上，或在浏览器端代码里直接 fetch。</p>
+                        <p><code>format</code>、<code>width</code> 和 <code>height</code> 描述的是我们实测的所选文件（SVG 的 <code>width</code>/<code>height</code> 为 <code>null</code>）。<code>candidates</code> 列出同一网站最多 8 个其他经过验证的图标（不同尺寸和格式），方便你换一个用；上面的示例做了删减。如果最终退回到了 Google 或 DuckDuckGo，这个列表为空。</p>
+                    </div>
+                </section>
+
+                <section id="how-it-works" class="mb-12">
+                    <div class="bg-white rounded-lg shadow-sm p-8 text-gray-600">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-6">API 如何选出图标</h2>
+                        <ol class="list-decimal pl-5 space-y-3 mb-4">
+                            <li><strong class="text-gray-900">首页</strong>会像普通浏览器一样被请求，并跟随重定向（包括 <code>www</code> ↔ 裸域名）。页面里所有图标相关的 <code>&lt;link&gt;</code> 都会被读取：<code>icon</code>、<code>shortcut icon</code>、<code>apple-touch-icon</code>、<code>apple-touch-icon-precomposed</code> 和 <code>mask-icon</code>。相对链接和协议相对链接（<code>//cdn…</code>）会按最终页面地址或页面的 <code>&lt;base&gt;</code> 标签解析（<code>source: "html"</code>）。</li>
+                            <li><strong class="text-gray-900">Web App Manifest</strong>：打开页面引用的 manifest，读取其中的图标列表，192px 和 512px 的图标通常就在这里（<code>source: "manifest"</code>）。</li>
+                            <li><strong class="text-gray-900">常见路径</strong> <code>/favicon.ico</code> 和 <code>/apple-touch-icon.png</code> 也会尝试（<code>source: "direct"</code>）。</li>
+                            <li><strong class="text-gray-900">每个候选都会被下载并检查</strong>：内容必须真的是图片（PNG、ICO、SVG、WebP、JPEG、GIF 等），并且会测量它的真实像素尺寸，而不是相信文件名。</li>
+                            <li><strong class="text-gray-900">Google 的 favicon 服务，其次是 DuckDuckGo</strong>，只有在网站本身的图标都不可用时才会使用，并按你请求的 <code>size</code> 获取（<code>source: "google_s2"</code> 或 <code>"duckduckgo"</code>）。</li>
+                        </ol>
+                        <p class="mb-4">通过验证的候选会按清晰度排序：全彩 SVG 优先，其次是尺寸最大的正方形 PNG/ICO/WebP。Safari 的单色 <code>mask-icon</code> 和只标注为 <code>maskable</code> 的 manifest 图标排位较低，因为它们看起来和普通的 favicon 不一样。从网站上找到的图标按原始尺寸返回；<code>size</code> 参数只影响备用来源。</p>
+                        <p>如果拿到的是 <code>google_s2</code>，说明这个网站要么没有我们能访问到的图标，要么拦截了我们的请求（比如返回了人机验证页面）。如果只查一个网站，首页上的 <a href="/zh/" class="text-blue-600 hover:underline">favicon 下载器</a>还会直接从你的浏览器尝试几个额外来源，并列出找到的所有尺寸供你选择。</p>
+                    </div>
+                </section>
+
+                <section id="comparison" class="mb-12">
+                    <div class="bg-white rounded-lg shadow-sm p-8 text-gray-600">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-6">Favicon API 对比：favicondl、Google S2、DuckDuckGo 与 Icon Horse</h2>
+                        <p class="mb-4">这四个服务都可以免费开始用，也都不需要 API key。区别在于它们返回的内容：</p>
+                        <div class="overflow-x-auto">
+                            <table class="parameter-table">
+                                <thead>
+                                    <tr><th></th><th>favicondl</th><th>Google S2</th><th>DuckDuckGo</th><th>Icon Horse</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>接口地址</td><td><code>/api/extract?url=example.com</code></td><td><code>google.com/s2/favicons?domain=example.com&amp;sz=64</code></td><td><code>icons.duckduckgo.com/ip3/example.com.ico</code></td><td><code>icon.horse/icon/example.com</code></td></tr>
+                                    <tr><td>API key</td><td>不需要</td><td>不需要</td><td>不需要</td><td>不需要（免费套餐）</td></tr>
+                                    <tr><td>公开的免费额度</td><td>无（合理使用）</td><td>未公开</td><td>未公开</td><td>免费套餐每月 1,000 个图标</td></tr>
+                                    <tr><td>尺寸参数</td><td><code>size</code>（16–512，用于 Google 备用来源）</td><td><code>sz</code></td><td>无</td><td>文档未说明</td></tr>
+                                    <tr><td>返回内容</td><td>找到时返回网站的原始文件（SVG、PNG、ICO 等）</td><td>PNG 或 JPEG（实测）</td><td>ICO（实测）</td><td>PNG（实测）</td></tr>
+                                    <tr><td>JSON 元数据</td><td>有（<code>format=json</code>：图标地址、来源、格式、实测像素尺寸，以及最多 8 个备选图标）</td><td>无</td><td>无</td><td>无</td></tr>
+                                    <tr><td>我们测试 github.com 的结果</td><td>favicon.svg（矢量图）</td><td>sz=16 时为 16×16 PNG，sz=256 时为 180×180</td><td>含 16×16 和 32×32 的 ICO</td><td>256×256 PNG</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p class="mt-4 text-sm">以上结果来自我们在 2026 年 10 月 12 日的实际请求；Icon Horse 的额度取自<a href="https://icon.horse/" rel="noopener" class="text-blue-600 hover:underline">其价格说明</a>。第三方服务随时可能变化，在生产环境中依赖它们之前，请先查看各服务商的条款。</p>
+                    </div>
+                </section>
 
                 <!-- Overview Section -->
                 <section id="overview" class="mb-12">
@@ -798,7 +874,7 @@ file_put_contents('example-favicon', getFavicon('example.com', 128));
                 <a href="/zh/documentation.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">文档</a>
                 <a href="/zh/tools.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">工具</a>
                 <a href="/zh/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">博客</a>
-
+                <a href="/zh/bulk-favicon-downloader.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">批量下载</a>
                 <a href="/zh/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">隐私政策</a>
             </div>
         </div>

@@ -1,8 +1,8 @@
 <!DOCTYPE html><html lang="ja"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mzu favicondl - ファビコンダウンローダー＆エクストラクター</title>
-    <meta name="description" content="あらゆるウェブサイトのファビコンを即座にダウンロード・抽出。コピー可能なURLとHTMLスニペット。無料・高速・安心。">
+    <title>ファビコン ダウンロード・抽出ツール - 無料・どのサイトでも | favicondl</title>
+    <meta name="description" content="あらゆるウェブサイトのファビコンを無料でダウンロード・抽出。最も高画質な SVG・PNG・ICO を自動で見つけ、PNG で保存、URL や HTML タグもコピーできます。登録不要。">
     <meta name="keywords" content="favicon downloader, extract website icon, download favicon, free favicon generator">
     <meta name="baidu-site-verification" content="codeva-TQEbMwU84J">
     <meta name="robots" content="index, follow">
@@ -25,14 +25,14 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://favicondl.com/ja/">
-    <meta property="og:title" content="Mzu favicondl - ファビコンダウンローダー＆エクストラクター">
-    <meta property="og:description" content="あらゆるウェブサイトのファビコンを即座にダウンロード・抽出。無料・高速・安心。">
+    <meta property="og:title" content="ファビコン ダウンロード・抽出ツール - 無料・どのサイトでも | favicondl">
+    <meta property="og:description" content="あらゆるサイトのファビコンを無料でダウンロード。最も高画質なアイコンを自動で選びます。">
     <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Mzu favicondl - ファビコンダウンローダー＆エクストラクター">
-    <meta name="twitter:description" content="あらゆるウェブサイトのファビコンを即座にダウンロード・抽出。無料・高速・安心。">
+    <meta name="twitter:title" content="ファビコン ダウンロード・抽出ツール - 無料・どのサイトでも | favicondl">
+    <meta name="twitter:description" content="あらゆるサイトのファビコンを無料でダウンロード。最も高画質なアイコンを自動で選びます。">
     <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
 
     <!-- Google Analytics (replace GA_MEASUREMENT_ID with your real ID) -->
@@ -82,6 +82,96 @@
         "query-input": "required name=url"
       }
     }
+    </script>
+
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "サイトのファビコンをダウンロードしても問題ありませんか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ファビコンは公開されているファイルで、サイトを開くたびにどのブラウザもダウンロードしています。保存すること自体は技術的にそれと変わりません。ただしアイコンは多くの場合、運営者のロゴや商標の一部です。リンク先がどのサイトかを示すため（ブックマーク、ダッシュボード、リンクプレビューなど）に使うのは一般的ですが、自分のブランドとして使うのは不適切です。迷ったときはその企業のブランドガイドラインを確認してください。これは一般的な情報であり、法的助言ではありません。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "ダウンロードしたファビコンがぼやけるのはなぜですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "多くの場合、サイトが小さいアイコンしか公開していないか、書き出し時に拡大されています。選択したサイズでエクスポートをオフにすると元の解像度のまま保存されます。16 px や 32 px の ICO しかない場合、どのツールでも失われたディテールは補えません。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "ファビコンを一括でダウンロードできますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "できます。ファビコン一括ダウンロードツールなら一度に最大 100 個のドメインを処理でき、結果を 1 つの ZIP ファイルか個別の画像としてダウンロードできます。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "無料のファビコン API はありますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "あります。https://favicondl.com/api/extract?url=github.com は見つかった最良のアイコンへ直接リダイレクトするので、<img> タグにそのまま使えます。&format=json を付けると、代わりにアイコンの URL と取得元が返ります。キーもアカウントも不要です。結果はそちら側でキャッシュしてください。詳しくは API ドキュメントをご覧ください。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "favicon grabber、fetcher、extractor の違いは？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "実質的な違いはありません。「favicon grabber」「favicon fetcher」「favicon finder」「favicon extractor」は同じ種類のツールの別名で、サイトを指定するとそのアイコンを探してダウンロードしてくれます。このファビコンダウンローダーはそのすべてに対応しています。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "地球儀のような汎用アイコンが返ってきたり、アイコンが取れないサイトがあるのはなぜ？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "自動アクセスをブロックしている、ログインやボット確認の向こうにある、ページ読み込み後に JavaScript でアイコンを追加している、そもそもファビコンがない、といったサイトがあるためです。その場合は Google のファビコンサービスにフォールバックするため、小さな画像や既定の地球儀アイコンが返ることがあります。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "どの形式でダウンロードされますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ダウンロードボタンでは、どこでも使える PNG で保存されます。元の形式が必要な場合は、結果に表示される直接 URL がサイト上の元ファイル（ICO、PNG、SVG、WebP など）を指しています。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "localhost や非公開のサイトでも使えますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "使えません。抽出ツールは当社のサーバー上で動いているため、アクセスできるのは公開サイトだけです。localhost、社内ネットワーク、ログインが必要なページは見えず、画像プロキシもプライベートアドレスへのアクセスを拒否します。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "自分の画像をファビコンにできますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "できます。ツールページの画像→ファビコンを使うと、ロゴを複数サイズの PNG と ICO ファイルに変換し、Web Manifest とサイトに貼り付ける HTML タグと一緒に ZIP にまとめられます。画像はブラウザ内で処理され、アップロードされません。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "自分のサイトにはどのサイズのファビコンが必要ですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ほとんどのサイトでは、ブラウザ用の SVG か 32×32 の PNG、180×180 の Apple touch icon、そして 192×192 と 512×512 の manifest アイコンがあれば十分です。それぞれについてはファビコンのサイズガイドで解説しています。"
+      }
+    }
+  ],
+  "inLanguage": "ja"
+}
     </script>
 
     <!-- Tailwind CSS -->
@@ -456,7 +546,8 @@
     <!-- Hero Section -->
     <section class="pt-20 pb-16 px-6">
         <div class="max-w-3xl mx-auto text-center">
-            <h1 class="text-5xl font-semibold text-gray-900 tracking-tight mb-4">あらゆるウェブサイトのファビコンを即座にダウンロード。</h1>
+            <h1 class="text-5xl font-semibold text-gray-900 tracking-tight mb-4">ファビコン ダウンロード＆抽出ツール</h1>
+            <p class="text-xl text-gray-500 mb-6">あらゆるサイトのファビコンを、すぐにダウンロード。</p>
 
             <div class="flex justify-center mb-8 fade-in" style="animation-delay: 0.1s;">
                 <div class="inline-flex items-center gap-2 px-3 py-1.5 bg-green-50 border border-green-100 rounded-full">
@@ -464,7 +555,7 @@
                         <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
                         <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
                     </span>
-                    <span class="text-xs font-medium text-green-700">Processed 10,000+ icons in the last 24h</span>
+                    <span class="text-xs font-medium text-green-700">過去24時間で10,000件以上のアイコンを処理</span>
                 </div>
             </div>
 
@@ -796,7 +887,7 @@
                         </svg>
                     </div>
                     <h3 class="text-lg font-semibold text-gray-900 mb-2">開発者フレンドリー</h3>
-                    <p class="text-gray-500 text-sm">Copy-ready URL templates and HTML snippets for quick integration.</p>
+                    <p class="text-gray-500 text-sm">すぐに組み込める、コピーして使える URL テンプレートと HTML スニペット。</p>
                 </div>
             </div>
         </div>
@@ -809,17 +900,17 @@
             <div class="space-y-4 text-gray-600 text-sm leading-relaxed">
                 <p>Mzu favicondlは、あらゆるウェブサイトのファビコンを即座に抽出・ダウンロードできる無料オンラインツールです。ドメイン名またはURLを入力し、お好みのアイコンサイズを選択するだけ。登録不要、インストール不要、制限なし。</p>
 
-                <p>Whether you're a web developer building a link preview, a designer collecting brand assets, or just curious about a site's icon, our favicon extractor handles it all. We support sizes from 16×16 to 512×512 pixels, and every download comes with copy-ready HTML snippets and direct URLs for easy integration into your project. Favicons (short for "favorite icons") are the small icons displayed in browser tabs, bookmarks, and search results. They play a key role in brand recognition and user experience.</p>
+                <p>リンクプレビューを作る Web 開発者でも、ブランド素材を集めるデザイナーでも、あるサイトのアイコンが気になっただけの方でも、このファビコン抽出ツールにお任せください。16×16 から 512×512 ピクセルまでのサイズに対応し、ダウンロードのたびにコピーして使える HTML スニペットと直接 URL が付くので、プロジェクトへの組み込みも簡単です。ファビコン（「favorite icon」の略）は、ブラウザのタブやブックマーク、検索結果に表示される小さなアイコンで、ブランドの認知やユーザー体験に大きく関わります。</p>
 
-                <p>Learn more about the favicon standard from the <a href="https://developer.mozilla.org/en-US/docs/Glossary/Favicon" target="_blank" rel="noopener" class="text-blue-600 hover:underline">MDN Web Docs</a>.</p>
+                <p>ファビコンの仕様について詳しくは <a href="https://developer.mozilla.org/ja/docs/Glossary/Favicon" target="_blank" rel="noopener" class="text-blue-600 hover:underline">MDN Web Docs</a> をご覧ください。</p>
 
-                <h3 class="text-lg font-semibold text-gray-900 mt-10 mb-4">What is a High-Quality Favicon?</h3>
-                <p>A high-quality favicon goes beyond the legacy 16x16 ICO format. Modern applications, social media link previews, and AI agents require high-resolution assets such as 180px, 256px, and 512px icons, often derived from SVG vectors, web app manifests, and Apple touch icons. Mzu favicondl prioritizes these richer sources over deprecated standard favicons whenever possible.</p>
+                <h3 class="text-lg font-semibold text-gray-900 mt-10 mb-4">高品質なファビコンとは？</h3>
+                <p>高品質なファビコンは、昔ながらの 16x16 の ICO 形式にとどまりません。最近のアプリ、SNS のリンクプレビュー、AI エージェントには 180px、256px、512px といった高解像度のアイコンが必要で、その多くは SVG ベクター、Web App Manifest、Apple touch icon から得られます。Mzu favicondl は、可能な限り旧来のファビコンよりもこうした高品質なソースを優先します。</p>
             </div>
 
             <div class="mt-12 bg-gray-50 rounded-2xl p-6 sm:p-8 border border-gray-100">
-                <h2 class="text-xl font-semibold text-gray-900 mb-2">Integration Guide for AI Agents &amp; Developers</h2>
-                <p class="text-gray-500 text-sm mb-6">Use these copy-ready examples to integrate favicon fetching into your scripts, tools, and workflows.</p>
+                <h2 class="text-xl font-semibold text-gray-900 mb-2">AI エージェントと開発者向けの組み込みガイド</h2>
+                <p class="text-gray-500 text-sm mb-6">スクリプトやツール、ワークフローにファビコン取得を組み込むための、コピーして使えるサンプルです。</p>
 
                 <div class="space-y-6">
                     <div>
@@ -863,6 +954,101 @@ with open("icon.png", "wb") as f:
         </div>
     </section>
 
+    <section class="py-16 px-6 bg-white border-t border-gray-100">
+        <div class="max-w-3xl mx-auto text-gray-600 text-sm leading-relaxed">
+            <h2 id="how-to" class="text-2xl font-semibold text-gray-900 mb-6">あらゆるサイトのファビコンをダウンロードする方法</h2>
+            <ol class="space-y-4 list-decimal pl-5">
+                <li><strong class="text-gray-900">ドメインか URL を入力します。</strong>このページ上部の入力欄に <code>github.com</code> のようなドメインを入力するか、ページのアドレスをそのまま貼り付けます。<code>https://</code> や <code>www.</code> は省略できます。</li>
+                <li><strong class="text-gray-900">サイズを選びます。</strong>16・32・48・64・128 px から選べます。プレビューには、見つかった中で最も良いアイコンが常に表示されます。<em>選択したサイズでエクスポート</em>は初期状態でオンになっており、PNG を選んだサイズちょうどに変換します。オフにすると元の解像度のまま保存されます。</li>
+                <li><strong class="text-gray-900">ダウンロードまたはコピーします。</strong><em>ダウンロード</em>をクリックすると PNG で保存されます。そのまま使える <code>&lt;link&gt;</code> タグや、元ファイルの直接 URL をコピーすることもできます。</li>
+            </ol>
+            <p class="mt-4">手順はこれだけです。アカウント登録もブラウザ拡張もアップロードも必要ありません。PNG ではなく元の <code>.ico</code> や <code>.svg</code> ファイルが欲しい場合は、結果に表示される直接 URL を開いて保存してください。</p>
+
+            <h2 id="what-we-extract" class="text-2xl font-semibold text-gray-900 mt-14 mb-6">ファビコン抽出ツールが探すもの</h2>
+            <p class="mb-4">アイコンを 1 つしか置いていないサイトはほとんどありません。一般的なサイトには、昔ながらの <code>favicon.ico</code>、数枚の PNG、iPhone 用の Apple touch icon、Android 用の Web App Manifest があります。favicondl の抽出ツールは、通常のブラウザと同じようにトップページを読み込み（<code>www</code> から素のドメインへのリダイレクトなども追跡します）、ページ HTML 内のすべての <code>&lt;link rel="…icon…"&gt;</code> タグを読み取り、リンクされた manifest を開いて中のアイコンを集め、さらに定番のパス <code>/favicon.ico</code> と <code>/apple-touch-icon.png</code> も試します。各ファイルは実際にダウンロードして本当に画像かどうかを確認し、実際のピクセルサイズを測定します。</p>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left text-sm border border-gray-200 rounded-lg">
+                    <thead class="bg-gray-50 text-gray-900">
+                        <tr><th class="p-3 border-b border-gray-200">アイコンの種類</th><th class="p-3 border-b border-gray-200">指定される場所</th><th class="p-3 border-b border-gray-200">主なサイズ</th><th class="p-3 border-b border-gray-200">用途</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="p-3 border-b border-gray-100">ICO ファビコン</td><td class="p-3 border-b border-gray-100"><code>/favicon.ico</code> または <code>rel="icon"</code> / <code>rel="shortcut icon"</code></td><td class="p-3 border-b border-gray-100">16×16、32×32、48×48（1 つのファイルに複数入っていることが多い）</td><td class="p-3 border-b border-gray-100">ブラウザのタブ、ブックマーク、古いブラウザ</td></tr>
+                        <tr><td class="p-3 border-b border-gray-100">PNG ファビコン</td><td class="p-3 border-b border-gray-100"><code>rel="icon" type="image/png" sizes="32x32"</code></td><td class="p-3 border-b border-gray-100">16〜96 px</td><td class="p-3 border-b border-gray-100">最近のブラウザのタブや検索結果</td></tr>
+                        <tr><td class="p-3 border-b border-gray-100">SVG ファビコン</td><td class="p-3 border-b border-gray-100"><code>rel="icon" type="image/svg+xml"</code></td><td class="p-3 border-b border-gray-100">拡大縮小できるベクター</td><td class="p-3 border-b border-gray-100">どのサイズでもくっきり。ダークモードにも対応可能</td></tr>
+                        <tr><td class="p-3 border-b border-gray-100">Apple touch icon</td><td class="p-3 border-b border-gray-100"><code>rel="apple-touch-icon"</code> または <code>/apple-touch-icon.png</code></td><td class="p-3 border-b border-gray-100">180×180</td><td class="p-3 border-b border-gray-100">iPhone・iPad のホーム画面のショートカット</td></tr>
+                        <tr><td class="p-3 border-b border-gray-100">Manifest アイコン</td><td class="p-3 border-b border-gray-100"><code>rel="manifest"</code>（site.webmanifest、manifest.json）</td><td class="p-3 border-b border-gray-100">192×192、512×512</td><td class="p-3 border-b border-gray-100">Android のホーム画面やインストールされた Web アプリ</td></tr>
+                        <tr><td class="p-3">Safari ピン留めタブ</td><td class="p-3"><code>rel="mask-icon"</code></td><td class="p-3">単色 SVG</td><td class="p-3">古い Safari のピン留めタブ</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="mt-4">これらがどれも見つからない場合（自動アクセスをブロックしている、JavaScript でしかアイコンを読み込まない、など）は、Google の公開ファビコンサービスにフォールバックするので、小さめでも使える画像は必ず手に入ります。どのサイズがどこで使われるかは、<a href="/ja/blog/favicon-sizes-guide.html" class="text-blue-600 hover:underline">ファビコンのサイズガイド</a>で詳しく解説しています。</p>
+
+            <h2 id="highest-resolution" class="text-2xl font-semibold text-gray-900 mt-14 mb-6">最も高解像度のアイコンを手に入れるには</h2>
+            <p class="mb-4">抽出ツールは見つかったアイコンをすべて順位付けし、最も鮮明なものを最初に返します。拡大しても劣化しないフルカラーの SVG が最優先です。次が実測で最も大きい正方形の画像で、たいていは 512 px や 192 px の manifest アイコン、または 180 px の Apple touch icon です。昔ながらの ICO ファイルは幅 16〜32 px しかないことが多いため、たいてい最後になります。Safari の単色 mask アイコンも低い順位です。見つかったほかのサイズも表示されるので、別のものを選ぶこともできます。</p>
+            <ul class="space-y-2 list-disc pl-5">
+                <li><strong class="text-gray-900">元のサイズを保つ。</strong><em>選択したサイズでエクスポート</em>をオフにすれば、ダウンロードした PNG は元ファイルの解像度のままです。</li>
+                <li><strong class="text-gray-900">小さなアイコンを拡大しない。</strong>16 px の ICO を 128 px に引き伸ばしても、ぼやけるだけです。それより大きいものを公開していないサイトでは、その小さなファイルが実際に手に入る最良のものです。</li>
+                <li><strong class="text-gray-900">アイコンの出どころを確認する。</strong>API の JSON レスポンスの <code>source</code> を見ると、アイコンがサイト自体から取れたもの（<code>direct</code> または <code>html</code>）か、通常は解像度の低い Google のフォールバック（<code>google_s2</code>）かがわかります。</li>
+                <li><strong class="text-gray-900">欲しいのはアイコンではなくロゴ？</strong>ファビコンはもともと小さく表示するためのものです。印刷物や販促物には、その企業の公式プレスキットやブランドページの素材を使ってください。</li>
+            </ul>
+
+            <div class="grid sm:grid-cols-2 gap-4 mt-14">
+                <a href="/ja/bulk-favicon-downloader.html" class="block bg-gray-50 border border-gray-100 rounded-2xl p-6 hover:border-gray-300 transition-colors">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">ファビコン一括ダウンロード</h3>
+                    <p>1 行に 1 つずつ、最大 100 個のドメインを貼り付けるだけ。すべてのファビコンを ZIP でまとめて、または個別の画像としてダウンロードでき、ファイル名はドメイン名か番号を選べます。</p>
+                </a>
+                <a href="/ja/documentation.html" class="block bg-gray-50 border border-gray-100 rounded-2xl p-6 hover:border-gray-300 transition-colors">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">無料ファビコン API</h3>
+                    <p>GET リクエスト 1 回で、URL からどのサイトのアイコンでも取得できます。API キーも登録も不要。画像へのリダイレクトか、アイコンの URL と取得元を含む JSON を返します。</p>
+                </a>
+            </div>
+
+            <h2 id="faq" class="text-2xl font-semibold text-gray-900 mt-14 mb-6">よくある質問</h2>
+            <div class="space-y-6">
+                <div>
+                    <h3 class="text-base font-semibold text-gray-900 mb-1">サイトのファビコンをダウンロードしても問題ありませんか？</h3>
+                    <p>ファビコンは公開されているファイルで、サイトを開くたびにどのブラウザもダウンロードしています。保存すること自体は技術的にそれと変わりません。ただしアイコンは多くの場合、運営者のロゴや商標の一部です。リンク先がどのサイトかを示すため（ブックマーク、ダッシュボード、リンクプレビューなど）に使うのは一般的ですが、自分のブランドとして使うのは不適切です。迷ったときはその企業のブランドガイドラインを確認してください。これは一般的な情報であり、法的助言ではありません。</p>
+                </div>
+                <div>
+                    <h3 class="text-base font-semibold text-gray-900 mb-1">ダウンロードしたファビコンがぼやけるのはなぜですか？</h3>
+                    <p>多くの場合、サイトが小さいアイコンしか公開していないか、書き出し時に拡大されています。<em>選択したサイズでエクスポート</em>をオフにすると元の解像度のまま保存されます。16 px や 32 px の ICO しかない場合、どのツールでも失われたディテールは補えません。</p>
+                </div>
+                <div>
+                    <h3 class="text-base font-semibold text-gray-900 mb-1">ファビコンを一括でダウンロードできますか？</h3>
+                    <p>できます。<a href="/ja/bulk-favicon-downloader.html" class="text-blue-600 hover:underline">ファビコン一括ダウンロードツール</a>なら一度に最大 100 個のドメインを処理でき、結果を 1 つの ZIP ファイルか個別の画像としてダウンロードできます。</p>
+                </div>
+                <div>
+                    <h3 class="text-base font-semibold text-gray-900 mb-1">無料のファビコン API はありますか？</h3>
+                    <p>あります。<code>https://favicondl.com/api/extract?url=github.com</code> は見つかった最良のアイコンへ直接リダイレクトするので、<code>&lt;img&gt;</code> タグにそのまま使えます。<code>&amp;format=json</code> を付けると、代わりにアイコンの URL と取得元が返ります。キーもアカウントも不要です。結果はそちら側でキャッシュしてください。詳しくは <a href="/ja/documentation.html" class="text-blue-600 hover:underline">API ドキュメント</a>をご覧ください。</p>
+                </div>
+                <div>
+                    <h3 class="text-base font-semibold text-gray-900 mb-1">favicon grabber、fetcher、extractor の違いは？</h3>
+                    <p>実質的な違いはありません。「favicon grabber」「favicon fetcher」「favicon finder」「favicon extractor」は同じ種類のツールの別名で、サイトを指定するとそのアイコンを探してダウンロードしてくれます。このファビコンダウンローダーはそのすべてに対応しています。</p>
+                </div>
+                <div>
+                    <h3 class="text-base font-semibold text-gray-900 mb-1">地球儀のような汎用アイコンが返ってきたり、アイコンが取れないサイトがあるのはなぜ？</h3>
+                    <p>自動アクセスをブロックしている、ログインやボット確認の向こうにある、ページ読み込み後に JavaScript でアイコンを追加している、そもそもファビコンがない、といったサイトがあるためです。その場合は Google のファビコンサービスにフォールバックするため、小さな画像や既定の地球儀アイコンが返ることがあります。</p>
+                </div>
+                <div>
+                    <h3 class="text-base font-semibold text-gray-900 mb-1">どの形式でダウンロードされますか？</h3>
+                    <p><em>ダウンロード</em>ボタンでは、どこでも使える PNG で保存されます。元の形式が必要な場合は、結果に表示される直接 URL がサイト上の元ファイル（ICO、PNG、SVG、WebP など）を指しています。</p>
+                </div>
+                <div>
+                    <h3 class="text-base font-semibold text-gray-900 mb-1">localhost や非公開のサイトでも使えますか？</h3>
+                    <p>使えません。抽出ツールは当社のサーバー上で動いているため、アクセスできるのは公開サイトだけです。<code>localhost</code>、社内ネットワーク、ログインが必要なページは見えず、画像プロキシもプライベートアドレスへのアクセスを拒否します。</p>
+                </div>
+                <div>
+                    <h3 class="text-base font-semibold text-gray-900 mb-1">自分の画像をファビコンにできますか？</h3>
+                    <p>できます。<a href="/ja/tools.html" class="text-blue-600 hover:underline">ツールページ</a>の<em>画像→ファビコン</em>を使うと、ロゴを複数サイズの PNG と ICO ファイルに変換し、Web Manifest とサイトに貼り付ける HTML タグと一緒に ZIP にまとめられます。画像はブラウザ内で処理され、アップロードされません。</p>
+                </div>
+                <div>
+                    <h3 class="text-base font-semibold text-gray-900 mb-1">自分のサイトにはどのサイズのファビコンが必要ですか？</h3>
+                    <p>ほとんどのサイトでは、ブラウザ用の SVG か 32×32 の PNG、180×180 の Apple touch icon、そして 192×192 と 512×512 の manifest アイコンがあれば十分です。それぞれについては<a href="/ja/blog/favicon-sizes-guide.html" class="text-blue-600 hover:underline">ファビコンのサイズガイド</a>で解説しています。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- CTA -->
     <section class="py-16 px-6 bg-gray-50">
         <div class="max-w-3xl mx-auto text-center">
@@ -886,7 +1072,7 @@ with open("icon.png", "wb") as f:
                 <a href="/ja/documentation.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">ドキュメント</a>
                 <a href="/ja/tools.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">ツール</a>
                 <a href="/ja/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">ブログ</a>
-
+                <a href="/ja/bulk-favicon-downloader.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">一括ダウンロード</a>
                 <a href="/ja/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">プライバシー</a>
             </div>
         </div>

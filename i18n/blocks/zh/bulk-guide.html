@@ -1,0 +1,59 @@
+<section class="py-16 px-6 bg-white border-t border-gray-100">
+        <div class="max-w-3xl mx-auto text-gray-600 text-sm leading-relaxed">
+            <h2 class="text-2xl font-semibold text-gray-900 mb-6">如何批量下载 favicon</h2>
+            <ol class="space-y-4 list-decimal pl-5">
+                <li><strong class="text-gray-900">粘贴列表。</strong>在上面的输入框里每行输入一个域名，一次最多 100 个。纯域名（<code>github.com</code>）和完整网址都可以；协议、<code>www.</code> 和路径会被自动去掉。不含点号的行会被跳过。</li>
+                <li><strong class="text-gray-900">选择选项。</strong>选择尺寸，选择 ZIP 还是单独文件，再决定文件按域名命名（<code>github.com-favicon.png</code>）还是按在列表中的顺序命名（<code>001-github.com-favicon.png</code>）。</li>
+                <li><strong class="text-gray-900">开始并下载。</strong>点击<em>开始批量处理</em>。最多会同时查询 6 个网站，进度条会显示处理到了哪里。检查一下预览网格，然后点击下方的下载按钮（ZIP 或全部文件）。</li>
+            </ol>
+
+            <h2 class="text-2xl font-semibold text-gray-900 mt-14 mb-6">各个选项的作用</h2>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left text-sm border border-gray-200 rounded-lg">
+                    <thead class="bg-gray-50 text-gray-900"><tr><th class="p-3 border-b border-gray-200">选项</th><th class="p-3 border-b border-gray-200">可选值</th><th class="p-3 border-b border-gray-200">含义</th></tr></thead>
+                    <tbody>
+                        <tr><td class="p-3 border-b border-gray-100">图标尺寸</td><td class="p-3 border-b border-gray-100">标准尺寸（16/32）或大尺寸（64+）</td><td class="p-3 border-b border-gray-100">大尺寸会请求更大的图标。如果网站自己发布了图标，你拿到的就是那个文件；尺寸选项主要在退回到 Google favicon 服务时起作用。</td></tr>
+                        <tr><td class="p-3 border-b border-gray-100">输出格式</td><td class="p-3 border-b border-gray-100">ZIP 压缩包或单独文件</td><td class="p-3 border-b border-gray-100">ZIP 会把所有图标打包成一次下载。单独文件会逐个保存；有些浏览器会先询问是否允许下载多个文件。</td></tr>
+                        <tr><td class="p-3">命名方式</td><td class="p-3">按域名或按序号</td><td class="p-3">按序号命名会保留你列表的顺序，方便把图标和表格里的行一一对应。</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2 class="text-2xl font-semibold text-gray-900 mt-14 mb-6">图标从哪里来</h2>
+            <p class="mb-4">每个域名都会经过和我们<a href="/" class="text-blue-600 hover:underline">单站 favicon 下载器</a>相同的提取流程：读取首页上的 <code>&lt;link rel="icon"&gt;</code>、Apple touch icon 标签和 Web App Manifest，尝试 <code>/favicon.ico</code>、<code>/apple-touch-icon.png</code> 等常见文件，检查每个文件确实是图片，并优先选择 SVG 和大尺寸 PNG，而不是小的 ICO 文件。</p>
+            <p>如果某个网站拦截自动化请求或者没有图标，工具会退回到 Google 的公开 favicon 服务，保证列表里每一行都有图片。下载之前预览网格会显示每个结果，你可以一眼看出哪些是通用图标。</p>
+
+            <h2 class="text-2xl font-semibold text-gray-900 mt-14 mb-6">常见用途</h2>
+            <ul class="space-y-2 list-disc pl-5">
+                <li><strong class="text-gray-900">链接导航站和资源列表</strong>：给你收录的每个工具或网站配上图标。</li>
+                <li><strong class="text-gray-900">仪表盘和内部工具</strong>：标示每一行、每个集成或每条告警属于哪个服务。</li>
+                <li><strong class="text-gray-900">书签和标签页管理器</strong>：为一组固定的网站预先加载图标。</li>
+                <li><strong class="text-gray-900">竞品和市场调研</strong>：在公司名单表格旁边放上品牌图标。</li>
+            </ul>
+            <p class="mt-4">想在代码里实现，而不是在浏览器里操作？<a href="documentation.html" class="text-blue-600 hover:underline">免费 favicon API</a> 每次请求返回一个域名的同样图标，不需要 API key。</p>
+
+            <h2 id="faq" class="text-2xl font-semibold text-gray-900 mt-14 mb-6">常见问题</h2>
+            <div class="space-y-6">
+                <div>
+                    <h3 class="text-base font-semibold text-gray-900 mb-1">一次最多能下载多少个网站？</h3>
+                    <p>每次最多 100 个域名。列表更长的话，请分成每批 100 个。</p>
+                </div>
+                <div>
+                    <h3 class="text-base font-semibold text-gray-900 mb-1">批量 favicon 下载工具免费吗？</h3>
+                    <p>免费。不需要账号、API key，也不用付费。请只处理你真正需要的列表。</p>
+                </div>
+                <div>
+                    <h3 class="text-base font-semibold text-gray-900 mb-1">为什么有些图标看起来是一个通用地球图标？</h3>
+                    <p>说明这个网站没有 favicon，或者拦截了我们的查询，所以结果来自 Google 的备用服务。可以用单站 favicon 下载器再试一次这个域名，它还会从你的浏览器尝试几个额外来源。</p>
+                </div>
+                <div>
+                    <h3 class="text-base font-semibold text-gray-900 mb-1">可以上传 CSV 文件吗？</h3>
+                    <p>不能直接上传。把表格里的域名那一列复制下来，粘贴到输入框即可，每一行就是一个域名。</p>
+                </div>
+                <div>
+                    <h3 class="text-base font-semibold text-gray-900 mb-1">下载的 favicon 可以随便用吗？</h3>
+                    <p>Favicon 通常是公司 Logo 或商标的一部分。在指向这些网站的链接旁边显示它们是常见做法；把它们当作你自己的品牌标识则不行。拿不准的话，请查看各品牌的使用规范。</p>
+                </div>
+            </div>
+        </div>
+    </section>

@@ -1,0 +1,23 @@
+<section id="comparison" class="mb-12">
+                    <div class="bg-white rounded-lg shadow-sm p-8 text-gray-600">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-6">Favicon API 对比：favicondl、Google S2、DuckDuckGo 与 Icon Horse</h2>
+                        <p class="mb-4">这四个服务都可以免费开始用，也都不需要 API key。区别在于它们返回的内容：</p>
+                        <div class="overflow-x-auto">
+                            <table class="parameter-table">
+                                <thead>
+                                    <tr><th></th><th>favicondl</th><th>Google S2</th><th>DuckDuckGo</th><th>Icon Horse</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>接口地址</td><td><code>/api/extract?url=example.com</code></td><td><code>google.com/s2/favicons?domain=example.com&amp;sz=64</code></td><td><code>icons.duckduckgo.com/ip3/example.com.ico</code></td><td><code>icon.horse/icon/example.com</code></td></tr>
+                                    <tr><td>API key</td><td>不需要</td><td>不需要</td><td>不需要</td><td>不需要（免费套餐）</td></tr>
+                                    <tr><td>公开的免费额度</td><td>无（合理使用）</td><td>未公开</td><td>未公开</td><td>免费套餐每月 1,000 个图标</td></tr>
+                                    <tr><td>尺寸参数</td><td><code>size</code>（16–512，用于 Google 备用来源）</td><td><code>sz</code></td><td>无</td><td>文档未说明</td></tr>
+                                    <tr><td>返回内容</td><td>找到时返回网站的原始文件（SVG、PNG、ICO 等）</td><td>PNG 或 JPEG（实测）</td><td>ICO（实测）</td><td>PNG（实测）</td></tr>
+                                    <tr><td>JSON 元数据</td><td>有（<code>format=json</code>：图标地址、来源、格式、实测像素尺寸，以及最多 8 个备选图标）</td><td>无</td><td>无</td><td>无</td></tr>
+                                    <tr><td>我们测试 github.com 的结果</td><td>favicon.svg（矢量图）</td><td>sz=16 时为 16×16 PNG，sz=256 时为 180×180</td><td>含 16×16 和 32×32 的 ICO</td><td>256×256 PNG</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p class="mt-4 text-sm">以上结果来自我们在 2026 年 10 月 12 日的实际请求；Icon Horse 的额度取自<a href="https://icon.horse/" rel="noopener" class="text-blue-600 hover:underline">其价格说明</a>。第三方服务随时可能变化，在生产环境中依赖它们之前，请先查看各服务商的条款。</p>
+                    </div>
+                </section>

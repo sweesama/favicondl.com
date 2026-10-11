@@ -1,0 +1,622 @@
+<!DOCTYPE html><html lang="zh"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>批量下载 Favicon - 一次最多 100 个网站，打包 ZIP | favicondl</title>
+    <meta name="description" content="免费批量下载网站图标：粘贴最多 100 个域名，一次性把所有 favicon 打包成 ZIP 或逐个下载。无需注册，无需 API key。">
+    <meta name="keywords" content="bulk favicon downloader, batch favicon download, download favicons from multiple websites, favicon zip">
+    <meta name="baidu-site-verification" content="codeva-TQEbMwU84J">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/zh/bulk-favicon-downloader.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/bulk-favicon-downloader.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/bulk-favicon-downloader.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/bulk-favicon-downloader.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/bulk-favicon-downloader.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/bulk-favicon-downloader.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/bulk-favicon-downloader.html">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://favicondl.com/zh/bulk-favicon-downloader.html">
+    <meta property="og:title" content="批量下载 Favicon - 一次最多 100 个网站，打包 ZIP | favicondl">
+    <meta property="og:description" content="粘贴最多 100 个域名，一次性下载所有网站图标。免费，无需注册。">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="批量下载 Favicon - 一次最多 100 个网站，打包 ZIP | favicondl">
+    <meta name="twitter:description" content="粘贴最多 100 个域名，一次性下载所有网站图标。免费，无需注册。">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <!-- Google Analytics (replace GA_MEASUREMENT_ID with your real ID) -->
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'GA_MEASUREMENT_ID');
+    </script> -->
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Anime.js for animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+
+    <!-- Custom styles -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+        * {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            background: #fafafa;
+        }
+
+        .nav-link {
+            color: #1d1d1f;
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .nav-link:hover {
+            color: #0071e3;
+        }
+
+        /* Language Dropdown */
+        .lang-dropdown {
+            position: relative;
+        }
+
+        .lang-btn {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 10px;
+            border-radius: 8px;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            transition: background 0.2s;
+            font-size: 14px;
+            font-weight: 500;
+            color: #1d1d1f;
+        }
+
+        .lang-btn:hover {
+            background: #f5f5f7;
+        }
+
+        .lang-menu {
+            position: absolute;
+            right: 0;
+            top: calc(100% + 6px);
+            min-width: 140px;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            padding: 4px;
+            z-index: 60;
+            opacity: 0;
+            transform: translateY(-4px) scale(0.98);
+            transition: opacity 0.15s ease, transform 0.15s ease;
+            pointer-events: none;
+        }
+
+        .lang-menu.show {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            pointer-events: auto;
+        }
+
+        .lang-option {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            width: 100%;
+            padding: 8px 12px;
+            border: none;
+            background: none;
+            font-size: 14px;
+            color: #1d1d1f;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: background 0.15s;
+        }
+
+        .lang-option:hover {
+            background: #f5f5f7;
+        }
+
+        .lang-option.active {
+            color: #0071e3;
+            font-weight: 600;
+        }
+
+        .lang-mobile-group {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            padding: 4px 12px;
+        }
+
+        .lang-mobile-btn {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            border-radius: 8px;
+            border: 1px solid transparent;
+            background: transparent;
+            font-size: 14px;
+            color: #1d1d1f;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .lang-mobile-btn:hover {
+            background: #f5f5f7;
+        }
+
+        .lang-mobile-btn.active {
+            background: #f0f5ff;
+            border-color: rgba(0, 113, 227, 0.3);
+            color: #0071e3;
+            font-weight: 500;
+        }
+
+        .btn-primary {
+            background: #0071e3;
+            color: #fff;
+            padding: 12px 24px;
+            border-radius: 980px;
+            font-size: 14px;
+            font-weight: 500;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-primary:hover {
+            background: #0077ed;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #0071e3;
+            padding: 12px 24px;
+            border-radius: 980px;
+            font-size: 14px;
+            font-weight: 500;
+            border: 1px solid rgba(0, 113, 227, 0.25);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(0, 113, 227, 0.08);
+        }
+
+        .gradient-bg {
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+        }
+
+        .glass-effect {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .drop-zone {
+            border: 2px dashed #d1d5db;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .drop-zone.drag-over {
+            border-color: #3b82f6;
+            background-color: #eff6ff;
+        }
+
+        .tool-card {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .loading-spinner {
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .preview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+            gap: 1rem;
+        }
+
+        .size-preview {
+            text-align: center;
+            padding: 1rem;
+            background: #f8fafc;
+            border-radius: 8px;
+            border: 2px solid transparent;
+            transition: all 0.2s ease;
+        }
+
+        .size-preview:hover {
+            border-color: #3b82f6;
+            background: #eff6ff;
+        }
+
+        .size-preview.selected {
+            border-color: #3b82f6;
+            background: #eff6ff;
+        }
+    </style>
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-7QLC8QV609');
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "name": "批量 Favicon 下载",
+      "url": "https://favicondl.com/zh/bulk-favicon-downloader.html",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Web",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "description": "免费批量下载网站图标：粘贴最多 100 个域名，一次性把所有 favicon 打包成 ZIP 或逐个下载。无需注册，无需 API key。",
+      "inLanguage": "zh-CN"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "一次最多能下载多少个网站？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "每次最多 100 个域名。列表更长的话，请分成每批 100 个。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "批量 favicon 下载工具免费吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "免费。不需要账号、API key，也不用付费。请只处理你真正需要的列表。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "为什么有些图标看起来是一个通用地球图标？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "说明这个网站没有 favicon，或者拦截了我们的查询，所以结果来自 Google 的备用服务。可以用单站 favicon 下载器再试一次这个域名，它还会从你的浏览器尝试几个额外来源。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "可以上传 CSV 文件吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "不能直接上传。把表格里的域名那一列复制下来，粘贴到输入框即可，每一行就是一个域名。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "下载的 favicon 可以随便用吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Favicon 通常是公司 Logo 或商标的一部分。在指向这些网站的链接旁边显示它们是常见做法；把它们当作你自己的品牌标识则不行。拿不准的话，请查看各品牌的使用规范。"
+          }
+        }
+      ],
+      "inLanguage": "zh-CN"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "首页",
+          "item": "https://favicondl.com/zh/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "工具",
+          "item": "https://favicondl.com/zh/tools.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "批量 Favicon 下载",
+          "item": "https://favicondl.com/zh/bulk-favicon-downloader.html"
+        }
+      ],
+      "inLanguage": "zh-CN"
+    }
+  ]
+}
+    </script>
+</head>
+
+<body class="text-gray-900">
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/zh/" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="hidden md:flex items-center gap-8">
+                <a href="/zh/" class="nav-link">首页</a>
+                <a href="/zh/documentation.html" class="nav-link">文档</a>
+                <a href="/zh/tools.html" class="nav-link">工具</a>
+                <a href="/zh/blog/" class="nav-link">博客</a>
+            </div>
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="nav-link p-2">
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="md:hidden hidden">
+            <div class="px-4 pt-3 pb-4 space-y-2 bg-white/90 backdrop-blur-xl border-t border-gray-200/50">
+                <a href="/zh/" class="nav-link block px-3 py-2 rounded-md text-base">首页</a>
+                <a href="/zh/documentation.html" class="nav-link block px-3 py-2 rounded-md text-base">文档</a>
+                <a href="/zh/tools.html" class="nav-link block px-3 py-2 rounded-md text-base">工具</a>
+                <a href="/zh/blog/" class="nav-link block px-3 py-2 rounded-md text-base">博客</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <section class="pt-16 pb-6 px-6">
+        <div class="max-w-3xl mx-auto text-center">
+            <nav class="text-sm text-gray-400 mb-6"><a href="/zh/" class="hover:text-gray-600">首页</a><span class="mx-2">/</span><a href="/zh/tools.html" class="hover:text-gray-600">工具</a><span class="mx-2">/</span><span class="text-gray-600">批量 Favicon 下载</span></nav>
+            <h1 class="text-5xl font-semibold text-gray-900 tracking-tight mb-4">批量 Favicon 下载</h1>
+            <p class="text-xl text-gray-500">一次粘贴最多 100 个域名，把所有网站图标打包成一个 ZIP，或逐个保存为图片。免费，无需注册。</p>
+        </div>
+    </section>
+
+    <section id="batch-processor" class="py-12 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div class="bg-gray-50 rounded-2xl p-8">
+                <!-- Input Area -->
+                <div class="mb-8">
+                    <label for="domains-input" class="block text-lg font-medium text-gray-900 mb-4">
+                        <span>输入域名列表（每行一个域名）</span>
+                    </label>
+                    <textarea id="domains-input" rows="6" placeholder="example.com
+google.com
+github.com
+stackoverflow.com" data-en-placeholder="example.com
+google.com
+github.com
+stackoverflow.com" data-zh-placeholder="例如：example.com
+google.com
+github.com
+stackoverflow.com" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"></textarea>
+                    <div class="flex justify-between items-center mt-4">
+                        <p class="text-sm text-gray-500">支持最多100个域名</p>
+                        <div class="space-x-2">
+                            <button onclick="loadSampleDomains()" class="px-4 py-2 text-blue-600 hover:bg-blue-50 rounded-lg transition-colors">
+                                <span>加载示例</span>
+                            </button>
+                            <button onclick="clearDomains()" class="px-4 py-2 text-gray-600 hover:bg-gray-100 rounded-lg transition-colors">
+                                <span>清空</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Processing Options -->
+                <div class="mb-8">
+                    <h3 class="text-lg font-medium mb-4">处理选项</h3>
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">图标尺寸</label>
+                            <select id="batch-size" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                                <option value="small">标准尺寸 (16x16, 32x32)</option>
+                                <option value="large">大尺寸 (64x64+)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">输出格式</label>
+                            <select id="batch-format" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                                <option value="individual">单独文件</option>
+                                <option value="zip">ZIP压缩包</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">命名方式</label>
+                            <select id="batch-naming" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                                <option value="domain">按域名命名</option>
+                                <option value="index">按序号命名</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Process Button -->
+                <div class="text-center mb-8">
+                    <button id="process-batch" class="btn-primary disabled:opacity-50 disabled:cursor-not-allowed">
+                        <span>开始批量处理</span>
+                    </button>
+                </div>
+
+                <!-- Progress -->
+                <div id="batch-progress" class="hidden mb-8">
+                    <div class="bg-white rounded-lg p-6">
+                        <div class="flex justify-between items-center mb-2">
+                            <h4 class="font-medium">处理进度</h4>
+                            <span id="progress-text" class="text-sm text-gray-600">0/0</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div id="progress-bar" class="bg-green-600 h-2 rounded-full transition-all duration-300" style="width: 0%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Results -->
+                <div id="batch-results" class="hidden">
+                    <h3 class="text-lg font-medium mb-4">处理结果</h3>
+                    <div id="results-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                        <!-- Results will be inserted here -->
+                    </div>
+                    <div class="text-center mt-8">
+                        <button id="download-batch" class="btn-primary">
+                            <span>下载全部结果</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 px-6 bg-white border-t border-gray-100">
+        <div class="max-w-3xl mx-auto text-gray-600 text-sm leading-relaxed">
+            <h2 class="text-2xl font-semibold text-gray-900 mb-6">如何批量下载 favicon</h2>
+            <ol class="space-y-4 list-decimal pl-5">
+                <li><strong class="text-gray-900">粘贴列表。</strong>在上面的输入框里每行输入一个域名，一次最多 100 个。纯域名（<code>github.com</code>）和完整网址都可以；协议、<code>www.</code> 和路径会被自动去掉。不含点号的行会被跳过。</li>
+                <li><strong class="text-gray-900">选择选项。</strong>选择尺寸，选择 ZIP 还是单独文件，再决定文件按域名命名（<code>github.com-favicon.png</code>）还是按在列表中的顺序命名（<code>001-github.com-favicon.png</code>）。</li>
+                <li><strong class="text-gray-900">开始并下载。</strong>点击<em>开始批量处理</em>。最多会同时查询 6 个网站，进度条会显示处理到了哪里。检查一下预览网格，然后点击下方的下载按钮（ZIP 或全部文件）。</li>
+            </ol>
+
+            <h2 class="text-2xl font-semibold text-gray-900 mt-14 mb-6">各个选项的作用</h2>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left text-sm border border-gray-200 rounded-lg">
+                    <thead class="bg-gray-50 text-gray-900"><tr><th class="p-3 border-b border-gray-200">选项</th><th class="p-3 border-b border-gray-200">可选值</th><th class="p-3 border-b border-gray-200">含义</th></tr></thead>
+                    <tbody>
+                        <tr><td class="p-3 border-b border-gray-100">图标尺寸</td><td class="p-3 border-b border-gray-100">标准尺寸（16/32）或大尺寸（64+）</td><td class="p-3 border-b border-gray-100">大尺寸会请求更大的图标。如果网站自己发布了图标，你拿到的就是那个文件；尺寸选项主要在退回到 Google favicon 服务时起作用。</td></tr>
+                        <tr><td class="p-3 border-b border-gray-100">输出格式</td><td class="p-3 border-b border-gray-100">ZIP 压缩包或单独文件</td><td class="p-3 border-b border-gray-100">ZIP 会把所有图标打包成一次下载。单独文件会逐个保存；有些浏览器会先询问是否允许下载多个文件。</td></tr>
+                        <tr><td class="p-3">命名方式</td><td class="p-3">按域名或按序号</td><td class="p-3">按序号命名会保留你列表的顺序，方便把图标和表格里的行一一对应。</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2 class="text-2xl font-semibold text-gray-900 mt-14 mb-6">图标从哪里来</h2>
+            <p class="mb-4">每个域名都会经过和我们<a href="/zh/" class="text-blue-600 hover:underline">单站 favicon 下载器</a>相同的提取流程：读取首页上的 <code>&lt;link rel="icon"&gt;</code>、Apple touch icon 标签和 Web App Manifest，尝试 <code>/favicon.ico</code>、<code>/apple-touch-icon.png</code> 等常见文件，检查每个文件确实是图片，并优先选择 SVG 和大尺寸 PNG，而不是小的 ICO 文件。</p>
+            <p>如果某个网站拦截自动化请求或者没有图标，工具会退回到 Google 的公开 favicon 服务，保证列表里每一行都有图片。下载之前预览网格会显示每个结果，你可以一眼看出哪些是通用图标。</p>
+
+            <h2 class="text-2xl font-semibold text-gray-900 mt-14 mb-6">常见用途</h2>
+            <ul class="space-y-2 list-disc pl-5">
+                <li><strong class="text-gray-900">链接导航站和资源列表</strong>：给你收录的每个工具或网站配上图标。</li>
+                <li><strong class="text-gray-900">仪表盘和内部工具</strong>：标示每一行、每个集成或每条告警属于哪个服务。</li>
+                <li><strong class="text-gray-900">书签和标签页管理器</strong>：为一组固定的网站预先加载图标。</li>
+                <li><strong class="text-gray-900">竞品和市场调研</strong>：在公司名单表格旁边放上品牌图标。</li>
+            </ul>
+            <p class="mt-4">想在代码里实现，而不是在浏览器里操作？<a href="/zh/documentation.html" class="text-blue-600 hover:underline">免费 favicon API</a> 每次请求返回一个域名的同样图标，不需要 API key。</p>
+
+            <h2 id="faq" class="text-2xl font-semibold text-gray-900 mt-14 mb-6">常见问题</h2>
+            <div class="space-y-6">
+                <div>
+                    <h3 class="text-base font-semibold text-gray-900 mb-1">一次最多能下载多少个网站？</h3>
+                    <p>每次最多 100 个域名。列表更长的话，请分成每批 100 个。</p>
+                </div>
+                <div>
+                    <h3 class="text-base font-semibold text-gray-900 mb-1">批量 favicon 下载工具免费吗？</h3>
+                    <p>免费。不需要账号、API key，也不用付费。请只处理你真正需要的列表。</p>
+                </div>
+                <div>
+                    <h3 class="text-base font-semibold text-gray-900 mb-1">为什么有些图标看起来是一个通用地球图标？</h3>
+                    <p>说明这个网站没有 favicon，或者拦截了我们的查询，所以结果来自 Google 的备用服务。可以用单站 favicon 下载器再试一次这个域名，它还会从你的浏览器尝试几个额外来源。</p>
+                </div>
+                <div>
+                    <h3 class="text-base font-semibold text-gray-900 mb-1">可以上传 CSV 文件吗？</h3>
+                    <p>不能直接上传。把表格里的域名那一列复制下来，粘贴到输入框即可，每一行就是一个域名。</p>
+                </div>
+                <div>
+                    <h3 class="text-base font-semibold text-gray-900 mb-1">下载的 favicon 可以随便用吗？</h3>
+                    <p>Favicon 通常是公司 Logo 或商标的一部分。在指向这些网站的链接旁边显示它们是常见做法；把它们当作你自己的品牌标识则不行。拿不准的话，请查看各品牌的使用规范。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 px-6 border-t border-gray-200">
+        <div class="max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+            <p class="text-gray-400 text-sm">©
+                <script>document.write(new Date().getFullYear())</script> Mzu favicondl
+            </p>
+            <div class="flex gap-6">
+                <a href="/zh/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">首页</a>
+                <a href="/zh/documentation.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">文档</a>
+                <a href="/zh/tools.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">工具</a>
+                <a href="/zh/bulk-favicon-downloader.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">Bulk Download</a>
+                <a href="/zh/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">博客</a>
+                <a href="/zh/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">隐私政策</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Success Toast -->
+    <div id="success-toast" class="fixed top-20 right-6 bg-gray-900 text-white px-5 py-3 rounded-xl shadow-lg transform translate-x-[200%] transition-transform duration-300 z-50 flex items-center gap-2 text-sm">
+        <svg class="w-4 h-4 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+        </svg>
+        <span id="toast-message">完成！</span>
+    </div>
+
+    <script src="/tools.js?v=20261012b"></script>
+
+</body></html>

@@ -25,7 +25,14 @@ const PAGES = [
   'documentation.html',
   'privacy.html',
   '404.html',
+  'bulk-favicon-downloader.html',
 ];
+
+// Long-form localized blocks: an element marked data-i18n-block="name" in an
+// English source page is replaced (outer HTML) by i18n/blocks/<lang>/<name>.html
+// in that language's build. A missing translation file drops the block, so a
+// localized page never ships untranslated English prose.
+const BLOCKS_DIR = path.join(__dirname, 'blocks');
 
 const ARTICLE_LANG_SUFFIX = {
   en: 'En',
@@ -453,12 +460,80 @@ function replaceSwitcher($, lang, page) {
   }
 }
 
+function localizeBlocks($, lang) {
+  $('[data-i18n-block]').each(function () {
+    const name = $(this).attr('data-i18n-block');
+    const file = path.join(BLOCKS_DIR, lang, `${name}.html`);
+    if (name && /^[a-z0-9-]+$/.test(name) && fs.existsSync(file)) {
+      $(this).replaceWith(fs.readFileSync(file, 'utf-8').trim());
+    } else {
+      console.warn(`⚠️  ${lang}: no translation for block "${name}", block removed`);
+      $(this).remove();
+    }
+  });
+}
+
+// Structured data marked data-i18n-jsonld is rebuilt from the localized page
+// itself, so the JSON-LD always matches the visible translated text:
+// FAQPage from the "#faq" section (h3 question + p answer), WebApplication
+// name/description from the h1 and meta description, BreadcrumbList names from
+// the visible breadcrumb, and every URL moved to the language prefix.
+function localizeStructuredData($, lang) {
+  const prefix = `${DOMAIN}/${lang}`;
+  const localUrl = (url) => (typeof url === 'string' && url.startsWith(`${DOMAIN}/`) && !/^https:\/\/favicondl\.com\/(zh|ja|ko|es)\//.test(url)
+    ? prefix + url.slice(DOMAIN.length)
+    : url);
+  const clean = (text) => String(text || '').replace(/\s+/g, ' ').trim();
+  $('script[type="application/ld+json"][data-i18n-jsonld]').each(function () {
+    let data;
+    try { data = JSON.parse($(this).html()); } catch (error) {
+      console.warn(`⚠️  ${lang}: invalid data-i18n-jsonld block removed: ${error.message}`);
+      $(this).remove();
+      return;
+    }
+    const faq = [];
+    $('#faq').nextAll('div').first().children('div').each(function () {
+      const q = clean($(this).children('h3').first().text());
+      const a = clean($(this).children('p').text());
+      if (q && a) faq.push({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } });
+    });
+    const crumbs = $('nav').filter((_, el) => $(el).children('a, span').length >= 2 && !$(el).find('.lang-dropdown').length)
+      .first().children('a, span:not(.mx-2)').toArray().map((el) => clean($(el).text()));
+    const nodes = Array.isArray(data['@graph']) ? data['@graph'] : [data];
+    const kept = [];
+    for (const node of nodes) {
+      if (node['@type'] === 'FAQPage') {
+        if (!faq.length) continue;
+        node.mainEntity = faq;
+      } else if (node['@type'] === 'WebApplication') {
+        node.name = clean($('h1').first().text()) || node.name;
+        node.description = $('meta[name="description"]').attr('content') || node.description;
+        node.url = localUrl(node.url);
+      } else if (node['@type'] === 'BreadcrumbList') {
+        (node.itemListElement || []).forEach((item, i) => {
+          if (crumbs[i]) item.name = crumbs[i];
+          item.item = localUrl(item.item);
+        });
+      }
+      node.inLanguage = SCHEMA_LANG[lang] || lang;
+      kept.push(node);
+    }
+    if (!kept.length) { $(this).remove(); return; }
+    const out = Array.isArray(data['@graph']) ? { ...data, '@graph': kept } : kept[0];
+    $(this).removeAttr('data-i18n-jsonld');
+    $(this).text(`\n${JSON.stringify(out, null, 2)}\n    `);
+  });
+}
+
 // ─── 构建单个语言页面 ──────────────────────────────────
 function buildPage(html, lang, page, translations) {
   const $ = load(html, { decodeEntities: false });
   const t = translations[lang];
   const pageName = page.replace('.html', '');
   const article = getArticleRecord(page);
+
+  // 0a. Localized long-form blocks (see BLOCKS_DIR).
+  localizeBlocks($, lang);
 
   // 0. English-only blocks (e.g. long-form homepage guide + FAQPage JSON-LD)
   //    have no translations yet; drop them from localized pages instead of
@@ -471,6 +546,7 @@ function buildPage(html, lang, page, translations) {
 
   // 2. 文本内容替换
   translateContent($, lang, t._strings || {});
+  localizeStructuredData($, lang);
 
   // 每个语言 URL 只输出对应语言正文，避免五份正文同时进入索引。
   localizeArticlePage($, article, lang, page);

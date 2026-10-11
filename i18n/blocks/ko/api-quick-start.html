@@ -1,0 +1,35 @@
+<section id="quick-start" class="mb-12">
+                    <div class="bg-white rounded-lg shadow-sm p-8 text-gray-600">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-6">빠른 시작</h2>
+                        <p class="mb-4">favicondl 파비콘 API는 GET 요청 한 번으로 어떤 도메인이나 URL이든 그 사이트의 파비콘으로 바꿔 줍니다. API 키, 계정, SDK가 모두 필요 없습니다. <code>&lt;img&gt;</code> 태그에 바로 쓰세요.</p>
+                        <div class="code-block mb-6">
+                            <pre class="p-4 text-sm"><code class="language-html">&lt;img src="https://favicondl.com/api/extract?url=github.com" width="32" height="32" alt="GitHub 파비콘"&gt;</code></pre>
+                        </div>
+                        <p class="mb-4">JSON을 요청하면 어떤 파일을 찾았고 어디서 가져왔는지 확인할 수 있습니다.</p>
+                        <div class="code-block mb-4">
+                            <pre class="p-4 text-sm"><code class="language-bash">curl "https://favicondl.com/api/extract?url=github.com&amp;format=json"</code></pre>
+                        </div>
+                        <div class="code-block mb-6">
+                            <pre class="p-4 text-sm"><code class="language-json">{
+  "ok": true,
+  "domain": "github.com",
+  "size": 128,
+  "iconUrl": "https://github.githubassets.com/favicons/favicon.svg",
+  "proxyUrl": "https://favicondl.com/api/proxy?url=https%3A%2F%2Fgithub.githubassets.com%2Ffavicons%2Ffavicon.svg",
+  "source": "html",
+  "rel": "icon",
+  "format": "svg",
+  "width": null,
+  "height": null,
+  "pageUrl": "https://github.com/",
+  "candidates": [
+    { "url": "https://github.githubassets.com/favicons/favicon.svg", "format": "svg", "vector": true, "source": "html", "rel": "icon", "proxyUrl": "…" },
+    { "url": "https://github.githubassets.com/assets/app-icon-512-7f9c4ff2e960.png", "format": "png", "width": 512, "height": 512, "source": "manifest", "rel": "manifest", "proxyUrl": "…" },
+    { "url": "https://github.com/favicon.ico", "format": "ico", "width": 32, "height": 32, "source": "direct", "rel": "favicon.ico", "proxyUrl": "…" }
+  ]
+}</code></pre>
+                        </div>
+                        <p class="mb-4"><code>iconUrl</code>은 웹사이트에 있는 원본 파일입니다. <code>proxyUrl</code>은 같은 이미지를 저희 프록시를 통해 <code>Access-Control-Allow-Origin: *</code> 헤더와 함께 제공하므로, canvas에 그리거나 브라우저 코드에서 fetch할 수 있습니다.</p>
+                        <p><code>format</code>, <code>width</code>, <code>height</code>는 선택된 파일을 저희가 직접 측정한 값입니다(SVG는 <code>width</code>/<code>height</code>가 <code>null</code>). <code>candidates</code>에는 같은 사이트에서 검증된 다른 아이콘(크기와 형식이 다른 것)이 최대 8개 담겨 있어 다른 것을 고를 수 있습니다. 위 예시는 일부를 줄였습니다. Google이나 DuckDuckGo로 대체된 경우에는 비어 있습니다.</p>
+                    </div>
+                </section>

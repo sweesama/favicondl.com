@@ -1,0 +1,23 @@
+<section id="comparison" class="mb-12">
+                    <div class="bg-white rounded-lg shadow-sm p-8 text-gray-600">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-6">ファビコン API 比較：favicondl・Google S2・DuckDuckGo・Icon Horse</h2>
+                        <p class="mb-4">4 つのサービスはいずれも無料で使い始められ、API キーも不要です。違いは返ってくる内容です。</p>
+                        <div class="overflow-x-auto">
+                            <table class="parameter-table">
+                                <thead>
+                                    <tr><th></th><th>favicondl</th><th>Google S2</th><th>DuckDuckGo</th><th>Icon Horse</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>エンドポイント</td><td><code>/api/extract?url=example.com</code></td><td><code>google.com/s2/favicons?domain=example.com&amp;sz=64</code></td><td><code>icons.duckduckgo.com/ip3/example.com.ico</code></td><td><code>icon.horse/icon/example.com</code></td></tr>
+                                    <tr><td>API キー</td><td>不要</td><td>不要</td><td>不要</td><td>不要（無料プラン）</td></tr>
+                                    <tr><td>公開されている無料枠</td><td>なし（フェアユース）</td><td>非公開</td><td>非公開</td><td>無料プランで月 1,000 アイコン</td></tr>
+                                    <tr><td>サイズ指定</td><td><code>size</code>（16〜512、Google フォールバック用）</td><td><code>sz</code></td><td>なし</td><td>記載なし</td></tr>
+                                    <tr><td>返ってくるもの</td><td>見つかればサイトの元ファイル（SVG、PNG、ICO など）</td><td>PNG または JPEG（実測）</td><td>ICO（実測）</td><td>PNG（実測）</td></tr>
+                                    <tr><td>JSON メタデータ</td><td>あり（<code>format=json</code>：アイコン URL、取得元、形式、実測ピクセルサイズ、最大 8 個の代替アイコン）</td><td>なし</td><td>なし</td><td>なし</td></tr>
+                                    <tr><td>github.com のテスト結果</td><td>favicon.svg（ベクター）</td><td>sz=16 で 16×16 PNG、sz=256 で 180×180</td><td>16×16 と 32×32 を含む ICO</td><td>256×256 PNG</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p class="mt-4 text-sm">結果は 2026 年 10 月 12 日に当社が実際にリクエストしたものです。Icon Horse の無料枠は<a href="https://icon.horse/" rel="noopener" class="text-blue-600 hover:underline">料金ページ</a>によります。外部サービスは予告なく変わることがあるため、本番環境で利用する前に各サービスの規約を確認してください。</p>
+                    </div>
+                </section>

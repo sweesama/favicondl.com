@@ -218,18 +218,25 @@ class FaviconTools {
         return this.buildProxyUrl(value);
     }
 
+    // Pick the string for the page language (ja/ko/es pages are static
+    // builds, so dynamic UI text must carry its own translations).
+    tr(map) {
+        return map[this.currentLang] || map.en;
+    }
+
     syncBatchDownloadButtonLabel() {
         const btn = document.getElementById('download-batch');
         const labelEl = btn?.querySelector('span');
         if (!labelEl) return;
 
         const isZip = this.batchOutputMode === 'zip';
-        const en = isZip ? 'Download ZIP' : 'Download all files';
-        const zh = isZip ? '下载 ZIP' : '下载全部文件';
+        const labels = isZip
+            ? { en: 'Download ZIP', zh: '下载 ZIP', ja: 'ZIP をダウンロード', ko: 'ZIP 다운로드', es: 'Descargar ZIP' }
+            : { en: 'Download all files', zh: '下载全部文件', ja: 'すべてのファイルをダウンロード', ko: '모든 파일 다운로드', es: 'Descargar todos los archivos' };
 
-        labelEl.setAttribute('data-en', en);
-        labelEl.setAttribute('data-zh', zh);
-        labelEl.textContent = this.currentLang === 'zh' ? zh : en;
+        labelEl.setAttribute('data-en', labels.en);
+        labelEl.setAttribute('data-zh', labels.zh);
+        labelEl.textContent = this.tr(labels);
     }
 
     buildBatchFilename(result, extension = 'png') {
@@ -803,7 +810,7 @@ Project site: https://favicondl.com
             .slice(0, 100);
 
         if (domains.length === 0) {
-            this.showToast(this.currentLang === 'zh' ? '请输入至少一个有效域名' : 'Please enter at least one valid domain.', 'error');
+            this.showToast(this.tr({ en: 'Please enter at least one valid domain.', zh: '请输入至少一个有效域名', ja: '有効なドメインを 1 つ以上入力してください。', ko: '유효한 도메인을 하나 이상 입력하세요.', es: 'Introduce al menos un dominio válido.' }), 'error');
             return;
         }
 
@@ -917,7 +924,7 @@ Project site: https://favicondl.com
             div.className = 'bg-white rounded-lg p-4 border border-gray-200';
             
             if (result.success) {
-                const okText = this.currentLang === 'zh' ? '✓ 成功' : '✓ Success';
+                const okText = this.tr({ en: '✓ Success', zh: '✓ 成功', ja: '✓ 成功', ko: '✓ 성공', es: '✓ Correcto' });
                 div.innerHTML = `
                     <div class="flex items-center space-x-3">
                         <img src="${result.url}" alt="${result.domain}" class="w-8 h-8 rounded">
@@ -934,7 +941,7 @@ Project site: https://favicondl.com
                     </div>
                 `;
             } else {
-                const failText = this.currentLang === 'zh' ? '✗ 获取失败' : '✗ Failed';
+                const failText = this.tr({ en: '✗ Failed', zh: '✗ 获取失败', ja: '✗ 取得失敗', ko: '✗ 실패', es: '✗ Error' });
                 div.innerHTML = `
                     <div class="flex items-center space-x-3">
                         <div class="w-8 h-8 bg-red-100 rounded flex items-center justify-center">

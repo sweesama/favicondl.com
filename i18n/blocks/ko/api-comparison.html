@@ -1,0 +1,23 @@
+<section id="comparison" class="mb-12">
+                    <div class="bg-white rounded-lg shadow-sm p-8 text-gray-600">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-6">파비콘 API 비교: favicondl, Google S2, DuckDuckGo, Icon Horse</h2>
+                        <p class="mb-4">네 서비스 모두 무료로 시작할 수 있고 API 키가 필요 없습니다. 차이는 돌려주는 결과에 있습니다.</p>
+                        <div class="overflow-x-auto">
+                            <table class="parameter-table">
+                                <thead>
+                                    <tr><th></th><th>favicondl</th><th>Google S2</th><th>DuckDuckGo</th><th>Icon Horse</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>엔드포인트</td><td><code>/api/extract?url=example.com</code></td><td><code>google.com/s2/favicons?domain=example.com&amp;sz=64</code></td><td><code>icons.duckduckgo.com/ip3/example.com.ico</code></td><td><code>icon.horse/icon/example.com</code></td></tr>
+                                    <tr><td>API 키</td><td>불필요</td><td>불필요</td><td>불필요</td><td>불필요(무료 요금제)</td></tr>
+                                    <tr><td>공개된 무료 한도</td><td>없음(공정 사용)</td><td>공개 안 됨</td><td>공개 안 됨</td><td>무료 요금제 월 1,000개 아이콘</td></tr>
+                                    <tr><td>크기 매개변수</td><td><code>size</code>(16–512, Google 대체용)</td><td><code>sz</code></td><td>없음</td><td>문서에 없음</td></tr>
+                                    <tr><td>반환 결과</td><td>찾은 경우 사이트의 원본 파일(SVG, PNG, ICO 등)</td><td>PNG 또는 JPEG(실측)</td><td>ICO(실측)</td><td>PNG(실측)</td></tr>
+                                    <tr><td>JSON 메타데이터</td><td>있음(<code>format=json</code>: 아이콘 URL, 출처, 형식, 실측 픽셀 크기, 최대 8개의 대체 아이콘)</td><td>없음</td><td>없음</td><td>없음</td></tr>
+                                    <tr><td>github.com 테스트 결과</td><td>favicon.svg(벡터)</td><td>sz=16일 때 16×16 PNG, sz=256일 때 180×180</td><td>16×16과 32×32가 든 ICO</td><td>256×256 PNG</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p class="mt-4 text-sm">결과는 2026년 10월 12일 저희가 직접 보낸 요청을 기준으로 합니다. Icon Horse 한도는 <a href="https://icon.horse/" rel="noopener" class="text-blue-600 hover:underline">요금 안내</a>에서 가져왔습니다. 외부 서비스는 언제든 바뀔 수 있으니, 실서비스에 쓰기 전에 각 제공업체의 약관을 확인하세요.</p>
+                    </div>
+                </section>

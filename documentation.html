@@ -342,8 +342,8 @@
     <!-- Header Section -->
     <section class="pt-16 pb-10 px-6">
         <div class="max-w-3xl mx-auto text-center">
-            <h1 class="text-5xl font-semibold text-gray-900 tracking-tight mb-4" data-en="Free Favicon API" data-zh="Favicon API 与 URL 使用指南" data-ja="Favicon API &amp; URL Guide" data-ko="Favicon API &amp; URL Guide" data-es="Favicon API &amp; URL Guide">Free Favicon API</h1>
-            <p class="text-xl text-gray-500" data-en="Get any website's favicon by URL with one GET request. No API key, no sign-up." data-zh="可直接复制使用的 favicon URL 模板（基于免费服务）。" data-ja="コピーして使えるファビコンURLテンプレート（無料サービスベース）。" data-ko="복사하여 사용할 수 있는 파비콘 URL 템플릿 (무료 서비스 기반)." data-es="Plantillas de URL de favicon listas para copiar (basadas en servicios gratuitos).">Get any website's favicon by URL with one GET request. No API key, no sign-up.</p>
+            <h1 class="text-5xl font-semibold text-gray-900 tracking-tight mb-4" data-en="Free Favicon API" data-zh="免费 Favicon API" data-ja="無料ファビコン API" data-ko="무료 파비콘 API" data-es="API de favicon gratuita">Free Favicon API</h1>
+            <p class="text-xl text-gray-500" data-en="Get any website's favicon by URL with one GET request. No API key, no sign-up." data-zh="一个 GET 请求，按网址获取任意网站的 favicon。无需 API key，无需注册。" data-ja="GET リクエスト 1 回で、URL からあらゆるサイトのファビコンを取得。API キー不要、登録不要。" data-ko="GET 요청 한 번으로 URL만 넣으면 모든 웹사이트의 파비콘을 가져옵니다. API 키도, 가입도 필요 없습니다." data-es="Obtén el favicon de cualquier web por URL con una sola petición GET. Sin clave de API ni registro.">Get any website's favicon by URL with one GET request. No API key, no sign-up.</p>
         </div>
     </section>
 
@@ -357,9 +357,9 @@
                         <h3 class="font-semibold text-gray-900 mb-4" data-en="On this page" data-zh="文档导航">On this page
                         </h3>
                         <ul class="space-y-2">
-                            <li data-i18n-only="en"><a href="#quick-start" class="text-gray-600 hover:text-blue-600 text-sm block py-1">Quick start</a></li>
-                            <li data-i18n-only="en"><a href="#how-it-works" class="text-gray-600 hover:text-blue-600 text-sm block py-1">How it picks an icon</a></li>
-                            <li data-i18n-only="en"><a href="#comparison" class="text-gray-600 hover:text-blue-600 text-sm block py-1">Comparison</a></li>
+                            <li><a href="#quick-start" class="text-gray-600 hover:text-blue-600 text-sm block py-1" data-en="Quick start" data-zh="快速开始" data-ja="クイックスタート" data-ko="빠른 시작" data-es="Inicio rápido">Quick start</a></li>
+                            <li><a href="#how-it-works" class="text-gray-600 hover:text-blue-600 text-sm block py-1" data-en="How it picks an icon" data-zh="如何选出图标" data-ja="アイコンの選び方" data-ko="아이콘 선택 방식" data-es="Cómo elige el icono">How it picks an icon</a></li>
+                            <li><a href="#comparison" class="text-gray-600 hover:text-blue-600 text-sm block py-1" data-en="Comparison" data-zh="服务对比" data-ja="サービス比較" data-ko="서비스 비교" data-es="Comparativa">Comparison</a></li>
                             <li>
                                 <a href="#overview" class="text-blue-600 hover:text-blue-800 text-sm block py-1" data-en="Overview" data-zh="概述">Overview</a>
                             </li>
@@ -391,8 +391,8 @@
 
             <!-- Main Content -->
             <div class="lg:col-span-3">
-                <section id="quick-start" class="mb-12" data-i18n-only="en">
-                    <!-- English-only API landing content (removed from localized builds by i18n/build.js) -->
+                <section id="quick-start" class="mb-12" data-i18n-block="api-quick-start">
+                    <!-- Translations live in i18n/blocks/<lang>/api-*.html -->
                     <div class="bg-white rounded-lg shadow-sm p-8 text-gray-600">
                         <h2 class="text-2xl font-bold text-gray-900 mb-6">Quick start</h2>
                         <p class="mb-4">The favicondl favicon API turns any domain or URL into its favicon with a single GET request. There is no API key, no account and no SDK. Use it straight in an <code>&lt;img&gt;</code> tag:</p>
@@ -428,7 +428,7 @@
                     </div>
                 </section>
 
-                <section id="how-it-works" class="mb-12" data-i18n-only="en">
+                <section id="how-it-works" class="mb-12" data-i18n-block="api-how-it-works">
                     <div class="bg-white rounded-lg shadow-sm p-8 text-gray-600">
                         <h2 class="text-2xl font-bold text-gray-900 mb-6">How the API picks an icon</h2>
                         <ol class="list-decimal pl-5 space-y-3 mb-4">
@@ -443,7 +443,7 @@
                     </div>
                 </section>
 
-                <section id="comparison" class="mb-12" data-i18n-only="en">
+                <section id="comparison" class="mb-12" data-i18n-block="api-comparison">
                     <div class="bg-white rounded-lg shadow-sm p-8 text-gray-600">
                         <h2 class="text-2xl font-bold text-gray-900 mb-6">Favicon API comparison: favicondl vs Google S2, DuckDuckGo and Icon Horse</h2>
                         <p class="mb-4">All four services are free to start with and need no API key. They differ in what they return:</p>
@@ -897,7 +897,7 @@ file_put_contents('example-favicon', getFavicon('example.com', 128));
                 <a href="documentation.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Docs" data-zh="文档">Docs</a>
                 <a href="tools.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Tools" data-zh="工具">Tools</a>
                 <a href="/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Blog" data-zh="博客">Blog</a>
-                <a href="bulk-favicon-downloader.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-i18n-only="en">Bulk Download</a>
+                <a href="bulk-favicon-downloader.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Bulk Download" data-zh="批量下载" data-ja="一括ダウンロード" data-ko="일괄 다운로드" data-es="Descarga masiva">Bulk Download</a>
                 <a href="privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Privacy" data-zh="隐私政策">Privacy</a>
             </div>
         </div>
