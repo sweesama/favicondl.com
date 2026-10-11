@@ -5,6 +5,8 @@ const MAX_SIZE = 512;
 const REQUEST_TIMEOUT_MS = 9000;
 
 module.exports = async function handler(req, res) {
+  // Public, credential-free GET API: allow browser code on any origin to call it.
+  res.setHeader('access-control-allow-origin', '*');
   if (req.method !== 'GET') {
     res.setHeader('allow', 'GET');
     return res.status(405).json({ ok: false, error: 'Method not allowed' });
@@ -54,6 +56,9 @@ module.exports = async function handler(req, res) {
 };
 
 function clampSize(value) {
+  // Number(null) === 0 would clamp a missing size to 16; fall back to the
+  // documented default instead.
+  if (value === null || value === undefined || String(value).trim() === '') return DEFAULT_SIZE;
   const parsed = Number(value);
   if (!Number.isFinite(parsed)) return DEFAULT_SIZE;
   return Math.min(MAX_SIZE, Math.max(MIN_SIZE, Math.trunc(parsed)));
