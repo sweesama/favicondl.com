@@ -68,6 +68,12 @@ for (const article of articles) {
     }
 
     const rawHtml = fs.readFileSync(file, 'utf-8');
+    if (/href=["'](?:\/(?:zh|ja|ko|es))?\/index\.html(?=[#?"'])/.test(rawHtml)) {
+      fail(`${relativeFile}: internal link to /index.html found (use /)`);
+    }
+    if (/<a\s+href=["']\/(?:(?:zh|ja|ko|es)\/)?blog\/[^"']+["'][^>]*>\s*Mzu favicondl\s*<\/a>/.test(rawHtml)) {
+      fail(`${relativeFile}: brand anchor "Mzu favicondl" must link to the homepage`);
+    }
     const $ = load(rawHtml, { decodeEntities: false });
     const suffix = SUFFIX[lang];
     const expectedTitle = `${article[`title${suffix}`] || article.titleEn} - Mzu favicondl`;

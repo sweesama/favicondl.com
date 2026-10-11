@@ -66,7 +66,7 @@
 <body>
     <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
         <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
-            <a href="/index.html" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <a href="/" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
             <div class="flex items-center gap-8">
                 <a href="/documentation.html" class="nav-link" data-en="Docs" data-zh="文档">Docs</a>
                 <a href="/tools.html" class="nav-link" data-en="Tools" data-zh="工具">Tools</a>
@@ -90,7 +90,7 @@
 
     <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
         <nav class="text-sm text-gray-400 mb-8">
-            <a href="/index.html" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
             <a href="/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
             <span class="text-gray-600" data-en="Favicon Link Tags Order: How to Stack Multiple Icons" data-zh="多个Favicon链接标签顺序：开发者完整指南" data-ja="複数のFaviconリンクタグの順序：正しい並べ方ガイド" data-ko="여러 Favicon 링크 태그 순서: 개발자를 위한 가이드" data-es="Orden de múltiples etiquetas link de favicon: guía para devs">Favicon Link Tags Order: How to Stack Multiple Icons</span>
         </nav>
@@ -136,7 +136,7 @@
 <li><strong>Forgetting cache busting.</strong> Browsers cache favicons aggressively. If you reorder tags and the icon doesn't update, append a version query string like <code>?v=2</code> — see our <a href="/blog/favicon-cache-busting.html">favicon cache busting guide</a> for the full workflow.</li>
 </ul>
 <h2>Wrap-up</h2>
-<p>Order matters because browsers pick the best-matching icon from your stack, and ties go to the last declaration. Put your best format first, your fallbacks after, and add <code>type</code> and <code>sizes</code> attributes to remove all ambiguity. If your icon still doesn't update after reordering, the next suspect is usually the cache. Use <a href="/index.html">Mzu favicondl</a> to generate a clean, correctly-sized icon package and skip the manual resize steps entirely.</p>
+<p>Order matters because browsers pick the best-matching icon from your stack, and ties go to the last declaration. Put your best format first, your fallbacks after, and add <code>type</code> and <code>sizes</code> attributes to remove all ambiguity. If your icon still doesn't update after reordering, the next suspect is usually the cache. Use <a href="/">Mzu favicondl</a> to generate a clean, correctly-sized icon package and skip the manual resize steps entirely.</p>
         </div>
 
         <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
@@ -175,7 +175,7 @@
 <li><strong>忘了缓存清理。</strong>浏览器对 favicon 缓存得非常激进。如果你调整了标签顺序但图标没更新，可以加一个版本查询字符串，比如 <code>?v=2</code>——完整流程可以参考我们的 <a href="/blog/favicon-cache-busting.html">favicon 缓存清理指南</a>。</li>
 </ul>
 <h2>小结</h2>
-<p>顺序之所以重要，是因为浏览器会从你的标签栈中挑出最匹配的那张图标，而打平时默认取最后一个声明。把能力最强的格式放最前面，兜底格式放后面，再加上 <code>type</code> 和 <code>sizes</code> 属性消除所有歧义。如果你重排之后图标依然不更新，下一个排查重点通常是缓存。可以使用 <a href="/index.html">Mzu favicondl</a> 生成一份干净、尺寸正确的图标包，跳过手动调整尺寸的繁琐步骤。</p></template>
+<p>顺序之所以重要，是因为浏览器会从你的标签栈中挑出最匹配的那张图标，而打平时默认取最后一个声明。把能力最强的格式放最前面，兜底格式放后面，再加上 <code>type</code> 和 <code>sizes</code> 属性消除所有歧义。如果你重排之后图标依然不更新，下一个排查重点通常是缓存。可以使用 <a href="/">Mzu favicondl</a> 生成一份干净、尺寸正确的图标包，跳过手动调整尺寸的繁琐步骤。</p></template>
         <template data-article-lang="ja"><p>SVG favicon、2つのPNGフォールバック、そしてレガシーブラウザ向けのICOをアップロードしたのに、SafariのタブにはICOが表示され続ける——ファイルは問題ありません。原因はfavicon linkタグの順序です。</p>
 <p>ブラウザは最初に見つけた<code>&lt;link&gt;</code>タグをそのまま採用するわけではありません。<a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">WHATWG HTML仕様</a>によれば、ユーザーエージェントは<code>sizes</code>、<code>media</code>、<code>type</code>属性に基づいて最適なアイコンを選択します。複数のアイコンが同等にマッチした場合、ブラウザは最後に宣言されたものを使用することがあります。つまり、linkタグの順序は見た目の問題ではなく、実際に効くレバーなのです。</p>
 <h2>前提条件</h2>
@@ -211,7 +211,7 @@
 <li><strong>キャッシュバスティングを忘れる。</strong>ブラウザはfaviconを積極的にキャッシュします。タグを並べ替えてもアイコンが更新されない場合は、<code>?v=2</code>のようなバージョンクエリ文字列を追加します——完全なワークフローは<a href="/blog/favicon-cache-busting.html">faviconキャッシュバスティングガイド</a>をご覧ください。</li>
 </ul>
 <h2>まとめ</h2>
-<p>ブラウザはスタックから最適なアイコンを選び、同点の場合は最後の宣言が優先されるため、順序が重要です。最良の形式を最初に、フォールバックを後に置き、<code>type</code>と<code>sizes</code>属性を追加してすべての曖昧さをなくしましょう。並べ替えてもアイコンが更新されない場合、次の容疑者は通常キャッシュです。<a href="/index.html">Mzu favicondl</a>を使ってクリーンで正しいサイズのアイコンパッケージを生成し、手動のリサイズ手順を完全にスキップしましょう。</p></template>
+<p>ブラウザはスタックから最適なアイコンを選び、同点の場合は最後の宣言が優先されるため、順序が重要です。最良の形式を最初に、フォールバックを後に置き、<code>type</code>と<code>sizes</code>属性を追加してすべての曖昧さをなくしましょう。並べ替えてもアイコンが更新されない場合、次の容疑者は通常キャッシュです。<a href="/">Mzu favicondl</a>を使ってクリーンで正しいサイズのアイコンパッケージを生成し、手動のリサイズ手順を完全にスキップしましょう。</p></template>
         <template data-article-lang="ko"><p>SVG favicon, 두 개의 PNG fallback, 그리고 레거시 브라우저용 ICO를 업로드했는데 Safari 탭에서는 계속 ICO가 표시됩니다. 파일은 문제없습니다. 문제는 favicon link 태그의 순서입니다.</p>
 <p>브라우저는 보이는 첫 번째 <code>&lt;link&gt;</code> 태그를 그대로 가져가지 않습니다. <a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">WHATWG HTML 명세</a>에 따르면 user agent는 <code>sizes</code>, <code>media</code>, <code>type</code> 속성을 기준으로 가장 적합한 아이콘을 선택합니다. 여러 아이콘이 동일하게 매치될 경우 브라우저는 마지막에 선언된 항목을 사용할 수 있습니다. 따라서 link 태그의 순서는 단순한 스타일 선택이 아니라 실제로 작동하는 레버입니다.</p>
 <h2>Prerequisites</h2>
@@ -247,7 +247,7 @@
 <li><strong>cache busting을 잊는 경우.</strong> 브라우저는 favicon을 적극적으로 캐시합니다. 태그 순서를 바꿨는데 아이콘이 갱신되지 않으면 <code>?v=2</code>처럼 버전 쿼리 스트링을 추가하세요. 전체 workflow는 <a href="/blog/favicon-cache-busting.html">favicon cache busting 가이드</a>를 참고하세요.</li>
 </ul>
 <h2>Wrap-up</h2>
-<p>브라우저가 스택에서 가장 잘 매치되는 아이콘을 선택하고 동점일 때 마지막 선언으로 결정하기 때문에 순서가 중요합니다. 최상의 포맷을 먼저 두고, fallback을 그 뒤에 배치하며, <code>type</code>과 <code>sizes</code> 속성을 추가해 모든 모호함을 제거하세요. 순서를 재배치한 뒤에도 아이콘이 갱신되지 않는다면 다음 의심 대상은 보통 cache입니다. <a href="/index.html">Mzu favicondl</a>을 사용해 깔끔하고 올바른 크기의 icon package를 생성하고 수동 리사이즈 단계를 건너뛸 수 있습니다.</p></template>
+<p>브라우저가 스택에서 가장 잘 매치되는 아이콘을 선택하고 동점일 때 마지막 선언으로 결정하기 때문에 순서가 중요합니다. 최상의 포맷을 먼저 두고, fallback을 그 뒤에 배치하며, <code>type</code>과 <code>sizes</code> 속성을 추가해 모든 모호함을 제거하세요. 순서를 재배치한 뒤에도 아이콘이 갱신되지 않는다면 다음 의심 대상은 보통 cache입니다. <a href="/">Mzu favicondl</a>을 사용해 깔끔하고 올바른 크기의 icon package를 생성하고 수동 리사이즈 단계를 건너뛸 수 있습니다.</p></template>
         <template data-article-lang="es"><p>Subiste un favicon SVG, dos PNG de respaldo y un ICO para navegadores antiguos, y Safari sigue mostrando el ICO en tu pestaña. Los archivos están bien. El problema es el orden de tus link tags de favicon.</p>
 <p>Los navegadores no toman la primera etiqueta <code>&lt;link&gt;</code> que ven. Según la <a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">especificación HTML de WHATWG</a>, el user agent elige el icono más apropiado a partir de los atributos <code>sizes</code>, <code>media</code> y <code>type</code>. Cuando varios iconos empatan en idoneidad, el navegador puede recurrir al último declarado. Eso convierte el orden de tus link tags en una palanca real, no en una decisión puramente estilística.</p>
 <h2>Requisitos previos</h2>
@@ -283,12 +283,12 @@
 <li><strong>Olvidar el cache busting.</strong> Los navegadores cachean los favicons de forma agresiva. Si reordenas las etiquetas y el icono no se actualiza, añade una cadena de versión como <code>?v=2</code>: consulta nuestra <a href="/blog/favicon-cache-busting.html">favicon cache busting guide</a> para ver el flujo completo.</li>
 </ul>
 <h2>Cierre</h2>
-<p>El orden importa porque los navegadores eligen el icono más adecuado de tu pila, y los empates se resuelven con la última declaración. Pon tu mejor formato primero, tus fallbacks después y añade los atributos <code>type</code> y <code>sizes</code> para eliminar cualquier ambigüedad. Si tu icono sigue sin actualizarse tras reordenar, el siguiente sospechoso suele ser la caché. Usa <a href="/index.html">Mzu favicondl</a> para generar un paquete de iconos limpio y con el tamaño correcto y sáltate los pasos manuales de redimensionado.</p></template>
+<p>El orden importa porque los navegadores eligen el icono más adecuado de tu pila, y los empates se resuelven con la última declaración. Pon tu mejor formato primero, tus fallbacks después y añade los atributos <code>type</code> y <code>sizes</code> para eliminar cualquier ambigüedad. Si tu icono sigue sin actualizarse tras reordenar, el siguiente sospechoso suele ser la caché. Usa <a href="/">Mzu favicondl</a> para generar un paquete de iconos limpio y con el tamaño correcto y sáltate los pasos manuales de redimensionado.</p></template>
 
         <div class="cta-box">
             <h3 data-en="Generate a perfect favicon stack in seconds" data-zh="几秒钟生成完美的favicon图标包" data-ja="数秒で完璧なfaviconセットを生成" data-ko="몇 초 만에 완벽한 favicon 세트 생성" data-es="Genera un paquete de favicons perfecto en segundos">Generate a perfect favicon stack in seconds</h3>
             <p data-en="Mzu favicondl builds ICO, PNG, and SVG files in the right sizes so you can focus on your link tag order." data-zh="Mzu favicondl为你生成正确尺寸的ICO、PNG和SVG文件，让你专注于链接标签的顺序。" data-ja="Mzu favicondlが正しいサイズのICO、PNG、SVGファイルを生成。リンクタグの順序に集中できます。" data-ko="Mzu favicondl이 올바른 크기의 ICO, PNG, SVG 파일을 생성하여 링크 태그 순서에 집중할 수 있게 합니다." data-es="Mzu favicondl genera archivos ICO, PNG y SVG en los tamaños correctos para que te centres en el orden de tus etiquetas.">Mzu favicondl builds ICO, PNG, and SVG files in the right sizes so you can focus on your link tag order.</p>
-            <a href="/index.html" class="cta-btn" data-en="Try It Free →" data-zh="免费试用 →" data-ja="無料で試す →" data-ko="무료로 사용해보기 →" data-es="Pruébalo gratis →">Try It Free →</a>
+            <a href="/" class="cta-btn" data-en="Try It Free →" data-zh="免费试用 →" data-ja="無料で試す →" data-ko="무료로 사용해보기 →" data-es="Pruébalo gratis →">Try It Free →</a>
         </div>
     </article>
 
@@ -296,7 +296,7 @@
         <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
             <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
             <div class="flex gap-6">
-                <a href="/index.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Home" data-zh="首页">Home</a>
+                <a href="/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Home" data-zh="首页">Home</a>
                 <a href="/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Blog" data-zh="博客">Blog</a>
                 <a href="/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Privacy" data-zh="隐私政策">Privacy</a>
             </div>

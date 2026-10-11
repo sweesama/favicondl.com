@@ -66,7 +66,7 @@
 <body>
     <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
         <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
-            <a href="/zh/index.html" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <a href="/zh/" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
             <div class="flex items-center gap-8">
                 <a href="/zh/documentation.html" class="nav-link">文档</a>
                 <a href="/zh/tools.html" class="nav-link">工具</a>
@@ -90,7 +90,7 @@
 
     <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
         <nav class="text-sm text-gray-400 mb-8">
-            <a href="/zh/index.html" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/zh/" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
             <a href="/zh/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
             <span class="text-gray-600">Android Chrome 网站图标完美配置指南 (2026)</span>
         </nav>
@@ -101,7 +101,7 @@
         </header>
 
         <div class="article-body">
-            <p>你是否注意到，有些网站在 Android Chrome 中打开时看起来就像原生应用，而你的网站在标签页切换器中却只是一个模糊的小方块？这很常见。你可能拥有完美的桌面端图标，但在高 DPI 的 Android 屏幕上，它看起来就像是上个世纪的产物。在 2026 年，配置 <strong>favicon for android chrome</strong> 不仅仅是将一个 ICO 文件丢进根目录那么简单。</p><p>Android 版 Chrome 变得越来越聪明，但也越来越挑剔。它不只需要一个图标，它需要一种品牌体验。看看 <strong>Google</strong> 是如何处理 YouTube 或搜索页面的：地址栏颜色与品牌色融为一体，无论屏幕分辨率多高，图标始终清晰锐利。今天我们就来复现这种效果。</p><h2>Android Chrome 图标技术栈</h2><p>要让你的网站在 Android 上显得专业，你需要三个核心组件：高分辨率 PNG、Web App Manifest 以及 theme-color 元标签。许多开发者只关注 manifest，但 Chrome 实际上是结合这些信息来决定网站在标签页和主屏幕上的呈现方式的。</p><h3>1. 192x192 PNG：移动端的黄金标准</h3><p>虽然桌面浏览器 32x32 就够了，但 Android Chrome 渴望更多像素。192x192 是 Android 的“黄金尺寸”。它足以在几乎所有现代智能手机（甚至是 4K 屏）上保持清晰，同时又不会因为文件过大而影响加载速度。我建议使用透明背景的 PNG，这样 Android 在渲染时会更加自然。你可以使用 <a href="/zh/blog/favicon-generator-free.html">Mzu favicondl</a> 快速生成这个尺寸。</p><h3>2. Web App Manifest 配置</h3><p>Chrome 严重依赖 <code>manifest.json</code> 来理解图标的用途。最常见的错误是提供了图标但没有定义 <code>purpose</code>。在 2026 年，你必须将图标定义为 <code>maskable</code>，这样它才能完美适配不同手机厂商的图标形状（圆形、方形或圆角矩形）。</p><pre><code>{
+            <p>你是否注意到，有些网站在 Android Chrome 中打开时看起来就像原生应用，而你的网站在标签页切换器中却只是一个模糊的小方块？这很常见。你可能拥有完美的桌面端图标，但在高 DPI 的 Android 屏幕上，它看起来就像是上个世纪的产物。在 2026 年，配置 <strong>favicon for android chrome</strong> 不仅仅是将一个 ICO 文件丢进根目录那么简单。</p><p>Android 版 Chrome 变得越来越聪明，但也越来越挑剔。它不只需要一个图标，它需要一种品牌体验。看看 <strong>Google</strong> 是如何处理 YouTube 或搜索页面的：地址栏颜色与品牌色融为一体，无论屏幕分辨率多高，图标始终清晰锐利。今天我们就来复现这种效果。</p><h2>Android Chrome 图标技术栈</h2><p>要让你的网站在 Android 上显得专业，你需要三个核心组件：高分辨率 PNG、Web App Manifest 以及 theme-color 元标签。许多开发者只关注 manifest，但 Chrome 实际上是结合这些信息来决定网站在标签页和主屏幕上的呈现方式的。</p><h3>1. 192x192 PNG：移动端的黄金标准</h3><p>虽然桌面浏览器 32x32 就够了，但 Android Chrome 渴望更多像素。192x192 是 Android 的“黄金尺寸”。它足以在几乎所有现代智能手机（甚至是 4K 屏）上保持清晰，同时又不会因为文件过大而影响加载速度。我建议使用透明背景的 PNG，这样 Android 在渲染时会更加自然。你可以使用 <a href="/zh/">Mzu favicondl</a> 快速生成这个尺寸。</p><h3>2. Web App Manifest 配置</h3><p>Chrome 严重依赖 <code>manifest.json</code> 来理解图标的用途。最常见的错误是提供了图标但没有定义 <code>purpose</code>。在 2026 年，你必须将图标定义为 <code>maskable</code>，这样它才能完美适配不同手机厂商的图标形状（圆形、方形或圆角矩形）。</p><pre><code>{
   'name': '我的应用',
   'icons': [
     {
@@ -123,7 +123,7 @@
         <div class="cta-box">
             <h3>立即生成您的 Android 图标</h3>
             <p>使用 Mzu favicondl，几秒钟内即可为 Android Chrome 创建完美的 192x192 PNG 和 manifest 文件。</p>
-            <a href="/zh/index.html" class="cta-btn">开始生成 →</a>
+            <a href="/zh/" class="cta-btn">开始生成 →</a>
         </div>
     </article>
 
@@ -131,7 +131,7 @@
         <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
             <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
             <div class="flex gap-6">
-                <a href="/zh/index.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">首页</a>
+                <a href="/zh/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">首页</a>
                 <a href="/zh/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">博客</a>
                 <a href="/zh/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">隐私政策</a>
             </div>

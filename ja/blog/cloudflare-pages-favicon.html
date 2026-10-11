@@ -66,7 +66,7 @@
 <body>
     <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
         <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
-            <a href="/ja/index.html" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <a href="/ja/" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
             <div class="flex items-center gap-8">
                 <a href="/ja/documentation.html" class="nav-link">ドキュメント</a>
                 <a href="/ja/tools.html" class="nav-link">ツール</a>
@@ -90,7 +90,7 @@
 
     <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
         <nav class="text-sm text-gray-400 mb-8">
-            <a href="/ja/index.html" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/ja/" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
             <a href="/ja/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
             <span class="text-gray-600">Cloudflare Pages 用ファビコン設定ガイド 2026</span>
         </nav>
@@ -101,7 +101,7 @@
         </header>
 
         <div class="article-body">
-            <p>Cloudflare Pages に初めて静的サイトをデプロイし、ブラウザのタブにデフォルトの青いロケットアイコンが表示されて「設定が完了していない」という印象を与えてしまった経験はありませんか？WordPress のようにダッシュボードでボタンを押すだけ、あるいは Next.js のように特定のフォルダにファイルを置くだけとは異なり、2026 年現在の Cloudflare Pages では少し異なるアプローチが必要です。これは純粋な静的環境であり、サーバーがアイコンの場所を推測することは決してありません。</p><p>多くの開発者は、ルートディレクトリに <code>favicon.ico</code> という名前のファイルを置くだけで十分だと考えています。一部のブラウザでは動作しますが、現代の Web 標準を満たすものではありません。Apple 端末、Android のホーム画面、ダークモードまで完璧に対応するための堅牢な構成が必要です。この記事では、混乱を整理し、サイトを即座にプロフェッショナルに見せるための正確なファイル構造を解説します。</p><h2>デフォルト設定が失敗する理由</h2><p>Cloudflare Pages はエッジから静的アセットを提供するため非常に高速ですが、アイコンを動的に生成したり、欠落したファイルの複雑なルーティングを処理するバックエンドは備えていません。暗黙的な <code>/favicon.ico</code> リクエストに依存している場合、ログに 404 エラーが表示されるか、最悪の場合は Safari で「画像が破損」アイコンが表示されてしまいます。</p><p>GitHub が静的サイトをどのように扱っているかを見てみましょう。彼らは単一のファイルをアップロードするだけではありません。現代のブラウザ向けにベクター形式の SVG、モバイル端末向けに高解像度の PNG、そして古い Windows システム向けにレガシーな ICO を提供しています。このマルチフォーマットのアプローチにより、ユーザーが iPhone 16 を使っていようとも、古い法人向けラップトップを使っていようとも、ブランドが鮮明に見えるようにしています。この戦略をあなたの Cloudflare プロジェクトでも再現しましょう。</p><h2>2026 年版：ファイルベースのメタデータ戦略</h2><p><strong>Cloudflare Pages 用の favicon</strong> を設定する最も信頼性の高い方法は、<code>public</code> ディレクトリを「真実の源（ソース・オブ・トゥルース）」として扱うことです。Cloudflare Pages はこのフォルダをドメインのルートに直接マッピングします。アイコン自体にビルドステップは不要ですが、それを参照する HTML が正しく記述されている必要があります。</p><h3>ステップ 1：アイコンアセットの準備</h3><p>コードに触れる前に、正しいファイルを用意しましょう。ロゴを単にリサイズするだけでは不十分です。複雑なロゴは 16x16 ピクセルでは汚い塊のように見えてしまいます。簡略化されたバージョンが必要です。複雑な SVG ロゴをお持ちの場合は、<a href="/ja/blog/make-favicon-from-image.html">Mzu favicondl</a> などのツールを使用して、ブラウザのタブ用に最適化された、高コントラストで簡略化されたバージョンを生成することをお勧めします。</p><p>ローカルのプロジェクトフォルダには、以下の 3 つのファイルを用意してください：</p><ul><li><code>favicon.ico</code>: レガシーなコンテナファイル。はい、一部の企業プロキシや古いブラウザのために、まだこれが必要です。</li><li><code>icon.svg</code>: 現代の標準。ダークモードに対応し、あらゆるサイズに完璧にスケーリングします。</li><li><code>apple-touch-icon.png</code>: iOS のホーム画面用の 180x180 ピクセルの PNG ファイル。</li></ul><h3>ステップ 2：ディレクトリ構造の整理</h3><p>Cloudflare Pages は、ファイルが <code>public</code> フォルダのルート（またはビルド出力ディレクトリとして指定されているフォルダ）にあることを期待しています。最もシンプルな設定を実現したい場合は、アイコンを <code>/images</code> や <code>/assets</code> フォルダにネストしないでください。ブラウザはルートの URL にアイコンがあることを前提としています。</p><p>ファイルを以下のように配置してください：</p><pre><code>public/
+            <p>Cloudflare Pages に初めて静的サイトをデプロイし、ブラウザのタブにデフォルトの青いロケットアイコンが表示されて「設定が完了していない」という印象を与えてしまった経験はありませんか？WordPress のようにダッシュボードでボタンを押すだけ、あるいは Next.js のように特定のフォルダにファイルを置くだけとは異なり、2026 年現在の Cloudflare Pages では少し異なるアプローチが必要です。これは純粋な静的環境であり、サーバーがアイコンの場所を推測することは決してありません。</p><p>多くの開発者は、ルートディレクトリに <code>favicon.ico</code> という名前のファイルを置くだけで十分だと考えています。一部のブラウザでは動作しますが、現代の Web 標準を満たすものではありません。Apple 端末、Android のホーム画面、ダークモードまで完璧に対応するための堅牢な構成が必要です。この記事では、混乱を整理し、サイトを即座にプロフェッショナルに見せるための正確なファイル構造を解説します。</p><h2>デフォルト設定が失敗する理由</h2><p>Cloudflare Pages はエッジから静的アセットを提供するため非常に高速ですが、アイコンを動的に生成したり、欠落したファイルの複雑なルーティングを処理するバックエンドは備えていません。暗黙的な <code>/favicon.ico</code> リクエストに依存している場合、ログに 404 エラーが表示されるか、最悪の場合は Safari で「画像が破損」アイコンが表示されてしまいます。</p><p>GitHub が静的サイトをどのように扱っているかを見てみましょう。彼らは単一のファイルをアップロードするだけではありません。現代のブラウザ向けにベクター形式の SVG、モバイル端末向けに高解像度の PNG、そして古い Windows システム向けにレガシーな ICO を提供しています。このマルチフォーマットのアプローチにより、ユーザーが iPhone 16 を使っていようとも、古い法人向けラップトップを使っていようとも、ブランドが鮮明に見えるようにしています。この戦略をあなたの Cloudflare プロジェクトでも再現しましょう。</p><h2>2026 年版：ファイルベースのメタデータ戦略</h2><p><strong>Cloudflare Pages 用の favicon</strong> を設定する最も信頼性の高い方法は、<code>public</code> ディレクトリを「真実の源（ソース・オブ・トゥルース）」として扱うことです。Cloudflare Pages はこのフォルダをドメインのルートに直接マッピングします。アイコン自体にビルドステップは不要ですが、それを参照する HTML が正しく記述されている必要があります。</p><h3>ステップ 1：アイコンアセットの準備</h3><p>コードに触れる前に、正しいファイルを用意しましょう。ロゴを単にリサイズするだけでは不十分です。複雑なロゴは 16x16 ピクセルでは汚い塊のように見えてしまいます。簡略化されたバージョンが必要です。複雑な SVG ロゴをお持ちの場合は、<a href="/ja/">Mzu favicondl</a> などのツールを使用して、ブラウザのタブ用に最適化された、高コントラストで簡略化されたバージョンを生成することをお勧めします。</p><p>ローカルのプロジェクトフォルダには、以下の 3 つのファイルを用意してください：</p><ul><li><code>favicon.ico</code>: レガシーなコンテナファイル。はい、一部の企業プロキシや古いブラウザのために、まだこれが必要です。</li><li><code>icon.svg</code>: 現代の標準。ダークモードに対応し、あらゆるサイズに完璧にスケーリングします。</li><li><code>apple-touch-icon.png</code>: iOS のホーム画面用の 180x180 ピクセルの PNG ファイル。</li></ul><h3>ステップ 2：ディレクトリ構造の整理</h3><p>Cloudflare Pages は、ファイルが <code>public</code> フォルダのルート（またはビルド出力ディレクトリとして指定されているフォルダ）にあることを期待しています。最もシンプルな設定を実現したい場合は、アイコンを <code>/images</code> や <code>/assets</code> フォルダにネストしないでください。ブラウザはルートの URL にアイコンがあることを前提としています。</p><p>ファイルを以下のように配置してください：</p><pre><code>public/
   index.html
   favicon.ico
   icon.svg
@@ -116,13 +116,13 @@
 &lt;link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"&gt;
 
 &lt;!-- Web App Manifest for Android/PWA --&gt;
-&lt;link rel="manifest" href="/manifest.json"&gt;</code></pre><p>順序に注意してください。まず SVG をリストしています。現代のブラウザはそれを読み取り、残りを無視します。古いブラウザは SVG をスキップして ICO を取得します。これが、ページ読み込みを肥大化させずに互換性を処理する最も効率的な方法です。</p><h2>一般的な落とし穴とその回避策</h2><p>正しいコードを使用していても、問題が発生することがあります。最も一般的な問題はキャッシュです。Cloudflare のキャッシュは非常に積極的です。アイコンを更新してもユーザーが古いものを見ている場合、コードのバグではなく CDN の問題です。</p><h3>キャッシュバスターのテクニック</h3><p>新しいアイコンをデプロイしても更新されない場合、ブラウザに新しいバージョンを取得させる必要があります。ファイルパスにクエリ文字列を追加します。これは静的サイトにおける標準的なプラクティスです。</p><pre><code>&lt;link rel="icon" type="image/svg+xml" href="/icon.svg?v=20260101"&gt;</code></pre><p>画像を更新するたびにバージョン番号を変更してください。これにより、ブラウザが新しいファイルだと認識し、即座に Cloudflare エッジキャッシュをバイパスできます。</p><h3>ビルドプロセスの確認</h3><p>React、Vue、Astro などのフレームワークを使用している場合、ビルドプロセスがアイコンを削除していないか確認してください。一部のビルドツールは、デプロイ前に <code>dist</code> や <code>build</code> フォルダをクリーンアップします。<code>public</code> フォルダの内容が最終出力ディレクトリにコピーされているか確認してください。カスタムビルドスクリプトを使用している場合は、静的アセットの <code>copy</code> コマンドが含まれていることを確認してください。</p><h2>実装のテスト</h2><p>ローカルのプレビューを信じるだけでは不十分です。本番 URL にデプロイし、シークレットウィンドウでテストしてください。ブラウザのコンソールを開き、ネットワークリクエストを確認します。<code>icon.svg</code> と <code>favicon.ico</code> に対して 200 OK ステータスが表示されるはずです。404 が表示される場合は、ファイルパスを再確認してください。</p><p>より詳細な監査を行うには、<a href="/ja/blog/check-website-favicon.html">Mzu favicondl</a> を使用してライブ URL をスキャンしてください。どのアイコンが欠落しているか、ダークモード用の SVG が有効か、Apple Touch Icon のサイズが正しいかを正確に教えてくれます。これにより、モバイルデバイスでのデバッグ時間を大幅に節約できます。</p><p><strong>Cloudflare Pages 用の favicon</strong> の設定は謎めいたものではありません。適切な HTML タグを使用したファイルベースのアプローチを採用することで、あらゆるデバイスでプロフェッショナルな外観を確保できます。デフォルトのロケットを表示し続けるのをやめ、今日からブラウザのタブであなたのブランドアイデンティティを確立しましょう。</p>
+&lt;link rel="manifest" href="/manifest.json"&gt;</code></pre><p>順序に注意してください。まず SVG をリストしています。現代のブラウザはそれを読み取り、残りを無視します。古いブラウザは SVG をスキップして ICO を取得します。これが、ページ読み込みを肥大化させずに互換性を処理する最も効率的な方法です。</p><h2>一般的な落とし穴とその回避策</h2><p>正しいコードを使用していても、問題が発生することがあります。最も一般的な問題はキャッシュです。Cloudflare のキャッシュは非常に積極的です。アイコンを更新してもユーザーが古いものを見ている場合、コードのバグではなく CDN の問題です。</p><h3>キャッシュバスターのテクニック</h3><p>新しいアイコンをデプロイしても更新されない場合、ブラウザに新しいバージョンを取得させる必要があります。ファイルパスにクエリ文字列を追加します。これは静的サイトにおける標準的なプラクティスです。</p><pre><code>&lt;link rel="icon" type="image/svg+xml" href="/icon.svg?v=20260101"&gt;</code></pre><p>画像を更新するたびにバージョン番号を変更してください。これにより、ブラウザが新しいファイルだと認識し、即座に Cloudflare エッジキャッシュをバイパスできます。</p><h3>ビルドプロセスの確認</h3><p>React、Vue、Astro などのフレームワークを使用している場合、ビルドプロセスがアイコンを削除していないか確認してください。一部のビルドツールは、デプロイ前に <code>dist</code> や <code>build</code> フォルダをクリーンアップします。<code>public</code> フォルダの内容が最終出力ディレクトリにコピーされているか確認してください。カスタムビルドスクリプトを使用している場合は、静的アセットの <code>copy</code> コマンドが含まれていることを確認してください。</p><h2>実装のテスト</h2><p>ローカルのプレビューを信じるだけでは不十分です。本番 URL にデプロイし、シークレットウィンドウでテストしてください。ブラウザのコンソールを開き、ネットワークリクエストを確認します。<code>icon.svg</code> と <code>favicon.ico</code> に対して 200 OK ステータスが表示されるはずです。404 が表示される場合は、ファイルパスを再確認してください。</p><p>より詳細な監査を行うには、<a href="/ja/">Mzu favicondl</a> を使用してライブ URL をスキャンしてください。どのアイコンが欠落しているか、ダークモード用の SVG が有効か、Apple Touch Icon のサイズが正しいかを正確に教えてくれます。これにより、モバイルデバイスでのデバッグ時間を大幅に節約できます。</p><p><strong>Cloudflare Pages 用の favicon</strong> の設定は謎めいたものではありません。適切な HTML タグを使用したファイルベースのアプローチを採用することで、あらゆるデバイスでプロフェッショナルな外観を確保できます。デフォルトのロケットを表示し続けるのをやめ、今日からブラウザのタブであなたのブランドアイデンティティを確立しましょう。</p>
         </div>
 
         <div class="cta-box">
             <h3>完璧なファビコンを今すぐ生成</h3>
             <p>Cloudflare Pages サイト用の最適化された SVG、ICO、PNG アイコンを数秒で作成。無料で簡単に使用できます。</p>
-            <a href="/ja/index.html" class="cta-btn">無料で試す →</a>
+            <a href="/ja/" class="cta-btn">無料で試す →</a>
         </div>
     </article>
 
@@ -130,7 +130,7 @@
         <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
             <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
             <div class="flex gap-6">
-                <a href="/ja/index.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">ホーム</a>
+                <a href="/ja/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">ホーム</a>
                 <a href="/ja/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">ブログ</a>
                 <a href="/ja/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">プライバシー</a>
             </div>

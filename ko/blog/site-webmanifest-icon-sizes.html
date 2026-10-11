@@ -66,7 +66,7 @@
 <body>
     <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
         <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
-            <a href="/ko/index.html" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <a href="/ko/" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
             <div class="flex items-center gap-8">
                 <a href="/ko/documentation.html" class="nav-link">문서</a>
                 <a href="/ko/tools.html" class="nav-link">도구</a>
@@ -90,7 +90,7 @@
 
     <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
         <nav class="text-sm text-gray-400 mb-8">
-            <a href="/ko/index.html" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/ko/" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
             <a href="/ko/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
             <span class="text-gray-600">site webmanifest icon sizes: 실제로 필요한 크기</span>
         </nav>
@@ -101,7 +101,7 @@
         </header>
 
         <div class="article-body">
-            <p>PWA를 폰에 설치했는데 홈 화면 아이콘이 깨져 보인 적 있으신가요? 십중팔구 site webmanifest icon sizes 설정이 잘못된 겁니다. Android는 가장 큰 이미지를 알아서 축소해주지 않습니다. manifest.json에 선언된 값을 기준으로 아이콘을 자르고, 늘리고, 마스킹까지 거침없이 처리해버립니다.</p><p>저도 2026년에 이 문제로 정말 고생했습니다. 제가 만든 앱이 개발용으로 쓰던 Pixel에서는 완벽하게 보였는데, 삼성폰에서 테스트해보니 아이콘이 작고 찌그러져 보이더군요. 이미지 품질 문제가 아니었습니다. manifest 설정이 원인이었습니다.</p><p>manifest 파일 자체에 대해 더 자세히 알고 싶으시다면 <a href="/ko/blog/favicon-webmanifest.html">favicon site.webmanifest 개발자 가이드</a>를 먼저 읽어보세요. 이 글에서는 icons 배열과 명시해야 할 정확한 사이즈에만 집중합니다.</p><h2>준비물</h2><p>고해상도 원본 이미지(최소 512x512 픽셀)와 텍스트 에디터면 충분합니다. 원본 파일이 없다면 <a href="/ko/blog/favicon-generator-free.html">Mzu favicondl</a>에서 기존 로고나 이미지로 바로 생성할 수 있습니다.</p><h2>단계별로 설정하기: Manifest Icons 구성</h2><p>이제 bulletproof icons 배열을 만들어봅시다. 현대 Android와 PWA 환경에서 실제로 의미 있는 세 가지 항목에 집중하겠습니다.</p><h3>1. 192x192 Standard PNG</h3><p>기본 베이스라인입니다. Android는 일반적인 디스플레이에서 앱 런처 아이콘을 표시할 때 이 사이즈를 사용합니다. 반드시 명시적으로 선언해야 합니다.</p><p>브라우저가 512x512 이미지를 알아서 축소해줄 거라 기대하지 마세요. Android 렌더링 엔진은 축소 과정에서 예상치 못한 보간을 적용할 때가 있어 아이콘이 뭉개져 보일 수 있습니다. 전용 192x192 PNG를 따로 준비하세요.</p><h3>2. 512x512 High-Res PNG</h3><p>스플래시 화면용 아이콘입니다. PWA가 실행될 때 service worker가 로드되는 동안 Android가 흰 배경 위에 이 이미지를 띄워줍니다. manifest에 아이콘을 하나만 선언해야 한다면 이걸 선택하세요 (하지만 실제로는 그러지 마세요).</p><h3>3. Maskable Icon (핵심)</h3><p>Android 13 이상과 최신 Chrome OS는 adaptive icon을 사용합니다. maskable icon을 선언하지 않으면 OS가 표준 아이콘을 흰 원 안에 집어넣어버립니다. 정말 보기 안 좋습니다.</p><p>maskable icon은 중앙에 'safe zone'이 필요합니다. OS가 원, 라운드 사각형 등 어떤 형태로 잘라내도 로고가 잘리지 않도록 디자인에 여백을 둬야 합니다. 디자인 측면은 <a href="/ko/blog/maskable-icon.html">maskable icon 가이드</a>에서 자세히 다루고 있습니다.</p><h3>전체 코드</h3><p>지금 당장 manifest.json에 복사해서 붙여넣을 수 있는 icons 배열입니다:</p><pre><code>{
+            <p>PWA를 폰에 설치했는데 홈 화면 아이콘이 깨져 보인 적 있으신가요? 십중팔구 site webmanifest icon sizes 설정이 잘못된 겁니다. Android는 가장 큰 이미지를 알아서 축소해주지 않습니다. manifest.json에 선언된 값을 기준으로 아이콘을 자르고, 늘리고, 마스킹까지 거침없이 처리해버립니다.</p><p>저도 2026년에 이 문제로 정말 고생했습니다. 제가 만든 앱이 개발용으로 쓰던 Pixel에서는 완벽하게 보였는데, 삼성폰에서 테스트해보니 아이콘이 작고 찌그러져 보이더군요. 이미지 품질 문제가 아니었습니다. manifest 설정이 원인이었습니다.</p><p>manifest 파일 자체에 대해 더 자세히 알고 싶으시다면 <a href="/ko/blog/favicon-webmanifest.html">favicon site.webmanifest 개발자 가이드</a>를 먼저 읽어보세요. 이 글에서는 icons 배열과 명시해야 할 정확한 사이즈에만 집중합니다.</p><h2>준비물</h2><p>고해상도 원본 이미지(최소 512x512 픽셀)와 텍스트 에디터면 충분합니다. 원본 파일이 없다면 <a href="/ko/">Mzu favicondl</a>에서 기존 로고나 이미지로 바로 생성할 수 있습니다.</p><h2>단계별로 설정하기: Manifest Icons 구성</h2><p>이제 bulletproof icons 배열을 만들어봅시다. 현대 Android와 PWA 환경에서 실제로 의미 있는 세 가지 항목에 집중하겠습니다.</p><h3>1. 192x192 Standard PNG</h3><p>기본 베이스라인입니다. Android는 일반적인 디스플레이에서 앱 런처 아이콘을 표시할 때 이 사이즈를 사용합니다. 반드시 명시적으로 선언해야 합니다.</p><p>브라우저가 512x512 이미지를 알아서 축소해줄 거라 기대하지 마세요. Android 렌더링 엔진은 축소 과정에서 예상치 못한 보간을 적용할 때가 있어 아이콘이 뭉개져 보일 수 있습니다. 전용 192x192 PNG를 따로 준비하세요.</p><h3>2. 512x512 High-Res PNG</h3><p>스플래시 화면용 아이콘입니다. PWA가 실행될 때 service worker가 로드되는 동안 Android가 흰 배경 위에 이 이미지를 띄워줍니다. manifest에 아이콘을 하나만 선언해야 한다면 이걸 선택하세요 (하지만 실제로는 그러지 마세요).</p><h3>3. Maskable Icon (핵심)</h3><p>Android 13 이상과 최신 Chrome OS는 adaptive icon을 사용합니다. maskable icon을 선언하지 않으면 OS가 표준 아이콘을 흰 원 안에 집어넣어버립니다. 정말 보기 안 좋습니다.</p><p>maskable icon은 중앙에 'safe zone'이 필요합니다. OS가 원, 라운드 사각형 등 어떤 형태로 잘라내도 로고가 잘리지 않도록 디자인에 여백을 둬야 합니다. 디자인 측면은 <a href="/ko/blog/maskable-icon.html">maskable icon 가이드</a>에서 자세히 다루고 있습니다.</p><h3>전체 코드</h3><p>지금 당장 manifest.json에 복사해서 붙여넣을 수 있는 icons 배열입니다:</p><pre><code>{
   "name": "My Awesome App",
   "icons": [
     {
@@ -129,7 +129,7 @@
         <div class="cta-box">
             <h3>매니페스트 아이콘 지금 생성하세요</h3>
             <p>크기 추측은 그만. Mzu favicondl을 사용해 단일 이미지에서 완벽한 192x192, 512x512 및 마스커블 아이콘을 몇 초 만에 생성하세요.</p>
-            <a href="/ko/index.html" class="cta-btn">무료로 사용해보기 →</a>
+            <a href="/ko/" class="cta-btn">무료로 사용해보기 →</a>
         </div>
     </article>
 
@@ -137,7 +137,7 @@
         <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
             <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
             <div class="flex gap-6">
-                <a href="/ko/index.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">홈</a>
+                <a href="/ko/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">홈</a>
                 <a href="/ko/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">블로그</a>
                 <a href="/ko/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">개인정보</a>
             </div>

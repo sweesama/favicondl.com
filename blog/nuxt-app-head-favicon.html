@@ -66,7 +66,7 @@
 <body>
     <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
         <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
-            <a href="/index.html" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <a href="/" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
             <div class="flex items-center gap-8">
                 <a href="/documentation.html" class="nav-link" data-en="Docs" data-zh="文档">Docs</a>
                 <a href="/tools.html" class="nav-link" data-en="Tools" data-zh="工具">Tools</a>
@@ -90,7 +90,7 @@
 
     <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
         <nav class="text-sm text-gray-400 mb-8">
-            <a href="/index.html" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
             <a href="/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
             <span class="text-gray-600" data-en="Nuxt App Head Favicon: Mastering useHead for Icon Control" data-zh="Nuxt 应用 Head Favicon 配置：useHead 与 app.head 完全指南" data-ja="Nuxt アプリの Head ファビコン設定：useHead と app.head の活用術" data-ko="Nuxt 앱 Head Favicon 설정: useHead와 app.head 완벽 가이드" data-es="Favicon del Head en Nuxt: Guía de useHead y app.head">Nuxt App Head Favicon: Mastering useHead for Icon Control</span>
         </nav>
@@ -177,7 +177,7 @@ useHead({
 </ul>
 <h2>Wrapping Up</h2>
 <p>The <code>app.head</code> config handles your defaults; <code>useHead</code> handles everything dynamic. Together they cover every favicon scenario Nuxt apps typically need — from a single static icon to per-page swaps and reactive badges — without reaching for third-party head plugins or fighting Nuxt's defaults.</p>
-<p>If you haven't generated your icon files yet, <a href="/index.html">Mzu favicondl</a> produces the full multi-resolution package (SVG, PNG, ICO, Apple Touch) in one click. Drop the files into <code>public/</code>, wire them into <code>app.head</code>, and your tabs will look professional within minutes.</p>
+<p>If you haven't generated your icon files yet, <a href="/">Mzu favicondl</a> produces the full multi-resolution package (SVG, PNG, ICO, Apple Touch) in one click. Drop the files into <code>public/</code>, wire them into <code>app.head</code>, and your tabs will look professional within minutes.</p>
         </div>
 
         <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
@@ -257,7 +257,7 @@ useHead({
 </ul>
 <h2>总结</h2>
 <p><code>app.head</code> 配置处理默认设置；<code>useHead</code> 处理所有动态需求。两者结合，覆盖了 Nuxt 应用通常需要的所有 favicon 场景——从单个静态图标到按页面切换和响应式徽章——无需借助第三方 head 插件或与 Nuxt 的默认设置对抗。</p>
-<p>如果你还没有生成图标文件，<a href="/index.html">Mzu favicondl</a> 可以一键生成完整的多分辨率包（SVG、PNG、ICO、Apple Touch）。将文件放入 <code>public/</code>，在 <code>app.head</code> 中配置好，你的标签页很快就会看起来专业。</p></template>
+<p>如果你还没有生成图标文件，<a href="/">Mzu favicondl</a> 可以一键生成完整的多分辨率包（SVG、PNG、ICO、Apple Touch）。将文件放入 <code>public/</code>，在 <code>app.head</code> 中配置好，你的标签页很快就会看起来专业。</p></template>
         <template data-article-lang="ja"><p>Nuxtアプリを公開したのに、ブラウザのタブにデフォルトのファビコンが表示されたまま…。さらに、マーケティングチームからはチェックアウトページと管理ダッシュボードで異なるアイコンを使いたいと言われている。ハードコードしたlinkタグでは限界がある。Nuxtには<code>app.head</code>設定と<code>useHead</code>コンポーザブルによるプログラム的な制御手段があり、この2つを理解することが、フレームワークと戦うか、うまく活用するかの分かれ目になる。</p>
 <p>このガイドでは、Nuxtのヘッド設定システムを使ったファビコン管理に焦点を当てる。ファイルベースのメタデータ手法については、<a href="/blog/nuxt-favicon.html">Nuxtファビコンガイド</a>で解説済みだ。ページごとのアイコン、ダークモード切り替え、ランタイムでの差し替えが必要なら、ヘッドAPIが最適だ。</p>
 <h2>前提条件</h2>
@@ -334,7 +334,7 @@ useHead({
 </ul>
 <h2>まとめ</h2>
 <p><code>app.head</code>設定はデフォルトを処理し、<code>useHead</code>は動的な処理を担当する。この2つを組み合わせれば、単一の静的アイコンからページごとの切り替え、リアクティブなバッジまで、Nuxtアプリで通常必要となるあらゆるファビコンシナリオをカバーできる。サードパーティのヘッドプラグインやNuxtのデフォルトと戦う必要はない。</p>
-<p>アイコンファイルをまだ生成していない場合は、<a href="/index.html">Mzu favicondl</a>でマルチ解像度パッケージ（SVG、PNG、ICO、Apple Touch）をワンクリックで生成できる。ファイルを<code>public/</code>に置き、<code>app.head</code>に設定すれば、数分でタブがプロフェッショナルな見た目になる。</p></template>
+<p>アイコンファイルをまだ生成していない場合は、<a href="/">Mzu favicondl</a>でマルチ解像度パッケージ（SVG、PNG、ICO、Apple Touch）をワンクリックで生成できる。ファイルを<code>public/</code>に置き、<code>app.head</code>に設定すれば、数分でタブがプロフェッショナルな見た目になる。</p></template>
         <template data-article-lang="ko"><p>Nuxt 앱을 배포했는데 아직도 탭에 기본 favicon이 표시되고 있나요? 더 나쁜 것은 마케팅 팀이 결제 페이지와 관리자 대시보드에 각각 다른 아이콘을 원한다는 것입니다. link 태그를 하드코딩하는 것으로는 충분하지 않습니다. Nuxt는 <code>app.head</code> 설정과 <code>useHead</code> 컴포저블을 통해 프로그래밍 방식으로 제어할 수 있는 방법을 제공하며, 이 둘을 이해하는 것이 프레임워크와 싸우는 것과 프레임워크가 알아서 동작하게 하는 것의 차이를 만듭니다.</p>
 <p>이 가이드는 파일 기반 메타데이터 접근 방식이 아닌 Nuxt의 head 구성 시스템을 통해 favicon을 관리하는 데 초점을 맞춥니다. 파일 기반 방식에 대한 내용은 <a href="/blog/nuxt-favicon.html">Nuxt favicon 가이드</a>를 참조하세요. 페이지별 아이콘, 다크 모드 전환 또는 런타임 교체가 필요하다면 head API가 바로 그 해답입니다.</p>
 <h2>사전 요구 사항</h2>
@@ -411,7 +411,7 @@ useHead({
 </ul>
 <h2>마무리</h2>
 <p><code>app.head</code> 설정은 기본값을 처리하고 <code>useHead</code>는 모든 동적 요소를 처리합니다. 이 둘을 함께 사용하면 단일 정적 아이콘에서 페이지별 교체, 반응형 배지에 이르기까지 Nuxt 앱에서 일반적으로 필요한 모든 favicon 시나리오를 처리할 수 있으며, 타사 head 플러그인에 의존하거나 Nuxt의 기본값과 싸울 필요가 없습니다.</p>
-<p>아직 아이콘 파일을 생성하지 않았다면 <a href="/index.html">Mzu favicondl</a>에서 전체 다중 해상도 패키지(SVG, PNG, ICO, Apple Touch)를 한 번의 클릭으로 생성할 수 있습니다. 파일을 <code>public/</code>에 넣고 <code>app.head</code>에 연결하면 몇 분 안에 탭이 전문적으로 보일 것입니다.</p></template>
+<p>아직 아이콘 파일을 생성하지 않았다면 <a href="/">Mzu favicondl</a>에서 전체 다중 해상도 패키지(SVG, PNG, ICO, Apple Touch)를 한 번의 클릭으로 생성할 수 있습니다. 파일을 <code>public/</code>에 넣고 <code>app.head</code>에 연결하면 몇 분 안에 탭이 전문적으로 보일 것입니다.</p></template>
         <template data-article-lang="es"><p>Has lanzado una aplicación Nuxt y el favicon por defecto todavía aparece en la pestaña del navegador. Peor aún, tu equipo de marketing quiere iconos diferentes en la página de pago y en el panel de administración. Hardcodear etiquetas <code>link</code> no es suficiente: Nuxt te da control programático a través de la configuración <code>app.head</code> y el composable <code>useHead</code>. Entender ambos es la diferencia entre luchar contra tu framework y dejar que trabaje para ti.</p>
 <p>Esta guía se centra específicamente en gestionar tu favicon mediante el sistema de configuración de head de Nuxt, no en el enfoque de metadatos basado en archivos que cubrimos en nuestra <a href="/blog/nuxt-favicon.html">guía de favicon para Nuxt</a>. Si necesitas iconos por página, alternancia de modo oscuro o cambios en tiempo de ejecución, la API de head es lo que buscas.</p>
 <h2>Prerrequisitos</h2>
@@ -488,12 +488,12 @@ useHead({
 </ul>
 <h2>Conclusión</h2>
 <p>La configuración <code>app.head</code> maneja tus valores por defecto; <code>useHead</code> maneja todo lo dinámico. Juntos cubren todos los escenarios de favicon que las aplicaciones Nuxt suelen necesitar — desde un icono estático único hasta intercambios por página e insignias reactivas — sin recurrir a plugins de head de terceros ni luchar contra los valores por defecto de Nuxt.</p>
-<p>Si aún no has generado tus archivos de icono, <a href="/index.html">Mzu favicondl</a> produce el paquete completo de múltiples resoluciones (SVG, PNG, ICO, Apple Touch) con un clic. Coloca los archivos en <code>public/</code>, conéctalos en <code>app.head</code>, y tus pestañas se verán profesionales en cuestión de minutos.</p></template>
+<p>Si aún no has generado tus archivos de icono, <a href="/">Mzu favicondl</a> produce el paquete completo de múltiples resoluciones (SVG, PNG, ICO, Apple Touch) con un clic. Coloca los archivos en <code>public/</code>, conéctalos en <code>app.head</code>, y tus pestañas se verán profesionales en cuestión de minutos.</p></template>
 
         <div class="cta-box">
             <h3 data-en="Generate Your Nuxt Favicon Package" data-zh="生成你的 Nuxt 图标资源包" data-ja="Nuxt 用ファビコンパックを生成" data-ko="Nuxt 파비콘 패키지 생성하기" data-es="Genera tu paquete de favicons para Nuxt">Generate Your Nuxt Favicon Package</h3>
             <p data-en="Get every favicon size and format your Nuxt app needs — SVG, PNG, ICO, and Apple Touch — in a single click." data-zh="一键获取 Nuxt 应用所需的所有图标尺寸和格式：SVG、PNG、ICO 和 Apple Touch。" data-ja="Nuxt アプリに必要な全ファビコンサイズと形式（SVG、PNG、ICO、Apple Touch）をワンクリックで取得。" data-ko="Nuxt 앱에 필요한 모든 파비콘 크기와 형식(SVG, PNG, ICO, Apple Touch)을 한 번에 받으세요." data-es="Obtén todos los tamaños y formatos de favicon que tu app Nuxt necesita — SVG, PNG, ICO y Apple Touch — en un clic.">Get every favicon size and format your Nuxt app needs — SVG, PNG, ICO, and Apple Touch — in a single click.</p>
-            <a href="/index.html" class="cta-btn" data-en="Try It Free →" data-zh="免费试用 →" data-ja="無料で試す →" data-ko="무료로 사용해보기 →" data-es="Pruébalo gratis →">Try It Free →</a>
+            <a href="/" class="cta-btn" data-en="Try It Free →" data-zh="免费试用 →" data-ja="無料で試す →" data-ko="무료로 사용해보기 →" data-es="Pruébalo gratis →">Try It Free →</a>
         </div>
     </article>
 
@@ -501,7 +501,7 @@ useHead({
         <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
             <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
             <div class="flex gap-6">
-                <a href="/index.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Home" data-zh="首页">Home</a>
+                <a href="/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Home" data-zh="首页">Home</a>
                 <a href="/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Blog" data-zh="博客">Blog</a>
                 <a href="/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Privacy" data-zh="隐私政策">Privacy</a>
             </div>

@@ -66,7 +66,7 @@
 <body>
     <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
         <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
-            <a href="/es/index.html" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <a href="/es/" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
             <div class="flex items-center gap-8">
                 <a href="/es/documentation.html" class="nav-link">Documentación</a>
                 <a href="/es/tools.html" class="nav-link">Herramientas</a>
@@ -90,7 +90,7 @@
 
     <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
         <nav class="text-sm text-gray-400 mb-8">
-            <a href="/es/index.html" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/es/" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
             <a href="/es/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
             <span class="text-gray-600">Por qué falla tu favicon en la pestaña del navegador (y cómo solucionarlo)</span>
         </nav>
@@ -102,13 +102,13 @@
 
         <div class="article-body">
             <p>Si eres como yo, tu navegador parece un acordeón comprimido con más de 40 pestañas abiertas. Ya no lees los títulos, se han truncado a dos letras. Navegas guiándote únicamente por esas diminutas imágenes de 16x16 píxeles en el lado izquierdo de cada pestaña. Esa pequeña imagen es tu favicon in browser tab, y si a tu sitio le falta uno, los usuarios nunca volverán a encontrarte.</p><h2>El poder del Favicon in Browser Tab</h2><p>El favicon de la pestaña del navegador es el ancla definitiva para la navegación del usuario. Piensa en GitHub. Cuando abres un Pull Request, el icono de la pestaña es negro (o blanco). Pero cuando ese PR se fusiona, GitHub cambia dinámicamente el icono a un símbolo morado. (Es un toque de UX brillante). No solo están haciendo branding; están comunicando el estado directamente en la barra de pestañas.</p><h3>La anatomía de un icono de pestaña</h3><p>Los navegadores priorizan el <code>&lt;head&gt;</code> de tu documento HTML para saber qué renderizar en esa pestaña. Si no encuentran una etiqueta link, solicitan a ciegas <code>/favicon.ico</code> desde la raíz de tu servidor. Este comportamiento de respaldo es una reliquia de los años 90, pero es la razón por la que ves un sinfín de errores 404 en los logs de tu servidor.</p><h3>Estrategia de implementación moderna</h3><p>¿Mi fuerte recomendación para 2026? Deshazte del archivo ICO independiente como tu fuente principal. Los navegadores actuales quieren gráficos vectoriales escalables. Debes declarar explícitamente un SVG para los navegadores modernos y proporcionar un PNG como respaldo.</p><pre><code>&lt;link rel='icon' type='image/svg+xml' href='/icon.svg'&gt;
-&lt;link rel='icon' type='image/png' href='/icon.png' sizes='32x32'&gt;</code></pre><p>Esto asegura que tu icono se mantenga perfectamente nítido, ya sea que el usuario esté en un monitor estándar o en una pantalla Retina de altos DPI.</p><h3>Diseñando para la barra de pestañas</h3><p>La barra de pestañas es un entorno hostil. Cambia de color según el tema del SO del usuario, el tema del navegador y el estado activo/inactivo.</p><ul><li><strong>Mantenlo simple:</strong> No metas todo el texto de tu logo en 16 píxeles. Usa un símbolo distintivo.</li><li><strong>Usa transparencia:</strong> Un cuadrado blanco sólido se ve terrible en una pestaña gris oscuro de Safari.</li><li><strong>Prueba el modo oscuro:</strong> Asegúrate de que tu icono sea visible sobre fondos oscuros.</li></ul><p>Si tienes problemas para obtener los tamaños y formatos exactos, siempre paso mis archivos por <a href="/es/blog/favicon-generator-free.html">Mzu favicondl</a> para generar el paquete exacto necesario. Tu favicon in browser tab es el cartel publicitario permanente de tu sitio en la pantalla del usuario. Trátalo con el respeto que merece. Si necesitas verificar cómo se ve tu configuración actual en diferentes navegadores, consulta nuestra guía sobre <a href="/es/blog/check-website-favicon.html">cómo comprobar el favicon de un sitio web</a>.</p>
+&lt;link rel='icon' type='image/png' href='/icon.png' sizes='32x32'&gt;</code></pre><p>Esto asegura que tu icono se mantenga perfectamente nítido, ya sea que el usuario esté en un monitor estándar o en una pantalla Retina de altos DPI.</p><h3>Diseñando para la barra de pestañas</h3><p>La barra de pestañas es un entorno hostil. Cambia de color según el tema del SO del usuario, el tema del navegador y el estado activo/inactivo.</p><ul><li><strong>Mantenlo simple:</strong> No metas todo el texto de tu logo en 16 píxeles. Usa un símbolo distintivo.</li><li><strong>Usa transparencia:</strong> Un cuadrado blanco sólido se ve terrible en una pestaña gris oscuro de Safari.</li><li><strong>Prueba el modo oscuro:</strong> Asegúrate de que tu icono sea visible sobre fondos oscuros.</li></ul><p>Si tienes problemas para obtener los tamaños y formatos exactos, siempre paso mis archivos por <a href="/es/">Mzu favicondl</a> para generar el paquete exacto necesario. Tu favicon in browser tab es el cartel publicitario permanente de tu sitio en la pantalla del usuario. Trátalo con el respeto que merece. Si necesitas verificar cómo se ve tu configuración actual en diferentes navegadores, consulta nuestra guía sobre <a href="/es/blog/check-website-favicon.html">cómo comprobar el favicon de un sitio web</a>.</p>
         </div>
 
         <div class="cta-box">
             <h3>Arregla el icono de tu pestaña hoy</h3>
             <p>Genera favicons SVG y PNG nítidos y modernos que se ven perfectos en cada pestaña del navegador.</p>
-            <a href="/es/index.html" class="cta-btn">Generar Favicon Gratis →</a>
+            <a href="/es/" class="cta-btn">Generar Favicon Gratis →</a>
         </div>
     </article>
 
@@ -116,7 +116,7 @@
         <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
             <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
             <div class="flex gap-6">
-                <a href="/es/index.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">Inicio</a>
+                <a href="/es/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">Inicio</a>
                 <a href="/es/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">Blog</a>
                 <a href="/es/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">Privacidad</a>
             </div>

@@ -66,7 +66,7 @@
 <body>
     <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
         <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
-            <a href="/ja/index.html" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <a href="/ja/" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
             <div class="flex items-center gap-8">
                 <a href="/ja/documentation.html" class="nav-link">ドキュメント</a>
                 <a href="/ja/tools.html" class="nav-link">ツール</a>
@@ -90,7 +90,7 @@
 
     <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
         <nav class="text-sm text-gray-400 mb-8">
-            <a href="/ja/index.html" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/ja/" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
             <a href="/ja/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
             <span class="text-gray-600">SvelteKit app.html ファビコン：テンプレート設定ガイド</span>
         </nav>
@@ -114,7 +114,7 @@
 <li>動作する SvelteKit プロジェクト (2.x 以降)。</li>
 <li><code>static/</code> 内に用意したファビコンファイル一式。完全な構成としては、32×32 の <code>favicon.ico</code>、180×180 の <code>apple-touch-icon.png</code>、SVG、必要に応じて <code>site.webmanifest</code> を用意してください。</li>
 </ul>
-<p>これらのファイルがまだない場合は、<a href="/ja/index.html">Mzu favicondl</a> を使ってソース画像から生成できます。ワンクリックで全サイズのパッケージが出力されます。</p>
+<p>これらのファイルがまだない場合は、<a href="/ja/">Mzu favicondl</a> を使ってソース画像から生成できます。ワンクリックで全サイズのパッケージが出力されます。</p>
 <h2>ステップバイステップ: app.html にファビコンの link タグを追加する</h2>
 <h3>1. app.html ファイルを見つける</h3>
 <p><code>src/app.html</code> を開いてください。デフォルトではおおよそ次のようになっています。</p>
@@ -161,14 +161,14 @@
 <p><strong>SVG 属性のダブルエンコード。</strong><code>type="image/svg+xml"</code> のようにダブルクォートを使ったスニペットを <code>app.html</code> シェルにコピーすると、Vite がそれを壊してしまうことがあります。ビルドを正常に保つため、HTML 属性内ではシングルクォートを使用してください。</p>
 <h2>まとめ</h2>
 <p><code>app.html</code> テンプレートは、JavaScript よりも先に実行され、すべてのページレスポンスに同梱されるため、SvelteKit でファビコンを宣言する最もクリーンな場所です。SVG + ICO + Apple Touch の完全な構成を <code>static/</code> に配置し、対応する <code>&lt;link&gt;</code> タグを <code>&lt;head&gt;</code> に配線すれば、最初のペイントからすべてのブラウザタブできれいにアイコンが表示されるようになります。</p>
-<p>SvelteKit のファビコン選択肢 (<code>+layout.svelte</code> アプローチや動的アイコンを含む) をより広く見たい場合は、メインの <a href="/ja/blog/sveltekit-favicon.html">SvelteKit ファビコンガイド</a>を参照してください。実際に必要なアイコンファイルがある場合は、<a href="/ja/index.html">Mzu favicondl</a> がソース画像から全サイズのパッケージを数秒で生成します。</p></div>
+<p>SvelteKit のファビコン選択肢 (<code>+layout.svelte</code> アプローチや動的アイコンを含む) をより広く見たい場合は、メインの <a href="/ja/blog/sveltekit-favicon.html">SvelteKit ファビコンガイド</a>を参照してください。実際に必要なアイコンファイルがある場合は、<a href="/ja/">Mzu favicondl</a> がソース画像から全サイズのパッケージを数秒で生成します。</p></div>
 
         <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
 
         <div class="cta-box">
             <h3>SvelteKit ファビコンセットを生成</h3>
             <p>任意の画像をアップロードして、SVG、ICO、Apple Touch、manifest を含む完全なファビコン パッケージを取得し、static/ に配置できます。</p>
-            <a href="/ja/index.html" class="cta-btn">無料で試す →</a>
+            <a href="/ja/" class="cta-btn">無料で試す →</a>
         </div>
     </article>
 
@@ -176,7 +176,7 @@
         <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
             <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
             <div class="flex gap-6">
-                <a href="/ja/index.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">ホーム</a>
+                <a href="/ja/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">ホーム</a>
                 <a href="/ja/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">ブログ</a>
                 <a href="/ja/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">プライバシー</a>
             </div>

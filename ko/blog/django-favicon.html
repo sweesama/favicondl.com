@@ -66,7 +66,7 @@
 <body>
     <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
         <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
-            <a href="/ko/index.html" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <a href="/ko/" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
             <div class="flex items-center gap-8">
                 <a href="/ko/documentation.html" class="nav-link">문서</a>
                 <a href="/ko/tools.html" class="nav-link">도구</a>
@@ -90,7 +90,7 @@
 
     <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
         <nav class="text-sm text-gray-400 mb-8">
-            <a href="/ko/index.html" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/ko/" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
             <a href="/ko/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
             <span class="text-gray-600">Django 파비콘 설정: 2026년 전문 개발자 가이드</span>
         </nav>
@@ -101,7 +101,7 @@
         </header>
 
         <div class="article-body">
-            <p>멋진 Django 뷰를 완성하고, 미들웨어도 잘 작동하며, 데이터베이스 쿼리까지 최적화했습니다. 그런데 터미널을 보니 짜증 나는 빨간 줄이 보입니다: <code>GET /favicon.ico HTTP/1.1 404</code>. 사소해 보일 수 있지만, 전문 개발자에게 이러한 404 에러는 진짜 문제를 가리는 소음일 뿐입니다.</p><p>브라우저는 HTML 내용과 상관없이 도메인의 루트(예: example.com/favicon.ico)에서 <code>favicon.ico</code> 파일을 찾도록 하드코딩되어 있습니다. Django에서 이를 별도로 처리하지 않으면 프레임워크는 URL 패턴을 찾으려다 실패하고 에러를 기록합니다. GitHub나 Stripe처럼 세련된 사이트를 만들기 위해 이 문제를 올바른 방법으로 해결해 보겠습니다.</p><h3>1단계: 에셋 준비하기</h3><p>코드를 수정하기 전에 실제 파일이 필요합니다. 2026년에는 <code>.ico</code> 파일 하나만으로는 부족합니다. 최신 브라우저용 SVG와 구형 브라우저용 ICO를 모두 갖추어야 합니다. 준비된 파일이 없다면 <a href="/ko/blog/favicon-generator-free.html">Mzu favicondl</a>을 사용하여 로고에서 전체 패키지를 생성할 수 있습니다.</p><p><code>favicon.ico</code>와 <code>favicon.svg</code>를 static 디렉토리에 넣으세요. 일반적인 구조는 다음과 같습니다:</p><pre><code>my_project/
+            <p>멋진 Django 뷰를 완성하고, 미들웨어도 잘 작동하며, 데이터베이스 쿼리까지 최적화했습니다. 그런데 터미널을 보니 짜증 나는 빨간 줄이 보입니다: <code>GET /favicon.ico HTTP/1.1 404</code>. 사소해 보일 수 있지만, 전문 개발자에게 이러한 404 에러는 진짜 문제를 가리는 소음일 뿐입니다.</p><p>브라우저는 HTML 내용과 상관없이 도메인의 루트(예: example.com/favicon.ico)에서 <code>favicon.ico</code> 파일을 찾도록 하드코딩되어 있습니다. Django에서 이를 별도로 처리하지 않으면 프레임워크는 URL 패턴을 찾으려다 실패하고 에러를 기록합니다. GitHub나 Stripe처럼 세련된 사이트를 만들기 위해 이 문제를 올바른 방법으로 해결해 보겠습니다.</p><h3>1단계: 에셋 준비하기</h3><p>코드를 수정하기 전에 실제 파일이 필요합니다. 2026년에는 <code>.ico</code> 파일 하나만으로는 부족합니다. 최신 브라우저용 SVG와 구형 브라우저용 ICO를 모두 갖추어야 합니다. 준비된 파일이 없다면 <a href="/ko/">Mzu favicondl</a>을 사용하여 로고에서 전체 패키지를 생성할 수 있습니다.</p><p><code>favicon.ico</code>와 <code>favicon.svg</code>를 static 디렉토리에 넣으세요. 일반적인 구조는 다음과 같습니다:</p><pre><code>my_project/
 ├── static/
 │   └── images/
 │       ├── favicon.ico
@@ -121,7 +121,7 @@ urlpatterns = [
         <div class="cta-box">
             <h3>Django 파비콘 패키지 생성하기</h3>
             <p>흐릿한 아이콘에 만족하지 마세요. Mzu favicondl을 사용하여 Django 프로젝트를 위한 고품질 SVG 및 ICO 파일을 몇 초 만에 만들어보세요.</p>
-            <a href="/ko/index.html" class="cta-btn">생성 시작하기 →</a>
+            <a href="/ko/" class="cta-btn">생성 시작하기 →</a>
         </div>
     </article>
 
@@ -129,7 +129,7 @@ urlpatterns = [
         <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
             <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
             <div class="flex gap-6">
-                <a href="/ko/index.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">홈</a>
+                <a href="/ko/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">홈</a>
                 <a href="/ko/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">블로그</a>
                 <a href="/ko/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">개인정보</a>
             </div>

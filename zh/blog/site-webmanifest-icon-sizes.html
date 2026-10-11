@@ -66,7 +66,7 @@
 <body>
     <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
         <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
-            <a href="/zh/index.html" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <a href="/zh/" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
             <div class="flex items-center gap-8">
                 <a href="/zh/documentation.html" class="nav-link">文档</a>
                 <a href="/zh/tools.html" class="nav-link">工具</a>
@@ -90,7 +90,7 @@
 
     <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
         <nav class="text-sm text-gray-400 mb-8">
-            <a href="/zh/index.html" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/zh/" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
             <a href="/zh/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
             <span class="text-gray-600">site webmanifest icon sizes：你实际需要的尺寸</span>
         </nav>
@@ -101,7 +101,7 @@
         </header>
 
         <div class="article-body">
-            <p>把 PWA 添加到手机桌面后，如果发现图标糊得像打了马赛克，那大概率是你的 site webmanifest icon sizes 配置出了问题。Android 系统并不会自动帮你把高清大图等比缩小，而是会根据你 <code>manifest.json</code> 里的声明，进行一套简单粗暴的裁剪、缩放和遮罩处理。</p><p>之前我就踩过这个坑：同一个 PWA，在 Pixel 手机上看着刀锋般锐利，拿到小米或者三星设备上一看，直接变成了一个偏移且模糊的马赛克方块。这根本不是原图画质不行，纯粹是 manifest 配置的锅。</p><p>如果你对 manifest 文件本身还不太熟，建议先扫一眼这篇 <a href="/zh/blog/favicon-webmanifest.html">favicon site.webmanifest 开发指南</a>。今天这篇文章只聊干货：深入拆解 icons 数组，告诉你到底该声明哪些尺寸。</p><h2>准备工作</h2><p>准备一张高清源图（起码 512x512 像素起步）和顺手点的文本编辑器。要是手头没源文件，直接去 <a href="/zh/blog/favicon-generator-free.html">Mzu favicondl</a> 拿现成 logo 生成一个就行。</p><h2>手把手配置 Manifest Icons</h2><p>咱们来搞一套防弹级别的 <code>icons</code> 数组。对于现代 Android 和 PWA 支持，你真正需要关心的只有三个配置项。</p><h3>1. 192x192 基础 PNG</h3><p>这是保底尺寸。Android 在大部分常规屏幕的桌面启动器上，用的就是这个尺寸的图标。必须显式声明，别偷懒。</p><p>千万别指望浏览器帮你把 512x512 的大图缩放过去。Android 的渲染引擎在缩小时偶尔会抽风，插值算法一跑，你的图标边缘就软了。老老实实提供一个专门的 192x192 PNG 文件。</p><h3>2. 512x512 高清 PNG</h3><p>这是开屏闪屏用的图标。PWA 刚启动、service worker 还在加载时，Android 会在白底上展示这张图。如果 manifest 里只能留一个图标，那就留它（不过最好别这么干）。</p><h3>3. Maskable Icon（重中之重）</h3><p>Android 13+ 和新版 Chrome OS 都在用自适应图标。如果你不声明 maskable icon，系统就会把你的标准图标强行塞进一个白色圆圈里，视觉效果堪称灾难。</p><p>Maskable icons 需要在中心留出“安全区”。设计时必须给四周留足 padding，这样系统不管怎么裁切（圆形、圆角矩形等），都不会切到你的核心 logo。设计层面的细节可以看这篇 <a href="/zh/blog/maskable-icon.html">maskable icon 设计指南</a>。</p><h3>完整代码</h3><p>下面这段 <code>icons</code> 数组，建议直接复制粘贴到你的 <code>manifest.json</code> 里：</p><pre><code>{
+            <p>把 PWA 添加到手机桌面后，如果发现图标糊得像打了马赛克，那大概率是你的 site webmanifest icon sizes 配置出了问题。Android 系统并不会自动帮你把高清大图等比缩小，而是会根据你 <code>manifest.json</code> 里的声明，进行一套简单粗暴的裁剪、缩放和遮罩处理。</p><p>之前我就踩过这个坑：同一个 PWA，在 Pixel 手机上看着刀锋般锐利，拿到小米或者三星设备上一看，直接变成了一个偏移且模糊的马赛克方块。这根本不是原图画质不行，纯粹是 manifest 配置的锅。</p><p>如果你对 manifest 文件本身还不太熟，建议先扫一眼这篇 <a href="/zh/blog/favicon-webmanifest.html">favicon site.webmanifest 开发指南</a>。今天这篇文章只聊干货：深入拆解 icons 数组，告诉你到底该声明哪些尺寸。</p><h2>准备工作</h2><p>准备一张高清源图（起码 512x512 像素起步）和顺手点的文本编辑器。要是手头没源文件，直接去 <a href="/zh/">Mzu favicondl</a> 拿现成 logo 生成一个就行。</p><h2>手把手配置 Manifest Icons</h2><p>咱们来搞一套防弹级别的 <code>icons</code> 数组。对于现代 Android 和 PWA 支持，你真正需要关心的只有三个配置项。</p><h3>1. 192x192 基础 PNG</h3><p>这是保底尺寸。Android 在大部分常规屏幕的桌面启动器上，用的就是这个尺寸的图标。必须显式声明，别偷懒。</p><p>千万别指望浏览器帮你把 512x512 的大图缩放过去。Android 的渲染引擎在缩小时偶尔会抽风，插值算法一跑，你的图标边缘就软了。老老实实提供一个专门的 192x192 PNG 文件。</p><h3>2. 512x512 高清 PNG</h3><p>这是开屏闪屏用的图标。PWA 刚启动、service worker 还在加载时，Android 会在白底上展示这张图。如果 manifest 里只能留一个图标，那就留它（不过最好别这么干）。</p><h3>3. Maskable Icon（重中之重）</h3><p>Android 13+ 和新版 Chrome OS 都在用自适应图标。如果你不声明 maskable icon，系统就会把你的标准图标强行塞进一个白色圆圈里，视觉效果堪称灾难。</p><p>Maskable icons 需要在中心留出“安全区”。设计时必须给四周留足 padding，这样系统不管怎么裁切（圆形、圆角矩形等），都不会切到你的核心 logo。设计层面的细节可以看这篇 <a href="/zh/blog/maskable-icon.html">maskable icon 设计指南</a>。</p><h3>完整代码</h3><p>下面这段 <code>icons</code> 数组，建议直接复制粘贴到你的 <code>manifest.json</code> 里：</p><pre><code>{
   "name": "My Awesome App",
   "icons": [
     {
@@ -129,7 +129,7 @@
         <div class="cta-box">
             <h3>立即生成你的 Manifest 图标</h3>
             <p>别再猜测尺寸。使用 Mzu favicondl 几秒钟内从单张图片生成完美的 192x192、512x512 和 maskable 图标。</p>
-            <a href="/zh/index.html" class="cta-btn">免费试用 →</a>
+            <a href="/zh/" class="cta-btn">免费试用 →</a>
         </div>
     </article>
 
@@ -137,7 +137,7 @@
         <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
             <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
             <div class="flex gap-6">
-                <a href="/zh/index.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">首页</a>
+                <a href="/zh/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">首页</a>
                 <a href="/zh/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">博客</a>
                 <a href="/zh/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">隐私政策</a>
             </div>

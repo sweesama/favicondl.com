@@ -66,7 +66,7 @@
 <body>
     <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
         <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
-            <a href="/zh/index.html" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <a href="/zh/" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
             <div class="flex items-center gap-8">
                 <a href="/zh/documentation.html" class="nav-link">文档</a>
                 <a href="/zh/tools.html" class="nav-link">工具</a>
@@ -90,7 +90,7 @@
 
     <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
         <nav class="text-sm text-gray-400 mb-8">
-            <a href="/zh/index.html" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/zh/" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
             <a href="/zh/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
             <span class="text-gray-600">静态站点生成器 Favicon 设置指南：2026 版</span>
         </nav>
@@ -101,7 +101,7 @@
         </header>
 
         <div class="article-body">
-            <p>部署静态站点时，你是否也遇到过这种尴尬：浏览器标签页上只有一个难看的默认白方块？对于 Astro、Next.js 或 Gatsby 这类静态站点生成器（SSG）来说，处理静态资源的方式与传统 WordPress 主题截然不同。很多时候，图片明明已经准备好了，但构建过程把它“吃”了，路径配置错误，或者浏览器缓存死死咬住旧图标不放，导致 <strong>favicon for static site generators</strong> 的配置让人头大。</p><p>看看像字节跳动或腾讯这样对开发者体验极其讲究的公司，他们绝不会随便把 Logo 扔进根目录就完事。他们有一套严谨的流程，确保图标秒级加载，并在各种设备上完美缩放。我们完全可以复刻这种专业度。关键不在于你手里有没有那张图，而在于你是否真正理解你使用的 SSG 是如何处理静态资源和元数据的。</p><h2>核心矛盾：构建工具与浏览器的博弈</h2><p>很多开发者习惯性地用传统 CMS 的思维去操作 SSG。在 WordPress 里，你上传个图片，它就能神奇地显示出来。但在 2026 年，像 Next.js 或 Astro 这样的现代框架，要求你必须显式地告诉构建系统图标的具体位置。如果你把 <code>favicon.ico</code> 放错了目录，构建工具可能会直接忽略它，更糟糕的是，它可能生成一个指向 404 的错误链接。</p><p>这就是为什么我们强烈建议严格分离关注点。你的源代码应该放在 <code>src</code> 目录下，但对外公开的静态资源必须放在 <code>public</code> 或 <code>static</code> 文件夹中（具体取决于框架）。不过，仅仅把文件丢进去还不够，现代浏览器现在期望同时看到 SVG、Apple Touch Icon 以及 manifest 文件。</p><h3>第一步：准备你的图标资产包</h3><p>在触碰任何配置文件之前，你得先准备好正确的文件。千万别只是简单地把 Logo 缩放一下。一个 512x512 的 PNG 对于 16x16 的浏览器标签页来说毫无意义。你需要一套多格式的“全家桶”。推荐使用 <a href="/zh/index.html" class="btn">Mzu favicondl</a> 生成一套完整的资源：给现代浏览器用的 SVG，给旧设备做 fallback 的 PNG，以及为了兼容老系统保留的 ICO。</p><p>在你的 <code>public</code> 文件夹中，文件结构应该像这样组织：</p><ul><li><code>public/favicon.ico</code>（遗留系统的兜底方案）</li><li><code>public/favicon.svg</code>（现代标准格式）</li><li><code>public/apple-touch-icon.png</code>（iOS 设备专用）</li><li><code>public/site.webmanifest</code>（PWA 支持必需）</li></ul><p>跳过 SVG 是个大坑。它不仅能支持深色模式，还能在高 DPI 屏幕上保持清晰锐利，这在 2026 年已经不是可选项，而是必选项。</p><h3>第二步：配置你的静态站点生成器</h3><p>现在进入框架特定的逻辑部分。这也是大多数教程翻车的地方，因为它们讲得太泛了。我们来看两个最常见的场景。</p><p><strong>针对 Astro 和 Next.js (App Router)：</strong><br>这些框架已经转向了基于文件的路由和元数据管理。你不再需要复杂的插件。只需将 <code>favicon.ico</code> 和 <code>favicon.svg</code> 放在 <code>public</code> 目录下，框架会自动在根路径提供服务。对于 <code>site.webmanifest</code>，确保你的布局文件中 <code>href</code> 指向 <code>/site.webmanifest</code> 即可。</p><p><strong>针对 Gatsby 和 Nuxt：</strong><br>这些架构较老或不同的框架通常依赖插件。在 Gatsby 中，你必须在 <code>gatsby-config.js</code> 中使用 <code>gatsby-plugin-manifest</code>。如果你跳过这一步，你的 PWA 图标将无法注册，用户看到的依然是浏览器默认的通用图标。</p><pre><code>// gatsby-config.js example for Gatsby sites
+            <p>部署静态站点时，你是否也遇到过这种尴尬：浏览器标签页上只有一个难看的默认白方块？对于 Astro、Next.js 或 Gatsby 这类静态站点生成器（SSG）来说，处理静态资源的方式与传统 WordPress 主题截然不同。很多时候，图片明明已经准备好了，但构建过程把它“吃”了，路径配置错误，或者浏览器缓存死死咬住旧图标不放，导致 <strong>favicon for static site generators</strong> 的配置让人头大。</p><p>看看像字节跳动或腾讯这样对开发者体验极其讲究的公司，他们绝不会随便把 Logo 扔进根目录就完事。他们有一套严谨的流程，确保图标秒级加载，并在各种设备上完美缩放。我们完全可以复刻这种专业度。关键不在于你手里有没有那张图，而在于你是否真正理解你使用的 SSG 是如何处理静态资源和元数据的。</p><h2>核心矛盾：构建工具与浏览器的博弈</h2><p>很多开发者习惯性地用传统 CMS 的思维去操作 SSG。在 WordPress 里，你上传个图片，它就能神奇地显示出来。但在 2026 年，像 Next.js 或 Astro 这样的现代框架，要求你必须显式地告诉构建系统图标的具体位置。如果你把 <code>favicon.ico</code> 放错了目录，构建工具可能会直接忽略它，更糟糕的是，它可能生成一个指向 404 的错误链接。</p><p>这就是为什么我们强烈建议严格分离关注点。你的源代码应该放在 <code>src</code> 目录下，但对外公开的静态资源必须放在 <code>public</code> 或 <code>static</code> 文件夹中（具体取决于框架）。不过，仅仅把文件丢进去还不够，现代浏览器现在期望同时看到 SVG、Apple Touch Icon 以及 manifest 文件。</p><h3>第一步：准备你的图标资产包</h3><p>在触碰任何配置文件之前，你得先准备好正确的文件。千万别只是简单地把 Logo 缩放一下。一个 512x512 的 PNG 对于 16x16 的浏览器标签页来说毫无意义。你需要一套多格式的“全家桶”。推荐使用 <a href="/zh/" class="btn">Mzu favicondl</a> 生成一套完整的资源：给现代浏览器用的 SVG，给旧设备做 fallback 的 PNG，以及为了兼容老系统保留的 ICO。</p><p>在你的 <code>public</code> 文件夹中，文件结构应该像这样组织：</p><ul><li><code>public/favicon.ico</code>（遗留系统的兜底方案）</li><li><code>public/favicon.svg</code>（现代标准格式）</li><li><code>public/apple-touch-icon.png</code>（iOS 设备专用）</li><li><code>public/site.webmanifest</code>（PWA 支持必需）</li></ul><p>跳过 SVG 是个大坑。它不仅能支持深色模式，还能在高 DPI 屏幕上保持清晰锐利，这在 2026 年已经不是可选项，而是必选项。</p><h3>第二步：配置你的静态站点生成器</h3><p>现在进入框架特定的逻辑部分。这也是大多数教程翻车的地方，因为它们讲得太泛了。我们来看两个最常见的场景。</p><p><strong>针对 Astro 和 Next.js (App Router)：</strong><br>这些框架已经转向了基于文件的路由和元数据管理。你不再需要复杂的插件。只需将 <code>favicon.ico</code> 和 <code>favicon.svg</code> 放在 <code>public</code> 目录下，框架会自动在根路径提供服务。对于 <code>site.webmanifest</code>，确保你的布局文件中 <code>href</code> 指向 <code>/site.webmanifest</code> 即可。</p><p><strong>针对 Gatsby 和 Nuxt：</strong><br>这些架构较老或不同的框架通常依赖插件。在 Gatsby 中，你必须在 <code>gatsby-config.js</code> 中使用 <code>gatsby-plugin-manifest</code>。如果你跳过这一步，你的 PWA 图标将无法注册，用户看到的依然是浏览器默认的通用图标。</p><pre><code>// gatsby-config.js example for Gatsby sites
 module.exports = {
   plugins: [
     {
@@ -120,13 +120,13 @@ module.exports = {
 };</code></pre><p>注意看，我们指向的是 <code>src</code> 目录下的源图片，然后让插件去处理缩放和生成。这对 Gatsby 来说是最稳妥的做法。</p><h3>第三步：正确注入 HTML 标签</h3><p>即使文件都就位了，你还需要明确告诉浏览器加载什么。别指望浏览器去猜 <code>/favicon.ico</code>。要显式声明。在你的主布局文件（通常是 <code>layout.tsx</code> 或 <code>BaseHead.astro</code>）中，添加 link 标签。</p><p>这是你应该直接复制粘贴的现代标准组合：</p><pre><code>&lt;link rel="icon" type="image/svg+xml" href="/favicon.svg" /&gt;
 &lt;link rel="icon" type="image/png" href="/favicon.png" /&gt;
 &lt;link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" /&gt;
-&lt;link rel="manifest" href="/site.webmanifest" /&gt;</code></pre><p>顺序至关重要。浏览器是从上到下读取的。如果你把 PNG 放在前面，SVG 可能会被忽略。鉴于 SVG 的可扩展性和对深色模式的支持，务必将其优先级置顶。</p><h2>那些会搞砸图标的常见陷阱</h2><p>即使配置正确，问题依然可能发生。最常见的是缓存问题。静态站点顾名思义就是“静态”的。如果你换了 favicon 却没清缓存，你的用户可能几周都还在看旧图标。这就是为什么我们总是建议在 manifest 或构建哈希值后面追加版本号查询字符串。</p><p>另一个陷阱是控制台里的 <code>404</code> 报错。如果你的浏览器请求 <code>/favicon.ico</code>，而你只提供了 <code>/favicon.svg</code>，日志里就会全是噪音。虽然这不会导致网站崩溃，但显得非常不专业。如果你想要干净的日志，至少得保留 <code>.ico</code> 作为兜底。</p><p>最后，检查一下你的 <code>robots.txt</code>。有些激进的 SEO 插件会拦截图片文件的访问，包括 favicon。如果你的图标在 Google Search Console 里显示不出来，检查一下是不是 <code>robots.txt</code> 不小心禁止了 <code>/favicon.ico</code> 路径。</p><h2>为什么这套方案能赢</h2><p>通过将资源生成与构建逻辑分离，你获得了极大的灵活性。你可以随时替换 SVG 为深色模式变体，而无需重新构建整个站点。你可以更新 manifest 而不必触碰 HTML 代码。这才是处理 <strong>favicon for static site generators</strong> 的专业姿势。</p><p>别让你的网站看起来像个没改过的模板。掌控你的资产。如果你需要把手头的 Logo 转换成完美的图标集，使用 <a href="/zh/blog/favicon-generator-free.html" class="btn">Mzu favicondl</a> 来处理繁琐的缩放和格式转换工作。然后，按照上面的步骤将这些文件接入你的 SSG。你的用户会立刻感受到这种专业度的差异。</p>
+&lt;link rel="manifest" href="/site.webmanifest" /&gt;</code></pre><p>顺序至关重要。浏览器是从上到下读取的。如果你把 PNG 放在前面，SVG 可能会被忽略。鉴于 SVG 的可扩展性和对深色模式的支持，务必将其优先级置顶。</p><h2>那些会搞砸图标的常见陷阱</h2><p>即使配置正确，问题依然可能发生。最常见的是缓存问题。静态站点顾名思义就是“静态”的。如果你换了 favicon 却没清缓存，你的用户可能几周都还在看旧图标。这就是为什么我们总是建议在 manifest 或构建哈希值后面追加版本号查询字符串。</p><p>另一个陷阱是控制台里的 <code>404</code> 报错。如果你的浏览器请求 <code>/favicon.ico</code>，而你只提供了 <code>/favicon.svg</code>，日志里就会全是噪音。虽然这不会导致网站崩溃，但显得非常不专业。如果你想要干净的日志，至少得保留 <code>.ico</code> 作为兜底。</p><p>最后，检查一下你的 <code>robots.txt</code>。有些激进的 SEO 插件会拦截图片文件的访问，包括 favicon。如果你的图标在 Google Search Console 里显示不出来，检查一下是不是 <code>robots.txt</code> 不小心禁止了 <code>/favicon.ico</code> 路径。</p><h2>为什么这套方案能赢</h2><p>通过将资源生成与构建逻辑分离，你获得了极大的灵活性。你可以随时替换 SVG 为深色模式变体，而无需重新构建整个站点。你可以更新 manifest 而不必触碰 HTML 代码。这才是处理 <strong>favicon for static site generators</strong> 的专业姿势。</p><p>别让你的网站看起来像个没改过的模板。掌控你的资产。如果你需要把手头的 Logo 转换成完美的图标集，使用 <a href="/zh/" class="btn">Mzu favicondl</a> 来处理繁琐的缩放和格式转换工作。然后，按照上面的步骤将这些文件接入你的 SSG。你的用户会立刻感受到这种专业度的差异。</p>
         </div>
 
         <div class="cta-box">
             <h3>立即生成完美的 Favicon 套装</h3>
             <p>别再猜测尺寸了。使用 Mzu favicondl 创建针对每个静态站点生成器优化的 SVG、ICO 和 PNG 文件。</p>
-            <a href="/zh/index.html" class="cta-btn">免费试用 →</a>
+            <a href="/zh/" class="cta-btn">免费试用 →</a>
         </div>
     </article>
 
@@ -134,7 +134,7 @@ module.exports = {
         <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
             <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
             <div class="flex gap-6">
-                <a href="/zh/index.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">首页</a>
+                <a href="/zh/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">首页</a>
                 <a href="/zh/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">博客</a>
                 <a href="/zh/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">隐私政策</a>
             </div>

@@ -66,7 +66,7 @@
 <body>
     <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
         <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
-            <a href="/zh/index.html" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <a href="/zh/" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
             <div class="flex items-center gap-8">
                 <a href="/zh/documentation.html" class="nav-link">文档</a>
                 <a href="/zh/tools.html" class="nav-link">工具</a>
@@ -90,7 +90,7 @@
 
     <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
         <nav class="text-sm text-gray-400 mb-8">
-            <a href="/zh/index.html" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/zh/" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
             <a href="/zh/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
             <span class="text-gray-600">Django Favicon 设置：2026 年专业开发者指南</span>
         </nav>
@@ -101,7 +101,7 @@
         </header>
 
         <div class="article-body">
-            <p>你刚刚完成了一个漂亮的 Django 视图，中间件运行良好，数据库查询也经过了优化。然后你查看终端，看到了那条恼人的红色记录：<code>GET /favicon.ico HTTP/1.1 404</code>。这虽然只是个小问题，但对于专业开发者来说，这些 404 错误是会掩盖真实问题的噪音。</p><p>无论你的 HTML 怎么写，浏览器都会硬编码去寻找域名根目录下的 <code>favicon.ico</code> 文件（例如 example.com/favicon.ico）。如果你没有在 Django 中专门处理这个问题，框架会尝试为其寻找 URL 匹配模式，失败后便会记录错误。我们将用正确的方法修复它，确保你的网站像 GitHub 或 Stripe 一样专业。</p><h3>第一步：准备你的资源</h3><p>在编写代码之前，你需要实际的文件。在 2026 年，仅有一个 <code>.ico</code> 文件是不够的。你应该准备一个用于现代浏览器的 SVG 和一个用于旧版浏览器的 ICO。如果你还没准备好，可以使用 <a href="/zh/blog/favicon-generator-free.html">Mzu favicondl</a> 从你的 logo 生成完整的图标包。</p><p>将 <code>favicon.ico</code> 和 <code>favicon.svg</code> 放在你的 static 目录下。典型的结构如下：</p><pre><code>my_project/
+            <p>你刚刚完成了一个漂亮的 Django 视图，中间件运行良好，数据库查询也经过了优化。然后你查看终端，看到了那条恼人的红色记录：<code>GET /favicon.ico HTTP/1.1 404</code>。这虽然只是个小问题，但对于专业开发者来说，这些 404 错误是会掩盖真实问题的噪音。</p><p>无论你的 HTML 怎么写，浏览器都会硬编码去寻找域名根目录下的 <code>favicon.ico</code> 文件（例如 example.com/favicon.ico）。如果你没有在 Django 中专门处理这个问题，框架会尝试为其寻找 URL 匹配模式，失败后便会记录错误。我们将用正确的方法修复它，确保你的网站像 GitHub 或 Stripe 一样专业。</p><h3>第一步：准备你的资源</h3><p>在编写代码之前，你需要实际的文件。在 2026 年，仅有一个 <code>.ico</code> 文件是不够的。你应该准备一个用于现代浏览器的 SVG 和一个用于旧版浏览器的 ICO。如果你还没准备好，可以使用 <a href="/zh/">Mzu favicondl</a> 从你的 logo 生成完整的图标包。</p><p>将 <code>favicon.ico</code> 和 <code>favicon.svg</code> 放在你的 static 目录下。典型的结构如下：</p><pre><code>my_project/
 ├── static/
 │   └── images/
 │       ├── favicon.ico
@@ -121,7 +121,7 @@ urlpatterns = [
         <div class="cta-box">
             <h3>生成你的 Django 图标包</h3>
             <p>不要满足于模糊的图标。使用 Mzu favicondl 为你的 Django 项目在几秒钟内创建高质量的 SVG 和 ICO 文件。</p>
-            <a href="/zh/index.html" class="cta-btn">开始生成 →</a>
+            <a href="/zh/" class="cta-btn">开始生成 →</a>
         </div>
     </article>
 
@@ -129,7 +129,7 @@ urlpatterns = [
         <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
             <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
             <div class="flex gap-6">
-                <a href="/zh/index.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">首页</a>
+                <a href="/zh/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">首页</a>
                 <a href="/zh/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">博客</a>
                 <a href="/zh/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">隐私政策</a>
             </div>

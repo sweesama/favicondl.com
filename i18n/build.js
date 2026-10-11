@@ -118,6 +118,49 @@ function hreflangTags(page) {
   return '\n    ' + tags.join('\n    ');
 }
 
+// ─── 内链规范化 ─────────────────────────────────────────
+// `/index.html` duplicates `/`; point every internal home link at `/`.
+// Brand-name anchors ("Mzu favicondl") must point at the homepage, not at a
+// random (or non-existent) blog post. String-level so it also covers the
+// translation <template> blocks stored in English article sources.
+function normalizeInternalLinks(html) {
+  return html
+    .replace(/(\bhref=)(["'])(?:\/)?index\.html(?=[#?"'])/g, '$1$2/')
+    .replace(
+      /<a\s+href=(["'])\/blog\/[^"']+\.html\1((?:\s+class=(["'])[^"']*\3)?)\s*>(\s*Mzu favicondl\s*)<\/a>/g,
+      '<a href=$1/$1$2>$4</a>'
+    );
+}
+
+// One natural, keyword-anchored link from each English article body to the
+// tool, reusing a phrase that already appears in the text. Skipped when the
+// article has no such phrase or already links to the homepage with one.
+const TOOL_LINK_PATTERN = /\b(favicon downloader|favicon extractor|favicon grabber|download (?:a |the )?favicons? from (?:a |any )?(?:website|url)|extract (?:a |the )?favicons?)\b/i;
+
+function addContextualToolLink($) {
+  const body = $('.article-body').first();
+  if (!body.length) return false;
+  const hasKeywordLink = body.find('a[href="/"]').toArray()
+    .some((el) => TOOL_LINK_PATTERN.test($(el).text()));
+  if (hasKeywordLink) return false;
+
+  const blocks = body.find('p, li').toArray();
+  for (const block of blocks) {
+    if ($(block).closest('pre, code, table, blockquote').length) continue;
+    for (const node of block.childNodes || []) {
+      if (node.type !== 'text') continue;
+      const text = node.data || '';
+      const match = text.match(TOOL_LINK_PATTERN);
+      if (!match) continue;
+      const before = text.slice(0, match.index);
+      const after = text.slice(match.index + match[0].length);
+      $(node).replaceWith(`${before}<a href="/">${match[0]}</a>${after}`);
+      return true;
+    }
+  }
+  return false;
+}
+
 // ─── 语言切换器 HTML ──────────────────────────────
 function pageToPath(page) {
   if (page.endsWith('/index.html')) return '/' + page.replace('/index.html', '/');
@@ -493,6 +536,7 @@ function patchEnglishPage(html, page) {
   // 英文源页保留英文正文；其他语言译文放入 template，供后续构建使用但不渲染。
   if (article) {
     storeTranslationsAsTemplates($);
+    addContextualToolLink($);
     updateEnglishArticleLabels($, article);
     updateArticleJsonLd($, article, 'en', pageToPath(page));
     applyArticleIndexingPolicy($, article);
@@ -537,9 +581,9 @@ async function main() {
     }
     // Strip BOM if present, so cheerio parses <head> correctly
     const rawBuf = fs.readFileSync(srcPath);
-    const html = rawBuf[0] === 0xEF && rawBuf[1] === 0xBB && rawBuf[2] === 0xBF
+    const html = normalizeInternalLinks(rawBuf[0] === 0xEF && rawBuf[1] === 0xBB && rawBuf[2] === 0xBF
       ? rawBuf.slice(3).toString('utf-8')
-      : rawBuf.toString('utf-8');
+      : rawBuf.toString('utf-8'));
 
     // 为每种目标语言生成页面
     for (const lang of LANGUAGES) {
@@ -571,9 +615,9 @@ async function main() {
       const blogPage = `blog/${file}`;  // 如 'blog/index.html'
       const srcPath = path.join(ROOT, blogPage);
       const rawBlogBuf = fs.readFileSync(srcPath);
-      const html = rawBlogBuf[0] === 0xEF && rawBlogBuf[1] === 0xBB && rawBlogBuf[2] === 0xBF
+      const html = normalizeInternalLinks(rawBlogBuf[0] === 0xEF && rawBlogBuf[1] === 0xBB && rawBlogBuf[2] === 0xBF
         ? rawBlogBuf.slice(3).toString('utf-8')
-        : rawBlogBuf.toString('utf-8');
+        : rawBlogBuf.toString('utf-8'));
 
       for (const lang of LANGUAGES) {
         buildPage(html, lang, blogPage, translations);

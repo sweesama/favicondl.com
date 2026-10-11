@@ -66,7 +66,7 @@
 <body>
     <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
         <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
-            <a href="/zh/index.html" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <a href="/zh/" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
             <div class="flex items-center gap-8">
                 <a href="/zh/documentation.html" class="nav-link">文档</a>
                 <a href="/zh/tools.html" class="nav-link">工具</a>
@@ -90,7 +90,7 @@
 
     <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
         <nav class="text-sm text-gray-400 mb-8">
-            <a href="/zh/index.html" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/zh/" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
             <a href="/zh/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
             <span class="text-gray-600">Nuxt 应用图标设置指南：2026 版</span>
         </nav>
@@ -101,7 +101,7 @@
         </header>
 
         <div class="article-body">
-            <p>部署过 Nuxt 应用的朋友都有过这种崩溃瞬间：代码写得再漂亮，浏览器标签页却还挂着那个默认的蓝色 'N' 图标。这就像你精心装修的店铺，门口却挂着个“样板房”的牌子，瞬间拉低了专业度。在 2026 年，给 Nuxt 项目配置 favicon 不仅仅是为了好看，更是品牌识别度的关键一环。虽然 Nuxt 3 的文件化元数据系统让这事变得简单，但如果不懂构建流程对资源文件的处理机制，很容易踩坑。</p><p>我们见过太多开发者手动修改 <code>index.html</code>，或者在组件里塞复杂的 <code>head</code> 标签，结果一跑生产环境构建，配置全没了。这种老派做法早就过时了。现在的 Nuxt 要求你把图标放在 <code>public</code> 目录下，并通过 <code>app</code> 配置来引用。别折腾了，咱们直接一步到位把标签页图标搞定。</p><h2>为什么你的 Favicon 总是配置失败？</h2><p>在敲下一行配置代码前，先聊聊为什么你的图标要么不显示，要么缓存死活不更新。浏览器对 favicon 的缓存策略非常激进。如果你换了 Logo 但标签页没变，大概率是缓存问题，而不是代码写错了。但在 Nuxt 里，最常见的翻车现场是把图标放进了 <code>assets</code> 文件夹，而不是 <code>public</code>。</p><p><code>assets</code> 目录是由 Vite 处理的，它会给文件名加上哈希字符串（Hash）来做缓存失效（Cache Busting）。但 favicon 必须通过静态路径（比如 <code>/favicon.ico</code>）直接访问，这样浏览器才能在解析 HTML 之前就找到它。如果你的图标在 <code>assets</code> 里，每次构建 URL 都会变，浏览器根本没法正常缓存。记住，像图标这种静态资源，永远放在 <code>public</code> 里。</p><h3>第一步：准备你的图标文件</h3><p>别直接拿主 Logo 缩放就完事了。复杂的 Logo 缩到 16x16 像素时，就是一团看不清的色块。你需要一个简化版。为了专业效果，至少准备两种格式：给现代浏览器用的 SVG，以及为了兼容旧设备准备的 PNG。如果你的 Logo 很复杂，可以用 <a href="/zh/blog/make-favicon-from-image.html">Mzu favicondl</a> 提取核心符号并生成所需尺寸。</p><p>在项目根目录下创建一个名为 <code>public</code> 的文件夹（如果还没有的话）。在里面放入以下文件，文件名必须严格一致：</p><ul><li><code>favicon.ico</code>（传统标准，通常包含 16x16、32x32 和 48x48 多种尺寸）</li><li><code>favicon.svg</code>（现代标准，矢量可缩放）</li><li><code>apple-touch-icon.png</code>（iOS 设备专用，通常是 180x180）</li></ul><p>务必确保你的 SVG 背景是透明的。如果图标周围有一圈白框，在深色模式的标签页里会显得非常突兀。</p><h3>第二步：配置 Nuxt 应用元数据</h3><p>Nuxt 3 使用集中式的配置文件来管理元数据，你再也不需要去碰 <code>index.html</code> 了。打开根目录下的 <code>nuxt.config.ts</code> 文件，找到 <code>app</code> 对象。这里就是告诉 Nuxt 去哪里找你的图标。</p><p>在 <code>app</code> 配置中添加 <code>icon</code> 属性（实际上是在 <code>head</code> 里配置）。因为文件在 <code>public</code> 目录，引用时直接加斜杠即可。这是你需要粘贴的确切代码：</p><pre><code>export default defineNuxtConfig({
+            <p>部署过 Nuxt 应用的朋友都有过这种崩溃瞬间：代码写得再漂亮，浏览器标签页却还挂着那个默认的蓝色 'N' 图标。这就像你精心装修的店铺，门口却挂着个“样板房”的牌子，瞬间拉低了专业度。在 2026 年，给 Nuxt 项目配置 favicon 不仅仅是为了好看，更是品牌识别度的关键一环。虽然 Nuxt 3 的文件化元数据系统让这事变得简单，但如果不懂构建流程对资源文件的处理机制，很容易踩坑。</p><p>我们见过太多开发者手动修改 <code>index.html</code>，或者在组件里塞复杂的 <code>head</code> 标签，结果一跑生产环境构建，配置全没了。这种老派做法早就过时了。现在的 Nuxt 要求你把图标放在 <code>public</code> 目录下，并通过 <code>app</code> 配置来引用。别折腾了，咱们直接一步到位把标签页图标搞定。</p><h2>为什么你的 Favicon 总是配置失败？</h2><p>在敲下一行配置代码前，先聊聊为什么你的图标要么不显示，要么缓存死活不更新。浏览器对 favicon 的缓存策略非常激进。如果你换了 Logo 但标签页没变，大概率是缓存问题，而不是代码写错了。但在 Nuxt 里，最常见的翻车现场是把图标放进了 <code>assets</code> 文件夹，而不是 <code>public</code>。</p><p><code>assets</code> 目录是由 Vite 处理的，它会给文件名加上哈希字符串（Hash）来做缓存失效（Cache Busting）。但 favicon 必须通过静态路径（比如 <code>/favicon.ico</code>）直接访问，这样浏览器才能在解析 HTML 之前就找到它。如果你的图标在 <code>assets</code> 里，每次构建 URL 都会变，浏览器根本没法正常缓存。记住，像图标这种静态资源，永远放在 <code>public</code> 里。</p><h3>第一步：准备你的图标文件</h3><p>别直接拿主 Logo 缩放就完事了。复杂的 Logo 缩到 16x16 像素时，就是一团看不清的色块。你需要一个简化版。为了专业效果，至少准备两种格式：给现代浏览器用的 SVG，以及为了兼容旧设备准备的 PNG。如果你的 Logo 很复杂，可以用 <a href="/zh/">Mzu favicondl</a> 提取核心符号并生成所需尺寸。</p><p>在项目根目录下创建一个名为 <code>public</code> 的文件夹（如果还没有的话）。在里面放入以下文件，文件名必须严格一致：</p><ul><li><code>favicon.ico</code>（传统标准，通常包含 16x16、32x32 和 48x48 多种尺寸）</li><li><code>favicon.svg</code>（现代标准，矢量可缩放）</li><li><code>apple-touch-icon.png</code>（iOS 设备专用，通常是 180x180）</li></ul><p>务必确保你的 SVG 背景是透明的。如果图标周围有一圈白框，在深色模式的标签页里会显得非常突兀。</p><h3>第二步：配置 Nuxt 应用元数据</h3><p>Nuxt 3 使用集中式的配置文件来管理元数据，你再也不需要去碰 <code>index.html</code> 了。打开根目录下的 <code>nuxt.config.ts</code> 文件，找到 <code>app</code> 对象。这里就是告诉 Nuxt 去哪里找你的图标。</p><p>在 <code>app</code> 配置中添加 <code>icon</code> 属性（实际上是在 <code>head</code> 里配置）。因为文件在 <code>public</code> 目录，引用时直接加斜杠即可。这是你需要粘贴的确切代码：</p><pre><code>export default defineNuxtConfig({
   app: {
     head: {
       title: '我的超酷应用',
@@ -118,13 +118,13 @@
 })</code></pre><p>注意这个顺序吗？我们先列 <code>ico</code> 以保证最大兼容性，再列 <code>svg</code>。现代浏览器会优先抓取 SVG，而旧浏览器会自动回退到 ICO。这种双保险策略能确保你的站点在任何设备上都清晰锐利。</p><h3>第三步：处理深色模式（进阶技巧）</h3><p>这是大多数教程会忽略的地方。如果图标背景是白色的，在深色模式下会非常刺眼。到了 2026 年，用户期望 favicon 能跟随系统主题自动切换。你可以利用 SVG 内部的 CSS 媒体查询来实现这一点。</p><p>制作一个在深色模式下自动反色的 SVG 版本，保存为 <code>favicon-dark.svg</code> 并放入 <code>public</code> 目录。然后更新 <code>nuxt.config.ts</code>，在链接中添加 <code>media</code> 属性：</p><pre><code>link: [
   { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg', media: '(prefers-color-scheme: light)' },
   { rel: 'icon', type: 'image/svg+xml', href: '/favicon-dark.svg', media: '(prefers-color-scheme: dark)' }
-]</code></pre><p>这行代码告诉浏览器检查用户的系统偏好，并自动加载对应的图标。虽然只是个小细节，但能让你的应用看起来更加原生和精致。</p><h2>常见陷阱与避坑指南</h2><p>即使配置正确，也可能会出问题。浏览器控制台报 '404 Not Found' 是最常见的情况。这通常是因为路径不对。记住，<code>public</code> 目录下的文件是直接映射到根路径的。如果你把 <code>favicon.ico</code> 放在了 <code>public/icons</code> 里，URL 就会变成 <code>/icons/favicon.ico</code>，你的配置必须严格匹配这个路径。</p><p>另一个坑是“图标不更新”。如果你改了代码但标签页还是旧图标，请清除浏览器缓存或强制刷新（Mac 按 Cmd+Shift+R，Windows 按 Ctrl+Shift+R）。有时候 Nuxt 的开发服务器会激进地缓存 <code>public</code> 文件夹，重启一下开发服务器通常就能解决。</p><p>如果你正在构建 PWA，还需要配置 <code>web-app-manifest</code>。Manifest 里的 favicon 必须和 HTML head 里的一致。查看我们的 <a href="/zh/blog/web-app-manifest-favicon.html">Web App Manifest Favicon 指南</a>，确保你的 Android 和 iOS 主屏幕图标与浏览器标签页图标保持一致。</p><h2>为什么这套方案在 2026 年更胜一筹</h2><p>在 <code>nuxt.config.ts</code> 中使用文件化元数据，比手动修改 HTML 高明得多，因为它保持了配置的 DRY（Don't Repeat Yourself）原则。即使你的应用有多个页面且 Meta 标签不同，全局的图标设置也能确保整个应用的一致性，而不会把组件搞得一团糟。</p><p>此外，这种方法与 Nuxt 的 SSR（服务端渲染）无缝集成。服务器在将响应发送给客户端之前，会将正确的 link 标签注入到 HTML head 中。这意味着搜索引擎和社交媒体爬虫能立即看到你的图标，从而提升 SEO 效果和社交分享预览的展示质量。</p><p>别让一个通用的默认图标毁了品牌的第一印象。花五分钟生成一个干净的 SVG，放入 <code>public</code> 目录，更新一下配置。你的用户会在浏览器标签页上感受到这份用心。</p><p>需要从 Logo 生成完美的图标？使用 <a href="/zh/blog/favicon-generator-free.html">Mzu favicondl</a> 可以瞬间生成优化好的 SVG 和 ICO 文件。这是让你的资源快速适配 Nuxt 构建流程的最快方式。</p>
+]</code></pre><p>这行代码告诉浏览器检查用户的系统偏好，并自动加载对应的图标。虽然只是个小细节，但能让你的应用看起来更加原生和精致。</p><h2>常见陷阱与避坑指南</h2><p>即使配置正确，也可能会出问题。浏览器控制台报 '404 Not Found' 是最常见的情况。这通常是因为路径不对。记住，<code>public</code> 目录下的文件是直接映射到根路径的。如果你把 <code>favicon.ico</code> 放在了 <code>public/icons</code> 里，URL 就会变成 <code>/icons/favicon.ico</code>，你的配置必须严格匹配这个路径。</p><p>另一个坑是“图标不更新”。如果你改了代码但标签页还是旧图标，请清除浏览器缓存或强制刷新（Mac 按 Cmd+Shift+R，Windows 按 Ctrl+Shift+R）。有时候 Nuxt 的开发服务器会激进地缓存 <code>public</code> 文件夹，重启一下开发服务器通常就能解决。</p><p>如果你正在构建 PWA，还需要配置 <code>web-app-manifest</code>。Manifest 里的 favicon 必须和 HTML head 里的一致。查看我们的 <a href="/zh/blog/web-app-manifest-favicon.html">Web App Manifest Favicon 指南</a>，确保你的 Android 和 iOS 主屏幕图标与浏览器标签页图标保持一致。</p><h2>为什么这套方案在 2026 年更胜一筹</h2><p>在 <code>nuxt.config.ts</code> 中使用文件化元数据，比手动修改 HTML 高明得多，因为它保持了配置的 DRY（Don't Repeat Yourself）原则。即使你的应用有多个页面且 Meta 标签不同，全局的图标设置也能确保整个应用的一致性，而不会把组件搞得一团糟。</p><p>此外，这种方法与 Nuxt 的 SSR（服务端渲染）无缝集成。服务器在将响应发送给客户端之前，会将正确的 link 标签注入到 HTML head 中。这意味着搜索引擎和社交媒体爬虫能立即看到你的图标，从而提升 SEO 效果和社交分享预览的展示质量。</p><p>别让一个通用的默认图标毁了品牌的第一印象。花五分钟生成一个干净的 SVG，放入 <code>public</code> 目录，更新一下配置。你的用户会在浏览器标签页上感受到这份用心。</p><p>需要从 Logo 生成完美的图标？使用 <a href="/zh/">Mzu favicondl</a> 可以瞬间生成优化好的 SVG 和 ICO 文件。这是让你的资源快速适配 Nuxt 构建流程的最快方式。</p>
         </div>
 
         <div class="cta-box">
             <h3>立即生成您的完美图标</h3>
             <p>将您的徽标在几秒钟内转换为优化的 ICO、PNG 和 SVG 文件。已准备好用于 Nuxt 部署。</p>
-            <a href="/zh/index.html" class="cta-btn">免费试用 →</a>
+            <a href="/zh/" class="cta-btn">免费试用 →</a>
         </div>
     </article>
 
@@ -132,7 +132,7 @@
         <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
             <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
             <div class="flex gap-6">
-                <a href="/zh/index.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">首页</a>
+                <a href="/zh/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">首页</a>
                 <a href="/zh/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">博客</a>
                 <a href="/zh/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">隐私政策</a>
             </div>

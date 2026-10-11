@@ -66,7 +66,7 @@
 <body>
     <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
         <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
-            <a href="/ja/index.html" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <a href="/ja/" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
             <div class="flex items-center gap-8">
                 <a href="/ja/documentation.html" class="nav-link">ドキュメント</a>
                 <a href="/ja/tools.html" class="nav-link">ツール</a>
@@ -90,7 +90,7 @@
 
     <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
         <nav class="text-sm text-gray-400 mb-8">
-            <a href="/ja/index.html" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/ja/" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
             <a href="/ja/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
             <span class="text-gray-600">静的サイトジェネレータ向けファビコン設定ガイド 2026</span>
         </nav>
@@ -101,7 +101,7 @@
         </header>
 
         <div class="article-body">
-            <p>静的サイトジェネレーター（SSG）でサイトを公開したのに、ブラウザのタブに何もない白い四角が表示されてがっかりした経験はありませんか？Astro、Next.js、Gatsby といった SSG は、従来の WordPress テーマとは全く異なるアセットの扱い方をします。そのため、<strong>静的サイトジェネレーター向けの favicon</strong> を設定する際に混乱することがよくあります。画像ファイルは用意していても、ビルドプロセスがそれを削除してしまったり、パスが間違っていたり、キャッシュが古いアイコンを頑なに保持していたりすることがあるのです。</p><p>開発者体験で定評のある Stripe などは、単にロゴをルートフォルダに放り込んで「うまくいくことを祈る」ようなことはしません。彼らは構造化されたアプローチを採用し、アイコンが瞬時に読み込まれ、あらゆるデバイスで完璧にスケーリングされるようにしています。私たちも同じことができます。重要なのは画像を持っていることだけでなく、特定の SSG が静的アセットやメタデータをどう扱うかを理解することにあります。</p><h2>核心となる問題：ビルドツールとブラウザの認識違い</h2><p>多くの開発者が犯すミスは、SSG を従来の CMS のように扱うことです。WordPress では画像をアップロードすれば魔法のように表示されますが、2026 年現在、Next.js や Astro といったモダンなフレームワークでは、ビルドシステムに対してアイコンの場所を明示的に指示する必要があります。<code>favicon.ico</code> を誤ったディレクトリに配置すると、ビルドツールがそれを完全に無視するか、最悪の場合、404 エラーにつながる壊れたリンクを生成してしまいます。</p><p>そのため、我々は「関心の分離」を厳格に行うことを推奨します。ソースコードは <code>src</code> 配下に置き、公開用のアセットはフレームワークに応じて <code>public</code> または <code>static</code> フォルダに配置します。しかし、単にファイルをそこに置くだけでは、SVG、Apple Touch Icon、manifest ファイルなどを同時に期待する現代のブラウザには対応できません。</p><h3>ステップ 1：アイコンアセットの準備</h3><p>設定ファイルに触れる前に、必要なファイルを用意しましょう。ロゴを単にリサイズするだけでは不十分です。512x512 の PNG は、16x16 のブラウザタブには役に立ちません。多形式のスタックが必要です。<a href="/ja/index.html" class="btn">Mzu favicondl</a> を使って完全なセットを生成しましょう：現代のブラウザ向けの SVG、フォールバック用の PNG、そしてレガシーサポート用の ICO です。</p><p><code>public</code> フォルダ内は以下のように整理してください：</p><ul><li><code>public/favicon.ico</code> （レガシー向けのフォールバック）</li><li><code>public/favicon.svg</code> （現代の標準）</li><li><code>public/apple-touch-icon.png</code> （iOS デバイス向け）</li><li><code>public/site.webmanifest</code> （PWA サポート用）</li></ul><p>SVG を省略するのは間違いです。ダークモード対応や高 DPI スクリーンでの鮮明なレンダリングが可能になるため、2026 年においては必須条件です。</p><h3>ステップ 2：静的サイトジェネレーターの設定</h3><p>ここからはフレームワーク固有のロジックに入ります。多くのチュートリアルが失敗するのは、一般化しすぎているためです。最も一般的な 2 つのシナリオを見てみましょう。</p><p><strong>Astro と Next.js（App Router）の場合：</strong><br>これらのフレームワークはファイルベースのルーティングとメタデータ管理へ移行しています。複雑なプラグインはもう不要です。<code>public</code> ディレクトリに <code>favicon.ico</code> と <code>favicon.svg</code> を置くだけで、フレームワークが自動的にルートで配信します。<code>site.webmanifest</code> については、レイアウトファイル内の <code>href</code> が <code>/site.webmanifest</code> を指していることを確認してください。</p><p><strong>Gatsby と Nuxt の場合：</strong><br>これらのアーキテクチャでは、多くの場合プラグインが必要です。Gatsby では、<code>gatsby-config.js</code> で <code>gatsby-plugin-manifest</code> を使用する必要があります。これをスキップすると、PWA アイコンが登録されず、汎用的なブラウザアイコンが表示されてしまいます。</p><pre><code>// Gatsby サイト向けの gatsby-config.js の例
+            <p>静的サイトジェネレーター（SSG）でサイトを公開したのに、ブラウザのタブに何もない白い四角が表示されてがっかりした経験はありませんか？Astro、Next.js、Gatsby といった SSG は、従来の WordPress テーマとは全く異なるアセットの扱い方をします。そのため、<strong>静的サイトジェネレーター向けの favicon</strong> を設定する際に混乱することがよくあります。画像ファイルは用意していても、ビルドプロセスがそれを削除してしまったり、パスが間違っていたり、キャッシュが古いアイコンを頑なに保持していたりすることがあるのです。</p><p>開発者体験で定評のある Stripe などは、単にロゴをルートフォルダに放り込んで「うまくいくことを祈る」ようなことはしません。彼らは構造化されたアプローチを採用し、アイコンが瞬時に読み込まれ、あらゆるデバイスで完璧にスケーリングされるようにしています。私たちも同じことができます。重要なのは画像を持っていることだけでなく、特定の SSG が静的アセットやメタデータをどう扱うかを理解することにあります。</p><h2>核心となる問題：ビルドツールとブラウザの認識違い</h2><p>多くの開発者が犯すミスは、SSG を従来の CMS のように扱うことです。WordPress では画像をアップロードすれば魔法のように表示されますが、2026 年現在、Next.js や Astro といったモダンなフレームワークでは、ビルドシステムに対してアイコンの場所を明示的に指示する必要があります。<code>favicon.ico</code> を誤ったディレクトリに配置すると、ビルドツールがそれを完全に無視するか、最悪の場合、404 エラーにつながる壊れたリンクを生成してしまいます。</p><p>そのため、我々は「関心の分離」を厳格に行うことを推奨します。ソースコードは <code>src</code> 配下に置き、公開用のアセットはフレームワークに応じて <code>public</code> または <code>static</code> フォルダに配置します。しかし、単にファイルをそこに置くだけでは、SVG、Apple Touch Icon、manifest ファイルなどを同時に期待する現代のブラウザには対応できません。</p><h3>ステップ 1：アイコンアセットの準備</h3><p>設定ファイルに触れる前に、必要なファイルを用意しましょう。ロゴを単にリサイズするだけでは不十分です。512x512 の PNG は、16x16 のブラウザタブには役に立ちません。多形式のスタックが必要です。<a href="/ja/" class="btn">Mzu favicondl</a> を使って完全なセットを生成しましょう：現代のブラウザ向けの SVG、フォールバック用の PNG、そしてレガシーサポート用の ICO です。</p><p><code>public</code> フォルダ内は以下のように整理してください：</p><ul><li><code>public/favicon.ico</code> （レガシー向けのフォールバック）</li><li><code>public/favicon.svg</code> （現代の標準）</li><li><code>public/apple-touch-icon.png</code> （iOS デバイス向け）</li><li><code>public/site.webmanifest</code> （PWA サポート用）</li></ul><p>SVG を省略するのは間違いです。ダークモード対応や高 DPI スクリーンでの鮮明なレンダリングが可能になるため、2026 年においては必須条件です。</p><h3>ステップ 2：静的サイトジェネレーターの設定</h3><p>ここからはフレームワーク固有のロジックに入ります。多くのチュートリアルが失敗するのは、一般化しすぎているためです。最も一般的な 2 つのシナリオを見てみましょう。</p><p><strong>Astro と Next.js（App Router）の場合：</strong><br>これらのフレームワークはファイルベースのルーティングとメタデータ管理へ移行しています。複雑なプラグインはもう不要です。<code>public</code> ディレクトリに <code>favicon.ico</code> と <code>favicon.svg</code> を置くだけで、フレームワークが自動的にルートで配信します。<code>site.webmanifest</code> については、レイアウトファイル内の <code>href</code> が <code>/site.webmanifest</code> を指していることを確認してください。</p><p><strong>Gatsby と Nuxt の場合：</strong><br>これらのアーキテクチャでは、多くの場合プラグインが必要です。Gatsby では、<code>gatsby-config.js</code> で <code>gatsby-plugin-manifest</code> を使用する必要があります。これをスキップすると、PWA アイコンが登録されず、汎用的なブラウザアイコンが表示されてしまいます。</p><pre><code>// Gatsby サイト向けの gatsby-config.js の例
 module.exports = {
   plugins: [
     {
@@ -120,13 +120,13 @@ module.exports = {
 };</code></pre><p>注目すべきは、<code>src</code> 内のソース画像を指定し、プラグインにリサイズを任せている点です。これが Gatsby において最も安全な方法です。</p><h3>ステップ 3：HTML タグの正しい注入</h3><p>ファイルを配置しても、ブラウザに何をロードすべきかを指示する必要があります。ブラウザが <code>/favicon.ico</code> を推測することに任せてはいけません。明示的に記述しましょう。メインのレイアウトファイル（多くの場合 <code>layout.tsx</code> や <code>BaseHead.astro</code>）にリンクタグを追加します。</p><p>以下が、コピー＆ペーストして使えるモダンなスタックです：</p><pre><code>&lt;link rel="icon" type="image/svg+xml" href="/favicon.svg" /&gt;
 &lt;link rel="icon" type="image/png" href="/favicon.png" /&gt;
 &lt;link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" /&gt;
-&lt;link rel="manifest" href="/site.webmanifest" /&gt;</code></pre><p>順序は重要です。ブラウザは上から下へ読み込みます。PNG を先に記述すると、SVG が無視されてしまう可能性があります。スケーラビリティとダークモード対応の観点から、常に SVG を最優先してください。</p><h2>アイコンを壊す一般的な落とし穴</h2><p>正しい設定を行っても、問題は発生します。最も頻繁な問題はキャッシュです。静的サイトは定義上「静的」です。favicon を変更してもキャッシュをクリアしなければ、ユーザーは数週間も古いアイコンを見続けることになります。そのため、manifest にバージョンクエリ文字列を付与するか、ビルド時にハッシュ値を使用することを常に推奨しています。</p><p>もう一つの罠は、コンソールに表示される <code>404</code> エラーです。ブラウザが <code>/favicon.ico</code> をリクエストしているのに、<code>/favicon.svg</code> しかない場合、ログにノイズが表示されます。致命的ではありませんが、プロフェッショナルな印象を与えません。クリーンなコンソールを維持したい場合は、少なくとも <code>.ico</code> のフォールバックを用意してください。</p><p>最後に、<code>robots.txt</code> を確認してください。一部の過剰な SEO プラグインは、favicon を含む画像ファイルへのアクセスをブロックすることがあります。Google Search Console でアイコンが表示されない場合は、<code>robots.txt</code> が誤って <code>/favicon.ico</code> パスを禁止していないか確認しましょう。</p><h2>このアプローチが勝つ理由</h2><p>アセットの生成とビルドロジックを分離することで、柔軟性が得られます。サイト全体を再ビルドすることなく、SVG をダークモード用のバリエーションに差し替えることができます。HTML に触れることなく manifest を更新することも可能です。これが、<strong>静的サイトジェネレーター向けの favicon</strong> を扱うプロフェッショナルな方法です。</p><p>サイトをテンプレートのまま放置しないでください。アセットを自分で制御しましょう。手元のロゴから完璧なアイコンセットを生成する必要がある場合は、リサイズや形式変換という重労働を <a href="/ja/blog/favicon-generator-free.html" class="btn">Mzu favicondl</a> に任せてください。その後、上記の手順でそのファイルを SSG に組み込むだけです。ユーザーはすぐにその違いに気づくはずです。</p>
+&lt;link rel="manifest" href="/site.webmanifest" /&gt;</code></pre><p>順序は重要です。ブラウザは上から下へ読み込みます。PNG を先に記述すると、SVG が無視されてしまう可能性があります。スケーラビリティとダークモード対応の観点から、常に SVG を最優先してください。</p><h2>アイコンを壊す一般的な落とし穴</h2><p>正しい設定を行っても、問題は発生します。最も頻繁な問題はキャッシュです。静的サイトは定義上「静的」です。favicon を変更してもキャッシュをクリアしなければ、ユーザーは数週間も古いアイコンを見続けることになります。そのため、manifest にバージョンクエリ文字列を付与するか、ビルド時にハッシュ値を使用することを常に推奨しています。</p><p>もう一つの罠は、コンソールに表示される <code>404</code> エラーです。ブラウザが <code>/favicon.ico</code> をリクエストしているのに、<code>/favicon.svg</code> しかない場合、ログにノイズが表示されます。致命的ではありませんが、プロフェッショナルな印象を与えません。クリーンなコンソールを維持したい場合は、少なくとも <code>.ico</code> のフォールバックを用意してください。</p><p>最後に、<code>robots.txt</code> を確認してください。一部の過剰な SEO プラグインは、favicon を含む画像ファイルへのアクセスをブロックすることがあります。Google Search Console でアイコンが表示されない場合は、<code>robots.txt</code> が誤って <code>/favicon.ico</code> パスを禁止していないか確認しましょう。</p><h2>このアプローチが勝つ理由</h2><p>アセットの生成とビルドロジックを分離することで、柔軟性が得られます。サイト全体を再ビルドすることなく、SVG をダークモード用のバリエーションに差し替えることができます。HTML に触れることなく manifest を更新することも可能です。これが、<strong>静的サイトジェネレーター向けの favicon</strong> を扱うプロフェッショナルな方法です。</p><p>サイトをテンプレートのまま放置しないでください。アセットを自分で制御しましょう。手元のロゴから完璧なアイコンセットを生成する必要がある場合は、リサイズや形式変換という重労働を <a href="/ja/" class="btn">Mzu favicondl</a> に任せてください。その後、上記の手順でそのファイルを SSG に組み込むだけです。ユーザーはすぐにその違いに気づくはずです。</p>
         </div>
 
         <div class="cta-box">
             <h3>完璧なファビコンセットを今すぐ生成</h3>
             <p>サイズの推測をやめましょう。Mzu favicondl を使用して、すべての静的サイトジェネレータに最適化された SVG、ICO、PNG ファイルを作成します。</p>
-            <a href="/ja/index.html" class="cta-btn">無料で試す →</a>
+            <a href="/ja/" class="cta-btn">無料で試す →</a>
         </div>
     </article>
 
@@ -134,7 +134,7 @@ module.exports = {
         <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
             <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
             <div class="flex gap-6">
-                <a href="/ja/index.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">ホーム</a>
+                <a href="/ja/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">ホーム</a>
                 <a href="/ja/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">ブログ</a>
                 <a href="/ja/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">プライバシー</a>
             </div>

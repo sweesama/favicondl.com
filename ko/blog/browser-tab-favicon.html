@@ -66,7 +66,7 @@
 <body>
     <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
         <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
-            <a href="/ko/index.html" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <a href="/ko/" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
             <div class="flex items-center gap-8">
                 <a href="/ko/documentation.html" class="nav-link">문서</a>
                 <a href="/ko/tools.html" class="nav-link">도구</a>
@@ -90,7 +90,7 @@
 
     <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
         <nav class="text-sm text-gray-400 mb-8">
-            <a href="/ko/index.html" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/ko/" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
             <a href="/ko/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
             <span class="text-gray-600">브라우저 탭 파비콘이 제대로 표시되지 않는 이유와 해결 방법</span>
         </nav>
@@ -102,13 +102,13 @@
 
         <div class="article-body">
             <p>저처럼 브라우저 탭을 40개 이상 열어두고 작업하신다면, 아마 탭 제목은 더 이상 읽지 않으실 겁니다. 제목은 잘려나가고, 탭 왼쪽에 있는 16x16 픽셀의 작은 이미지에 전적으로 의존하게 되죠. 이 작은 이미지가 바로 favicon in browser tab입니다. 웹사이트에 이 아이콘이 없다면 사용자는 탭 바다에서 여러분의 사이트를 다시 찾지 못할 것입니다.</p><h2>Favicon in Browser Tab의 강력한 효과</h2><p>브라우저 탭 파비콘은 사용자 내비게이션의 핵심 앵커입니다. GitHub를 생각해 보세요. Pull Request를 열면 탭 아이콘은 기본 검은색(또는 흰색)입니다. 하지만 PR이 병합되면 GitHub는 동적으로 탭 아이콘을 보라색 병합 기호로 바꿉니다. (정말 훌륭한 UX 디테일이죠). 그들은 단순히 브랜딩만 하는 것이 아니라 탭 바에서 직접 상태를 전달하고 있습니다.</p><h3>탭 아이콘의 작동 원리</h3><p>브라우저는 탭에 무엇을 렌더링할지 파악하기 위해 HTML 문서의 <code>&lt;head&gt;</code>를 우선적으로 확인합니다. link 태그를 찾지 못하면 서버 루트에서 <code>/favicon.ico</code>를 무작정 요청합니다. 이 폴백 동작은 90년대의 유물이지만, 서버 로그에 404 에러가 끊임없이 나타나는 이유이기도 합니다.</p><h3>모던 구현 전략</h3><p>2026년을 위한 저의 강력한 권장 사항은 무엇일까요? 독립형 ICO 파일을 기본 소스로 사용하는 것을 중단하세요. 오늘날의 브라우저는 확장 가능한 벡터 그래픽을 원합니다. 최신 브라우저를 위해 SVG를 명시적으로 선언하고, 구형 브라우저를 위해 PNG 폴백을 제공해야 합니다.</p><pre><code>&lt;link rel='icon' type='image/svg+xml' href='/icon.svg'&gt;
-&lt;link rel='icon' type='image/png' href='/icon.png' sizes='32x32'&gt;</code></pre><p>이렇게 하면 사용자가 일반 모니터를 사용하든 고해상도 Retina 디스플레이를 사용하든 아이콘이 완벽하게 선명하게 유지됩니다.</p><h3>탭 바를 위한 디자인</h3><p>탭 바는 까다로운 환경입니다. 사용자의 OS 테마, 브라우저 테마, 활성/비활성 상태에 따라 색상이 계속 바뀝니다.</p><ul><li><strong>단순하게 유지하세요:</strong> 16픽셀 안에 전체 로고 텍스트를 욱여넣지 마세요. 뚜렷한 심볼을 사용하세요.</li><li><strong>투명도를 활용하세요:</strong> 짙은 회색 Safari 탭에 흰색 정사각형 배경이 있으면 정말 보기 흉합니다.</li><li><strong>다크 모드 테스트:</strong> 어두운 배경에서도 아이콘이 잘 보이는지 확인하세요.</li></ul><p>정확한 크기와 형식을 맞추는 데 어려움을 겪고 있다면, 저는 항상 원본 파일을 <a href="/ko/blog/favicon-generator-free.html">Mzu favicondl</a>에 넣어 필요한 모든 파일을 한 번에 생성합니다. 여러분의 favicon in browser tab은 사용자 화면에 영구적으로 표시되는 광고판입니다. 그에 걸맞은 대우를 해주세요. 현재 설정이 다른 브라우저에서 어떻게 보이는지 확인해야 한다면 <a href="/ko/blog/check-website-favicon.html">웹사이트 파비콘 확인 방법</a> 가이드를 참조하세요.</p>
+&lt;link rel='icon' type='image/png' href='/icon.png' sizes='32x32'&gt;</code></pre><p>이렇게 하면 사용자가 일반 모니터를 사용하든 고해상도 Retina 디스플레이를 사용하든 아이콘이 완벽하게 선명하게 유지됩니다.</p><h3>탭 바를 위한 디자인</h3><p>탭 바는 까다로운 환경입니다. 사용자의 OS 테마, 브라우저 테마, 활성/비활성 상태에 따라 색상이 계속 바뀝니다.</p><ul><li><strong>단순하게 유지하세요:</strong> 16픽셀 안에 전체 로고 텍스트를 욱여넣지 마세요. 뚜렷한 심볼을 사용하세요.</li><li><strong>투명도를 활용하세요:</strong> 짙은 회색 Safari 탭에 흰색 정사각형 배경이 있으면 정말 보기 흉합니다.</li><li><strong>다크 모드 테스트:</strong> 어두운 배경에서도 아이콘이 잘 보이는지 확인하세요.</li></ul><p>정확한 크기와 형식을 맞추는 데 어려움을 겪고 있다면, 저는 항상 원본 파일을 <a href="/ko/">Mzu favicondl</a>에 넣어 필요한 모든 파일을 한 번에 생성합니다. 여러분의 favicon in browser tab은 사용자 화면에 영구적으로 표시되는 광고판입니다. 그에 걸맞은 대우를 해주세요. 현재 설정이 다른 브라우저에서 어떻게 보이는지 확인해야 한다면 <a href="/ko/blog/check-website-favicon.html">웹사이트 파비콘 확인 방법</a> 가이드를 참조하세요.</p>
         </div>
 
         <div class="cta-box">
             <h3>지금 브라우저 탭 아이콘을 수정하세요</h3>
             <p>모든 브라우저 탭에서 완벽하게 보이는 선명하고 현대적인 SVG 및 PNG 파비콘을 생성하세요.</p>
-            <a href="/ko/index.html" class="cta-btn">무료로 파비콘 생성하기 →</a>
+            <a href="/ko/" class="cta-btn">무료로 파비콘 생성하기 →</a>
         </div>
     </article>
 
@@ -116,7 +116,7 @@
         <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
             <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
             <div class="flex gap-6">
-                <a href="/ko/index.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">홈</a>
+                <a href="/ko/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">홈</a>
                 <a href="/ko/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">블로그</a>
                 <a href="/ko/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">개인정보</a>
             </div>

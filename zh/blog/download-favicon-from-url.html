@@ -66,7 +66,7 @@
 <body>
     <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
         <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
-            <a href="/zh/index.html" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <a href="/zh/" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
             <div class="flex items-center gap-8">
                 <a href="/zh/documentation.html" class="nav-link">文档</a>
                 <a href="/zh/tools.html" class="nav-link">工具</a>
@@ -90,7 +90,7 @@
 
     <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
         <nav class="text-sm text-gray-400 mb-8">
-            <a href="/zh/index.html" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/zh/" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
             <a href="/zh/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
             <span class="text-gray-600">从网站URL下载Favicon：2026开发者工作流</span>
         </nav>
@@ -109,13 +109,13 @@
     {'src': '/android-chrome-192x192.png', 'sizes': '192x192', 'type': 'image/png'},
     {'src': '/android-chrome-512x512.png', 'sizes': '512x512', 'type': 'image/png'}
   ]
-}</code></pre><p>这里能找到高分辨率图标——完美适合你自己的项目。</p><h3>第三步：用 Mzu favicondl 搞定繁重工作</h3><p>手动检查每个站点很快就烦了。所以我做了 <a href="/zh/index.html">Mzu favicondl</a>——它能自动化整个流程。粘贴 URL，它会扫描页面的 HTML、Manifest 和 Apple Touch 标签。返回所有 favicon 变体，包括 SVG、PNG、ICO，甚至旧版 Windows 磁贴图标。</p><p>不用再猜了。不用再遇到 404。只有一份清晰的可下载文件列表。</p><h2>下载 Favicon 的常见坑</h2><p>就算用对了工具，也可能踩坑。下面是我最常见的错误：</p><ul><li><strong>抓错尺寸</strong>：默认的 <code>/favicon.ico</code> 通常是 16x16。对于 Dashboard 或应用图标，至少需要 Manifest 里的 192x192。</li><li><strong>忽略暗色模式变体</strong>：有些站点用 <code>media='(prefers-color-scheme: dark)'</code> 提供不同的暗色模式 favicon。如果下载了亮色版本，在暗色背景上就会消失。</li><li><strong>忘了 SVG</strong>：SVG favicon 在任何尺寸下都清晰。如果站点提供，就抓它。这是最面向未来的格式。</li></ul><p>想深入了解故障排查，可以看看我们的指南 <a href="/zh/blog/favicon-not-showing.html">为什么你的 favicon 不显示</a>——它从服务器端覆盖了同样的问题。</p><h2>实战案例：Stripe 的 Favicon 堆栈</h2><p>让我展示一下专业配置是什么样的。Stripe 从 CDN 提供 favicon，有多个变体。我检查他们站点时发现了：</p><ul><li>一个 SVG favicon 给现代浏览器</li><li>一个 32x32 PNG 回退给旧浏览器</li><li>一个 180x180 的 Apple Touch Icon</li><li>一个包含 192x192 和 512x512 图标的 Web Manifest</li></ul><p>他们还用了缓存破坏查询字符串（<code>?v=123</code>）来强制更新。如果你在搭建一个注重品牌一致性的站点（你应该这样），这就是要遵循的模式。</p><h2>2026 年的专业技巧</h2><p>下面是我多年经验总结的几点：</p><ul><li><strong>优先下载 SVG</strong>。它文件最小，缩放完美。只有在需要支持旧浏览器时才回退到 PNG。</li><li><strong>单独检查 Apple Touch Icon</strong>。这些通常比标准 favicon 分辨率更高，作为应用图标很好用。</li><li><strong>用 Manifest 获取 PWA 图标</strong>。如果站点是 Progressive Web App，Manifest 里会有最高质量的图标。</li></ul><p>想了解尺寸和格式的完整参考，请阅读我们的 <a href="/zh/blog/favicon-sizes-guide.html">favicon 尺寸指南</a>。它能帮你避免在 Retina 屏幕上显示模糊图标。</p><h2>总结</h2><p>从网站 URL 下载 favicon 不必靠猜。用 DevTools 找到真实 URL，检查 Manifest 获取高分辨率变体，让 Mzu favicondl 处理自动化。当图标在每个设备上都清晰显示时，未来的你和你的用户都会感谢你。</p>
+}</code></pre><p>这里能找到高分辨率图标——完美适合你自己的项目。</p><h3>第三步：用 Mzu favicondl 搞定繁重工作</h3><p>手动检查每个站点很快就烦了。所以我做了 <a href="/zh/">Mzu favicondl</a>——它能自动化整个流程。粘贴 URL，它会扫描页面的 HTML、Manifest 和 Apple Touch 标签。返回所有 favicon 变体，包括 SVG、PNG、ICO，甚至旧版 Windows 磁贴图标。</p><p>不用再猜了。不用再遇到 404。只有一份清晰的可下载文件列表。</p><h2>下载 Favicon 的常见坑</h2><p>就算用对了工具，也可能踩坑。下面是我最常见的错误：</p><ul><li><strong>抓错尺寸</strong>：默认的 <code>/favicon.ico</code> 通常是 16x16。对于 Dashboard 或应用图标，至少需要 Manifest 里的 192x192。</li><li><strong>忽略暗色模式变体</strong>：有些站点用 <code>media='(prefers-color-scheme: dark)'</code> 提供不同的暗色模式 favicon。如果下载了亮色版本，在暗色背景上就会消失。</li><li><strong>忘了 SVG</strong>：SVG favicon 在任何尺寸下都清晰。如果站点提供，就抓它。这是最面向未来的格式。</li></ul><p>想深入了解故障排查，可以看看我们的指南 <a href="/zh/blog/favicon-not-showing.html">为什么你的 favicon 不显示</a>——它从服务器端覆盖了同样的问题。</p><h2>实战案例：Stripe 的 Favicon 堆栈</h2><p>让我展示一下专业配置是什么样的。Stripe 从 CDN 提供 favicon，有多个变体。我检查他们站点时发现了：</p><ul><li>一个 SVG favicon 给现代浏览器</li><li>一个 32x32 PNG 回退给旧浏览器</li><li>一个 180x180 的 Apple Touch Icon</li><li>一个包含 192x192 和 512x512 图标的 Web Manifest</li></ul><p>他们还用了缓存破坏查询字符串（<code>?v=123</code>）来强制更新。如果你在搭建一个注重品牌一致性的站点（你应该这样），这就是要遵循的模式。</p><h2>2026 年的专业技巧</h2><p>下面是我多年经验总结的几点：</p><ul><li><strong>优先下载 SVG</strong>。它文件最小，缩放完美。只有在需要支持旧浏览器时才回退到 PNG。</li><li><strong>单独检查 Apple Touch Icon</strong>。这些通常比标准 favicon 分辨率更高，作为应用图标很好用。</li><li><strong>用 Manifest 获取 PWA 图标</strong>。如果站点是 Progressive Web App，Manifest 里会有最高质量的图标。</li></ul><p>想了解尺寸和格式的完整参考，请阅读我们的 <a href="/zh/blog/favicon-sizes-guide.html">favicon 尺寸指南</a>。它能帮你避免在 Retina 屏幕上显示模糊图标。</p><h2>总结</h2><p>从网站 URL 下载 favicon 不必靠猜。用 DevTools 找到真实 URL，检查 Manifest 获取高分辨率变体，让 Mzu favicondl 处理自动化。当图标在每个设备上都清晰显示时，未来的你和你的用户都会感谢你。</p>
         </div>
 
         <div class="cta-box">
             <h3>秒抓任何Favicon</h3>
             <p>粘贴URL，立即获取所有favicon变体。无需DevTools。</p>
-            <a href="/zh/index.html" class="cta-btn">免费试用 →</a>
+            <a href="/zh/" class="cta-btn">免费试用 →</a>
         </div>
     </article>
 
@@ -123,7 +123,7 @@
         <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
             <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
             <div class="flex gap-6">
-                <a href="/zh/index.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">首页</a>
+                <a href="/zh/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">首页</a>
                 <a href="/zh/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">博客</a>
                 <a href="/zh/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">隐私政策</a>
             </div>

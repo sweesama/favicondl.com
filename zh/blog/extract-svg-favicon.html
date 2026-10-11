@@ -66,7 +66,7 @@
 <body>
     <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
         <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
-            <a href="/zh/index.html" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <a href="/zh/" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
             <div class="flex items-center gap-8">
                 <a href="/zh/documentation.html" class="nav-link">文档</a>
                 <a href="/zh/tools.html" class="nav-link">工具</a>
@@ -90,7 +90,7 @@
 
     <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
         <nav class="text-sm text-gray-400 mb-8">
-            <a href="/zh/index.html" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/zh/" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
             <a href="/zh/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
             <span class="text-gray-600">2026年如何从任意网站提取SVG图标</span>
         </nav>
@@ -101,13 +101,13 @@
         </header>
 
         <div class="article-body">
-            <p>你一定遇到过这种情况。看到竞品网站上那个 favicon 清晰锐利，16x16 不模糊，支持深色模式，在 Retina 屏上还特别精致。你打开 DevTools，翻遍 <code>&lt;head&gt;</code>，结果只找到一堆 PNG 和 ICO 文件，SVG 的影子都没有。</p><p>这就是问题所在。大多数 favicon 提取教程只教你如何拿到 PNG 或 ICO 文件。但在 2026 年，真正的宝藏是 SVG favicon —— 它无限缩放，通过 <code>prefers-color-scheme</code> 支持深色模式，体积还只有位图的零头。下面教你如何真正提取一个。</p><h2>为什么 SVG Favicon 值得你费心</h2><p>在开始提取之前，先说说为什么这事值得。GitHub 用 SVG favicon，Stripe 和 Apple 也是。这些公司选 SVG 不是因为时髦 —— 而是因为一个 SVG 文件能替代六个 PNG、一个 ICO 和一个 Web Manifest 条目。</p><p>SVG favicon 在深色模式下也不会变成鬼影。你可以在 SVG 里直接嵌入 <code>@media (prefers-color-scheme: dark)</code>，让图标自动变色或反转。PNG 能做到吗？</p><h2>手动提取流程</h2><h3>第一步：检查页面源码</h3><p>在 Chrome 或 Firefox 里打开任意网站。右键点击任意位置，选择「检查」（或按 <code>Ctrl+Shift+I</code>）。切换到「Elements」标签，在 <code>&lt;head&gt;</code> 里搜索 <code>rel='icon'</code>。找 SVG 链接：</p><pre><code>&lt;link rel='icon' type='image/svg+xml' href='/favicon.svg'&gt;</code></pre><p>如果看到这个，你就赚了。直接点击 <code>href</code> 的值在新标签页打开 SVG，然后保存。但注意 —— 很多网站把 SVG favicon 藏在 <code>sizes</code> 属性后面，或者用 Safari 的 <code>rel='mask-icon'</code>。别看到第一个链接就停手。</p><h3>第二步：检查 Web Manifest</h3><p>现代 PWA 通常把 SVG favicon 声明在 <code>site.webmanifest</code> 文件里。在 <code>&lt;head&gt;</code> 里搜索 <code>rel='manifest'</code>：</p><pre><code>&lt;link rel='manifest' href='/site.webmanifest'&gt;</code></pre><p>在新标签页打开那个 JSON 文件。找一个叫 <code>icons</code> 的属性 —— 它是一个对象数组。找到 <code>type</code> 等于 <code>'image/svg+xml'</code> 的条目，那就是你的 SVG favicon URL。复制并下载文件。</p><h3>第三步：用 Favicon API 兜底</h3><p>有些网站根本不把 SVG favicon 暴露在 HTML 里，而是依赖浏览器自动请求 <code>/favicon.ico</code>。这时你需要猜路径。常见位置包括：</p><ul><li><code>/favicon.svg</code></li><li><code>/assets/favicon.svg</code></li><li><code>/static/favicon.svg</code></li></ul><p>直接在域名后面输入这些路径。如果服务器返回 404，那这个网站大概率没用 SVG favicon —— 或者藏得太深了。</p><h2>用 Mzu favicondl 提取 SVG Favicon</h2><p>手动检查虽然可行，但要从多个网站提取 favicon 就太麻烦了。这时候 Mzu favicondl 就派上用场了。我们的工具会自动扫描页面的 <code>&lt;head&gt;</code>、Web Manifest 甚至常见文件路径，帮你找到 SVG favicon。</p><p>操作流程：</p><ol><li>打开 <a href="/zh/index.html">Mzu favicondl</a>。</li><li>把网站 URL 粘贴到输入框。</li><li>点击「提取」。</li><li>工具会列出所有找到的 favicon —— 包括 SVG、PNG、ICO 和 Apple Touch 图标。</li><li>点击 SVG 条目旁边的下载按钮。</li></ol><p>搞定。工具还会显示原始 SVG 代码，方便你下载前检查。无广告、无注册、无套路。</p><h2>SVG Favicon 提取技巧</h2><h3>注意相对路径</h3><p>很多网站用相对路径，比如 <code>/assets/favicon.svg</code>。从 DevTools 复制 <code>href</code> 值后，需要加上域名。Mzu favicondl 会自动处理，但如果你手动操作，别忘了基础 URL。</p><h3>检查深色模式变体</h3><p>有些网站会根据用户的配色方案提供不同的 SVG favicon。找 <code>&lt;link&gt;</code> 标签上有没有 <code>media='(prefers-color-scheme: dark)'</code> 属性。如果有，你需要同时提取亮色和深色两个版本。</p><h3>验证 SVG</h3><p>不是所有 SVG 文件都能当 favicon。有些包含外部引用、JavaScript 或巨大的 viewBox 值。使用提取的 SVG favicon 之前，用文本编辑器打开检查是否自包含。删除所有 <code>&lt;script&gt;</code> 标签 —— 浏览器在 favicon 里本来就会忽略它们，但好习惯总没错。</p><h2>提取之后做什么</h2><p>拿到 SVG favicon 后，你需要在自家网站上实现它。查看我们的 <a href="/zh/blog/svg-favicon.html">SVG Favicon：现代实现方案</a> 指南，了解具体的 HTML 代码和深色模式配置。如果需要把 SVG 转成 ICO 兼容旧浏览器，我们的 <a href="/zh/blog/svg-to-ico.html">SVG 转 ICO 工具</a> 一键搞定。</p><p>说到底，提取 SVG favicon 不是火箭科学，但需要知道去哪里找。跳过 PNG，直接拿 SVG —— 你的浏览器标签页会感谢你。</p>
+            <p>你一定遇到过这种情况。看到竞品网站上那个 favicon 清晰锐利，16x16 不模糊，支持深色模式，在 Retina 屏上还特别精致。你打开 DevTools，翻遍 <code>&lt;head&gt;</code>，结果只找到一堆 PNG 和 ICO 文件，SVG 的影子都没有。</p><p>这就是问题所在。大多数 favicon 提取教程只教你如何拿到 PNG 或 ICO 文件。但在 2026 年，真正的宝藏是 SVG favicon —— 它无限缩放，通过 <code>prefers-color-scheme</code> 支持深色模式，体积还只有位图的零头。下面教你如何真正提取一个。</p><h2>为什么 SVG Favicon 值得你费心</h2><p>在开始提取之前，先说说为什么这事值得。GitHub 用 SVG favicon，Stripe 和 Apple 也是。这些公司选 SVG 不是因为时髦 —— 而是因为一个 SVG 文件能替代六个 PNG、一个 ICO 和一个 Web Manifest 条目。</p><p>SVG favicon 在深色模式下也不会变成鬼影。你可以在 SVG 里直接嵌入 <code>@media (prefers-color-scheme: dark)</code>，让图标自动变色或反转。PNG 能做到吗？</p><h2>手动提取流程</h2><h3>第一步：检查页面源码</h3><p>在 Chrome 或 Firefox 里打开任意网站。右键点击任意位置，选择「检查」（或按 <code>Ctrl+Shift+I</code>）。切换到「Elements」标签，在 <code>&lt;head&gt;</code> 里搜索 <code>rel='icon'</code>。找 SVG 链接：</p><pre><code>&lt;link rel='icon' type='image/svg+xml' href='/favicon.svg'&gt;</code></pre><p>如果看到这个，你就赚了。直接点击 <code>href</code> 的值在新标签页打开 SVG，然后保存。但注意 —— 很多网站把 SVG favicon 藏在 <code>sizes</code> 属性后面，或者用 Safari 的 <code>rel='mask-icon'</code>。别看到第一个链接就停手。</p><h3>第二步：检查 Web Manifest</h3><p>现代 PWA 通常把 SVG favicon 声明在 <code>site.webmanifest</code> 文件里。在 <code>&lt;head&gt;</code> 里搜索 <code>rel='manifest'</code>：</p><pre><code>&lt;link rel='manifest' href='/site.webmanifest'&gt;</code></pre><p>在新标签页打开那个 JSON 文件。找一个叫 <code>icons</code> 的属性 —— 它是一个对象数组。找到 <code>type</code> 等于 <code>'image/svg+xml'</code> 的条目，那就是你的 SVG favicon URL。复制并下载文件。</p><h3>第三步：用 Favicon API 兜底</h3><p>有些网站根本不把 SVG favicon 暴露在 HTML 里，而是依赖浏览器自动请求 <code>/favicon.ico</code>。这时你需要猜路径。常见位置包括：</p><ul><li><code>/favicon.svg</code></li><li><code>/assets/favicon.svg</code></li><li><code>/static/favicon.svg</code></li></ul><p>直接在域名后面输入这些路径。如果服务器返回 404，那这个网站大概率没用 SVG favicon —— 或者藏得太深了。</p><h2>用 Mzu favicondl 提取 SVG Favicon</h2><p>手动检查虽然可行，但要从多个网站提取 favicon 就太麻烦了。这时候 Mzu favicondl 就派上用场了。我们的工具会自动扫描页面的 <code>&lt;head&gt;</code>、Web Manifest 甚至常见文件路径，帮你找到 SVG favicon。</p><p>操作流程：</p><ol><li>打开 <a href="/zh/">Mzu favicondl</a>。</li><li>把网站 URL 粘贴到输入框。</li><li>点击「提取」。</li><li>工具会列出所有找到的 favicon —— 包括 SVG、PNG、ICO 和 Apple Touch 图标。</li><li>点击 SVG 条目旁边的下载按钮。</li></ol><p>搞定。工具还会显示原始 SVG 代码，方便你下载前检查。无广告、无注册、无套路。</p><h2>SVG Favicon 提取技巧</h2><h3>注意相对路径</h3><p>很多网站用相对路径，比如 <code>/assets/favicon.svg</code>。从 DevTools 复制 <code>href</code> 值后，需要加上域名。Mzu favicondl 会自动处理，但如果你手动操作，别忘了基础 URL。</p><h3>检查深色模式变体</h3><p>有些网站会根据用户的配色方案提供不同的 SVG favicon。找 <code>&lt;link&gt;</code> 标签上有没有 <code>media='(prefers-color-scheme: dark)'</code> 属性。如果有，你需要同时提取亮色和深色两个版本。</p><h3>验证 SVG</h3><p>不是所有 SVG 文件都能当 favicon。有些包含外部引用、JavaScript 或巨大的 viewBox 值。使用提取的 SVG favicon 之前，用文本编辑器打开检查是否自包含。删除所有 <code>&lt;script&gt;</code> 标签 —— 浏览器在 favicon 里本来就会忽略它们，但好习惯总没错。</p><h2>提取之后做什么</h2><p>拿到 SVG favicon 后，你需要在自家网站上实现它。查看我们的 <a href="/zh/blog/svg-favicon.html">SVG Favicon：现代实现方案</a> 指南，了解具体的 HTML 代码和深色模式配置。如果需要把 SVG 转成 ICO 兼容旧浏览器，我们的 <a href="/zh/blog/svg-to-ico.html">SVG 转 ICO 工具</a> 一键搞定。</p><p>说到底，提取 SVG favicon 不是火箭科学，但需要知道去哪里找。跳过 PNG，直接拿 SVG —— 你的浏览器标签页会感谢你。</p>
         </div>
 
         <div class="cta-box">
             <h3>立即提取SVG图标</h3>
             <p>别再翻DevTools了。让Mzu favicondl在几秒内找到并下载任意网站的SVG图标。</p>
-            <a href="/zh/index.html" class="cta-btn">免费试用 →</a>
+            <a href="/zh/" class="cta-btn">免费试用 →</a>
         </div>
     </article>
 
@@ -115,7 +115,7 @@
         <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
             <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
             <div class="flex gap-6">
-                <a href="/zh/index.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">首页</a>
+                <a href="/zh/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">首页</a>
                 <a href="/zh/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">博客</a>
                 <a href="/zh/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">隐私政策</a>
             </div>

@@ -66,7 +66,7 @@
 <body>
     <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
         <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
-            <a href="/zh/index.html" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <a href="/zh/" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
             <div class="flex items-center gap-8">
                 <a href="/zh/documentation.html" class="nav-link">文档</a>
                 <a href="/zh/tools.html" class="nav-link">工具</a>
@@ -90,7 +90,7 @@
 
     <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
         <nav class="text-sm text-gray-400 mb-8">
-            <a href="/zh/index.html" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/zh/" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
             <a href="/zh/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
             <span class="text-gray-600">无代码网站 Favicon 设置指南：2026 版</span>
         </nav>
@@ -101,13 +101,13 @@
         </header>
 
         <div class="article-body">
-            <p>你有没有在浏览器历史记录里点过一个链接，结果看到的不是你的品牌图标，而是一个灰扑扑的默认地球？这就是缺失 favicon 的后果，它比一段写崩了的 CSS 代码更能大声地宣告你的网站“不专业”。</p><p>大多数开发者会纠结 <code>manifest.json</code> 和 SVG 媒体查询，但如果你是用 Wix、Squarespace 或者国内的凡科、上线了这类工具建站呢？你根本碰不到 <code>public</code> 文件夹，也改不了原始 HTML 头部。你只能被限制在它们的后台 UI 里操作。</p><p>为 <strong>无代码网站设置 favicon</strong> 感觉完全不同，因为这些工具把技术细节藏起来了。但藏起来不代表不重要。到了 2026 年，Google 搜索结果依然强制要求 48x48 的 PNG，Safari 也需要 180x180 的 Apple Touch Icon。如果你的无代码平台不能自动生成这些，那你就是在白白流失流量。</p><h2>为什么无代码平台在 Favicon 上总是翻车</h2><p>像 Wix 或 Squarespace 这样的平台建站速度快，但在图标优化上默认表现很差。它们经常把你那张 2000x2000 的大 Logo 直接缩小，然后作为 16x16 像素的图标发布。结果呢？浏览器标签页里出现一个模糊的一团，看起来就像个土豆。</p><p>看看 Stripe 是怎么做的。它们并没有简单地把主 Logo 缩小，而是专门设计了一个简化版的 16x16 网格图标，确保即使缩到极小也能一眼认出。无代码工具很少提供这种颗粒度的控制，除非你找各种变通方法。</p><p>如果你想让网站看起来专业，千万别指望平台那个“自动生成”按钮。在登录建站器之前，你就得把素材准备妥当。</p><h3>第一步：准备好正确的素材尺寸</h3><p>在动手建站之前，你得先搞定文件。别只上传一张 512x512 的 PNG 就指望万事大吉，这在所有设备上几乎行不通。</p><p>使用 <a href="/zh/index.html">Mzu favicondl</a> 从你的 Logo 生成一套完整的图标。你具体需要：</p><ul><li><strong>16x16 PNG:</strong> 经典的浏览器标签页尺寸。保持简洁。</li><li><strong>32x32 PNG:</strong> 用于桌面端的高 DPI（Retina）屏幕。</li><li><strong>180x180 PNG:</strong> iOS 设备上 Apple Touch Icon 的强制要求。</li><li><strong>192x192 PNG:</strong> Android Chrome 主屏幕图标必备。</li></ul><p>如果你漏了 16x16 这个尺寸，某些旧浏览器或特定的邮件客户端可能无法缓存你的图标，直接回退到默认地球。务必准备一个专门的缩小版。</p><h3>第二步：上传流程（各平台差异）</h3><p>这里就是“无代码”发挥魔力的地方。每个平台的处理方式都不一样，UI 设计有时也挺让人头大。</p><p><strong>对于 Wix:</strong> 进入 设置 &gt; 网站图标。上传你的 16x16 和 180x180 文件。Wix 会尝试自动裁剪，但如果你的 Logo 本身带留白，看起来就会偏。记得先在图片编辑器里把留白去掉。</p><p><strong>对于 Squarespace:</strong> 导航到 设计 &gt; 站点标识。Squarespace 比较死板，主上传通常要求正方形图片且背景不能透明。如果你的 Logo 是圆形的，你可能得加一个纯色背景，颜色要和你的网站头部一致。</p><p><strong>对于 Webflow:</strong> 这个最灵活。进入 项目设置 &gt; Favicon。你可以分别上传 ICO、PNG 和 Apple Touch Icon。Webflow 会为你生成 HTML 代码，但你必须确保文件名完全符合它的预期。</p><h3>第三步：验证并强制刷新</h3><p>文件传了，发布按钮点了，标签页一看，还是旧图标。这是 <strong>无代码网站 favicon</strong> 设置中最让人抓狂的情况。</p><p>浏览器对 favicon 的缓存非常激进，可能好几天都不更新。要解决这个问题，你得强制清除缓存，或者如果平台允许，在 URL 后面加个版本字符串。</p><p>既然大多数无代码建站器不能直接编辑 HTML <code>link</code> 标签，试试这个技巧：在无痕模式下清除浏览器缓存。如果还不显示，打开 DevTools 的网络标签页。找找 <code>/favicon.ico</code> 有没有报 404 错误。如果平台没生成这个文件，而你的建站器支持在根目录上传文件，那你可能需要手动上传一个名字严格为 <code>favicon.ico</code> 的文件。</p><h2>必须避开的常见坑</h2><p>哪怕步骤都对，也很容易出问题。看看下面这些通常会导致设置失败的原因。</p><p><strong>透明背景:</strong> 某些无代码平台（特别是旧版 Wix）不支持主 favicon 使用透明 PNG。它们会在你的 Logo 周围渲染一个白框。务必准备一个带纯色背景的版本以防万一。</p><p><strong>宽高比错误:</strong> 你的 Logo 可能是长方形的。但 favicon 必须是正方形。如果你强行把长方形 Logo 拉伸填满正方形，看起来就会变形。先裁剪成正方形，再调整大小。</p><p><strong>忽略暗黑模式:</strong> 如果你的 favicon 是透明背景上的黑色图标，在 Chrome 的暗黑模式下就会直接消失。确保你的图标在白色和深灰背景下都有高对比度。查看我们的 <a href="/zh/blog/favicon-dark-mode.html">Favicon Dark Mode Support</a> 指南，了解更多无需代码的处理方法。</p><h2>关于无代码图标的最后几点思考</h2><p>你不需要成为开发者也能拥有专业的 favicon。你只需要明白，“无代码”不代表“没规矩”。浏览器依然对尺寸和格式有硬性要求。</p><p>别让你的品牌看起来像个模板。多花五分钟准备图片，正确上传，并在无痕窗口里验证。用户会注意到这种差异，哪怕他们说不清为什么你的网站看起来更可信。</p><p>准备好为你的下一个项目生成完美的图标集了吗？用 <a href="/zh/index.html">Mzu favicondl</a> 来处理繁琐的缩放和格式转换工作吧。</p>
+            <p>你有没有在浏览器历史记录里点过一个链接，结果看到的不是你的品牌图标，而是一个灰扑扑的默认地球？这就是缺失 favicon 的后果，它比一段写崩了的 CSS 代码更能大声地宣告你的网站“不专业”。</p><p>大多数开发者会纠结 <code>manifest.json</code> 和 SVG 媒体查询，但如果你是用 Wix、Squarespace 或者国内的凡科、上线了这类工具建站呢？你根本碰不到 <code>public</code> 文件夹，也改不了原始 HTML 头部。你只能被限制在它们的后台 UI 里操作。</p><p>为 <strong>无代码网站设置 favicon</strong> 感觉完全不同，因为这些工具把技术细节藏起来了。但藏起来不代表不重要。到了 2026 年，Google 搜索结果依然强制要求 48x48 的 PNG，Safari 也需要 180x180 的 Apple Touch Icon。如果你的无代码平台不能自动生成这些，那你就是在白白流失流量。</p><h2>为什么无代码平台在 Favicon 上总是翻车</h2><p>像 Wix 或 Squarespace 这样的平台建站速度快，但在图标优化上默认表现很差。它们经常把你那张 2000x2000 的大 Logo 直接缩小，然后作为 16x16 像素的图标发布。结果呢？浏览器标签页里出现一个模糊的一团，看起来就像个土豆。</p><p>看看 Stripe 是怎么做的。它们并没有简单地把主 Logo 缩小，而是专门设计了一个简化版的 16x16 网格图标，确保即使缩到极小也能一眼认出。无代码工具很少提供这种颗粒度的控制，除非你找各种变通方法。</p><p>如果你想让网站看起来专业，千万别指望平台那个“自动生成”按钮。在登录建站器之前，你就得把素材准备妥当。</p><h3>第一步：准备好正确的素材尺寸</h3><p>在动手建站之前，你得先搞定文件。别只上传一张 512x512 的 PNG 就指望万事大吉，这在所有设备上几乎行不通。</p><p>使用 <a href="/zh/">Mzu favicondl</a> 从你的 Logo 生成一套完整的图标。你具体需要：</p><ul><li><strong>16x16 PNG:</strong> 经典的浏览器标签页尺寸。保持简洁。</li><li><strong>32x32 PNG:</strong> 用于桌面端的高 DPI（Retina）屏幕。</li><li><strong>180x180 PNG:</strong> iOS 设备上 Apple Touch Icon 的强制要求。</li><li><strong>192x192 PNG:</strong> Android Chrome 主屏幕图标必备。</li></ul><p>如果你漏了 16x16 这个尺寸，某些旧浏览器或特定的邮件客户端可能无法缓存你的图标，直接回退到默认地球。务必准备一个专门的缩小版。</p><h3>第二步：上传流程（各平台差异）</h3><p>这里就是“无代码”发挥魔力的地方。每个平台的处理方式都不一样，UI 设计有时也挺让人头大。</p><p><strong>对于 Wix:</strong> 进入 设置 &gt; 网站图标。上传你的 16x16 和 180x180 文件。Wix 会尝试自动裁剪，但如果你的 Logo 本身带留白，看起来就会偏。记得先在图片编辑器里把留白去掉。</p><p><strong>对于 Squarespace:</strong> 导航到 设计 &gt; 站点标识。Squarespace 比较死板，主上传通常要求正方形图片且背景不能透明。如果你的 Logo 是圆形的，你可能得加一个纯色背景，颜色要和你的网站头部一致。</p><p><strong>对于 Webflow:</strong> 这个最灵活。进入 项目设置 &gt; Favicon。你可以分别上传 ICO、PNG 和 Apple Touch Icon。Webflow 会为你生成 HTML 代码，但你必须确保文件名完全符合它的预期。</p><h3>第三步：验证并强制刷新</h3><p>文件传了，发布按钮点了，标签页一看，还是旧图标。这是 <strong>无代码网站 favicon</strong> 设置中最让人抓狂的情况。</p><p>浏览器对 favicon 的缓存非常激进，可能好几天都不更新。要解决这个问题，你得强制清除缓存，或者如果平台允许，在 URL 后面加个版本字符串。</p><p>既然大多数无代码建站器不能直接编辑 HTML <code>link</code> 标签，试试这个技巧：在无痕模式下清除浏览器缓存。如果还不显示，打开 DevTools 的网络标签页。找找 <code>/favicon.ico</code> 有没有报 404 错误。如果平台没生成这个文件，而你的建站器支持在根目录上传文件，那你可能需要手动上传一个名字严格为 <code>favicon.ico</code> 的文件。</p><h2>必须避开的常见坑</h2><p>哪怕步骤都对，也很容易出问题。看看下面这些通常会导致设置失败的原因。</p><p><strong>透明背景:</strong> 某些无代码平台（特别是旧版 Wix）不支持主 favicon 使用透明 PNG。它们会在你的 Logo 周围渲染一个白框。务必准备一个带纯色背景的版本以防万一。</p><p><strong>宽高比错误:</strong> 你的 Logo 可能是长方形的。但 favicon 必须是正方形。如果你强行把长方形 Logo 拉伸填满正方形，看起来就会变形。先裁剪成正方形，再调整大小。</p><p><strong>忽略暗黑模式:</strong> 如果你的 favicon 是透明背景上的黑色图标，在 Chrome 的暗黑模式下就会直接消失。确保你的图标在白色和深灰背景下都有高对比度。查看我们的 <a href="/zh/blog/favicon-dark-mode.html">Favicon Dark Mode Support</a> 指南，了解更多无需代码的处理方法。</p><h2>关于无代码图标的最后几点思考</h2><p>你不需要成为开发者也能拥有专业的 favicon。你只需要明白，“无代码”不代表“没规矩”。浏览器依然对尺寸和格式有硬性要求。</p><p>别让你的品牌看起来像个模板。多花五分钟准备图片，正确上传，并在无痕窗口里验证。用户会注意到这种差异，哪怕他们说不清为什么你的网站看起来更可信。</p><p>准备好为你的下一个项目生成完美的图标集了吗？用 <a href="/zh/">Mzu favicondl</a> 来处理繁琐的缩放和格式转换工作吧。</p>
         </div>
 
         <div class="cta-box">
             <h3>立即生成完美的 Favicon 图标集</h3>
             <p>别再为模糊的图标烦恼了。几秒钟内为您的无代码网站创建专业的多尺寸 Favicon。</p>
-            <a href="/zh/index.html" class="cta-btn">免费试用 →</a>
+            <a href="/zh/" class="cta-btn">免费试用 →</a>
         </div>
     </article>
 
@@ -115,7 +115,7 @@
         <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
             <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
             <div class="flex gap-6">
-                <a href="/zh/index.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">首页</a>
+                <a href="/zh/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">首页</a>
                 <a href="/zh/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">博客</a>
                 <a href="/zh/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">隐私政策</a>
             </div>

@@ -66,7 +66,7 @@
 <body>
     <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
         <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
-            <a href="/index.html" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <a href="/" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
             <div class="flex items-center gap-8">
                 <a href="/documentation.html" class="nav-link" data-en="Docs" data-zh="文档">Docs</a>
                 <a href="/tools.html" class="nav-link" data-en="Tools" data-zh="工具">Tools</a>
@@ -90,7 +90,7 @@
 
     <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
         <nav class="text-sm text-gray-400 mb-8">
-            <a href="/index.html" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
             <a href="/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
             <span class="text-gray-600" data-en="React Vite Favicon Not Showing? Quick Fixes That Work" data-zh="React Vite 网站图标不显示？快速修复指南" data-ja="React Viteファビコンが表示されない？即効修正ガイド" data-ko="React Vite 파비콘이 표시되지 않나요? 빠른 해결 가이드" data-es="¿El favicon de React Vite no aparece? Solución rápida">React Vite Favicon Not Showing? Quick Fixes That Work</span>
         </nav>
@@ -137,7 +137,7 @@
 <p>For a deeper walkthrough of Vite's file-based metadata approach, see our <a href="/blog/vite-public-folder-favicon.html">complete Vite public folder favicon guide</a>. And if your issue is React-specific (Helmet, dynamic icons), the <a href="/blog/react-favicon.html">React favicon setup guide</a> covers those patterns.</p>
 <h2>Final Thoughts</h2>
 <p>The React Vite favicon not showing problem almost always comes down to file location, path reference, or caching. Get those three right and you're 90% there. The remaining 10% is usually a base-path mismatch or a React component swallowing the link tag — both of which leave clear fingerprints in DevTools.</p>
-<p>Generate the full icon set with <a href="/index.html">Mzu favicondl</a>, drop the files into <code>public/</code>, paste the link tags into <code>index.html</code>, and ship it.</p>
+<p>Generate the full icon set with <a href="/">Mzu favicondl</a>, drop the files into <code>public/</code>, paste the link tags into <code>index.html</code>, and ship it.</p>
         </div>
 
         <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
@@ -177,7 +177,7 @@
 <p>想更系统地了解 Vite 基于文件系统的元数据处理方式，可以看 <a href="/blog/vite-public-folder-favicon.html">这份 Vite public 目录 favicon 完整指南</a>。如果你的问题跟 React 强相关（Helmet、动态图标），<a href="/blog/react-favicon.html">React favicon 配置指南</a> 也覆盖了相关模式。</p>
 <h2>最后的话</h2>
 <p>React Vite favicon 不显示这个问题，几乎总能归到三类原因：文件位置、路径引用、缓存。这三点搞对了，90% 的问题就解决了。剩下的 10% 通常是 base 路径不匹配，或者某个 React 组件把 link 标签吞掉了——这两种情况在 DevTools 里都能找到明显的痕迹。</p>
-<p>用 <a href="/index.html">Mzu favicondl</a> 生成一整套图标，把文件扔进 <code>public/</code>，把 link 标签粘到 <code>index.html</code> 里，然后就可以上线了。</p></template>
+<p>用 <a href="/">Mzu favicondl</a> 生成一整套图标，把文件扔进 <code>public/</code>，把 link 标签粘到 <code>index.html</code> 里，然后就可以上线了。</p></template>
         <template data-article-lang="ja"><p>新しいReact + Viteアプリを公開し、<code>favicon.ico</code>を<code>public/</code>に置いてdevサーバーを再起動したのに、ブラウザのタブにはViteの雷マークが表示され続ける——あるいは何も表示されない。こうした状況に遭遇したことはないでしょうか。これはReact Viteでfaviconが表示されないという典型的な問題であり、ほとんどの場合は特定の設定ミスが原因です。</p>
 <p>本記事ではまず2分でできる対処法を説明し、その後に根本原因を一つずつ掘り下げていきます。</p>
 <h2>2分でできる対処法</h2>
@@ -214,7 +214,7 @@
 <p>Viteのファイルベースのメタデータアプローチについて詳しくは、当ブログの<a href="/blog/vite-public-folder-favicon.html">Vite publicフォルダfavicon完全ガイド</a>を参照してください。React特有の問題(Helmet、動的アイコンなど)については、<a href="/blog/react-favicon.html">React faviconセットアップガイド</a>がそれらのパターンをカバーしています。</p>
 <h2>まとめ</h2>
 <p>React Viteでfaviconが表示されないという問題は、ほとんどの場合、ファイルの配置場所、パス参照、キャッシュの3点に集約されます。この3つを押さえれば90%は解決します。残りの10%は通常、baseパスの不一致か、Reactコンポーネントがlinkタグを飲み込んでいるケースで、いずれもDevToolsにははっきり痕跡が残ります。</p>
-<p><a href="/index.html">Mzu favicondl</a>でアイコン一式を生成し、ファイルを<code>public/</code>に配置、linkタグを<code>index.html</code>に貼り付ければ、そのまま公開できます。</p></template>
+<p><a href="/">Mzu favicondl</a>でアイコン一式を生成し、ファイルを<code>public/</code>に配置、linkタグを<code>index.html</code>に貼り付ければ、そのまま公開できます。</p></template>
         <template data-article-lang="ko"><p>새로 만든 React + Vite 앱을 배포하고 <code>favicon.ico</code>를 <code>public/</code>에 넣은 뒤 dev 서버를 재시작했는데, 브라우저 탭에는 여전히 Vite 번개 아이콘이 보입니다. 심지어 아무것도 표시되지 않는 경우도 있죠. 이는 React Vite favicon이 표시되지 않는 고전적인 문제로, 거의 항상 몇 가지 특정 설정 오류 중 하나로 귀결됩니다.</p>
 <p>먼저 2분 만에 해결하는 방법을 알려드리고, 이어서 근본 원인들을 자세히 설명하겠습니다.</p>
 <h2>2분 만에 해결하기</h2>
@@ -251,7 +251,7 @@
 <p>Vite의 파일 기반 메타데이터 접근 방식에 대한 자세한 내용은 <a href="/blog/vite-public-folder-favicon.html">Vite public 폴더 favicon 완전 가이드</a>를 참고하시기 바랍니다. 그리고 이슈가 React에 한정된 것(Helmet, 동적 아이콘 등)이라면 <a href="/blog/react-favicon.html">React favicon 설정 가이드</a>에서 해당 패턴을 다루고 있습니다.</p>
 <h2>마무리</h2>
 <p>React Vite favicon 미표시 문제는 거의 항상 파일 위치, 경로 참조, 캐시 문제로归结됩니다. 이 세 가지만 제대로 처리하면 90%는 해결됩니다. 나머지 10%는 보통 base 경로 불일치이거나 React 컴포넌트가 link 태그를 흡수하는 경우인데, 이 두 가지는 DevTools에서 명확한 흔적을 남깁니다.</p>
-<p><a href="/index.html">Mzu favicondl</a>로 전체 아이콘 세트를 생성하고, 파일들을 <code>public/</code>에 넣은 뒤, link 태그를 <code>index.html</code>에 붙여 넣은 다음 배포하면 됩니다.</p></template>
+<p><a href="/">Mzu favicondl</a>로 전체 아이콘 세트를 생성하고, 파일들을 <code>public/</code>에 넣은 뒤, link 태그를 <code>index.html</code>에 붙여 넣은 다음 배포하면 됩니다.</p></template>
         <template data-article-lang="es"><p>Acabas de desplegar una nueva app con React + Vite, metiste tu <code>favicon.ico</code> en <code>public/</code>, reiniciaste el servidor de desarrollo… y la pestaña del navegador sigue mostrando el rayo de Vite. O peor, no muestra nada. Este es el clásico problema del favicon que no aparece en React con Vite, y casi siempre se reduce a uno de unos pocos errores concretos de configuración.</p>
 <p>Primero te dejo la solución exprés en dos minutos y después te explico las causas de fondo.</p>
 <h2>La solución exprés</h2>
@@ -288,12 +288,12 @@
 <p>Para un recorrido más profundo sobre el enfoque de metadatos basado en archivos de Vite, consulta nuestra <a href="/blog/vite-public-folder-favicon.html">guía completa del favicon en la carpeta public de Vite</a>. Y si tu problema es específico de React (Helmet, iconos dinámicos), la <a href="/blog/react-favicon.html">guía de configuración de favicon en React</a> cubre esos patrones.</p>
 <h2>Conclusión</h2>
 <p>El problema del favicon que no aparece en React con Vite casi siempre se reduce a tres cosas: ubicación del archivo, ruta de referencia o caché. Si aciertas en esas tres, llevas el 90% resuelto. El 10% restante suele ser un desajuste del base path o un componente de React que se traga la etiqueta link — ambos dejan huellas claras en DevTools.</p>
-<p>Genera el set completo de iconos con <a href="/index.html">Mzu favicondl</a>, suelta los archivos en <code>public/</code>, pega las etiquetas link en <code>index.html</code> y a desplegar.</p></template>
+<p>Genera el set completo de iconos con <a href="/">Mzu favicondl</a>, suelta los archivos en <code>public/</code>, pega las etiquetas link en <code>index.html</code> y a desplegar.</p></template>
 
         <div class="cta-box">
             <h3 data-en="Generate Your React Vite Favicon Set" data-zh="为 React Vite 生成完整图标集" data-ja="React Vite用ファビコンを一括生成" data-ko="React Vite 파비콘 세트 생성" data-es="Genera tu set de favicon para React Vite">Generate Your React Vite Favicon Set</h3>
             <p data-en="Use Mzu favicondl to generate every favicon size from a single source — SVG, PNG, and ICO in one click." data-zh="使用 Mzu favicondl 从单一源生成所有尺寸的网站图标，SVG、PNG 和 ICO 一键搞定。" data-ja="Mzu favicondlを使えば、1つのソースから全サイズのファビコン（SVG、PNG、ICO）を一括生成できます。" data-ko="Mzu favicondl로 하나의 소스에서 모든 크기의 파비콘을 생성하세요 — SVG, PNG, ICO를 한 번에." data-es="Usa Mzu favicondl para generar todos los tamaños de favicon desde una sola fuente: SVG, PNG e ICO al instante.">Use Mzu favicondl to generate every favicon size from a single source — SVG, PNG, and ICO in one click.</p>
-            <a href="/index.html" class="cta-btn" data-en="Try Mzu favicondl →" data-zh="试用 Mzu favicondl →" data-ja="Mzu favicondlを試す →" data-ko="Mzu favicondl 사용하기 →" data-es="Probar Mzu favicondl →">Try Mzu favicondl →</a>
+            <a href="/" class="cta-btn" data-en="Try Mzu favicondl →" data-zh="试用 Mzu favicondl →" data-ja="Mzu favicondlを試す →" data-ko="Mzu favicondl 사용하기 →" data-es="Probar Mzu favicondl →">Try Mzu favicondl →</a>
         </div>
     </article>
 
@@ -301,7 +301,7 @@
         <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
             <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
             <div class="flex gap-6">
-                <a href="/index.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Home" data-zh="首页">Home</a>
+                <a href="/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Home" data-zh="首页">Home</a>
                 <a href="/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Blog" data-zh="博客">Blog</a>
                 <a href="/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Privacy" data-zh="隐私政策">Privacy</a>
             </div>

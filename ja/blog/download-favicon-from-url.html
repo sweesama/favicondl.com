@@ -66,7 +66,7 @@
 <body>
     <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
         <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
-            <a href="/ja/index.html" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <a href="/ja/" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
             <div class="flex items-center gap-8">
                 <a href="/ja/documentation.html" class="nav-link">ドキュメント</a>
                 <a href="/ja/tools.html" class="nav-link">ツール</a>
@@ -90,7 +90,7 @@
 
     <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
         <nav class="text-sm text-gray-400 mb-8">
-            <a href="/ja/index.html" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/ja/" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
             <a href="/ja/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
             <span class="text-gray-600">WebサイトURLからファビコンをダウンロードする方法：2026年版デベロッパーワークフロー</span>
         </nav>
@@ -109,13 +109,13 @@
     {'src': '/android-chrome-192x192.png', 'sizes': '192x192', 'type': 'image/png'},
     {'src': '/android-chrome-512x512.png', 'sizes': '512x512', 'type': 'image/png'}
   ]
-}</code></pre><p>ここで高解像度のアイコンが見つかります——自分のプロジェクトに最適です。</p><h3>ステップ3：Mzu favicondl で重い作業を自動化する</h3><p>毎回手動で検査するのはすぐに面倒になります。そこで私が作ったのが <a href="/ja/index.html">Mzu favicondl</a> です。URL を貼り付けるだけで、ページの HTML、マニフェスト、Apple Touch タグをスキャンします。SVG、PNG、ICO、そしてレガシーな Windows タイルアイコンまで、すべての favicon バリアントをすべての形式で返します。</p><p>推測も、404 も不要。ダウンロード可能なファイルのクリーンなリストが手に入ります。</p><h2>Favicon ダウンロード時のよくある落とし穴</h2><p>適切なツールを使っていても、つまずくことがあります。以下は、私がよく目にするミスです：</p><ul><li><strong>間違ったサイズを取得する</strong>：デフォルトの <code>/favicon.ico</code> は多くの場合 16x16 です。ダッシュボードやアプリアイコンには、マニフェストから少なくとも 192x192 を取得しましょう。</li><li><strong>ダークモードのバリアントを無視する</strong>：一部のサイトは、<code>media='(prefers-color-scheme: dark)'</code> を使用してダークモードで異なる favicon を配信します。ライトバージョンをダウンロードすると、暗い背景で見えなくなります。</li><li><strong>SVG を忘れる</strong>：SVG favicon はどのサイズでも鮮明です。サイトが提供しているなら、それを取得しましょう。最も将来性のある形式です。</li></ul><p>トラブルシューティングの詳細については、<a href="/ja/blog/favicon-not-showing.html">favicon が表示されない理由</a>に関するガイドをご覧ください——サーバー側から同じ問題をカバーしています。</p><h2>実例：Stripe の Favicon スタック</h2><p>プロフェッショナルな設定がどのようなものか、お見せしましょう。Stripe は CDN から複数のバリアントで favicon を配信しています。私が彼らのサイトを検査したところ、次のものを見つけました：</p><ul><li>モダンブラウザ向けの SVG favicon</li><li>レガシーブラウザ向けの 32x32 PNG フォールバック</li><li>180x180 の Apple Touch Icon</li><li>192x192 と 512x512 のアイコンを含む Web マニフェスト</li></ul><p>また、キャッシュバスティング用のクエリ文字列（<code>?v=123</code>）を使用して、更新を強制しています。ブランドの一貫性を重視するサイトを構築しているなら（そうすべきです）、このパターンに従うべきです。</p><h2>2026年のプロのコツ</h2><p>長年の経験から学んだことをいくつか紹介します：</p><ul><li><strong>常に SVG を最初にダウンロードする</strong>。最もファイルサイズが小さく、完璧にスケーリングします。レガシーブラウザのサポートが必要な場合のみ、PNG にフォールバックします。</li><li><strong>Apple Touch Icon は別途確認する</strong>。これらは標準の favicon よりも高解像度であることが多く、アプリアイコンとして最適です。</li><li><strong>PWA アイコンにはマニフェストを使用する</strong>。サイトがプログレッシブ Web アプリの場合、マニフェストに最高品質のアイコンが含まれています。</li></ul><p>サイズと形式の完全なリファレンスについては、<a href="/ja/blog/favicon-sizes-guide.html">favicon サイズガイド</a>をお読みください。Retina ディスプレイでぼやけたアイコンを提供する手間が省けます。</p><h2>まとめ</h2><p>WebサイトのURLからfaviconをダウンロードするのは、推測ゲームである必要はありません。DevTools を使用して実際の URL を見つけ、マニフェストで高解像度のバリアントを確認し、Mzu favicondl で自動化を任せましょう。将来の自分、そしてユーザーも、すべてのデバイスでアイコンが鮮明に表示されることに感謝するでしょう。</p>
+}</code></pre><p>ここで高解像度のアイコンが見つかります——自分のプロジェクトに最適です。</p><h3>ステップ3：Mzu favicondl で重い作業を自動化する</h3><p>毎回手動で検査するのはすぐに面倒になります。そこで私が作ったのが <a href="/ja/">Mzu favicondl</a> です。URL を貼り付けるだけで、ページの HTML、マニフェスト、Apple Touch タグをスキャンします。SVG、PNG、ICO、そしてレガシーな Windows タイルアイコンまで、すべての favicon バリアントをすべての形式で返します。</p><p>推測も、404 も不要。ダウンロード可能なファイルのクリーンなリストが手に入ります。</p><h2>Favicon ダウンロード時のよくある落とし穴</h2><p>適切なツールを使っていても、つまずくことがあります。以下は、私がよく目にするミスです：</p><ul><li><strong>間違ったサイズを取得する</strong>：デフォルトの <code>/favicon.ico</code> は多くの場合 16x16 です。ダッシュボードやアプリアイコンには、マニフェストから少なくとも 192x192 を取得しましょう。</li><li><strong>ダークモードのバリアントを無視する</strong>：一部のサイトは、<code>media='(prefers-color-scheme: dark)'</code> を使用してダークモードで異なる favicon を配信します。ライトバージョンをダウンロードすると、暗い背景で見えなくなります。</li><li><strong>SVG を忘れる</strong>：SVG favicon はどのサイズでも鮮明です。サイトが提供しているなら、それを取得しましょう。最も将来性のある形式です。</li></ul><p>トラブルシューティングの詳細については、<a href="/ja/blog/favicon-not-showing.html">favicon が表示されない理由</a>に関するガイドをご覧ください——サーバー側から同じ問題をカバーしています。</p><h2>実例：Stripe の Favicon スタック</h2><p>プロフェッショナルな設定がどのようなものか、お見せしましょう。Stripe は CDN から複数のバリアントで favicon を配信しています。私が彼らのサイトを検査したところ、次のものを見つけました：</p><ul><li>モダンブラウザ向けの SVG favicon</li><li>レガシーブラウザ向けの 32x32 PNG フォールバック</li><li>180x180 の Apple Touch Icon</li><li>192x192 と 512x512 のアイコンを含む Web マニフェスト</li></ul><p>また、キャッシュバスティング用のクエリ文字列（<code>?v=123</code>）を使用して、更新を強制しています。ブランドの一貫性を重視するサイトを構築しているなら（そうすべきです）、このパターンに従うべきです。</p><h2>2026年のプロのコツ</h2><p>長年の経験から学んだことをいくつか紹介します：</p><ul><li><strong>常に SVG を最初にダウンロードする</strong>。最もファイルサイズが小さく、完璧にスケーリングします。レガシーブラウザのサポートが必要な場合のみ、PNG にフォールバックします。</li><li><strong>Apple Touch Icon は別途確認する</strong>。これらは標準の favicon よりも高解像度であることが多く、アプリアイコンとして最適です。</li><li><strong>PWA アイコンにはマニフェストを使用する</strong>。サイトがプログレッシブ Web アプリの場合、マニフェストに最高品質のアイコンが含まれています。</li></ul><p>サイズと形式の完全なリファレンスについては、<a href="/ja/blog/favicon-sizes-guide.html">favicon サイズガイド</a>をお読みください。Retina ディスプレイでぼやけたアイコンを提供する手間が省けます。</p><h2>まとめ</h2><p>WebサイトのURLからfaviconをダウンロードするのは、推測ゲームである必要はありません。DevTools を使用して実際の URL を見つけ、マニフェストで高解像度のバリアントを確認し、Mzu favicondl で自動化を任せましょう。将来の自分、そしてユーザーも、すべてのデバイスでアイコンが鮮明に表示されることに感謝するでしょう。</p>
         </div>
 
         <div class="cta-box">
             <h3>あらゆるファビコンを瞬時に取得</h3>
             <p>URLを貼り付けるだけで、すべてのファビコンのバリエーションを即座に取得。DevToolsは不要です。</p>
-            <a href="/ja/index.html" class="cta-btn">無料で試す →</a>
+            <a href="/ja/" class="cta-btn">無料で試す →</a>
         </div>
     </article>
 
@@ -123,7 +123,7 @@
         <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
             <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
             <div class="flex gap-6">
-                <a href="/ja/index.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">ホーム</a>
+                <a href="/ja/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">ホーム</a>
                 <a href="/ja/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">ブログ</a>
                 <a href="/ja/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">プライバシー</a>
             </div>
