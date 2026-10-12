@@ -68,7 +68,7 @@ const BLOG_INDEX_META = {
     description: '개발자를 위한 Favicon 가이드입니다. 아이콘 크기, 파일 형식, HTML 설정, PWA와 오류 해결 방법을 다룹니다.',
   },
   es: {
-    title: 'Guías de favicon: tamaños, formatos y soluciones | Mzu favicondl',
+    title: 'Blog de favicon: guías, formatos y soluciones | Mzu favicondl',
     description: 'Guías prácticas sobre favicon: tamaños, formatos, implementación HTML, iconos PWA y solución de errores comunes.',
   },
 };
