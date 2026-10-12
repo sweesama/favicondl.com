@@ -1,0 +1,155 @@
+name: Daily Blog Article Generator
+
+on:
+  schedule:
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: Generate, build, and validate without publishing
+        required: false
+        default: false
+        type: boolean
+
+permissions:
+  contents: write
+
+concurrency:
+  group: favicondl-content-main
+  cancel-in-progress: false
+
+jobs:
+  generate-and-publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout latest main
+        uses: actions/checkout@v5
+        with:
+          ref: main
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: |
+            blog/scripts/package-lock.json
+            i18n/package-lock.json
+
+      - name: Install generator dependencies
+        working-directory: blog/scripts
+        run: npm ci
+
+      - name: Test generator resilience
+        working-directory: blog/scripts
+        run: npm test
+
+      - name: Check keyword queue
+        id: queue
+        shell: bash
+        run: |
+          set -euo pipefail
+          PENDING=$(node -e "const q=require('./blog/queue.json'); console.log(q.filter(item => item.status === 'pending').length)")
+          echo "pending=$PENDING" >> "$GITHUB_OUTPUT"
+          echo "Pending keywords: $PENDING"
+
+      - name: Generate one article
+        id: generate
+        if: steps.queue.outputs.pending != '0'
+        working-directory: blog/scripts
+        env:
+          MINIMAX_API_KEY: ${{ secrets.MINIMAX_API_KEY }}
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          node generate-article.js
+          SLUG=$(node -e "const q=require('../queue.json'); const done=q.filter(item => item.status === 'done'); process.stdout.write(done.at(-1)?.slug || '')")
+          test -n "$SLUG"
+          echo "slug=$SLUG" >> "$GITHUB_OUTPUT"
+
+      - name: Install site build dependencies
+        if: steps.queue.outputs.pending != '0'
+        working-directory: i18n
+        run: npm ci
+
+      - name: Build localized pages
+        if: steps.queue.outputs.pending != '0'
+        working-directory: i18n
+        run: npm run build
+
+      - name: Validate all generated output
+        if: steps.queue.outputs.pending != '0'
+        working-directory: i18n
+        run: npm run validate
+
+      - name: Publish only after every gate passes
+        id: publish
+        if: steps.queue.outputs.pending != '0' && (github.event_name != 'workflow_dispatch' || inputs.dry_run != true)
+        env:
+          ARTICLE_SLUG: ${{ steps.generate.outputs.slug }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "Blog Bot"
+          git config user.email "bot@favicondl.com"
+          git add -A
+          if git diff --staged --quiet; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          git commit -m "Auto-publish blog: ${ARTICLE_SLUG}"
+          git pull --rebase origin main
+
+          # Rebuild and revalidate on top of the newest main before publishing.
+          npm --prefix i18n run build
+          npm --prefix i18n run validate
+          git add -A
+          git commit --amend --no-edit
+          git push origin HEAD:main
+
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+          echo "slug=$ARTICLE_SLUG" >> "$GITHUB_OUTPUT"
+
+      - name: Confirm dry-run validation
+        if: steps.queue.outputs.pending != '0' && github.event_name == 'workflow_dispatch' && inputs.dry_run == true
+        run: echo "Dry run passed generation, localization build, and all quality gates; nothing was published."
+
+      - name: Notify successful publication
+        if: steps.publish.outputs.changed == 'true'
+        continue-on-error: true
+        env:
+          FEISHU_WEBHOOK: ${{ secrets.FEISHU_WEBHOOK_URL }}
+          ARTICLE_SLUG: ${{ steps.publish.outputs.slug }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ -z "${FEISHU_WEBHOOK:-}" ]; then
+            echo "FEISHU_WEBHOOK_URL is not configured; skipping notification."
+            exit 0
+          fi
+          PAYLOAD=$(node -e "process.stdout.write(JSON.stringify({msg_type:'text',content:{text:'Mzu favicondl 已通过构建与质量检查并发布：\nhttps://favicondl.com/blog/' + process.env.ARTICLE_SLUG + '.html'}}))")
+          curl --fail-with-body -X POST -H "Content-Type: application/json" -d "$PAYLOAD" "$FEISHU_WEBHOOK"
+
+      # Pushes made with GITHUB_TOKEN do not start another push-triggered
+      # workflow. Notify IndexNow here so automated publications are covered;
+      # indexnow-on-publish.yml remains responsible for human/manual pushes.
+      - name: Notify IndexNow for automated publication
+        if: steps.publish.outputs.changed == 'true'
+        continue-on-error: true
+        run: node blog/scripts/ping-indexnow.js "${{ steps.publish.outputs.slug }}"
+
+      - name: Report keyword stock
+        if: always()
+        shell: bash
+        run: |
+          REMAINING=$(node -e "const q=require('./blog/queue.json'); console.log(q.filter(item => item.status === 'pending').length)")
+          echo "Remaining pending keywords: $REMAINING"
+
+      - name: No article available
+        if: steps.queue.outputs.pending == '0'
+        run: echo "No pending keyword is available; nothing was generated or published."
