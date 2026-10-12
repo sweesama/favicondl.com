@@ -1,0 +1,4 @@
+# Container/MCP-directory files: not part of the website.
+Dockerfile
+.dockerignore
+glama.json
