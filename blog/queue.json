@@ -2756,5 +2756,424 @@
     "status": "done",
     "qualityScore": 95,
     "qualityGrade": "A"
+  },
+  {
+    "keyword": "favicon converter online",
+    "slug": "favicon-converter-online",
+    "tags": [
+      "conversion",
+      "tools"
+    ],
+    "intent": "tool-guide",
+    "depth": "standard",
+    "avoidOverlap": [
+      "png-to-favicon",
+      "svg-to-ico"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "ico to png converter",
+    "slug": "ico-to-png-converter",
+    "tags": [
+      "conversion",
+      "tools"
+    ],
+    "intent": "tool-guide",
+    "depth": "brief",
+    "avoidOverlap": [
+      "ico-vs-png-favicon",
+      "svg-to-ico"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "favicon size in pixels",
+    "slug": "favicon-size-in-pixels",
+    "tags": [
+      "sizes"
+    ],
+    "intent": "informational",
+    "depth": "standard",
+    "avoidOverlap": [
+      "favicon-ico-size",
+      "favicon-best-size-2026"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "how to add favicon to html",
+    "slug": "how-to-add-favicon-to-html",
+    "tags": [
+      "html"
+    ],
+    "intent": "how-to",
+    "depth": "standard",
+    "avoidOverlap": [
+      "favicon-html-code",
+      "favicon-link-tag"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "favicon not showing firefox",
+    "slug": "favicon-not-showing-firefox",
+    "tags": [
+      "troubleshooting",
+      "browsers"
+    ],
+    "intent": "troubleshooting",
+    "depth": "brief",
+    "avoidOverlap": [
+      "firefox-favicon-guide",
+      "favicon-not-showing-chrome"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "favicon not showing safari",
+    "slug": "favicon-not-showing-safari",
+    "tags": [
+      "troubleshooting",
+      "browsers"
+    ],
+    "intent": "troubleshooting",
+    "depth": "brief",
+    "avoidOverlap": [
+      "favicon-ios-safari",
+      "safari-pinned-tab-icon"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "favicon not showing edge",
+    "slug": "favicon-not-showing-edge",
+    "tags": [
+      "troubleshooting",
+      "browsers"
+    ],
+    "intent": "troubleshooting",
+    "depth": "brief",
+    "avoidOverlap": [
+      "microsoft-edge-favicon"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "favicon in github readme",
+    "slug": "favicon-in-github-readme",
+    "tags": [
+      "github"
+    ],
+    "intent": "how-to",
+    "depth": "brief",
+    "avoidOverlap": [
+      "github-pages-favicon"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "favicon for notion site",
+    "slug": "notion-site-favicon",
+    "tags": [
+      "platforms"
+    ],
+    "intent": "how-to",
+    "depth": "brief",
+    "avoidOverlap": [
+      "no-code-website-favicon"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "framer favicon",
+    "slug": "framer-favicon",
+    "tags": [
+      "platforms"
+    ],
+    "intent": "how-to",
+    "depth": "brief",
+    "avoidOverlap": [
+      "webflow-favicon",
+      "no-code-website-favicon"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "hugo favicon",
+    "slug": "hugo-favicon",
+    "tags": [
+      "frameworks"
+    ],
+    "intent": "how-to",
+    "depth": "brief",
+    "avoidOverlap": [
+      "static-site-generator-favicon"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "jekyll favicon",
+    "slug": "jekyll-favicon",
+    "tags": [
+      "frameworks"
+    ],
+    "intent": "how-to",
+    "depth": "brief",
+    "avoidOverlap": [
+      "static-site-generator-favicon",
+      "github-pages-favicon"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "docusaurus favicon",
+    "slug": "docusaurus-favicon",
+    "tags": [
+      "frameworks"
+    ],
+    "intent": "how-to",
+    "depth": "brief",
+    "avoidOverlap": [
+      "static-site-generator-favicon"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "flask favicon",
+    "slug": "flask-favicon",
+    "tags": [
+      "frameworks"
+    ],
+    "intent": "how-to",
+    "depth": "brief",
+    "avoidOverlap": [
+      "django-favicon"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "express js favicon",
+    "slug": "express-favicon",
+    "tags": [
+      "frameworks"
+    ],
+    "intent": "how-to",
+    "depth": "brief",
+    "avoidOverlap": [
+      "favicon-404-error"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "svelte favicon",
+    "slug": "svelte-favicon",
+    "tags": [
+      "frameworks"
+    ],
+    "intent": "how-to",
+    "depth": "brief",
+    "avoidOverlap": [
+      "sveltekit-favicon"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "electron app icon from favicon",
+    "slug": "electron-app-icon",
+    "tags": [
+      "apps"
+    ],
+    "intent": "how-to",
+    "depth": "brief",
+    "avoidOverlap": [
+      "favicon-vs-app-icon"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "chrome extension icon sizes",
+    "slug": "chrome-extension-icon-sizes",
+    "tags": [
+      "sizes",
+      "apps"
+    ],
+    "intent": "informational",
+    "depth": "standard",
+    "avoidOverlap": [
+      "favicon-chrome-new-tab"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "favicon api get website icon",
+    "slug": "favicon-api",
+    "tags": [
+      "api",
+      "developer"
+    ],
+    "intent": "tool-guide",
+    "depth": "standard",
+    "avoidOverlap": [
+      "download-favicon-from-url",
+      "website-favicon-downloader-formats"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "google favicon service s2 alternative",
+    "slug": "google-s2-favicon-alternative",
+    "tags": [
+      "api",
+      "developer"
+    ],
+    "intent": "comparison",
+    "depth": "standard",
+    "avoidOverlap": [
+      "favicon-api",
+      "download-favicon-from-url"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "get favicon of any website programmatically",
+    "slug": "get-favicon-programmatically",
+    "tags": [
+      "api",
+      "developer"
+    ],
+    "intent": "how-to",
+    "depth": "standard",
+    "avoidOverlap": [
+      "favicon-api"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "favicon grabber",
+    "slug": "favicon-grabber",
+    "tags": [
+      "tools",
+      "download"
+    ],
+    "intent": "tool-guide",
+    "depth": "brief",
+    "avoidOverlap": [
+      "copy-website-favicon",
+      "download-favicon-from-url"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "favicon for dark and light browser tabs",
+    "slug": "favicon-light-dark-tabs",
+    "tags": [
+      "design",
+      "dark-mode"
+    ],
+    "intent": "how-to",
+    "depth": "brief",
+    "avoidOverlap": [
+      "favicon-dark-mode",
+      "svg-favicon-dark-mode-media-query"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "favicon notification badge",
+    "slug": "favicon-notification-badge",
+    "tags": [
+      "javascript"
+    ],
+    "intent": "how-to",
+    "depth": "brief",
+    "avoidOverlap": [
+      "dynamic-favicon-javascript"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "favicon generator from text and color",
+    "slug": "favicon-letter-generator",
+    "tags": [
+      "text",
+      "generator"
+    ],
+    "intent": "tool-guide",
+    "depth": "brief",
+    "avoidOverlap": [
+      "favicon-generator-text",
+      "make-favicon-from-initials"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "favicon mcp server for ai agents",
+    "slug": "favicon-mcp-server",
+    "tags": [
+      "api",
+      "ai"
+    ],
+    "intent": "tool-guide",
+    "depth": "standard",
+    "avoidOverlap": [
+      "favicon-api"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "favicon in bookmarks bar not showing",
+    "slug": "bookmark-favicon-not-showing",
+    "tags": [
+      "troubleshooting"
+    ],
+    "intent": "troubleshooting",
+    "depth": "brief",
+    "avoidOverlap": [
+      "favicon-bookmarks"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "favicon vs touch icon vs manifest icon",
+    "slug": "favicon-vs-touch-icon-vs-manifest-icon",
+    "tags": [
+      "comparison"
+    ],
+    "intent": "comparison",
+    "depth": "standard",
+    "avoidOverlap": [
+      "favicon-vs-app-icon",
+      "apple-touch-icon-guide"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "favicon checklist before launch",
+    "slug": "favicon-launch-checklist",
+    "tags": [
+      "checklist"
+    ],
+    "intent": "informational",
+    "depth": "brief",
+    "avoidOverlap": [
+      "favicon-audit-checklist"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "realfavicongenerator alternative",
+    "slug": "realfavicongenerator-alternative",
+    "tags": [
+      "comparison",
+      "tools"
+    ],
+    "intent": "comparison",
+    "depth": "standard",
+    "avoidOverlap": [
+      "favicon-generator-free",
+      "favicon-package-generator"
+    ],
+    "status": "pending"
   }
 ]
