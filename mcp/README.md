@@ -5,7 +5,8 @@ This is a local MCP server for clients that support the Model Context Protocol. 
 ## Install
 
 ```bash
-cd mcp
+git clone https://github.com/sweesama/favicondl.com.git
+cd favicondl.com/mcp
 npm install
 ```
 
@@ -17,14 +18,14 @@ npm start
 
 ## MCP client configuration
 
-Use the absolute path to Node and this project's `mcp/server.mjs` file. Example:
+Point your client at `mcp/server.mjs` using its absolute path on your machine. Example:
 
 ```json
 {
   "mcpServers": {
     "favicondl": {
       "command": "node",
-      "args": ["F:/windsurf/favicon/mcp/server.mjs"]
+      "args": ["/absolute/path/to/favicondl.com/mcp/server.mjs"]
     }
   }
 }
@@ -36,5 +37,7 @@ The tool accepts:
 - `size`: an optional preferred size from 16 to 512
 
 The result contains `ok`, `domain`, `size`, `iconUrl`, `proxyUrl`, and `source`.
+
+On Windows, use a path such as `C:/path/to/favicondl.com/mcp/server.mjs`.
 
 This is a local stdio MCP server, not a hosted remote MCP endpoint. It requires no API key and adds no server-side cost beyond the existing public API request.
