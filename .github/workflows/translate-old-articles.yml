@@ -1,0 +1,90 @@
+name: Translate Old Blog Articles
+
+on:
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: 'Maximum number of articles in this batch'
+        required: false
+        default: '50'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: favicondl-content-main
+  cancel-in-progress: false
+
+jobs:
+  translate-and-publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout latest main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: |
+            blog/scripts/package-lock.json
+            i18n/package-lock.json
+
+      - name: Install generator dependencies
+        working-directory: blog/scripts
+        run: npm ci
+
+      - name: Translate missing article bodies
+        working-directory: blog/scripts
+        env:
+          NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
+        run: node translate-old-articles.js --limit ${{ inputs.limit }}
+
+      - name: Install site build dependencies
+        working-directory: i18n
+        run: npm ci
+
+      - name: Build localized pages
+        working-directory: i18n
+        run: npm run build
+
+      - name: Validate all generated output
+        working-directory: i18n
+        run: npm run validate
+
+      - name: Publish only after every gate passes
+        id: publish
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "Translate Bot"
+          git config user.email "bot@favicondl.com"
+          git add -A
+          if git diff --staged --quiet; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          git commit -m "Translate missing legacy article bodies"
+          git pull --rebase origin main
+          npm --prefix i18n run build
+          npm --prefix i18n run validate
+          git add -A
+          git commit --amend --no-edit
+          git push origin HEAD:main
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+
+      - name: Summary
+        shell: bash
+        run: |
+          if [ "${{ steps.publish.outputs.changed }}" = "true" ]; then
+            echo "Validated translations were published."
+          else
+            echo "No untranslated legacy article was found."
+          fi
