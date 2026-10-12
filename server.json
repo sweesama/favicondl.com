@@ -1,0 +1,22 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.sweesama/favicondl",
+  "title": "FaviconDL",
+  "description": "Extract a website's favicon URL (any size 16-512) via the free FaviconDL API. No API key.",
+  "websiteUrl": "https://favicondl.com",
+  "repository": {
+    "url": "https://github.com/sweesama/favicondl.com",
+    "source": "github"
+  },
+  "version": "1.0.0",
+  "packages": [
+    {
+      "registryType": "mcpb",
+      "identifier": "https://github.com/sweesama/favicondl.com/releases/download/mcp-v1.0.0/favicondl-mcp.mcpb",
+      "fileSha256": "7421806b55160f6b6da116648d92c5d422ed298ccbf5e2b1ca1ad25c0efb46d0",
+      "transport": {
+        "type": "stdio"
+      }
+    }
+  ]
+}

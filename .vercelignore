@@ -2,3 +2,4 @@
 Dockerfile
 .dockerignore
 glama.json
+server.json

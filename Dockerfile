@@ -3,6 +3,9 @@
 # The website itself is deployed by Vercel and does not use this file.
 FROM node:20-alpine
 
+LABEL io.modelcontextprotocol.server.name="io.github.sweesama/favicondl"
+LABEL org.opencontainers.image.source="https://github.com/sweesama/favicondl.com"
+
 WORKDIR /app/mcp
 
 # Install only production dependencies from the lockfile.
