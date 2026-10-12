@@ -2775,6 +2775,164 @@
     "qualityGrade": "A"
   },
   {
+    "keyword": "chrome not showing favicons for websites",
+    "slug": "chrome-not-showing-favicons",
+    "tags": [
+      "troubleshooting",
+      "chrome"
+    ],
+    "intent": "troubleshooting",
+    "depth": "standard",
+    "avoidOverlap": [
+      "favicon-not-showing-chrome"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "clear favicon cache safari iphone and mac",
+    "slug": "clear-favicon-cache-safari",
+    "tags": [
+      "troubleshooting",
+      "safari"
+    ],
+    "intent": "how-to",
+    "depth": "standard",
+    "avoidOverlap": [
+      "favicon-cache-clear",
+      "favicon-ios-safari"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "why is my favicon blurry",
+    "slug": "favicon-blurry-fix",
+    "tags": [
+      "troubleshooting",
+      "design"
+    ],
+    "intent": "troubleshooting",
+    "depth": "standard",
+    "avoidOverlap": [
+      "retina-favicon-high-dpi"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "apple touch icon svg support",
+    "slug": "apple-touch-icon-svg-support",
+    "tags": [
+      "apple",
+      "svg"
+    ],
+    "intent": "how-to",
+    "depth": "standard",
+    "avoidOverlap": [
+      "apple-touch-icon-guide",
+      "svg-favicon"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "duckduckgo favicon api",
+    "slug": "duckduckgo-favicon-api",
+    "tags": [
+      "api",
+      "developer"
+    ],
+    "intent": "comparison",
+    "depth": "standard",
+    "avoidOverlap": [
+      "favicon-api",
+      "google-s2-favicon-alternative"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "php get favicon from url",
+    "slug": "php-get-favicon",
+    "tags": [
+      "developer",
+      "api"
+    ],
+    "intent": "how-to",
+    "depth": "standard",
+    "avoidOverlap": [
+      "favicon-api"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "python get favicon from url",
+    "slug": "python-get-favicon",
+    "tags": [
+      "developer",
+      "api"
+    ],
+    "intent": "how-to",
+    "depth": "standard",
+    "avoidOverlap": [
+      "favicon-api",
+      "php-get-favicon"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "curl download favicon",
+    "slug": "curl-download-favicon",
+    "tags": [
+      "developer",
+      "cli"
+    ],
+    "intent": "how-to",
+    "depth": "standard",
+    "avoidOverlap": [
+      "how-to-download-favicon"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "chrome default favicon globe icon",
+    "slug": "chrome-default-favicon",
+    "tags": [
+      "chrome",
+      "basics"
+    ],
+    "intent": "informational",
+    "depth": "brief",
+    "avoidOverlap": [
+      "favicon-not-showing-chrome"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "open source favicon generator",
+    "slug": "open-source-favicon-generator",
+    "tags": [
+      "tools",
+      "generator"
+    ],
+    "intent": "comparison",
+    "depth": "standard",
+    "avoidOverlap": [
+      "favicon-generator-free"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "favicon not showing in yandex",
+    "slug": "favicon-yandex",
+    "tags": [
+      "seo",
+      "search-engines"
+    ],
+    "intent": "troubleshooting",
+    "depth": "standard",
+    "avoidOverlap": [
+      "favicon-not-showing-google-results"
+    ],
+    "status": "pending"
+  },
+  {
     "keyword": "ico to png converter",
     "slug": "ico-to-png-converter",
     "tags": [
@@ -2786,34 +2944,6 @@
     "avoidOverlap": [
       "ico-vs-png-favicon",
       "svg-to-ico"
-    ],
-    "status": "pending"
-  },
-  {
-    "keyword": "favicon size in pixels",
-    "slug": "favicon-size-in-pixels",
-    "tags": [
-      "sizes"
-    ],
-    "intent": "informational",
-    "depth": "standard",
-    "avoidOverlap": [
-      "favicon-ico-size",
-      "favicon-best-size-2026"
-    ],
-    "status": "pending"
-  },
-  {
-    "keyword": "how to add favicon to html",
-    "slug": "how-to-add-favicon-to-html",
-    "tags": [
-      "html"
-    ],
-    "intent": "how-to",
-    "depth": "standard",
-    "avoidOverlap": [
-      "favicon-html-code",
-      "favicon-link-tag"
     ],
     "status": "pending"
   },
@@ -2844,33 +2974,6 @@
     "avoidOverlap": [
       "favicon-ios-safari",
       "safari-pinned-tab-icon"
-    ],
-    "status": "pending"
-  },
-  {
-    "keyword": "favicon not showing edge",
-    "slug": "favicon-not-showing-edge",
-    "tags": [
-      "troubleshooting",
-      "browsers"
-    ],
-    "intent": "troubleshooting",
-    "depth": "brief",
-    "avoidOverlap": [
-      "microsoft-edge-favicon"
-    ],
-    "status": "pending"
-  },
-  {
-    "keyword": "favicon in github readme",
-    "slug": "favicon-in-github-readme",
-    "tags": [
-      "github"
-    ],
-    "intent": "how-to",
-    "depth": "brief",
-    "avoidOverlap": [
-      "github-pages-favicon"
     ],
     "status": "pending"
   },
@@ -2968,19 +3071,6 @@
     "status": "pending"
   },
   {
-    "keyword": "svelte favicon",
-    "slug": "svelte-favicon",
-    "tags": [
-      "frameworks"
-    ],
-    "intent": "how-to",
-    "depth": "brief",
-    "avoidOverlap": [
-      "sveltekit-favicon"
-    ],
-    "status": "pending"
-  },
-  {
     "keyword": "electron app icon from favicon",
     "slug": "electron-app-icon",
     "tags": [
@@ -3038,78 +3128,6 @@
     "status": "pending"
   },
   {
-    "keyword": "get favicon of any website programmatically",
-    "slug": "get-favicon-programmatically",
-    "tags": [
-      "api",
-      "developer"
-    ],
-    "intent": "how-to",
-    "depth": "standard",
-    "avoidOverlap": [
-      "favicon-api"
-    ],
-    "status": "pending"
-  },
-  {
-    "keyword": "favicon grabber",
-    "slug": "favicon-grabber",
-    "tags": [
-      "tools",
-      "download"
-    ],
-    "intent": "tool-guide",
-    "depth": "brief",
-    "avoidOverlap": [
-      "copy-website-favicon",
-      "download-favicon-from-url"
-    ],
-    "status": "pending"
-  },
-  {
-    "keyword": "favicon for dark and light browser tabs",
-    "slug": "favicon-light-dark-tabs",
-    "tags": [
-      "design",
-      "dark-mode"
-    ],
-    "intent": "how-to",
-    "depth": "brief",
-    "avoidOverlap": [
-      "favicon-dark-mode",
-      "svg-favicon-dark-mode-media-query"
-    ],
-    "status": "pending"
-  },
-  {
-    "keyword": "favicon notification badge",
-    "slug": "favicon-notification-badge",
-    "tags": [
-      "javascript"
-    ],
-    "intent": "how-to",
-    "depth": "brief",
-    "avoidOverlap": [
-      "dynamic-favicon-javascript"
-    ],
-    "status": "pending"
-  },
-  {
-    "keyword": "favicon generator from text and color",
-    "slug": "favicon-letter-generator",
-    "tags": [
-      "text",
-      "generator"
-    ],
-    "intent": "tool-guide",
-    "depth": "brief",
-    "avoidOverlap": [
-      "favicon-generator-text",
-      "make-favicon-from-initials"
-    ],
-    "status": "pending"
-  },
-  {
     "keyword": "favicon mcp server for ai agents",
     "slug": "favicon-mcp-server",
     "tags": [
@@ -3120,46 +3138,6 @@
     "depth": "standard",
     "avoidOverlap": [
       "favicon-api"
-    ],
-    "status": "pending"
-  },
-  {
-    "keyword": "favicon in bookmarks bar not showing",
-    "slug": "bookmark-favicon-not-showing",
-    "tags": [
-      "troubleshooting"
-    ],
-    "intent": "troubleshooting",
-    "depth": "brief",
-    "avoidOverlap": [
-      "favicon-bookmarks"
-    ],
-    "status": "pending"
-  },
-  {
-    "keyword": "favicon vs touch icon vs manifest icon",
-    "slug": "favicon-vs-touch-icon-vs-manifest-icon",
-    "tags": [
-      "comparison"
-    ],
-    "intent": "comparison",
-    "depth": "standard",
-    "avoidOverlap": [
-      "favicon-vs-app-icon",
-      "apple-touch-icon-guide"
-    ],
-    "status": "pending"
-  },
-  {
-    "keyword": "favicon checklist before launch",
-    "slug": "favicon-launch-checklist",
-    "tags": [
-      "checklist"
-    ],
-    "intent": "informational",
-    "depth": "brief",
-    "avoidOverlap": [
-      "favicon-audit-checklist"
     ],
     "status": "pending"
   },
@@ -3176,6 +3154,296 @@
       "favicon-generator-free",
       "favicon-package-generator"
     ],
+    "status": "pending"
+  },
+  {
+    "keyword": "streamlit favicon",
+    "slug": "streamlit-favicon",
+    "tags": [
+      "python",
+      "framework"
+    ],
+    "intent": "how-to",
+    "depth": "standard",
+    "avoidOverlap": [],
+    "status": "pending"
+  },
+  {
+    "keyword": "flutter web favicon",
+    "slug": "flutter-web-favicon",
+    "tags": [
+      "framework",
+      "mobile"
+    ],
+    "intent": "how-to",
+    "depth": "standard",
+    "avoidOverlap": [],
+    "status": "pending"
+  },
+  {
+    "keyword": "fastapi favicon",
+    "slug": "fastapi-favicon",
+    "tags": [
+      "python",
+      "framework"
+    ],
+    "intent": "how-to",
+    "depth": "standard",
+    "avoidOverlap": [
+      "flask-favicon"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "gradio favicon",
+    "slug": "gradio-favicon",
+    "tags": [
+      "python",
+      "framework"
+    ],
+    "intent": "how-to",
+    "depth": "standard",
+    "avoidOverlap": [
+      "streamlit-favicon"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "blazor favicon",
+    "slug": "blazor-favicon",
+    "tags": [
+      "dotnet",
+      "framework"
+    ],
+    "intent": "how-to",
+    "depth": "standard",
+    "avoidOverlap": [
+      "aspnet-core-favicon"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "asp.net core favicon",
+    "slug": "aspnet-core-favicon",
+    "tags": [
+      "dotnet",
+      "framework"
+    ],
+    "intent": "how-to",
+    "depth": "standard",
+    "avoidOverlap": [],
+    "status": "pending"
+  },
+  {
+    "keyword": "webpack favicon",
+    "slug": "webpack-favicon",
+    "tags": [
+      "build-tools",
+      "framework"
+    ],
+    "intent": "how-to",
+    "depth": "standard",
+    "avoidOverlap": [
+      "vite-favicon"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "mkdocs favicon",
+    "slug": "mkdocs-favicon",
+    "tags": [
+      "docs",
+      "static-site"
+    ],
+    "intent": "how-to",
+    "depth": "standard",
+    "avoidOverlap": [
+      "docusaurus-favicon"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "vitepress favicon",
+    "slug": "vitepress-favicon",
+    "tags": [
+      "docs",
+      "vue"
+    ],
+    "intent": "how-to",
+    "depth": "standard",
+    "avoidOverlap": [
+      "vue-favicon"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "tauri app icon",
+    "slug": "tauri-app-icon",
+    "tags": [
+      "desktop",
+      "framework"
+    ],
+    "intent": "how-to",
+    "depth": "standard",
+    "avoidOverlap": [
+      "electron-app-icon"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "canva favicon",
+    "slug": "canva-favicon",
+    "tags": [
+      "design",
+      "tools"
+    ],
+    "intent": "how-to",
+    "depth": "standard",
+    "avoidOverlap": [
+      "favicon-from-logo"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "figma favicon",
+    "slug": "figma-favicon",
+    "tags": [
+      "design",
+      "tools"
+    ],
+    "intent": "how-to",
+    "depth": "standard",
+    "avoidOverlap": [
+      "canva-favicon"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "gimp favicon ico",
+    "slug": "gimp-favicon",
+    "tags": [
+      "design",
+      "tools"
+    ],
+    "intent": "how-to",
+    "depth": "standard",
+    "avoidOverlap": [
+      "png-to-ico"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "inkscape favicon",
+    "slug": "inkscape-favicon",
+    "tags": [
+      "design",
+      "svg"
+    ],
+    "intent": "how-to",
+    "depth": "standard",
+    "avoidOverlap": [
+      "svg-to-ico"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "google sites favicon",
+    "slug": "google-sites-favicon",
+    "tags": [
+      "no-code",
+      "platform"
+    ],
+    "intent": "how-to",
+    "depth": "standard",
+    "avoidOverlap": [
+      "no-code-website-favicon"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "blogger favicon",
+    "slug": "blogger-favicon",
+    "tags": [
+      "no-code",
+      "platform"
+    ],
+    "intent": "how-to",
+    "depth": "standard",
+    "avoidOverlap": [],
+    "status": "pending"
+  },
+  {
+    "keyword": "carrd favicon",
+    "slug": "carrd-favicon",
+    "tags": [
+      "no-code",
+      "platform"
+    ],
+    "intent": "how-to",
+    "depth": "standard",
+    "avoidOverlap": [],
+    "status": "pending"
+  },
+  {
+    "keyword": "godaddy website builder favicon",
+    "slug": "godaddy-favicon",
+    "tags": [
+      "no-code",
+      "platform"
+    ],
+    "intent": "how-to",
+    "depth": "standard",
+    "avoidOverlap": [],
+    "status": "pending"
+  },
+  {
+    "keyword": "weebly favicon",
+    "slug": "weebly-favicon",
+    "tags": [
+      "no-code",
+      "platform"
+    ],
+    "intent": "how-to",
+    "depth": "standard",
+    "avoidOverlap": [],
+    "status": "pending"
+  },
+  {
+    "keyword": "bubble io favicon",
+    "slug": "bubble-favicon",
+    "tags": [
+      "no-code",
+      "platform"
+    ],
+    "intent": "how-to",
+    "depth": "standard",
+    "avoidOverlap": [],
+    "status": "pending"
+  },
+  {
+    "keyword": "chrome extension favicon api",
+    "slug": "chrome-extension-favicon-api",
+    "tags": [
+      "developer",
+      "chrome"
+    ],
+    "intent": "how-to",
+    "depth": "standard",
+    "avoidOverlap": [
+      "chrome-extension-icon-sizes"
+    ],
+    "status": "pending"
+  },
+  {
+    "keyword": "how to remove favicon",
+    "slug": "remove-favicon",
+    "tags": [
+      "how-to",
+      "basics"
+    ],
+    "intent": "how-to",
+    "depth": "standard",
+    "avoidOverlap": [],
     "status": "pending"
   }
 ]
