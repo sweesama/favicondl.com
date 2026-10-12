@@ -2770,7 +2770,9 @@
       "png-to-favicon",
       "svg-to-ico"
     ],
-    "status": "pending"
+    "status": "done",
+    "qualityScore": 87,
+    "qualityGrade": "A"
   },
   {
     "keyword": "ico to png converter",
