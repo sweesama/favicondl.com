@@ -1,0 +1,5 @@
+# Only mcp/package.json, mcp/package-lock.json and mcp/server.mjs are needed.
+*
+!mcp/package.json
+!mcp/package-lock.json
+!mcp/server.mjs

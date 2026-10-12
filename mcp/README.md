@@ -41,3 +41,14 @@ The result contains `ok`, `domain`, `size`, `iconUrl`, `proxyUrl`, and `source`.
 On Windows, use a path such as `C:/path/to/favicondl.com/mcp/server.mjs`.
 
 This is a local stdio MCP server, not a hosted remote MCP endpoint. It requires no API key and adds no server-side cost beyond the existing public API request.
+
+## Docker
+
+A `Dockerfile` at the repository root builds the server into a small image (used by MCP directories such as Glama):
+
+```bash
+docker build -t favicondl-mcp .
+docker run -i --rm favicondl-mcp
+```
+
+The container speaks MCP over stdio, so run it with `-i`.
