@@ -615,9 +615,9 @@ class FaviconTools {
                 zip.file(sizeInfo.name, base64Data, { base64: true });
             }
 
-            if (this.generatedIcons.has(32)) {
-                const ico32 = this.generatedIcons.get(32).split(',')[1];
-                zip.file('favicon.ico', ico32, { base64: true });
+            if (this.originalImage) {
+                const icoBlob = await this.createIcoBlob(this.originalImage, [16, 32, 48]);
+                zip.file('favicon.ico', icoBlob);
             }
 
             const manifest = this.generateManifest();
@@ -641,19 +641,75 @@ class FaviconTools {
         }
     }
 
+    // Build a real multi-image .ico file. Each entry is stored as PNG data,
+    // which the ICO format supports (Windows Vista+ and all current browsers).
+    static buildIcoBytes(entries) {
+        const count = entries.length;
+        const headerSize = 6 + 16 * count;
+        const total = headerSize + entries.reduce((n, e) => n + e.bytes.length, 0);
+        const out = new Uint8Array(total);
+        const view = new DataView(out.buffer);
+        view.setUint16(0, 0, true); // reserved
+        view.setUint16(2, 1, true); // type: icon
+        view.setUint16(4, count, true);
+        let offset = headerSize;
+        entries.forEach((e, i) => {
+            const dir = 6 + 16 * i;
+            out[dir] = e.size >= 256 ? 0 : e.size; // width (0 means 256)
+            out[dir + 1] = e.size >= 256 ? 0 : e.size; // height
+            out[dir + 2] = 0; // palette
+            out[dir + 3] = 0; // reserved
+            view.setUint16(dir + 4, 1, true); // color planes
+            view.setUint16(dir + 6, 32, true); // bits per pixel
+            view.setUint32(dir + 8, e.bytes.length, true);
+            view.setUint32(dir + 12, offset, true);
+            out.set(e.bytes, offset);
+            offset += e.bytes.length;
+        });
+        return out;
+    }
+
+    static dataUrlToBytes(dataUrl) {
+        const bin = atob(String(dataUrl).split(',')[1] || '');
+        const bytes = new Uint8Array(bin.length);
+        for (let i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+        return bytes;
+    }
+
+    // Returns a Blob containing a multi-size ICO (16, 32 and 48 px by default)
+    // rendered from the given image source.
+    async createIcoBlob(imageSrc, sizes = [16, 32, 48]) {
+        const unique = Array.from(new Set(sizes.map(Number).filter(n => n > 0 && n <= 256))).sort((a, b) => a - b);
+        const entries = [];
+        for (const size of unique) {
+            const dataUrl = await this.resizeImage(imageSrc, size);
+            entries.push({ size, bytes: FaviconTools.dataUrlToBytes(dataUrl) });
+        }
+        return new Blob([FaviconTools.buildIcoBytes(entries)], { type: 'image/x-icon' });
+    }
+
+    downloadBlob(blob, filename) {
+        const url = URL.createObjectURL(blob);
+        this.triggerDownload(url, filename);
+        setTimeout(() => URL.revokeObjectURL(url), 1000);
+    }
+
     async downloadAsIco() {
-        // ICO格式需要特殊处理，这里生成一个包含多尺寸的PNG作为替代
-        // 真正的ICO格式需要专门的库
-        if (this.generatedIcons.has(32)) {
-            const dataUrl = this.generatedIcons.get(32);
-            this.triggerDownload(dataUrl, 'favicon.ico');
+        if (!this.originalImage) {
+            this.showToast(this.currentLang === 'zh' ? '请先上传图片' : 'Please upload an image first.', 'error');
+            return;
+        }
+        try {
+            const blob = await this.createIcoBlob(this.originalImage, [16, 32, 48]);
+            this.downloadBlob(blob, 'favicon.ico');
             this.showToast(
                 this.currentLang === 'zh'
-                    ? 'favicon.ico 下载成功！（PNG格式，兼容现代浏览器）'
-                    : 'favicon.ico downloaded! (PNG format; compatible with modern browsers)'
+                    ? 'favicon.ico 下载成功！（包含 16、32、48 三种尺寸）'
+                    : 'favicon.ico downloaded! (contains 16, 32 and 48 px)'
             );
-        } else {
-            this.showToast(this.currentLang === 'zh' ? '请先生成32x32尺寸的图标' : 'Please generate a 32x32 icon first.', 'error');
+        } catch (error) {
+            console.error('ICO generation failed:', error);
+            this.showToast(this.currentLang === 'zh' ? 'ICO 生成失败，请重试' : 'Failed to generate ICO. Please try again.', 'error');
         }
     }
 
@@ -1193,7 +1249,18 @@ Project site: https://favicondl.com
             }
             
             const dataUrl = canvas.toDataURL(mimeType, 0.95);
-            this.convertedImage = dataUrl;
+            if (this.convertedObjectUrl) {
+                URL.revokeObjectURL(this.convertedObjectUrl);
+                this.convertedObjectUrl = null;
+            }
+            if (format === 'ico') {
+                // Real multi-image ICO with every selected size, not a renamed PNG.
+                const icoBlob = await this.createIcoBlob(this.convertSourceImage, sizes);
+                this.convertedObjectUrl = URL.createObjectURL(icoBlob);
+                this.convertedImage = this.convertedObjectUrl;
+            } else {
+                this.convertedImage = dataUrl;
+            }
             this.convertedExtension = extension;
             
             this.showConversionResult(format, dataUrl);
