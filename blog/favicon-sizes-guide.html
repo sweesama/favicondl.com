@@ -87,12 +87,12 @@
         <nav class="text-sm text-gray-400 mb-8">
             <a href="/" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
             <a href="/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
-            <span class="text-gray-600" data-en="Favicon Sizes Guide: What Sizes Do You Really Need?" data-zh="Favicon 尺寸指南：你到底需要哪些尺寸？" data-ja="Faviconサイズガイド：本当に必要なサイズは？" data-ko="Favicon 크기 가이드: 실제로 필요한 크기는?" data-es="Guía de tamaños de Favicon: ¿Qué tamaños necesitas realmente?">Favicon Sizes Guide: What Sizes Do You Really Need?</span>
+            <span class="text-gray-600" data-en="Favicon Sizes Guide: What Sizes Do You Really Need?" data-zh="Favicon 尺寸指南：你到底需要哪些尺寸？" data-ja="Faviconサイズガイド：本当に必要なサイズは？" data-ko="Favicon 크기 가이드: 실제로 필요한 크기는?" data-es="Tamaño del favicon: medidas recomendadas en píxeles (tabla 2026)">Favicon Sizes Guide: What Sizes Do You Really Need?</span>
         </nav>
 
         <header class="mb-10">
             <div class="flex items-center gap-3 mb-4"><span class="tag">guide</span><time class="text-sm text-gray-400">2026-02-13</time></div>
-            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight" data-en="Favicon Sizes Guide: What Sizes Do You Really Need?" data-zh="Favicon 尺寸指南：你到底需要哪些尺寸？" data-ja="Faviconサイズガイド：本当に必要なサイズは？" data-ko="Favicon 크기 가이드: 실제로 필요한 크기는?" data-es="Guía de tamaños de Favicon: ¿Qué tamaños necesitas realmente?">Favicon Sizes Guide: What Sizes Do You Really Need?</h1>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight" data-en="Favicon Sizes Guide: What Sizes Do You Really Need?" data-zh="Favicon 尺寸指南：你到底需要哪些尺寸？" data-ja="Faviconサイズガイド：本当に必要なサイズは？" data-ko="Favicon 크기 가이드: 실제로 필요한 크기는?" data-es="Tamaño del favicon: medidas recomendadas en píxeles (tabla 2026)">Favicon Sizes Guide: What Sizes Do You Really Need?</h1>
         </header>
 
         <div class="article-body" data-lang="en">
@@ -157,9 +157,10 @@
                 </tbody>
             </table>
         </div><template data-article-lang="es">
-            <p>Con tantos dispositivos, navegadores y plataformas, los tamaños de los favicon pueden ser confusos. ¿Necesitas 6 archivos diferentes? ¿O puedes arreglártelas con solo uno? Esta guía aclara todas tus dudas.</p>
+            <div class="info-box"><p><strong>Respuesta rápida:</strong> el tamaño estándar del favicon es <strong>32×32 px</strong> para la pestaña del navegador (con 16×16 como respaldo dentro de un <code>favicon.ico</code>). Añade un <strong>apple-touch-icon de 180×180 px</strong> para iPhone/iPad y <strong>iconos de 192×192 y 512×512 px</strong> en el manifest para Android y PWA. Google Search muestra el favicon a partir de un icono cuadrado de al menos 48×48 px.</p></div>
+            <p>Con tantos dispositivos, navegadores y plataformas, las medidas del favicon pueden ser confusas. ¿Necesitas 6 archivos diferentes o basta con uno? Abajo tienes la tabla de tamaños de favicon en píxeles, la configuración mínima y el código HTML para cada caso.</p>
 
-            <h2>Tabla completa de tamaños de Favicon</h2>
+            <h2>Tabla de tamaños y medidas del favicon (px)</h2>
             <table>
                 <thead><tr><th>Tamaño</th><th>Archivo</th><th>Usado por</th><th>¿Requerido?</th></tr></thead>
                 <tbody>
@@ -217,6 +218,17 @@
                     <tr><td>Dock de macOS (PWA)</td><td>512×512</td><td>PNG</td></tr>
                 </tbody>
             </table>
+
+            <h2>Preguntas frecuentes sobre el tamaño del favicon</h2>
+            <h3>¿Cuál es el tamaño ideal de un favicon?</h3>
+            <p>32×32 px para las pestañas del navegador. Si solo puedes subir una imagen (por ejemplo en WordPress o Shopify), usa un PNG cuadrado de 512×512 px y deja que la plataforma genere los tamaños pequeños.</p>
+            <h3>¿Qué medidas debe tener el favicon para Google?</h3>
+            <p>Google pide un icono cuadrado de al menos 48×48 px (o múltiplos: 96×96, 144×144…). Un favicon de 16×16 es demasiado pequeño para los resultados de búsqueda.</p>
+            <h3>¿Cuánto debe pesar un favicon?</h3>
+            <p>Lo ideal es menos de 10 KB para el <code>favicon.ico</code> y menos de 50 KB para el icono de 512×512. Un SVG sencillo suele pesar 1–2 KB.</p>
+            <h3>¿Un favicon puede ser rectangular?</h3>
+            <p>No. Todas las medidas del favicon son cuadradas (1:1). Una imagen rectangular se recorta o se deforma.</p>
+            <p>Para ver qué tamaños usa cualquier web, introduce su dominio en el <a href="/">descargador de favicon</a> de Mzu favicondl; también puedes consultar la <a href="/blog/favicon-ico-size.html">guía del tamaño de favicon.ico</a> y la de <a href="/blog/apple-touch-icon-sizes.html">tamaños de apple-touch-icon</a>.</p>
         </template><template data-article-lang="ko">
             <p>수많은 기기, 브라우저, 플랫폼으로 인해 favicon 크기는 혼란스러울 수 있습니다. 6가지 다른 파일이 필요한가요? 아니면 하나로 충분할까요? 이 가이드가 그 혼란을 해결해 드립니다.</p>
 
