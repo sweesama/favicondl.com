@@ -2786,7 +2786,9 @@
     "avoidOverlap": [
       "favicon-not-showing-chrome"
     ],
-    "status": "pending"
+    "status": "done",
+    "qualityScore": 72,
+    "qualityGrade": "B"
   },
   {
     "keyword": "clear favicon cache safari iphone and mac",

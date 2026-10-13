@@ -818,6 +818,16 @@ file_put_contents('example-favicon', getFavicon('example.com', 128));
                 </section>
 
                 <!-- Rate Limits Section -->
+                <section id="openapi-mcp" class="mb-12">
+                    <div class="bg-white rounded-lg shadow-sm p-8">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-6">OpenAPI spec and MCP server</h2>
+                        <ul class="text-gray-700 space-y-3">
+                            <li><strong>OpenAPI 3 spec:</strong> <a href="/openapi.yaml" class="text-blue-600 hover:underline">https://favicondl.com/openapi.yaml</a> — import it into Postman, Insomnia or a client generator.</li>
+                            <li><strong>MCP server:</strong> <a href="https://github.com/sweesama/favicondl.com/tree/main/mcp" class="text-blue-600 hover:underline" rel="noopener">favicondl MCP</a> (registry name <code>io.github.sweesama/favicondl</code>) exposes an <code>extract_favicon</code> tool so Claude, Cursor and other MCP clients can fetch icons.</li>
+                        </ul>
+                    </div>
+                </section>
+
                 <section id="rate-limits" class="mb-12">
                     <div class="bg-white rounded-lg shadow-sm p-8">
                         <h2 class="text-2xl font-bold text-gray-900 mb-6">요청 제한</h2>
