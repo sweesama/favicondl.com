@@ -1,0 +1,100 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favicon Embed Code &amp; Badge: Show Any Site's Icon With One img Tag</title>
+    <meta name="description" content="Free copy-paste code to show any website's favicon with an img tag via the FaviconDL API, plus a 'Favicons by FaviconDL' badge for your README or site.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/favicon-embed.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://favicondl.com/favicon-embed.html">
+    <meta property="og:title" content="Favicon Embed Code &amp; Badge: Show Any Site's Icon With One img Tag">
+    <meta property="og:description" content="Free copy-paste code to show any website's favicon with an img tag via the FaviconDL API, plus a 'Favicons by FaviconDL' badge for your README or site.">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Favicon Embed Code &amp; Badge: Show Any Site's Icon With One img Tag">
+    <meta name="twitter:description" content="Free copy-paste code to show any website's favicon with an img tag via the FaviconDL API, plus a 'Favicons by FaviconDL' badge for your README or site.">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/documentation.html" class="nav-link" data-en="Docs" data-zh="文档">Docs</a>
+                <a href="/tools.html" class="nav-link" data-en="Tools" data-zh="工具">Tools</a>
+                <a href="/blog/" class="nav-link" data-en="Blog" data-zh="博客">Blog</a>
+                </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8"><a href="/" class="hover:text-gray-600">Home</a><span class="mx-2">/</span><span class="text-gray-600">Embed &amp; badge</span></nav>
+        <div class="article-body">
+            <h1>Favicon embed code and badge</h1>
+            <p>Need the icon of another website in a link list, bookmark page, dashboard or Notion-style doc? The FaviconDL API returns the best icon it can find for any domain, so a single <code>&lt;img&gt;</code> tag is enough. It is free and needs no API key.</p>
+
+            <h2>1. Show any site's favicon with one img tag</h2>
+            <pre><code>&lt;img src="https://favicondl.com/api/extract?url=github.com&amp;amp;size=32"
+     width="16" height="16" alt="" loading="lazy"&gt;</code></pre>
+            <p>Live example: <img src="/api/extract?url=github.com&amp;size=32" width="16" height="16" alt="" loading="lazy" style="display:inline;vertical-align:-2px"> github.com · <img src="/api/extract?url=wikipedia.org&amp;size=32" width="16" height="16" alt="" loading="lazy" style="display:inline;vertical-align:-2px"> wikipedia.org</p>
+            <ul>
+                <li><code>url</code>: a domain or full URL.</li>
+                <li><code>size</code>: the size you prefer in pixels; the API picks the closest icon the site offers. Request 2× the displayed size (for example 32 for a 16 px icon) so it stays sharp on Retina screens.</li>
+                <li>Add <code>format=json</code> to get the icon URL and metadata instead of the image. All options are in the <a href="/documentation.html">API documentation</a>.</li>
+            </ul>
+            <div class="info-box"><p><strong>Tip:</strong> keep <code>alt=""</code> when the site name is already written next to the icon, so screen readers do not read it twice, and keep <code>width</code>/<code>height</code> so the layout does not jump while icons load.</p></div>
+
+            <h2>2. Markdown (README, docs, wikis)</h2>
+            <pre><code>![](https://favicondl.com/api/extract?url=github.com&amp;size=32) [GitHub](https://github.com)</code></pre>
+            <p>GitHub and most Markdown renderers will show the icon inline. GitHub proxies images through its own cache, so a changed favicon may take a while to update.</p>
+
+            <h2>3. "Favicons by FaviconDL" badge</h2>
+            <p>If FaviconDL saves you time, a small credit helps other developers find it. Preview:</p>
+            <p><a href="https://favicondl.com/"><img src="/badges/favicons-by-favicondl.svg" width="168" height="28" alt="Favicons by FaviconDL"></a></p>
+            <p><strong>HTML</strong></p>
+            <pre><code>&lt;a href="https://favicondl.com/"&gt;&lt;img src="https://favicondl.com/badges/favicons-by-favicondl.svg"
+   width="168" height="28" alt="Favicons by FaviconDL"&gt;&lt;/a&gt;</code></pre>
+            <p><strong>Markdown</strong></p>
+            <pre><code>[![Favicons by FaviconDL](https://favicondl.com/badges/favicons-by-favicondl.svg)](https://favicondl.com/)</code></pre>
+            <p><strong>Plain text link</strong></p>
+            <pre><code>Favicons via &lt;a href="https://favicondl.com/"&gt;FaviconDL&lt;/a&gt;</code></pre>
+
+            <h2>Fair use</h2>
+            <ul>
+                <li>The icons belong to their websites. Show them to identify the site, not as your own logo.</li>
+                <li>For high-traffic pages, cache icons on your side (or use the <a href="/documentation.html">API</a> once and store the result) instead of requesting the same icon on every page view.</li>
+                <li>Need the right sizes for your own site's favicon? See the <a href="/blog/favicon-sizes-guide.html">favicon sizes guide</a> or generate them with the <a href="/tools.html">free tools</a>.</li>
+            </ul>
+        </div>
+    </article>
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© <script>document.write(new Date().getFullYear())</script> Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Home" data-zh="首页">Home</a>
+                <a href="/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Blog" data-zh="博客">Blog</a>
+                <a href="/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Privacy" data-zh="隐私政策">Privacy</a>
+            </div>
+        </div>
+    </footer>
+
+</body></html>
