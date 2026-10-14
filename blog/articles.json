@@ -3731,5 +3731,26 @@
     ],
     "qualityScore": 72,
     "qualityGrade": "B"
+  },
+  {
+    "slug": "clear-favicon-cache-safari",
+    "publishDate": "2026-10-14",
+    "titleEn": "Clear Favicon Cache on Safari: iPhone and Mac Guide",
+    "titleZh": "清除 Safari iPhone 和 Mac 的图标缓存",
+    "titleJa": "Safariのファビコンキャッシュを消す方法：iPhoneとMacガイド",
+    "titleKo": "Safari iPhone 및 Mac 파비콘 캐시 지우기 가이드",
+    "titleEs": "Borrar caché de favicon en Safari: iPhone y Mac",
+    "descEn": "Step-by-step guide to clear favicon cache on Safari iPhone and Mac. Force Safari to refresh your website icon in tabs, bookmarks, and home screen shortcuts.",
+    "descZh": "详细教程，教你如何清除 Safari 在 iPhone 和 Mac 上的图标缓存，强制刷新标签页、书签与主屏幕图标。",
+    "descJa": "SafariのiPhoneとMacでファビコンキャッシュをクリアする手順を解説。タブ、ブックマーク、ホーム画面のアイコンを強制更新します。",
+    "descKo": "Safari iPhone 및 Mac에서 파비콘 캐시를 지우는 단계별 가이드. 탭, 북마크, 홈 화면 아이콘을 새로 고쳐 보세요.",
+    "descEs": "Guía paso a paso para borrar la caché de favicon en Safari iPhone y Mac. Fuerza a Safari a actualizar el icono en pestañas, marcadores y accesos.",
+    "keyword": "clear favicon cache safari iphone and mac",
+    "tags": [
+      "troubleshooting",
+      "safari"
+    ],
+    "qualityScore": 95,
+    "qualityGrade": "A"
   }
 ]

@@ -2803,7 +2803,9 @@
       "favicon-cache-clear",
       "favicon-ios-safari"
     ],
-    "status": "pending"
+    "status": "done",
+    "qualityScore": 95,
+    "qualityGrade": "A"
   },
   {
     "keyword": "why is my favicon blurry",
