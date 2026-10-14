@@ -46,7 +46,7 @@
   "headline": "Favicon Sizes Guide: What Sizes Do You Really Need?",
   "description": "The definitive guide to favicon sizes in 2026. From 16x16 to 512x512, learn what each size is for.",
   "datePublished": "2026-02-13",
-  "dateModified": "2026-02-13",
+  "dateModified": "2026-10-14",
   "author": {
     "@type": "Organization",
     "name": "Mzu favicondl"
@@ -156,6 +156,16 @@
                     <tr><td>macOS Dock (PWA)</td><td>512×512</td><td>PNG</td></tr>
                 </tbody>
             </table>
+
+            <h2>Official specs behind these sizes</h2>
+            <p>The key sizes come from published platform documents, so you can check them yourself:</p>
+            <ul>
+                <li><strong>Google Search:</strong> a square favicon of at least 8×8 px, preferably larger than 48×48 px. <a href="https://developers.google.com/search/docs/appearance/favicon-in-search" rel="noopener" target="_blank">Google Search Central: Define a favicon to show in search results</a></li>
+                <li><strong>apple-touch-icon:</strong> the <code>&lt;link rel="apple-touch-icon" sizes="180x180"&gt;</code> syntax. <a href="https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html" rel="noopener" target="_blank">Apple Safari Web Content Guide: Configuring Web Applications</a></li>
+                <li><strong>Manifest icons (192×192 and 512×512):</strong> <a href="https://web.dev/articles/add-manifest" rel="noopener" target="_blank">web.dev: Add a web app manifest</a></li>
+                <li><strong><code>&lt;link rel="icon" sizes&gt;</code> syntax:</strong> <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/rel#icon" rel="noopener" target="_blank">MDN: rel="icon"</a></li>
+            </ul>
+            <p>Showing favicons of other sites in your own app or link list? See the <a href="/favicon-embed.html">favicon embed code and badge</a>.</p>
         </div><template data-article-lang="es">
             <div class="info-box"><p><strong>Respuesta rápida:</strong> el tamaño estándar del favicon es <strong>32×32 px</strong> para la pestaña del navegador (con 16×16 como respaldo dentro de un <code>favicon.ico</code>). Añade un <strong>apple-touch-icon de 180×180 px</strong> para iPhone/iPad y <strong>iconos de 192×192 y 512×512 px</strong> en el manifest para Android y PWA. Google Search muestra el favicon a partir de un icono cuadrado de al menos 48×48 px.</p></div>
             <p>Con tantos dispositivos, navegadores y plataformas, las medidas del favicon pueden ser confusas. ¿Necesitas 6 archivos diferentes o basta con uno? Abajo tienes la tabla de tamaños de favicon en píxeles, la configuración mínima y el código HTML para cada caso.</p>
