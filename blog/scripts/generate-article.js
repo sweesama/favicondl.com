@@ -7,6 +7,7 @@
  * - Schema.org Bug 修复：JSON-LD 改用 JSON.stringify（不再错误使用 HTML 实体）
  * - 温度 0.55：平衡准确性与可读性
  * - API 超时与失效模型熔断：404/410 后本轮不再重复调用
+ * - 长翻译：单独放宽单次时限，超时按指数退避重试后再降级；超长正文分段翻译。任一段失败仍整篇回滚，不发布残缺文章
  * - 官方来源注入：平台、框架和浏览器事实必须有第一方链接
  * - 元数据局部修复：缺少单个语言描述时不再废弃整篇文章
  * - 动态版权年份
@@ -75,8 +76,16 @@ const TRANSLATION_MODELS = parseModelList(process.env.BLOG_TRANSLATION_MODEL_LIS
 const MAX_RETRIES = 2;
 const RETRY_DELAY_MS = 12000;
 const API_TIMEOUT_MS = Number(process.env.BLOG_API_TIMEOUT_MS || 180000);
-const TRANSLATION_API_TIMEOUT_MS = Number(process.env.BLOG_TRANSLATION_API_TIMEOUT_MS || 180000);
+// 2026-10-15 run 38680160513：日语整篇在 MiniMax-M3 与 deepseek-v4-flash 上都于 180s
+// 被客户端中止（Request was aborted / The user aborted a request），英文和中文已成功。
+// 翻译单独给 8 分钟，避免把仍在生成的长响应掐断；真正超长的正文还会再分段。
+const TRANSLATION_API_TIMEOUT_MS = Number(process.env.BLOG_TRANSLATION_API_TIMEOUT_MS || 480000);
+// 一段大约能在数分钟内译完的 HTML。短于该长度的正文仍一次翻译，校验规则不变。
+const TRANSLATION_CHUNK_CHAR_BUDGET = Number(process.env.BLOG_TRANSLATION_CHUNK_CHARS || 2400);
+// 同一次运行里，某个模型把重试用尽仍超时达到该次数后才熔断。一次慢响应不会关掉刚成功过的主模型。
+const TIMEOUT_STRIKES_BEFORE_DISABLE = 2;
 const disabledModels = new Set();
+const timeoutStrikes = new Map();
 
 const GENERAL_FAVICON_SOURCE = 'https://html.spec.whatwg.org/multipage/links.html#rel-icon';
 const SOURCE_EVIDENCE = new Map([
@@ -513,7 +522,7 @@ CRITICAL: Do NOT use literal newlines inside string values. Export strings as si
 // 翻译 Prompt — 根据英文正文生成单语言内容（文化适配，非直译）
 // ============================================================
 
-function buildTranslationPrompt(englishContent, englishTitle, langCode, keyword) {
+function buildTranslationPrompt(englishContent, englishTitle, langCode, keyword, scope = null) {
   const langMap = {
     Zh: {
       name: 'Chinese',
@@ -540,6 +549,15 @@ function buildTranslationPrompt(englishContent, englishTitle, langCode, keyword)
   const lang = langMap[langCode];
   if (!lang) throw new Error(`未知语言代码: ${langCode}`);
 
+  const fragmentScope = scope
+    ? `
+=== FRAGMENT SCOPE ===
+This HTML is fragment ${scope.part} of ${scope.total} of one article about "${keyword}".
+Translate only this fragment. Do not add a title, introduction, conclusion, or sections that are not in the fragment.
+Fragments are concatenated in order afterward. Keep every block-level tag and every href in this fragment in the same order.
+`
+    : '';
+
   return `You are a professional ${lang.name} tech blogger. Adapt the following English article into ${lang.nativeName}.
 CRITICAL: This is not a word-for-word translation. Produce fluent native-language prose while keeping the source article's meaning, evidence, and limitations intact.
 
@@ -557,7 +575,7 @@ ${lang.rules}
 - Do NOT translate code inside <pre><code> blocks
 - Keep markup shown inside <code> or <pre> escaped as &amp;lt; and &amp;gt;; never turn it into live page-level HTML.
 - HTML only, no markdown
-
+${fragmentScope}
 === HTML RULES ===
 - Use single quotes for all HTML attributes (e.g., <a href='/link' class='btn'>).
 - Do NOT use double quotes in HTML attributes.
@@ -614,7 +632,7 @@ function getProviderClient(provider) {
 
 function classifyModelError(error) {
   const status = getErrorStatus(error);
-  const message = error?.message || '';
+  const message = `${error?.name || ''} ${error?.message || ''}`;
   if (error?.code === 'PROVIDER_UNCONFIGURED') return 'unconfigured';
   if (status === 401 || status === 403) return 'auth';
   if (status === 404 || status === 410 || status === 400) return 'permanent';
@@ -624,6 +642,41 @@ function classifyModelError(error) {
   if (error?.code === 'INVALID_MODEL_OUTPUT') return 'retryable-output';
   if (/JSON|空响应/i.test(message)) return 'retryable-output';
   return 'unknown';
+}
+
+function delay(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+function retryBackoffMs(kind, attempt) {
+  const step = Math.max(1, attempt);
+  if (kind === 'timeout') return Math.min(30000, 5000 * (2 ** (step - 1)));
+  if (kind === 'transient') return Math.min(30000, RETRY_DELAY_MS * (2 ** (step - 1)));
+  return Math.min(15000, 3000 * step);
+}
+
+function noteModelSuccess(modelName) {
+  timeoutStrikes.delete(modelName);
+}
+
+function noteTimeoutExhausted(modelName) {
+  const strikes = (timeoutStrikes.get(modelName) || 0) + 1;
+  timeoutStrikes.set(modelName, strikes);
+  if (strikes >= TIMEOUT_STRIKES_BEFORE_DISABLE) {
+    disabledModels.add(modelName);
+    console.log(`  ⛔ ${modelName} 连续 ${strikes} 次超时且重试已用尽，本轮熔断，后续任务改用其他模型`);
+    return;
+  }
+  console.log(`  ↪ ${modelName} 超时且重试已用尽，本次改用下一个模型（尚未熔断）`);
+}
+
+function resetRoutingStateForTests() {
+  disabledModels.clear();
+  timeoutStrikes.clear();
+}
+
+function isModelDisabled(modelName) {
+  return disabledModels.has(modelName);
 }
 
 function requireStringFields(data, fields, label = '模型输出') {
@@ -672,7 +725,9 @@ async function requestModel(modelName, prompt, temperature, useJsonMode = true, 
   }
 }
 
-async function callAI(prompt, label, temperature = 0.55, models = ARTICLE_MODELS, timeoutMs = API_TIMEOUT_MS, validateResponse = null) {
+async function callAI(prompt, label, temperature = 0.55, models = ARTICLE_MODELS, timeoutMs = API_TIMEOUT_MS, validateResponse = null, options = {}) {
+  const invoke = options.requestModel || requestModel;
+  const sleep = options.sleep || delay;
   let lastError;
   for (const modelName of models) {
     if (disabledModels.has(modelName)) {
@@ -681,14 +736,15 @@ async function callAI(prompt, label, temperature = 0.55, models = ARTICLE_MODELS
     }
     for (let attempt = 1; attempt <= MAX_RETRIES; attempt++) {
       try {
-        console.log(`  → [${label}] 模型 ${modelName} (第 ${attempt}/${MAX_RETRIES} 次)...`);
-        const result = await requestModel(modelName, prompt, temperature, true, timeoutMs);
+        console.log(`  → [${label}] 模型 ${modelName} (第 ${attempt}/${MAX_RETRIES} 次, 超时 ${Math.round(timeoutMs / 1000)}s)...`);
+        const result = await invoke(modelName, prompt, temperature, true, timeoutMs);
         const responseText = result.choices?.[0]?.message?.content;
         if (!responseText || responseText.trim() === '') {
           throw new Error('API 返回了空响应');
         }
         const data = parseAIResponse(responseText);
         if (validateResponse) validateResponse(data);
+        noteModelSuccess(modelName);
         console.log(`  ✅ [${label}] ${modelName} 响应成功 (${responseText.length} 字符)`);
         return data;
       } catch (error) {
@@ -713,16 +769,15 @@ async function callAI(prompt, label, temperature = 0.55, models = ARTICLE_MODELS
           console.log(`  ⛔ ${modelName} 本轮熔断，后续语言任务不再重复调用`);
           break;
         }
-        if (kind === 'timeout') {
-          disabledModels.add(modelName);
-          console.log(`  ⛔ ${modelName} 本轮超时熔断，后续语言任务改用其他模型`);
+        if (kind === 'timeout' || ['transient', 'retryable-output', 'unknown'].includes(kind)) {
+          if (attempt < MAX_RETRIES) {
+            const waitMs = retryBackoffMs(kind, attempt);
+            console.log(`  ⏳ [${label}] ${modelName} 将在 ${waitMs / 1000} 秒后重试同一模型...`);
+            await sleep(waitMs);
+            continue;
+          }
+          if (kind === 'timeout') noteTimeoutExhausted(modelName);
           break;
-        }
-        if (attempt < MAX_RETRIES && ['transient', 'retryable-output', 'unknown'].includes(kind)) {
-          const delay = kind === 'transient' ? RETRY_DELAY_MS : 3000;
-          console.log(`  ⏳ 等待 ${delay / 1000} 秒后重试...`);
-          await new Promise(resolve => setTimeout(resolve, delay));
-          continue;
         }
         break;
       }
@@ -733,7 +788,117 @@ async function callAI(prompt, label, temperature = 0.55, models = ARTICLE_MODELS
 }
 
 // ============================================================
-// AI 调用 — 英文主文 + 四次短翻译（避免单次超大输出超时）
+// 长翻译分段 — 只在顶层块边界切开，拼回去必须等于原文
+// ============================================================
+
+function splitTopLevelHtmlBlocks(html) {
+  const source = String(html || '');
+  const blocks = [];
+  const tagRe = /<\/?([a-zA-Z][\w:-]*)\b[^>]*?>/g;
+  let depth = 0;
+  let origin = 0;
+  let match;
+  while ((match = tagRe.exec(source)) !== null) {
+    const full = match[0];
+    const tag = match[1].toLowerCase();
+    const isClose = full.startsWith('</');
+    const isSelfClosing = /\/\s*>$/.test(full) || VOID_CONTENT_TAGS.has(tag);
+    if (isClose) {
+      if (depth > 0) depth -= 1;
+      if (depth === 0) {
+        blocks.push(source.slice(origin, tagRe.lastIndex));
+        origin = tagRe.lastIndex;
+      }
+    } else if (isSelfClosing) {
+      if (depth === 0) {
+        blocks.push(source.slice(origin, tagRe.lastIndex));
+        origin = tagRe.lastIndex;
+      }
+    } else {
+      depth += 1;
+    }
+  }
+  if (origin < source.length) {
+    const tail = source.slice(origin);
+    if (blocks.length > 0) blocks[blocks.length - 1] += tail;
+    else blocks.push(tail);
+  }
+  return blocks.filter(block => block.length > 0);
+}
+
+function splitTranslationChunks(html, budget = TRANSLATION_CHUNK_CHAR_BUDGET) {
+  const source = String(html || '');
+  const limit = Number.isFinite(budget) && budget > 0 ? budget : TRANSLATION_CHUNK_CHAR_BUDGET;
+  const blocks = splitTopLevelHtmlBlocks(source);
+  if (blocks.length === 0) return [source];
+  if (source.length <= limit) return [blocks.join('')];
+
+  const chunks = [];
+  let current = [];
+  let size = 0;
+  const flush = () => {
+    if (current.length === 0) return;
+    chunks.push(current.join(''));
+    current = [];
+    size = 0;
+  };
+
+  for (const block of blocks) {
+    const startsSection = /^\s*<h2\b/i.test(block);
+    const wouldOverflow = current.length > 0 && size + block.length > limit;
+    if (wouldOverflow && (startsSection || size >= limit * 0.5 || block.length > limit)) {
+      flush();
+    }
+    current.push(block);
+    size += block.length;
+    if (size >= limit) flush();
+  }
+  flush();
+  return chunks.length > 0 ? chunks : [source];
+}
+
+async function translateArticleBody(englishContent, englishTitle, lang, keyword, options = {}) {
+  const budget = options.chunkBudget || TRANSLATION_CHUNK_CHAR_BUDGET;
+  const chunks = splitTranslationChunks(englishContent, budget);
+  if (chunks.join('') !== String(englishContent || '')) {
+    throw new Error('翻译分块与英文原文不一致，已中止以避免残缺文章');
+  }
+  if (chunks.length > 1) {
+    console.log(`  ✂️ [${lang.name}] 正文 ${String(englishContent || '').length} 字符，拆成 ${chunks.length} 段翻译`);
+  }
+
+  const translatedChunks = [];
+  for (let i = 0; i < chunks.length; i++) {
+    const scope = chunks.length > 1 ? { part: i + 1, total: chunks.length } : null;
+    const label = chunks.length > 1 ? `translate-${lang.code}#${i + 1}` : `translate-${lang.code}`;
+    const prompt = buildTranslationPrompt(chunks[i], englishTitle, lang.code, keyword, scope);
+    const translation = await callAI(
+      prompt,
+      label,
+      0.45,
+      options.models || TRANSLATION_MODELS,
+      options.timeoutMs || TRANSLATION_API_TIMEOUT_MS,
+      candidate => {
+        requireStringFields(candidate, ['content'], `${lang.name}翻译输出`);
+        const repairedContent = escapeUnexpectedHtmlTags(candidate.content);
+        if (repairedContent !== candidate.content) {
+          console.log(`  🔧 [${label}] 已将误生成的未知 HTML 标签转回可见文本`);
+          candidate.content = repairedContent;
+        }
+        validateTranslationContent(chunks[i], candidate.content, `${lang.name}翻译输出`);
+      },
+      options,
+    );
+    translatedChunks.push(translation.content);
+  }
+
+  const content = translatedChunks.join('');
+  validateTranslationContent(englishContent, content, `${lang.name}翻译输出`);
+  return content;
+}
+
+// ============================================================
+// AI 调用 — 英文主文 + 四次翻译（长正文分段，避免单次超时）
 // ============================================================
 
 const MAIN_REQUIRED_FIELDS = REQUIRED_FIELDS.filter(field => !['contentZh', 'contentJa', 'contentKo', 'contentEs'].includes(field));
@@ -870,25 +1035,9 @@ async function generateArticleContent(keyword, slug, tags, existingArticles, int
   for (let index = 0; index < languages.length; index++) {
     const lang = languages[index];
     console.log(`\n🌐 [${index + 2}/5] 正在生成${lang.name}正文...`);
-    const translationPrompt = buildTranslationPrompt(data.contentEn, data.titleEn, lang.code, keyword);
-    const translation = await callAI(
-      translationPrompt,
-      `translate-${lang.code}`,
-      0.45,
-      TRANSLATION_MODELS,
-      TRANSLATION_API_TIMEOUT_MS,
-      candidate => {
-        requireStringFields(candidate, ['content'], `${lang.name}翻译输出`);
-        const repairedContent = escapeUnexpectedHtmlTags(candidate.content);
-        if (repairedContent !== candidate.content) {
-          console.log(`  🔧 [translate-${lang.code}] 已将误生成的未知 HTML 标签转回可见文本`);
-          candidate.content = repairedContent;
-        }
-        validateTranslationContent(data.contentEn, candidate.content, `${lang.name}翻译输出`);
-      },
-    );
-    data[`content${lang.code}`] = translation.content;
-    console.log(`  ✅ ${lang.name}正文生成完成 (${translation.content.length} 字符)`);
+    const translatedContent = await translateArticleBody(data.contentEn, data.titleEn, lang, keyword);
+    data[`content${lang.code}`] = translatedContent;
+    console.log(`  ✅ ${lang.name}正文生成完成 (${translatedContent.length} 字符)`);
     if (index < languages.length - 1) await new Promise(resolve => setTimeout(resolve, 3000));
   }
 
@@ -1724,17 +1873,25 @@ function validateTranslationContent(sourceHtml, translatedHtml, label = '翻译�
 }
 
 export {
+  API_TIMEOUT_MS,
   ARTICLE_MODELS,
+  TRANSLATION_API_TIMEOUT_MS,
   TRANSLATION_MODELS,
+  callAI,
   classifyModelError,
   escapeUnexpectedHtmlTags,
   ensureFirstPartyEvidence,
+  isModelDisabled,
   normalizeDescription,
   parseModelList,
   parseModelRoute,
   requireStringFields,
   repairMissingMetadata,
+  resetRoutingStateForTests,
   resolveOfficialSources,
+  retryBackoffMs,
+  splitTranslationChunks,
+  translateArticleBody,
   validateTranslationContent,
   validateKnownPlatformClaims,
   validateArticleData,
