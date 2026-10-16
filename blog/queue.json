@@ -2819,7 +2819,9 @@
     "avoidOverlap": [
       "retina-favicon-high-dpi"
     ],
-    "status": "pending"
+    "status": "done",
+    "qualityScore": 95,
+    "qualityGrade": "A"
   },
   {
     "keyword": "apple touch icon svg support",
