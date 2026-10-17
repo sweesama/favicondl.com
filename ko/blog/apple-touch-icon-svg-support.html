@@ -1,0 +1,168 @@
+<!DOCTYPE html><html lang="ko"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apple Touch Icon SVG 지원: 실제로 작동하는 설정 가이드</title>
+    <meta name="description" content="Apple Touch Icon의 SVG 지원에는 한계가 있으며 iOS 홈 화면은 여전히 PNG를 사용합니다. 실제로 작동하는 SVG와 PNG 조합을 안내합니다.">
+    <meta name="keywords" content="apple touch icon svg support, apple touch icon png, svg favicon safari, ios home screen icon">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/ko/blog/apple-touch-icon-svg-support.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/apple-touch-icon-svg-support.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/apple-touch-icon-svg-support.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/apple-touch-icon-svg-support.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/apple-touch-icon-svg-support.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/apple-touch-icon-svg-support.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/apple-touch-icon-svg-support.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/ko/blog/apple-touch-icon-svg-support.html">
+    <meta property="og:title" content="Apple Touch Icon SVG 지원: 실제로 작동하는 설정 가이드">
+    <meta property="og:description" content="Apple Touch Icon의 SVG 지원에는 한계가 있으며 iOS 홈 화면은 여전히 PNG를 사용합니다. 실제로 작동하는 SVG와 PNG 조합을 안내합니다.">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Apple Touch Icon SVG 지원: 실제로 작동하는 설정 가이드">
+    <meta name="twitter:description" content="Apple Touch Icon의 SVG 지원에는 한계가 있으며 iOS 홈 화면은 여전히 PNG를 사용합니다. 실제로 작동하는 SVG와 PNG 조합을 안내합니다.">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Apple Touch Icon SVG 지원: 실제로 작동하는 설정 가이드",
+  "description": "Apple Touch Icon의 SVG 지원에는 한계가 있으며 iOS 홈 화면은 여전히 PNG를 사용합니다. 실제로 작동하는 SVG와 PNG 조합을 안내합니다.",
+  "datePublished": "2026-10-17",
+  "dateModified": "2026-10-17",
+  "author": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "mainEntityOfPage": "https://favicondl.com/ko/blog/apple-touch-icon-svg-support.html",
+  "inLanguage": "ko"
+}</script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/ko/" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/ko/documentation.html" class="nav-link">문서</a>
+                <a href="/ko/tools.html" class="nav-link">도구</a>
+                <a href="/ko/blog/" class="nav-link">블로그</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/apple-touch-icon-svg-support.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/apple-touch-icon-svg-support.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/apple-touch-icon-svg-support.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/apple-touch-icon-svg-support.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/apple-touch-icon-svg-support.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/ko/" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/ko/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600">Apple Touch Icon SVG 지원: 실제로 작동하는 설정 가이드</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">apple</span><time class="text-sm text-gray-400">2026-10-17</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">Apple Touch Icon SVG 지원: 실제로 작동하는 설정 가이드</h1>
+        </header>
+
+        <div class="article-body"><p>여러분은 <code>&lt;link rel='icon' type='image/svg+xml'&gt;</code>를 사용해 사이트에 멋진 SVG favicon을 추가했습니다. Chrome에서는 또렷하게 보이고, 다크 모드에서도 완벽하게 확대됩니다. 그런데 iPhone 사용자가 사이트를 홈 화면에 저장하면, 여러분의 선명한 마크 대신 흐릿한 페이지 스크린샷이 표시됩니다.</p>
+<p>이건 여러분이 뭔가 잘못한 게 아닙니다. Apple Touch Icon과 SVG는 Apple의 시각에서 보면 두 가지 별개의 사안이며, 이 둘의 관계는 숙련된 개발자도 혼란스럽게 만듭니다. 지금 Safari와 iOS에서 실제로 작동하는 방식, 그리고 모든 상황에서 또렷하게 보이는 설정을 배포하는 방법을 정확히 정리해 드리겠습니다.</p>
+<h2>짧은 답변: Apple은 apple-touch-icon에 대해 SVG를 공식적으로 지원하지 않습니다</h2>
+<p><code>apple-touch-icon</code> link 관계에 대한 Apple의 문서는 한 번도 SVG를 지원 형식으로 명시한 적이 없습니다. iOS는 홈 화면 아이콘에 대해 여전히 PNG(덜 흔하지만 JPEG) 비트맵을 기대하며, MIME type이 아니라 size 속성을 기준으로 해당 파일을 선택합니다.</p>
+<p>반면 <code>rel='icon'</code>을 통한 SVG favicon은 잘 지원되며, Safari는 이를 브라우저 탭과 고정 탭(pinned tab)에 사용합니다. WHATWG HTML Living Standard는 페이지 아이콘을 선언하는 메커니즘으로 <a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon"><code>rel='icon'</code> 키워드</a>를 정의하고 있으며, Safari iOS는 SVG에 대해 이를 깔끔하게 구현합니다. 다만 이 경로는 홈 화면과는 별개의 코드 경로입니다.</p>
+<p>따라서 개발자들이 apple touch icon SVG support를 검색할 때 얻어야 할 솔직한 답은 이렇습니다: 둘 다 제공하세요. 탭에는 SVG를, 홈 화면에는 PNG를 사용하세요. <code>apple-touch-icon</code>을 SVG 파일로 지정하려고 시도하면 iOS에서는 조용히 페이지 스크린샷으로 fallback 처리되는데, 이게 바로 여러분이 피하고자 했던 흐릿한 정사각형 그 자체입니다.</p>
+<h2>사전 준비 사항</h2>
+<ul>
+<li>깔끔한 SVG 원본 파일 (정사각형 <code>viewBox</code>, 예: <code>0 0 100 100</code>, 가능하면 5 KB 미만)</li>
+<li>동일한 디자인의 180×180 PNG 익스포트, 불투명 배경</li>
+<li>사이트의 <code>&lt;head&gt;</code>에 접근할 수 있고, web root에 파일을 업로드할 수 있는 권한</li>
+</ul>
+<h2>실제로 작동하는 스택 (단계별)</h2>
+<h3>Step 1: SVG favicon을 사이트 루트에 배치합니다</h3><p>SVG 파일을 <code>/icon.svg</code> 경로에 (<code>index.html</code>과 같은 레벨로) 배치합니다. <code>icon.svg</code>라는 이름을 유지하는 것은 의도된 결정입니다. Safari가 <code>&lt;link&gt;</code> 태그를 스캔하기 전에 해당 경로를 먼저 확인하기 때문이며, 이를 통해 <code>&lt;head&gt;</code>를 깔끔하게 유지할 수 있습니다.</p>
+<h3>Step 2: 180×180 PNG apple-touch-icon 생성</h3>
+<p>Figma, Sketch 또는 기타 raster export 도구를 사용해 동일한 SVG로부터 180×180 PNG를 생성합니다. 사이트 루트에 <code>/apple-touch-icon.png</code>로 저장합니다. iOS는 <code>&lt;link&gt;</code> 태그 없이도 이 파일을 인식하지만, 명시적인 태그를 사용하는 것이 다양한 iOS 버전에서 더 안정적입니다.</p>
+<p>SVG를 다시 트레이싱하지 않고 깔끔한 180×180 PNG로 변환해야 한다면, <a href="/ko/">Mzu favicondl</a>이 클릭 한 번으로 export 작업을 처리해 줍니다.</p>
+<h3>Step 3: 올바른 순서로 link 태그 추가</h3>
+<p>브라우저의 파싱 순서가 중요합니다. 최신 브라우저가 SVG를 먼저 가져올 수 있도록 SVG를 먼저 두고, 그 뒤에 명시적인 PNG fallback을 배치합니다. 패턴은 다음과 같습니다.</p>
+<pre><code>&lt;link rel='icon' href='/icon.svg' type='image/svg+xml'&gt;
+&lt;link rel='apple-touch-icon' href='/apple-touch-icon.png' sizes='180x180'&gt;</code></pre>
+<p>apple-touch-icon 링크에는 <code>type</code> 속성이 없다는 점에 주목할 필요가 있습니다. Apple은 역사적으로 이 속성을 무시해 왔으며, 일부 구버전 iOS는 지원되지 않는 MIME type이 선언될 경우 태그 자체를 거부합니다. <code>sizes='180x180'</code> 속성은 고해상도 iPhone에서 이 정확한 렌더링을 사용하도록 iOS에 지시하는 역할을 합니다.</p>
+<h3>Step 4 (선택): 152×152 fallback으로 구형 iPad 대응</h3>
+<p>분석 데이터에서 iOS 14 이하의 iPad 사용자가 확인된다면, 180 PNG 앞에 152×152 fallback을 추가합니다.</p>
+<pre><code>&lt;link rel='apple-touch-icon' href='/apple-touch-icon-152.png' sizes='152x152'&gt;
+&lt;link rel='apple-touch-icon' href='/apple-touch-icon.png' sizes='180x180'&gt;</code></pre>
+<p>브라우저와 iOS는 요청된 해상도를 충족하는 가장 작은 에셋을 선택합니다. 레거시 iOS 해상도에 대한 자세한 분석은 <a href="/ko/blog/apple-touch-icon-sizes.html">Apple Touch Icon sizes guide</a>를 참고하시기 바랍니다.</p>
+<h2>흔히 저지르는 실수</h2><ul>
+<li><strong>apple-touch-icon을 SVG 파일로 지정하는 경우.</strong> iOS는 조용히 페이지 스크린샷으로 폴백합니다. 해당 URL에는 항상 실제 PNG를 제공해야 합니다.</li>
+<li><strong>apple-touch-icon 링크에 <code>type='image/svg+xml'</code>을 추가하는 경우.</strong> 일부 오래된 iOS 빌드는 해당 태그를 완전히 거부합니다. apple-touch-icon 링크에는 type을 지정하지 마세요.</li>
+<li><strong>정사각형 종횡비를 잊는 경우.</strong> iOS는 아이콘을 잘라내지 않으므로, 정사각형이 아닌 PNG는 레터박스로 표시됩니다. 항상 정사각형 SVG <code>viewBox</code>에서 내보내세요.</li>
+<li><strong>런치 스크린에서 비치는 투명 PNG.</strong> iOS는 자체 둥근 사각형 마스크를 적용하지만, 투명 배경은 콜드 스타트 런치 이미지에서 여전히 비칠 수 있습니다. 투명도가 특별히 필요한 경우가 아니라면 불투명 배경을 사용하세요 — 자세한 내용은 <a href="/ko/blog/apple-touch-icon-transparent-background.html">apple touch icon 투명 배경 가이드</a>에서 다룹니다.</li>
+</ul>
+<h2>실제 기기에서 확인하는 방법</h2>
+<p>에뮬레이터는 iOS 아이콘 동작에 대해 잘못된 정보를 제공합니다. PNG가 실제로 렌더링되는지 확인하려면 다음 단계를 따르세요.</p>
+<ol>
+<li>Mac의 Safari → 파일 → 홈 화면에 추가 (iPhone이 페어링된 상태이거나 기기를 직접 사용).</li>
+<li>iPhone에서: Safari로 사이트를 열고, 공유 → 홈 화면에 추가를 탭한 다음, 확인 전에 아이콘을 확인하세요.</li>
+<li>Safari 캐시를 지운 후 다시 확인하세요 — 이전 아이콘이 그대로 남아 있으면 <a href="/ko/blog/clear-favicon-cache-safari.html">Safari favicon 캐시 가이드</a>를 따르세요.</li>
+</ol>
+<h2>그러면 SVG를 신경 써야 할까요?</h2>
+<p>예 — iOS 홈 화면을 제외한 모든 곳에서 그렇습니다. SVG는 Safari에서 선명한 탭, 인라인 미디어 쿼리를 통한 자동 다크 모드 전환, 그리고 브랜드의 단일 소스를 제공합니다. PNG apple-touch-icon은 iOS가 실제로 기대하는 것을 제공합니다. 이 둘을 함께 사용하면 Apple이 출시하는 모든 화면 — 탭, 고정된 탭, 북마크, 홈 화면 — 에서 동작하는 유일한 스택이 됩니다.</p>
+<p>포맷 지원을 더 이상 추측하지 마세요. <a href="/ko/">Mzu favicondl</a>은 SVG를 PNG apple-touch-icon과 다중 해상도 ICO로 한 번의 워크플로에서 변환해 줍니다.</p></div>
+
+        <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
+
+        <div class="cta-box">
+            <h3>한 번의 클릭으로 두 가지 포맷 생성</h3>
+            <p>Mzu favicondl로 SVG를 180×180 PNG Apple Touch Icon과 멀티 해상도 ICO로 한 번에 변환하세요.</p>
+            <a href="/ko/" class="cta-btn">무료로 사용해보기 →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/ko/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">홈</a>
+                <a href="/ko/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">블로그</a>
+                <a href="/ko/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">개인정보</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js?v=20260211"></script>
+
+</body></html>

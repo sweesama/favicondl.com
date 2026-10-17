@@ -3773,5 +3773,26 @@
     ],
     "qualityScore": 95,
     "qualityGrade": "A"
+  },
+  {
+    "slug": "apple-touch-icon-svg-support",
+    "publishDate": "2026-10-17",
+    "titleEn": "Apple Touch Icon SVG Support: What Works in 2026",
+    "titleZh": "Apple Touch Icon SVG 支持：真实可用的配置方案",
+    "titleJa": "Apple Touch IconのSVG対応：実際に動く設定方法",
+    "titleKo": "Apple Touch Icon SVG 지원: 실제로 작동하는 설정 가이드",
+    "titleEs": "Soporte SVG para Apple Touch Icon: lo que realmente funciona",
+    "descEn": "Apple Touch Icon SVG support is limited — iOS still uses PNG for the home screen. Here's the exact SVG rel=icon + PNG apple-touch-icon stack that actually.",
+    "descZh": "Apple Touch Icon 的 SVG 支持其实很有限，主屏幕图标仍需要 PNG。这里是最可靠的 SVG 加 PNG 组合配置方案。",
+    "descJa": "Apple Touch IconのSVG対応には制限があり、iOSのホーム画面ではPNGが必要です。確実に動作するSVG＋PNG構成を解説します。",
+    "descKo": "Apple Touch Icon의 SVG 지원에는 한계가 있으며 iOS 홈 화면은 여전히 PNG를 사용합니다. 실제로 작동하는 SVG와 PNG 조합을 안내합니다.",
+    "descEs": "El soporte SVG para Apple Touch Icon es limitado: iOS sigue usando PNG en la pantalla de inicio. Aquí tienes la pila SVG + PNG que realmente funciona.",
+    "keyword": "apple touch icon svg support",
+    "tags": [
+      "apple",
+      "svg"
+    ],
+    "qualityScore": 95,
+    "qualityGrade": "A"
   }
 ]

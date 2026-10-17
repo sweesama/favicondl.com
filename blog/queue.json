@@ -2836,7 +2836,9 @@
       "apple-touch-icon-guide",
       "svg-favicon"
     ],
-    "status": "pending"
+    "status": "done",
+    "qualityScore": 95,
+    "qualityGrade": "A"
   },
   {
     "keyword": "duckduckgo favicon api",

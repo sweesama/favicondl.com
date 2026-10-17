@@ -1,0 +1,168 @@
+<!DOCTYPE html><html lang="es"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soporte SVG para Apple Touch Icon: lo que realmente funciona</title>
+    <meta name="description" content="El soporte SVG para Apple Touch Icon es limitado: iOS sigue usando PNG en la pantalla de inicio. Aquí tienes la pila SVG + PNG que realmente funciona.">
+    <meta name="keywords" content="apple touch icon svg support, apple touch icon png, svg favicon safari, ios home screen icon">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/es/blog/apple-touch-icon-svg-support.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/apple-touch-icon-svg-support.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/apple-touch-icon-svg-support.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/apple-touch-icon-svg-support.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/apple-touch-icon-svg-support.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/apple-touch-icon-svg-support.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/apple-touch-icon-svg-support.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/es/blog/apple-touch-icon-svg-support.html">
+    <meta property="og:title" content="Soporte SVG para Apple Touch Icon: lo que realmente funciona">
+    <meta property="og:description" content="El soporte SVG para Apple Touch Icon es limitado: iOS sigue usando PNG en la pantalla de inicio. Aquí tienes la pila SVG + PNG que realmente funciona.">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Soporte SVG para Apple Touch Icon: lo que realmente funciona">
+    <meta name="twitter:description" content="El soporte SVG para Apple Touch Icon es limitado: iOS sigue usando PNG en la pantalla de inicio. Aquí tienes la pila SVG + PNG que realmente funciona.">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Soporte SVG para Apple Touch Icon: lo que realmente funciona",
+  "description": "El soporte SVG para Apple Touch Icon es limitado: iOS sigue usando PNG en la pantalla de inicio. Aquí tienes la pila SVG + PNG que realmente funciona.",
+  "datePublished": "2026-10-17",
+  "dateModified": "2026-10-17",
+  "author": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "mainEntityOfPage": "https://favicondl.com/es/blog/apple-touch-icon-svg-support.html",
+  "inLanguage": "es"
+}</script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/es/" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/es/documentation.html" class="nav-link">Documentación</a>
+                <a href="/es/tools.html" class="nav-link">Herramientas</a>
+                <a href="/es/blog/" class="nav-link">Blog</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/apple-touch-icon-svg-support.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/apple-touch-icon-svg-support.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/apple-touch-icon-svg-support.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/apple-touch-icon-svg-support.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/apple-touch-icon-svg-support.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/es/" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/es/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600">Soporte SVG para Apple Touch Icon: lo que realmente funciona</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">apple</span><time class="text-sm text-gray-400">2026-10-17</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">Soporte SVG para Apple Touch Icon: lo que realmente funciona</h1>
+        </header>
+
+        <div class="article-body"><p>Has añadido un favicon SVG impecable a tu sitio usando <code>&lt;link rel='icon' type='image/svg+xml'&gt;</code>. Se ve nítido en Chrome y escala a la perfección en modo oscuro, pero cuando un usuario de iPhone guarda tu sitio en la pantalla de inicio, obtiene una captura borrosa de la página en lugar de tu marca definida.</p>
+<p>No estás haciendo nada mal. Los Apple Touch Icons y el SVG son cosas separadas a ojos de Apple, y la relación entre ambos desconcierta incluso a desarrolladores experimentados. Aquí tienes exactamente lo que funciona en Safari e iOS ahora mismo, y cómo desplegar una configuración que se vea definida en cualquier contexto.</p>
+<h2>La respuesta corta: Apple no admite oficialmente SVG en apple-touch-icon</h2>
+<p>La documentación de Apple para la relación de enlace <code>apple-touch-icon</code> nunca ha incluido SVG como formato compatible. iOS sigue esperando un bitmap PNG (o, con menos frecuencia, JPEG) para el icono de la pantalla de inicio, y elige ese archivo basándose en atributos de tamaño, no en el tipo MIME.</p>
+<p>Lo que <em>sí</em> está bien admitido es el favicon SVG mediante <code>rel='icon'</code>, que Safari lee para las pestañas del navegador y las pestañas ancladas. El estándar vivo HTML de WHATWG define la <a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon"><code>rel='icon'</code> palabra clave</a> como el mecanismo para declarar los iconos de página, y Safari iOS lo implementa correctamente para SVG. Pero esa es una ruta de código distinta a la de la pantalla de inicio.</p>
+<p>Así que cuando los desarrolladores buscan compatibilidad de apple touch icon SVG, la respuesta honesta es: sirve ambos. Usa SVG para la pestaña, usa PNG para la pantalla de inicio. Apuntar <code>apple-touch-icon</code> a un archivo SVG hace que iOS recurra silenciosamente a una captura de la página, que es exactamente el cuadrado borroso que intentas evitar.</p>
+<h2>Requisitos</h2>
+<ul>
+<li>Un archivo fuente SVG limpio (con <code>viewBox</code> cuadrado, como <code>0 0 100 100</code>, idealmente por debajo de 5 KB)</li>
+<li>Una exportación PNG de 180×180 del mismo diseño, con fondo opaco</li>
+<li>Acceso al <code>&lt;head&gt;</code> de tu sitio y capacidad de colocar archivos en la raíz del sitio</li>
+</ul>
+<h2>La pila que realmente funciona (paso a paso)</h2>
+<h3>Paso 1: coloca el favicon SVG en la raíz del sitio</h3><p>Coloca tu archivo SVG en <code>/icon.svg</code> (al mismo nivel que <code>index.html</code>). Mantener el nombre <code>icon.svg</code> es deliberado: Safari comprueba esa ruta antes de escanear las etiquetas <code>&lt;link&gt;</code>, y deja tu <code>&lt;head&gt;</code> despejado.</p>
+<h3>Paso 2: Genera un apple-touch-icon PNG de 180×180</h3>
+<p>Usa Figma, Sketch o cualquier herramienta de exportación raster para producir un PNG de 180×180 a partir del mismo SVG. Guárdalo como <code>/apple-touch-icon.png</code> en la raíz del sitio. iOS recogerá este archivo incluso sin una etiqueta <code>&lt;link&gt;</code>, pero la etiqueta explícita es más fiable entre versiones de iOS.</p>
+<p>Si necesitas convertir un SVG en un PNG limpio de 180×180 sin tener que recalcular las trayectorias, <a href="/es/">Mzu favicondl</a> realiza la exportación en un solo clic.</p>
+<h3>Paso 3: Añade las etiquetas link en el orden adecuado</h3>
+<p>El orden de análisis del navegador importa. Pon primero el SVG para que los navegadores modernos lo tomen, y luego el fallback explícito en PNG. Este es el patrón:</p>
+<pre><code>&lt;link rel='icon' href='/icon.svg' type='image/svg+xml'&gt;
+&lt;link rel='apple-touch-icon' href='/apple-touch-icon.png' sizes='180x180'&gt;</code></pre>
+<p>Fíjate en que no hay <code>type</code> en el link de apple-touch-icon. Históricamente Apple lo ignora, y algunas versiones antiguas de iOS rechazan la etiqueta por completo cuando se declara un tipo MIME no compatible. El atributo <code>sizes='180x180'</code> es lo que indica a iOS que use exactamente este render para los iPhone de alta densidad.</p>
+<h3>Paso 4 (Opcional): Cubre iPads antiguos con un fallback de 152×152</h3>
+<p>Si tu analítica muestra usuarios de iPad en iOS 14 o anterior, añade un fallback de 152×152 antes del de 180:</p>
+<pre><code>&lt;link rel='apple-touch-icon' href='/apple-touch-icon-152.png' sizes='152x152'&gt;
+&lt;link rel='apple-touch-icon' href='/apple-touch-icon.png' sizes='180x180'&gt;</code></pre>
+<p>Los navegadores e iOS eligen el asset más pequeño que aún cumple con la densidad solicitada. Para un análisis más profundo de las resoluciones heredadas de iOS, consulta nuestra <a href="/es/blog/apple-touch-icon-sizes.html">guía de tamaños de Apple Touch Icon</a>.</p>
+<h2>Errores comunes</h2><ul>
+<li><strong>Apuntar el apple-touch-icon al archivo SVG.</strong> iOS recurre silenciosamente a una captura de pantalla de la página. Envía siempre un PNG real en esa URL.</li>
+<li><strong>Añadir <code>type='image/svg+xml'</code> al enlace apple-touch-icon.</strong> Algunas versiones antiguas de iOS rechazan la etiqueta por completo. Mantén type fuera del enlace apple-touch-icon.</li>
+<li><strong>Olvidar la relación de aspecto cuadrada.</strong> iOS no recorta tu icono: un PNG no cuadrado se muestra con barras laterales. Exporta siempre desde un <code>viewBox</code> cuadrado.</li>
+<li><strong>PNG transparentes que se filtran en las pantallas de inicio.</strong> iOS aplica su propia máscara de rectángulo redondeado, pero un fondo transparente aún puede verse durante la imagen de arranque en frío. Usa un fondo opaco salvo cuando necesites transparencia de forma específica, tal como se explica en nuestra <a href="/es/blog/apple-touch-icon-transparent-background.html">guía de fondo transparente para el apple-touch-icon</a>.</li>
+</ul>
+<h2>Cómo verificarlo en un dispositivo real</h2>
+<p>Los emuladores mienten sobre el comportamiento del icono en iOS. Para confirmar que el PNG realmente se renderiza:</p>
+<ol>
+<li>Safari en Mac → Archivo → Añadir a la pantalla de inicio (con el iPhone emparejado, o usa el dispositivo directamente).</li>
+<li>En el iPhone: abre el sitio en Safari, toca Compartir → Añadir a la pantalla de inicio e inspecciona el icono antes de confirmar.</li>
+<li>Vuelve a comprobarlo después de limpiar la caché de Safari; si el icono antiguo persiste, sigue la <a href="/es/blog/clear-favicon-cache-safari.html">guía de caché del favicon en Safari</a>.</li>
+</ol>
+<h2>Entonces, ¿merece la pena usar SVG?</h2>
+<p>Sí, para todo excepto la pantalla de inicio de iOS. SVG te ofrece pestañas nítidas en Safari, cambio automático al modo oscuro mediante media queries inline y una única fuente de verdad para tu marca. El PNG como apple-touch-icon le da a iOS lo que realmente espera. Juntos son el único stack que sobrevive en cada superficie que Apple distribuye: pestañas, pestañas fijadas, marcadores y la pantalla de inicio.</p>
+<p>Deja de adivinar la compatibilidad de formatos. <a href="/es/">Mzu favicondl</a> convierte tu SVG tanto en el PNG apple-touch-icon como en un ICO multirresolución en un único flujo de trabajo.</p></div>
+
+        <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
+
+        <div class="cta-box">
+            <h3>Genera ambos formatos con un clic</h3>
+            <p>Convierte tu SVG en un PNG apple-touch-icon de 180×180 y un ICO multi-resolución con Mzu favicondl.</p>
+            <a href="/es/" class="cta-btn">Pruébalo gratis →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/es/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">Inicio</a>
+                <a href="/es/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">Blog</a>
+                <a href="/es/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">Privacidad</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js?v=20260211"></script>
+
+</body></html>
