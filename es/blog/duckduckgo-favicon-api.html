@@ -1,0 +1,164 @@
+<!DOCTYPE html><html lang="es"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DuckDuckGo Favicon API: Comparativa para desarrolladores</title>
+    <meta name="description" content="Compara DuckDuckGo favicon API con Google S2 y la descarga directa de /favicon.ico. Formatos, fiabilidad, límites y mejores casos de uso.">
+    <meta name="keywords" content="duckduckgo favicon api, favicon api comparison, google s2 favicon, favicon ico">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/es/blog/duckduckgo-favicon-api.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/duckduckgo-favicon-api.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/duckduckgo-favicon-api.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/duckduckgo-favicon-api.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/duckduckgo-favicon-api.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/duckduckgo-favicon-api.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/duckduckgo-favicon-api.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/es/blog/duckduckgo-favicon-api.html">
+    <meta property="og:title" content="DuckDuckGo Favicon API: Comparativa para desarrolladores">
+    <meta property="og:description" content="Compara DuckDuckGo favicon API con Google S2 y la descarga directa de /favicon.ico. Formatos, fiabilidad, límites y mejores casos de uso.">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="DuckDuckGo Favicon API: Comparativa para desarrolladores">
+    <meta name="twitter:description" content="Compara DuckDuckGo favicon API con Google S2 y la descarga directa de /favicon.ico. Formatos, fiabilidad, límites y mejores casos de uso.">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "DuckDuckGo Favicon API: Comparativa para desarrolladores",
+  "description": "Compara DuckDuckGo favicon API con Google S2 y la descarga directa de /favicon.ico. Formatos, fiabilidad, límites y mejores casos de uso.",
+  "datePublished": "2026-10-18",
+  "dateModified": "2026-10-18",
+  "author": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "mainEntityOfPage": "https://favicondl.com/es/blog/duckduckgo-favicon-api.html",
+  "inLanguage": "es"
+}</script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/es/" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/es/documentation.html" class="nav-link">Documentación</a>
+                <a href="/es/tools.html" class="nav-link">Herramientas</a>
+                <a href="/es/blog/" class="nav-link">Blog</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/duckduckgo-favicon-api.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/duckduckgo-favicon-api.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/duckduckgo-favicon-api.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/duckduckgo-favicon-api.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/duckduckgo-favicon-api.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/es/" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/es/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600">DuckDuckGo Favicon API: Comparativa para desarrolladores</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">api</span><time class="text-sm text-gray-400">2026-10-18</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">DuckDuckGo Favicon API: Comparativa para desarrolladores</h1>
+        </header>
+
+        <div class="article-body"><p>Tu script tiene que conseguir 50 iconos de sitios para un dashboard y no quieres alojarlos tú. Una API pública de favicon resuelve esto en dos líneas de código, pero ¿cuál elegir? La API de favicon de DuckDuckGo lleva años haciendo este trabajo discretamente, junto al servicio S2 de Google y a las peticiones directas a <code>/favicon.ico</code>.</p>
+<p>Cada opción devuelve un formato de archivo distinto, se comporta diferente bajo carga y falla de forma diferente cuando un sitio no tiene icono. Elegir mal significa miniaturas rotas o misteriosos 404 en tus logs.</p>
+<h2>Comparación rápida: API de favicon de DuckDuckGo vs alternativas</h2>
+<table>
+<thead>
+<tr><th>Criterio</th><th>DuckDuckGo</th><th>Google S2</th><th>Directo /favicon.ico</th></tr>
+</thead>
+<tbody>
+<tr><td>Patrón de endpoint</td><td><code>icons.duckduckgo.com/ip3/{domain}.ico</code></td><td><code>s2.googleusercontent.com/s2/favicons?domain={domain}</code></td><td><code>{site}/favicon.ico</code></td></tr>
+<tr><td>Formato de respuesta</td><td>Solo ICO</td><td>PNG (16x16 por defecto)</td><td>Lo que sirva el sitio</td></tr>
+<tr><td>Tamaño predeterminado</td><td>Contenedor ICO multitaramaño</td><td>16x16 (sz=64 máx.)</td><td>Definido por el sitio</td></tr>
+<tr><td>Límites de tasa documentados</td><td>Sin documentación oficial</td><td>Sin documentación oficial</td><td>CORS por sitio / servidor</td></tr>
+<tr><td>Compatible con CORS</td><td>Sí (con matices)</td><td>Sí</td><td>Normalmente no</td></tr>
+<tr><td>Proxy / capa de privacidad</td><td>Sí (proxy de DuckDuckGo)</td><td>Sí (proxy de Google)</td><td>Ninguna</td></tr>
+<tr><td>Respaldo cuando falta</td><td>Devuelve 404</td><td>Devuelve un globo terráqueo por defecto</td><td>404 o error HTML</td></tr>
+<tr><td>Ideal para</td><td>Iconos estilo pestaña, necesidades de ICO</td><td>Miniaturas pequeñas, paridad con SERP</td><td>Recurso fuente exacto</td></tr>
+</tbody>
+</table>
+<h2>Cómo funciona realmente la API de favicon de DuckDuckGo</h2>
+<p>El endpoint es bien sencillo: <code>https://icons.duckduckgo.com/ip3/example.com.ico</code>. DuckDuckGo obtiene el favicon real del sitio en su propia infraestructura, lo convierte a un contenedor ICO si hace falta y lo sirve desde su CDN. Nunca tocas el servidor de origen, lo que esquiva la mayoría de muros de CORS.</p><p>Este enfoque de proxy hace que la URL también funcione como una descarga que preserva la privacidad. Los navegadores de tus visitantes no contactan directamente al sitio de destino solo para renderizar un icono. Es el mismo truco que juega el <code>s2.googleusercontent.com</code> de Google, y por eso ambos endpoints funcionan en etiquetas <code>&amp;lt;img&amp;gt;</code> desde cualquier origen sin cabeceras extra.</p>
+<h3>Limitaciones de formato</h3>
+<p>El mayor problema: DuckDuckGo solo devuelve ICO. Si necesitas un PNG nítido de 64x64 para una lista estilo iOS, tendrás que convertirlo. Nuestra <a href="/es/blog/png-to-ico.html">guía de conversión de PNG a ICO</a> cubre la dirección inversa, pero las mismas herramientas sirven para ambos casos. Para proyectos donde el ICO funciona bien — pestañas de navegadores de escritorio, fallbacks de <code>&amp;lt;link rel='icon'&amp;gt;</code> heredados — DuckDuckGo es genuinamente la opción más cómoda.</p>
+<h2>Cuándo gana la Favicon API de DuckDuckGo</h2>
+<ul>
+<li><strong>Necesitas ICO sin el paso de conversión.</strong> Los fallbacks de pestañas del navegador, el soporte legacy de IE y los accesos directos de Windows todavía quieren ICO. DuckDuckGo te lo entrega directamente.</li>
+<li><strong>Estás descargando desde el navegador y quieres cero configuración de CORS.</strong> Tanto DuckDuckGo como Google hacen de proxy en la petición, pero DuckDuckGo históricamente ha sido más permisivo con el hot-linking.</li>
+<li><strong>Quieres un proxy que respete la privacidad.</strong> La marca de DuckDuckGo está construida sobre la ausencia de tracking, lo que hace que su endpoint de favicon se sienta menos vigilante que el de Google.</li>
+</ul>
+<h2>Cuándo Google S2 es la mejor elección</h2>
+<ul>
+<li><strong>Quieres un PNG, no un ICO.</strong> El endpoint de Google sirve <code>image/png</code> por defecto y admite un parámetro <code>sz=</code> de hasta 64 píxeles.</li>
+<li><strong>Estás construyendo una lista estilo SERP.</strong> Google devuelve un icono de globo predeterminado cuando un sitio no tiene favicon. DuckDuckGo devuelve un 404, que tendrás que gestionar.</li>
+<li><strong>Quieres miniaturas consistentes de 16x16.</strong> La respuesta de Google siempre es pequeña, rápida y predecible.</li>
+</ul>
+<h2>Cuándo /favicon.ico directo todavía tiene sentido</h2><p>Para un único sitio de confianza —tu propio CDN, el sitio de un partner, una fuente conocida y fiable—, obtener el favicon directamente te da el asset original a resolución completa. Obtienes SVG, ICO multi-resolución, PNG animado, lo que sea que el sitio sirva realmente. El trade-off es CORS: la mayoría de los sitios no enviarán los headers que tu navegador necesita, así que esto solo funciona de servidor a servidor, no en el cliente.</p>
+<p>Si vas a hacer fetching masivo, la falta de documentación sobre rate limits es un riesgo real. Algunos orígenes te devolverán 429 tras 50 peticiones, otros no. Las APIs públicas absorben ese riesgo por ti, que es precisamente la razón de su existencia.</p>
+<h2>Recommendation</h2>
+<p>Para la mayoría de proyectos en el lado del cliente donde necesitas un icono funcional en una pestaña del navegador o vista de lista, la <strong>DuckDuckGo favicon API</strong> es la opción por defecto adecuada cuando quieres ICO. Combínala con nuestro <a href="/es/blog/favicon-generator-free.html">free favicon generator</a> si además necesitas publicar tus propios iconos. Para thumbnails en PNG y resultados con paridad con Google SERP, el endpoint S2 de Google es más rápido y predecible. Reserva las peticiones directas a <code>/favicon.ico</code> para uso de dominio único y de confianza donde necesites el archivo fuente a resolución completa.</p>
+<p>Independientemente de la API que elijas, cachea el resultado. Las peticiones de favicon en el navegador son notoriousmente sticky, y tu servidor te agradecerá que no martillees el CDN de DuckDuckGo en cada carga de página.</p><h2>Check the documented requirements</h2><p>El HTML Standard define <a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon"><code>rel='icon'</code></a> como la relación de enlace para un icono que representa la página actual.</p></div>
+
+        <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
+
+        <div class="cta-box">
+            <h3>Genera paquetes completos de favicon</h3>
+            <p>Olvídate de probar APIs. Mzu favicondl convierte cualquier imagen a ICO, PNG, SVG y Apple Touch en un clic.</p>
+            <a href="/es/" class="cta-btn">Pruébalo gratis →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/es/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">Inicio</a>
+                <a href="/es/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">Blog</a>
+                <a href="/es/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">Privacidad</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js?v=20260211"></script>
+
+</body></html>

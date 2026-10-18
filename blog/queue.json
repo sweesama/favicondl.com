@@ -2853,7 +2853,9 @@
       "favicon-api",
       "google-s2-favicon-alternative"
     ],
-    "status": "pending"
+    "status": "done",
+    "qualityScore": 80,
+    "qualityGrade": "A"
   },
   {
     "keyword": "php get favicon from url",

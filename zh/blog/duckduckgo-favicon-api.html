@@ -1,0 +1,164 @@
+<!DOCTYPE html><html lang="zh"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DuckDuckGo Favicon API 对比：开发者选型指南</title>
+    <meta name="description" content="对比 DuckDuckGo favicon API、Google S2 与直接 /favicon.ico 三种方案,涵盖格式支持、稳定性、速率限制与最佳使用场景。">
+    <meta name="keywords" content="duckduckgo favicon api, favicon api comparison, google s2 favicon, favicon ico">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/zh/blog/duckduckgo-favicon-api.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/duckduckgo-favicon-api.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/duckduckgo-favicon-api.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/duckduckgo-favicon-api.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/duckduckgo-favicon-api.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/duckduckgo-favicon-api.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/duckduckgo-favicon-api.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/zh/blog/duckduckgo-favicon-api.html">
+    <meta property="og:title" content="DuckDuckGo Favicon API 对比：开发者选型指南">
+    <meta property="og:description" content="对比 DuckDuckGo favicon API、Google S2 与直接 /favicon.ico 三种方案,涵盖格式支持、稳定性、速率限制与最佳使用场景。">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="DuckDuckGo Favicon API 对比：开发者选型指南">
+    <meta name="twitter:description" content="对比 DuckDuckGo favicon API、Google S2 与直接 /favicon.ico 三种方案,涵盖格式支持、稳定性、速率限制与最佳使用场景。">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "DuckDuckGo Favicon API 对比：开发者选型指南",
+  "description": "对比 DuckDuckGo favicon API、Google S2 与直接 /favicon.ico 三种方案,涵盖格式支持、稳定性、速率限制与最佳使用场景。",
+  "datePublished": "2026-10-18",
+  "dateModified": "2026-10-18",
+  "author": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "mainEntityOfPage": "https://favicondl.com/zh/blog/duckduckgo-favicon-api.html",
+  "inLanguage": "zh-CN"
+}</script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/zh/" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/zh/documentation.html" class="nav-link">文档</a>
+                <a href="/zh/tools.html" class="nav-link">工具</a>
+                <a href="/zh/blog/" class="nav-link">博客</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/duckduckgo-favicon-api.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/duckduckgo-favicon-api.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/duckduckgo-favicon-api.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/duckduckgo-favicon-api.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/duckduckgo-favicon-api.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/zh/" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/zh/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600">DuckDuckGo Favicon API 对比：开发者选型指南</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">api</span><time class="text-sm text-gray-400">2026-10-18</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">DuckDuckGo Favicon API 对比：开发者选型指南</h1>
+        </header>
+
+        <div class="article-body"><p>脚本要给仪表盘拉 50 个站点图标，又不想自己托管。一个公开的 favicon API 两行代码就能搞定，但选哪个？DuckDuckGo favicon API 已经悄悄做这活儿多年，和 Google 的 S2 服务以及直接请求 <code>/favicon.ico</code> 一直并存。</p>
+<p>三种方案返回的文件格式不同，高并发下的表现也不同，遇到站点没有图标时失败的方式也不同。选错了，缩略图就裂了，日志里还会冒出一堆莫名其妙的 404。</p>
+<h2>快速对比：DuckDuckGo Favicon API vs 其他方案</h2>
+<table>
+<thead>
+<tr><th>对比项</th><th>DuckDuckGo</th><th>Google S2</th><th>直接拉 /favicon.ico</th></tr>
+</thead>
+<tbody>
+<tr><td>接口地址格式</td><td><code>icons.duckduckgo.com/ip3/{domain}.ico</code></td><td><code>s2.googleusercontent.com/s2/favicons?domain={domain}</code></td><td><code>{site}/favicon.ico</code></td></tr>
+<tr><td>返回格式</td><td>仅 ICO</td><td>PNG（默认 16x16）</td><td>站点返回什么就是什么</td></tr>
+<tr><td>默认尺寸</td><td>多尺寸 ICO 容器</td><td>16x16（最大 sz=64）</td><td>站点决定</td></tr>
+<tr><td>是否有官方限速文档</td><td>无官方文档</td><td>无官方文档</td><td>取决于站点 CORS / 服务端</td></tr>
+<tr><td>CORS 友好</td><td>是（但有限制）</td><td>是</td><td>通常不支持</td></tr>
+<tr><td>代理 / 隐私层</td><td>有（DuckDuckGo 代理）</td><td>有（Google 代理）</td><td>无</td></tr>
+<tr><td>缺失时的回退</td><td>返回 404</td><td>返回默认地球图标</td><td>404 或 HTML 错误页</td></tr>
+<tr><td>最适合的场景</td><td>浏览器标签页风格图标、需要 ICO</td><td>小尺寸缩略图、与搜索结果页一致</td><td>完全原始的源文件</td></tr>
+</tbody>
+</table>
+<h2>DuckDuckGo Favicon API 到底是怎么工作的</h2>
+<p>接口非常简单：<code>https://icons.duckduckgo.com/ip3/example.com.ico</code>。DuckDuckGo 在自己的基础设施上抓取站点的真实 favicon，需要时再转成 ICO 容器格式，最后通过他们的 CDN 输出。整个过程完全不会打到源站，因此大部分 CORS 限制都绕过去了。</p><p>这种代理方式意味着 URL 本身就充当了一次隐私友好的抓取。访客浏览器不会为了渲染一个小图标就直接去访问目标站点。这跟 Google 的 <code>s2.googleusercontent.com</code> 走的是同一个路子,也解释了为什么这两个端点可以在任意源的 <code>&amp;lt;img&amp;gt;</code> 标签里直接用,无需额外配置 header。</p>
+<h3>格式上的局限</h3>
+<p>最大的坑:DuckDuckGo 只返回 ICO 格式。如果你需要一张清晰的 64x64 PNG 用在 iOS 风格的列表里,就得自己再做一次转换。我们的 <a href="/zh/blog/png-to-ico.html">PNG to ICO 转换指南</a> 讲的是反向操作,但同一套工具两边都能搞定。对于 ICO 就够用的项目——桌面浏览器标签页、老式 <code>&amp;lt;link rel='icon'&amp;gt;</code> 的兜底——DuckDuckGo 确实是最省心的选择。</p>
+<h2>DuckDuckGo Favicon API 胜出的场景</h2>
+<ul>
+<li><strong>你需要 ICO,不想再多一步转换。</strong>浏览器标签兜底、老 IE 支持以及 Windows 快捷方式都还是要 ICO,DuckDuckGo 直接就给你。</li>
+<li><strong>你在浏览器端取图标,想要零 CORS 配置。</strong>DuckDuckGo 和 Google 都做了代理转发,但 DuckDuckGo 历史上对外链引用(hot-linking)更宽松。</li>
+<li><strong>你想要一个尊重隐私的代理。</strong>DuckDuckGo 的品牌就建立在不追踪这件事上,所以它的 favicon 端点比 Google 的少几分"监控味"。</li>
+</ul>
+<h2>Google S2 更合适的场景</h2>
+<ul>
+<li><strong>你要的是 PNG,而不是 ICO。</strong>Google 端点默认返回 <code>image/png</code>,并且支持 <code>sz=</code> 参数,最大到 64 像素。</li>
+<li><strong>你在搭 SERP 风格的结果列表。</strong>Google 在站点没有 favicon 时会返回一个默认的地球图标,而 DuckDuckGo 返回的是 404,这种情况下你得自己额外处理。</li>
+<li><strong>你想要一致的 16x16 缩略图。</strong>Google 的响应始终体积小、速度快,而且表现稳定可预测。</li>
+</ul>
+<h2>直接请求 /favicon.ico 仍然合理的场景</h2><p>对于单一可信来源的站点（你自己的 CDN、合作伙伴站点、已知可靠的数据源），直接拉取 favicon 能拿到原始资源，分辨率还是完整的。SVG、多分辨率 ICO、动图 PNG，原站点实际提供什么你就拿到什么。代价是 CORS：绝大多数站点不会返回浏览器所需的响应头，所以这种方式只能在服务端之间使用，没法在客户端里直接发起请求。</p>
+<p>如果你要做批量抓取，没有明确的速率限制文档就是真实的隐患。有的源站请求 50 次之后就给你返回 429，有的则不会。这些公开 API 存在的意义就是把这种风险替你吸收掉。</p>
+<h2>推荐方案</h2>
+<p>对于大多数需要在浏览器标签页或列表视图里显示可用图标的客户端项目，如果你需要 ICO，<strong>DuckDuckGo favicon API</strong> 是不错的默认选择。如果同时需要发布自己的图标，可以搭配我们的 <a href="/zh/blog/favicon-generator-free.html">免费 favicon 生成器</a>。如果需要 PNG 缩略图，或者希望达到与 Google 搜索结果一致的显示效果，Google 的 S2 接口更快也更稳定。把直连 <code>/favicon.ico</code> 的方式留给那些可信单一域名、需要拿到完整原始分辨率文件的场景。</p>
+<p>无论选哪个 API，结果都要缓存。浏览器的 favicon 请求一旦缓存就极难清除，每次页面加载都去打 DuckDuckGo 的 CDN，迟早让你的服务器吃不消。</p><h2>核对规范中的要求</h2><p>HTML 标准把 <a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon"><code>rel='icon'</code></a> 定义为表示当前页面的图标的链接关系。</p></div>
+
+        <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
+
+        <div class="cta-box">
+            <h3>生成完整 Favicon 资源包</h3>
+            <p>省去 API 调试的烦恼。Mzu favicondl 一键将任意图片转换为 ICO、PNG、SVG 和 Apple Touch 图标。</p>
+            <a href="/zh/" class="cta-btn">免费试用 →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/zh/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">首页</a>
+                <a href="/zh/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">博客</a>
+                <a href="/zh/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">隐私政策</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js?v=20260211"></script>
+
+</body></html>

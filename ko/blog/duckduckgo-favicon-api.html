@@ -1,0 +1,166 @@
+<!DOCTYPE html><html lang="ko"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DuckDuckGo Favicon API 비교: 개발자 선택 가이드</title>
+    <meta name="description" content="DuckDuckGo favicon API, Google S2, 직접 /favicon.ico 호출 방식을 비교합니다. 포맷 지원, 안정성, 요청 제한, 최적의 사용 사례까지 확인하세요.">
+    <meta name="keywords" content="duckduckgo favicon api, favicon api comparison, google s2 favicon, favicon ico">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/ko/blog/duckduckgo-favicon-api.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/duckduckgo-favicon-api.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/duckduckgo-favicon-api.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/duckduckgo-favicon-api.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/duckduckgo-favicon-api.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/duckduckgo-favicon-api.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/duckduckgo-favicon-api.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/ko/blog/duckduckgo-favicon-api.html">
+    <meta property="og:title" content="DuckDuckGo Favicon API 비교: 개발자 선택 가이드">
+    <meta property="og:description" content="DuckDuckGo favicon API, Google S2, 직접 /favicon.ico 호출 방식을 비교합니다. 포맷 지원, 안정성, 요청 제한, 최적의 사용 사례까지 확인하세요.">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="DuckDuckGo Favicon API 비교: 개발자 선택 가이드">
+    <meta name="twitter:description" content="DuckDuckGo favicon API, Google S2, 직접 /favicon.ico 호출 방식을 비교합니다. 포맷 지원, 안정성, 요청 제한, 최적의 사용 사례까지 확인하세요.">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "DuckDuckGo Favicon API 비교: 개발자 선택 가이드",
+  "description": "DuckDuckGo favicon API, Google S2, 직접 /favicon.ico 호출 방식을 비교합니다. 포맷 지원, 안정성, 요청 제한, 최적의 사용 사례까지 확인하세요.",
+  "datePublished": "2026-10-18",
+  "dateModified": "2026-10-18",
+  "author": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "mainEntityOfPage": "https://favicondl.com/ko/blog/duckduckgo-favicon-api.html",
+  "inLanguage": "ko"
+}</script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/ko/" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/ko/documentation.html" class="nav-link">문서</a>
+                <a href="/ko/tools.html" class="nav-link">도구</a>
+                <a href="/ko/blog/" class="nav-link">블로그</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/duckduckgo-favicon-api.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/duckduckgo-favicon-api.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/duckduckgo-favicon-api.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/duckduckgo-favicon-api.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/duckduckgo-favicon-api.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/ko/" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/ko/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600">DuckDuckGo Favicon API 비교: 개발자 선택 가이드</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">api</span><time class="text-sm text-gray-400">2026-10-18</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">DuckDuckGo Favicon API 비교: 개발자 선택 가이드</h1>
+        </header>
+
+        <div class="article-body"><p>대시보드용으로 50개 사이트의 아이콘을 스크립트로 가져와야 하는데 직접 호스팅하고 싶지는 않다면, 공개 favicon API를 사용하면 단 두 줄의 코드로 해결할 수 있습니다. 그렇다면 어떤 서비스를 선택해야 할까요? DuckDuckGo favicon API는 수년 동안 조용히 이 역할을 수행해 왔으며, Google의 S2 서비스와 직접 <code>/favicon.ico</code> 요청과 함께 고려해 볼 수 있는 옵션입니다.</p>
+<p>각 옵션은 반환하는 파일 형식도 다르고, 부하 상황에서 동작 방식도 다르며, 사이트에 아이콘이 없을 때의 실패 양상도 제각각입니다. 잘못 선택하면 썸네일이 깨지거나 로그에 정체 모를 404 응답이 쌓이는 결과를 초래합니다.</p>
+<h2>빠른 비교: DuckDuckGo Favicon API vs 대안 서비스</h2>
+<table>
+<thead>
+<tr><th>평가 항목</th><th>DuckDuckGo</th><th>Google S2</th><th>직접 /favicon.ico</th></tr>
+</thead>
+<tbody>
+<tr><td>엔드포인트 패턴</td><td><code>icons.duckduckgo.com/ip3/{domain}.ico</code></td><td><code>s2.googleusercontent.com/s2/favicons?domain={domain}</code></td><td><code>{site}/favicon.ico</code></td></tr>
+<tr><td>반환 형식</td><td>ICO only</td><td>PNG (기본 16x16)</td><td>사이트가 제공하는 형식 그대로</td></tr>
+<tr><td>기본 크기</td><td>멀티 사이즈 ICO 컨테이너</td><td>16x16 (sz=64까지)</td><td>사이트 정의값</td></tr>
+<tr><td>공개된 rate limit 문서</td><td>없음</td><td>없음</td><td>사이트별 CORS / 서버 정책</td></tr>
+<tr><td>CORS 친화성</td><td>예 (예외 있음)</td><td>예</td><td>대부분 아니오</td></tr>
+<tr><td>프록시 / privacy 계층</td><td>예 (DuckDuckGo 프록시)</td><td>예 (Google 프록시)</td><td>없음</td></tr>
+<tr><td>아이콘 부재 시 fallback</td><td>404 반환</td><td>기본 지구본 아이콘 반환</td><td>404 또는 HTML 오류</td></tr>
+<tr><td>적합한 용도</td><td>탭 스타일 아이콘, ICO가 필요한 경우</td><td>작은 이미지 썸네일, SERP와 동일한 표시</td><td>원본 소스 자산을 그대로 가져와야 할 때</td></tr>
+</tbody>
+</table>
+<h2>DuckDuckGo Favicon API의 실제 동작 방식</h2>
+<p>엔드포인트 구조는 매우 간단합니다: <code>https://icons.duckduckgo.com/ip3/example.com.ico</code>. DuckDuckGo는 자체 인프라에서 해당 사이트의 실제 favicon을 가져온 뒤, 필요 시 ICO 컨테이너로 변환하여 자사 CDN을 통해 제공합니다. 원본(origin) 서버로 직접 요청을 보내지 않으므로 대부분의 CORS 제약을 우회할 수 있습니다.</p><p>이 프록시 방식 덕분에 URL 자체가 프라이버시를 보호하는 fetch 역할도 함께 수행합니다. 방문자의 브라우저가 아이콘을 렌더링하기 위해 대상 사이트에 직접 요청하지 않기 때문입니다. 이는 Google의 <code>s2.googleusercontent.com</code>이 사용하는 방식과 동일하며, 별도의 헤더 없이 어느 출처에서든 <code>&amp;lt;img&amp;gt;</code> 태그로 동작하는 이유입니다.</p>
+<h3>포맷 제한 사항</h3>
+<p>가장 큰 주의점은 DuckDuckGo가 ICO만 반환한다는 점입니다. iOS 스타일 목록에 선명한 64x64 PNG가 필요하다면 직접 변환해야 합니다. 저희 <a href="/ko/blog/png-to-ico.html">PNG to ICO 변환 가이드</a>에서는 반대 방향 변환을 다루고 있지만, 동일한 도구로 양쪽 방향 모두 처리할 수 있습니다. ICO만으로 충분한 프로젝트—데스크톱 브라우저 탭, 구형 <code>&amp;lt;link rel='icon'&amp;gt;</code> fallback—의 경우 DuckDuckGo가 가장 손쉬운 선택입니다.</p>
+<h2>DuckDuckGo Favicon API가 적합한 경우</h2>
+<ul>
+<li><strong>변환 단계 없이 ICO가 필요한 경우.</strong> 브라우저 탭 fallback, 구형 IE 지원, Windows 바로가기는 여전히 ICO를 필요로 하며, DuckDuckGo는 이를 즉시 제공합니다.</li>
+<li><strong>브라우저에서 직접 가져오면서 CORS 설정이 전혀 필요 없는 경우.</strong> DuckDuckGo와 Google 모두 요청을 프록시 처리하지만, DuckDuckGo는 역사적으로 hot-link에 더 관대한 태도를 보여왔습니다.</li>
+<li><strong>프라이버시를 존중하는 프록시를 원하는 경우.</strong> DuckDuckGo는 추적 없음을 브랜드 모토로 삼고 있어, 덕분에 favicon 엔드포인트가 Google보다 덜 감시적인 인상을 줍니다.</li>
+</ul>
+<h2>Google S2가 더 나은 선택인 경우</h2>
+<ul>
+<li><strong>ICO가 아닌 PNG가 필요한 경우.</strong> Google 엔드포인트는 기본적으로 <code>image/png</code>를 제공하며, 최대 64 픽셀까지의 <code>sz=</code> 파라미터를 지원합니다.</li>
+<li><strong>SERP 스타일 목록을 구축 중인 경우.</strong> Google은 사이트에 favicon이 없을 때 기본 지구본 아이콘을 반환합니다. 반면 DuckDuckGo는 404를 반환하므로 이를 별도로 처리해야 합니다.</li>
+<li><strong>일관된 16x16 썸네일이 필요한 경우.</strong> Google의 응답은 항상 작고 빠르며 예측 가능합니다.</li>
+</ul>
+<h2>직접 /favicon.ico를 사용해도 괜찮은 경우</h2><p>신뢰할 수 있는 단일 사이트 — 자체 CDN, 파트너 사이트, 검증된 출처 — 에서는 favicon을 직접 가져오는 것이 원본 자산을 최고 해상도로 확보할 수 있는 가장 확실한 방법입니다. SVG, 멀티해상도 ICO, 애니메이션 PNG 등 해당 사이트가 실제로 제공하는 자산을 그대로 받을 수 있습니다. 다만 트레이드오프는 CORS입니다. 대부분의 사이트는 브라우저가 필요로 하는 헤더를 함께 보내지 않기 때문에 이 방식은 서버 간(server-to-server)에서만 동작하며 클라이언트 측에서는 사용할 수 없습니다.</p>
+<p>대량으로 가져오기 작업을 수행할 경우, rate limit 관련 문서가 부재하다는 점은 실제 리스크입니다. 일부 출처는 50회 요청 후 429 응답을 반환하지만, 그렇지 않은 경우도 있습니다. 이러한 리스크를 흡수해 주는 것이 바로 공개(public) API들이 존재하는 이유이기도 합니다.</p>
+<h2>Recommendation</h2>
+<p>브라우저 탭이나 목록 뷰에서 동작하는 아이콘이 필요한 대부분의 클라이언트 측 프로젝트에서 ICO 포맷이 필요하다면 <strong>DuckDuckGo favicon API</strong>가 적합한 기본 선택입니다. 자체 아이콘도 함께 배포해야 한다면 무료 <a href="/ko/blog/favicon-generator-free.html">favicon generator</a>와 함께 사용하시기 바랍니다. PNG 썸네일과 Google SERP와 동일한 품질의 결과가 필요하다면 Google의 S2 엔드포인트가 더 빠르고 예측 가능합니다. 최고 해상도의 원본 파일이 필요한 신뢰 가능한 단일 도메인 환경에 한해 <code>/favicon.ico</code> 직접 가져오기를 사용하시기 바랍니다.</p>
+<p>어떤 API를 선택하든 결과를 캐시하시기 바랍니다. 브라우저의 favicon 요청은 잘 알려져 있듯이 매우 집요하게(sticky) 캐시에 남아 있는 특성이 있어, 서버 측에서 캐싱을 적용하지 않으면 매 페이지 로드마다 DuckDuckGo의 CDN에 반복 요청을 보내게 되므로, 서버에 캐싱을 두는 것이 도움이 됩니다.</p>
+<h2>Check the documented requirements</h2>
+<p>HTML Standard는 <a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon"><code>rel='icon'</code></a>을 현재 페이지를 대표하는 아이콘의 link relationship으로 정의하고 있습니다.</p></div>
+
+        <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
+
+        <div class="cta-box">
+            <h3>전체 Favicon 패키지 생성</h3>
+            <p>API 시행착오를 건너뛰세요. Mzu favicondl로 이미지를 ICO, PNG, SVG, Apple Touch로 한 번에 변환하세요.</p>
+            <a href="/ko/" class="cta-btn">무료로 사용해보기 →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/ko/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">홈</a>
+                <a href="/ko/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">블로그</a>
+                <a href="/ko/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">개인정보</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js?v=20260211"></script>
+
+</body></html>

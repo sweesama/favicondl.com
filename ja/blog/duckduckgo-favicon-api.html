@@ -1,0 +1,164 @@
+<!DOCTYPE html><html lang="ja"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DuckDuckGo Favicon API 比較：代替案まで徹底解説</title>
+    <meta name="description" content="DuckDuckGo favicon API、Google S2、直接の /favicon.ico 取得を比較。形式サポート、信頼性、レート制限、最適な用途まで解説します。">
+    <meta name="keywords" content="duckduckgo favicon api, favicon api comparison, google s2 favicon, favicon ico">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/ja/blog/duckduckgo-favicon-api.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/duckduckgo-favicon-api.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/duckduckgo-favicon-api.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/duckduckgo-favicon-api.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/duckduckgo-favicon-api.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/duckduckgo-favicon-api.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/duckduckgo-favicon-api.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/ja/blog/duckduckgo-favicon-api.html">
+    <meta property="og:title" content="DuckDuckGo Favicon API 比較：代替案まで徹底解説">
+    <meta property="og:description" content="DuckDuckGo favicon API、Google S2、直接の /favicon.ico 取得を比較。形式サポート、信頼性、レート制限、最適な用途まで解説します。">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="DuckDuckGo Favicon API 比較：代替案まで徹底解説">
+    <meta name="twitter:description" content="DuckDuckGo favicon API、Google S2、直接の /favicon.ico 取得を比較。形式サポート、信頼性、レート制限、最適な用途まで解説します。">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "DuckDuckGo Favicon API 比較：代替案まで徹底解説",
+  "description": "DuckDuckGo favicon API、Google S2、直接の /favicon.ico 取得を比較。形式サポート、信頼性、レート制限、最適な用途まで解説します。",
+  "datePublished": "2026-10-18",
+  "dateModified": "2026-10-18",
+  "author": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "mainEntityOfPage": "https://favicondl.com/ja/blog/duckduckgo-favicon-api.html",
+  "inLanguage": "ja"
+}</script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/ja/" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/ja/documentation.html" class="nav-link">ドキュメント</a>
+                <a href="/ja/tools.html" class="nav-link">ツール</a>
+                <a href="/ja/blog/" class="nav-link">ブログ</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/duckduckgo-favicon-api.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/duckduckgo-favicon-api.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/duckduckgo-favicon-api.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/duckduckgo-favicon-api.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/duckduckgo-favicon-api.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/ja/" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/ja/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600">DuckDuckGo Favicon API 比較：代替案まで徹底解説</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">api</span><time class="text-sm text-gray-400">2026-10-18</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">DuckDuckGo Favicon API 比較：代替案まで徹底解説</h1>
+        </header>
+
+        <div class="article-body"><p>ダッシュボード用に50個のサイトアイコンを取得したいスクリプトがあり、自分でホスティングするのは避けたい。そんなときに便利なのが公開favicon APIで、わずか2行のコードで済みます。ただし、どのAPIを選ぶかで結果は大きく変わります。DuckDuckGoのfavicon APIは長年にわたりこの用途で使われてきており、GoogleのS2サービスや直接の<code>/favicon.ico</code>取得方法と並んで定番の選択肢です。</p>
+<p>それぞれのオプションで返ってくるファイル形式は異なり、高負荷時の挙動も、サイト側にアイコンがないときの失敗の仕方も違います。間違った選択をすれば、サムネイルが壊れたり、ログに謎の404が記録されたりすることになります。</p>
+<h2>クイック比較: DuckDuckGo Favicon API vs 代替手段</h2>
+<table>
+<thead>
+<tr><th>Criterion</th><th>DuckDuckGo</th><th>Google S2</th><th>Direct /favicon.ico</th></tr>
+</thead>
+<tbody>
+<tr><td>Endpoint pattern</td><td><code>icons.duckduckgo.com/ip3/{domain}.ico</code></td><td><code>s2.googleusercontent.com/s2/favicons?domain={domain}</code></td><td><code>{site}/favicon.ico</code></td></tr>
+<tr><td>Return format</td><td>ICOのみ</td><td>PNG (デフォルト16x16)</td><td>サイトが配信する形式</td></tr>
+<tr><td>Default size</td><td>マルチサイズICOコンテナ</td><td>16x16 (sz=64が最大)</td><td>サイト定義</td></tr>
+<tr><td>Rate limits documented</td><td>公式ドキュメントなし</td><td>公式ドキュメントなし</td><td>サイトごとのCORS / サーバー次第</td></tr>
+<tr><td>CORS friendly</td><td>対応 (ただし注意点あり)</td><td>対応</td><td>通常は非対応</td></tr>
+<tr><td>Proxy / privacy layer</td><td>あり (DuckDuckGoプロキシ)</td><td>あり (Googleプロキシ)</td><td>なし</td></tr>
+<tr><td>Fallback when missing</td><td>404を返す</td><td>デフォルトの地球アイコンを返す</td><td>404またはHTMLエラー</td></tr>
+<tr><td>Best for</td><td>タブ風アイコン、ICOが必要な用途</td><td>小さなサムネイル、SERPとの統一</td><td>正確なソースアセット</td></tr>
+</tbody>
+</table>
+<h2>DuckDuckGo Favicon APIの実際の仕組み</h2>
+<p>エンドポイントは非常にシンプルで、<code>https://icons.duckduckgo.com/ip3/example.com.ico</code>でアクセスできます。DuckDuckGoが自社のインフラでサイトの実際のfaviconを取得し、必要に応じてICOコンテナへ変換した上でCDN経由で配信します。オリジンサーバーへ直接アクセスすることはなく、ほとんどのCORSの壁を回避できます。</p><p>このプロキシ的アプローチにより、URLはプライバシー保護付きのfetchとしても機能します。訪問者のブラウザは、アイコンを描画するためだけにターゲットサイトに直接接続しません。これはGoogleの<code>s2.googleusercontent.com</code>が使っているのと同じ手法であり、どちらのエンドポイントも追加ヘッダーなしで任意の出元の<code>&amp;lt;img&amp;gt;</code>タグで動作する理由でもあります。</p>
+<h3>フォーマット上の制約</h3>
+<p>最大の落とし穴は、DuckDuckGoがICOのみを返すという点です。iOS風の一覧表示のように、くっきりとした64x64のPNGが必要な場合は変換が必要になります。当社の<a href="/ja/blog/png-to-ico.html">PNG to ICO変換ガイド</a>では逆方向の変換方法を解説していますが、同じツールで双方向ともに対応できます。ICOで問題ないプロジェクト — デスクトップブラウザのタブ、レガシー<code>&amp;lt;link rel='icon'&amp;gt;</code>のフォールバックなど — では、DuckDuckGoが事実上最も手間のかからない選択肢です。</p>
+<h2>DuckDuckGo Favicon APIが選ばれるケース</h2>
+<ul>
+<li><strong>ICOを変換ステップなしで使用したい場合。</strong>ブラウザタブのフォールバック、レガシーIEサポート、WindowsショートカットはいまだにICOを必要とします。DuckDuckGoならICOを直接取得できます。</li>
+<li><strong>ブラウザから呼び出し、CORS設定を一切行いたくない場合。</strong>DuckDuckGoとGoogleはいずれもリクエストをプロキシしますが、DuckDuckGoは歴史的にホットリンクに対してより寛容な傾向があります。</li>
+<li><strong>プライバシーを重視したプロキシを求めている場合。</strong>DuckDuckGoはトラッキングを行わないというブランドで成り立っているため、同社のfaviconエンドポイントはGoogleのものよりも「監視されている」感じが薄れます。</li>
+</ul>
+<h2>Google S2の方が適しているケース</h2>
+<ul>
+<li><strong>ICOではなくPNGが必要な場合。</strong>Googleのエンドポイントはデフォルトで<code>image/png</code>を返し、最大64ピクセルまでの<code>sz=</code>パラメータに対応しています。</li>
+<li><strong>SERP風の一覧を構築している場合。</strong>Googleはサイトにfaviconがない場合にデフォルトの地球儀アイコンを返します。DuckDuckGoは404を返すため別途ハンドリングが必要です。</li>
+<li><strong>16x16のサムネイルを一貫したサイズで取得したい場合。</strong>Googleのレスポンスは常に小さく、高速、かつ予測可能です。</li>
+</ul>
+<h2>直接 /favicon.ico を取得する方式が依然として有効なケース</h2><p>信頼できる単一サイト（自社CDN、パートナーのサイト、信頼できる既知のソース元）の場合、faviconを直接取得すれば、フル解像度のオリジナルアセットを取得できます。SVG、マルチ解像度のICO、アニメーションPNGなど、サイトが実際に配信しているものがそのまま得られます。トレードオフはCORSで、多くのサイトはブラウザが必要とするヘッダーを返さないため、この方法はサーバー間でのみ機能し、クライアントサイドでは動作しません。</p>
+<p>一括取得を行う場合、レート制限のドキュメントが公開されていないことは現実的なリスクです。50リクエスト程度で429を返すオリジンもあれば、そうでないものもあります。公開APIはまさにそのリスクを引き受けるために存在しています。</p>
+<h2>推奨</h2>
+<p>ブラウザのタブやリストビューで動作するアイコンが必要となるクライアントサイドプロジェクトの多くでは、ICOを取得したい場合のデフォルトとして<strong>DuckDuckGo favicon API</strong>が適切です。自身のアイコンも配信したい場合は、<a href="/ja/blog/favicon-generator-free.html">無料のfaviconジェネレーター</a>と併用してください。PNGサムネイルやGoogle SERPと遜色ない結果が必要な場合は、GoogleのS2エンドポイントの方が高速で挙動も予測しやすくなります。フル解像度のソースファイルが必要で、かつ信頼できる単一ドメインに限定した用途では、直接の<code>/favicon.ico</code>取得を限定的にご利用ください。</p>
+<p>どのAPIを選んだとしても、結果をキャッシュしてください。ブラウザのfavicon取得はキャッシュが効きにくいことで知られており、ページ読み込みごとにDuckDuckGoのCDNへ負荷をかけなければ、サーバー側にとっても好都合です。</p><h2>ドキュメント化された要件を確認する</h2><p>HTML仕様では、<a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon"><code>rel='icon'</code></a>が現在のページを表すアイコンのリンク関係として定義されています。</p></div>
+
+        <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
+
+        <div class="cta-box">
+            <h3>完全な Favicon パッケージを生成</h3>
+            <p>API の試行錯誤は不要です。Mzu favicondl なら画像をワンクリックで ICO、PNG、SVG、Apple Touch に変換できます。</p>
+            <a href="/ja/" class="cta-btn">無料で試す →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/ja/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">ホーム</a>
+                <a href="/ja/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">ブログ</a>
+                <a href="/ja/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">プライバシー</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js?v=20260211"></script>
+
+</body></html>

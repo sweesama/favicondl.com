@@ -1,0 +1,326 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DuckDuckGo Favicon API vs Alternatives: Full Comparison</title>
+    <meta name="description" content="Compare the DuckDuckGo favicon API with Google's S2 service and direct favicon.ico fetches. Format support, reliability, rate limits, and best use cases for.">
+    <meta name="keywords" content="duckduckgo favicon api, favicon api comparison, google s2 favicon, favicon ico">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/blog/duckduckgo-favicon-api.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/duckduckgo-favicon-api.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/duckduckgo-favicon-api.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/duckduckgo-favicon-api.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/duckduckgo-favicon-api.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/duckduckgo-favicon-api.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/duckduckgo-favicon-api.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/blog/duckduckgo-favicon-api.html">
+    <meta property="og:title" content="DuckDuckGo Favicon API vs Alternatives: Full Comparison">
+    <meta property="og:description" content="Compare the DuckDuckGo favicon API with Google's S2 service and direct favicon.ico fetches. Format support, reliability, rate limits, and best use cases for.">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="DuckDuckGo Favicon API vs Alternatives: Full Comparison">
+    <meta name="twitter:description" content="Compare the DuckDuckGo favicon API with Google's S2 service and direct favicon.ico fetches. Format support, reliability, rate limits, and best use cases for.">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "DuckDuckGo Favicon API vs Alternatives: Full Comparison",
+  "description": "Compare the DuckDuckGo favicon API with Google's S2 service and direct favicon.ico fetches. Format support, reliability, rate limits, and best use cases for.",
+  "datePublished": "2026-10-18",
+  "dateModified": "2026-10-18",
+  "author": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "mainEntityOfPage": "https://favicondl.com/blog/duckduckgo-favicon-api.html",
+  "inLanguage": "en"
+}</script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/documentation.html" class="nav-link" data-en="Docs" data-zh="文档">Docs</a>
+                <a href="/tools.html" class="nav-link" data-en="Tools" data-zh="工具">Tools</a>
+                <a href="/blog/" class="nav-link" data-en="Blog" data-zh="博客">Blog</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/duckduckgo-favicon-api.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/duckduckgo-favicon-api.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/duckduckgo-favicon-api.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/duckduckgo-favicon-api.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/duckduckgo-favicon-api.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600" data-en="DuckDuckGo Favicon API vs Alternatives: Full Comparison" data-zh="DuckDuckGo Favicon API 对比：开发者选型指南" data-ja="DuckDuckGo Favicon API 比較：代替案まで徹底解説" data-ko="DuckDuckGo Favicon API 비교: 개발자 선택 가이드" data-es="DuckDuckGo Favicon API: Comparativa para desarrolladores">DuckDuckGo Favicon API vs Alternatives: Full Comparison</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">api</span><time class="text-sm text-gray-400">2026-10-18</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight" data-en="DuckDuckGo Favicon API vs Alternatives: Full Comparison" data-zh="DuckDuckGo Favicon API 对比：开发者选型指南" data-ja="DuckDuckGo Favicon API 比較：代替案まで徹底解説" data-ko="DuckDuckGo Favicon API 비교: 개발자 선택 가이드" data-es="DuckDuckGo Favicon API: Comparativa para desarrolladores">DuckDuckGo Favicon API vs Alternatives: Full Comparison</h1>
+        </header>
+
+        <div class="article-body" data-lang="en">
+            <p>Your script needs to grab 50 site icons for a dashboard, and you don't want to host them. A public favicon API solves this in two lines of code, but which one? The DuckDuckGo favicon API has been quietly doing this job for years, sitting alongside Google's S2 service and direct <code>/favicon.ico</code> fetches.</p>
+<p>Each option returns a different file format, behaves differently under load, and fails differently when a site has no icon. Picking the wrong one means broken thumbnails or mysterious 404s in your logs.</p>
+<h2>Quick Comparison: DuckDuckGo Favicon API vs Alternatives</h2>
+<table>
+<thead>
+<tr><th>Criterion</th><th>DuckDuckGo</th><th>Google S2</th><th>Direct /favicon.ico</th></tr>
+</thead>
+<tbody>
+<tr><td>Endpoint pattern</td><td><code>icons.duckduckgo.com/ip3/{domain}.ico</code></td><td><code>s2.googleusercontent.com/s2/favicons?domain={domain}</code></td><td><code>{site}/favicon.ico</code></td></tr>
+<tr><td>Return format</td><td>ICO only</td><td>PNG (16x16 default)</td><td>Whatever site serves</td></tr>
+<tr><td>Default size</td><td>Multi-size ICO container</td><td>16x16 (sz=64 max)</td><td>Site-defined</td></tr>
+<tr><td>Rate limits documented</td><td>No official docs</td><td>No official docs</td><td>Per-site CORS / server</td></tr>
+<tr><td>CORS friendly</td><td>Yes (with caveats)</td><td>Yes</td><td>Usually no</td></tr>
+<tr><td>Proxy / privacy layer</td><td>Yes (DuckDuckGo proxy)</td><td>Yes (Google proxy)</td><td>None</td></tr>
+<tr><td>Fallback when missing</td><td>Returns 404</td><td>Returns default globe</td><td>404 or HTML error</td></tr>
+<tr><td>Best for</td><td>Tab-style icons, ICO needs</td><td>Small thumbnails, SERP parity</td><td>Exact source asset</td></tr>
+</tbody>
+</table>
+<h2>How the DuckDuckGo Favicon API Actually Works</h2>
+<p>The endpoint is dead simple: <code>https://icons.duckduckgo.com/ip3/example.com.ico</code>. DuckDuckGo fetches the site's real favicon on its own infrastructure, converts it to an ICO container if needed, and serves it from their CDN. You never hit the origin server, which dodges most CORS walls.</p>
+<p>This proxy approach means the URL also acts as a privacy-preserving fetch. Your visitors' browsers don't directly contact the target site just to render an icon. That's the same trick Google's <code>s2.googleusercontent.com</code> plays, and it's why both endpoints work in <code>&amp;lt;img&amp;gt;</code> tags from any origin without extra headers.</p>
+<h3>Format limitations</h3>
+<p>The biggest gotcha: DuckDuckGo only returns ICO. If you need a crisp 64x64 PNG for an iOS-style list, you'll need to convert it. Our <a href="/blog/png-to-ico.html">PNG to ICO conversion guide</a> covers the reverse direction, but the same tools handle both. For projects where ICO works fine — desktop browser tabs, legacy <code>&amp;lt;link rel='icon'&amp;gt;</code> fallbacks — DuckDuckGo is genuinely the most hands-off choice.</p>
+<h2>When DuckDuckGo Favicon API Wins</h2>
+<ul>
+<li><strong>You need ICO without the conversion step.</strong> Browser tab fallbacks, legacy IE support, and Windows shortcuts still want ICO. DuckDuckGo hands you one directly.</li>
+<li><strong>You're fetching from the browser and want zero CORS config.</strong> Both DuckDuckGo and Google proxy the request, but DuckDuckGo has historically been more lenient about hot-linking.</li>
+<li><strong>You want a privacy-respecting proxy.</strong> DuckDuckGo's brand is built on no tracking, which makes their favicon endpoint feel less surveillance-y than Google's.</li>
+</ul>
+<h2>When Google S2 Is the Better Pick</h2>
+<ul>
+<li><strong>You want a PNG, not an ICO.</strong> Google's endpoint serves <code>image/png</code> by default and supports a <code>sz=</code> parameter up to 64 pixels.</li>
+<li><strong>You're building a SERP-style list.</strong> Google returns a default globe icon when a site has no favicon. DuckDuckGo returns a 404, which you'll need to handle.</li>
+<li><strong>You want consistent 16x16 thumbnails.</strong> Google's response is always small, fast, and predictable.</li>
+</ul>
+<h2>When Direct /favicon.ico Still Makes Sense</h2>
+<p>For a single, trusted site — your own CDN, a partner's site, a known good source — fetching the favicon directly gives you the original asset at full resolution. You get SVG, multi-resolution ICO, animated PNG, whatever the site actually serves. The trade-off is CORS: most sites won't send the headers your browser needs, so this only works server-to-server, not client-side.</p>
+<p>If you're doing bulk fetching, the lack of rate limit documentation is a real risk. Some origins will 429 you after 50 requests, others won't. The public APIs absorb that risk for you, which is the entire reason they exist.</p>
+<h2>Recommendation</h2>
+<p>For most client-side projects where you need a working icon in a browser tab or list view, the <strong>DuckDuckGo favicon API</strong> is the right default when you want ICO. Pair it with our <a href="/blog/favicon-generator-free.html">free favicon generator</a> if you also need to ship your own icons. For PNG thumbnails and Google-SERP-parity results, Google's S2 endpoint is faster and more predictable. Reserve direct <code>/favicon.ico</code> fetches for trusted, single-domain use where you need the full-resolution source file.</p>
+<p>No matter which API you pick, cache the result. Browser favicon fetches are notoriously sticky, and your server will thank you for not hammering DuckDuckGo's CDN on every page load.</p><h2>Check the documented requirements</h2><p>The HTML Standard defines <a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon"><code>rel='icon'</code></a> as the link relationship for an icon representing the current page.</p>
+        </div>
+
+        <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
+        <template data-article-lang="zh"><p>脚本要给仪表盘拉 50 个站点图标，又不想自己托管。一个公开的 favicon API 两行代码就能搞定，但选哪个？DuckDuckGo favicon API 已经悄悄做这活儿多年，和 Google 的 S2 服务以及直接请求 <code>/favicon.ico</code> 一直并存。</p>
+<p>三种方案返回的文件格式不同，高并发下的表现也不同，遇到站点没有图标时失败的方式也不同。选错了，缩略图就裂了，日志里还会冒出一堆莫名其妙的 404。</p>
+<h2>快速对比：DuckDuckGo Favicon API vs 其他方案</h2>
+<table>
+<thead>
+<tr><th>对比项</th><th>DuckDuckGo</th><th>Google S2</th><th>直接拉 /favicon.ico</th></tr>
+</thead>
+<tbody>
+<tr><td>接口地址格式</td><td><code>icons.duckduckgo.com/ip3/{domain}.ico</code></td><td><code>s2.googleusercontent.com/s2/favicons?domain={domain}</code></td><td><code>{site}/favicon.ico</code></td></tr>
+<tr><td>返回格式</td><td>仅 ICO</td><td>PNG（默认 16x16）</td><td>站点返回什么就是什么</td></tr>
+<tr><td>默认尺寸</td><td>多尺寸 ICO 容器</td><td>16x16（最大 sz=64）</td><td>站点决定</td></tr>
+<tr><td>是否有官方限速文档</td><td>无官方文档</td><td>无官方文档</td><td>取决于站点 CORS / 服务端</td></tr>
+<tr><td>CORS 友好</td><td>是（但有限制）</td><td>是</td><td>通常不支持</td></tr>
+<tr><td>代理 / 隐私层</td><td>有（DuckDuckGo 代理）</td><td>有（Google 代理）</td><td>无</td></tr>
+<tr><td>缺失时的回退</td><td>返回 404</td><td>返回默认地球图标</td><td>404 或 HTML 错误页</td></tr>
+<tr><td>最适合的场景</td><td>浏览器标签页风格图标、需要 ICO</td><td>小尺寸缩略图、与搜索结果页一致</td><td>完全原始的源文件</td></tr>
+</tbody>
+</table>
+<h2>DuckDuckGo Favicon API 到底是怎么工作的</h2>
+<p>接口非常简单：<code>https://icons.duckduckgo.com/ip3/example.com.ico</code>。DuckDuckGo 在自己的基础设施上抓取站点的真实 favicon，需要时再转成 ICO 容器格式，最后通过他们的 CDN 输出。整个过程完全不会打到源站，因此大部分 CORS 限制都绕过去了。</p><p>这种代理方式意味着 URL 本身就充当了一次隐私友好的抓取。访客浏览器不会为了渲染一个小图标就直接去访问目标站点。这跟 Google 的 <code>s2.googleusercontent.com</code> 走的是同一个路子,也解释了为什么这两个端点可以在任意源的 <code>&amp;lt;img&amp;gt;</code> 标签里直接用,无需额外配置 header。</p>
+<h3>格式上的局限</h3>
+<p>最大的坑:DuckDuckGo 只返回 ICO 格式。如果你需要一张清晰的 64x64 PNG 用在 iOS 风格的列表里,就得自己再做一次转换。我们的 <a href="/blog/png-to-ico.html">PNG to ICO 转换指南</a> 讲的是反向操作,但同一套工具两边都能搞定。对于 ICO 就够用的项目——桌面浏览器标签页、老式 <code>&amp;lt;link rel='icon'&amp;gt;</code> 的兜底——DuckDuckGo 确实是最省心的选择。</p>
+<h2>DuckDuckGo Favicon API 胜出的场景</h2>
+<ul>
+<li><strong>你需要 ICO,不想再多一步转换。</strong>浏览器标签兜底、老 IE 支持以及 Windows 快捷方式都还是要 ICO,DuckDuckGo 直接就给你。</li>
+<li><strong>你在浏览器端取图标,想要零 CORS 配置。</strong>DuckDuckGo 和 Google 都做了代理转发,但 DuckDuckGo 历史上对外链引用(hot-linking)更宽松。</li>
+<li><strong>你想要一个尊重隐私的代理。</strong>DuckDuckGo 的品牌就建立在不追踪这件事上,所以它的 favicon 端点比 Google 的少几分"监控味"。</li>
+</ul>
+<h2>Google S2 更合适的场景</h2>
+<ul>
+<li><strong>你要的是 PNG,而不是 ICO。</strong>Google 端点默认返回 <code>image/png</code>,并且支持 <code>sz=</code> 参数,最大到 64 像素。</li>
+<li><strong>你在搭 SERP 风格的结果列表。</strong>Google 在站点没有 favicon 时会返回一个默认的地球图标,而 DuckDuckGo 返回的是 404,这种情况下你得自己额外处理。</li>
+<li><strong>你想要一致的 16x16 缩略图。</strong>Google 的响应始终体积小、速度快,而且表现稳定可预测。</li>
+</ul>
+<h2>直接请求 /favicon.ico 仍然合理的场景</h2><p>对于单一可信来源的站点（你自己的 CDN、合作伙伴站点、已知可靠的数据源），直接拉取 favicon 能拿到原始资源，分辨率还是完整的。SVG、多分辨率 ICO、动图 PNG，原站点实际提供什么你就拿到什么。代价是 CORS：绝大多数站点不会返回浏览器所需的响应头，所以这种方式只能在服务端之间使用，没法在客户端里直接发起请求。</p>
+<p>如果你要做批量抓取，没有明确的速率限制文档就是真实的隐患。有的源站请求 50 次之后就给你返回 429，有的则不会。这些公开 API 存在的意义就是把这种风险替你吸收掉。</p>
+<h2>推荐方案</h2>
+<p>对于大多数需要在浏览器标签页或列表视图里显示可用图标的客户端项目，如果你需要 ICO，<strong>DuckDuckGo favicon API</strong> 是不错的默认选择。如果同时需要发布自己的图标，可以搭配我们的 <a href="/blog/favicon-generator-free.html">免费 favicon 生成器</a>。如果需要 PNG 缩略图，或者希望达到与 Google 搜索结果一致的显示效果，Google 的 S2 接口更快也更稳定。把直连 <code>/favicon.ico</code> 的方式留给那些可信单一域名、需要拿到完整原始分辨率文件的场景。</p>
+<p>无论选哪个 API，结果都要缓存。浏览器的 favicon 请求一旦缓存就极难清除，每次页面加载都去打 DuckDuckGo 的 CDN，迟早让你的服务器吃不消。</p><h2>核对规范中的要求</h2><p>HTML 标准把 <a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon"><code>rel='icon'</code></a> 定义为表示当前页面的图标的链接关系。</p></template>
+        <template data-article-lang="ja"><p>ダッシュボード用に50個のサイトアイコンを取得したいスクリプトがあり、自分でホスティングするのは避けたい。そんなときに便利なのが公開favicon APIで、わずか2行のコードで済みます。ただし、どのAPIを選ぶかで結果は大きく変わります。DuckDuckGoのfavicon APIは長年にわたりこの用途で使われてきており、GoogleのS2サービスや直接の<code>/favicon.ico</code>取得方法と並んで定番の選択肢です。</p>
+<p>それぞれのオプションで返ってくるファイル形式は異なり、高負荷時の挙動も、サイト側にアイコンがないときの失敗の仕方も違います。間違った選択をすれば、サムネイルが壊れたり、ログに謎の404が記録されたりすることになります。</p>
+<h2>クイック比較: DuckDuckGo Favicon API vs 代替手段</h2>
+<table>
+<thead>
+<tr><th>Criterion</th><th>DuckDuckGo</th><th>Google S2</th><th>Direct /favicon.ico</th></tr>
+</thead>
+<tbody>
+<tr><td>Endpoint pattern</td><td><code>icons.duckduckgo.com/ip3/{domain}.ico</code></td><td><code>s2.googleusercontent.com/s2/favicons?domain={domain}</code></td><td><code>{site}/favicon.ico</code></td></tr>
+<tr><td>Return format</td><td>ICOのみ</td><td>PNG (デフォルト16x16)</td><td>サイトが配信する形式</td></tr>
+<tr><td>Default size</td><td>マルチサイズICOコンテナ</td><td>16x16 (sz=64が最大)</td><td>サイト定義</td></tr>
+<tr><td>Rate limits documented</td><td>公式ドキュメントなし</td><td>公式ドキュメントなし</td><td>サイトごとのCORS / サーバー次第</td></tr>
+<tr><td>CORS friendly</td><td>対応 (ただし注意点あり)</td><td>対応</td><td>通常は非対応</td></tr>
+<tr><td>Proxy / privacy layer</td><td>あり (DuckDuckGoプロキシ)</td><td>あり (Googleプロキシ)</td><td>なし</td></tr>
+<tr><td>Fallback when missing</td><td>404を返す</td><td>デフォルトの地球アイコンを返す</td><td>404またはHTMLエラー</td></tr>
+<tr><td>Best for</td><td>タブ風アイコン、ICOが必要な用途</td><td>小さなサムネイル、SERPとの統一</td><td>正確なソースアセット</td></tr>
+</tbody>
+</table>
+<h2>DuckDuckGo Favicon APIの実際の仕組み</h2>
+<p>エンドポイントは非常にシンプルで、<code>https://icons.duckduckgo.com/ip3/example.com.ico</code>でアクセスできます。DuckDuckGoが自社のインフラでサイトの実際のfaviconを取得し、必要に応じてICOコンテナへ変換した上でCDN経由で配信します。オリジンサーバーへ直接アクセスすることはなく、ほとんどのCORSの壁を回避できます。</p><p>このプロキシ的アプローチにより、URLはプライバシー保護付きのfetchとしても機能します。訪問者のブラウザは、アイコンを描画するためだけにターゲットサイトに直接接続しません。これはGoogleの<code>s2.googleusercontent.com</code>が使っているのと同じ手法であり、どちらのエンドポイントも追加ヘッダーなしで任意の出元の<code>&amp;lt;img&amp;gt;</code>タグで動作する理由でもあります。</p>
+<h3>フォーマット上の制約</h3>
+<p>最大の落とし穴は、DuckDuckGoがICOのみを返すという点です。iOS風の一覧表示のように、くっきりとした64x64のPNGが必要な場合は変換が必要になります。当社の<a href="/blog/png-to-ico.html">PNG to ICO変換ガイド</a>では逆方向の変換方法を解説していますが、同じツールで双方向ともに対応できます。ICOで問題ないプロジェクト — デスクトップブラウザのタブ、レガシー<code>&amp;lt;link rel='icon'&amp;gt;</code>のフォールバックなど — では、DuckDuckGoが事実上最も手間のかからない選択肢です。</p>
+<h2>DuckDuckGo Favicon APIが選ばれるケース</h2>
+<ul>
+<li><strong>ICOを変換ステップなしで使用したい場合。</strong>ブラウザタブのフォールバック、レガシーIEサポート、WindowsショートカットはいまだにICOを必要とします。DuckDuckGoならICOを直接取得できます。</li>
+<li><strong>ブラウザから呼び出し、CORS設定を一切行いたくない場合。</strong>DuckDuckGoとGoogleはいずれもリクエストをプロキシしますが、DuckDuckGoは歴史的にホットリンクに対してより寛容な傾向があります。</li>
+<li><strong>プライバシーを重視したプロキシを求めている場合。</strong>DuckDuckGoはトラッキングを行わないというブランドで成り立っているため、同社のfaviconエンドポイントはGoogleのものよりも「監視されている」感じが薄れます。</li>
+</ul>
+<h2>Google S2の方が適しているケース</h2>
+<ul>
+<li><strong>ICOではなくPNGが必要な場合。</strong>Googleのエンドポイントはデフォルトで<code>image/png</code>を返し、最大64ピクセルまでの<code>sz=</code>パラメータに対応しています。</li>
+<li><strong>SERP風の一覧を構築している場合。</strong>Googleはサイトにfaviconがない場合にデフォルトの地球儀アイコンを返します。DuckDuckGoは404を返すため別途ハンドリングが必要です。</li>
+<li><strong>16x16のサムネイルを一貫したサイズで取得したい場合。</strong>Googleのレスポンスは常に小さく、高速、かつ予測可能です。</li>
+</ul>
+<h2>直接 /favicon.ico を取得する方式が依然として有効なケース</h2><p>信頼できる単一サイト（自社CDN、パートナーのサイト、信頼できる既知のソース元）の場合、faviconを直接取得すれば、フル解像度のオリジナルアセットを取得できます。SVG、マルチ解像度のICO、アニメーションPNGなど、サイトが実際に配信しているものがそのまま得られます。トレードオフはCORSで、多くのサイトはブラウザが必要とするヘッダーを返さないため、この方法はサーバー間でのみ機能し、クライアントサイドでは動作しません。</p>
+<p>一括取得を行う場合、レート制限のドキュメントが公開されていないことは現実的なリスクです。50リクエスト程度で429を返すオリジンもあれば、そうでないものもあります。公開APIはまさにそのリスクを引き受けるために存在しています。</p>
+<h2>推奨</h2>
+<p>ブラウザのタブやリストビューで動作するアイコンが必要となるクライアントサイドプロジェクトの多くでは、ICOを取得したい場合のデフォルトとして<strong>DuckDuckGo favicon API</strong>が適切です。自身のアイコンも配信したい場合は、<a href="/blog/favicon-generator-free.html">無料のfaviconジェネレーター</a>と併用してください。PNGサムネイルやGoogle SERPと遜色ない結果が必要な場合は、GoogleのS2エンドポイントの方が高速で挙動も予測しやすくなります。フル解像度のソースファイルが必要で、かつ信頼できる単一ドメインに限定した用途では、直接の<code>/favicon.ico</code>取得を限定的にご利用ください。</p>
+<p>どのAPIを選んだとしても、結果をキャッシュしてください。ブラウザのfavicon取得はキャッシュが効きにくいことで知られており、ページ読み込みごとにDuckDuckGoのCDNへ負荷をかけなければ、サーバー側にとっても好都合です。</p><h2>ドキュメント化された要件を確認する</h2><p>HTML仕様では、<a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon"><code>rel='icon'</code></a>が現在のページを表すアイコンのリンク関係として定義されています。</p></template>
+        <template data-article-lang="ko"><p>대시보드용으로 50개 사이트의 아이콘을 스크립트로 가져와야 하는데 직접 호스팅하고 싶지는 않다면, 공개 favicon API를 사용하면 단 두 줄의 코드로 해결할 수 있습니다. 그렇다면 어떤 서비스를 선택해야 할까요? DuckDuckGo favicon API는 수년 동안 조용히 이 역할을 수행해 왔으며, Google의 S2 서비스와 직접 <code>/favicon.ico</code> 요청과 함께 고려해 볼 수 있는 옵션입니다.</p>
+<p>각 옵션은 반환하는 파일 형식도 다르고, 부하 상황에서 동작 방식도 다르며, 사이트에 아이콘이 없을 때의 실패 양상도 제각각입니다. 잘못 선택하면 썸네일이 깨지거나 로그에 정체 모를 404 응답이 쌓이는 결과를 초래합니다.</p>
+<h2>빠른 비교: DuckDuckGo Favicon API vs 대안 서비스</h2>
+<table>
+<thead>
+<tr><th>평가 항목</th><th>DuckDuckGo</th><th>Google S2</th><th>직접 /favicon.ico</th></tr>
+</thead>
+<tbody>
+<tr><td>엔드포인트 패턴</td><td><code>icons.duckduckgo.com/ip3/{domain}.ico</code></td><td><code>s2.googleusercontent.com/s2/favicons?domain={domain}</code></td><td><code>{site}/favicon.ico</code></td></tr>
+<tr><td>반환 형식</td><td>ICO only</td><td>PNG (기본 16x16)</td><td>사이트가 제공하는 형식 그대로</td></tr>
+<tr><td>기본 크기</td><td>멀티 사이즈 ICO 컨테이너</td><td>16x16 (sz=64까지)</td><td>사이트 정의값</td></tr>
+<tr><td>공개된 rate limit 문서</td><td>없음</td><td>없음</td><td>사이트별 CORS / 서버 정책</td></tr>
+<tr><td>CORS 친화성</td><td>예 (예외 있음)</td><td>예</td><td>대부분 아니오</td></tr>
+<tr><td>프록시 / privacy 계층</td><td>예 (DuckDuckGo 프록시)</td><td>예 (Google 프록시)</td><td>없음</td></tr>
+<tr><td>아이콘 부재 시 fallback</td><td>404 반환</td><td>기본 지구본 아이콘 반환</td><td>404 또는 HTML 오류</td></tr>
+<tr><td>적합한 용도</td><td>탭 스타일 아이콘, ICO가 필요한 경우</td><td>작은 이미지 썸네일, SERP와 동일한 표시</td><td>원본 소스 자산을 그대로 가져와야 할 때</td></tr>
+</tbody>
+</table>
+<h2>DuckDuckGo Favicon API의 실제 동작 방식</h2>
+<p>엔드포인트 구조는 매우 간단합니다: <code>https://icons.duckduckgo.com/ip3/example.com.ico</code>. DuckDuckGo는 자체 인프라에서 해당 사이트의 실제 favicon을 가져온 뒤, 필요 시 ICO 컨테이너로 변환하여 자사 CDN을 통해 제공합니다. 원본(origin) 서버로 직접 요청을 보내지 않으므로 대부분의 CORS 제약을 우회할 수 있습니다.</p><p>이 프록시 방식 덕분에 URL 자체가 프라이버시를 보호하는 fetch 역할도 함께 수행합니다. 방문자의 브라우저가 아이콘을 렌더링하기 위해 대상 사이트에 직접 요청하지 않기 때문입니다. 이는 Google의 <code>s2.googleusercontent.com</code>이 사용하는 방식과 동일하며, 별도의 헤더 없이 어느 출처에서든 <code>&amp;lt;img&amp;gt;</code> 태그로 동작하는 이유입니다.</p>
+<h3>포맷 제한 사항</h3>
+<p>가장 큰 주의점은 DuckDuckGo가 ICO만 반환한다는 점입니다. iOS 스타일 목록에 선명한 64x64 PNG가 필요하다면 직접 변환해야 합니다. 저희 <a href="/blog/png-to-ico.html">PNG to ICO 변환 가이드</a>에서는 반대 방향 변환을 다루고 있지만, 동일한 도구로 양쪽 방향 모두 처리할 수 있습니다. ICO만으로 충분한 프로젝트—데스크톱 브라우저 탭, 구형 <code>&amp;lt;link rel='icon'&amp;gt;</code> fallback—의 경우 DuckDuckGo가 가장 손쉬운 선택입니다.</p>
+<h2>DuckDuckGo Favicon API가 적합한 경우</h2>
+<ul>
+<li><strong>변환 단계 없이 ICO가 필요한 경우.</strong> 브라우저 탭 fallback, 구형 IE 지원, Windows 바로가기는 여전히 ICO를 필요로 하며, DuckDuckGo는 이를 즉시 제공합니다.</li>
+<li><strong>브라우저에서 직접 가져오면서 CORS 설정이 전혀 필요 없는 경우.</strong> DuckDuckGo와 Google 모두 요청을 프록시 처리하지만, DuckDuckGo는 역사적으로 hot-link에 더 관대한 태도를 보여왔습니다.</li>
+<li><strong>프라이버시를 존중하는 프록시를 원하는 경우.</strong> DuckDuckGo는 추적 없음을 브랜드 모토로 삼고 있어, 덕분에 favicon 엔드포인트가 Google보다 덜 감시적인 인상을 줍니다.</li>
+</ul>
+<h2>Google S2가 더 나은 선택인 경우</h2>
+<ul>
+<li><strong>ICO가 아닌 PNG가 필요한 경우.</strong> Google 엔드포인트는 기본적으로 <code>image/png</code>를 제공하며, 최대 64 픽셀까지의 <code>sz=</code> 파라미터를 지원합니다.</li>
+<li><strong>SERP 스타일 목록을 구축 중인 경우.</strong> Google은 사이트에 favicon이 없을 때 기본 지구본 아이콘을 반환합니다. 반면 DuckDuckGo는 404를 반환하므로 이를 별도로 처리해야 합니다.</li>
+<li><strong>일관된 16x16 썸네일이 필요한 경우.</strong> Google의 응답은 항상 작고 빠르며 예측 가능합니다.</li>
+</ul>
+<h2>직접 /favicon.ico를 사용해도 괜찮은 경우</h2><p>신뢰할 수 있는 단일 사이트 — 자체 CDN, 파트너 사이트, 검증된 출처 — 에서는 favicon을 직접 가져오는 것이 원본 자산을 최고 해상도로 확보할 수 있는 가장 확실한 방법입니다. SVG, 멀티해상도 ICO, 애니메이션 PNG 등 해당 사이트가 실제로 제공하는 자산을 그대로 받을 수 있습니다. 다만 트레이드오프는 CORS입니다. 대부분의 사이트는 브라우저가 필요로 하는 헤더를 함께 보내지 않기 때문에 이 방식은 서버 간(server-to-server)에서만 동작하며 클라이언트 측에서는 사용할 수 없습니다.</p>
+<p>대량으로 가져오기 작업을 수행할 경우, rate limit 관련 문서가 부재하다는 점은 실제 리스크입니다. 일부 출처는 50회 요청 후 429 응답을 반환하지만, 그렇지 않은 경우도 있습니다. 이러한 리스크를 흡수해 주는 것이 바로 공개(public) API들이 존재하는 이유이기도 합니다.</p>
+<h2>Recommendation</h2>
+<p>브라우저 탭이나 목록 뷰에서 동작하는 아이콘이 필요한 대부분의 클라이언트 측 프로젝트에서 ICO 포맷이 필요하다면 <strong>DuckDuckGo favicon API</strong>가 적합한 기본 선택입니다. 자체 아이콘도 함께 배포해야 한다면 무료 <a href="/blog/favicon-generator-free.html">favicon generator</a>와 함께 사용하시기 바랍니다. PNG 썸네일과 Google SERP와 동일한 품질의 결과가 필요하다면 Google의 S2 엔드포인트가 더 빠르고 예측 가능합니다. 최고 해상도의 원본 파일이 필요한 신뢰 가능한 단일 도메인 환경에 한해 <code>/favicon.ico</code> 직접 가져오기를 사용하시기 바랍니다.</p>
+<p>어떤 API를 선택하든 결과를 캐시하시기 바랍니다. 브라우저의 favicon 요청은 잘 알려져 있듯이 매우 집요하게(sticky) 캐시에 남아 있는 특성이 있어, 서버 측에서 캐싱을 적용하지 않으면 매 페이지 로드마다 DuckDuckGo의 CDN에 반복 요청을 보내게 되므로, 서버에 캐싱을 두는 것이 도움이 됩니다.</p>
+<h2>Check the documented requirements</h2>
+<p>HTML Standard는 <a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon"><code>rel='icon'</code></a>을 현재 페이지를 대표하는 아이콘의 link relationship으로 정의하고 있습니다.</p></template>
+        <template data-article-lang="es"><p>Tu script tiene que conseguir 50 iconos de sitios para un dashboard y no quieres alojarlos tú. Una API pública de favicon resuelve esto en dos líneas de código, pero ¿cuál elegir? La API de favicon de DuckDuckGo lleva años haciendo este trabajo discretamente, junto al servicio S2 de Google y a las peticiones directas a <code>/favicon.ico</code>.</p>
+<p>Cada opción devuelve un formato de archivo distinto, se comporta diferente bajo carga y falla de forma diferente cuando un sitio no tiene icono. Elegir mal significa miniaturas rotas o misteriosos 404 en tus logs.</p>
+<h2>Comparación rápida: API de favicon de DuckDuckGo vs alternativas</h2>
+<table>
+<thead>
+<tr><th>Criterio</th><th>DuckDuckGo</th><th>Google S2</th><th>Directo /favicon.ico</th></tr>
+</thead>
+<tbody>
+<tr><td>Patrón de endpoint</td><td><code>icons.duckduckgo.com/ip3/{domain}.ico</code></td><td><code>s2.googleusercontent.com/s2/favicons?domain={domain}</code></td><td><code>{site}/favicon.ico</code></td></tr>
+<tr><td>Formato de respuesta</td><td>Solo ICO</td><td>PNG (16x16 por defecto)</td><td>Lo que sirva el sitio</td></tr>
+<tr><td>Tamaño predeterminado</td><td>Contenedor ICO multitaramaño</td><td>16x16 (sz=64 máx.)</td><td>Definido por el sitio</td></tr>
+<tr><td>Límites de tasa documentados</td><td>Sin documentación oficial</td><td>Sin documentación oficial</td><td>CORS por sitio / servidor</td></tr>
+<tr><td>Compatible con CORS</td><td>Sí (con matices)</td><td>Sí</td><td>Normalmente no</td></tr>
+<tr><td>Proxy / capa de privacidad</td><td>Sí (proxy de DuckDuckGo)</td><td>Sí (proxy de Google)</td><td>Ninguna</td></tr>
+<tr><td>Respaldo cuando falta</td><td>Devuelve 404</td><td>Devuelve un globo terráqueo por defecto</td><td>404 o error HTML</td></tr>
+<tr><td>Ideal para</td><td>Iconos estilo pestaña, necesidades de ICO</td><td>Miniaturas pequeñas, paridad con SERP</td><td>Recurso fuente exacto</td></tr>
+</tbody>
+</table>
+<h2>Cómo funciona realmente la API de favicon de DuckDuckGo</h2>
+<p>El endpoint es bien sencillo: <code>https://icons.duckduckgo.com/ip3/example.com.ico</code>. DuckDuckGo obtiene el favicon real del sitio en su propia infraestructura, lo convierte a un contenedor ICO si hace falta y lo sirve desde su CDN. Nunca tocas el servidor de origen, lo que esquiva la mayoría de muros de CORS.</p><p>Este enfoque de proxy hace que la URL también funcione como una descarga que preserva la privacidad. Los navegadores de tus visitantes no contactan directamente al sitio de destino solo para renderizar un icono. Es el mismo truco que juega el <code>s2.googleusercontent.com</code> de Google, y por eso ambos endpoints funcionan en etiquetas <code>&amp;lt;img&amp;gt;</code> desde cualquier origen sin cabeceras extra.</p>
+<h3>Limitaciones de formato</h3>
+<p>El mayor problema: DuckDuckGo solo devuelve ICO. Si necesitas un PNG nítido de 64x64 para una lista estilo iOS, tendrás que convertirlo. Nuestra <a href="/blog/png-to-ico.html">guía de conversión de PNG a ICO</a> cubre la dirección inversa, pero las mismas herramientas sirven para ambos casos. Para proyectos donde el ICO funciona bien — pestañas de navegadores de escritorio, fallbacks de <code>&amp;lt;link rel='icon'&amp;gt;</code> heredados — DuckDuckGo es genuinamente la opción más cómoda.</p>
+<h2>Cuándo gana la Favicon API de DuckDuckGo</h2>
+<ul>
+<li><strong>Necesitas ICO sin el paso de conversión.</strong> Los fallbacks de pestañas del navegador, el soporte legacy de IE y los accesos directos de Windows todavía quieren ICO. DuckDuckGo te lo entrega directamente.</li>
+<li><strong>Estás descargando desde el navegador y quieres cero configuración de CORS.</strong> Tanto DuckDuckGo como Google hacen de proxy en la petición, pero DuckDuckGo históricamente ha sido más permisivo con el hot-linking.</li>
+<li><strong>Quieres un proxy que respete la privacidad.</strong> La marca de DuckDuckGo está construida sobre la ausencia de tracking, lo que hace que su endpoint de favicon se sienta menos vigilante que el de Google.</li>
+</ul>
+<h2>Cuándo Google S2 es la mejor elección</h2>
+<ul>
+<li><strong>Quieres un PNG, no un ICO.</strong> El endpoint de Google sirve <code>image/png</code> por defecto y admite un parámetro <code>sz=</code> de hasta 64 píxeles.</li>
+<li><strong>Estás construyendo una lista estilo SERP.</strong> Google devuelve un icono de globo predeterminado cuando un sitio no tiene favicon. DuckDuckGo devuelve un 404, que tendrás que gestionar.</li>
+<li><strong>Quieres miniaturas consistentes de 16x16.</strong> La respuesta de Google siempre es pequeña, rápida y predecible.</li>
+</ul>
+<h2>Cuándo /favicon.ico directo todavía tiene sentido</h2><p>Para un único sitio de confianza —tu propio CDN, el sitio de un partner, una fuente conocida y fiable—, obtener el favicon directamente te da el asset original a resolución completa. Obtienes SVG, ICO multi-resolución, PNG animado, lo que sea que el sitio sirva realmente. El trade-off es CORS: la mayoría de los sitios no enviarán los headers que tu navegador necesita, así que esto solo funciona de servidor a servidor, no en el cliente.</p>
+<p>Si vas a hacer fetching masivo, la falta de documentación sobre rate limits es un riesgo real. Algunos orígenes te devolverán 429 tras 50 peticiones, otros no. Las APIs públicas absorben ese riesgo por ti, que es precisamente la razón de su existencia.</p>
+<h2>Recommendation</h2>
+<p>Para la mayoría de proyectos en el lado del cliente donde necesitas un icono funcional en una pestaña del navegador o vista de lista, la <strong>DuckDuckGo favicon API</strong> es la opción por defecto adecuada cuando quieres ICO. Combínala con nuestro <a href="/blog/favicon-generator-free.html">free favicon generator</a> si además necesitas publicar tus propios iconos. Para thumbnails en PNG y resultados con paridad con Google SERP, el endpoint S2 de Google es más rápido y predecible. Reserva las peticiones directas a <code>/favicon.ico</code> para uso de dominio único y de confianza donde necesites el archivo fuente a resolución completa.</p>
+<p>Independientemente de la API que elijas, cachea el resultado. Las peticiones de favicon en el navegador son notoriousmente sticky, y tu servidor te agradecerá que no martillees el CDN de DuckDuckGo en cada carga de página.</p><h2>Check the documented requirements</h2><p>El HTML Standard define <a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon"><code>rel='icon'</code></a> como la relación de enlace para un icono que representa la página actual.</p></template>
+
+        <div class="cta-box">
+            <h3 data-en="Generate Complete Favicon Packages" data-zh="生成完整 Favicon 资源包" data-ja="完全な Favicon パッケージを生成" data-ko="전체 Favicon 패키지 생성" data-es="Genera paquetes completos de favicon">Generate Complete Favicon Packages</h3>
+            <p data-en="Skip the API guesswork. Mzu favicondl converts any image into ICO, PNG, SVG, and Apple Touch variants in one click." data-zh="省去 API 调试的烦恼。Mzu favicondl 一键将任意图片转换为 ICO、PNG、SVG 和 Apple Touch 图标。" data-ja="API の試行錯誤は不要です。Mzu favicondl なら画像をワンクリックで ICO、PNG、SVG、Apple Touch に変換できます。" data-ko="API 시행착오를 건너뛰세요. Mzu favicondl로 이미지를 ICO, PNG, SVG, Apple Touch로 한 번에 변환하세요." data-es="Olvídate de probar APIs. Mzu favicondl convierte cualquier imagen a ICO, PNG, SVG y Apple Touch en un clic.">Skip the API guesswork. Mzu favicondl converts any image into ICO, PNG, SVG, and Apple Touch variants in one click.</p>
+            <a href="/" class="cta-btn" data-en="Try It Free →" data-zh="免费试用 →" data-ja="無料で試す →" data-ko="무료로 사용해보기 →" data-es="Pruébalo gratis →">Try It Free →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Home" data-zh="首页">Home</a>
+                <a href="/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Blog" data-zh="博客">Blog</a>
+                <a href="/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Privacy" data-zh="隐私政策">Privacy</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js?v=20260211"></script>
+
+</body></html>
