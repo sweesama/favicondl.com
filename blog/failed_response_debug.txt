@@ -1,116 +1,37 @@
-` format. Then the actual response starts after `</mm:think>`.
-
-OK so my response should be:
-```
-<mm:think>[thinking content]</mm:think>{JSON}
-```
-
-Let me write the final output now.
-
-One last thing - I want to double-check my opening doesn't start with a banned opening. My opening is: "Your client just emailed you their logo as a JPG..." - this is a specific scenario, not a banned opening. Good.
-
-Let me also verify the internal links I'm using are correctly referenced:
-- /blog/what-is-favicon.html ✓ (exists in the list)
-- /blog/png-to-favicon.html ✓ (exists in the list)
-
-Good.
-
-Let me also verify my use of the WHATWG source:
-- https://html.spec.whatwg.org/multipage/links.html#rel-icon ✓ (in approved sources)
-
-Good.
-
-I'm ready to output the JSON.
-
-Actually wait - I need to double-check one thing about my opening. The instructions say to use a "real platform example only when it is observable or supported by a first-party source link." My opening uses a hypothetical client scenario. That's fine - it's not claiming a specific real platform observation.
-
-OK, let me also re-read the brand voice: "Like Apple docs meets a dev blog post. Clean, confident, opinionated." 
-
-Looking at my content - is it confident and opinionated? Yes, I make clear recommendations ("Put your highest-quality PNG first", "JPG should be your last resort"). Good.
-
-Is it clean? Yes, short paragraphs, clear sections, no fluff.
-
-OK let me also count the meta keywords one more time:
-"jpg to favicon, jpg to ico, image to favicon, favicon converter, convert jpg favicon"
-j-p-g(3) (4)t-o(6) (7)f-a-v-i-c-o-n(14),(15) (16)j-p-g(19) (20)t-o(22) (23)i-c-o(26),(27) (28)i-m-a-g-e(33) (34)t-o(36) (37)f-a-v-i-c-o-n(44),(45) (46)f-a-v-i-c-o-n(53) (54)c-o-n-v-e-r-t-e-r(63),(64) (65)c-o-n-v-e-r-t(72) (73)j-p-g(76) (77)f-a-v-i-c-o-n(84)
-= 84 chars (with spaces) or 77 chars without commas... let me actually just count:
-
-"jpg to favicon, jpg to ico, image to favicon, favicon converter, convert jpg favicon"
-
-Let me count carefully:
-j(1)p(2)g(3) (4)t(5)o(6) (7)f(8)a(9)v(10)i(11)c(12)o(13)n(14),(15) (16)j(17)p(18)g(19) (20)t(21)o(22) (23)i(24)c(25)o(26),(27) (28)i(29)m(30)a(31)g(32)e(33) (34)t(35)o(36) (37)f(38)a(39)v(40)i(41)c(42)o(43)n(44),(45) (46)f(47)a(48)v(49)i(50)c(51)o(52)n(53) (54)c(55)o(56)n(57)v(58)e(59)r(60)t(61)e(62)r(63),(64) (65)c(66)o(67)n(68)v(69)e(70)r(71)t(72) (73)j(74)p(75)g(76) (77)f(78)a(79)v(80)i(81)c(82)o(83)n(84)
-
-= 84 characters. Under 90 ✓
-
-Good.
-
-Now let me also verify my title character count one more time:
-"JPG to Favicon Converter: From Photo to Browser Tab Icon"
-J(1)P(2)G(3) (4)t(5)o(6) (7)F(8)a(9)v(10)i(11)c(12)o(13)n(14) (15)C(16)o(17)n(18)v(19)e(20)r(21)t(22)e(23)r(24):(25) (26)F(27)r(28)o(29)m(30) (31)P(32)h(33)o(34)t(35)o(36) (37)t(38)o(39) (40)B(41)r(42)o(43)w(44)s(45)e(46)r(47) (48)T(49)a(50)b(51) (52)I(53)c(54)o(55)n(56)
-= 56 chars ✓ within 50-60 range
-
-Excellent. Now I'll output the JSON.
-
-Wait, I also want to think about whether the title is engaging enough. "JPG to Favicon Converter: From Photo to Browser Tab Icon" - it's specific and clear, mentions the keyword, and tells the reader what they'll get. Good.
-
-Let me finalize everything now.
-
-Actually, I just realized I should re-read once more. Let me look at the section "The HTML Stack You Need". I claim "Here is the minimal pattern that works in Chrome, Firefox, Safari, and Edge today:" - this is fine, not making a date claim, just stating current behavior.
-
-And "Order can influence which icon browsers pick" - I'm being appropriately hedged.
-
-OK I'm ready. Final JSON output incoming.
-
-Oh wait, I should also reconsider the requirement: "Internal links: relative paths (/blog/xxx.html). Link to 1-2 existing articles." I have 2 internal links:
-1. /blog/what-is-favicon.html
-2. /blog/png-to-favicon.html
-
-That's within the 1-2 range. Good.
-
-Alright, writing the JSON now.
-
-Actually one more sanity check. I want to verify the content doesn't have any double quotes that need escaping. Let me scan through my HTML content again:
-
-"<p>Your client just emailed you their logo as a JPG. It looks fine in their PDF and on their business cards, but the moment you drop it into a 16×16 favicon slot, the colors muddy and the edges blur into a pixelated mess. That is the core problem a <strong>JPG to favicon converter</strong> solves: turning a lossy, opaque image into a sharp, multi-format icon stack that survives the browser tab.</p>..."
-
-I don't see any double quotes anywhere in my HTML content. 
-
-OK final JSON output now.
-
-Hmm, I also want to be careful with the apostrophes. In JSON strings delimited by double quotes, single quotes and apostrophes don't need escaping. So "JPG's lossy encoder" is fine in JSON.
-
-Final output:</mm:think>{
-  "titleEn": "JPG to Favicon Converter: From Photo to Browser Tab Icon",
-  "titleZh": "JPG 转 Favicon 转换器：从照片到浏览器标签图标",
-  "titleJa": "JPG→ファビコン変換：写真からタブアイコンを作成",
-  "titleKo": "JPG를 파비콘으로 변환하는 도구: 사진에서 브라우저 탭 아이콘 만들기",
-  "titleEs": "Convertidor de JPG a Favicon: De foto a icono de pestaña",
-  "descEn": "Convert JPG to favicon with Mzu favicondl. Upload any photo or logo, download ICO, multi-size PNG, and SVG files plus a full HTML link stack.",
-  "descZh": "使用 Mzu favicondl 将 JPG 转换为 favicon。上传照片或 logo,下载 ICO、多尺寸 PNG 和 SVG 文件,附带完整的 HTML 链接代码。",
-  "descJa": "Mzu favicondlでJPGをファビコンに変換。写真やロゴをアップロードして、ICO、複数サイズPNG、SVG、HTMLリンクスタックをダウンロードできます。",
-  "descKo": "Mzu favicondl로 JPG를 파비콘으로 변환하세요. 사진이나 로고를 업로드하고 ICO, 다양한 크기의 PNG, SVG와 전체 HTML 링크 스택을 받으세요.",
-  "descEs": "Convierte JPG a favicon con Mzu favicondl. Sube cualquier foto o logo y descarga archivos ICO, PNG en varios tamaños y SVG con el stack HTML completo.",
-  "metaKeywords": "jpg to favicon, jpg to ico, image to favicon, favicon converter, convert jpg favicon",
-  "breadcrumbEn": "JPG to Favicon Converter",
-  "breadcrumbZh": "JPG 转 Favicon 转换器",
-  "breadcrumbJa": "JPG→ファビコン変換",
-  "breadcrumbKo": "JPG 파비콘 변환기",
-  "breadcrumbEs": "Conversor de JPG a Favicon",
-  "contentEn": "<p>Your client just emailed you their logo as a JPG. It looks fine in their PDF and on their business cards, but the moment you drop it into a 16×16 favicon slot, the colors muddy and the edges blur into a pixelated mess. That is the core problem a <strong>JPG to favicon converter</strong> solves: turning a lossy, opaque image into a sharp, multi-format icon stack that survives the browser tab.</p>\n<p>JPG is a strange source format for a favicon. It was designed for photographs, not logos. It throws away color information to stay small, and it does not support transparency at all. That is why every browser tab you have ever opened with an icon is showing a PNG, SVG, or ICO — never a raw JPG. The conversion is about rescuing sharpness from compression and packaging the result into formats that browsers actually understand.</p>\n<h2>What Mzu favicondl Does With Your JPG</h2>\n<p>The tool accepts your uploaded JPG and re-encodes it into a full favicon package. You get a multi-size ICO file for legacy browsers, individual PNG sizes (16, 32, 48, 96, 192, 512) for modern <code>link rel='icon'</code> tags, and an SVG output when your source image has clean vector-friendly shapes.</p>\n<p>If you want a primer on what a favicon actually is and why the format stack matters, see the <a href='/blog/what-is-favicon.html'>complete beginner guide</a>. For the conversion workflow itself, Mzu favicondl handles three jobs at once: resizing, color normalization, and format packaging.</p>\n<h2>Getting Started</h2>\n<ol>\n<li>Open <a href='/index.html'>favicondl.com</a> and upload your JPG. Drag-and-drop works.</li>\n<li>Select your target sizes. The default package covers the modern web stack (16, 32, 48, 96, 180, 192, 512).</li>\n<li>Preview the result against light and dark browser tab backgrounds before downloading.</li>\n<li>Download the ZIP and drop the files into your project root or <code>/public</code> directory.</li>\n<li>Wire them into your HTML using the link tags described below.</li>\n</ol>\n<h2>The HTML Stack You Need</h2>\n<p>Modern browsers parse the <code>link rel='icon'</code> attribute to discover favicons, as documented in the <a href='https://html.spec.whatwg.org/multipage/links.html#rel-icon'>HTML living standard</a>. Here is the minimal pattern that works in Chrome, Firefox, Safari, and Edge today:</p>\n<pre><code>&lt;link rel='icon' type='image/png' sizes='32x32' href='/favicon-32x32.png'&gt;\n&lt;link rel='icon' type='image/png' sizes='96x96' href='/favicon-96x96.png'&gt;\n&lt;link rel='apple-touch-icon' sizes='180x180' href='/apple-touch-icon.png'&gt;\n&lt;link rel='icon' type='image/x-icon' href='/favicon.ico'&gt;</code></pre>\n<p>Order can influence which icon browsers pick. Put your highest-quality PNG first and your ICO fallback at the bottom for older browser support.</p>\n<h2>JPG-Specific Problems You Will Hit</h2>\n<p>JPG was not built for tiny icons. Expect these issues before you upload:</p>\n<ul>\n<li><strong>No transparency.</strong> The browser tab background bleeds through transparent PNGs but never through JPGs. If your logo sits on a white card, you will get a white square in dark mode.</li>\n<li><strong>Compression artifacts at small sizes.</strong> JPG's lossy encoder keeps edges and gradients looking smooth at 1080p, but at 16×16 those same artifacts become visible halos around your logo.</li>\n<li><strong>Color shifts.</strong> JPG throws away chroma detail. A bright red in your source might land as a muddy orange in the favicon.</li>\n<li><strong>No animation, no alpha.</strong> If you wanted a transparent or animated favicon, you needed PNG or APNG from the start.</li>\n</ul>\n<p>The fix is to upload the highest-quality JPG you have. The tool resamples your image with smoothing that preserves more detail than simple pixel scaling. You will still lose some sharpness, so pre-simplify the artwork if you can — fewer details at 16×16 means a cleaner result.</p>\n<h2>Pro Tips for the Cleanest Output</h2>\n<p>Start with the largest JPG you can find. Logos emailed at 300×300 give you less to work with than the original 2000×2000 export from the designer's archive. If the JPG looks fuzzy on your monitor before you upload it, the favicon will look worse.</p>\n<p>Crop before you convert. A favicon is a square. JPG logos often arrive with extra whitespace or non-square framing. Center your mark in a square canvas before uploading, and the conversion tool does not have to make guessing decisions about what to crop.</p>\n<p>If your JPG was exported from a vector source, check whether you still have the original SVG or AI file. Mzu favicondl can convert an SVG directly into a sharper favicon package than any raster at high DPI.</p>\n<p>For more on building a full favicon package from a raster source, the <a href='/blog/png-to-favicon.html'>PNG to favicon guide</a> covers the same workflow with PNG inputs and goes deeper on multi-size packaging.</p>\n<h2>When to Skip JPG Entirely</h2>\n<p>If you have access to the original vector file — an SVG, an AI file, an EPS — convert that to favicon instead. JPG should be your last resort, used only when a client hands you a flattened image and nothing else. The tool handles JPG well, but it cannot recover detail that the encoder threw away years ago.</p>\n<p>That said, for a quick deploy or a personal project, JPG is fine. The conversion takes seconds, the output package covers every major browser and device, and you ship with a professional icon stack the same afternoon. If your current site shows the default gray globe in browser tabs, this is the fastest way to fix it.</p>",
-  "ctaTitleEn": "Convert Your JPG to a Full Favicon Package",
-  "ctaTitleZh": "将 JPG 转换为完整 Favicon 资源包",
-  "ctaTitleJa": "JPGを完全なファビコンパッケージに変換",
-  "ctaTitleKo": "JPG를 완전한 파비콘 패키지로 변환하세요",
-  "ctaTitleEs": "Convierte tu JPG en un paquete completo de favicon",
-  "ctaDescEn": "Upload any JPG and download a complete icon stack — ICO, PNG, SVG, and Apple Touch files — in under a minute.",
-  "ctaDescZh": "上传任意 JPG,一分钟内下载完整的图标包 —— ICO、PNG、SVG 和 Apple Touch 文件。",
-  "ctaDescJa": "JPGをアップロードして、ICO、PNG、SVG、Apple Touchアイコンを1分以内にダウンロードできます。",
-  "ctaDescKo": "JPG를 업로드하고 1분 이내에 ICO, PNG, SVG, Apple Touch 아이콘 파일을 받으세요.",
-  "ctaDescEs": "Sube cualquier JPG y descarga en menos de un minuto un paquete con ICO, PNG, SVG e iconos Apple Touch.",
+```json
+{
+  "titleEn": "PHP Get Favicon from URL: A Step-by-Step Dev Guide",
+  "titleZh": "PHP 从 URL 获取 Favicon：完整的开发者教程",
+  "titleJa": "PHPでURLからファビコンを取得する手順ガイド",
+  "titleKo": "PHP로 URL에서 파비콘 가져오기: 단계별 개발자 가이드",
+  "titleEs": "PHP Obtener Favicon de una URL: Guía para Desarrolladores",
+  "descEn": "Learn how to use PHP to get favicon from any URL. Parse HTML link tags, handle ICO/PNG/SVG formats, and download site icons with code examples.",
+  "descZh": "学习用 PHP 从任意 URL 抓取 favicon。解析 HTML link 标签，处理 ICO、PNG、SVG 格式，附可直接复用的代码示例。",
+  "descJa": "PHPで任意URLからファビコンを取得する方法を解説。HTMLのlinkタグ解析、ICO/PNG/SVG対応、コード例付き。",
+  "descKo": "PHP로 URL에서 파비콘을 가져오는 방법을 배워보세요. HTML link 태그 파싱, ICO/PNG/SVG 처리, 실용 코드 예제 포함.",
+  "descEs": "Aprende a obtener el favicon de cualquier URL con PHP. Analiza etiquetas link, maneja formatos ICO/PNG/SVG con ejemplos de código.",
+  "metaKeywords": "php get favicon, fetch favicon php, parse html link rel icon",
+  "breadcrumbEn": "PHP Get Favicon from URL",
+  "breadcrumbZh": "PHP 获取 Favicon 教程",
+  "breadcrumbJa": "PHPでファビコン取得",
+  "breadcrumbKo": "PHP 파비콘 가져오기",
+  "breadcrumbEs": "PHP Obtener Favicon",
+  "contentEn": "<p>If you've ever needed to grab a website's favicon from PHP — maybe for a link preview, a bookmark manager, or a CMS that auto-imports site icons — you've probably noticed it's not as simple as fetching one URL. Modern sites declare their icons across HTML link tags, web manifests, and sometimes conditional SVG variants, so a naive request to <code>/favicon.ico</code> only works for older sites.</p><p>This guide walks you through a robust PHP routine that pulls the right favicon from any URL, with practical error handling and format support you can drop into a helper class today.</p><h2>Prerequisites</h2><ul><li>PHP 7.4 or later (works fine on 8.x)</li><li>The cURL extension enabled</li><li><code>allow_url_fopen</code> on, or use cURL exclusively</li><li><code>libxml</code> for HTML parsing — usually bundled with PHP</li></ul><p>If you're on shared hosting, run <code>phpinfo()</code> to confirm cURL is loaded before you start.</p><h2>Step 1: Fetch the HTML</h2><p>Start by downloading the target page's HTML. cURL is more reliable than <code>file_get_contents()</code> because it lets you set timeouts, redirects, and a custom User-Agent — and some sites return different markup (or block you) when they see a generic PHP client.</p><pre><code>function fetchHtml(string $url): string {    $ch = curl_init();    curl_setopt_array($ch, [        CURLOPT_URL            =&gt; $url,        CURLOPT_RETURNTRANSFER =&gt; true,        CURLOPT_FOLLOWLOCATION =&gt; true,        CURLOPT_MAXREDIRS      =&gt; 5,        CURLOPT_TIMEOUT        =&gt; 10,        CURLOPT_USERAGENT      =&gt; 'Mozilla/5.0 (compatible; FaviconFetcher/1.0)',        CURLOPT_SSL_VERIFYPEER =&gt; false,    ]);    $html = curl_exec($ch);    curl_close($ch);    return $html ?: '';}</code></pre><h2>Step 2: Parse link Tags with DOMDocument</h2><p>PHP's built-in <code>DOMDocument</code> is the cleanest way to extract <code>rel="icon"</code> and <code>rel="shortcut icon"</code> declarations. The HTML living standard defines <code>rel="icon"</code> as the canonical attribute for favicons, so we prioritize it.</p><pre><code>function extractIconUrls(string $html, string $baseUrl): array {    $icons = [];    $dom = new DOMDocument();    @$dom-&gt;loadHTML($html);    $xpath = new DOMXPath($dom);    $nodes = $xpath-&gt;query('//link[contains(@rel, "icon")]');    foreach ($nodes as $node) {        $href = $node-&gt;getAttribute('href');        if (!$href) continue;        $icons[] = resolveUrl($href, $baseUrl);    }    return $icons;}</code></pre><p>The <code>@</code> suppresses parser warnings for malformed HTML — a tradeoff that's worth it for real-world pages.</p><h2>Step 3: Build the URL Resolver</h2><p>Many <code>href</code> values are relative paths like <code>/favicon.ico</code> or <code>icons/favicon.png</code>. You need to resolve them against the page URL.</p><pre><code>function resolveUrl(string $href, string $base): string {    if (preg_match('/^https?:\/\//i', $href)) return $href;    $parts = parse_url($base);    $origin = ($parts['scheme'] ?? 'https') . '://' . ($parts['host'] ?? '');    if (str_starts_with($href, '/')) return $origin . $href;    $path = dirname($parts['path'] ?? '/');    return $origin . $path . '/' . $href;}</code></pre><p>This handles three cases: absolute URLs (passed through), root-relative paths, and path-relative URLs.</p><h2>Step 4: Fall Back to /favicon.ico</h2><p>If the HTML doesn't declare any icons — or your parser fails on a malformed page — the browser convention is to try <code>/favicon.ico</code> at the root. Many older sites only serve this file.</p><pre><code>function fallbackIcon(string $pageUrl): string {    $parts = parse_url($pageUrl);    $origin = ($parts['scheme'] ?? 'https') . '://' . ($parts['host'] ?? '');    return $origin . '/favicon.ico';}</code></pre><p>Always include this in your final URL list — it's the safety net.</p><h2>Step 5: Download the Favicon Bytes</h2><p>Once you have a list of candidate URLs, pick the first one that returns a valid image. A 200 response with a non-empty body is a good signal.</p><pre><code>function downloadIcon(string $url): ?string {    $ch = curl_init();    curl_setopt_array($ch, [        CURLOPT_URL            =&gt; $url,        CURLOPT_RETURNTRANSFER =&gt; true,        CURLOPT_TIMEOUT        =&gt; 8,        CURLOPT_FOLLOWLOCATION =&gt; true,        CURLOPT_MAXREDIRS      =&gt; 3,    ]);    $data = curl_exec($ch);    $code = curl_getinfo($ch, CURLINFO_HTTP_CODE);    curl_close($ch);    return ($code === 200 &amp;&amp; $data !== false &amp;&amp; strlen($data) &gt; 0) ? $data : null;}</code></pre><h2>Step 6: Detect the Format</h2><p>Different icons need different file extensions. Read the first few bytes to identify ICO vs PNG vs SVG.</p><pre><code>function detectFormat(string $bytes): string {    $header = substr($bytes, 0, 8);    if (str_starts_with($bytes, \"\\x89PNG\")) return 'png';    if (str_starts_with($bytes, \"&amp;lt;svg\") || str_contains(substr($bytes, 0, 200), \"&amp;lt;svg\")) return 'svg';    if (substr($header, 0, 4) === \"\\x00\\x00\\x01\\x00\") return 'ico';    return 'ico';}</code></pre><p>The ICO magic number is <code>00 00 01 00</code> — four bytes at the start of the file.</p><h2>Step 7: Put It All Together</h2><p>Here's the orchestrator that runs all six steps and saves the result to disk.</p><pre><code>function phpGetFaviconFromUrl(string $pageUrl, string $saveDir): ?string {    $html = fetchHtml($pageUrl);    $candidates = $html ? extractIconUrls($html, $pageUrl) : [];    $candidates[] = fallbackIcon($pageUrl);    foreach ($candidates as $url) {        $bytes = downloadIcon($url);        if ($bytes === null) continue;        $ext = detectFormat($bytes);        $filename = parse_url($pageUrl, PHP_URL_HOST) . '.' . $ext;        $path = rtrim($saveDir, '/') . '/' . $filename;        file_put_contents($path, $bytes);        return $path;    }    return null;}</code></pre><p>Usage:</p><pre><code>$path = phpGetFaviconFromUrl('https://example.com', '/var/www/icons');echo $path ?: 'No favicon found';</code></pre><h2>Common Pitfalls</h2><ul><li><strong>DOMDocument quirks.</strong> Wrap your HTML in <code>&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html&amp;gt;&amp;lt;body&amp;gt;...&amp;lt;/body&amp;gt;&amp;lt;/html&amp;gt;</code> before parsing if it complains about malformed markup.</li><li><strong>Mixed content.</strong> A page served over HTTPS may reference an <code>http://</code> favicon URL. Browsers block these — your script can still download them, but the browser will ignore the result.</li><li><strong>CDN rate limits.</strong> Hitting <code>/favicon.ico</code> repeatedly from the same IP can trigger 429 responses. Cache results locally with a hash of the source URL.</li><li><strong>SVG with XML declaration.</strong> Some SVGs start with <code>&amp;lt;?xml ... ?&amp;gt;</code>. Your format detector should look for <code>&amp;lt;svg</code> anywhere in the first 200 bytes, not just at offset 0.</li><li><strong>Wrong Content-Type header.</strong> Servers occasionally serve PNG bytes with <code>Content-Type: text/html</code>. Don't trust the header — check the bytes.</li></ul><p>If you'd rather skip the scraper maintenance, <a href='/'>Mzu favicondl</a> handles the parsing, format detection, and downloads for you.</p><h2>Conclusion</h2><p>A working <code>php get favicon from url</code> routine comes down to five small functions: fetch, parse, resolve, download, detect. Once you have them, you can plug the orchestrator into any CMS, link preview tool, or bookmark manager. The full source fits into a single helper file — and the <code>/favicon.ico</code> fallback covers most edge cases without extra logic. For more on how browsers pick between competing icon declarations, see our guide to <a href='/blog/favicon-link-rel-icon-examples.html'>favicon link rel icon examples</a>.</p>",
+  "ctaTitleEn": "Skip the Code, Download Favicons Instantly",
+  "ctaTitleZh": "跳过代码，直接下载 Favicon",
+  "ctaTitleJa": "コードをスキップしてファビコンをダウンロード",
+  "ctaTitleKo": "코드 없이 파비콘 바로 다운로드",
+  "ctaTitleEs": "Descarga Favicons sin Código",
+  "ctaDescEn": "Mzu favicondl parses HTML link tags, detects formats, and packages every icon for you. No scraper to maintain.",
+  "ctaDescZh": "Mzu favicondl 自动解析 HTML link 标签、识别格式并打包所有图标，无需维护爬虫脚本。",
+  "ctaDescJa": "Mzu favicondlがHTML linkタグ解析、形式検出、パッケージ化を自動化。スクレイパー不要。",
+  "ctaDescKo": "Mzu favicondl이 HTML link 태그 파싱, 포맷 감지, 패키징을 자동 처리합니다. 스크립터 유지보수 불필요.",
+  "ctaDescEs": "Mzu favicondl analiza etiquetas link, detecta formatos y empaqueta cada icono por ti. Sin scripts que mantener.",
   "ctaBtnEn": "Try It Free →",
   "ctaBtnZh": "免费试用 →",
   "ctaBtnJa": "無料で試す →",
   "ctaBtnKo": "무료로 사용해보기 →",
   "ctaBtnEs": "Pruébalo gratis →",
-  "ctaLink": "/index.html"
+  "ctaLink": "/"
 }
+```

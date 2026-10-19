@@ -3815,5 +3815,26 @@
     ],
     "qualityScore": 80,
     "qualityGrade": "A"
+  },
+  {
+    "slug": "php-get-favicon",
+    "publishDate": "2026-10-19",
+    "titleEn": "PHP Get Favicon from URL: A Step-by-Step Tutorial",
+    "titleZh": "PHP 从 URL 获取 Favicon：完整教程",
+    "titleJa": "PHPでURLからファビコンを取得する手順",
+    "titleKo": "PHP로 URL에서 파비콘 가져오기 튜토리얼",
+    "titleEs": "Obtener Favicon desde URL con PHP: Tutorial Paso a Paso",
+    "descEn": "Learn how to build a PHP get favicon from URL function: parse link tags, fall back to /favicon.ico, validate the response, and save the binary locally.",
+    "descZh": "学习用 PHP 从 URL 获取 Favicon 的完整流程：解析 link 标签、回退到 /favicon.ico、验证响应并保存图标文件。",
+    "descJa": "PHPでURLからファビコンを取得する方法を解説。HTMLのlinkタグ解析、/favicon.icoへのフォールバック、レスポンス検証、ファイル保存まで。",
+    "descKo": "PHP로 URL에서 파비콘을 가져오는 전체 과정을 학습하세요. HTML link 태그 파싱, /favicon.ico 폴백, 응답 검증 및 파일 저장.",
+    "descEs": "Aprende a obtener un favicon desde una URL con PHP: analiza etiquetas link, usa /favicon.ico como respaldo, valida la respuesta y guarda el archivo.",
+    "keyword": "php get favicon from url",
+    "tags": [
+      "developer",
+      "api"
+    ],
+    "qualityScore": 72,
+    "qualityGrade": "B"
   }
 ]

@@ -1,0 +1,805 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHP Get Favicon from URL: A Step-by-Step Tutorial</title>
+    <meta name="description" content="Learn how to build a PHP get favicon from URL function: parse link tags, fall back to /favicon.ico, validate the response, and save the binary locally.">
+    <meta name="keywords" content="php get favicon from url, fetch favicon php, rel icon link">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/blog/php-get-favicon.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/php-get-favicon.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/php-get-favicon.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/php-get-favicon.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/php-get-favicon.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/php-get-favicon.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/php-get-favicon.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/blog/php-get-favicon.html">
+    <meta property="og:title" content="PHP Get Favicon from URL: A Step-by-Step Tutorial">
+    <meta property="og:description" content="Learn how to build a PHP get favicon from URL function: parse link tags, fall back to /favicon.ico, validate the response, and save the binary locally.">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="PHP Get Favicon from URL: A Step-by-Step Tutorial">
+    <meta name="twitter:description" content="Learn how to build a PHP get favicon from URL function: parse link tags, fall back to /favicon.ico, validate the response, and save the binary locally.">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "PHP Get Favicon from URL: A Step-by-Step Tutorial",
+  "description": "Learn how to build a PHP get favicon from URL function: parse link tags, fall back to /favicon.ico, validate the response, and save the binary locally.",
+  "datePublished": "2026-10-19",
+  "dateModified": "2026-10-19",
+  "author": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "mainEntityOfPage": "https://favicondl.com/blog/php-get-favicon.html",
+  "inLanguage": "en"
+}</script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/documentation.html" class="nav-link" data-en="Docs" data-zh="文档">Docs</a>
+                <a href="/tools.html" class="nav-link" data-en="Tools" data-zh="工具">Tools</a>
+                <a href="/blog/" class="nav-link" data-en="Blog" data-zh="博客">Blog</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/php-get-favicon.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/php-get-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/php-get-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/php-get-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/php-get-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600" data-en="PHP Get Favicon from URL: A Step-by-Step Tutorial" data-zh="PHP 从 URL 获取 Favicon：完整教程" data-ja="PHPでURLからファビコンを取得する手順" data-ko="PHP로 URL에서 파비콘 가져오기 튜토리얼" data-es="Obtener Favicon desde URL con PHP: Tutorial Paso a Paso">PHP Get Favicon from URL: A Step-by-Step Tutorial</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">developer</span><time class="text-sm text-gray-400">2026-10-19</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight" data-en="PHP Get Favicon from URL: A Step-by-Step Tutorial" data-zh="PHP 从 URL 获取 Favicon：完整教程" data-ja="PHPでURLからファビコンを取得する手順" data-ko="PHP로 URL에서 파비콘 가져오기 튜토리얼" data-es="Obtener Favicon desde URL con PHP: Tutorial Paso a Paso">PHP Get Favicon from URL: A Step-by-Step Tutorial</h1>
+        </header>
+
+        <div class="article-body" data-lang="en">
+            <p>You've built a bookmark manager, a link directory, or a dashboard that displays other websites. You want each site's favicon to make the list look polished — but blindly hitting <code>/favicon.ico</code> for every URL is fragile. Many sites ship SVG icons, use custom paths, or rely on conditional <code>&lt;link&gt;</code> tags instead of the default root file.</p>
+<p>This tutorial walks through a PHP get favicon from URL workflow: parse the HTML for <code>&lt;link rel="icon"&gt;</code> declarations, fall back to the legacy <code>/favicon.ico</code> endpoint, validate the response, and save the binary locally.</p>
+
+<h2>Prerequisites</h2>
+<p>You need PHP 7.4 or newer with two extensions enabled:</p>
+<ul>
+<li><code>curl</code> — for fetching remote pages and following redirects</li>
+<li><code>dom</code> — for parsing HTML and extracting <code>&lt;link&gt;</code> tags</li>
+</ul>
+<p>Both ship with the official PHP Docker image and most Linux distributions. Run <code>php -m</code> to confirm they're listed before you start coding.</p>
+
+<h2>Step 1: Fetch the Page HTML</h2>
+<p>Start with a basic cURL request. The <code>User-Agent</code> header matters more than it looks — some sites return a stripped-down HTML to non-browser clients, which can omit favicon <code>&lt;link&gt;</code> tags entirely.</p>
+<pre><code>&lt;?php
+function fetchHtml(string $url): string|false {
+    $ch = curl_init($url);
+    curl_setopt_array($ch, [
+        CURLOPT_RETURNTRANSFER =&gt; true,
+        CURLOPT_FOLLOWLOCATION =&gt; true,
+        CURLOPT_MAXREDIRS      =&gt; 5,
+        CURLOPT_TIMEOUT        =&gt; 10,
+        CURLOPT_USERAGENT      =&gt; 'Mozilla/5.0 (compatible; FaviconFetcher/1.0)',
+        CURLOPT_SSL_VERIFYPEER =&gt; true,
+    ]);
+    $html = curl_exec($ch);
+    curl_close($ch);
+    return $html;
+}
+?&gt;</code></pre>
+<p>Always cap redirects and timeouts. A runaway 30-second cURL request is a fast way to fill your PHP-FPM worker pool.</p>
+
+<h2>Step 2: Parse the HTML for rel="icon" Tags</h2>
+<p>The HTML spec defines <code>rel="icon"</code> as the way to declare a favicon (see the <a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">WHATWG link relation reference</a>). Browsers may pick any matching <code>&lt;link&gt;</code>, so we scan every occurrence and prefer the first one with a usable href.</p>
+<pre><code>&lt;?php
+function findIconUrl(string $baseUrl, string $html): ?string {
+    libxml_use_internal_errors(true);
+    $dom = new DOMDocument();
+    $dom-&gt;loadHTML($html);
+    libxml_clear_errors();
+
+    $xpath = new DOMXPath($dom);
+    $links = $xpath-&gt;query('//link[@rel="icon" or @rel="shortcut icon"]');
+
+    foreach ($links as $link) {
+        $href = $link-&gt;getAttribute('href');
+        if ($href === '') continue;
+        return resolveUrl($baseUrl, $href);
+    }
+    return null;
+}
+?&gt;</code></pre>
+<p>Notice we include <code>shortcut icon</code> as well — it's an old Microsoft IE relic, but a surprising number of legacy sites still declare their favicon that way.</p>
+
+<h2>Step 3: Resolve Relative URLs</h2>
+<p>Favicon hrefs are often relative paths like <code>/static/icon.png</code> or <code>icons/favicon.svg</code>. Use <code>parse_url</code> plus a small helper to turn them into absolute URLs before downloading.</p>
+<pre><code>&lt;?php
+function resolveUrl(string $base, string $ref): string {
+    if (parse_url($ref, PHP_URL_SCHEME) !== null) {
+        return $ref; // already absolute
+    }
+    $parts = parse_url($base);
+    $origin = ($parts['scheme'] ?? 'https') . '://' . ($parts['host'] ?? '');
+    if (str_starts_with($ref, '/')) {
+        return $origin . $ref;
+    }
+    $path = $parts['path'] ?? '/';
+    $dir = substr($path, 0, strrpos($path, '/') + 1);
+    return $origin . $dir . $ref;
+}
+?&gt;</code></pre>
+
+<h2>Step 4: Fall Back to /favicon.ico</h2>
+<p>If the HTML contains no <code>&lt;link rel="icon"&gt;</code> tags, every browser still requests <code>/favicon.ico</code> automatically. Hit that endpoint as a fallback so you don't return blank icons for old-school sites.</p>
+<pre><code>&lt;?php
+function fallbackIconUrl(string $pageUrl): string {
+    $parts = parse_url($pageUrl);
+    return ($parts['scheme'] ?? 'https') . '://' . ($parts['host'] ?? '') . '/favicon.ico';
+}
+?&gt;</code></pre>
+
+<h2>Step 5: Download and Validate the Binary</h2>
+<p>Now download the icon, verify it actually returned an image, and save it to disk. Always re-fetch with cURL rather than reusing the HTML response — the favicon URL may live on a different domain or CDN with different caching rules.</p>
+<pre><code>&lt;?php
+function downloadFavicon(string $iconUrl, string $savePath): bool {
+    $ch = curl_init($iconUrl);
+    curl_setopt_array($ch, [
+        CURLOPT_RETURNTRANSFER =&gt; true,
+        CURLOPT_FOLLOWLOCATION =&gt; true,
+        CURLOPT_MAXREDIRS      =&gt; 5,
+        CURLOPT_TIMEOUT        =&gt; 10,
+        CURLOPT_USERAGENT      =&gt; 'Mozilla/5.0 (compatible; FaviconFetcher/1.0)',
+        CURLOPT_SSL_VERIFYPEER =&gt; true,
+    ]);
+    $data = curl_exec($ch);
+    $code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    $type = curl_getinfo($ch, CURLINFO_CONTENT_TYPE) ?? '';
+    curl_close($ch);
+
+    if ($data === false || $code !== 200 || $data === '') {
+        return false;
+    }
+    // Reject obvious non-image responses (HTML error pages, JSON, etc.)
+    if (stripos($type, 'image/') !== 0 &amp;&amp; stripos($type, 'application/octet-stream') !== 0) {
+        return false;
+    }
+    return file_put_contents($savePath, $data) !== false;
+}
+?&gt;</code></pre>
+
+<h2>Putting the PHP Get Favicon from URL Pipeline Together</h2>
+<p>Here's the full flow — fetch the HTML, parse the link tags, fall back to the root icon, and save:</p>
+<pre><code>&lt;?php
+function getFaviconFromUrl(string $pageUrl, string $savePath): bool {
+    $html = fetchHtml($pageUrl);
+    if ($html === false) return false;
+
+    $iconUrl = findIconUrl($pageUrl, $html) ?? fallbackIconUrl($pageUrl);
+    return downloadFavicon($iconUrl, $savePath);
+}
+?&gt;</code></pre>
+<p>Call it like this:</p>
+<pre><code>&lt;?php
+$ok = getFaviconFromUrl('https://example.com', __DIR__ . '/example.ico');
+echo $ok ? 'Saved.' : 'Failed.';
+?&gt;</code></pre>
+
+<h2>Common Pitfalls</h2>
+<ul>
+<li><strong>HTML error pages masquerading as icons.</strong> A misconfigured server can return a 200 status with an HTML body when the favicon is missing. Always check the content-type header and discard anything that doesn't start with <code>image/</code>.</li>
+<li><strong>CDN rate limits.</strong> Hitting a third-party CDN from your server repeatedly can get your IP throttled or banned. Cache successful downloads to disk and respect a polite fetch interval (a few seconds per host is usually safe).</li>
+<li><strong>SSL verification disabled.</strong> Setting <code>CURLOPT_SSL_VERIFYPEER</code> to <code>false</code> is tempting during debugging but exposes your users to MITM attacks. Keep it on in production.</li>
+<li><strong>Encoding edge cases.</strong> DOMDocument falls back to ISO-8859-1 when the HTML lacks a charset meta tag, which can garble href values on UTF-8 sites. Prepend a <code>&lt;meta charset='UTF-8'&gt;</code> block or switch to a UTF-8-aware parser like <code>HTML5DomDocument</code>.</li>
+<li><strong>Same-origin policy does not apply server-side.</strong> PHP can fetch any public favicon without CORS checks — those rules only apply to your front-end JavaScript.</li>
+</ul>
+
+<h2>When to Switch to a Dedicated Tool</h2>
+<p>A hand-rolled PHP function is fine for a few thousand URLs. Once you need multi-format output (ICO, PNG, SVG, Apple Touch), dark-mode awareness, maskable manifest icons, or reliable coverage of sites with quirky <code>&lt;link&gt;</code> structures, the cURL plumbing becomes a maintenance burden. A tool like <a href="/">Mzu favicondl</a> handles the parsing, fallback, normalization, and packaging across every browser and device, so you can drop the boilerplate and focus on your product.</p>
+<p>You can also compare this manual approach with the popular public <a href="/blog/favicon-api.html">favicon API endpoints</a> to see which trade-off fits your stack better — manual fetching gives you full control, while APIs save time at the cost of an external dependency.</p>
+        </div>
+
+        <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
+        <template data-article-lang="zh"><p>你可能正在做一个书签管理工具、链接目录，或者一个会展示第三方网站的面板。你希望每个站点都能显示 favicon，让列表看起来更精致——但对每个 URL 都直接请求 <code>/favicon.ico</code> 其实很脆弱。相当多的站点用的是 SVG 图标、自定义路径，或者通过条件式的 <code>&lt;link&gt;</code> 标签来声明图标，而不是依赖根目录下的那个默认文件。</p>
+<p>这篇教程会带你走完「用 PHP 从 URL 获取 favicon」的完整流程：解析 HTML 中所有 <code>&lt;link rel="icon"&gt;</code> 声明，回退到旧的 <code>/favicon.ico</code> 端点，校验响应内容，最后把二进制文件保存到本地。</p>
+
+<h2>前置条件</h2>
+<p>你需要 PHP 7.4 或更高版本，并启用以下两个扩展：</p>
+<ul>
+<li><code>curl</code> — 用于抓取远程页面并跟随重定向</li>
+<li><code>dom</code> — 用于解析 HTML 并提取 <code>&lt;link&gt;</code> 标签</li>
+</ul>
+<p>官方 PHP Docker 镜像和绝大多数 Linux 发行版都默认自带这两个扩展。开始写代码前可以先跑一下 <code>php -m</code> 确认它们在列表中。</p>
+
+<h2>步骤一：抓取页面 HTML</h2>
+<p>从一个基础的 cURL 请求开始。<code>User-Agent</code> 请求头比看起来更重要——有些站点对非浏览器客户端会返回精简版的 HTML，结果可能直接省略掉 favicon 的 <code>&lt;link&gt;</code> 标签。</p>
+<pre><code>&lt;?php
+function fetchHtml(string $url): string|false {
+    $ch = curl_init($url);
+    curl_setopt_array($ch, [
+        CURLOPT_RETURNTRANSFER =&gt; true,
+        CURLOPT_FOLLOWLOCATION =&gt; true,
+        CURLOPT_MAXREDIRS      =&gt; 5,
+        CURLOPT_TIMEOUT        =&gt; 10,
+        CURLOPT_USERAGENT      =&gt; 'Mozilla/5.0 (compatible; FaviconFetcher/1.0)',
+        CURLOPT_SSL_VERIFYPEER =&gt; true,
+    ]);
+    $html = curl_exec($ch);
+    curl_close($ch);
+    return $html;
+}
+?&gt;</code></pre>
+<p>一定要对重定向次数和超时做限制。一个跑 30 秒都收不住的 cURL 请求，很快就会把你的 PHP-FPM worker 池全部占满。</p>
+
+<h2>步骤二：解析 HTML 中的 rel="icon" 标签</h2>
+<p>HTML 规范把 <code>rel="icon"</code> 定义为声明 favicon 的标准方式（可以参考 <a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">WHATWG 链接关系文档</a>）。浏览器可以从任意一个匹配的 <code>&lt;link&gt;</code> 中挑选，所以我们扫描每一个出现的位置，优先取第一个 href 可用的。</p><pre><code>&lt;?php
+function findIconUrl(string $baseUrl, string $html): ?string {
+    libxml_use_internal_errors(true);
+    $dom = new DOMDocument();
+    $dom-&gt;loadHTML($html);
+    libxml_clear_errors();
+
+    $xpath = new DOMXPath($dom);
+    $links = $xpath-&gt;query('//link[@rel="icon" or @rel="shortcut icon"]');
+
+    foreach ($links as $link) {
+        $href = $link-&gt;getAttribute('href');
+        if ($href === '') continue;
+        return resolveUrl($baseUrl, $href);
+    }
+    return null;
+}
+?&gt;</code></pre>
+<p>注意我们也把 <code>shortcut icon</code> 加进来了 —— 那是微软 IE 时代留下的老古董,但出乎意料的是,不少老站点至今还在用这种方式声明 favicon。</p>
+
+<h2>步骤 3:处理相对路径</h2>
+<p>favicon 的 href 经常是相对路径,比如 <code>/static/icon.png</code> 或 <code>icons/favicon.svg</code>。可以用 <code>parse_url</code> 拆解,再写一个小辅助函数把它们转成绝对 URL,然后再下载。</p>
+<pre><code>&lt;?php
+function resolveUrl(string $base, string $ref): string {
+    if (parse_url($ref, PHP_URL_SCHEME) !== null) {
+        return $ref; // already absolute
+    }
+    $parts = parse_url($base);
+    $origin = ($parts['scheme'] ?? 'https') . '://' . ($parts['host'] ?? '');
+    if (str_starts_with($ref, '/')) {
+        return $origin . $ref;
+    }
+    $path = $parts['path'] ?? '/';
+    $dir = substr($path, 0, strrpos($path, '/') + 1);
+    return $origin . $dir . $ref;
+}
+?&gt;</code></pre>
+
+<h2>步骤 4:兜底请求 /favicon.ico</h2>
+<p>如果 HTML 里压根没有 <code>&lt;link rel="icon"&gt;</code> 标签,所有浏览器其实都会自动去请求 <code>/favicon.ico</code>。把这个 endpoint 当作兜底,免得在面对老式站点时返回一片空白图标。</p>
+<pre><code>&lt;?php
+function fallbackIconUrl(string $pageUrl): string {
+    $parts = parse_url($pageUrl);
+    return ($parts['scheme'] ?? 'https') . '://' . ($parts['host'] ?? '') . '/favicon.ico';
+}
+?&gt;</code></pre>
+
+<h2>步骤 5:下载并校验二进制</h2>
+<p>接下来就是下载图标、确认拿到的确实是图片,然后存到本地。务必用 cURL 重新发一次请求,不要复用抓 HTML 那个响应 —— favicon 的 URL 可能挂在另一个域名或者 CDN 上,缓存策略完全不同。</p><pre><code>&lt;?php
+function downloadFavicon(string $iconUrl, string $savePath): bool {
+    $ch = curl_init($iconUrl);
+    curl_setopt_array($ch, [
+        CURLOPT_RETURNTRANSFER =&gt; true,
+        CURLOPT_FOLLOWLOCATION =&gt; true,
+        CURLOPT_MAXREDIRS      =&gt; 5,
+        CURLOPT_TIMEOUT        =&gt; 10,
+        CURLOPT_USERAGENT      =&gt; 'Mozilla/5.0 (compatible; FaviconFetcher/1.0)',
+        CURLOPT_SSL_VERIFYPEER =&gt; true,
+    ]);
+    $data = curl_exec($ch);
+    $code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    $type = curl_getinfo($ch, CURLINFO_CONTENT_TYPE) ?? '';
+    curl_close($ch);
+
+    if ($data === false || $code !== 200 || $data === '') {
+        return false;
+    }
+    // Reject obvious non-image responses (HTML error pages, JSON, etc.)
+    if (stripos($type, 'image/') !== 0 &amp;&amp; stripos($type, 'application/octet-stream') !== 0) {
+        return false;
+    }
+    return file_put_contents($savePath, $data) !== false;
+}
+?&gt;</code></pre>
+
+<h2>把整条 PHP Get Favicon from URL 流程串起来</h2>
+<p>完整流程是这样:抓取 HTML,解析 link 标签,找不到就回退到根目录的 icon,然后保存:</p>
+<pre><code>&lt;?php
+function getFaviconFromUrl(string $pageUrl, string $savePath): bool {
+    $html = fetchHtml($pageUrl);
+    if ($html === false) return false;
+
+    $iconUrl = findIconUrl($pageUrl, $html) ?? fallbackIconUrl($pageUrl);
+    return downloadFavicon($iconUrl, $savePath);
+}
+?&gt;</code></pre>
+<p>调用方式如下:</p>
+<pre><code>&lt;?php
+$ok = getFaviconFromUrl('https://example.com', __DIR__ . '/example.ico');
+echo $ok ? 'Saved.' : 'Failed.';
+?&gt;</code></pre>
+
+<h2>常见坑</h2><ul>
+<li><strong>HTML错误页面伪装成图标。</strong>服务器配置错误时,缺失的 favicon 请求会返回 200 状态码并附带 HTML 内容。务必检查 content-type header,把任何不以 <code>image/</code> 开头的响应直接丢弃。</li>
+<li><strong>CDN 速率限制。</strong>从你的服务器反复请求第三方 CDN 可能会导致 IP 被限流甚至封禁。把成功下载的结果缓存到磁盘,并保持礼貌的抓取间隔(每个域名间隔几秒通常是安全的)。</li>
+<li><strong>关闭 SSL 验证。</strong>调试时把 <code>CURLOPT_SSL_VERIFYPEER</code> 设为 <code>false</code> 看起来很省事,但会让你的用户暴露在 MITM 攻击之下。生产环境务必保持开启。</li>
+<li><strong>编码边界情况。</strong>当 HTML 缺少 charset meta 标签时,DOMDocument 会回退到 ISO-8859-1,这会让 UTF-8 网站上的 href 值出现乱码。可以前置一个 <code>&lt;meta charset='UTF-8'&gt;</code> 块,或者改用支持 UTF-8 的解析器,例如 <code>HTML5DomDocument</code>。</li>
+<li><strong>同源策略不适用于服务端。</strong>PHP 可以直接抓取任意公开的 favicon,无需 CORS 检查——那套规则只对前端 JavaScript 生效。</li>
+</ul>
+
+<h2>何时切换到专用工具</h2>
+<p>对于几千个 URL 的规模,自己手写一个 PHP 函数完全够用。但一旦你需要多格式输出(ICO、PNG、SVG、Apple Touch)、深色模式适配、maskable manifest 图标,或者要稳定覆盖那些 <code>&lt;link&gt;</code> 结构古怪的站点,cURL 那套流程就会变成沉重的维护负担。像 <a href="/">Mzu favicondl</a> 这类工具会帮你完成解析、回退、归一化和打包,覆盖各种浏览器和设备,你就可以丢掉这些样板代码,把精力放回产品本身。</p>
+<p>你也可以把这套手动方案与目前流行的公开 <a href="/blog/favicon-api.html">favicon API 端点</a> 做个对比,看看哪种取舍更适合你的技术栈——手动抓取给你完全的控制权,而 API 则用外部依赖换取了开发时间。</p></template>
+        <template data-article-lang="ja"><p>ブックマークマネージャーやリンクディレクトリ、他のサイトを表示するダッシュボードを作ったことがある方も多いのではないでしょうか。リストの見栄えを良くするために各サイトの favicon を表示したいところですが、すべての URL に対して単純に <code>/favicon.ico</code> を取得しにいく方法には脆さがあります。多くのサイトは SVG アイコンを配信していたり、カスタムパスを使っていたりと、デフォルトのルートファイルではなく条件付きの <code>&lt;link&gt;</code> タグに依存しているためです。</p>
+<p>このチュートリアルでは、PHP で URL から favicon を取得する一連のフローを順に解説します。HTML 内の <code>&lt;link rel="icon"&gt;</code> 宣言を解析し、レガシーな <code>/favicon.ico</code> エンドポイントへフォールバックし、レスポンスを検証した上でバイナリをローカルに保存します。</p>
+
+<h2>前提条件</h2>
+<p>PHP 7.4 以降と、以下の 2 つの拡張モジュールを有効化した環境が必要です。</p>
+<ul>
+<li><code>curl</code> — リモートページの取得とリダイレクトの追跡に使用</li>
+<li><code>dom</code> — HTML の解析と <code>&lt;link&gt;</code> タグの抽出に使用</li>
+</ul>
+<p>これらは公式の PHP Docker イメージとほとんどの Linux ディストリビューションに同梱されています。コーディングを始める前に <code>php -m</code> を実行して、両方が一覧に表示されていることを確認してください。</p>
+
+<h2>ステップ 1: ページの HTML を取得する</h2>
+<p>まずは基本的な cURL リクエストから始めます。<code>User-Agent</code> ヘッダは見た目以上に重要です。ブラウザ以外のクライアントに対しては HTML を簡素化して返すサイトもあり、その場合 favicon の <code>&lt;link&gt;</code> タグが完全に省略されてしまうことがあります。</p>
+<pre><code>&lt;?php
+function fetchHtml(string $url): string|false {
+    $ch = curl_init($url);
+    curl_setopt_array($ch, [
+        CURLOPT_RETURNTRANSFER =&gt; true,
+        CURLOPT_FOLLOWLOCATION =&gt; true,
+        CURLOPT_MAXREDIRS      =&gt; 5,
+        CURLOPT_TIMEOUT        =&gt; 10,
+        CURLOPT_USERAGENT      =&gt; 'Mozilla/5.0 (compatible; FaviconFetcher/1.0)',
+        CURLOPT_SSL_VERIFYPEER =&gt; true,
+    ]);
+    $html = curl_exec($ch);
+    curl_close($ch);
+    return $html;
+}
+?&gt;</code></pre>
+<p>リダイレクトとタイムアウトには必ず上限を設けてください。cURL リクエストが暴走して 30 秒も続けば、PHP-FPM のワーカープールをすぐに埋め尽くしてしまいます。</p>
+
+<h2>ステップ 2: rel="icon" タグを解析する</h2>
+<p>HTML 仕様では、favicon を宣言する方法として <code>rel="icon"</code> が定義されています（<a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">WHATWG のリンク関係リファレンス</a> を参照）。ブラウザは一致する <code>&lt;link&gt;</code> のどれを選んでもよい仕様となっているため、ここではすべての出現箇所を走査し、利用可能な href を持つ最初のものを優先します。</p><pre><code>&lt;?php
+function findIconUrl(string $baseUrl, string $html): ?string {
+    libxml_use_internal_errors(true);
+    $dom = new DOMDocument();
+    $dom-&gt;loadHTML($html);
+    libxml_clear_errors();
+
+    $xpath = new DOMXPath($dom);
+    $links = $xpath-&gt;query('//link[@rel="icon" or @rel="shortcut icon"]');
+
+    foreach ($links as $link) {
+        $href = $link-&gt;getAttribute('href');
+        if ($href === '') continue;
+        return resolveUrl($baseUrl, $href);
+    }
+    return null;
+}
+?&gt;</code></pre>
+<p><code>shortcut icon</code> も含めている点に注目してください。これは旧 Microsoft IE の名残ですが、意外にも多くのレガシーなサイトでこの形式で favicon が宣言されています。</p>
+
+<h2>Step 3: Resolve Relative URLs</h2>
+<p>favicon の href は、<code>/static/icon.png</code> や <code>icons/favicon.svg</code> のように相対パスであることが多いです。ダウンロードする前に <code>parse_url</code> と小さなヘルパー関数を使って、絶対 URL に変換しましょう。</p>
+<pre><code>&lt;?php
+function resolveUrl(string $base, string $ref): string {
+    if (parse_url($ref, PHP_URL_SCHEME) !== null) {
+        return $ref; // already absolute
+    }
+    $parts = parse_url($base);
+    $origin = ($parts['scheme'] ?? 'https') . '://' . ($parts['host'] ?? '');
+    if (str_starts_with($ref, '/')) {
+        return $origin . $ref;
+    }
+    $path = $parts['path'] ?? '/';
+    $dir = substr($path, 0, strrpos($path, '/') + 1);
+    return $origin . $dir . $ref;
+}
+?&gt;</code></pre>
+
+<h2>Step 4: Fall Back to /favicon.ico</h2>
+<p>HTML に <code>&lt;link rel="icon"&gt;</code> タグが含まれていない場合でも、すべてのブラウザは引き続き <code>/favicon.ico</code> を自動的にリクエストします。昔ながらのサイトで空のアイコンを返さないようにするため、このエンドポイントをフォールバックとして呼び出しておきましょう。</p>
+<pre><code>&lt;?php
+function fallbackIconUrl(string $pageUrl): string {
+    $parts = parse_url($pageUrl);
+    return ($parts['scheme'] ?? 'https') . '://' . ($parts['host'] ?? '') . '/favicon.ico';
+}
+?&gt;</code></pre>
+
+<h2>Step 5: Download and Validate the Binary</h2>
+<p>続いてアイコンをダウンロードし、実際に画像データが返されたかを確認した上で、ディスクに保存します。HTML のレスポンスを再利用せず、必ず cURL で再取得してください。favicon の URL は別のドメインや CDN 上に置かれていることがあり、キャッシュのルールが異なる場合があるためです。</p><pre><code>&lt;?php
+function downloadFavicon(string $iconUrl, string $savePath): bool {
+    $ch = curl_init($iconUrl);
+    curl_setopt_array($ch, [
+        CURLOPT_RETURNTRANSFER =&gt; true,
+        CURLOPT_FOLLOWLOCATION =&gt; true,
+        CURLOPT_MAXREDIRS      =&gt; 5,
+        CURLOPT_TIMEOUT        =&gt; 10,
+        CURLOPT_USERAGENT      =&gt; 'Mozilla/5.0 (compatible; FaviconFetcher/1.0)',
+        CURLOPT_SSL_VERIFYPEER =&gt; true,
+    ]);
+    $data = curl_exec($ch);
+    $code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    $type = curl_getinfo($ch, CURLINFO_CONTENT_TYPE) ?? '';
+    curl_close($ch);
+
+    if ($data === false || $code !== 200 || $data === '') {
+        return false;
+    }
+    // Reject obvious non-image responses (HTML error pages, JSON, etc.)
+    if (stripos($type, 'image/') !== 0 &amp;&amp; stripos($type, 'application/octet-stream') !== 0) {
+        return false;
+    }
+    return file_put_contents($savePath, $data) !== false;
+}
+?&gt;</code></pre>
+
+<h2>PHPでURLからfaviconを取得する一連の流れをまとめる</h2>
+<p>全体の手順は次のとおりです。HTMLを取得し、linkタグを解析し、見つからなければルートのアイコンにフォールバックして保存します。</p>
+<pre><code>&lt;?php
+function getFaviconFromUrl(string $pageUrl, string $savePath): bool {
+    $html = fetchHtml($pageUrl);
+    if ($html === false) return false;
+
+    $iconUrl = findIconUrl($pageUrl, $html) ?? fallbackIconUrl($pageUrl);
+    return downloadFavicon($iconUrl, $savePath);
+}
+?&gt;</code></pre>
+<p>呼び出しは次のように行います。</p>
+<pre><code>&lt;?php
+$ok = getFaviconFromUrl('https://example.com', __DIR__ . '/example.ico');
+echo $ok ? 'Saved.' : 'Failed.';
+?&gt;</code></pre>
+
+<h2>よくある落とし穴</h2><ul>
+<li><strong>アイコンになりすました HTML エラーページ。</strong>サーバーの設定ミスにより、favicon がない場合に HTML 本文で 200 ステータスが返されることがあります。常に content-type ヘッダーを確認し、<code>image/</code> で始まらないものは破棄してください。</li>
+<li><strong>CDN のレート制限。</strong>サーバーからサードパーティ CDN を繰り返し叩くと、IP がスロットルされたりブロックされたりする可能性があります。成功したダウンロードはディスクへキャッシュし、礼儀正しいフェッチ間隔を尊重してください(ホストごとに数秒程度が通常は安全です)。</li>
+<li><strong>SSL 検証の無効化。</strong>デバッグ中に <code>CURLOPT_SSL_VERIFYPEER</code> を <code>false</code> に設定したくなりますが、本番環境ではユーザーを MITM 攻撃にさらすことになります。本番では必ず ON のままにしてください。</li>
+<li><strong>エンコーディングのエッジケース。</strong>DOMDocument は HTML に charset メタタグがない場合に ISO-8859-1 へフォールバックするため、UTF-8 サイトでは href 値が文字化けすることがあります。<code>&lt;meta charset='UTF-8'&gt;</code> ブロックを先頭に付与するか、<code>HTML5DomDocument</code> のような UTF-8 対応パーサへ切り替えてください。</li>
+<li><strong>同一オリジンポリシーはサーバーサイドには適用されません。</strong>PHP は CORS チェックなしで任意のパブリック favicon を取得できます。CORS のルールはフロントエンドの JavaScript にのみ適用されるものです。</li>
+</ul>
+
+<h2>専用ツールへ切り替えるべきタイミング</h2>
+<p>数千件の URL を扱う程度なら手書きの PHP 関数で十分です。しかし、マルチフォーマット対応(ICO、PNG、SVG、Apple Touch)、ダークモード対応、マスク対応のマニフェストアイコン、<code>&lt;link&gt;</code> 構造が一風変わったサイトへの確実な対応が必要になると、cURL まわりの配管処理は保守の負担になります。<a href="/">Mzu favicondl</a> のようなツールであれば、あらゆるブラウザーとデバイス向けにパース・フォールバック・正規化・パッケージングをすべて処理してくれるため、定型処理を捨てて製品そのもの開発に集中できます。</p>
+<p>また、この手作業のアプローチと、よく利用されている公開 <a href="/blog/favicon-api.html">favicon API エンドポイント</a> を比較し、どちらのトレードオフがご自身のスタックに合っているか検討するのも良いでしょう。手動フェッチは完全な制御を得られる一方で、API は外部依存というコストを払う代わりに時間を節約できます。</p></template>
+        <template data-article-lang="ko"><p>북마크 매니저, 링크 디렉터리, 또는 다른 웹사이트를 표시하는 대시보드를 만들어 보신 적 있을 겁니다. 목록을 깔끔하게 보이도록 각 사이트의 favicon을 표시하고 싶지만, 모든 URL에 대해 무작정 <code>/favicon.ico</code>를 요청하는 방법은 안정적이지 않습니다. 많은 사이트가 SVG 아이콘을 사용하거나, 사용자 지정 경로를 쓰거나, 기본 루트 파일 대신 조건부 <code>&lt;link&gt;</code> 태그에 의존하기 때문입니다.</p>
+<p>이 튜토리얼에서는 HTML에서 <code>&lt;link rel="icon"&gt;</code> 선언을 파싱하고, 기존 <code>/favicon.ico</code> 엔드포인트로 폴백(fallback)한 뒤, 응답을 검증하여 바이너리를 저장하는 PHP get favicon from URL 워크플로를 단계별로 살펴봅니다.</p>
+
+<h2>사전 준비 사항</h2>
+<p>PHP 7.4 이상과 다음 두 가지 확장이 활성화되어 있어야 합니다.</p>
+<ul>
+<li><code>curl</code> — 원격 페이지를 가져오고 리디렉션을 처리하기 위해 필요</li>
+<li><code>dom</code> — HTML을 파싱하고 <code>&lt;link&gt;</code> 태그를 추출하기 위해 필요</li>
+</ul>
+<p>두 확장은 공식 PHP Docker 이미지와 대부분의 Linux 배포판에 기본 포함되어 있습니다. 코딩을 시작하기 전에 <code>php -m</code> 명령으로 두 확장이 목록에 표시되는지 확인해 주세요.</p>
+
+<h2>1단계: 페이지 HTML 가져오기</h2>
+<p>기본 cURL 요청부터 시작합니다. <code>User-Agent</code> 헤더는 생각보다 중요합니다. 일부 사이트는 브라우저가 아닌 클라이언트에 대해서는 단순화된 HTML을 반환하며, 이 경우 favicon <code>&lt;link&gt;</code> 태그가 아예 누락될 수 있습니다.</p>
+<pre><code>&lt;?php
+function fetchHtml(string $url): string|false {
+    $ch = curl_init($url);
+    curl_setopt_array($ch, [
+        CURLOPT_RETURNTRANSFER =&gt; true,
+        CURLOPT_FOLLOWLOCATION =&gt; true,
+        CURLOPT_MAXREDIRS      =&gt; 5,
+        CURLOPT_TIMEOUT        =&gt; 10,
+        CURLOPT_USERAGENT      =&gt; 'Mozilla/5.0 (compatible; FaviconFetcher/1.0)',
+        CURLOPT_SSL_VERIFYPEER =&gt; true,
+    ]);
+    $html = curl_exec($ch);
+    curl_close($ch);
+    return $html;
+}
+?&gt;</code></pre>
+<p>리디렉션과 타임아웃에는 항상 상한을 두세요. 30초짜리 cURL 요청이 제어 없이 이어지면 PHP-FPM 워커 풀이 금방 가득 차게 됩니다.</p>
+
+<h2>2단계: rel="icon" 태그를 위해 HTML 파싱하기</h2>
+<p>HTML 명세는 favicon을 선언하는 방법으로 <code>rel="icon"</code>을 정의하고 있습니다(<a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">WHATWG 링크 관계 참조</a> 참고). 브라우저는 일치하는 <code>&lt;link&gt;</code> 중 어느 것이든 선택할 수 있으므로, 우리는 모든 항목을 스캔하고 사용 가능한 href를 가진 첫 번째 항목을 우선 사용합니다.</p><pre><code>&lt;?php
+function findIconUrl(string $baseUrl, string $html): ?string {
+    libxml_use_internal_errors(true);
+    $dom = new DOMDocument();
+    $dom-&gt;loadHTML($html);
+    libxml_clear_errors();
+
+    $xpath = new DOMXPath($dom);
+    $links = $xpath-&gt;query('//link[@rel="icon" or @rel="shortcut icon"]');
+
+    foreach ($links as $link) {
+        $href = $link-&gt;getAttribute('href');
+        if ($href === '') continue;
+        return resolveUrl($baseUrl, $href);
+    }
+    return null;
+}
+?&gt;</code></pre>
+<p>여기서 <code>shortcut icon</code> 항목도 함께 포함했습니다. 이는 구 Microsoft IE의 잔재이지만, 의외로 많은 레거시 사이트가 아직도 이 방식으로 favicon을 선언하고 있습니다.</p>
+
+<h2>Step 3: 상대 URL 해석하기</h2>
+<p>Favicon의 href는 <code>/static/icon.png</code>나 <code>icons/favicon.svg</code>처럼 상대 경로인 경우가 많습니다. 다운로드 전에 <code>parse_url</code>과 간단한 helper 함수를 함께 사용해 절대 URL로 변환합니다.</p>
+<pre><code>&lt;?php
+function resolveUrl(string $base, string $ref): string {
+    if (parse_url($ref, PHP_URL_SCHEME) !== null) {
+        return $ref; // already absolute
+    }
+    $parts = parse_url($base);
+    $origin = ($parts['scheme'] ?? 'https') . '://' . ($parts['host'] ?? '');
+    if (str_starts_with($ref, '/')) {
+        return $origin . $ref;
+    }
+    $path = $parts['path'] ?? '/';
+    $dir = substr($path, 0, strrpos($path, '/') + 1);
+    return $origin . $dir . $ref;
+}
+?&gt;</code></pre>
+
+<h2>Step 4: /favicon.ico로 fallback 처리</h2>
+<p>HTML에 <code>&lt;link rel="icon"&gt;</code> 태그가 전혀 없더라도, 모든 브라우저는 자동으로 <code>/favicon.ico</code>를 요청합니다. 레거시 사이트에서 빈 아이콘이 반환되지 않도록 이 엔드포인트를 fallback으로 호출합니다.</p>
+<pre><code>&lt;?php
+function fallbackIconUrl(string $pageUrl): string {
+    $parts = parse_url($pageUrl);
+    return ($parts['scheme'] ?? 'https') . '://' . ($parts['host'] ?? '') . '/favicon.ico';
+}
+?&gt;</code></pre>
+
+<h2>Step 5: 바이너리 다운로드 및 검증</h2>
+<p>이제 아이콘을 다운로드하고, 실제로 이미지가 반환되었는지 검증한 뒤 디스크에 저장합니다. HTML 응답을 재사용하지 말고 반드시 cURL로 다시 가져와야 합니다. favicon URL은 서로 다른 도메인이나 캐싱 규칙이 다른 CDN에 위치할 수 있기 때문입니다.</p><pre><code>&lt;?php
+function downloadFavicon(string $iconUrl, string $savePath): bool {
+    $ch = curl_init($iconUrl);
+    curl_setopt_array($ch, [
+        CURLOPT_RETURNTRANSFER =&gt; true,
+        CURLOPT_FOLLOWLOCATION =&gt; true,
+        CURLOPT_MAXREDIRS      =&gt; 5,
+        CURLOPT_TIMEOUT        =&gt; 10,
+        CURLOPT_USERAGENT      =&gt; 'Mozilla/5.0 (compatible; FaviconFetcher/1.0)',
+        CURLOPT_SSL_VERIFYPEER =&gt; true,
+    ]);
+    $data = curl_exec($ch);
+    $code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    $type = curl_getinfo($ch, CURLINFO_CONTENT_TYPE) ?? '';
+    curl_close($ch);
+
+    if ($data === false || $code !== 200 || $data === '') {
+        return false;
+    }
+    // Reject obvious non-image responses (HTML error pages, JSON, etc.)
+    if (stripos($type, 'image/') !== 0 &amp;&amp; stripos($type, 'application/octet-stream') !== 0) {
+        return false;
+    }
+    return file_put_contents($savePath, $data) !== false;
+}
+?&gt;</code></pre>
+
+<h2>PHP URL 파비콘 가져오기 파이프라인 구성하기</h2>
+<p>전체 흐름은 다음과 같습니다. HTML을 가져오고, link 태그를 파싱한 뒤, 값이 없으면 루트 아이콘으로 대체한 다음 저장합니다.</p>
+<pre><code>&lt;?php
+function getFaviconFromUrl(string $pageUrl, string $savePath): bool {
+    $html = fetchHtml($pageUrl);
+    if ($html === false) return false;
+
+    $iconUrl = findIconUrl($pageUrl, $html) ?? fallbackIconUrl($pageUrl);
+    return downloadFavicon($iconUrl, $savePath);
+}
+?&gt;</code></pre>
+<p>호출 예시는 다음과 같습니다.</p>
+<pre><code>&lt;?php
+$ok = getFaviconFromUrl('https://example.com', __DIR__ . '/example.ico');
+echo $ok ? 'Saved.' : 'Failed.';
+?&gt;</code></pre>
+
+<h2>자주 발생하는 문제점</h2><ul>
+<li><strong>HTML 오류 페이지가 아이콘으로 위장하는 경우.</strong> 서버 설정이 잘못되면 favicon이 없을 때 HTML 본문과 함께 200 상태를 반환할 수 있습니다. 항상 content-type 헤더를 확인하고 <code>image/</code>으로 시작하지 않는 응답은 버려야 합니다.</li>
+<li><strong>CDN 요청 제한.</strong> 서버에서 타사 CDN을 반복적으로 호출하면 IP가 제한되거나 차단될 수 있습니다. 성공한 다운로드는 디스크에 캐시하고, 정중한 요청 간격(호스트당 몇 초 정도면 보통 안전)을 유지하세요.</li>
+<li><strong>SSL 검증 비활성화.</strong> 디버깅 중에 <code>CURLOPT_SSL_VERIFYPEER</code>를 <code>false</code>로 설정하고 싶어질 수 있지만, 사용자를 MITM 공격에 노출시킵니다. 운영 환경에서는 검증 옵션을 그대로 켜두세요.</li>
+<li><strong>인코딩 엣지 케이스.</strong> HTML에 charset meta 태그가 없을 때 DOMDocument는 ISO-8859-1로 폴백하기 때문에, UTF-8 사이트에서는 href 값을 왜곡할 수 있습니다. <code>&lt;meta charset='UTF-8'&gt;</code> 블록을 앞에 붙이거나 <code>HTML5DomDocument</code>처럼 UTF-8을 인식하는 파서로 전환하세요.</li>
+<li><strong>Same-origin 정책은 서버 측에는 적용되지 않습니다.</strong> PHP는 CORS 검사 없이도 모든 공개 favicon을 가져올 수 있습니다. 이 규칙은 프런트엔드 JavaScript에만 적용됩니다.</li>
+</ul>
+
+<h2>전용 도구로 전환할 시점</h2>
+<p>수천 개 정도의 URL이라면 직접 작성한 PHP 함수로도 충분합니다. 하지만 ICO, PNG, SVG, Apple Touch 아이콘 같은 멀티 포맷 출력, 다크 모드 인식, maskable manifest 아이콘, 혹은 특이한 <code>&lt;link&gt;</code> 구조를 가진 사이트까지 안정적으로 대응해야 할 때가 되면, cURL 코드는 유지보수 부담이 됩니다. <a href="/">Mzu favicondl</a> 같은 도구는 모든 브라우저와 디바이스에 걸친 파싱, 폴백, 정규화, 패키징을 처리해 주므로 보일러플레이트를 걷어내고 제품 개발에 집중할 수 있습니다.</p>
+<p>이 수동 방식을 인기 있는 공개 <a href="/blog/favicon-api.html">favicon API 엔드포인트</a>와 비교해 보면, 어떤 트레이드오프가 자신의 스택에 더 맞는지 판단할 수 있습니다. 수동 페칭은 완전한 제어권을 주는 반면, API는 외부 종속성을 감수하는 대신 시간을 절약해 줍니다.</p></template>
+        <template data-article-lang="es"><p>Has construido un gestor de marcadores, un directorio de enlaces o un panel que muestra otros sitios web. Quieres que el favicon de cada sitio haga que la lista se vea pulida — pero lanzar a ciegas una petición a <code>/favicon.ico</code> por cada URL es frágil. Muchos sitios publican iconos SVG, usan rutas personalizadas o dependen de etiquetas <code>&lt;link&gt;</code> condicionales en lugar del archivo raíz por defecto.</p>
+<p>Este tutorial te guía paso a paso por un flujo de PHP para obtener el favicon a partir de una URL: analizar el HTML en busca de declaraciones <code>&lt;link rel="icon"&gt;</code>, recurrir al endpoint heredado <code>/favicon.ico</code> como fallback, validar la respuesta y guardar el binario en local.</p>
+
+<h2>Requisitos previos</h2>
+<p>Necesitas PHP 7.4 o superior con dos extensiones habilitadas:</p>
+<ul>
+<li><code>curl</code> — para obtener páginas remotas y seguir redirecciones</li>
+<li><code>dom</code> — para analizar el HTML y extraer las etiquetas <code>&lt;link&gt;</code></li>
+</ul>
+<p>Ambas vienen incluidas en la imagen oficial de PHP para Docker y en la mayoría de distribuciones de Linux. Ejecuta <code>php -m</code> para confirmar que aparecen listadas antes de empezar a programar.</p>
+
+<h2>Paso 1: Obtener el HTML de la página</h2>
+<p>Empieza con una petición cURL básica. La cabecera <code>User-Agent</code> importa más de lo que parece — algunos sitios devuelven un HTML simplificado a clientes que no son navegadores, lo que puede omitir por completo las etiquetas <code>&lt;link&gt;</code> del favicon.</p>
+<pre><code>&lt;?php
+function fetchHtml(string $url): string|false {
+    $ch = curl_init($url);
+    curl_setopt_array($ch, [
+        CURLOPT_RETURNTRANSFER =&gt; true,
+        CURLOPT_FOLLOWLOCATION =&gt; true,
+        CURLOPT_MAXREDIRS      =&gt; 5,
+        CURLOPT_TIMEOUT        =&gt; 10,
+        CURLOPT_USERAGENT      =&gt; 'Mozilla/5.0 (compatible; FaviconFetcher/1.0)',
+        CURLOPT_SSL_VERIFYPEER =&gt; true,
+    ]);
+    $html = curl_exec($ch);
+    curl_close($ch);
+    return $html;
+}
+?&gt;</code></pre>
+<p>Limita siempre las redirecciones y los timeouts. Una petición cURL descontrolada de 30 segundos es la forma más rápida de saturar tu pool de workers de PHP-FPM.</p>
+
+<h2>Paso 2: Analizar el HTML en busca de etiquetas rel="icon"</h2>
+<p>La especificación de HTML define <code>rel="icon"</code> como la forma de declarar un favicon (consulta la <a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">referencia de relaciones de enlace del WHATWG</a>). Los navegadores pueden elegir cualquier <code>&lt;link&gt;</code> que coincida, así que recorremos todas las ocurrencias y preferimos la primera que tenga un href utilizable.</p><pre><code>&lt;?php
+function findIconUrl(string $baseUrl, string $html): ?string {
+    libxml_use_internal_errors(true);
+    $dom = new DOMDocument();
+    $dom-&gt;loadHTML($html);
+    libxml_clear_errors();
+
+    $xpath = new DOMXPath($dom);
+    $links = $xpath-&gt;query('//link[@rel="icon" or @rel="shortcut icon"]');
+
+    foreach ($links as $link) {
+        $href = $link-&gt;getAttribute('href');
+        if ($href === '') continue;
+        return resolveUrl($baseUrl, $href);
+    }
+    return null;
+}
+?&gt;</code></pre>
+<p>Fíjate que incluimos también <code>shortcut icon</code>: es una reliquia de Microsoft IE, pero sorprendentemente muchos sitios legacy todavía declaran su favicon de esa forma.</p>
+
+<h2>Paso 3: Resolver URLs relativas</h2>
+<p>Los href del favicon suelen ser rutas relativas como <code>/static/icon.png</code> o <code>icons/favicon.svg</code>. Usa <code>parse_url</code> junto con un pequeño helper para convertirlas en URLs absolutas antes de descargarlas.</p>
+<pre><code>&lt;?php
+function resolveUrl(string $base, string $ref): string {
+    if (parse_url($ref, PHP_URL_SCHEME) !== null) {
+        return $ref; // ya es absoluta
+    }
+    $parts = parse_url($base);
+    $origin = ($parts['scheme'] ?? 'https') . '://' . ($parts['host'] ?? '');
+    if (str_starts_with($ref, '/')) {
+        return $origin . $ref;
+    }
+    $path = $parts['path'] ?? '/';
+    $dir = substr($path, 0, strrpos($path, '/') + 1);
+    return $origin . $dir . $ref;
+}
+?&gt;</code></pre>
+
+<h2>Paso 4: Recurrir a /favicon.ico como fallback</h2>
+<p>Si el HTML no contiene etiquetas <code>&lt;link rel="icon"&gt;</code>, todos los navegadores siguen solicitando <code>/favicon.ico</code> automáticamente. Accede a ese endpoint como fallback para no devolver iconos en blanco en sitios antiguos.</p>
+<pre><code>&lt;?php
+function fallbackIconUrl(string $pageUrl): string {
+    $parts = parse_url($pageUrl);
+    return ($parts['scheme'] ?? 'https') . '://' . ($parts['host'] ?? '') . '/favicon.ico';
+}
+?&gt;</code></pre>
+
+<h2>Paso 5: Descargar y validar el binario</h2>
+<p>Ahora descarga el icono, verifica que realmente devolvió una imagen y guárdalo en disco. Vuelve a solicitarlo siempre con cURL en lugar de reutilizar la respuesta HTML: la URL del favicon puede estar en un dominio o CDN diferente con reglas de caché distintas.</p><pre><code>&lt;?php
+function downloadFavicon(string $iconUrl, string $savePath): bool {
+    $ch = curl_init($iconUrl);
+    curl_setopt_array($ch, [
+        CURLOPT_RETURNTRANSFER =&gt; true,
+        CURLOPT_FOLLOWLOCATION =&gt; true,
+        CURLOPT_MAXREDIRS      =&gt; 5,
+        CURLOPT_TIMEOUT        =&gt; 10,
+        CURLOPT_USERAGENT      =&gt; 'Mozilla/5.0 (compatible; FaviconFetcher/1.0)',
+        CURLOPT_SSL_VERIFYPEER =&gt; true,
+    ]);
+    $data = curl_exec($ch);
+    $code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    $type = curl_getinfo($ch, CURLINFO_CONTENT_TYPE) ?? '';
+    curl_close($ch);
+
+    if ($data === false || $code !== 200 || $data === '') {
+        return false;
+    }
+    // Reject obvious non-image responses (HTML error pages, JSON, etc.)
+    if (stripos($type, 'image/') !== 0 &amp;&amp; stripos($type, 'application/octet-stream') !== 0) {
+        return false;
+    }
+    return file_put_contents($savePath, $data) !== false;
+}
+?&gt;</code></pre>
+
+<h2>Ensamblando el pipeline de PHP para obtener el favicon desde una URL</h2>
+<p>Este es el flujo completo: obtén el HTML, parsea los link tags, recurre al favicon de la raíz y guárdalo:</p>
+<pre><code>&lt;?php
+function getFaviconFromUrl(string $pageUrl, string $savePath): bool {
+    $html = fetchHtml($pageUrl);
+    if ($html === false) return false;
+
+    $iconUrl = findIconUrl($pageUrl, $html) ?? fallbackIconUrl($pageUrl);
+    return downloadFavicon($iconUrl, $savePath);
+}
+?&gt;</code></pre>
+<p>Lo invocas así:</p>
+<pre><code>&lt;?php
+$ok = getFaviconFromUrl('https://example.com', __DIR__ . '/example.ico');
+echo $ok ? 'Saved.' : 'Failed.';
+?&gt;</code></pre>
+
+<h2>Errores habituales</h2><ul>
+<li><strong>Páginas de error HTML haciéndose pasar por iconos.</strong> Un servidor mal configurado puede devolver un estado 200 con un cuerpo HTML cuando falta el favicon. Comprueba siempre la cabecera content-type y descarta cualquier cosa que no empiece por <code>image/</code>.</li>
+<li><strong>Límites de tasa del CDN.</strong> Si realizas muchas peticiones a un CDN de terceros desde tu servidor, pueden limitarte o banearte la IP. Guarda en disco las descargas exitosas y respeta un intervalo de fetch educado (unos pocos segundos por host suele ser seguro).</li>
+<li><strong>Verificación SSL deshabilitada.</strong> Poner <code>CURLOPT_SSL_VERIFYPEER</code> a <code>false</code> es tentador durante la depuración, pero expone a tus usuarios a ataques MITM. Mantenlo activado en producción.</li>
+<li><strong>Casos límite de codificación.</strong> DOMDocument recurre a ISO-8859-1 cuando el HTML carece de una meta tag de charset, lo que puede estropear los valores de href en sitios UTF-8. Para evitarlo, antepón un bloque <code>&lt;meta charset='UTF-8'&gt;</code> o cambia a un parser con soporte UTF-8 como <code>HTML5DomDocument</code>.</li>
+<li><strong>La política de mismo origen no se aplica en el lado del servidor.</strong> PHP puede obtener cualquier favicon público sin comprobaciones CORS: esas reglas solo aplican al JavaScript de tu front-end.</li>
+</ul>
+
+<h2>Cuándo pasar a una herramienta dedicada</h2>
+<p>Una función PHP hecha a mano es suficiente para unos pocos miles de URLs. Cuando necesitas salida multi-formato (ICO, PNG, SVG, Apple Touch), soporte de modo oscuro, iconos maskable para manifest o cobertura fiable de sitios con estructuras de <code>&lt;link&gt;</code> peculiares, el cableado de cURL se convierte en una carga de mantenimiento. Una herramienta como <a href="/">Mzu favicondl</a> se encarga del parsing, el fallback, la normalización y el empaquetado en cada navegador y dispositivo, para que puedas olvidarte del boilerplate y centrarte en tu producto.</p>
+<p>También puedes comparar este enfoque manual con los populares endpoints públicos de <a href="/blog/favicon-api.html">API de favicon</a> para ver qué trade-off encaja mejor con tu stack: el fetching manual te da control total, mientras que las APIs ahorran tiempo a costa de una dependencia externa.</p></template>
+
+        <div class="cta-box">
+            <h3 data-en="Skip the cURL Plumbing" data-zh="跳过 cURL 样板代码" data-ja="cURLの実装をスキップ" data-ko="cURL 코드 작성 건너뛰기" data-es="Sáltate el código cURL">Skip the cURL Plumbing</h3>
+            <p data-en="Mzu favicondl parses favicon links, downloads every format, and packages them for all browsers in one click." data-zh="Mzu favicondl 自动解析 favicon 链接，下载所有格式，一次性打包适配所有浏览器。" data-ja="Mzu favicondlは favicon リンクを解析し、すべてのフォーマットをダウンロードして全ブラウザ向けにパッケージ化します。" data-ko="Mzu favicondl은 favicon 링크를 파싱하고 모든 형식을 다운로드하여 모든 브라우저용 패키지로 만듭니다." data-es="Mzu favicondl analiza los enlaces de favicon, descarga todos los formatos y los empaqueta para todos los navegadores.">Mzu favicondl parses favicon links, downloads every format, and packages them for all browsers in one click.</p>
+            <a href="/" class="cta-btn" data-en="Try It Free →" data-zh="免费试用 →" data-ja="無料で試す →" data-ko="무료로 사용해보기 →" data-es="Pruébalo gratis →">Try It Free →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Home" data-zh="首页">Home</a>
+                <a href="/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Blog" data-zh="博客">Blog</a>
+                <a href="/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Privacy" data-zh="隐私政策">Privacy</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js?v=20260211"></script>
+
+</body></html>

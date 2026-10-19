@@ -2869,7 +2869,9 @@
     "avoidOverlap": [
       "favicon-api"
     ],
-    "status": "pending"
+    "status": "done",
+    "qualityScore": 72,
+    "qualityGrade": "B"
   },
   {
     "keyword": "python get favicon from url",

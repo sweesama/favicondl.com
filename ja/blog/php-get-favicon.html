@@ -1,0 +1,260 @@
+<!DOCTYPE html><html lang="ja"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHPでURLからファビコンを取得する手順</title>
+    <meta name="description" content="PHPでURLからファビコンを取得する方法を解説。HTMLのlinkタグ解析、/favicon.icoへのフォールバック、レスポンス検証、ファイル保存まで。">
+    <meta name="keywords" content="php get favicon from url, fetch favicon php, rel icon link">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/ja/blog/php-get-favicon.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/php-get-favicon.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/php-get-favicon.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/php-get-favicon.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/php-get-favicon.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/php-get-favicon.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/php-get-favicon.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/ja/blog/php-get-favicon.html">
+    <meta property="og:title" content="PHPでURLからファビコンを取得する手順">
+    <meta property="og:description" content="PHPでURLからファビコンを取得する方法を解説。HTMLのlinkタグ解析、/favicon.icoへのフォールバック、レスポンス検証、ファイル保存まで。">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="PHPでURLからファビコンを取得する手順">
+    <meta name="twitter:description" content="PHPでURLからファビコンを取得する方法を解説。HTMLのlinkタグ解析、/favicon.icoへのフォールバック、レスポンス検証、ファイル保存まで。">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "PHPでURLからファビコンを取得する手順",
+  "description": "PHPでURLからファビコンを取得する方法を解説。HTMLのlinkタグ解析、/favicon.icoへのフォールバック、レスポンス検証、ファイル保存まで。",
+  "datePublished": "2026-10-19",
+  "dateModified": "2026-10-19",
+  "author": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "mainEntityOfPage": "https://favicondl.com/ja/blog/php-get-favicon.html",
+  "inLanguage": "ja"
+}</script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/ja/" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/ja/documentation.html" class="nav-link">ドキュメント</a>
+                <a href="/ja/tools.html" class="nav-link">ツール</a>
+                <a href="/ja/blog/" class="nav-link">ブログ</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/php-get-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/php-get-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/php-get-favicon.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/php-get-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/php-get-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/ja/" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/ja/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600">PHPでURLからファビコンを取得する手順</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">developer</span><time class="text-sm text-gray-400">2026-10-19</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">PHPでURLからファビコンを取得する手順</h1>
+        </header>
+
+        <div class="article-body"><p>ブックマークマネージャーやリンクディレクトリ、他のサイトを表示するダッシュボードを作ったことがある方も多いのではないでしょうか。リストの見栄えを良くするために各サイトの favicon を表示したいところですが、すべての URL に対して単純に <code>/favicon.ico</code> を取得しにいく方法には脆さがあります。多くのサイトは SVG アイコンを配信していたり、カスタムパスを使っていたりと、デフォルトのルートファイルではなく条件付きの <code>&lt;link&gt;</code> タグに依存しているためです。</p>
+<p>このチュートリアルでは、PHP で URL から favicon を取得する一連のフローを順に解説します。HTML 内の <code>&lt;link rel="icon"&gt;</code> 宣言を解析し、レガシーな <code>/favicon.ico</code> エンドポイントへフォールバックし、レスポンスを検証した上でバイナリをローカルに保存します。</p>
+
+<h2>前提条件</h2>
+<p>PHP 7.4 以降と、以下の 2 つの拡張モジュールを有効化した環境が必要です。</p>
+<ul>
+<li><code>curl</code> — リモートページの取得とリダイレクトの追跡に使用</li>
+<li><code>dom</code> — HTML の解析と <code>&lt;link&gt;</code> タグの抽出に使用</li>
+</ul>
+<p>これらは公式の PHP Docker イメージとほとんどの Linux ディストリビューションに同梱されています。コーディングを始める前に <code>php -m</code> を実行して、両方が一覧に表示されていることを確認してください。</p>
+
+<h2>ステップ 1: ページの HTML を取得する</h2>
+<p>まずは基本的な cURL リクエストから始めます。<code>User-Agent</code> ヘッダは見た目以上に重要です。ブラウザ以外のクライアントに対しては HTML を簡素化して返すサイトもあり、その場合 favicon の <code>&lt;link&gt;</code> タグが完全に省略されてしまうことがあります。</p>
+<pre><code>&lt;?php
+function fetchHtml(string $url): string|false {
+    $ch = curl_init($url);
+    curl_setopt_array($ch, [
+        CURLOPT_RETURNTRANSFER =&gt; true,
+        CURLOPT_FOLLOWLOCATION =&gt; true,
+        CURLOPT_MAXREDIRS      =&gt; 5,
+        CURLOPT_TIMEOUT        =&gt; 10,
+        CURLOPT_USERAGENT      =&gt; 'Mozilla/5.0 (compatible; FaviconFetcher/1.0)',
+        CURLOPT_SSL_VERIFYPEER =&gt; true,
+    ]);
+    $html = curl_exec($ch);
+    curl_close($ch);
+    return $html;
+}
+?&gt;</code></pre>
+<p>リダイレクトとタイムアウトには必ず上限を設けてください。cURL リクエストが暴走して 30 秒も続けば、PHP-FPM のワーカープールをすぐに埋め尽くしてしまいます。</p>
+
+<h2>ステップ 2: rel="icon" タグを解析する</h2>
+<p>HTML 仕様では、favicon を宣言する方法として <code>rel="icon"</code> が定義されています（<a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">WHATWG のリンク関係リファレンス</a> を参照）。ブラウザは一致する <code>&lt;link&gt;</code> のどれを選んでもよい仕様となっているため、ここではすべての出現箇所を走査し、利用可能な href を持つ最初のものを優先します。</p><pre><code>&lt;?php
+function findIconUrl(string $baseUrl, string $html): ?string {
+    libxml_use_internal_errors(true);
+    $dom = new DOMDocument();
+    $dom-&gt;loadHTML($html);
+    libxml_clear_errors();
+
+    $xpath = new DOMXPath($dom);
+    $links = $xpath-&gt;query('//link[@rel="icon" or @rel="shortcut icon"]');
+
+    foreach ($links as $link) {
+        $href = $link-&gt;getAttribute('href');
+        if ($href === '') continue;
+        return resolveUrl($baseUrl, $href);
+    }
+    return null;
+}
+?&gt;</code></pre>
+<p><code>shortcut icon</code> も含めている点に注目してください。これは旧 Microsoft IE の名残ですが、意外にも多くのレガシーなサイトでこの形式で favicon が宣言されています。</p>
+
+<h2>Step 3: Resolve Relative URLs</h2>
+<p>favicon の href は、<code>/static/icon.png</code> や <code>icons/favicon.svg</code> のように相対パスであることが多いです。ダウンロードする前に <code>parse_url</code> と小さなヘルパー関数を使って、絶対 URL に変換しましょう。</p>
+<pre><code>&lt;?php
+function resolveUrl(string $base, string $ref): string {
+    if (parse_url($ref, PHP_URL_SCHEME) !== null) {
+        return $ref; // already absolute
+    }
+    $parts = parse_url($base);
+    $origin = ($parts['scheme'] ?? 'https') . '://' . ($parts['host'] ?? '');
+    if (str_starts_with($ref, '/')) {
+        return $origin . $ref;
+    }
+    $path = $parts['path'] ?? '/';
+    $dir = substr($path, 0, strrpos($path, '/') + 1);
+    return $origin . $dir . $ref;
+}
+?&gt;</code></pre>
+
+<h2>Step 4: Fall Back to /favicon.ico</h2>
+<p>HTML に <code>&lt;link rel="icon"&gt;</code> タグが含まれていない場合でも、すべてのブラウザは引き続き <code>/favicon.ico</code> を自動的にリクエストします。昔ながらのサイトで空のアイコンを返さないようにするため、このエンドポイントをフォールバックとして呼び出しておきましょう。</p>
+<pre><code>&lt;?php
+function fallbackIconUrl(string $pageUrl): string {
+    $parts = parse_url($pageUrl);
+    return ($parts['scheme'] ?? 'https') . '://' . ($parts['host'] ?? '') . '/favicon.ico';
+}
+?&gt;</code></pre>
+
+<h2>Step 5: Download and Validate the Binary</h2>
+<p>続いてアイコンをダウンロードし、実際に画像データが返されたかを確認した上で、ディスクに保存します。HTML のレスポンスを再利用せず、必ず cURL で再取得してください。favicon の URL は別のドメインや CDN 上に置かれていることがあり、キャッシュのルールが異なる場合があるためです。</p><pre><code>&lt;?php
+function downloadFavicon(string $iconUrl, string $savePath): bool {
+    $ch = curl_init($iconUrl);
+    curl_setopt_array($ch, [
+        CURLOPT_RETURNTRANSFER =&gt; true,
+        CURLOPT_FOLLOWLOCATION =&gt; true,
+        CURLOPT_MAXREDIRS      =&gt; 5,
+        CURLOPT_TIMEOUT        =&gt; 10,
+        CURLOPT_USERAGENT      =&gt; 'Mozilla/5.0 (compatible; FaviconFetcher/1.0)',
+        CURLOPT_SSL_VERIFYPEER =&gt; true,
+    ]);
+    $data = curl_exec($ch);
+    $code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    $type = curl_getinfo($ch, CURLINFO_CONTENT_TYPE) ?? '';
+    curl_close($ch);
+
+    if ($data === false || $code !== 200 || $data === '') {
+        return false;
+    }
+    // Reject obvious non-image responses (HTML error pages, JSON, etc.)
+    if (stripos($type, 'image/') !== 0 &amp;&amp; stripos($type, 'application/octet-stream') !== 0) {
+        return false;
+    }
+    return file_put_contents($savePath, $data) !== false;
+}
+?&gt;</code></pre>
+
+<h2>PHPでURLからfaviconを取得する一連の流れをまとめる</h2>
+<p>全体の手順は次のとおりです。HTMLを取得し、linkタグを解析し、見つからなければルートのアイコンにフォールバックして保存します。</p>
+<pre><code>&lt;?php
+function getFaviconFromUrl(string $pageUrl, string $savePath): bool {
+    $html = fetchHtml($pageUrl);
+    if ($html === false) return false;
+
+    $iconUrl = findIconUrl($pageUrl, $html) ?? fallbackIconUrl($pageUrl);
+    return downloadFavicon($iconUrl, $savePath);
+}
+?&gt;</code></pre>
+<p>呼び出しは次のように行います。</p>
+<pre><code>&lt;?php
+$ok = getFaviconFromUrl('https://example.com', __DIR__ . '/example.ico');
+echo $ok ? 'Saved.' : 'Failed.';
+?&gt;</code></pre>
+
+<h2>よくある落とし穴</h2><ul>
+<li><strong>アイコンになりすました HTML エラーページ。</strong>サーバーの設定ミスにより、favicon がない場合に HTML 本文で 200 ステータスが返されることがあります。常に content-type ヘッダーを確認し、<code>image/</code> で始まらないものは破棄してください。</li>
+<li><strong>CDN のレート制限。</strong>サーバーからサードパーティ CDN を繰り返し叩くと、IP がスロットルされたりブロックされたりする可能性があります。成功したダウンロードはディスクへキャッシュし、礼儀正しいフェッチ間隔を尊重してください(ホストごとに数秒程度が通常は安全です)。</li>
+<li><strong>SSL 検証の無効化。</strong>デバッグ中に <code>CURLOPT_SSL_VERIFYPEER</code> を <code>false</code> に設定したくなりますが、本番環境ではユーザーを MITM 攻撃にさらすことになります。本番では必ず ON のままにしてください。</li>
+<li><strong>エンコーディングのエッジケース。</strong>DOMDocument は HTML に charset メタタグがない場合に ISO-8859-1 へフォールバックするため、UTF-8 サイトでは href 値が文字化けすることがあります。<code>&lt;meta charset='UTF-8'&gt;</code> ブロックを先頭に付与するか、<code>HTML5DomDocument</code> のような UTF-8 対応パーサへ切り替えてください。</li>
+<li><strong>同一オリジンポリシーはサーバーサイドには適用されません。</strong>PHP は CORS チェックなしで任意のパブリック favicon を取得できます。CORS のルールはフロントエンドの JavaScript にのみ適用されるものです。</li>
+</ul>
+
+<h2>専用ツールへ切り替えるべきタイミング</h2>
+<p>数千件の URL を扱う程度なら手書きの PHP 関数で十分です。しかし、マルチフォーマット対応(ICO、PNG、SVG、Apple Touch)、ダークモード対応、マスク対応のマニフェストアイコン、<code>&lt;link&gt;</code> 構造が一風変わったサイトへの確実な対応が必要になると、cURL まわりの配管処理は保守の負担になります。<a href="/ja/">Mzu favicondl</a> のようなツールであれば、あらゆるブラウザーとデバイス向けにパース・フォールバック・正規化・パッケージングをすべて処理してくれるため、定型処理を捨てて製品そのもの開発に集中できます。</p>
+<p>また、この手作業のアプローチと、よく利用されている公開 <a href="/ja/blog/favicon-api.html">favicon API エンドポイント</a> を比較し、どちらのトレードオフがご自身のスタックに合っているか検討するのも良いでしょう。手動フェッチは完全な制御を得られる一方で、API は外部依存というコストを払う代わりに時間を節約できます。</p></div>
+
+        <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
+
+        <div class="cta-box">
+            <h3>cURLの実装をスキップ</h3>
+            <p>Mzu favicondlは favicon リンクを解析し、すべてのフォーマットをダウンロードして全ブラウザ向けにパッケージ化します。</p>
+            <a href="/ja/" class="cta-btn">無料で試す →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/ja/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">ホーム</a>
+                <a href="/ja/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">ブログ</a>
+                <a href="/ja/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">プライバシー</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js?v=20260211"></script>
+
+</body></html>
