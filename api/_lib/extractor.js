@@ -29,6 +29,10 @@ const CACHE_TTL_MS = 60 * 60 * 1000;
 const CACHE_MAX = 500;
 
 const cache = new Map();
+// Verified site icons, shared across requested sizes. A size=512 lookup must
+// be able to reuse the 32px icon already found for size=32 instead of trusting
+// a Google image that came back smaller.
+const siteCache = new Map();
 
 /* ----------------------------------------------------------------------- */
 /* Input handling and SSRF protection                                       */
@@ -466,39 +470,144 @@ function scoreCandidate(c, requested) {
   return score;
 }
 
+function isAggregatorSource(icon) {
+  const name = String((icon && (icon.source || icon.origin)) || '');
+  return name === 'google_s2' || name === 'duckduckgo';
+}
+
+function iconSide(icon) {
+  if (!icon) return 0;
+  if (icon.vector) return Number.POSITIVE_INFINITY;
+  return Math.max(Number(icon.width) || 0, Number(icon.height) || 0);
+}
+
+/** Apex and www are both probed. A hung apex must not hide the www icon. */
+function pageUrls(target) {
+  const alt = target.host.startsWith('www.') ? target.host.slice(4) : `www.${target.host}`;
+  return {
+    https: [...new Set([`https://${target.host}/`, `https://${alt}/`])],
+    http: [`http://${target.host}/`],
+  };
+}
+
+function directOrigins(target, page) {
+  const origins = new Set();
+  const add = (host) => {
+    const cleaned = String(host || '').toLowerCase().replace(/\.$/, '');
+    if (cleaned) origins.add(`https://${cleaned}`);
+  };
+  add(target.host);
+  add(target.domain);
+  add(`www.${String(target.domain || '').replace(/^www\./, '')}`);
+  if (page && page.finalUrl) {
+    try {
+      origins.add(new URL(page.finalUrl).origin);
+    } catch {
+      /* ignore a bad final URL */
+    }
+  }
+  return [...origins];
+}
+
+/**
+ * Largest verified site icon. An aggregator image is used only when the site
+ * contributed nothing — a smaller Google/DuckDuckGo result never replaces one.
+ */
+function chooseIcon(siteIcons, fallback, requested) {
+  const sites = (siteIcons || [])
+    .filter((icon) => icon && !isAggregatorSource(icon))
+    .slice()
+    .sort((a, b) => scoreCandidate(b, requested) - scoreCandidate(a, requested) || iconSide(b) - iconSide(a));
+  if (sites.length) return sites[0];
+  return fallback || null;
+}
+
+function loadSiteIcons(domain) {
+  const hit = siteCache.get(domain);
+  if (!hit || hit.expires <= Date.now()) return [];
+  return hit.icons || [];
+}
+
+function rememberSiteIcons(domain, icons, pageUrl) {
+  const fresh = (icons || []).filter((icon) => icon && !isAggregatorSource(icon) && (icon.finalUrl || icon.url));
+  if (!domain || !fresh.length) return;
+  const prev = siteCache.get(domain);
+  const previous = prev && prev.expires > Date.now() ? prev.icons : [];
+  const merged = new Map();
+  for (const icon of [...previous, ...fresh]) {
+    const key = icon.finalUrl || icon.url;
+    const existing = merged.get(key);
+    if (!existing || iconSide(icon) > iconSide(existing)) merged.set(key, icon);
+  }
+  siteCache.set(domain, {
+    icons: [...merged.values()],
+    pageUrl: pageUrl || (prev && prev.expires > Date.now() ? prev.pageUrl : null) || null,
+    expires: Date.now() + CACHE_TTL_MS,
+  });
+}
+
+function rememberedPageUrl(domain) {
+  const hit = siteCache.get(domain);
+  if (!hit || hit.expires <= Date.now()) return null;
+  return hit.pageUrl || null;
+}
+
 /* ----------------------------------------------------------------------- */
 /* Main                                                                     */
 /* ----------------------------------------------------------------------- */
 
+async function loadPage(pageUrl, deadline) {
+  const remaining = deadline - Date.now();
+  if (remaining < 500) return null;
+  const res = await safeFetch(pageUrl, {
+    accept: ACCEPT_HTML,
+    timeoutMs: Math.min(6000, remaining),
+    maxBytes: MAX_HTML_BYTES,
+    truncate: true,
+  });
+  if (!res.body) return null;
+  const looksHtml = res.contentType.includes('html') || /<html|<head|<link/i.test(res.body.slice(0, 2048).toString('utf8'));
+  if (!looksHtml) return null;
+  const parsed = parseHtml(res.body.toString('utf8'), res.url);
+  return { finalUrl: res.url, status: res.status, ...parsed };
+}
+
+/** Resolve with the first page that declares icons, after a short grace period. */
+function firstPageWithIcons(promises, graceMs) {
+  return new Promise((resolve) => {
+    let pending = promises.length;
+    if (!pending) return resolve(null);
+    let chosen = null;
+    let grace = null;
+    const finish = (page) => {
+      pending -= 1;
+      if (page && ((page.icons && page.icons.length) || (page.manifests && page.manifests.length)) && !chosen) {
+        chosen = page;
+        grace = setTimeout(() => resolve(chosen), graceMs);
+      }
+      if (pending === 0) {
+        if (grace) clearTimeout(grace);
+        resolve(chosen);
+      }
+    };
+    for (const promise of promises) promise.then(finish, () => finish(null));
+  });
+}
+
 async function fetchPage(target, deadline) {
-  const alt = target.host.startsWith('www.') ? target.host.slice(4) : `www.${target.host}`;
-  const variants = [`https://${target.host}/`, `https://${alt}/`, `http://${target.host}/`];
-  const seenHosts = new Set();
-  let gotHttpsResponse = false;
-  let firstUsable = null;
-  for (const pageUrl of variants) {
-    const u = new URL(pageUrl);
-    if (seenHosts.has(u.hostname)) continue; // already landed on this host via a redirect
-    if (u.protocol === 'http:' && gotHttpsResponse) continue;
-    const remaining = deadline - Date.now();
-    if (remaining < 500) break;
-    const res = await safeFetch(pageUrl, { accept: ACCEPT_HTML, timeoutMs: Math.min(6000, remaining), maxBytes: MAX_HTML_BYTES, truncate: true });
-    if (!res.body) continue;
-    if (u.protocol === 'https:') gotHttpsResponse = true;
-    const finalHost = new URL(res.url).hostname;
-    seenHosts.add(u.hostname);
-    const looksHtml = res.contentType.includes('html') || /<html|<head|<link/i.test(res.body.slice(0, 2048).toString('utf8'));
-    if (!looksHtml) continue;
-    const parsed = parseHtml(res.body.toString('utf8'), res.url);
-    const page = { finalUrl: res.url, status: res.status, ...parsed };
-    if (parsed.icons.length || parsed.manifests.length) return page;
-    // Blocked/challenge pages often have no icon links. Keep the final URL
-    // (well-known paths are tried there) and only try the other www/apex
-    // variant if the redirect did not already take us to it.
-    if (res.ok) seenHosts.add(finalHost);
-    if (!firstUsable || (!firstUsable.status || firstUsable.status >= 400)) firstUsable = page;
-  }
-  return firstUsable;
+  const { https, http } = pageUrls(target);
+  const probes = https.map((url) => loadPage(url, deadline));
+  // Apex often hangs while www already has the icon. Don't spend the whole
+  // deadline on the first hostname before trying the other one.
+  const early = await firstPageWithIcons(probes, 800);
+  if (early) return early;
+  const settled = (await Promise.all(probes)).filter(Boolean);
+  const withIcons = settled.find((page) => page.icons.length || page.manifests.length);
+  if (withIcons) return withIcons;
+  const usable = settled.find((page) => page.status && page.status < 400) || settled[0];
+  if (usable) return usable;
+  if (!http.length || deadline - Date.now() < 500) return null;
+  return loadPage(http[0], deadline);
 }
 
 async function mapLimit(items, limit, fn) {
@@ -573,13 +682,23 @@ async function extractFavicon(input, opts = {}) {
   const target = parseTarget(input);
   if (!target) return { ok: false, status: 400, error: 'Invalid domain' };
 
-  const cacheKey = `${target.host}|${size}|${opts.proxyBase || ""}`;
+  const proxyBase = opts.proxyBase || 'https://favicondl.com/api/proxy';
+  const cacheKey = `${target.host}|${size}|${proxyBase}`;
   const hit = cache.get(cacheKey);
-  if (hit && hit.expires > Date.now()) return { ...hit.value, cached: true };
+  const remembered = loadSiteIcons(target.domain);
+  if (hit && hit.expires > Date.now()) {
+    // A cached Google/DuckDuckGo image loses to a site icon already verified
+    // for this domain (Google sz=512 is often 16px; gnu.org's own icon is 32px).
+    if (!isAggregatorSource(hit.value) || !remembered.length) {
+      return { ...hit.value, cached: true };
+    }
+    const reused = buildSiteResult(remembered, { finalUrl: rememberedPageUrl(target.domain) }, target, size, proxyBase);
+    storeResult(cacheKey, reused, true);
+    return { ...reused, cached: true };
+  }
 
   const deadline = Date.now() + (opts.timeoutMs || 8000);
   const page = await fetchPage(target, deadline);
-  const finalOrigin = page ? new URL(page.finalUrl).origin : `https://${target.host}`;
 
   let candidates = page ? page.icons.slice() : [];
 
@@ -596,9 +715,8 @@ async function extractFavicon(input, opts = {}) {
     for (const l of lists) candidates.push(...l);
   }
 
-  // Well-known paths on the final origin (and the requested origin if the
-  // site redirected somewhere else).
-  const origins = Array.from(new Set([finalOrigin, `https://${target.host}`]));
+  // Well-known paths on apex and www, even when the HTML fetch missed one of them.
+  const origins = directOrigins(target, page);
   for (const o of origins) {
     candidates.push({ url: `${o}/favicon.ico`, origin: 'direct', rel: 'favicon.ico', type: '', declaredSize: 0 });
     candidates.push({ url: `${o}/apple-touch-icon.png`, origin: 'direct', rel: 'apple-touch-icon', type: '', declaredSize: 180 });
@@ -626,59 +744,59 @@ async function extractFavicon(input, opts = {}) {
 
   const verified = await mapLimit(toCheck, 6, (c) => verifyCandidate(c, deadline, page ? page.finalUrl : undefined));
   const good = verified.filter((v) => v.ok);
+  if (page && page.finalUrl) rememberSiteIcons(target.domain, good, page.finalUrl);
+  else rememberSiteIcons(target.domain, good, null);
 
   // Same bytes under two URLs (e.g. ico + redirect) are fine; we keep both but
-  // rank deterministically.
-  good.sort((a, b) => scoreCandidate(b, size) - scoreCandidate(a, size));
-
-  const proxyBase = opts.proxyBase || 'https://favicondl.com/api/proxy';
-  const toPublic = (c) => ({
-    url: c.finalUrl || c.url,
-    proxyUrl: `${proxyBase}?url=${encodeURIComponent(c.finalUrl || c.url)}`,
-    source: c.origin,
-    rel: c.rel,
-    format: c.format,
-    width: c.vector ? null : c.width,
-    height: c.vector ? null : c.height,
-    vector: c.vector,
-    bytes: c.bytes,
-  });
+  // rank deterministically. Icons found earlier for this domain stay in the pool
+  // so a failed HTML fetch cannot throw away a larger site icon.
+  const pool = [];
+  const seenIcons = new Set();
+  for (const icon of [...good, ...loadSiteIcons(target.domain)]) {
+    const key = icon.finalUrl || icon.url;
+    if (!key || seenIcons.has(key)) continue;
+    seenIcons.add(key);
+    pool.push(icon);
+  }
+  pool.sort((a, b) => scoreCandidate(b, size) - scoreCandidate(a, size) || iconSide(b) - iconSide(a));
 
   let result;
-  if (good.length) {
-    const best = good[0];
-    result = {
-      ok: true,
-      domain: target.domain,
-      size,
-      iconUrl: best.finalUrl || best.url,
-      proxyUrl: `${proxyBase}?url=${encodeURIComponent(best.finalUrl || best.url)}`,
-      source: best.origin,
-      rel: best.rel,
-      format: best.format,
-      width: best.vector ? null : best.width,
-      height: best.vector ? null : best.height,
-      vector: !!best.vector,
-      pageUrl: page ? page.finalUrl : null,
-      candidates: pickForDisplay(good).map(toPublic),
-    };
+  const bestSite = chooseIcon(pool, null, size);
+  if (bestSite) {
+    result = buildSiteResult(pool, page || { finalUrl: rememberedPageUrl(target.domain) }, target, size, proxyBase);
   } else {
     const fb = await aggregatorFallback(target.domain, size, Math.max(deadline, Date.now()) + 2500);
-    result = {
-      ok: true,
-      domain: target.domain,
-      size,
-      iconUrl: fb.url,
-      proxyUrl: `${proxyBase}?url=${encodeURIComponent(fb.url)}`,
+    const fallbackIcon = {
+      url: fb.url,
+      origin: fb.source,
       source: fb.source,
-      rel: null,
-      format: fb.format || null,
-      width: fb.width || null,
-      height: fb.height || null,
+      width: fb.width,
+      height: fb.height,
+      format: fb.format,
       vector: fb.format === 'svg',
-      pageUrl: page ? page.finalUrl : null,
-      candidates: [],
     };
+    // chooseIcon drops the fallback whenever a site icon is present, including
+    // one remembered from another size while this lookup was in flight.
+    const chosen = chooseIcon(loadSiteIcons(target.domain), fallbackIcon, size);
+    if (chosen && !isAggregatorSource(chosen)) {
+      result = buildSiteResult(loadSiteIcons(target.domain), page || { finalUrl: rememberedPageUrl(target.domain) }, target, size, proxyBase);
+    } else {
+      result = {
+        ok: true,
+        domain: target.domain,
+        size,
+        iconUrl: fb.url,
+        proxyUrl: `${proxyBase}?url=${encodeURIComponent(fb.url)}`,
+        source: fb.source,
+        rel: null,
+        format: fb.format || null,
+        width: fb.width || null,
+        height: fb.height || null,
+        vector: fb.format === 'svg',
+        pageUrl: page ? page.finalUrl : null,
+        candidates: [],
+      };
+    }
   }
 
   if (opts.debug) {
@@ -688,11 +806,49 @@ async function extractFavicon(input, opts = {}) {
     };
   }
 
+  storeResult(cacheKey, result, !isAggregatorSource(result));
+  return result;
+}
+
+function buildSiteResult(icons, page, target, size, proxyBase) {
+  const ranked = icons.slice().sort((a, b) => scoreCandidate(b, size) - scoreCandidate(a, size) || iconSide(b) - iconSide(a));
+  const best = chooseIcon(ranked, null, size);
+  const toPublic = (c) => ({
+    url: c.finalUrl || c.url,
+    proxyUrl: `${proxyBase}?url=${encodeURIComponent(c.finalUrl || c.url)}`,
+    source: c.origin || c.source,
+    rel: c.rel,
+    format: c.format,
+    width: c.vector ? null : c.width,
+    height: c.vector ? null : c.height,
+    vector: !!c.vector,
+    bytes: c.bytes,
+  });
+  return {
+    ok: true,
+    domain: target.domain,
+    size,
+    iconUrl: best.finalUrl || best.url,
+    proxyUrl: `${proxyBase}?url=${encodeURIComponent(best.finalUrl || best.url)}`,
+    source: best.origin || best.source,
+    rel: best.rel || null,
+    format: best.format,
+    width: best.vector ? null : best.width,
+    height: best.vector ? null : best.height,
+    vector: !!best.vector,
+    pageUrl: page && page.finalUrl ? page.finalUrl : null,
+    candidates: pickForDisplay(ranked).map(toPublic),
+  };
+}
+
+function storeResult(cacheKey, result, fromSite) {
   if (cache.size >= CACHE_MAX) cache.delete(cache.keys().next().value);
   // Cache real-site results for an hour; fallbacks only briefly so a site that
   // was temporarily down gets another chance soon.
-  cache.set(cacheKey, { value: { ...result, debug: undefined }, expires: Date.now() + (good.length ? CACHE_TTL_MS : 5 * 60 * 1000) });
-  return result;
+  cache.set(cacheKey, {
+    value: { ...result, debug: undefined },
+    expires: Date.now() + (fromSite ? CACHE_TTL_MS : 5 * 60 * 1000),
+  });
 }
 
 module.exports = {
@@ -704,6 +860,11 @@ module.exports = {
   parseTarget,
   isPublicHost,
   scoreCandidate,
+  chooseIcon,
+  pageUrls,
+  directOrigins,
+  iconSide,
+  firstPageWithIcons,
   ACCEPT_IMAGE,
   MAX_ICON_BYTES,
 };

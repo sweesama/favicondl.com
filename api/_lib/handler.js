@@ -60,7 +60,8 @@ function createHandler({ defaultFormat }) {
     try {
       // Ranking stays on the historical default when size is omitted, so the
       // chosen file does not change for existing callers. An explicit size
-      // still prefers an icon at least that large, then we resize that file.
+      // resizes the largest verified site icon; it does not switch to a
+      // smaller Google/DuckDuckGo image.
       data = await extractFavicon(target, {
         size: requested || RANK_SIZE,
         timeoutMs: DISCOVERY_TIMEOUT_MS,
