@@ -1,0 +1,165 @@
+<!DOCTYPE html><html lang="ko"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python으로 URL에서 Favicon 가져오기 실용 튜토리얼</title>
+    <meta name="description" content="Python을 사용하여 모든 URL에서 favicon을 가져오는 방법을 배우세요. HTML 파싱, 리디렉션 처리, 아이콘 파일 저장까지 단계별 코드 가이드입니다.">
+    <meta name="keywords" content="python get favicon from url, python favicon downloader, extract favicon python, python requests favicon">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/ko/blog/python-get-favicon.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/python-get-favicon.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/python-get-favicon.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/python-get-favicon.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/python-get-favicon.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/python-get-favicon.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/python-get-favicon.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/ko/blog/python-get-favicon.html">
+    <meta property="og:title" content="Python으로 URL에서 Favicon 가져오기 실용 튜토리얼">
+    <meta property="og:description" content="Python을 사용하여 모든 URL에서 favicon을 가져오는 방법을 배우세요. HTML 파싱, 리디렉션 처리, 아이콘 파일 저장까지 단계별 코드 가이드입니다.">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Python으로 URL에서 Favicon 가져오기 실용 튜토리얼">
+    <meta name="twitter:description" content="Python을 사용하여 모든 URL에서 favicon을 가져오는 방법을 배우세요. HTML 파싱, 리디렉션 처리, 아이콘 파일 저장까지 단계별 코드 가이드입니다.">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Python으로 URL에서 Favicon 가져오기 실용 튜토리얼",
+  "description": "Python을 사용하여 모든 URL에서 favicon을 가져오는 방법을 배우세요. HTML 파싱, 리디렉션 처리, 아이콘 파일 저장까지 단계별 코드 가이드입니다.",
+  "datePublished": "2026-10-20",
+  "dateModified": "2026-10-20",
+  "author": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "mainEntityOfPage": "https://favicondl.com/ko/blog/python-get-favicon.html",
+  "inLanguage": "ko"
+}</script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/ko/" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/ko/documentation.html" class="nav-link">문서</a>
+                <a href="/ko/tools.html" class="nav-link">도구</a>
+                <a href="/ko/blog/" class="nav-link">블로그</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/python-get-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/python-get-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/python-get-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/python-get-favicon.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/python-get-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/ko/" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/ko/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600">Python으로 URL에서 Favicon 가져오기 실용 튜토리얼</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">developer</span><time class="text-sm text-gray-400">2026-10-20</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">Python으로 URL에서 Favicon 가져오기 실용 튜토리얼</h1>
+        </header>
+
+        <div class="article-body"><p>Python 스크립트에서 웹사이트의 favicon을 가져와야 한다면 — 링크 미리보기, 북마크 관리 도구, 모니터링 대시보드 같은用途에 필요할 수 있습니다. 좋은 소식은 무거운 browser automation tool이 필요 없다는 것입니다. <code>requests</code>와 <code>BeautifulSoup</code>를 이용한 몇 줄의 코드로 충분합니다.</p>
+<p>이 튜토리얼에서는 일반적인 경우를 처리하는 <strong>python get favicon from url</strong> 함수를 작성하는 방법을 정확히 보여줍니다. HTML 파싱, <code>/favicon.ico</code>로의 fallback, binary file 저장까지 다룹니다.</p>
+<h2>사전 준비</h2>
+<p>Python 3.7+와 두 개의 라이브러리가 필요합니다: <code>requests</code>와 <code>beautifulsoup4</code>. pip로 설치합니다.</p>
+<pre><code>pip install requests beautifulsoup4</code></pre>
+<p>HTML을 직접 파싱하고 싶지 않다면 <code>favicon</code> 라이브러리(PyPI에서 제공) 같은 라이브러리를 사용할 수도 있지만, 전체적인 제어권을 위해 처음부터 직접 구현하겠습니다.</p>
+<h2>1단계: 페이지 HTML 가져오기</h2>
+<p>먼저 페이지 소스를 다운로드합니다. 현실적인 User-Agent 헤더를 사용하세요. 일부 서버는 기본 Python 요청을 차단합니다.</p>
+<pre><code>import requests
+from bs4 import BeautifulSoup
+from urllib.parse import urljoin, urlparse
+
+def get_favicon_url(page_url):
+    headers = {'User-Agent': 'Mozilla/5.0 (compatible; FaviconFetcher/1.0)'}
+    resp = requests.get(page_url, headers=headers, timeout=10)
+    resp.raise_for_status()
+    soup = BeautifulSoup(resp.text, 'html.parser')
+    # ... continue below</code></pre>
+<p>timeout은 항상 설정해야 합니다. 설정하지 않으면 느린 서버 때문에 스크립트가 무한정 멈출 수 있습니다.</p>
+<h2>2단계: link rel="icon" 태그 찾기</h2>
+<p>HTML 명세는 <code>rel="icon"</code>을 favicon을 선언하는 표준 방법으로 정의합니다. 브라우저는 <code>shortcut icon</code>과 <code>apple-touch-icon</code>도 허용합니다. 이들을 모두 확인하되 ICO보다 SVG와 PNG를 우선합니다.</p>
+<pre><code>    icon_link = soup.find('link', rel=lambda x: x and 'icon' in x.lower())
+    if icon_link and icon_link.get('href'):
+        return urljoin(page_url, icon_link['href'])
+    # Fallback to /favicon.ico
+    parsed = urlparse(page_url)
+    return f'{parsed.scheme}://{parsed.netloc}/favicon.ico'</code></pre>
+<p><code>urljoin</code>을 사용한다는 점에 유의하세요. favicon href는 상대 경로인 경우가 많으며(예: <code>/assets/favicon.png</code>), 이를 페이지 URL을 기준으로 해석해야 합니다.</p>
+<h2>3단계: 아이콘 다운로드 및 저장</h2><p>URL을 확보했다면 binary content를 가져와 파일에 저장합니다. 확장자를 선택하려면 Content-Type header를 확인하세요.</p><pre><code>def download_favicon(favicon_url, output_path='favicon.ico'):
+    headers = {'User-Agent': 'Mozilla/5.0 (compatible; FaviconFetcher/1.0)'}
+    resp = requests.get(favicon_url, headers=headers, timeout=10)
+    resp.raise_for_status()
+    content_type = resp.headers.get('Content-Type', '')
+    if 'png' in content_type:
+        output_path = output_path.replace('.ico', '.png')
+    elif 'svg' in content_type:
+        output_path = output_path.replace('.ico', '.svg')
+    with open(output_path, 'wb') as f:
+        f.write(resp.content)
+    return output_path</code></pre><p>이것이 핵심 logic입니다. 두 함수를 하나의 script로 묶어 command line에서 URL을 받도록 만들 수 있습니다.</p><h2>자주 발생하는 문제</h2><ul><li><strong>상대 URL</strong>: 항상 <code>urljoin</code>으로 resolve하세요. 단순한 <code>href="favicon.ico"</code>는 이렇게 처리하지 않으면 실패합니다.</li><li><strong>리디렉션</strong>: <code>requests</code>는 기본적으로 redirects를 따라가지만, final URL은 달라질 수 있습니다. 정확해야 한다면 <code>resp.url</code>을 <code>urljoin</code>의 base로 사용하세요.</li><li><strong>favicon 없음</strong>: 많은 사이트에는 <code>/favicon.ico</code>가 없습니다. fallback이 404를 반환하므로 try/except로 graceful하게 처리하세요.</li><li><strong>Content-Type 불일치</strong>: 일부 서버는 ICO 파일을 <code>image/x-icon</code> 또는 <code>image/vnd.microsoft.icon</code>으로 제공합니다. extension에만 의존하지 마세요.</li><li><strong>대용량 파일</strong>: favicon은 보통 작지만, 실수로 매우 큰 파일을 다운로드하지 않도록 최대 크기 제한(예: 1 MB)을 설정하세요.</li></ul><p>여러 icon format(Apple Touch, manifest icons)을 추출해야 한다면, 사용 가능한 모든 icon을 확인하기 위해 <a href="/ko/">Mzu favicondl</a> 같은 전용 tool을 고려해 보세요. favicon format에 대해 더 자세히 알아보려면 <a href="/ko/blog/favicon-file-formats.html">favicon format guide</a>를 참고하세요.</p><h2>결론</h2><p>이제 어떤 URL에서든 favicon을 가져오는 작동하는 Python 함수를 갖게 되었습니다. 핵심 단계는 페이지 fetch, <code>&lt;link&gt;</code> 태그 parse, 상대 URL resolve, binary 다운로드입니다. error와 edge case를 처리하면 준비가 끝납니다.</p><p>많은 사이트를 스크래핑할 때는 <code>robots.txt</code>와 rate limit을 준수해야 합니다. 완전한 favicon 솔루션이 필요하다면 비교를 위해 <a href="/ko/blog/php-get-favicon.html">당사의 PHP 튜토리얼</a>을 확인해 보세요.</p><h2>문서화된 요구 사항 확인</h2><p>HTML Standard은 <a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon"><code>rel='icon'</code></a>을 현재 페이지를 나타내는 icon의 link relationship로 정의합니다.</p></div>
+
+        <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
+
+        <div class="cta-box">
+            <h3>프로젝트에 favicon이 필요하신가요?</h3>
+            <p>Mzu favicondl로 모든 웹사이트에서 favicon을 다운로드하고 변환하세요. 무료, 빠르고 가입이 필요 없습니다.</p>
+            <a href="/ko/" class="cta-btn">무료로 사용해보기 →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/ko/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">홈</a>
+                <a href="/ko/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">블로그</a>
+                <a href="/ko/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">개인정보</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js?v=20260211"></script>
+
+</body></html>

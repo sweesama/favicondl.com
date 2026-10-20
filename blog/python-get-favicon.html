@@ -1,0 +1,271 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Get Favicon from URL: A Practical Tutorial</title>
+    <meta name="description" content="Learn how to get a favicon from any URL using Python. Step-by-step guide with code to parse HTML, handle redirects, and save the icon file.">
+    <meta name="keywords" content="python get favicon from url, python favicon downloader, extract favicon python, python requests favicon">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/blog/python-get-favicon.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/python-get-favicon.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/python-get-favicon.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/python-get-favicon.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/python-get-favicon.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/python-get-favicon.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/python-get-favicon.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/blog/python-get-favicon.html">
+    <meta property="og:title" content="Python Get Favicon from URL: A Practical Tutorial">
+    <meta property="og:description" content="Learn how to get a favicon from any URL using Python. Step-by-step guide with code to parse HTML, handle redirects, and save the icon file.">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Python Get Favicon from URL: A Practical Tutorial">
+    <meta name="twitter:description" content="Learn how to get a favicon from any URL using Python. Step-by-step guide with code to parse HTML, handle redirects, and save the icon file.">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Python Get Favicon from URL: A Practical Tutorial",
+  "description": "Learn how to get a favicon from any URL using Python. Step-by-step guide with code to parse HTML, handle redirects, and save the icon file.",
+  "datePublished": "2026-10-20",
+  "dateModified": "2026-10-20",
+  "author": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "mainEntityOfPage": "https://favicondl.com/blog/python-get-favicon.html",
+  "inLanguage": "en"
+}</script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/documentation.html" class="nav-link" data-en="Docs" data-zh="文档">Docs</a>
+                <a href="/tools.html" class="nav-link" data-en="Tools" data-zh="工具">Tools</a>
+                <a href="/blog/" class="nav-link" data-en="Blog" data-zh="博客">Blog</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/python-get-favicon.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/python-get-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/python-get-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/python-get-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/python-get-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600" data-en="Python Get Favicon from URL: A Practical Tutorial" data-zh="Python 从 URL 获取 Favicon 的实用教程" data-ja="PythonでURLからFaviconを取得する実践チュートリアル" data-ko="Python으로 URL에서 Favicon 가져오기 실용 튜토리얼" data-es="Obtener favicon desde URL con Python: tutorial práctico">Python Get Favicon from URL: A Practical Tutorial</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">developer</span><time class="text-sm text-gray-400">2026-10-20</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight" data-en="Python Get Favicon from URL: A Practical Tutorial" data-zh="Python 从 URL 获取 Favicon 的实用教程" data-ja="PythonでURLからFaviconを取得する実践チュートリアル" data-ko="Python으로 URL에서 Favicon 가져오기 실용 튜토리얼" data-es="Obtener favicon desde URL con Python: tutorial práctico">Python Get Favicon from URL: A Practical Tutorial</h1>
+        </header>
+
+        <div class="article-body" data-lang="en">
+            <p>You need to grab a website's favicon in a Python script — maybe for a link preview, a bookmark manager, or a monitoring dashboard. The good news: you don't need a heavy browser automation tool. A few lines with <code>requests</code> and <code>BeautifulSoup</code> will do the job.</p><p>This tutorial shows you exactly how to write a <strong>python get favicon from url</strong> function that handles the common cases. We'll cover parsing the HTML, falling back to <code>/favicon.ico</code>, and saving the binary file.</p><h2>Prerequisites</h2><p>You'll need Python 3.7+ and two libraries: <code>requests</code> and <code>beautifulsoup4</code>. Install them with pip:</p><pre><code>pip install requests beautifulsoup4</code></pre><p>If you prefer not to parse HTML manually, you can also use a library like <code>favicon</code> (available on PyPI), but we'll build it from scratch for full control.</p><h2>Step 1: Fetch the page HTML</h2><p>Start by downloading the page source. Use a realistic User-Agent header — some servers block default Python requests.</p><pre><code>import requests
+from bs4 import BeautifulSoup
+from urllib.parse import urljoin, urlparse
+
+def get_favicon_url(page_url):
+    headers = {'User-Agent': 'Mozilla/5.0 (compatible; FaviconFetcher/1.0)'}
+    resp = requests.get(page_url, headers=headers, timeout=10)
+    resp.raise_for_status()
+    soup = BeautifulSoup(resp.text, 'html.parser')
+    # ... continue below</code></pre><p>Always set a timeout. Without it, a slow server can hang your script indefinitely.</p><h2>Step 2: Look for link rel="icon" tags</h2><p>The HTML spec defines <code>rel="icon"</code> as the standard way to declare a favicon. Browsers also accept <code>shortcut icon</code> and <code>apple-touch-icon</code>. We'll check all of them, preferring SVG and PNG over ICO.</p><pre><code>    icon_link = soup.find('link', rel=lambda x: x and 'icon' in x.lower())
+    if icon_link and icon_link.get('href'):
+        return urljoin(page_url, icon_link['href'])
+    # Fallback to /favicon.ico
+    parsed = urlparse(page_url)
+    return f'{parsed.scheme}://{parsed.netloc}/favicon.ico'</code></pre><p>Note the use of <code>urljoin</code> — favicon hrefs are often relative (e.g., <code>/assets/favicon.png</code>), and you need to resolve them against the page URL.</p><h2>Step 3: Download and save the icon</h2><p>Once you have the URL, fetch the binary content and write it to a file. Check the Content-Type header to pick an extension.</p><pre><code>def download_favicon(favicon_url, output_path='favicon.ico'):
+    headers = {'User-Agent': 'Mozilla/5.0 (compatible; FaviconFetcher/1.0)'}
+    resp = requests.get(favicon_url, headers=headers, timeout=10)
+    resp.raise_for_status()
+    content_type = resp.headers.get('Content-Type', '')
+    if 'png' in content_type:
+        output_path = output_path.replace('.ico', '.png')
+    elif 'svg' in content_type:
+        output_path = output_path.replace('.ico', '.svg')
+    with open(output_path, 'wb') as f:
+        f.write(resp.content)
+    return output_path</code></pre><p>That's the core logic. You can wrap both functions into a single script that takes a URL from the command line.</p><h2>Common pitfalls</h2><ul><li><strong>Relative URLs</strong>: Always resolve with <code>urljoin</code>. A bare <code>href="favicon.ico"</code> will fail if you don't.</li><li><strong>Redirects</strong>: <code>requests</code> follows redirects by default, but the final URL may differ. Use <code>resp.url</code> as the base for <code>urljoin</code> if you need accuracy.</li><li><strong>Missing favicon</strong>: Many sites don't have a <code>/favicon.ico</code>. Your fallback will return a 404 — handle it gracefully with a try/except.</li><li><strong>Content-Type mismatch</strong>: Some servers serve ICO files as <code>image/x-icon</code> or <code>image/vnd.microsoft.icon</code>. Don't rely solely on the extension.</li><li><strong>Large files</strong>: Favicons are usually small, but set a max size limit (e.g., 1 MB) to avoid downloading huge files by mistake.</li></ul><p>If you need to extract multiple icon formats (Apple Touch, manifest icons), consider using a dedicated tool like <a href="/">Mzu favicondl</a> to inspect all available icons. For a deeper dive into favicon formats, see our <a href="/blog/favicon-file-formats.html">favicon format guide</a>.</p><h2>Conclusion</h2><p>You now have a working Python function to get a favicon from any URL. The key steps are: fetch the page, parse the <code>&lt;link&gt;</code> tags, resolve relative URLs, and download the binary. Handle errors and edge cases, and you're set.</p><p>Remember to respect <code>robots.txt</code> and rate limits when scraping many sites. For a complete favicon solution, check out <a href="/blog/php-get-favicon.html">our PHP tutorial</a> for comparison.</p><h2>Check the documented requirements</h2><p>The HTML Standard defines <a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon"><code>rel='icon'</code></a> as the link relationship for an icon representing the current page.</p>
+        </div>
+
+        <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
+        <template data-article-lang="zh"><p>如果想在 Python 脚本中获取某个网站的 favicon，比如用于链接预览、书签管理器或监控面板，你不必引入笨重的浏览器自动化工具。用 <code>requests</code> 和 <code>BeautifulSoup</code> 写几行代码就能完成。</p><p>本文将完整演示如何编写一个 <strong>python get favicon from url</strong> 函数，并处理几种常见情况，包括解析 HTML、回退到 <code>/favicon.ico</code>，以及保存二进制文件。</p><h2>前置条件</h2><p>你需要 Python 3.7+，以及两个库：<code>requests</code> 和 <code>beautifulsoup4</code>。使用 pip 安装：</p><pre><code>pip install requests beautifulsoup4</code></pre><p>如果不想手动解析 HTML，也可以使用 <code>favicon</code>（可在 PyPI 获取）之类的库。不过，本文会从头实现，以便完全掌控处理过程。</p><h2>步骤 1：获取页面 HTML</h2><p>先下载页面源码。设置一个合理的 User-Agent 请求头，因为有些服务器会拦截 Python requests 的默认请求。</p><pre><code>import requests
+from bs4 import BeautifulSoup
+from urllib.parse import urljoin, urlparse
+
+def get_favicon_url(page_url):
+    headers = {'User-Agent': 'Mozilla/5.0 (compatible; FaviconFetcher/1.0)'}
+    resp = requests.get(page_url, headers=headers, timeout=10)
+    resp.raise_for_status()
+    soup = BeautifulSoup(resp.text, 'html.parser')
+    # ... continue below</code></pre><p>一定要设置 timeout。否则，响应缓慢的服务器可能让脚本一直卡住。</p><h2>步骤 2：查找 <code>rel="icon"</code> 标签</h2><p>HTML 规范将 <code>rel="icon"</code> 定义为声明 favicon 的标准方式。浏览器也接受 <code>shortcut icon</code> 和 <code>apple-touch-icon</code>。检查这些类型时，应优先选择 SVG 和 PNG，而不是 ICO。</p><pre><code>    icon_link = soup.find('link', rel=lambda x: x and 'icon' in x.lower())
+    if icon_link and icon_link.get('href'):
+        return urljoin(page_url, icon_link['href'])
+    # Fallback to /favicon.ico
+    parsed = urlparse(page_url)
+    return f'{parsed.scheme}://{parsed.netloc}/favicon.ico'</code></pre><p>注意这里使用了 <code>urljoin</code>：favicon 的 href 往往是相对路径，例如 <code>/assets/favicon.png</code>，需要根据页面 URL 将其解析为完整地址。</p><h2>步骤 3：下载并保存图标</h2><p>拿到 URL 后，获取二进制内容并写入文件。检查 Content-Type 响应头，以选择文件扩展名。</p><pre><code>def download_favicon(favicon_url, output_path='favicon.ico'):
+    headers = {'User-Agent': 'Mozilla/5.0 (compatible; FaviconFetcher/1.0)'}
+    resp = requests.get(favicon_url, headers=headers, timeout=10)
+    resp.raise_for_status()
+    content_type = resp.headers.get('Content-Type', '')
+    if 'png' in content_type:
+        output_path = output_path.replace('.ico', '.png')
+    elif 'svg' in content_type:
+        output_path = output_path.replace('.ico', '.svg')
+    with open(output_path, 'wb') as f:
+        f.write(resp.content)
+    return output_path</code></pre><p>这就是核心逻辑。可以把这两个函数封装到一个脚本中，让它从命令行接收 URL。</p><h2>常见陷阱</h2><ul><li><strong>相对 URL</strong>：始终使用 <code>urljoin</code> 解析。如果不处理，裸的 <code>href="favicon.ico"</code> 会失败。</li><li><strong>重定向</strong>：<code>requests</code> 默认会跟随重定向，但最终 URL 可能不同。如果需要确保准确，请使用 <code>resp.url</code> 作为 <code>urljoin</code> 的基准 URL。</li><li><strong>favicon 缺失</strong>：许多网站没有 <code>/favicon.ico</code>。fallback 请求会返回 404——请用 try/except 妥善处理。</li><li><strong>Content-Type 不匹配</strong>：有些服务器会以 <code>image/x-icon</code> 或 <code>image/vnd.microsoft.icon</code> 提供 ICO 文件。不要只依赖扩展名。</li><li><strong>大文件</strong>：favicon 通常很小，但仍应设置最大大小限制（例如 1 MB），以免误下载超大文件。</li></ul><p>如果需要提取多种图标格式（Apple Touch、manifest icons），可以考虑使用专门的工具，例如 <a href="/">Mzu favicondl</a>，来检查所有可用图标。想深入了解 favicon 格式，可以参阅我们的 <a href="/blog/favicon-file-formats.html">favicon 格式指南</a>。</p><h2>结论</h2><p>现在，你已经有了一个可正常工作的 Python 函数，可以从任意 URL 获取 favicon。关键步骤包括：获取页面、解析 <code>&lt;link&gt;</code> 标签、解析相对 URL，以及下载二进制内容。处理好错误和边界情况后，就可以了。</p><p>抓取多个网站时，请务必遵守 <code>robots.txt</code> 和请求频率限制。如果需要完整的 favicon 解决方案，可以查看我们的 <a href="/blog/php-get-favicon.html">PHP 教程</a> 作对比。</p><h2>检查文档中规定的要求</h2><p>HTML Standard 将 <a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon"><code>rel='icon'</code></a> 定义为一种 link relationship，用于指定代表当前页面的 icon。</p></template>
+        <template data-article-lang="ja"><p>Pythonスクリプトでウェブサイトのfaviconを取得したい場面はあるでしょう。リンクプレビュー、ブックマークマネージャー、監視ダッシュボードなどが考えられます。良いニュースは、重厚なブラウザ自動化ツールは不要だということです。<code>requests</code>と<code>BeautifulSoup</code>を使えば数行で済みます。</p><p>このチュートリアルでは、一般的なケースに対応する<strong>python get favicon from url</strong>関数の書き方を具体的に示します。HTMLの解析、<code>/favicon.ico</code>へのフォールバック、バイナリファイルの保存までを扱います。</p><h2>前提条件</h2><p>Python 3.7以上と2つのライブラリ、<code>requests</code>と<code>beautifulsoup4</code>が必要です。pipでインストールします。</p><pre><code>pip install requests beautifulsoup4</code></pre><p>HTMLを手動で解析したくない場合は、PyPIで入手できる<code>favicon</code>のようなライブラリも使えますが、ここでは完全に制御するためにゼロから構築します。</p><h2>ステップ1: ページのHTMLを取得する</h2><p>まずページのソースをダウンロードします。現実的なUser-Agentヘッダーを使用してください。一部のサーバーはデフォルトのPythonリクエストをブロックします。</p><pre><code>import requests
+from bs4 import BeautifulSoup
+from urllib.parse import urljoin, urlparse
+
+def get_favicon_url(page_url):
+    headers = {'User-Agent': 'Mozilla/5.0 (compatible; FaviconFetcher/1.0)'}
+    resp = requests.get(page_url, headers=headers, timeout=10)
+    resp.raise_for_status()
+    soup = BeautifulSoup(resp.text, 'html.parser')
+    # ... continue below</code></pre><p>必ずタイムアウトを設定してください。設定しないと、遅いサーバーがスクリプトを無期限にハングさせる可能性があります。</p><h2>ステップ2: link rel="icon"タグを探す</h2><p>HTML仕様では、faviconを宣言する標準的な方法として<code>rel="icon"</code>が定義されています。ブラウザは<code>shortcut icon</code>や<code>apple-touch-icon</code>も受け入れます。ここではそれらすべてをチェックし、ICOよりSVGとPNGを優先します。</p><pre><code>    icon_link = soup.find('link', rel=lambda x: x and 'icon' in x.lower())
+    if icon_link and icon_link.get('href'):
+        return urljoin(page_url, icon_link['href'])
+    # Fallback to /favicon.ico
+    parsed = urlparse(page_url)
+    return f'{parsed.scheme}://{parsed.netloc}/favicon.ico'</code></pre><p><code>urljoin</code>の使用に注意してください。faviconのhrefはしばしば相対パス（例: <code>/assets/favicon.png</code>）であり、ページURLを基準に解決する必要があります。</p><h2>ステップ3: アイコンをダウンロードして保存する</h2><p>URL が取得できたら、バイナリデータを取得してファイルに書き込みます。拡張子を選ぶには、Content-Type ヘッダーを確認します。</p><pre><code>def download_favicon(favicon_url, output_path='favicon.ico'):
+    headers = {'User-Agent': 'Mozilla/5.0 (compatible; FaviconFetcher/1.0)'}
+    resp = requests.get(favicon_url, headers=headers, timeout=10)
+    resp.raise_for_status()
+    content_type = resp.headers.get('Content-Type', '')
+    if 'png' in content_type:
+        output_path = output_path.replace('.ico', '.png')
+    elif 'svg' in content_type:
+        output_path = output_path.replace('.ico', '.svg')
+    with open(output_path, 'wb') as f:
+        f.write(resp.content)
+    return output_path</code></pre><p>これが中核となるロジックです。2つの関数を1つのスクリプトにまとめれば、コマンドラインから URL を受け取れるようにできます。</p><h2>よくある落とし穴</h2><ul><li><strong>相対 URL</strong>：必ず <code>urljoin</code> で解決してください。<code>href="favicon.ico"</code> のような相対 URL をそのまま使うと失敗します。</li><li><strong>リダイレクト</strong>：<code>requests</code> はデフォルトでリダイレクトを追跡しますが、最終的な URL は変わることがあります。正確さが必要な場合は、<code>urljoin</code> のベースとして <code>resp.url</code> を使ってください。</li><li><strong>favicon がない</strong>：多くのサイトには <code>/favicon.ico</code> がありません。フォールバック処理は 404 を返すので、try/except で適切に処理してください。</li><li><strong>Content-Type の不一致</strong>：一部のサーバーは ICO ファイルを <code>image/x-icon</code> または <code>image/vnd.microsoft.icon</code> として配信します。拡張子だけに依存しないでください。</li><li><strong>大きなファイル</strong>：favicon は通常小さいですが、誤って巨大なファイルをダウンロードしないように、最大サイズ制限（例：1 MB）を設定してください。</li></ul><p>複数の icon format（Apple Touch、manifest icons）を抽出する必要がある場合は、利用可能な icon をすべて調べられる <a href="/">Mzu favicondl</a> のような専用ツールを検討してください。favicon の format の詳細については、<a href="/blog/favicon-file-formats.html">favicon format ガイド</a> を参照してください。</p><h2>結論</h2><p>これで、任意の URL から favicon を取得できる Python 関数が完成しました。重要な手順は、ページを取得し、<code>&lt;link&gt;</code> タグを解析し、相対 URL を解決し、バイナリをダウンロードすることです。エラーやエッジケースを処理すれば完了です。</p><p>多くのサイトをスクレイピングする場合は、<code>robots.txt</code>とレート制限を尊重してください。完全なfaviconソリューションについては、比較のために<a href="/blog/php-get-favicon.html">PHPチュートリアル</a>を確認してください。</p><h2>文書化された要件を確認する</h2><p>HTML Standardは、<a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon"><code>rel='icon'</code></a>を、現在のページを表すアイコンのリンク関係として定義しています。</p></template>
+        <template data-article-lang="ko"><p>Python 스크립트에서 웹사이트의 favicon을 가져와야 한다면 — 링크 미리보기, 북마크 관리 도구, 모니터링 대시보드 같은用途에 필요할 수 있습니다. 좋은 소식은 무거운 browser automation tool이 필요 없다는 것입니다. <code>requests</code>와 <code>BeautifulSoup</code>를 이용한 몇 줄의 코드로 충분합니다.</p>
+<p>이 튜토리얼에서는 일반적인 경우를 처리하는 <strong>python get favicon from url</strong> 함수를 작성하는 방법을 정확히 보여줍니다. HTML 파싱, <code>/favicon.ico</code>로의 fallback, binary file 저장까지 다룹니다.</p>
+<h2>사전 준비</h2>
+<p>Python 3.7+와 두 개의 라이브러리가 필요합니다: <code>requests</code>와 <code>beautifulsoup4</code>. pip로 설치합니다.</p>
+<pre><code>pip install requests beautifulsoup4</code></pre>
+<p>HTML을 직접 파싱하고 싶지 않다면 <code>favicon</code> 라이브러리(PyPI에서 제공) 같은 라이브러리를 사용할 수도 있지만, 전체적인 제어권을 위해 처음부터 직접 구현하겠습니다.</p>
+<h2>1단계: 페이지 HTML 가져오기</h2>
+<p>먼저 페이지 소스를 다운로드합니다. 현실적인 User-Agent 헤더를 사용하세요. 일부 서버는 기본 Python 요청을 차단합니다.</p>
+<pre><code>import requests
+from bs4 import BeautifulSoup
+from urllib.parse import urljoin, urlparse
+
+def get_favicon_url(page_url):
+    headers = {'User-Agent': 'Mozilla/5.0 (compatible; FaviconFetcher/1.0)'}
+    resp = requests.get(page_url, headers=headers, timeout=10)
+    resp.raise_for_status()
+    soup = BeautifulSoup(resp.text, 'html.parser')
+    # ... continue below</code></pre>
+<p>timeout은 항상 설정해야 합니다. 설정하지 않으면 느린 서버 때문에 스크립트가 무한정 멈출 수 있습니다.</p>
+<h2>2단계: link rel="icon" 태그 찾기</h2>
+<p>HTML 명세는 <code>rel="icon"</code>을 favicon을 선언하는 표준 방법으로 정의합니다. 브라우저는 <code>shortcut icon</code>과 <code>apple-touch-icon</code>도 허용합니다. 이들을 모두 확인하되 ICO보다 SVG와 PNG를 우선합니다.</p>
+<pre><code>    icon_link = soup.find('link', rel=lambda x: x and 'icon' in x.lower())
+    if icon_link and icon_link.get('href'):
+        return urljoin(page_url, icon_link['href'])
+    # Fallback to /favicon.ico
+    parsed = urlparse(page_url)
+    return f'{parsed.scheme}://{parsed.netloc}/favicon.ico'</code></pre>
+<p><code>urljoin</code>을 사용한다는 점에 유의하세요. favicon href는 상대 경로인 경우가 많으며(예: <code>/assets/favicon.png</code>), 이를 페이지 URL을 기준으로 해석해야 합니다.</p>
+<h2>3단계: 아이콘 다운로드 및 저장</h2><p>URL을 확보했다면 binary content를 가져와 파일에 저장합니다. 확장자를 선택하려면 Content-Type header를 확인하세요.</p><pre><code>def download_favicon(favicon_url, output_path='favicon.ico'):
+    headers = {'User-Agent': 'Mozilla/5.0 (compatible; FaviconFetcher/1.0)'}
+    resp = requests.get(favicon_url, headers=headers, timeout=10)
+    resp.raise_for_status()
+    content_type = resp.headers.get('Content-Type', '')
+    if 'png' in content_type:
+        output_path = output_path.replace('.ico', '.png')
+    elif 'svg' in content_type:
+        output_path = output_path.replace('.ico', '.svg')
+    with open(output_path, 'wb') as f:
+        f.write(resp.content)
+    return output_path</code></pre><p>이것이 핵심 logic입니다. 두 함수를 하나의 script로 묶어 command line에서 URL을 받도록 만들 수 있습니다.</p><h2>자주 발생하는 문제</h2><ul><li><strong>상대 URL</strong>: 항상 <code>urljoin</code>으로 resolve하세요. 단순한 <code>href="favicon.ico"</code>는 이렇게 처리하지 않으면 실패합니다.</li><li><strong>리디렉션</strong>: <code>requests</code>는 기본적으로 redirects를 따라가지만, final URL은 달라질 수 있습니다. 정확해야 한다면 <code>resp.url</code>을 <code>urljoin</code>의 base로 사용하세요.</li><li><strong>favicon 없음</strong>: 많은 사이트에는 <code>/favicon.ico</code>가 없습니다. fallback이 404를 반환하므로 try/except로 graceful하게 처리하세요.</li><li><strong>Content-Type 불일치</strong>: 일부 서버는 ICO 파일을 <code>image/x-icon</code> 또는 <code>image/vnd.microsoft.icon</code>으로 제공합니다. extension에만 의존하지 마세요.</li><li><strong>대용량 파일</strong>: favicon은 보통 작지만, 실수로 매우 큰 파일을 다운로드하지 않도록 최대 크기 제한(예: 1 MB)을 설정하세요.</li></ul><p>여러 icon format(Apple Touch, manifest icons)을 추출해야 한다면, 사용 가능한 모든 icon을 확인하기 위해 <a href="/">Mzu favicondl</a> 같은 전용 tool을 고려해 보세요. favicon format에 대해 더 자세히 알아보려면 <a href="/blog/favicon-file-formats.html">favicon format guide</a>를 참고하세요.</p><h2>결론</h2><p>이제 어떤 URL에서든 favicon을 가져오는 작동하는 Python 함수를 갖게 되었습니다. 핵심 단계는 페이지 fetch, <code>&lt;link&gt;</code> 태그 parse, 상대 URL resolve, binary 다운로드입니다. error와 edge case를 처리하면 준비가 끝납니다.</p><p>많은 사이트를 스크래핑할 때는 <code>robots.txt</code>와 rate limit을 준수해야 합니다. 완전한 favicon 솔루션이 필요하다면 비교를 위해 <a href="/blog/php-get-favicon.html">당사의 PHP 튜토리얼</a>을 확인해 보세요.</p><h2>문서화된 요구 사항 확인</h2><p>HTML Standard은 <a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon"><code>rel='icon'</code></a>을 현재 페이지를 나타내는 icon의 link relationship로 정의합니다.</p></template>
+        <template data-article-lang="es"><p>Necesitas obtener el favicon de un sitio web en un script de Python — quizá para una vista previa de enlace, un gestor de marcadores o un dashboard de monitorización. La buena noticia: no necesitas una herramienta pesada de automatización de navegador. Con unas pocas líneas usando <code>requests</code> y <code>BeautifulSoup</code> lo tendrás resuelto.</p><p>Este tutorial te muestra exactamente cómo escribir una función <strong>python get favicon from url</strong> que cubra los casos habituales. Veremos cómo parsear el HTML, cómo recurrir a <code>/favicon.ico</code> como fallback y cómo guardar el archivo binario.</p><h2>Requisitos</h2><p>Necesitas Python 3.7+ y dos librerías: <code>requests</code> y <code>beautifulsoup4</code>. Instálalas con pip:</p><pre><code>pip install requests beautifulsoup4</code></pre><p>Si prefieres no parsear HTML a mano, también puedes recurrir a una librería como <code>favicon</code> (disponible en PyPI), pero aquí lo construiremos desde cero para tener control total.</p><h2>Paso 1: Descargar el HTML de la página</h2><p>Empieza descargando el código fuente de la página. Usa un header User-Agent realista: algunos servidores bloquean las peticiones de Python por defecto.</p><pre><code>import requests
+from bs4 import BeautifulSoup
+from urllib.parse import urljoin, urlparse
+
+def get_favicon_url(page_url):
+    headers = {'User-Agent': 'Mozilla/5.0 (compatible; FaviconFetcher/1.0)'}
+    resp = requests.get(page_url, headers=headers, timeout=10)
+    resp.raise_for_status()
+    soup = BeautifulSoup(resp.text, 'html.parser')
+    # ... continue below</code></pre><p>Establece siempre un timeout. Sin él, un servidor lento puede dejar tu script colgado indefinidamente.</p><h2>Paso 2: Buscar las etiquetas link rel="icon"</h2><p>La especificación de HTML define <code>rel="icon"</code> como la forma estándar de declarar un favicon. Los navegadores también aceptan <code>shortcut icon</code> y <code>apple-touch-icon</code>. Los comprobaremos todos, dando preferencia a SVG y PNG frente a ICO.</p><pre><code>    icon_link = soup.find('link', rel=lambda x: x and 'icon' in x.lower())
+    if icon_link and icon_link.get('href'):
+        return urljoin(page_url, icon_link['href'])
+    # Fallback to /favicon.ico
+    parsed = urlparse(page_url)
+    return f'{parsed.scheme}://{parsed.netloc}/favicon.ico'</code></pre><p>Fíjate en el uso de <code>urljoin</code>: los href de los favicons suelen ser relativos (por ejemplo, <code>/assets/favicon.png</code>) y necesitas resolverlos respecto a la URL de la página.</p><h2>Paso 3: Descargar y guardar el icono</h2><p>Una vez que tengas la URL, obtén el contenido binario y guárdalo en un archivo. Comprueba la cabecera Content-Type para elegir la extensión adecuada.</p><pre><code>def download_favicon(favicon_url, output_path='favicon.ico'):
+    headers = {'User-Agent': 'Mozilla/5.0 (compatible; FaviconFetcher/1.0)'}
+    resp = requests.get(favicon_url, headers=headers, timeout=10)
+    resp.raise_for_status()
+    content_type = resp.headers.get('Content-Type', '')
+    if 'png' in content_type:
+        output_path = output_path.replace('.ico', '.png')
+    elif 'svg' in content_type:
+        output_path = output_path.replace('.ico', '.svg')
+    with open(output_path, 'wb') as f:
+        f.write(resp.content)
+    return output_path</code></pre><p>Esa es la lógica principal. Puedes envolver ambas funciones en un único script que tome una URL desde la línea de comandos.</p><h2>Errores habituales</h2><ul><li><strong>URLs relativas</strong>: Resuélvelas siempre con <code>urljoin</code>. Un <code>href="favicon.ico"</code> sin resolver fallará si no lo haces.</li><li><strong>Redirecciones</strong>: <code>requests</code> sigue las redirecciones por defecto, pero la URL final puede cambiar. Usa <code>resp.url</code> como base para <code>urljoin</code> si necesitas precisión.</li><li><strong>Favicon ausente</strong>: Muchos sitios no tienen un <code>/favicon.ico</code>. Tu fallback devolverá un 404: gestiónalo de forma elegante con un try/except.</li><li><strong>Discrepancia en Content-Type</strong>: Algunos servidores sirven archivos ICO como <code>image/x-icon</code> o <code>image/vnd.microsoft.icon</code>. No te bases solo en la extensión.</li><li><strong>Archivos grandes</strong>: Los favicon suelen ser pequeños, pero conviene establecer un límite máximo (por ejemplo, 1 MB) para evitar descargar archivos enormes por error.</li></ul><p>Si necesitas extraer varios formatos de iconos (Apple Touch, iconos del manifest), considera usar una herramienta dedicada como <a href="/">Mzu favicondl</a> para inspeccionar todos los iconos disponibles. Para profundizar en los formatos de favicon, consulta nuestra <a href="/blog/favicon-file-formats.html">guía de formatos de favicon</a>.</p><h2>Conclusión</h2><p>Ahora ya dispones de una función en Python que funciona para obtener un favicon a partir de cualquier URL. Los pasos clave son: obtener la página, analizar las etiquetas <code>&lt;link&gt;</code>, resolver las URL relativas y descargar el binario. Gestiona los errores y los casos límite, y listo.</p><p>Recuerda respetar <code>robots.txt</code> y los límites de solicitudes cuando hagas scraping de muchos sitios. Para una solución completa para obtener favicons, consulta nuestro <a href="/blog/php-get-favicon.html">tutorial de PHP</a> y compara las opciones.</p><h2>Comprueba los requisitos documentados</h2><p>El estándar HTML define <a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon"><code>rel='icon'</code></a> como la relación de enlace para un icono que representa la página actual.</p></template>
+
+        <div class="cta-box">
+            <h3 data-en="Need favicons for your project?" data-zh="需要为你的项目获取 favicon？" data-ja="プロジェクト用のfaviconが必要ですか？" data-ko="프로젝트에 favicon이 필요하신가요?" data-es="¿Necesitas favicons para tu proyecto?">Need favicons for your project?</h3>
+            <p data-en="Download and convert favicons from any website with Mzu favicondl. Free, fast, and no sign-up required." data-zh="使用 Mzu favicondl 从任何网站下载并转换 favicon。免费、快速、无需注册。" data-ja="Mzu favicondlで任意のウェブサイトからfaviconをダウンロードして変換。無料、高速、登録不要です。" data-ko="Mzu favicondl로 모든 웹사이트에서 favicon을 다운로드하고 변환하세요. 무료, 빠르고 가입이 필요 없습니다." data-es="Descarga y convierte favicons de cualquier sitio web con Mzu favicondl. Gratis, rápido y sin registro.">Download and convert favicons from any website with Mzu favicondl. Free, fast, and no sign-up required.</p>
+            <a href="/" class="cta-btn" data-en="Try It Free →" data-zh="免费试用 →" data-ja="無料で試す →" data-ko="무료로 사용해보기 →" data-es="Pruébalo gratis →">Try It Free →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Home" data-zh="首页">Home</a>
+                <a href="/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Blog" data-zh="博客">Blog</a>
+                <a href="/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Privacy" data-zh="隐私政策">Privacy</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js?v=20260211"></script>
+
+</body></html>

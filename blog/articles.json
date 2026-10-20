@@ -3836,5 +3836,26 @@
     ],
     "qualityScore": 72,
     "qualityGrade": "B"
+  },
+  {
+    "slug": "python-get-favicon",
+    "publishDate": "2026-10-20",
+    "titleEn": "Python Get Favicon from URL: A Practical Tutorial",
+    "titleZh": "Python 从 URL 获取 Favicon 的实用教程",
+    "titleJa": "PythonでURLからFaviconを取得する実践チュートリアル",
+    "titleKo": "Python으로 URL에서 Favicon 가져오기 실용 튜토리얼",
+    "titleEs": "Obtener favicon desde URL con Python: tutorial práctico",
+    "descEn": "Learn how to get a favicon from any URL using Python. Step-by-step guide with code to parse HTML, handle redirects, and save the icon file.",
+    "descZh": "学习如何使用 Python 从任意 URL 获取 favicon。本教程提供分步代码，教你解析 HTML、处理重定向并保存图标文件。",
+    "descJa": "Pythonを使って任意のURLからfaviconを取得する方法を解説。HTMLの解析、リダイレクト処理、アイコンファイルの保存まで、コード付きのステップバイステップガイドです。",
+    "descKo": "Python을 사용하여 모든 URL에서 favicon을 가져오는 방법을 배우세요. HTML 파싱, 리디렉션 처리, 아이콘 파일 저장까지 단계별 코드 가이드입니다.",
+    "descEs": "Aprende a obtener el favicon de cualquier URL con Python. Guía paso a paso con código para analizar HTML, manejar redirecciones y guardar el icono.",
+    "keyword": "python get favicon from url",
+    "tags": [
+      "developer",
+      "api"
+    ],
+    "qualityScore": 85,
+    "qualityGrade": "A"
   }
 ]
