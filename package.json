@@ -6,7 +6,7 @@
     "node": ">=18"
   },
   "scripts": {
-    "test": "node --test api/_lib/resize.test.js"
+    "test": "node --test api/_lib/resize.test.js api/_lib/extractor.test.js"
   },
   "dependencies": {
     "sharp": "^0.34.4"
