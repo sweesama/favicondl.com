@@ -1,8 +1,8 @@
 <!DOCTYPE html><html lang="zh"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PNG 转 ICO：免费转换方法详解</title>
-    <meta name="description" content="使用免费在线工具和命令行方法将 PNG 图片转换为 ICO Favicon 格式。">
+    <title>PNG 转 ICO：免费多尺寸 Favicon 转换</title>
+    <meta name="description" content="免费 PNG 转 ICO。把 16、32、48、64、128 和 256 像素打进一个多尺寸 favicon.ico，可用在线工具、ImageMagick 或 Python。">
     <meta name="keywords" content="png to ico, convert png to ico, png to favicon, ico converter, image to ico, favicon converter, free png to ico">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://favicondl.com/zh/blog/png-to-ico.html">
@@ -22,12 +22,12 @@
 
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://favicondl.com/zh/blog/png-to-ico.html">
-    <meta property="og:title" content="PNG 转 ICO：免费转换方法详解">
-    <meta property="og:description" content="使用免费在线工具和命令行方法将 PNG 图片转换为 ICO Favicon 格式。">
+    <meta property="og:title" content="PNG 转 ICO：免费多尺寸 Favicon 转换">
+    <meta property="og:description" content="免费 PNG 转 ICO。把 16、32、48、64、128 和 256 像素打进一个多尺寸 favicon.ico，可用在线工具、ImageMagick 或 Python。">
     <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="PNG 转 ICO：免费转换方法详解">
-    <meta name="twitter:description" content="使用免费在线工具和命令行方法将 PNG 图片转换为 ICO Favicon 格式。">
+    <meta name="twitter:title" content="PNG 转 ICO：免费多尺寸 Favicon 转换">
+    <meta name="twitter:description" content="免费 PNG 转 ICO。把 16、32、48、64、128 和 256 像素打进一个多尺寸 favicon.ico，可用在线工具、ImageMagick 或 Python。">
     <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
 
     <script src="https://cdn.tailwindcss.com"></script>
@@ -43,8 +43,8 @@
 <script type="application/ld+json">{
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "PNG 转 ICO：免费转换方法详解",
-  "description": "使用免费在线工具和命令行方法将 PNG 图片转换为 ICO Favicon 格式。",
+  "headline": "PNG 转 ICO：免费多尺寸 Favicon 转换",
+  "description": "免费 PNG 转 ICO。把 16、32、48、64、128 和 256 像素打进一个多尺寸 favicon.ico，可用在线工具、ImageMagick 或 Python。",
   "datePublished": "2026-02-15",
   "dateModified": "2026-02-15",
   "author": {
@@ -87,12 +87,12 @@
         <nav class="text-sm text-gray-400 mb-8">
             <a href="/zh/" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
             <a href="/zh/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
-            <span class="text-gray-600">PNG 转 ICO：免费转换方法详解</span>
+            <span class="text-gray-600">PNG 转 ICO：免费多尺寸 Favicon 转换</span>
         </nav>
 
         <header class="mb-10">
             <div class="flex items-center gap-3 mb-4"><span class="tag">conversion</span><time class="text-sm text-gray-400">2026-02-15</time></div>
-            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">PNG 转 ICO：免费转换方法详解</h1>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">PNG 转 ICO：免费多尺寸 Favicon 转换</h1>
         </header>
 
         <div class="article-body">
@@ -101,7 +101,7 @@
             <h2>为什么 2026 年 ICO 仍然重要</h2>
             <ul>
                 <li><strong>全浏览器支持</strong> — ICO 在所有浏览器中都能工作，包括非常老的 IE 版本。</li>
-                <li><strong>多尺寸容器</strong> — 一个 ICO 文件可以包含多种图片尺寸（16×16、32×32、48×48），浏览器自动选择最佳的。</li>
+                <li><strong>多尺寸容器</strong> — 一个 ICO 文件可以包含多种图片尺寸（16×16、32×32、48×48、64×64、128×128、256×256），浏览器自动选择最佳的。</li>
                 <li><strong>Windows 集成</strong> — Windows 桌面快捷方式和任务栏固定使用 ICO 格式。</li>
                 <li><strong>自动回退</strong> — 浏览器默认在每个网站的根目录查找 <code>/favicon.ico</code>。</li>
             </ul>
@@ -129,7 +129,7 @@
 magick convert input.png -resize 32x32 favicon.ico
 
 # 创建多尺寸 ICO（推荐）
-magick convert input.png -define icon:auto-resize=16,32,48 favicon.ico</code></pre>
+magick convert input.png -define icon:auto-resize=16,32,48,64,128,256 favicon.ico</code></pre>
             <p>多尺寸方式最好 — 浏览器会自动选择最合适的尺寸。</p>
 
             <h2>方法三：使用 FFmpeg</h2>
@@ -142,7 +142,7 @@ magick convert input.png -define icon:auto-resize=16,32,48 favicon.ico</code></p
 
 img = Image.open('input.png')
 img.save('favicon.ico', format='ICO',
-         sizes=[(16, 16), (32, 32), (48, 48)])</code></pre>
+         sizes=[(16, 16), (32, 32), (48, 48), (64, 64), (128, 128), (256, 256)])</code></pre>
 
             <h2>PNG vs ICO：何时使用哪种</h2>
             <table>

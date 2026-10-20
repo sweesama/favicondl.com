@@ -1,8 +1,8 @@
 <!DOCTYPE html><html lang="es"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cómo convertir PNG a ICO: Métodos gratuitos explicados</title>
-    <meta name="description" content="Convierte imágenes PNG al formato ICO usando herramientas online gratuitas y línea de comandos.">
+    <title>PNG a ICO: conversor gratis de favicon multi-tamaño</title>
+    <meta name="description" content="Conversor PNG a ICO gratis. Empaqueta 16, 32, 48, 64, 128 y 256 px en un favicon.ico multi-tamaño, online o con ImageMagick y Python.">
     <meta name="keywords" content="png to ico, convert png to ico, png to favicon, ico converter, image to ico, favicon converter, free png to ico">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://favicondl.com/es/blog/png-to-ico.html">
@@ -22,12 +22,12 @@
 
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://favicondl.com/es/blog/png-to-ico.html">
-    <meta property="og:title" content="Cómo convertir PNG a ICO: Métodos gratuitos explicados">
-    <meta property="og:description" content="Convierte imágenes PNG al formato ICO usando herramientas online gratuitas y línea de comandos.">
+    <meta property="og:title" content="PNG a ICO: conversor gratis de favicon multi-tamaño">
+    <meta property="og:description" content="Conversor PNG a ICO gratis. Empaqueta 16, 32, 48, 64, 128 y 256 px en un favicon.ico multi-tamaño, online o con ImageMagick y Python.">
     <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Cómo convertir PNG a ICO: Métodos gratuitos explicados">
-    <meta name="twitter:description" content="Convierte imágenes PNG al formato ICO usando herramientas online gratuitas y línea de comandos.">
+    <meta name="twitter:title" content="PNG a ICO: conversor gratis de favicon multi-tamaño">
+    <meta name="twitter:description" content="Conversor PNG a ICO gratis. Empaqueta 16, 32, 48, 64, 128 y 256 px en un favicon.ico multi-tamaño, online o con ImageMagick y Python.">
     <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
 
     <script src="https://cdn.tailwindcss.com"></script>
@@ -43,8 +43,8 @@
 <script type="application/ld+json">{
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "Cómo convertir PNG a ICO: Métodos gratuitos explicados",
-  "description": "Convierte imágenes PNG al formato ICO usando herramientas online gratuitas y línea de comandos.",
+  "headline": "PNG a ICO: conversor gratis de favicon multi-tamaño",
+  "description": "Conversor PNG a ICO gratis. Empaqueta 16, 32, 48, 64, 128 y 256 px en un favicon.ico multi-tamaño, online o con ImageMagick y Python.",
   "datePublished": "2026-02-15",
   "dateModified": "2026-02-15",
   "author": {
@@ -87,12 +87,12 @@
         <nav class="text-sm text-gray-400 mb-8">
             <a href="/es/" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
             <a href="/es/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
-            <span class="text-gray-600">Cómo convertir PNG a ICO: Métodos gratuitos explicados</span>
+            <span class="text-gray-600">PNG a ICO: conversor gratis de favicon multi-tamaño</span>
         </nav>
 
         <header class="mb-10">
             <div class="flex items-center gap-3 mb-4"><span class="tag">conversion</span><time class="text-sm text-gray-400">2026-02-15</time></div>
-            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">Cómo convertir PNG a ICO: Métodos gratuitos explicados</h1>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">PNG a ICO: conversor gratis de favicon multi-tamaño</h1>
         </header>
 
         <div class="article-body">
@@ -101,7 +101,7 @@
             <h2>Por qué ICO sigue siendo importante en 2026</h2>
             <ul>
                 <li><strong>Soporte universal en navegadores</strong> — ICO funciona en todos los navegadores, incluyendo versiones muy antiguas de IE.</li>
-                <li><strong>Contenedor de múltiples tamaños</strong> — Un solo archivo ICO puede contener múltiples tamaños de imagen (16×16, 32×32, 48×48); el navegador elige el mejor.</li>
+                <li><strong>Contenedor de múltiples tamaños</strong> — Un solo archivo ICO puede contener múltiples tamaños de imagen (16×16, 32×32, 48×48, 64×64, 128×128 y 256×256); el navegador elige el mejor.</li>
                 <li><strong>Integración con Windows</strong> — Los accesos directos del escritorio de Windows y los pines de la barra de tareas utilizan el formato ICO.</li>
                 <li><strong>Respaldo automático</strong> — Los navegadores buscan <code>/favicon.ico</code> en la raíz de cada sitio web por defecto.</li>
             </ul>
@@ -129,7 +129,7 @@
 magick convert input.png -resize 32x32 favicon.ico
 
 # Create multi-size ICO (recommended)
-magick convert input.png -define icon:auto-resize=16,32,48 favicon.ico</code></pre>
+magick convert input.png -define icon:auto-resize=16,32,48,64,128,256 favicon.ico</code></pre>
             <p>El enfoque de múltiples tamaños es el mejor: el navegador selecciona automáticamente el tamaño más apropiado.</p>
 
             <h2>Método 3: Usando FFmpeg</h2>
@@ -142,7 +142,7 @@ magick convert input.png -define icon:auto-resize=16,32,48 favicon.ico</code></p
 
 img = Image.open('input.png')
 img.save('favicon.ico', format='ICO',
-         sizes=[(16, 16), (32, 32), (48, 48)])</code></pre>
+         sizes=[(16, 16), (32, 32), (48, 48), (64, 64), (128, 128), (256, 256)])</code></pre>
 
             <h2>PNG vs ICO: Cuándo usar cada uno</h2>
             <table>
