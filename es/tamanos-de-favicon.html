@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tamaño del favicon: medidas y tabla en píxeles</title>
+    <meta name="description" content="Tabla de tamaños y medidas de favicon en píxeles: 16×16, 32×32, 48×48, 180×180, 192×192 y 512×512. Qué archivo usa cada plataforma y el HTML para publicarlos.">
+    <meta name="keywords" content="tamaño favicon, favicon tamaño, favicon medidas, tamaño de favicon, tamaño del favicon, tamaños y medidas de favicon">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/es/tamanos-de-favicon.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/favicon-sizes-guide.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/favicon-sizes-guide.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/favicon-sizes-guide.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/favicon-sizes-guide.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/favicon-sizes-guide.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/tamanos-de-favicon.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/es/tamanos-de-favicon.html">
+    <meta property="og:title" content="Tamaño del favicon: medidas y tabla en píxeles">
+    <meta property="og:description" content="Tabla de tamaños y medidas de favicon en píxeles: 16×16, 32×32, 48×48, 180×180, 192×192 y 512×512. Qué archivo usa cada plataforma y el HTML para publicarlos.">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Tamaño del favicon: medidas y tabla en píxeles">
+    <meta name="twitter:description" content="Tabla de tamaños y medidas de favicon en píxeles: 16×16, 32×32, 48×48, 180×180, 192×192 y 512×512. Qué archivo usa cada plataforma y el HTML para publicarlos.">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://favicondl.com/es/" },
+            { "@type": "ListItem", "position": 2, "name": "Tamaños y medidas de favicon", "item": "https://favicondl.com/es/tamanos-de-favicon.html" }
+          ]
+        },
+        {
+          "@type": "Article",
+          "headline": "Tamaños y medidas de favicon",
+          "description": "Tabla de tamaños y medidas de favicon en píxeles: 16×16, 32×32, 48×48, 180×180, 192×192 y 512×512. Qué archivo usa cada plataforma y el HTML para publicarlos.",
+          "inLanguage": "es",
+          "datePublished": "2026-10-20",
+          "dateModified": "2026-10-20",
+          "author": { "@type": "Organization", "name": "Mzu favicondl" },
+          "publisher": { "@type": "Organization", "name": "Mzu favicondl" },
+          "mainEntityOfPage": "https://favicondl.com/es/tamanos-de-favicon.html"
+        },
+        {
+          "@type": "FAQPage",
+          "inLanguage": "es",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "¿Cuál es el tamaño del favicon?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Para la pestaña del navegador, el tamaño del favicon que conviene publicar es 32×32 px, con 16×16 px dentro del mismo favicon.ico. Añade un apple-touch-icon de 180×180 px y, en el manifiesto, iconos de 192×192 y 512×512 px."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "¿Qué medidas debe tener un favicon?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Las medidas del favicon son siempre cuadradas: 16×16, 32×32 y 48×48 en el ICO, 180×180 para iOS, y 192×192 más 512×512 para Android y PWA. Un SVG con sizes=\"any\" cubre la pestaña en los navegadores modernos."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "¿Qué tamaño de favicon pide Google?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Google Search exige un icono cuadrado de al menos 8×8 px y recomienda uno mayor de 48×48 px. Admite ICO, PNG, GIF, JPEG, BMP, TIFF y PPM. El SVG no está en esa lista, así que no sirve como único favicon para los resultados de búsqueda."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "¿Un favicon puede ser rectangular?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. Todas las medidas del favicon son cuadradas, con relación 1:1. Una imagen rectangular se recorta o se deforma."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/es/" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/es/documentation.html" class="nav-link">Documentación</a>
+                <a href="/es/tools.html" class="nav-link">Herramientas</a>
+                <a href="/es/blog/" class="nav-link">Blog</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn" type="button" aria-label="Idioma">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/favicon-sizes-guide.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/favicon-sizes-guide.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/favicon-sizes-guide.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/favicon-sizes-guide.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/tamanos-de-favicon.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8" aria-label="Migas de pan">
+            <a href="/es/" class="hover:text-gray-600">Inicio</a><span class="mx-2">/</span>
+            <span class="text-gray-600">Tamaños y medidas de favicon</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">guía</span><time class="text-sm text-gray-400" datetime="2026-10-20">20 oct 2026</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">Tamaños y medidas de favicon</h1>
+            <p class="mt-4 text-lg text-gray-500">Qué tamaño de favicon publicar, en píxeles, para la pestaña, Google, iPhone y Android.</p>
+        </header>
+
+        <div class="article-body">
+            <div class="info-box">
+                <p><strong>Respuesta corta.</strong> El tamaño del favicon para la pestaña es <strong>32×32 px</strong>, con <strong>16×16</strong> dentro del mismo <code>favicon.ico</code>. Añade un PNG opaco de <strong>180×180</strong> como apple-touch-icon y, en el manifiesto, <strong>192×192</strong> y <strong>512×512</strong>. Google Search pide un icono cuadrado de al menos 8×8 px y recomienda uno mayor de 48×48 px.</p>
+            </div>
+
+            <p>Las búsquedas de “tamaño favicon”, “favicon medidas” o “tamaño del favicon” suelen mezclar tres cosas distintas: el tamaño al que se dibuja el icono, el archivo que hay que subir y medidas antiguas que ya no hace falta generar. Esta tabla separa las tres.</p>
+
+            <h2>Tabla de tamaños y medidas del favicon</h2>
+            <div style="overflow-x:auto">
+            <table>
+                <thead>
+                    <tr><th>Medida</th><th>Archivo</th><th>Dónde se usa</th><th>¿Publicarlo?</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>16×16</td><td><code>favicon.ico</code></td><td>Pestaña en pantallas 1× y marcadores antiguos</td><td>Sí, dentro del ICO</td></tr>
+                    <tr><td>32×32</td><td><code>favicon-32x32.png</code> y el ICO</td><td>Pestaña en pantallas Retina. El navegador la dibuja a 16 px CSS</td><td><strong>Sí</strong></td></tr>
+                    <tr><td>48×48</td><td><code>favicon.ico</code></td><td>Acceso directo del escritorio de Windows</td><td>Recomendado, dentro del ICO</td></tr>
+                    <tr><td>256×256</td><td><code>favicon.ico</code></td><td>Accesos directos de Windows en pantallas de alta densidad</td><td>Opcional</td></tr>
+                    <tr><td>SVG</td><td><code>icon.svg</code> con <code>sizes="any"</code></td><td>Pestaña en Chrome, Firefox, Edge y Safari actuales</td><td>Recomendado</td></tr>
+                    <tr><td>180×180</td><td><code>apple-touch-icon.png</code></td><td>Icono de pantalla de inicio en iPhone y iPad</td><td><strong>Sí</strong></td></tr>
+                    <tr><td>192×192</td><td>manifiesto, <code>purpose: any</code></td><td>Pantalla de inicio de Android y Chrome</td><td>Recomendado</td></tr>
+                    <tr><td>512×512</td><td>manifiesto, <code>any</code> y <code>maskable</code></td><td>Instalación de la PWA y pantalla de arranque</td><td>Recomendado</td></tr>
+                </tbody>
+            </table>
+            </div>
+            <p>No hace falta un PNG suelto para cada fila. Un <code>favicon.ico</code> puede llevar 16, 32 y 48 (y, si quieres, 256) en el mismo archivo. El SVG, el touch icon y los dos iconos del manifiesto sí son archivos aparte.</p>
+
+            <h2>Tamaño de favicon en la pestaña</h2>
+            <p>La pestaña se dibuja a unos 16 píxeles CSS. En una pantalla 2× el navegador necesita 32 píxeles físicos para que no se vea borroso. Por eso el tamaño de referencia sigue siendo <strong>32×32</strong>, no 16×16 ni 512×512.</p>
+            <p>Un solo archivo enorme tampoco resuelve la pestaña. El navegador reduce un logo de 512 px y los trazos finos se empastan. El <code>favicon.ico</code> de 16/32/48 y un PNG de 32×32 cubren las pestañas de escritorio. En navegadores actuales, un SVG con <code>viewBox</code> y <code>sizes="any"</code> escala sin ese paso intermedio. El atributo <code>sizes="any"</code> es el que marca el icono como escalable; no declares el mismo SVG varias veces con medidas fijas.</p>
+
+            <h2>Medidas del favicon para Google</h2>
+            <p>En los resultados de búsqueda, Google usa un solo favicon por hostname. La <a href="https://developers.google.com/search/docs/appearance/favicon-in-search" rel="noopener" target="_blank">documentación de Search Central</a> pide esto:</p>
+            <ul>
+                <li>Imagen cuadrada, relación 1:1. El mínimo es <strong>8×8 px</strong>. Recomiendan un archivo <strong>mayor de 48×48 px</strong> para que se vea bien al reducirlo.</li>
+                <li>Formatos admitidos: ICO, PNG, GIF, JPEG, BMP, TIFF y PPM. El SVG no está en esa lista.</li>
+                <li>La página de inicio tiene que poder rastrearse con Googlebot, y el archivo del icono con Googlebot-Image.</li>
+                <li>La URL del icono debe ser estable. Cumplir las reglas no garantiza que el icono aparezca.</li>
+            </ul>
+            <p>La norma antigua de “múltiplos de 48” (48, 96, 144…) ya no está en la documentación actual. Un PNG de 192×192 o el <code>favicon.ico</code> de la raíz cumplen de sobra. Un favicon de solo 16×16 es válido por el mínimo de 8 px, pero queda por debajo de la recomendación.</p>
+
+            <h2>Apple Touch Icon: 180×180</h2>
+            <p>Para “Añadir a pantalla de inicio”, publica un único PNG <strong>opaco de 180×180 px</strong>:</p>
+            <pre><code>&lt;link rel="apple-touch-icon" href="/apple-touch-icon.png"&gt;</code></pre>
+            <p>iOS reduce ese archivo para el iPhone y el iPad. No hace falta repetir las medidas históricas (57, 72, 76, 114, 120, 144, 152 o 167). <code>apple-touch-icon-precomposed</code> solo servía para evitar el brillo que iOS añadía antes de iOS 7. Un PNG con transparencia puede verse con fondo negro en versiones antiguas; un fondo sólido del color de la marca evita ese caso. La sintaxis está en la <a href="https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html" rel="noopener" target="_blank">guía de Safari Web Content</a>.</p>
+
+            <h2>Android y PWA: 192×192 y 512×512</h2>
+            <p>Chrome y el manifiesto de aplicación web usan dos medidas, tal como resume <a href="https://web.dev/articles/add-manifest" rel="noopener" target="_blank">web.dev</a>:</p>
+            <ul>
+                <li><strong>192×192</strong> para la pantalla de inicio de Android.</li>
+                <li><strong>512×512</strong> para la pantalla de instalación y el arranque de la PWA.</li>
+            </ul>
+            <p>Si el lanzador recorta el icono en círculo, gota o cuadrado redondeado, añade una segunda imagen de 512×512 con <code>"purpose": "maskable"</code>. La zona segura es un círculo centrado cuyo diámetro mide el 80&nbsp;% del lado: unos 410 px en un icono de 512. El logotipo tiene que caber dentro de ese círculo; lo que queda fuera puede recortarse. La regla está en la <a href="https://www.w3.org/TR/appmanifest/#icon-masks" rel="noopener" target="_blank">especificación del manifiesto</a>.</p>
+            <pre><code>{
+  "icons": [
+    { "src": "/icon-192.png", "type": "image/png", "sizes": "192x192", "purpose": "any" },
+    { "src": "/icon-512.png", "type": "image/png", "sizes": "512x512", "purpose": "any" },
+    { "src": "/icon-maskable.png", "type": "image/png", "sizes": "512x512", "purpose": "maskable" }
+  ]
+}</code></pre>
+
+            <h2>HTML mínimo</h2>
+            <p>Con estos enlaces en el <code>&lt;head&gt;</code> de la página de inicio cubres pestaña, iOS y el manifiesto:</p>
+            <pre><code>&lt;link rel="icon" href="/favicon.ico" sizes="32x32"&gt;
+&lt;link rel="icon" href="/icon.svg" type="image/svg+xml" sizes="any"&gt;
+&lt;link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"&gt;
+&lt;link rel="apple-touch-icon" href="/apple-touch-icon.png"&gt;
+&lt;link rel="manifest" href="/site.webmanifest"&gt;</code></pre>
+            <p>El <code>favicon.ico</code> de la raíz sigue haciendo de respaldo cuando la página no declara un <code>&lt;link rel="icon"&gt;</code>. Los mosaicos de Windows (70×70, 150×150, 310×310) y <code>browserconfig.xml</code> eran de Internet Explorer y de la pantalla Inicio de Windows 8. Edge actual no los necesita.</p>
+
+            <h2>Qué no generar</h2>
+            <ul>
+                <li>Una lista de veinte PNG “por si acaso”. 16, 32 y 48 van dentro del ICO; el resto son el SVG, el touch icon y los iconos del manifiesto.</li>
+                <li>Un único PNG de 512×512 esperando que la pestaña salga nítida. Para 16 px hace falta un dibujo pensado a ese tamaño.</li>
+                <li>Medidas que no son cuadradas. Ni Google, ni iOS, ni el manifiesto aceptan un favicon apaisado.</li>
+                <li>Un SVG como único icono si te importa el resultado de Google. Sirve en la pestaña; para la búsqueda deja también un ICO o un PNG.</li>
+            </ul>
+
+            <h2>Preguntas frecuentes</h2>
+            <h3>¿Cuál es el tamaño del favicon?</h3>
+            <p>32×32 px para la pestaña, junto con 16×16 dentro del <code>favicon.ico</code>. Si solo puedes subir una imagen, en WordPress o en una tienda, usa un PNG cuadrado de 512×512 y deja que la plataforma recorte los tamaños pequeños.</p>
+            <h3>¿Qué medidas debe tener un favicon?</h3>
+            <p>16×16, 32×32 y 48×48 en el ICO; 180×180 para el apple-touch-icon; 192×192 y 512×512 en el manifiesto. El SVG no tiene una medida fija: se declara con <code>sizes="any"</code>.</p>
+            <h3>¿Qué tamaño de favicon pide Google?</h3>
+            <p>Cuadrado, como mínimo 8×8 px, y a ser posible mayor de 48×48 px. Un archivo de 16×16 entra en el mínimo, pero se ve peor en los resultados. Los formatos de la búsqueda son ICO, PNG, GIF, JPEG, BMP, TIFF y PPM.</p>
+            <h3>¿Un favicon puede ser rectangular?</h3>
+            <p>No. Todas las medidas son 1:1. Si partes de un logo horizontal, recórtalo a un símbolo cuadrado antes de exportar.</p>
+
+            <p>Para ver qué medidas publica un sitio concreto, pega su dominio en el <a href="/es/">extractor de favicon</a>. Si quieres generar el paquete desde un logo, la herramienta <a href="/es/tools.html">Imagen a favicon</a> exporta estas medidas en un ZIP. La versión en inglés de esta tabla está en la <a href="/blog/favicon-sizes-guide.html">favicon sizes guide</a>.</p>
+        </div>
+
+        <div class="cta-box">
+            <h3>Mira las medidas que usa cualquier web</h3>
+            <p>Pega una URL y el extractor lista cada icono con su tamaño real.</p>
+            <a href="/es/" class="cta-btn">Extraer favicon</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© <script>document.write(new Date().getFullYear())</script> Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/es/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">Inicio</a>
+                <a href="/es/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">Blog</a>
+                <a href="/es/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">Privacidad</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js?v=20260211"></script>
+</body>
+</html>
