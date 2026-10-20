@@ -1,8 +1,8 @@
 <!DOCTYPE html><html lang="ja"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PNGをICOに変換する方法：無料ツール解説</title>
-    <meta name="description" content="無料オンラインツールやコマンドラインでPNG画像をICO形式に変換する方法。">
+    <title>PNGをICOに変換：無料マルチサイズFavicon</title>
+    <meta name="description" content="PNGをICOに無料で変換。16・32・48・64・128・256pxを1つのマルチサイズfavicon.icoにまとめ、オンライン、ImageMagick、Pythonで作成できます。">
     <meta name="keywords" content="png to ico, convert png to ico, png to favicon, ico converter, image to ico, favicon converter, free png to ico">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://favicondl.com/ja/blog/png-to-ico.html">
@@ -22,12 +22,12 @@
 
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://favicondl.com/ja/blog/png-to-ico.html">
-    <meta property="og:title" content="PNGをICOに変換する方法：無料ツール解説">
-    <meta property="og:description" content="無料オンラインツールやコマンドラインでPNG画像をICO形式に変換する方法。">
+    <meta property="og:title" content="PNGをICOに変換：無料マルチサイズFavicon">
+    <meta property="og:description" content="PNGをICOに無料で変換。16・32・48・64・128・256pxを1つのマルチサイズfavicon.icoにまとめ、オンライン、ImageMagick、Pythonで作成できます。">
     <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="PNGをICOに変換する方法：無料ツール解説">
-    <meta name="twitter:description" content="無料オンラインツールやコマンドラインでPNG画像をICO形式に変換する方法。">
+    <meta name="twitter:title" content="PNGをICOに変換：無料マルチサイズFavicon">
+    <meta name="twitter:description" content="PNGをICOに無料で変換。16・32・48・64・128・256pxを1つのマルチサイズfavicon.icoにまとめ、オンライン、ImageMagick、Pythonで作成できます。">
     <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
 
     <script src="https://cdn.tailwindcss.com"></script>
@@ -43,8 +43,8 @@
 <script type="application/ld+json">{
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "PNGをICOに変換する方法：無料ツール解説",
-  "description": "無料オンラインツールやコマンドラインでPNG画像をICO形式に変換する方法。",
+  "headline": "PNGをICOに変換：無料マルチサイズFavicon",
+  "description": "PNGをICOに無料で変換。16・32・48・64・128・256pxを1つのマルチサイズfavicon.icoにまとめ、オンライン、ImageMagick、Pythonで作成できます。",
   "datePublished": "2026-02-15",
   "dateModified": "2026-02-15",
   "author": {
@@ -87,12 +87,12 @@
         <nav class="text-sm text-gray-400 mb-8">
             <a href="/ja/" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
             <a href="/ja/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
-            <span class="text-gray-600">PNGをICOに変換する方法：無料ツール解説</span>
+            <span class="text-gray-600">PNGをICOに変換：無料マルチサイズFavicon</span>
         </nav>
 
         <header class="mb-10">
             <div class="flex items-center gap-3 mb-4"><span class="tag">conversion</span><time class="text-sm text-gray-400">2026-02-15</time></div>
-            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">PNGをICOに変換する方法：無料ツール解説</h1>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">PNGをICOに変換：無料マルチサイズFavicon</h1>
         </header>
 
         <div class="article-body">
@@ -101,7 +101,7 @@
             <h2>2026年になってもICOが重要な理由</h2>
             <ul>
                 <li><strong>普遍的なブラウザサポート</strong> — ICOは、非常に古いバージョンのIEを含むすべてのブラウザで動作します。</li>
-                <li><strong>マルチサイズコンテナ</strong> — 1つのICOファイルに複数の画像サイズ（16×16、32×32、48×48）を含めることができ、ブラウザが最適なものを選択します。</li>
+                <li><strong>マルチサイズコンテナ</strong> — 1つのICOファイルに複数の画像サイズ（16×16、32×32、48×48、64×64、128×128、256×256）を含めることができ、ブラウザが最適なものを選択します。</li>
                 <li><strong>Windowsとの統合</strong> — Windowsのデスクトップショートカットやタスクバーのピン留めにはICO形式が使用されます。</li>
                 <li><strong>自動フォールバック</strong> — ブラウザはデフォルトで、すべてのウェブサイトのルートにある<code>/favicon.ico</code>を探します。</li>
             </ul>
@@ -129,7 +129,7 @@
 magick convert input.png -resize 32x32 favicon.ico
 
 # Create multi-size ICO (recommended)
-magick convert input.png -define icon:auto-resize=16,32,48 favicon.ico</code></pre>
+magick convert input.png -define icon:auto-resize=16,32,48,64,128,256 favicon.ico</code></pre>
             <p>マルチサイズのアプローチが最適です。ブラウザが自動的に最も適切なサイズを選択します。</p>
 
             <h2>方法3：FFmpegを使う</h2>
@@ -142,7 +142,7 @@ magick convert input.png -define icon:auto-resize=16,32,48 favicon.ico</code></p
 
 img = Image.open('input.png')
 img.save('favicon.ico', format='ICO',
-         sizes=[(16, 16), (32, 32), (48, 48)])</code></pre>
+         sizes=[(16, 16), (32, 32), (48, 48), (64, 64), (128, 128), (256, 256)])</code></pre>
 
             <h2>PNG vs ICO：それぞれの使い分け</h2>
             <table>
