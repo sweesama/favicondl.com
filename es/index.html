@@ -616,6 +616,8 @@
                     <div>
                         <p class="text-sm text-gray-400 mb-1">Dominio</p>
                         <p id="preview-domain" class="text-2xl font-semibold text-gray-900"></p>
+                        <p id="native-size-note" class="text-sm text-gray-500 mt-1"></p>
+                        <p id="upscale-warning" class="hidden text-xs leading-relaxed text-amber-800 bg-amber-50 border border-amber-200 rounded-lg px-3 py-2 mt-2"></p>
                     </div>
                 </div>
 
@@ -920,7 +922,7 @@
                             <span class="text-xs font-semibold text-gray-400 uppercase tracking-wider">cURL</span>
                         </div>
                         <div class="code-block" style="padding: 12px 16px;">
-<pre style="margin:0;"><code class="language-bash">curl -L "https://favicondl.com/api/favicon?domain=github.com&amp;size=128&amp;format=redirect"</code></pre>
+<pre style="margin:0;"><code class="language-bash">curl -L "https://favicondl.com/api/favicon?domain=github.com&amp;size=32&amp;format=redirect"</code></pre>
                         </div>
                     </div>
 
@@ -961,7 +963,7 @@ with open("icon.png", "wb") as f:
             <h2 id="how-to" class="text-2xl font-semibold text-gray-900 mb-6">Cómo descargar el favicon de cualquier sitio web</h2>
             <ol class="space-y-4 list-decimal pl-5">
                 <li><strong class="text-gray-900">Escribe un dominio o una URL.</strong> Escribe algo como <code>github.com</code> en el cuadro de la parte superior de esta página o pega la dirección completa de una página. Puedes omitir <code>https://</code> y <code>www.</code>.</li>
-                <li><strong class="text-gray-900">Elige un tamaño.</strong> Puedes elegir 16, 32, 48, 64 o 128 px. La vista previa siempre muestra el mejor icono que hemos encontrado. <em>Exportar en el tamaño seleccionado</em> está activado por defecto y ajusta el PNG exactamente a ese tamaño; desactívalo para conservar la resolución original del archivo.</li>
+                <li><strong class="text-gray-900">Elige un tamaño.</strong> Puedes elegir 16, 32, 48, 64 o 128 px. La vista previa muestra el mejor icono encontrado y su tamaño original. <em>Exportar en el tamaño seleccionado</em> está activado por defecto y ajusta el PNG exactamente a ese tamaño; desactívalo para conservar la resolución original. Si el tamaño elegido, por ejemplo 32 o 64, es mayor que el icono publicado, un aviso breve indica que la exportación se amplía y puede verse borrosa.</li>
                 <li><strong class="text-gray-900">Descarga o copia.</strong> Haz clic en <em>Descargar</em> para guardar el icono como PNG, o copia la etiqueta HTML <code>&lt;link&gt;</code> lista para usar o la URL directa del archivo original.</li>
             </ol>
             <p class="mt-4">Eso es todo: sin cuenta, sin extensión del navegador y sin subir nada. Si necesitas el archivo <code>.ico</code> o <code>.svg</code> original en lugar de un PNG, abre la URL directa que aparece en el resultado y guárdalo desde ahí.</p>
@@ -989,8 +991,8 @@ with open("icon.png", "wb") as f:
             <p class="mb-4">El extractor ordena todos los iconos que encuentra y devuelve primero el más nítido. Gana un SVG a todo color, porque se escala sin perder detalle. Después viene la imagen cuadrada más grande según su tamaño medido, que suele ser un icono de manifiesto de 512 o 192 px o un Apple touch icon de 180 px; el clásico archivo ICO suele quedar el último porque a menudo solo mide 16 o 32 píxeles. El icono monocromo de Safari (mask-icon) también queda abajo. El descargador muestra además los demás tamaños encontrados, así que puedes elegir otro.</p>
             <ul class="space-y-2 list-disc pl-5">
                 <li><strong class="text-gray-900">Conserva el tamaño original.</strong> Desactiva <em>Exportar en el tamaño seleccionado</em> y el PNG descargado mantendrá toda la resolución del archivo de origen.</li>
-                <li><strong class="text-gray-900">No amplíes iconos diminutos.</strong> Agrandar un ICO de 16 px a 128 px solo lo hace más borroso. Si el sitio no publica nada más grande, ese archivo pequeño es realmente la mejor versión disponible.</li>
-                <li><strong class="text-gray-900">Comprueba de dónde viene el icono.</strong> En la respuesta JSON de la API, <code>source</code> indica si el icono procede del propio sitio (<code>direct</code> o <code>html</code>) o del servicio de respaldo de Google (<code>google_s2</code>), que suele tener menos resolución.</li>
+                <li><strong class="text-gray-900">Ampliar puede verse borroso.</strong> Pedir 32 px o 128 px a partir de un icono de 16 px no añade detalle. La vista previa avisa cuando el tamaño de exportación es mayor que el icono original. El parámetro <code>size</code> de la API devuelve igualmente ese cuadrado exacto (16, 32, 64, 128, 256 o 512), y <code>upscaled</code> es true cuando un raster se amplió.</li>
+                <li><strong class="text-gray-900">Comprueba de dónde viene el icono.</strong> En el JSON de la API, <code>source</code> indica si el icono viene del sitio (<code>html</code>, <code>manifest</code> o <code>direct</code>) o de un respaldo (<code>google_s2</code> o <code>duckduckgo</code>). <code>nativeWidth</code> y <code>nativeHeight</code> son los píxeles de origen (<code>null</code> en SVG). Omite <code>size</code> para obtener el archivo original.</li>
                 <li><strong class="text-gray-900">¿Necesitas un logotipo y no un icono?</strong> Un favicon está pensado para verse muy pequeño. Para impresión o marketing, usa el kit de prensa oficial o la página de marca de la empresa.</li>
             </ul>
 
@@ -1089,6 +1091,6 @@ with open("icon.png", "wb") as f:
         <span id="toast-message">¡Copiado!</span>
     </div>
 
-    <script src="/main.js?v=20261012a"></script>
+    <script src="/main.js?v=20261020a"></script>
 
 </body></html>

@@ -8,7 +8,7 @@
                             <li><strong class="text-gray-900">모든 후보를 내려받아 확인합니다</strong>: 내용이 정말 이미지(PNG, ICO, SVG, WebP, JPEG, GIF 등)인지 확인하고, 파일 이름을 믿는 대신 실제 픽셀 크기를 측정합니다.</li>
                             <li><strong class="text-gray-900">Google 파비콘 서비스, 그다음 DuckDuckGo</strong>는 사이트의 아이콘을 하나도 쓸 수 없을 때만, 요청한 <code>size</code>로 사용합니다(<code>source: "google_s2"</code> 또는 <code>"duckduckgo"</code>).</li>
                         </ol>
-                        <p class="mb-4">검증된 후보는 가장 선명한 파일이 선택되도록 순위를 매깁니다. 풀컬러 SVG가 먼저이고, 그다음이 가장 큰 정사각형 PNG/ICO/WebP입니다. Safari의 단색 <code>mask-icon</code>과 <code>maskable</code>로만 표시된 매니페스트 아이콘은 일반 파비콘과 모양이 달라 낮은 순위를 줍니다. 웹사이트에서 찾은 아이콘은 원본 크기 그대로 반환되며, <code>size</code> 매개변수는 대체 서비스에만 영향을 줍니다.</p>
+                        <p class="mb-4">검증된 후보는 가장 선명한 파일이 선택되도록 순위를 매깁니다. 풀컬러 SVG가 먼저이고, 그다음이 가장 큰 정사각형 PNG/ICO/WebP입니다. Safari의 단색 <code>mask-icon</code>과 <code>maskable</code>로만 표시된 매니페스트 아이콘은 일반 파비콘과 모양이 달라 낮은 순위를 줍니다. 고른 원본은 요청한 <code>size</code>(16–512, 예: 32)로 맞춥니다. <code>size</code>를 생략하면 원본 파일입니다. 축소는 Lanczos, 확대는 고품질 리샘플링이고, 정사각형이 아니면 투명하게 채우며, SVG는 요청 크기로 래스터화합니다. 확대한 래스터는 흐려 보일 수 있으며, 응답은 그것을 선명한 원본이라고 하지 않습니다.</p>
                         <p><code>google_s2</code>가 나왔다면 그 사이트에 저희가 접근할 수 있는 아이콘이 없거나 요청이 차단된 것입니다(예: 봇 확인 페이지). 사이트 하나만 확인한다면 홈페이지의 <a href="/" class="text-blue-600 hover:underline">파비콘 다운로더</a>가 브라우저에서 직접 몇 가지 출처를 더 시도하고, 찾은 모든 크기를 보여 주므로 그중에서 고를 수 있습니다.</p>
                     </div>
                 </section>

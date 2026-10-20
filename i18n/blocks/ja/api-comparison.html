@@ -11,8 +11,8 @@
                                     <tr><td>エンドポイント</td><td><code>/api/extract?url=example.com</code></td><td><code>google.com/s2/favicons?domain=example.com&amp;sz=64</code></td><td><code>icons.duckduckgo.com/ip3/example.com.ico</code></td><td><code>icon.horse/icon/example.com</code></td></tr>
                                     <tr><td>API キー</td><td>不要</td><td>不要</td><td>不要</td><td>不要（無料プラン）</td></tr>
                                     <tr><td>公開されている無料枠</td><td>なし（フェアユース）</td><td>非公開</td><td>非公開</td><td>無料プランで月 1,000 アイコン</td></tr>
-                                    <tr><td>サイズ指定</td><td><code>size</code>（16〜512、Google フォールバック用）</td><td><code>sz</code></td><td>なし</td><td>記載なし</td></tr>
-                                    <tr><td>返ってくるもの</td><td>見つかればサイトの元ファイル（SVG、PNG、ICO など）</td><td>PNG または JPEG（実測）</td><td>ICO（実測）</td><td>PNG（実測）</td></tr>
+                                    <tr><td>サイズ指定</td><td><code>size</code> 16〜512（例: 16、32、64、256、512）。省略すると元のファイル。</td><td><code>sz</code></td><td>なし</td><td>記載なし</td></tr>
+                                    <tr><td>返ってくるもの</td><td><code>size</code> 指定時はちょうどその正方形 PNG。省略時は元ファイル（SVG、PNG、ICO など）</td><td>PNG または JPEG（実測）</td><td>ICO（実測）</td><td>PNG（実測）</td></tr>
                                     <tr><td>JSON メタデータ</td><td>あり（<code>format=json</code>：アイコン URL、取得元、形式、実測ピクセルサイズ、最大 8 個の代替アイコン）</td><td>なし</td><td>なし</td><td>なし</td></tr>
                                     <tr><td>github.com のテスト結果</td><td>favicon.svg（ベクター）</td><td>sz=16 で 16×16 PNG、sz=256 で 180×180</td><td>16×16 と 32×32 を含む ICO</td><td>256×256 PNG</td></tr>
                                 </tbody>

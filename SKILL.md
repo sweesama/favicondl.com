@@ -11,14 +11,14 @@ FaviconDL provides a stable REST API and two small command-line wrappers for fin
 
 ## What it supports
 
-- Prefer an icon size from 16 to 512 pixels.
+- Request an exact square from 16 to 512 pixels (for example 16, 32, 64, 128, 256 or 512). Omit `size` for the original file.
 - Resolve icons from HTML links, SVG, Apple Touch Icons, web manifests, Android assets, and safe fallback sources.
 - Return a downloadable image through HTTP 302 or return JSON metadata.
 - Proxy remote images through a protected Worker when direct downloads are not reliable.
 - Reject unsupported protocols, private-network targets, oversized proxy responses, and non-image responses.
 - Use the API from any agent that can make an HTTPS GET request.
 
-The returned image format is determined by the source site. Do not assume every result is PNG; SVG, PNG, ICO, and WebP are possible.
+When `size` is set, the download is a PNG of exactly that width and height. A raster smaller than the request is upscaled and may look soft; SVG is rasterized at the requested size. When `size` is omitted, the file format is whatever the site published (SVG, PNG, ICO, WebP, and so on). The CLI wrappers always send a size and default to 128, so they save a 128×128 PNG unless you pass another size such as 32.
 
 ## Install the CLI wrappers
 
@@ -78,7 +78,7 @@ curl -fL -o github-favicon.img "https://favicondl.com/api/extract?url=github.com
 GET https://favicondl.com/api/extract?url=github.com&size=128&format=json
 ```
 
-The JSON response contains `ok`, `domain`, `size`, `iconUrl`, `proxyUrl`, and `source`.
+The JSON response contains `ok`, `domain`, `size`, `iconUrl`, `proxyUrl`, and `source`. With `size=32` it also includes `outputWidth`, `outputHeight`, `nativeWidth`, `nativeHeight`, and `upscaled`. `iconUrl` is the original file. `proxyUrl` is the exact-size PNG when `size` is set. `upscaled` is true when a raster was enlarged and that PNG may look soft.
 
 ```json
 {
@@ -96,7 +96,7 @@ The JSON response contains `ok`, `domain`, `size`, `iconUrl`, `proxyUrl`, and `s
 | Parameter | Required | Default | Description |
 |---|---:|---:|---|
 | `url` | yes | — | Domain or full HTTP(S) URL |
-| `size` | no | `128` | Preferred size, clamped to `16`–`512` |
+| `size` | no | original file | Exact square side from `16` to `512` (for example `32`). Clamped. Omit it for the original file. |
 | `format` | no | `redirect` | Use `json` for metadata; otherwise receive a 302 image redirect |
 
 ## Agent guidance

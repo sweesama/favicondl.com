@@ -390,22 +390,29 @@
 
             <!-- Main Content -->
             <div class="lg:col-span-3">
-                <section id="quick-start" class="mb-12">
+<section id="quick-start" class="mb-12">
                     <div class="bg-white rounded-lg shadow-sm p-8 text-gray-600">
                         <h2 class="text-2xl font-bold text-gray-900 mb-6">빠른 시작</h2>
-                        <p class="mb-4">favicondl 파비콘 API는 GET 요청 한 번으로 어떤 도메인이나 URL이든 그 사이트의 파비콘으로 바꿔 줍니다. API 키, 계정, SDK가 모두 필요 없습니다. <code>&lt;img&gt;</code> 태그에 바로 쓰세요.</p>
+                        <p class="mb-4">favicondl 파비콘 API는 GET 요청 한 번으로 어떤 도메인이나 URL이든 그 사이트의 파비콘으로 바꿔 줍니다. API 키, 계정, SDK가 모두 필요 없습니다. <code>size</code>(16–512, 흔히 16, 32, 64, 128, 256, 512)를 넘기면 정확히 그 한 변의 정사각형 PNG가 옵니다.</p>
                         <div class="code-block mb-6">
-                            <pre class="p-4 text-sm"><code class="language-html">&lt;img src="https://favicondl.com/api/extract?url=github.com" width="32" height="32" alt="GitHub 파비콘"&gt;</code></pre>
+                            <pre class="p-4 text-sm"><code class="language-html">&lt;img src="https://favicondl.com/api/extract?url=github.com&amp;size=32" width="32" height="32" alt="GitHub 파비콘"&gt;</code></pre>
                         </div>
+                        <p class="mb-4"><code>size</code>를 생략하면 원본 파일입니다. 더 작은 래스터는 확대되어 흐려 보일 수 있습니다. SVG는 요청한 크기로 래스터화합니다. 이미지 응답의 <code>X-Favicon-Native-Size</code>와 <code>X-Favicon-Upscaled</code>가 확대 여부를 알려 줍니다.</p>
                         <p class="mb-4">JSON을 요청하면 어떤 파일을 찾았고 어디서 가져왔는지 확인할 수 있습니다.</p>
                         <div class="code-block mb-4">
-                            <pre class="p-4 text-sm"><code class="language-bash">curl "https://favicondl.com/api/extract?url=github.com&amp;format=json"</code></pre>
+                            <pre class="p-4 text-sm"><code class="language-bash">curl "https://favicondl.com/api/extract?url=github.com&amp;format=json"
+curl "https://favicondl.com/api/extract?url=github.com&amp;size=32&amp;format=json"</code></pre>
                         </div>
                         <div class="code-block mb-6">
                             <pre class="p-4 text-sm"><code class="language-json">{
   "ok": true,
   "domain": "github.com",
-  "size": 128,
+  "size": null,
+  "resized": false,
+  "upscaled": false,
+  "vector": true,
+  "nativeWidth": null,
+  "nativeHeight": null,
   "iconUrl": "https://github.githubassets.com/favicons/favicon.svg",
   "proxyUrl": "https://favicondl.com/api/proxy?url=https%3A%2F%2Fgithub.githubassets.com%2Ffavicons%2Ffavicon.svg",
   "source": "html",
@@ -421,12 +428,12 @@
   ]
 }</code></pre>
                         </div>
-                        <p class="mb-4"><code>iconUrl</code>은 웹사이트에 있는 원본 파일입니다. <code>proxyUrl</code>은 같은 이미지를 저희 프록시를 통해 <code>Access-Control-Allow-Origin: *</code> 헤더와 함께 제공하므로, canvas에 그리거나 브라우저 코드에서 fetch할 수 있습니다.</p>
-                        <p><code>format</code>, <code>width</code>, <code>height</code>는 선택된 파일을 저희가 직접 측정한 값입니다(SVG는 <code>width</code>/<code>height</code>가 <code>null</code>). <code>candidates</code>에는 같은 사이트에서 검증된 다른 아이콘(크기와 형식이 다른 것)이 최대 8개 담겨 있어 다른 것을 고를 수 있습니다. 위 예시는 일부를 줄였습니다. Google이나 DuckDuckGo로 대체된 경우에는 비어 있습니다.</p>
+                        <p class="mb-4"><code>iconUrl</code>은 웹사이트의 원본 파일입니다. 받는 이미지는 <code>proxyUrl</code>입니다. <code>size</code>를 생략하면 원본이고, <code>size</code>를 주면(예: <code>&amp;size=32</code>) 정확히 그 크기의 정사각형 PNG입니다. <code>Access-Control-Allow-Origin: *</code>가 붙습니다.</p>
+                        <p><code>width</code>와 <code>height</code>는 측정한 원본입니다(SVG는 <code>null</code>). <code>size</code>가 있으면 <code>outputWidth</code>와 <code>outputHeight</code>가 그 값과 같고, <code>nativeWidth</code> / <code>nativeHeight</code>는 원본 픽셀이며, 래스터를 키운 경우에만 <code>upscaled</code>가 true입니다. 그때 PNG는 흐려 보일 수 있습니다. <code>candidates</code>는 검증된 다른 아이콘을 최대 8개 담습니다. Google이나 DuckDuckGo로 대체되면 비어 있습니다.</p>
                     </div>
                 </section>
 
-                <section id="how-it-works" class="mb-12">
+<section id="how-it-works" class="mb-12">
                     <div class="bg-white rounded-lg shadow-sm p-8 text-gray-600">
                         <h2 class="text-2xl font-bold text-gray-900 mb-6">API가 아이콘을 고르는 방식</h2>
                         <ol class="list-decimal pl-5 space-y-3 mb-4">
@@ -436,12 +443,12 @@
                             <li><strong class="text-gray-900">모든 후보를 내려받아 확인합니다</strong>: 내용이 정말 이미지(PNG, ICO, SVG, WebP, JPEG, GIF 등)인지 확인하고, 파일 이름을 믿는 대신 실제 픽셀 크기를 측정합니다.</li>
                             <li><strong class="text-gray-900">Google 파비콘 서비스, 그다음 DuckDuckGo</strong>는 사이트의 아이콘을 하나도 쓸 수 없을 때만, 요청한 <code>size</code>로 사용합니다(<code>source: "google_s2"</code> 또는 <code>"duckduckgo"</code>).</li>
                         </ol>
-                        <p class="mb-4">검증된 후보는 가장 선명한 파일이 선택되도록 순위를 매깁니다. 풀컬러 SVG가 먼저이고, 그다음이 가장 큰 정사각형 PNG/ICO/WebP입니다. Safari의 단색 <code>mask-icon</code>과 <code>maskable</code>로만 표시된 매니페스트 아이콘은 일반 파비콘과 모양이 달라 낮은 순위를 줍니다. 웹사이트에서 찾은 아이콘은 원본 크기 그대로 반환되며, <code>size</code> 매개변수는 대체 서비스에만 영향을 줍니다.</p>
-                        <p><code>google_s2</code>가 나왔다면 그 사이트에 저희가 접근할 수 있는 아이콘이 없거나 요청이 차단된 것입니다(예: 봇 확인 페이지). 사이트 하나만 확인한다면 홈페이지의 <a href="/ko/" class="text-blue-600 hover:underline">파비콘 다운로더</a>가 브라우저에서 직접 몇 가지 출처를 더 시도하고, 찾은 모든 크기를 보여 주므로 그중에서 고를 수 있습니다.</p>
+                        <p class="mb-4">검증된 후보는 가장 선명한 파일이 선택되도록 순위를 매깁니다. 풀컬러 SVG가 먼저이고, 그다음이 가장 큰 정사각형 PNG/ICO/WebP입니다. Safari의 단색 <code>mask-icon</code>과 <code>maskable</code>로만 표시된 매니페스트 아이콘은 일반 파비콘과 모양이 달라 낮은 순위를 줍니다. 고른 원본은 요청한 <code>size</code>(16–512, 예: 32)로 맞춥니다. <code>size</code>를 생략하면 원본 파일입니다. 축소는 Lanczos, 확대는 고품질 리샘플링이고, 정사각형이 아니면 투명하게 채우며, SVG는 요청 크기로 래스터화합니다. 확대한 래스터는 흐려 보일 수 있으며, 응답은 그것을 선명한 원본이라고 하지 않습니다.</p>
+                        <p><code>google_s2</code>가 나왔다면 그 사이트에 저희가 접근할 수 있는 아이콘이 없거나 요청이 차단된 것입니다(예: 봇 확인 페이지). 사이트 하나만 확인한다면 홈페이지의 <a href="/" class="text-blue-600 hover:underline">파비콘 다운로더</a>가 브라우저에서 직접 몇 가지 출처를 더 시도하고, 찾은 모든 크기를 보여 주므로 그중에서 고를 수 있습니다.</p>
                     </div>
                 </section>
 
-                <section id="comparison" class="mb-12">
+<section id="comparison" class="mb-12">
                     <div class="bg-white rounded-lg shadow-sm p-8 text-gray-600">
                         <h2 class="text-2xl font-bold text-gray-900 mb-6">파비콘 API 비교: favicondl, Google S2, DuckDuckGo, Icon Horse</h2>
                         <p class="mb-4">네 서비스 모두 무료로 시작할 수 있고 API 키가 필요 없습니다. 차이는 돌려주는 결과에 있습니다.</p>
@@ -454,8 +461,8 @@
                                     <tr><td>엔드포인트</td><td><code>/api/extract?url=example.com</code></td><td><code>google.com/s2/favicons?domain=example.com&amp;sz=64</code></td><td><code>icons.duckduckgo.com/ip3/example.com.ico</code></td><td><code>icon.horse/icon/example.com</code></td></tr>
                                     <tr><td>API 키</td><td>불필요</td><td>불필요</td><td>불필요</td><td>불필요(무료 요금제)</td></tr>
                                     <tr><td>공개된 무료 한도</td><td>없음(공정 사용)</td><td>공개 안 됨</td><td>공개 안 됨</td><td>무료 요금제 월 1,000개 아이콘</td></tr>
-                                    <tr><td>크기 매개변수</td><td><code>size</code>(16–512, Google 대체용)</td><td><code>sz</code></td><td>없음</td><td>문서에 없음</td></tr>
-                                    <tr><td>반환 결과</td><td>찾은 경우 사이트의 원본 파일(SVG, PNG, ICO 등)</td><td>PNG 또는 JPEG(실측)</td><td>ICO(실측)</td><td>PNG(실측)</td></tr>
+                                    <tr><td>크기 매개변수</td><td><code>size</code> 16–512(예: 16, 32, 64, 256, 512). 생략하면 원본 파일.</td><td><code>sz</code></td><td>없음</td><td>문서에 없음</td></tr>
+                                    <tr><td>반환 결과</td><td><code>size</code>가 있으면 정확히 그 크기의 정사각형 PNG, 없으면 원본 파일(SVG, PNG, ICO 등)</td><td>PNG 또는 JPEG(실측)</td><td>ICO(실측)</td><td>PNG(실측)</td></tr>
                                     <tr><td>JSON 메타데이터</td><td>있음(<code>format=json</code>: 아이콘 URL, 출처, 형식, 실측 픽셀 크기, 최대 8개의 대체 아이콘)</td><td>없음</td><td>없음</td><td>없음</td></tr>
                                     <tr><td>github.com 테스트 결과</td><td>favicon.svg(벡터)</td><td>sz=16일 때 16×16 PNG, sz=256일 때 180×180</td><td>16×16과 32×32가 든 ICO</td><td>256×256 PNG</td></tr>
                                 </tbody>
@@ -569,8 +576,8 @@
                                     <td><code>size</code></td>
                                     <td>number</td>
                                     <td>아니오</td>
-                                    <td>128</td>
-                                    <td>대체 크기(16–512픽셀). Google 파비콘 서비스로 대체할 때만 사용되며, 사이트 자체에서 찾은 아이콘은 원본 크기로 반환됩니다.</td>
+                                    <td>없음 (원본 파일)</td>
+                                    <td>정확한 출력 크기(16–512, 예: 16, 32, 64, 128, 256, 512). 그 한 변의 정사각형 PNG를 반환합니다. 범위 밖은 16–512로 맞춥니다. size를 생략하면 원본 파일입니다. 더 작은 래스터는 확대되어 흐려 보일 수 있고, SVG는 요청 크기로 래스터화합니다.</td>
                                 </tr>
                                 <tr>
                                     <td><code>format</code></td>
@@ -599,11 +606,13 @@
 
                                 <div class="border-l-4 border-green-500 pl-4">
                                     <h5 class="font-medium">size</h5>
-                                    <p class="text-gray-600 text-sm">Google 파비콘 서비스용 대체 크기, 16~512픽셀:</p>
+                                    <p class="text-gray-600 text-sm">16~512픽셀의 정확한 정사각형 PNG. 생략하면 원본 파일입니다. 자주 쓰는 값:</p>
                                     <ul class="text-sm text-gray-600 mt-1 space-y-1">
                                         <li>• <code>16</code> - 16x16</li>
                                         <li>• <code>32</code> - 32x32</li>
+                                        <li>• <code>64</code> - 64x64</li>
                                         <li>• <code>128</code> - 128x128</li>
+                                        <li>• <code>256</code> - 256x256</li>
                                         <li>• <code>512</code> - 512x512</li>
                                     </ul>
                                 </div>
@@ -626,9 +635,17 @@
                             <pre class="p-4 text-sm"><code id="success-response" class="language-json">{
   "ok": true,
   "domain": "example.com",
-  "size": 128,
+  "size": 32,
+  "resized": true,
+  "outputFormat": "png",
+  "outputWidth": 32,
+  "outputHeight": 32,
+  "upscaled": false,
+  "nativeWidth": null,
+  "nativeHeight": null,
+  "vector": true,
   "iconUrl": "https://example.com/favicon.svg",
-  "proxyUrl": "https://favicondl.com/api/proxy?url=...",
+  "proxyUrl": "https://favicondl.com/api/proxy?url=...&size=32",
   "source": "html",
   "rel": "icon",
   "format": "svg",
@@ -749,11 +766,11 @@ file_put_contents('example-favicon', getFavicon('example.com', 128));
                                     <span class="text-gray-300 text-sm">HTML</span>
                                     <button class="copy-button" onclick="copyCode('html-example')">복사</button>
                                 </div>
-                                <pre class="p-4 text-sm"><code id="html-example" class="language-html">&lt;!-- Show a site icon next to a link --&gt;
-&lt;img src="https://favicondl.com/api/extract?url=example.com" alt="example.com favicon" width="32" height="32"&gt;
+                                <pre class="p-4 text-sm"><code id="html-example" class="language-html">&lt;!-- Exact 32×32 PNG. Also valid: 16, 64, 128, 256, 512 (clamped to 16–512). --&gt;
+&lt;img src="https://favicondl.com/api/extract?url=example.com&amp;size=32" alt="example.com favicon" width="32" height="32"&gt;
 
-&lt;!-- Larger Google fallback size, if the site has no icon of its own --&gt;
-&lt;img src="https://favicondl.com/api/extract?url=example.com&amp;size=128" alt="example.com favicon" width="128" height="128"&gt;</code></pre>
+&lt;!-- Omit size for the original file. Small rasters requested above native size may look soft. --&gt;
+&lt;img src="https://favicondl.com/api/extract?url=example.com" alt="example.com favicon"&gt;</code></pre>
                             </div>
                         </div>
                     </div>

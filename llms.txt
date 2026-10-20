@@ -24,7 +24,7 @@ The API is a single GET endpoint:
 - **Method**: GET
 - **Default response**: HTTP 302 redirect to a downloadable image URL.
 - **JSON response**: Add `&format=json` when you need the resolved icon URL and source metadata.
-- **Size**: `16` to `512` (default `128`). Icons found on the site are returned at their native size; `size` mainly applies to the Google fallback.
+- **Size**: optional, `16` to `512` (for example `16`, `32`, `64`, `128`, `256`, `512`). When set, the redirect (and `proxyUrl`) is a PNG of exactly that square size. Omit `size` for the original file. Values outside the range are clamped. A raster smaller than the request is upscaled and may look soft; SVG is rasterized at the requested size. Response headers `X-Favicon-Native-Size` and `X-Favicon-Upscaled`, and JSON fields `nativeWidth`, `nativeHeight`, and `upscaled`, describe the source. An upscaled image is not a sharp original.
 - **Usage**: free, fair use; icons found on the site are cached at the edge for about 24 hours (fallback results for about 10 minutes), so please cache results on your side too.
 
 ### cURL Example
@@ -58,7 +58,7 @@ with open("stripe-favicon", "wb") as output:
 GET https://favicondl.com/api/extract?url=github.com&size=128&format=json
 ```
 
-The JSON response contains `ok`, `domain`, `size`, `iconUrl`, `proxyUrl` and `source` (`html`, `manifest`, `direct`, `google_s2` or `duckduckgo`), plus `rel`, `format`, `width`, `height` (measured; `null` for SVG), `pageUrl` and `candidates`: up to 8 other verified icons from the site with their own `url`, `proxyUrl`, `format` and size.
+The JSON response contains `ok`, `domain`, `size` (`null` when omitted), `iconUrl` (the original file), `proxyUrl` (exact square PNG when `size` is set, otherwise the original file) and `source` (`html`, `manifest`, `direct`, `google_s2` or `duckduckgo`), plus `rel`, `format`, `width`, `height` (measured source; `null` for SVG), `nativeWidth`, `nativeHeight`, `upscaled`, `resized`, `outputWidth`, `outputHeight` (present when `size` is set), `pageUrl` and `candidates`: up to 8 other verified icons from the site.
 
 ### JavaScript (Fetch) Example
 ```javascript

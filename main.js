@@ -18,6 +18,9 @@ class FaviconTool {
         this.workerBaseUrl = this.initWorkerBaseUrl();
         this.apiBase = this.initApiBase();
         this.candidateCache = new Map(); // domain -> icon candidates from /api/extract
+        this.iconMetaCache = new Map(); // domain -> native size of the chosen icon
+        this.iconMeta = null;
+        this.currentPreviewUrl = '';
         this.selectedIconUrl = '';
         this.fetchSeq = 0;
         this.init();
@@ -184,10 +187,31 @@ class FaviconTool {
         return 'https://favicondl.com';
     }
 
+    iconMetaFrom(data) {
+        if (!data) return null;
+        const vector = !!data.vector || data.format === 'svg';
+        return {
+            vector,
+            width: vector ? null : (data.nativeWidth || data.width || null),
+            height: vector ? null : (data.nativeHeight || data.height || null),
+            format: data.nativeFormat || data.format || null,
+        };
+    }
+
+    rememberIconMeta(domain, data) {
+        const meta = this.iconMetaFrom(data);
+        this.iconMeta = meta;
+        if (domain && meta) this.iconMetaCache.set(this.cleanDomain(domain), meta);
+        return meta;
+    }
+
     async fetchFaviconViaWorker(domain, size) {
         const sz = typeof size === 'number' ? size : 128;
         if (this.apiBase) {
-            const apiUrl = `${this.apiBase}/api/extract?url=${encodeURIComponent(domain)}&size=${encodeURIComponent(sz)}&format=json`;
+            // Omit size so the preview and download use the original file.
+            // The selected size is applied in the browser, with a warning when
+            // it is larger than this native image.
+            const apiUrl = `${this.apiBase}/api/extract?url=${encodeURIComponent(domain)}&format=json`;
             const apiData = await this.fetchJsonWithTimeout(apiUrl, 14000);
             if (apiData && apiData.ok) {
                 if (Array.isArray(apiData.candidates)) {
@@ -227,10 +251,18 @@ class FaviconTool {
         document.querySelectorAll('input[name="size"]').forEach(radio => {
             radio.addEventListener('change', (e) => {
                 this.currentSize = Number(e.target.value) || 32;
+                if (this.currentDomain && this.currentPreviewUrl) {
+                    this.showPreview(this.currentPreviewUrl);
+                    return;
+                }
                 if (this.currentDomain) {
                     this.fetchFavicon();
                 }
             });
+        });
+
+        document.getElementById('export-size-toggle')?.addEventListener('change', () => {
+            this.updateSizeNotes();
         });
 
         // 复制按钮
@@ -488,20 +520,29 @@ class FaviconTool {
         const domains = this.getDomainVariants(domain);
 
         let workerLowQualityFallback = '';
+        let fallbackMeta = null;
+        const isFallbackSource = (source) => {
+            const name = String(source || '').toLowerCase();
+            return name === 'google_s2' || name === 'duckduckgo';
+        };
 
         for (const d of domains.slice(0, 1)) {
             const workerData = await this.fetchFaviconViaWorker(d, fetchSz);
             if (workerData?.proxyUrl) {
-                if (String(workerData.source || '').toLowerCase() === 'google_s2') {
+                if (isFallbackSource(workerData.source)) {
                     workerLowQualityFallback = workerLowQualityFallback || workerData.proxyUrl;
+                    fallbackMeta = fallbackMeta || this.iconMetaFrom(workerData);
                 } else {
+                    this.rememberIconMeta(d, workerData);
                     return forceRefresh ? this.withCacheBust(workerData.proxyUrl) : workerData.proxyUrl;
                 }
             }
             if (workerData?.iconUrl) {
-                if (String(workerData.source || '').toLowerCase() === 'google_s2') {
+                if (isFallbackSource(workerData.source)) {
                     workerLowQualityFallback = workerLowQualityFallback || workerData.iconUrl;
+                    fallbackMeta = fallbackMeta || this.iconMetaFrom(workerData);
                 } else {
+                    this.rememberIconMeta(d, workerData);
                     return forceRefresh ? this.withCacheBust(workerData.iconUrl) : workerData.iconUrl;
                 }
             }
@@ -537,6 +578,7 @@ class FaviconTool {
             tries++;
             try {
                 await this.preloadImageWithTimeout(url, 2500);
+                this.iconMeta = null;
                 return url;
             } catch {
             }
@@ -555,6 +597,7 @@ class FaviconTool {
             for (const url of discoveredToTry) {
                 try {
                     await this.preloadImageWithTimeout(url, 2500);
+                    this.iconMeta = null;
                     return url;
                 } catch {
                 }
@@ -566,16 +609,20 @@ class FaviconTool {
             try {
                 const finalUrl = forceRefresh ? this.withCacheBust(url) : url;
                 await this.preloadImageWithTimeout(finalUrl, 2500);
+                this.iconMeta = null;
                 return finalUrl;
             } catch {}
             try {
                 const proxyUrl = forceRefresh ? this.withCacheBust(this.buildProxyUrl(url)) : this.buildProxyUrl(url);
                 await this.preloadImageWithTimeout(proxyUrl, 2500);
+                this.iconMeta = null;
                 return proxyUrl;
             } catch {}
         }
 
         if (workerLowQualityFallback) {
+            this.iconMeta = fallbackMeta;
+            if (fallbackMeta) this.iconMetaCache.set(this.cleanDomain(domain), fallbackMeta);
             return forceRefresh ? this.withCacheBust(workerLowQualityFallback) : workerLowQualityFallback;
         }
 
@@ -589,17 +636,21 @@ class FaviconTool {
         this.hideError();
 
         // 检查缓存
-        const cacheKey = `${this.currentDomain}-${this.currentSize}`;
+        const cacheKey = this.currentDomain;
         if (!forceRefresh && this.faviconCache.has(cacheKey)) {
             this.selectedIconUrl = '';
-            this.showPreview(this.faviconCache.get(cacheKey));
-            this.renderCandidates(this.candidateCache.get(this.currentDomain) || [], this.faviconCache.get(cacheKey));
+            this.iconMeta = this.iconMetaCache.get(this.currentDomain) || this.iconMeta;
+            const cachedUrl = this.faviconCache.get(cacheKey);
+            this.currentPreviewUrl = cachedUrl;
+            this.showPreview(cachedUrl);
+            this.renderCandidates(this.candidateCache.get(this.currentDomain) || [], cachedUrl);
             this.showLoading(false);
             return;
         }
 
         const seq = ++this.fetchSeq;
         this.selectedIconUrl = '';
+        this.iconMeta = null;
         this.renderCandidates([]);
         const quickUrl = this.getQuickFaviconUrl(this.currentDomain, this.currentSize);
         this.showPreview(quickUrl);
@@ -618,6 +669,7 @@ class FaviconTool {
             }
 
             this.faviconCache.set(cacheKey, faviconUrl);
+            this.currentPreviewUrl = faviconUrl;
             this.renderCandidates(this.candidateCache.get(this.currentDomain) || [], faviconUrl);
             if (this.isAggregatorUrl(faviconUrl) && !this.isAggregatorUrl(quickUrl)) {
                 return;
@@ -713,6 +765,67 @@ class FaviconTool {
     }
 
     // ==================== 预览显示 ====================
+    updateSizeNotes() {
+        const note = document.getElementById('native-size-note');
+        const warning = document.getElementById('upscale-warning');
+        if (!note && !warning) return;
+
+        const lang = this.currentLang || 'en';
+        const meta = this.iconMeta;
+        const selected = typeof this.currentSize === 'number' ? this.currentSize : 32;
+        const exportOn = this.isExportSizeEnabled();
+
+        const nativeLabel = {
+            en: (w, h) => `Native size: ${w}×${h}`,
+            zh: (w, h) => `原始尺寸：${w}×${h}`,
+            ja: (w, h) => `元のサイズ: ${w}×${h}`,
+            ko: (w, h) => `원본 크기: ${w}×${h}`,
+            es: (w, h) => `Tamaño original: ${w}×${h}`,
+        };
+        const vectorLabel = {
+            en: 'Native icon: SVG (sharp at any size)',
+            zh: '原始图标：SVG（任意尺寸都清晰）',
+            ja: '元のアイコン: SVG（どのサイズでも鮮明）',
+            ko: '원본 아이콘: SVG (어떤 크기에서도 선명)',
+            es: 'Icono original: SVG (nítido a cualquier tamaño)',
+        };
+        const warnLabel = {
+            en: (n, source) => `Selected size is ${n}px, larger than the ${source} source. This export is upscaled and may look soft.`,
+            zh: (n, source) => `所选尺寸为 ${n}px，大于原图 ${source}。导出会放大图片，可能看起来发虚。`,
+            ja: (n, source) => `選択中の ${n}px は元画像（${source}）より大きいため、書き出すと拡大され、ぼやけて見えることがあります。`,
+            ko: (n, source) => `선택한 ${n}px는 원본(${source})보다 커서, 내보내면 확대되며 흐려 보일 수 있습니다.`,
+            es: (n, source) => `El tamaño elegido (${n}px) es mayor que el original (${source}). La exportación se amplía y puede verse borrosa.`,
+        };
+
+        if (note) {
+            if (!meta) {
+                note.textContent = '';
+            } else if (meta.vector) {
+                note.textContent = vectorLabel[lang] || vectorLabel.en;
+            } else if (meta.width && meta.height) {
+                const format = nativeLabel[lang] || nativeLabel.en;
+                note.textContent = format(meta.width, meta.height);
+            } else {
+                note.textContent = '';
+            }
+        }
+
+        const nativeMax = meta && !meta.vector && meta.width && meta.height
+            ? Math.max(meta.width, meta.height)
+            : 0;
+        const showWarning = !!(warning && meta && exportOn && nativeMax > 0 && selected > nativeMax);
+        if (warning) {
+            warning.classList.toggle('hidden', !showWarning);
+            if (showWarning) {
+                const source = meta.width === meta.height ? `${meta.width}px` : `${meta.width}×${meta.height}`;
+                const format = warnLabel[lang] || warnLabel.en;
+                warning.textContent = format(selected, source);
+            } else {
+                warning.textContent = '';
+            }
+        }
+    }
+
     showPreview(faviconUrl) {
         const previewSection = document.getElementById('preview-section');
         const previewIcon = document.getElementById('preview-icon');
@@ -742,6 +855,9 @@ class FaviconTool {
             const html = `<img src="${displayUrl}" alt="${this.currentDomain} favicon" width="${targetSize}" height="${targetSize}" />`;
             htmlCode.textContent = html;
         }
+
+        this.currentPreviewUrl = faviconUrl;
+        this.updateSizeNotes();
 
         // 显示预览区域
         previewSection.classList.remove('hidden');
@@ -1210,6 +1326,7 @@ class FaviconTool {
             btn.appendChild(label);
             btn.addEventListener('click', () => {
                 this.selectedIconUrl = c.proxyUrl;
+                this.rememberIconMeta(this.currentDomain, c);
                 this.showPreview(c.proxyUrl);
                 row.querySelectorAll('button').forEach((b) => {
                     b.classList.remove('border-blue-500', 'bg-blue-50');
@@ -1250,6 +1367,9 @@ class FaviconTool {
         
         this.currentDomain = '';
         this.selectedIconUrl = '';
+        this.currentPreviewUrl = '';
+        this.iconMeta = null;
+        this.updateSizeNotes();
         this.renderCandidates([]);
         this.hideError();
         domainInput?.focus();
@@ -1305,6 +1425,7 @@ class FaviconTool {
             const text = el.getAttribute(`data-${this.currentLang}`);
             if (text) el.textContent = text;
         });
+        this.updateSizeNotes();
     }
 
     // 热门网站点击

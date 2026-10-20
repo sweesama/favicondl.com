@@ -658,6 +658,7 @@ async function extractFavicon(input, opts = {}) {
       format: best.format,
       width: best.vector ? null : best.width,
       height: best.vector ? null : best.height,
+      vector: !!best.vector,
       pageUrl: page ? page.finalUrl : null,
       candidates: pickForDisplay(good).map(toPublic),
     };
@@ -674,6 +675,7 @@ async function extractFavicon(input, opts = {}) {
       format: fb.format || null,
       width: fb.width || null,
       height: fb.height || null,
+      vector: fb.format === 'svg',
       pageUrl: page ? page.finalUrl : null,
       candidates: [],
     };

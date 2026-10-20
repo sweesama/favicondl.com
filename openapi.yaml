@@ -19,8 +19,11 @@ paths:
       description: >
         Finds a usable favicon from the target domain and redirects to a
         downloadable image URL by default. Use format=json to receive the
-        resolved icon URL and source metadata instead. The requested size is a
-        preference; the original website asset may have a different native size.
+        resolved icon URL and source metadata instead. When size is set
+        (16-512, for example 32), the image is a PNG of exactly that square
+        size. Omit size for the original file. A smaller raster is upscaled
+        and may look soft. Native size is reported and is not described as sharp
+        when the image was enlarged.
       operationId: extractFavicon
       parameters:
         - name: url
@@ -32,12 +35,13 @@ paths:
         - name: size
           in: query
           required: false
-          description: Preferred icon size in pixels. Values are clamped to 16-512 and default to 128.
+          description: >
+            Exact output size in pixels. Clamped to 16-512. Examples: 16, 32, 64, 128, 256, 512.
+            Omit the parameter for the original file.
           schema:
             type: integer
             minimum: 16
             maximum: 512
-            default: 128
         - name: format
           in: query
           required: false
@@ -89,10 +93,34 @@ paths:
                   width:
                     type: integer
                     nullable: true
-                    description: Measured width in pixels; null for SVG.
+                    description: Measured source width in pixels; null for SVG.
                   height:
                     type: integer
                     nullable: true
+                    description: Measured source height in pixels; null for SVG.
+                  nativeWidth:
+                    type: integer
+                    nullable: true
+                    description: Source width. Null for SVG. Same measurement as width.
+                  nativeHeight:
+                    type: integer
+                    nullable: true
+                  vector:
+                    type: boolean
+                  resized:
+                    type: boolean
+                    description: True when size was set and proxyUrl is an exact square PNG.
+                  upscaled:
+                    type: boolean
+                    description: True when a raster source was enlarged. That PNG may look soft.
+                  outputFormat:
+                    type: string
+                    description: png when size is set.
+                  outputWidth:
+                    type: integer
+                    description: Exact width of proxyUrl when size is set. For example 32.
+                  outputHeight:
+                    type: integer
                   pageUrl:
                     type: string
                     nullable: true

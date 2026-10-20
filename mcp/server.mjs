@@ -6,7 +6,6 @@ import {
 } from '@modelcontextprotocol/sdk/types.js';
 
 const API_ENDPOINT = 'https://favicondl.com/api/extract';
-const DEFAULT_SIZE = 128;
 const MIN_SIZE = 16;
 const MAX_SIZE = 512;
 const REQUEST_TIMEOUT_MS = 15000;
@@ -20,7 +19,7 @@ server.setRequestHandler(ListToolsRequestSchema, async () => ({
   tools: [
     {
       name: 'extract_favicon',
-      description: 'Find a usable favicon for a domain or URL and return image URLs plus source metadata.',
+      description: 'Find a usable favicon for a domain or URL. Pass size (16-512, for example 32) for an exact square PNG. Omit size for the original file. Upscaled rasters may look soft.',
       inputSchema: {
         type: 'object',
         properties: {
@@ -32,8 +31,7 @@ server.setRequestHandler(ListToolsRequestSchema, async () => ({
             type: 'integer',
             minimum: MIN_SIZE,
             maximum: MAX_SIZE,
-            default: DEFAULT_SIZE,
-            description: 'Preferred icon size in pixels.',
+            description: 'Exact output size in pixels, from 16 to 512 (for example 16, 32, 64, 128, 256 or 512). Omit it to receive the original file. A raster smaller than this size is upscaled and may look soft.',
           },
         },
         required: ['url'],
@@ -57,8 +55,8 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
   const size = clampSize(input.size);
   const endpoint = new URL(API_ENDPOINT);
   endpoint.searchParams.set('url', target);
-  endpoint.searchParams.set('size', String(size));
   endpoint.searchParams.set('format', 'json');
+  if (size !== null) endpoint.searchParams.set('size', String(size));
 
   try {
     const response = await fetchWithTimeout(endpoint);
@@ -76,8 +74,9 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
 });
 
 function clampSize(value) {
+  if (value === undefined || value === null || String(value).trim() === '') return null;
   const parsed = Number(value);
-  if (!Number.isFinite(parsed)) return DEFAULT_SIZE;
+  if (!Number.isFinite(parsed)) return null;
   return Math.min(MAX_SIZE, Math.max(MIN_SIZE, Math.trunc(parsed)));
 }
 
