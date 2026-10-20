@@ -174,13 +174,18 @@ GitHub Actions 每天 UTC 00:00 自动执行上述流程 + i18n 构建 + commit 
 GET https://favicondl.com/api/extract?url={域名或网址}&size={尺寸}
 ```
 
-默认返回 `302`，跟随跳转即可下载图标；需要来源和候选地址时，增加 `format=json`。
+`size` 可选，范围 16–512（例如 16、32、64、128、256、512），超出范围会夹到这个区间。传入之后，跟随 `302` 得到的图片是恰好该边长的正方形 PNG。省略 `size` 则返回网站上的原始文件，已有调用不会被改成缩放图。
+
+比原图更大的位图会用高质量重采样放大，可能发虚；SVG 会按请求尺寸栅格化。响应头 `X-Favicon-Native-Size`、`X-Favicon-Upscaled`，以及 JSON 里的 `nativeWidth`、`nativeHeight`、`upscaled`，用来说明原图尺寸。放大结果不会被说成清晰原图。
+
+需要来源和候选地址时，增加 `format=json`。`iconUrl` 仍是网站上的原始文件；设置了 `size` 时，`proxyUrl` 才是那个精确尺寸的 PNG。
 
 ```text
-GET https://favicondl.com/api/extract?url=github.com&size=128&format=json
+GET https://favicondl.com/api/extract?url=github.com&size=32&format=json
+GET https://favicondl.com/api/extract?url=wikipedia.org&format=json
 ```
 
-Worker 会按优先级发现 HTML 图标、SVG、Apple Touch Icon、Web Manifest 和其他安全候选，并在需要时通过受保护的图片代理返回结果。项目提供 REST API、OpenAPI、`llms.txt`、CLI，以及一个调用该 API 的本地 stdio MCP Server。它不是需要单独部署的远程 MCP 服务。
+接口会按优先级发现 HTML 图标、SVG、Apple Touch Icon、Web Manifest 和其他安全候选，选出最大的可用源图，再按需缩放，并通过受保护的图片代理返回。部署在 Vercel Node Functions 上（`sharp` 做重采样）。项目提供 REST API、OpenAPI、`llms.txt`、CLI，以及一个调用该 API 的本地 stdio MCP Server。它不是需要单独部署的远程 MCP 服务。
 
 ### CLI 下载
 ```powershell
@@ -191,9 +196,14 @@ Worker 会按优先级发现 HTML 图标、SVG、Apple Touch Icon、Web Manifest
 ./favicondl.sh github.com 128
 ```
 
-完整 Agent 说明见 `SKILL.md`、`llms.txt` 和 `openapi.yaml`。支持 MCP 的客户端可参考 `mcp/README.md` 配置本地 `extract_favicon` 工具。
+完整 Agent 说明见 `SKILL.md`、`llms.txt` 和 `openapi.yaml`。支持 MCP 的客户端可参考 `mcp/README.md` 配置本地 `extract_favicon` 工具。CLI 默认会带上 `size=128`，因此得到的是 128×128 PNG；要 32 像素就传入 `32`。
 
 ## 📝 更新日志
+
+### v1.5.0 (2026-10-20)
+- ✅ **`size` 按请求返回精确尺寸**：`16`–`512`（含 `32`）得到恰好 N×N 的 PNG。缩小用 Lanczos，放大用高质量重采样，非正方形用透明边补齐，SVG 按目标尺寸栅格化。省略 `size` 仍返回原始文件。
+- ✅ **标明原图尺寸**：JSON 增加 `nativeWidth`、`nativeHeight`、`upscaled`、`outputWidth`、`outputHeight`；图片响应带 `X-Favicon-Native-Size` 与 `X-Favicon-Upscaled`。放大后的位图不会被描述成清晰原图。
+- ✅ **首页预览**：显示原始尺寸；当导出尺寸大于原图时给出简短提示。
 
 ### v1.4.1 (2026-06-14)
 - ✅ **补充博客关键词库存**：`blog/queue.json` 新增 30 个 `pending` 关键词，恢复每日自动发布。

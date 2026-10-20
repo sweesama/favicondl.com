@@ -11,8 +11,8 @@
                                     <tr><td>Endpoint</td><td><code>/api/extract?url=example.com</code></td><td><code>google.com/s2/favicons?domain=example.com&amp;sz=64</code></td><td><code>icons.duckduckgo.com/ip3/example.com.ico</code></td><td><code>icon.horse/icon/example.com</code></td></tr>
                                     <tr><td>Clave de API</td><td>No</td><td>No</td><td>No</td><td>No (plan gratuito)</td></tr>
                                     <tr><td>Cuota gratuita publicada</td><td>Ninguna (uso razonable)</td><td>No publicada</td><td>No publicada</td><td>1.000 iconos al mes en el plan gratuito</td></tr>
-                                    <tr><td>Parámetro de tamaño</td><td><code>size</code> (16–512, para el respaldo de Google)</td><td><code>sz</code></td><td>No</td><td>No documentado</td></tr>
-                                    <tr><td>Qué devuelve</td><td>El archivo original del sitio (SVG, PNG, ICO…) cuando se encuentra</td><td>PNG o JPEG (observado)</td><td>ICO (observado)</td><td>PNG (observado)</td></tr>
+                                    <tr><td>Parámetro de tamaño</td><td><code>size</code> 16–512 (por ejemplo 16, 32, 64, 256, 512). Omítelo para el archivo original.</td><td><code>sz</code></td><td>No</td><td>No documentado</td></tr>
+                                    <tr><td>Qué devuelve</td><td>Un PNG cuadrado exacto si se indica <code>size</code>; si no, el archivo original (SVG, PNG, ICO…)</td><td>PNG o JPEG (observado)</td><td>ICO (observado)</td><td>PNG (observado)</td></tr>
                                     <tr><td>Metadatos JSON</td><td>Sí (<code>format=json</code>: URL del icono, origen, formato, tamaño medido en píxeles y hasta 8 iconos alternativos)</td><td>No</td><td>No</td><td>No</td></tr>
                                     <tr><td>Resultado para github.com en nuestra prueba</td><td>favicon.svg (vectorial)</td><td>PNG de 16×16 con sz=16, 180×180 con sz=256</td><td>ICO con 16×16 y 32×32</td><td>PNG de 256×256</td></tr>
                                 </tbody>

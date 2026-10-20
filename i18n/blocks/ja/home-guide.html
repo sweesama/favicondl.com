@@ -3,7 +3,7 @@
             <h2 id="how-to" class="text-2xl font-semibold text-gray-900 mb-6">あらゆるサイトのファビコンをダウンロードする方法</h2>
             <ol class="space-y-4 list-decimal pl-5">
                 <li><strong class="text-gray-900">ドメインか URL を入力します。</strong>このページ上部の入力欄に <code>github.com</code> のようなドメインを入力するか、ページのアドレスをそのまま貼り付けます。<code>https://</code> や <code>www.</code> は省略できます。</li>
-                <li><strong class="text-gray-900">サイズを選びます。</strong>16・32・48・64・128 px から選べます。プレビューには、見つかった中で最も良いアイコンが常に表示されます。<em>選択したサイズでエクスポート</em>は初期状態でオンになっており、PNG を選んだサイズちょうどに変換します。オフにすると元の解像度のまま保存されます。</li>
+                <li><strong class="text-gray-900">サイズを選びます。</strong>16・32・48・64・128 px から選べます。プレビューには見つかった中で最も良いアイコンが表示され、その元のサイズも示されます。<em>選択したサイズでエクスポート</em>は初期状態でオンになっており、PNG を選んだサイズちょうどに変換します。オフにすると元の解像度のまま保存されます。選んだ 32 や 64 などがサイトのアイコンより大きい場合は、拡大されてぼやけることがあると短い注意が出ます。</li>
                 <li><strong class="text-gray-900">ダウンロードまたはコピーします。</strong><em>ダウンロード</em>をクリックすると PNG で保存されます。そのまま使える <code>&lt;link&gt;</code> タグや、元ファイルの直接 URL をコピーすることもできます。</li>
             </ol>
             <p class="mt-4">手順はこれだけです。アカウント登録もブラウザ拡張もアップロードも必要ありません。PNG ではなく元の <code>.ico</code> や <code>.svg</code> ファイルが欲しい場合は、結果に表示される直接 URL を開いて保存してください。</p>
@@ -31,8 +31,8 @@
             <p class="mb-4">抽出ツールは見つかったアイコンをすべて順位付けし、最も鮮明なものを最初に返します。拡大しても劣化しないフルカラーの SVG が最優先です。次が実測で最も大きい正方形の画像で、たいていは 512 px や 192 px の manifest アイコン、または 180 px の Apple touch icon です。昔ながらの ICO ファイルは幅 16〜32 px しかないことが多いため、たいてい最後になります。Safari の単色 mask アイコンも低い順位です。見つかったほかのサイズも表示されるので、別のものを選ぶこともできます。</p>
             <ul class="space-y-2 list-disc pl-5">
                 <li><strong class="text-gray-900">元のサイズを保つ。</strong><em>選択したサイズでエクスポート</em>をオフにすれば、ダウンロードした PNG は元ファイルの解像度のままです。</li>
-                <li><strong class="text-gray-900">小さなアイコンを拡大しない。</strong>16 px の ICO を 128 px に引き伸ばしても、ぼやけるだけです。それより大きいものを公開していないサイトでは、その小さなファイルが実際に手に入る最良のものです。</li>
-                <li><strong class="text-gray-900">アイコンの出どころを確認する。</strong>API の JSON レスポンスの <code>source</code> を見ると、アイコンがサイト自体から取れたもの（<code>direct</code> または <code>html</code>）か、通常は解像度の低い Google のフォールバック（<code>google_s2</code>）かがわかります。</li>
+                <li><strong class="text-gray-900">拡大するとぼやけることがあります。</strong>16 px のアイコンを 32 px や 128 px にしても細部は増えません。書き出しサイズが元のアイコンより大きいときはプレビューが注意を出します。API の <code>size</code> はその一辺ちょうどの正方形（16、32、64、128、256、512）を返し、ラスタを拡大したときは <code>upscaled</code> が true になります。</li>
+                <li><strong class="text-gray-900">アイコンの出どころを確認する。</strong>API の JSON の <code>source</code> は、サイト自体（<code>html</code>、<code>manifest</code>、<code>direct</code>）かフォールバック（<code>google_s2</code> または <code>duckduckgo</code>）かを示します。<code>nativeWidth</code> と <code>nativeHeight</code> は元画像のピクセルです（SVG は <code>null</code>）。<code>size</code> を省略すると元のファイルです。</li>
                 <li><strong class="text-gray-900">欲しいのはアイコンではなくロゴ？</strong>ファビコンはもともと小さく表示するためのものです。印刷物や販促物には、その企業の公式プレスキットやブランドページの素材を使ってください。</li>
             </ul>
 

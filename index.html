@@ -623,6 +623,8 @@
                     <div>
                         <p class="text-sm text-gray-400 mb-1" data-en="Domain" data-zh="域名">Domain</p>
                         <p id="preview-domain" class="text-2xl font-semibold text-gray-900"></p>
+                        <p id="native-size-note" class="text-sm text-gray-500 mt-1"></p>
+                        <p id="upscale-warning" class="hidden text-xs leading-relaxed text-amber-800 bg-amber-50 border border-amber-200 rounded-lg px-3 py-2 mt-2"></p>
                     </div>
                 </div>
 
@@ -936,7 +938,7 @@
                             <span class="text-xs font-semibold text-gray-400 uppercase tracking-wider">cURL</span>
                         </div>
                         <div class="code-block" style="padding: 12px 16px;">
-<pre style="margin:0;"><code class="language-bash">curl -L "https://favicondl.com/api/favicon?domain=github.com&amp;size=128&amp;format=redirect"</code></pre>
+<pre style="margin:0;"><code class="language-bash">curl -L "https://favicondl.com/api/favicon?domain=github.com&amp;size=32&amp;format=redirect"</code></pre>
                         </div>
                     </div>
 
@@ -978,7 +980,7 @@ with open("icon.png", "wb") as f:
             <h2 id="how-to" class="text-2xl font-semibold text-gray-900 mb-6">How to download a favicon from any website</h2>
             <ol class="space-y-4 list-decimal pl-5">
                 <li><strong class="text-gray-900">Enter a domain or URL.</strong> Type something like <code>github.com</code> into the box at the top of this page, or paste a full page address. You can leave out <code>https://</code> and <code>www.</code>.</li>
-                <li><strong class="text-gray-900">Pick a size.</strong> Choose 16, 32, 48, 64 or 128 px. The preview always shows the best icon we could find. <em>Export at selected size</em> is on by default and resizes the PNG to exactly that size; switch it off to keep the file at its original resolution.</li>
+                <li><strong class="text-gray-900">Pick a size.</strong> Choose 16, 32, 48, 64 or 128 px. The preview always shows the best icon we could find and notes its native size. <em>Export at selected size</em> is on by default and resizes the PNG to exactly that size; switch it off to keep the file at its original resolution. If 32, 64 or another selected size is larger than the icon the site published, a short warning says the export is upscaled and may look soft.</li>
                 <li><strong class="text-gray-900">Download or copy.</strong> Click <em>Download</em> to save the icon as a PNG, or copy the ready-made <code>&lt;link&gt;</code> HTML tag or the direct URL of the original file.</li>
             </ol>
             <p class="mt-4">That is all there is to it: no account, no browser extension and no upload. If you need the original <code>.ico</code> or <code>.svg</code> file rather than a PNG, open the direct URL shown in the result and save it from there.</p>
@@ -1006,8 +1008,8 @@ with open("icon.png", "wb") as f:
             <p class="mb-4">The extractor ranks every icon it finds and returns the sharpest one first. A full-colour SVG wins because it scales without losing detail. After that comes the largest square image by its measured size, which is usually a 512 or 192 px manifest icon or a 180 px Apple touch icon; the classic ICO file usually ends up last because it is often only 16 or 32 pixels wide. Safari's single-colour mask icon is ranked low. The downloader also shows the other sizes it found, so you can pick a different one.</p>
             <ul class="space-y-2 list-disc pl-5">
                 <li><strong class="text-gray-900">Keep the original size.</strong> Switch off <em>Export at selected size</em>, and the PNG you download keeps the full resolution of the source file.</li>
-                <li><strong class="text-gray-900">Do not upscale tiny icons.</strong> Enlarging a 16 px ICO to 128 px only makes it blurrier. If a site publishes nothing bigger, that small file is genuinely the best version available.</li>
-                <li><strong class="text-gray-900">Check where the icon came from.</strong> In the API's JSON response, <code>source</code> tells you whether the icon came from the site itself (<code>direct</code> or <code>html</code>) or from the Google fallback (<code>google_s2</code>), which is usually lower resolution.</li>
+                <li><strong class="text-gray-900">Upscaled icons can look soft.</strong> Asking for 32 px or 128 px from a 16 px icon does not add detail. The preview warns when the export size is larger than the native icon. The API's <code>size</code> parameter still returns that exact square (16, 32, 64, 128, 256 or 512), and <code>upscaled</code> is true when a raster was enlarged.</li>
+                <li><strong class="text-gray-900">Check where the icon came from.</strong> In the API's JSON response, <code>source</code> tells you whether the icon came from the site itself (<code>html</code>, <code>manifest</code> or <code>direct</code>) or from a fallback (<code>google_s2</code> or <code>duckduckgo</code>). <code>nativeWidth</code> and <code>nativeHeight</code> are the source pixels (<code>null</code> for SVG). Omit <code>size</code> for the original file.</li>
                 <li><strong class="text-gray-900">Need a logo, not an icon?</strong> A favicon is designed to be tiny. For print or marketing work, use the company's official press kit or brand page instead.</li>
             </ul>
 
@@ -1110,6 +1112,6 @@ with open("icon.png", "wb") as f:
         <span id="toast-message" data-en="Copied!" data-zh="已复制！">Copied!</span>
     </div>
 
-    <script src="main.js?v=20261012a"></script>
+    <script src="main.js?v=20261020a"></script>
 
 </body></html>

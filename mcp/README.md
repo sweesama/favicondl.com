@@ -34,9 +34,9 @@ Point your client at `mcp/server.mjs` using its absolute path on your machine. E
 The tool accepts:
 
 - `url`: a domain or full HTTP(S) URL
-- `size`: an optional preferred size from 16 to 512
+- `size`: optional exact output size from 16 to 512 (for example 16, 32, 64, 128, 256 or 512). Omit it for the original file. A raster smaller than `size` is upscaled and may look soft.
 
-The result contains `ok`, `domain`, `size`, `iconUrl`, `proxyUrl`, and `source`.
+The result contains `ok`, `domain`, `size`, `iconUrl`, `proxyUrl`, and `source`, plus `nativeWidth`, `nativeHeight`, `outputWidth`, `outputHeight`, and `upscaled` when a size was requested. `proxyUrl` is the exact square PNG in that case. `iconUrl` stays the original file.
 
 On Windows, use a path such as `C:/path/to/favicondl.com/mcp/server.mjs`.
 

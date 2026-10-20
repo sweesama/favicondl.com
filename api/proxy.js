@@ -7,6 +7,7 @@
 // are served with a sandboxing CSP so they cannot run script on our origin.
 
 const { safeFetch, sniffImage, ACCEPT_IMAGE, MAX_ICON_BYTES } = require('./_lib/extractor');
+const { parseRequestedSize, resizeIcon, setFaviconSizeHeaders, nativeSizeLabel } = require('./_lib/resize');
 
 module.exports = async function handler(req, res) {
   res.setHeader('access-control-allow-origin', '*');
@@ -22,7 +23,9 @@ module.exports = async function handler(req, res) {
 
   const { searchParams } = new URL(req.url, 'https://favicondl.com');
   const target = searchParams.get('url');
+  const requested = parseRequestedSize(searchParams.get('size'));
   if (!target) return res.status(400).json({ ok: false, error: 'Missing url' });
+  if (requested === null) return res.status(400).json({ ok: false, error: 'Invalid size' });
 
   let targetUrl;
   try {
@@ -59,10 +62,40 @@ module.exports = async function handler(req, res) {
     return res.status(415).json({ ok: false, error: 'Target is not an image' });
   }
 
+  res.setHeader('x-content-type-options', 'nosniff');
+
+  if (requested) {
+    let png;
+    try {
+      png = await resizeIcon(upstream.body, img, requested);
+    } catch {
+      return res.status(502).json({ ok: false, error: 'Could not resize image' });
+    }
+    res.setHeader('cache-control', 'public, max-age=86400, s-maxage=604800, stale-while-revalidate=604800');
+    const upscaled = !img.vector
+      && img.format !== 'svg'
+      && img.width > 0
+      && img.height > 0
+      && Math.max(img.width, img.height) < requested;
+    setFaviconSizeHeaders(res, {
+      format: img.format,
+      vector: !!img.vector,
+      width: img.width,
+      height: img.height,
+      upscaled,
+      resized: true,
+      outputWidth: requested,
+    });
+    res.setHeader('content-type', 'image/png');
+    res.setHeader('content-length', String(png.length));
+    return res.status(200).send(png);
+  }
+
+  res.setHeader('cache-control', 'public, max-age=86400, s-maxage=604800, stale-while-revalidate=604800');
+  res.setHeader('x-favicon-native-size', nativeSizeLabel(img));
+  res.setHeader('x-favicon-upscaled', '0');
   res.setHeader('content-type', img.mime);
   res.setHeader('content-length', String(upstream.body.length));
-  res.setHeader('x-content-type-options', 'nosniff');
-  res.setHeader('cache-control', 'public, max-age=86400, s-maxage=604800, stale-while-revalidate=604800');
   if (img.format === 'svg') {
     res.setHeader('content-security-policy', "default-src 'none'; style-src 'unsafe-inline'; img-src data:; sandbox");
   }

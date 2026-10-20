@@ -390,22 +390,29 @@
 
             <!-- Main Content -->
             <div class="lg:col-span-3">
-                <section id="quick-start" class="mb-12">
+<section id="quick-start" class="mb-12">
                     <div class="bg-white rounded-lg shadow-sm p-8 text-gray-600">
                         <h2 class="text-2xl font-bold text-gray-900 mb-6">快速开始</h2>
-                        <p class="mb-4">favicondl 的 favicon API 只需一个 GET 请求，就能把任意域名或网址转换成它的 favicon。不需要 API key，不需要账号，也不需要 SDK。可以直接写进 <code>&lt;img&gt;</code> 标签：</p>
+                        <p class="mb-4">favicondl 的 favicon API 只需一个 GET 请求，就能把任意域名或网址转换成它的 favicon。不需要 API key，不需要账号，也不需要 SDK。传入 <code>size</code>（16–512，常用 16、32、64、128、256、512）会得到恰好该边长的正方形 PNG：</p>
                         <div class="code-block mb-6">
-                            <pre class="p-4 text-sm"><code class="language-html">&lt;img src="https://favicondl.com/api/extract?url=github.com" width="32" height="32" alt="GitHub 的 favicon"&gt;</code></pre>
+                            <pre class="p-4 text-sm"><code class="language-html">&lt;img src="https://favicondl.com/api/extract?url=github.com&amp;size=32" width="32" height="32" alt="GitHub 的 favicon"&gt;</code></pre>
                         </div>
+                        <p class="mb-4">省略 <code>size</code> 则返回原始文件。比请求更小的位图会被放大，可能发虚。SVG 会按请求尺寸栅格化。图片响应上的 <code>X-Favicon-Native-Size</code> 和 <code>X-Favicon-Upscaled</code> 会说明是否放大过。</p>
                         <p class="mb-4">也可以请求 JSON，查看找到了哪个文件、来自哪里：</p>
                         <div class="code-block mb-4">
-                            <pre class="p-4 text-sm"><code class="language-bash">curl "https://favicondl.com/api/extract?url=github.com&amp;format=json"</code></pre>
+                            <pre class="p-4 text-sm"><code class="language-bash">curl "https://favicondl.com/api/extract?url=github.com&amp;format=json"
+curl "https://favicondl.com/api/extract?url=github.com&amp;size=32&amp;format=json"</code></pre>
                         </div>
                         <div class="code-block mb-6">
                             <pre class="p-4 text-sm"><code class="language-json">{
   "ok": true,
   "domain": "github.com",
-  "size": 128,
+  "size": null,
+  "resized": false,
+  "upscaled": false,
+  "vector": true,
+  "nativeWidth": null,
+  "nativeHeight": null,
   "iconUrl": "https://github.githubassets.com/favicons/favicon.svg",
   "proxyUrl": "https://favicondl.com/api/proxy?url=https%3A%2F%2Fgithub.githubassets.com%2Ffavicons%2Ffavicon.svg",
   "source": "html",
@@ -421,12 +428,12 @@
   ]
 }</code></pre>
                         </div>
-                        <p class="mb-4"><code>iconUrl</code> 是网站上的原始文件。<code>proxyUrl</code> 通过我们的代理返回同一张图片，并带有 <code>Access-Control-Allow-Origin: *</code>，所以你可以把它画到 canvas 上，或在浏览器端代码里直接 fetch。</p>
-                        <p><code>format</code>、<code>width</code> 和 <code>height</code> 描述的是我们实测的所选文件（SVG 的 <code>width</code>/<code>height</code> 为 <code>null</code>）。<code>candidates</code> 列出同一网站最多 8 个其他经过验证的图标（不同尺寸和格式），方便你换一个用；上面的示例做了删减。如果最终退回到了 Google 或 DuckDuckGo，这个列表为空。</p>
+                        <p class="mb-4"><code>iconUrl</code> 是网站上的原始文件。<code>proxyUrl</code> 才是要下载的图片：省略 <code>size</code> 时是原始文件，设置了 <code>size</code>（例如 <code>&amp;size=32</code>）时是恰好该尺寸的正方形 PNG。响应带有 <code>Access-Control-Allow-Origin: *</code>。</p>
+                        <p><code>width</code> 和 <code>height</code> 是实测的源图（SVG 为 <code>null</code>）。设置了 <code>size</code> 时，<code>outputWidth</code> 与 <code>outputHeight</code> 等于该值，<code>nativeWidth</code> / <code>nativeHeight</code> 是源图像素，只有位图被放大时 <code>upscaled</code> 才为 true，这时 PNG 可能发虚。<code>candidates</code> 最多列出 8 个其他已验证图标。退回到 Google 或 DuckDuckGo 时列表为空。</p>
                     </div>
                 </section>
 
-                <section id="how-it-works" class="mb-12">
+<section id="how-it-works" class="mb-12">
                     <div class="bg-white rounded-lg shadow-sm p-8 text-gray-600">
                         <h2 class="text-2xl font-bold text-gray-900 mb-6">API 如何选出图标</h2>
                         <ol class="list-decimal pl-5 space-y-3 mb-4">
@@ -436,12 +443,12 @@
                             <li><strong class="text-gray-900">每个候选都会被下载并检查</strong>：内容必须真的是图片（PNG、ICO、SVG、WebP、JPEG、GIF 等），并且会测量它的真实像素尺寸，而不是相信文件名。</li>
                             <li><strong class="text-gray-900">Google 的 favicon 服务，其次是 DuckDuckGo</strong>，只有在网站本身的图标都不可用时才会使用，并按你请求的 <code>size</code> 获取（<code>source: "google_s2"</code> 或 <code>"duckduckgo"</code>）。</li>
                         </ol>
-                        <p class="mb-4">通过验证的候选会按清晰度排序：全彩 SVG 优先，其次是尺寸最大的正方形 PNG/ICO/WebP。Safari 的单色 <code>mask-icon</code> 和只标注为 <code>maskable</code> 的 manifest 图标排位较低，因为它们看起来和普通的 favicon 不一样。从网站上找到的图标按原始尺寸返回；<code>size</code> 参数只影响备用来源。</p>
-                        <p>如果拿到的是 <code>google_s2</code>，说明这个网站要么没有我们能访问到的图标，要么拦截了我们的请求（比如返回了人机验证页面）。如果只查一个网站，首页上的 <a href="/zh/" class="text-blue-600 hover:underline">favicon 下载器</a>还会直接从你的浏览器尝试几个额外来源，并列出找到的所有尺寸供你选择。</p>
+                        <p class="mb-4">通过验证的候选会按清晰度排序：全彩 SVG 优先，其次是尺寸最大的正方形 PNG/ICO/WebP。Safari 的单色 <code>mask-icon</code> 和只标注为 <code>maskable</code> 的 manifest 图标排位较低，因为它们看起来和普通的 favicon 不一样。选出的源图会再缩放到请求的 <code>size</code>（16–512，例如 32）。省略 <code>size</code> 则保留原始文件。缩小用 Lanczos，放大用高质量重采样，非正方形用透明边补齐，SVG 按请求尺寸栅格化。放大后的位图可能发虚，响应里不会把它说成清晰的原图。</p>
+                        <p>如果拿到的是 <code>google_s2</code>，说明这个网站要么没有我们能访问到的图标，要么拦截了我们的请求（比如返回了人机验证页面）。如果只查一个网站，首页上的 <a href="/" class="text-blue-600 hover:underline">favicon 下载器</a>还会直接从你的浏览器尝试几个额外来源，并列出找到的所有尺寸供你选择。</p>
                     </div>
                 </section>
 
-                <section id="comparison" class="mb-12">
+<section id="comparison" class="mb-12">
                     <div class="bg-white rounded-lg shadow-sm p-8 text-gray-600">
                         <h2 class="text-2xl font-bold text-gray-900 mb-6">Favicon API 对比：favicondl、Google S2、DuckDuckGo 与 Icon Horse</h2>
                         <p class="mb-4">这四个服务都可以免费开始用，也都不需要 API key。区别在于它们返回的内容：</p>
@@ -454,8 +461,8 @@
                                     <tr><td>接口地址</td><td><code>/api/extract?url=example.com</code></td><td><code>google.com/s2/favicons?domain=example.com&amp;sz=64</code></td><td><code>icons.duckduckgo.com/ip3/example.com.ico</code></td><td><code>icon.horse/icon/example.com</code></td></tr>
                                     <tr><td>API key</td><td>不需要</td><td>不需要</td><td>不需要</td><td>不需要（免费套餐）</td></tr>
                                     <tr><td>公开的免费额度</td><td>无（合理使用）</td><td>未公开</td><td>未公开</td><td>免费套餐每月 1,000 个图标</td></tr>
-                                    <tr><td>尺寸参数</td><td><code>size</code>（16–512，用于 Google 备用来源）</td><td><code>sz</code></td><td>无</td><td>文档未说明</td></tr>
-                                    <tr><td>返回内容</td><td>找到时返回网站的原始文件（SVG、PNG、ICO 等）</td><td>PNG 或 JPEG（实测）</td><td>ICO（实测）</td><td>PNG（实测）</td></tr>
+                                    <tr><td>尺寸参数</td><td><code>size</code> 16–512（例如 16、32、64、256、512）。省略则返回原始文件。</td><td><code>sz</code></td><td>无</td><td>文档未说明</td></tr>
+                                    <tr><td>返回内容</td><td>设置 <code>size</code> 时为恰好该尺寸的正方形 PNG；否则为原始文件（SVG、PNG、ICO 等）</td><td>PNG 或 JPEG（实测）</td><td>ICO（实测）</td><td>PNG（实测）</td></tr>
                                     <tr><td>JSON 元数据</td><td>有（<code>format=json</code>：图标地址、来源、格式、实测像素尺寸，以及最多 8 个备选图标）</td><td>无</td><td>无</td><td>无</td></tr>
                                     <tr><td>我们测试 github.com 的结果</td><td>favicon.svg（矢量图）</td><td>sz=16 时为 16×16 PNG，sz=256 时为 180×180</td><td>含 16×16 和 32×32 的 ICO</td><td>256×256 PNG</td></tr>
                                 </tbody>
@@ -569,8 +576,8 @@
                                     <td><code>size</code></td>
                                     <td>number</td>
                                     <td>否</td>
-                                    <td>128</td>
-                                    <td>回退尺寸（16–512 像素）。仅在回退到 Google favicon 服务时使用；从网站本身找到的图标按原始尺寸返回。</td>
+                                    <td>无（原始文件）</td>
+                                    <td>精确输出尺寸（16–512 像素，例如 16、32、64、128、256、512），返回恰好该边长的正方形 PNG。超出范围会夹到 16–512。省略 size 则返回原始文件。更小的位图会被放大，可能发虚；SVG 按请求尺寸栅格化。</td>
                                 </tr>
                                 <tr>
                                     <td><code>format</code></td>
@@ -599,11 +606,13 @@
 
                                 <div class="border-l-4 border-green-500 pl-4">
                                     <h5 class="font-medium">尺寸</h5>
-                                    <p class="text-gray-600 text-sm">Google favicon 服务的回退尺寸，范围 16 到 512 像素：</p>
+                                    <p class="text-gray-600 text-sm">16 到 512 像素的精确正方形 PNG。省略则返回原始文件。常用值：</p>
                                     <ul class="text-sm text-gray-600 mt-1 space-y-1">
                                         <li>• <code>16</code> - 16x16</li>
                                         <li>• <code>32</code> - 32x32</li>
+                                        <li>• <code>64</code> - 64x64</li>
                                         <li>• <code>128</code> - 128x128</li>
+                                        <li>• <code>256</code> - 256x256</li>
                                         <li>• <code>512</code> - 512x512</li>
                                     </ul>
                                 </div>
@@ -626,9 +635,17 @@
                             <pre class="p-4 text-sm"><code id="success-response" class="language-json">{
   "ok": true,
   "domain": "example.com",
-  "size": 128,
+  "size": 32,
+  "resized": true,
+  "outputFormat": "png",
+  "outputWidth": 32,
+  "outputHeight": 32,
+  "upscaled": false,
+  "nativeWidth": null,
+  "nativeHeight": null,
+  "vector": true,
   "iconUrl": "https://example.com/favicon.svg",
-  "proxyUrl": "https://favicondl.com/api/proxy?url=...",
+  "proxyUrl": "https://favicondl.com/api/proxy?url=...&size=32",
   "source": "html",
   "rel": "icon",
   "format": "svg",
@@ -749,11 +766,11 @@ file_put_contents('example-favicon', getFavicon('example.com', 128));
                                     <span class="text-gray-300 text-sm">HTML</span>
                                     <button class="copy-button" onclick="copyCode('html-example')">复制代码</button>
                                 </div>
-                                <pre class="p-4 text-sm"><code id="html-example" class="language-html">&lt;!-- Show a site icon next to a link --&gt;
-&lt;img src="https://favicondl.com/api/extract?url=example.com" alt="example.com favicon" width="32" height="32"&gt;
+                                <pre class="p-4 text-sm"><code id="html-example" class="language-html">&lt;!-- Exact 32×32 PNG. Also valid: 16, 64, 128, 256, 512 (clamped to 16–512). --&gt;
+&lt;img src="https://favicondl.com/api/extract?url=example.com&amp;size=32" alt="example.com favicon" width="32" height="32"&gt;
 
-&lt;!-- Larger Google fallback size, if the site has no icon of its own --&gt;
-&lt;img src="https://favicondl.com/api/extract?url=example.com&amp;size=128" alt="example.com favicon" width="128" height="128"&gt;</code></pre>
+&lt;!-- Omit size for the original file. Small rasters requested above native size may look soft. --&gt;
+&lt;img src="https://favicondl.com/api/extract?url=example.com" alt="example.com favicon"&gt;</code></pre>
                             </div>
                         </div>
                     </div>

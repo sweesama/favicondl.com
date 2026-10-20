@@ -3,7 +3,7 @@
             <h2 id="how-to" class="text-2xl font-semibold text-gray-900 mb-6">모든 웹사이트의 파비콘을 다운로드하는 방법</h2>
             <ol class="space-y-4 list-decimal pl-5">
                 <li><strong class="text-gray-900">도메인이나 URL을 입력합니다.</strong> 이 페이지 맨 위 입력란에 <code>github.com</code> 같은 도메인을 입력하거나 페이지 주소를 그대로 붙여 넣으세요. <code>https://</code>와 <code>www.</code>는 생략해도 됩니다.</li>
-                <li><strong class="text-gray-900">크기를 고릅니다.</strong> 16, 32, 48, 64, 128 px 중에서 선택할 수 있습니다. 미리보기에는 찾은 아이콘 중 가장 좋은 것이 항상 표시됩니다. <em>선택한 크기로 내보내기</em>는 기본으로 켜져 있으며 PNG를 선택한 크기에 정확히 맞춥니다. 끄면 원본 해상도 그대로 저장됩니다.</li>
+                <li><strong class="text-gray-900">크기를 고릅니다.</strong> 16, 32, 48, 64, 128 px 중에서 선택할 수 있습니다. 미리보기에는 찾은 아이콘 중 가장 좋은 것이 표시되고, 그 원본 크기도 함께 나옵니다. <em>선택한 크기로 내보내기</em>는 기본으로 켜져 있으며 PNG를 선택한 크기에 정확히 맞춥니다. 끄면 원본 해상도 그대로 저장됩니다. 고른 32나 64 등이 사이트가 올린 아이콘보다 크면, 확대되어 흐려 보일 수 있다는 짧은 안내가 나옵니다.</li>
                 <li><strong class="text-gray-900">다운로드하거나 복사합니다.</strong> <em>다운로드</em>를 누르면 PNG로 저장되고, 바로 쓸 수 있는 <code>&lt;link&gt;</code> HTML 태그나 원본 파일의 직접 URL을 복사할 수도 있습니다.</li>
             </ol>
             <p class="mt-4">이게 전부입니다. 계정도, 브라우저 확장 프로그램도, 업로드도 필요 없습니다. PNG가 아닌 원본 <code>.ico</code>나 <code>.svg</code> 파일이 필요하다면 결과에 표시되는 직접 URL을 열어 저장하세요.</p>
@@ -31,8 +31,8 @@
             <p class="mb-4">추출기는 찾은 아이콘의 순위를 매겨 가장 선명한 것을 먼저 돌려줍니다. 확대해도 깨지지 않는 풀컬러 SVG가 1순위입니다. 그다음은 실제로 측정한 크기가 가장 큰 정사각형 이미지로, 보통 512px나 192px 매니페스트 아이콘 또는 180px Apple touch icon입니다. 전통적인 ICO 파일은 너비가 16~32픽셀에 불과한 경우가 많아 대개 마지막입니다. Safari의 단색 mask 아이콘도 낮은 순위입니다. 찾은 다른 크기도 함께 보여 주므로 다른 것을 골라도 됩니다.</p>
             <ul class="space-y-2 list-disc pl-5">
                 <li><strong class="text-gray-900">원본 크기를 유지하세요.</strong> <em>선택한 크기로 내보내기</em>를 끄면 다운로드한 PNG가 원본 파일의 해상도를 그대로 유지합니다.</li>
-                <li><strong class="text-gray-900">작은 아이콘은 확대하지 마세요.</strong> 16px ICO를 128px로 늘리면 더 흐려질 뿐입니다. 사이트가 더 큰 아이콘을 제공하지 않는다면 그 작은 파일이 실제로 구할 수 있는 최선입니다.</li>
-                <li><strong class="text-gray-900">아이콘 출처를 확인하세요.</strong> API의 JSON 응답에서 <code>source</code>를 보면 아이콘이 사이트 자체(<code>direct</code> 또는 <code>html</code>)에서 왔는지, 보통 해상도가 낮은 Google 대체 서비스(<code>google_s2</code>)에서 왔는지 알 수 있습니다.</li>
+                <li><strong class="text-gray-900">확대하면 흐려 보일 수 있습니다.</strong> 16px 아이콘을 32px나 128px로 키워도 디테일은 늘지 않습니다. 내보내기 크기가 원본보다 크면 미리보기가 알려 줍니다. API의 <code>size</code>는 그 크기의 정사각형(16, 32, 64, 128, 256, 512)을 그대로 반환하고, 래스터를 키운 경우 <code>upscaled</code>가 true입니다.</li>
+                <li><strong class="text-gray-900">아이콘 출처를 확인하세요.</strong> API JSON의 <code>source</code>는 아이콘이 사이트 자체(<code>html</code>, <code>manifest</code>, <code>direct</code>)에서 왔는지, 대체 서비스(<code>google_s2</code> 또는 <code>duckduckgo</code>)에서 왔는지 알려 줍니다. <code>nativeWidth</code>와 <code>nativeHeight</code>는 원본 픽셀이며 SVG는 <code>null</code>입니다. <code>size</code>를 생략하면 원본 파일입니다.</li>
                 <li><strong class="text-gray-900">아이콘이 아니라 로고가 필요하신가요?</strong> 파비콘은 원래 아주 작게 보이도록 만든 것입니다. 인쇄물이나 마케팅에는 해당 회사의 공식 보도 자료 키트나 브랜드 페이지를 이용하세요.</li>
             </ul>
 

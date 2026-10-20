@@ -8,7 +8,7 @@
                             <li><strong class="text-gray-900">每个候选都会被下载并检查</strong>：内容必须真的是图片（PNG、ICO、SVG、WebP、JPEG、GIF 等），并且会测量它的真实像素尺寸，而不是相信文件名。</li>
                             <li><strong class="text-gray-900">Google 的 favicon 服务，其次是 DuckDuckGo</strong>，只有在网站本身的图标都不可用时才会使用，并按你请求的 <code>size</code> 获取（<code>source: "google_s2"</code> 或 <code>"duckduckgo"</code>）。</li>
                         </ol>
-                        <p class="mb-4">通过验证的候选会按清晰度排序：全彩 SVG 优先，其次是尺寸最大的正方形 PNG/ICO/WebP。Safari 的单色 <code>mask-icon</code> 和只标注为 <code>maskable</code> 的 manifest 图标排位较低，因为它们看起来和普通的 favicon 不一样。从网站上找到的图标按原始尺寸返回；<code>size</code> 参数只影响备用来源。</p>
+                        <p class="mb-4">通过验证的候选会按清晰度排序：全彩 SVG 优先，其次是尺寸最大的正方形 PNG/ICO/WebP。Safari 的单色 <code>mask-icon</code> 和只标注为 <code>maskable</code> 的 manifest 图标排位较低，因为它们看起来和普通的 favicon 不一样。选出的源图会再缩放到请求的 <code>size</code>（16–512，例如 32）。省略 <code>size</code> 则保留原始文件。缩小用 Lanczos，放大用高质量重采样，非正方形用透明边补齐，SVG 按请求尺寸栅格化。放大后的位图可能发虚，响应里不会把它说成清晰的原图。</p>
                         <p>如果拿到的是 <code>google_s2</code>，说明这个网站要么没有我们能访问到的图标，要么拦截了我们的请求（比如返回了人机验证页面）。如果只查一个网站，首页上的 <a href="/" class="text-blue-600 hover:underline">favicon 下载器</a>还会直接从你的浏览器尝试几个额外来源，并列出找到的所有尺寸供你选择。</p>
                     </div>
                 </section>

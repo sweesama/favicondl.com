@@ -1,19 +1,26 @@
 <section id="quick-start" class="mb-12">
                     <div class="bg-white rounded-lg shadow-sm p-8 text-gray-600">
                         <h2 class="text-2xl font-bold text-gray-900 mb-6">Inicio rápido</h2>
-                        <p class="mb-4">La API de favicons de favicondl convierte cualquier dominio o URL en su favicon con una sola petición GET. Sin clave de API, sin cuenta y sin SDK. Úsala directamente en una etiqueta <code>&lt;img&gt;</code>:</p>
+                        <p class="mb-4">La API de favicons de favicondl convierte cualquier dominio o URL en su favicon con una sola petición GET. Sin clave de API, sin cuenta y sin SDK. Pasa <code>size</code> (16–512; lo habitual es 16, 32, 64, 128, 256 y 512) para obtener un PNG cuadrado de exactamente ese tamaño:</p>
                         <div class="code-block mb-6">
-                            <pre class="p-4 text-sm"><code class="language-html">&lt;img src="https://favicondl.com/api/extract?url=github.com" width="32" height="32" alt="Favicon de GitHub"&gt;</code></pre>
+                            <pre class="p-4 text-sm"><code class="language-html">&lt;img src="https://favicondl.com/api/extract?url=github.com&amp;size=32" width="32" height="32" alt="Favicon de GitHub"&gt;</code></pre>
                         </div>
+                        <p class="mb-4">Omite <code>size</code> para recibir el archivo original. Un raster más pequeño se amplía y puede verse borroso. Un SVG se rasteriza al tamaño pedido. Las cabeceras <code>X-Favicon-Native-Size</code> y <code>X-Favicon-Upscaled</code> de la imagen indican cuándo ocurrió.</p>
                         <p class="mb-4">O pide JSON para ver qué archivo se encontró y de dónde procede:</p>
                         <div class="code-block mb-4">
-                            <pre class="p-4 text-sm"><code class="language-bash">curl "https://favicondl.com/api/extract?url=github.com&amp;format=json"</code></pre>
+                            <pre class="p-4 text-sm"><code class="language-bash">curl "https://favicondl.com/api/extract?url=github.com&amp;format=json"
+curl "https://favicondl.com/api/extract?url=github.com&amp;size=32&amp;format=json"</code></pre>
                         </div>
                         <div class="code-block mb-6">
                             <pre class="p-4 text-sm"><code class="language-json">{
   "ok": true,
   "domain": "github.com",
-  "size": 128,
+  "size": null,
+  "resized": false,
+  "upscaled": false,
+  "vector": true,
+  "nativeWidth": null,
+  "nativeHeight": null,
   "iconUrl": "https://github.githubassets.com/favicons/favicon.svg",
   "proxyUrl": "https://favicondl.com/api/proxy?url=https%3A%2F%2Fgithub.githubassets.com%2Ffavicons%2Ffavicon.svg",
   "source": "html",
@@ -29,7 +36,7 @@
   ]
 }</code></pre>
                         </div>
-                        <p class="mb-4"><code>iconUrl</code> es el archivo original del sitio web. <code>proxyUrl</code> sirve la misma imagen a través de nuestro proxy con <code>Access-Control-Allow-Origin: *</code>, para que puedas dibujarla en un canvas o pedirla con fetch desde el navegador.</p>
-                        <p><code>format</code>, <code>width</code> y <code>height</code> describen el archivo elegido tal como lo medimos (<code>width</code>/<code>height</code> son <code>null</code> en los SVG). <code>candidates</code> enumera hasta 8 iconos verificados más del mismo sitio (otros tamaños y formatos) para que puedas elegir otro; la lista de arriba está recortada. Queda vacía cuando hemos tenido que recurrir a Google o DuckDuckGo.</p>
+                        <p class="mb-4"><code>iconUrl</code> es el archivo original del sitio. <code>proxyUrl</code> es la imagen que hay que descargar: el archivo original si omites <code>size</code>, o un PNG cuadrado exacto (por ejemplo <code>&amp;size=32</code>) si lo indicas. Incluye <code>Access-Control-Allow-Origin: *</code>.</p>
+                        <p><code>width</code> y <code>height</code> son el origen medido (<code>null</code> en SVG). Con <code>size</code>, <code>outputWidth</code> y <code>outputHeight</code> coinciden con él, <code>nativeWidth</code> / <code>nativeHeight</code> son los píxeles de origen, y <code>upscaled</code> es true solo cuando un raster se amplió: ese PNG puede verse borroso. <code>candidates</code> lista hasta 8 iconos verificados más. Queda vacío si hubo que recurrir a Google o DuckDuckGo.</p>
                     </div>
                 </section>

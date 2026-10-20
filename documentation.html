@@ -395,19 +395,26 @@
                     <!-- Translations live in i18n/blocks/<lang>/api-*.html -->
                     <div class="bg-white rounded-lg shadow-sm p-8 text-gray-600">
                         <h2 class="text-2xl font-bold text-gray-900 mb-6">Quick start</h2>
-                        <p class="mb-4">The favicondl favicon API turns any domain or URL into its favicon with a single GET request. There is no API key, no account and no SDK. Use it straight in an <code>&lt;img&gt;</code> tag:</p>
+                        <p class="mb-4">The favicondl favicon API turns any domain or URL into its favicon with a single GET request. There is no API key, no account and no SDK. Pass <code>size</code> (16–512; 16, 32, 64, 128, 256 and 512 are typical) to get a square PNG of exactly that size:</p>
                         <div class="code-block mb-6">
-                            <pre class="p-4 text-sm"><code class="language-html">&lt;img src="https://favicondl.com/api/extract?url=github.com" width="32" height="32" alt="GitHub favicon"&gt;</code></pre>
+                            <pre class="p-4 text-sm"><code class="language-html">&lt;img src="https://favicondl.com/api/extract?url=github.com&amp;size=32" width="32" height="32" alt="GitHub favicon"&gt;</code></pre>
                         </div>
+                        <p class="mb-4">Omit <code>size</code> to receive the original file. A raster smaller than the requested size is upscaled and may look soft. SVG is rasterized at the requested size. <code>X-Favicon-Native-Size</code> and <code>X-Favicon-Upscaled</code> on the image response say when that happened.</p>
                         <p class="mb-4">Or ask for JSON to see which file was found and where it came from:</p>
                         <div class="code-block mb-4">
-                            <pre class="p-4 text-sm"><code class="language-bash">curl "https://favicondl.com/api/extract?url=github.com&amp;format=json"</code></pre>
+                            <pre class="p-4 text-sm"><code class="language-bash">curl "https://favicondl.com/api/extract?url=github.com&amp;format=json"
+curl "https://favicondl.com/api/extract?url=github.com&amp;size=32&amp;format=json"</code></pre>
                         </div>
                         <div class="code-block mb-6">
                             <pre class="p-4 text-sm"><code class="language-json">{
   "ok": true,
   "domain": "github.com",
-  "size": 128,
+  "size": null,
+  "resized": false,
+  "upscaled": false,
+  "vector": true,
+  "nativeWidth": null,
+  "nativeHeight": null,
   "iconUrl": "https://github.githubassets.com/favicons/favicon.svg",
   "proxyUrl": "https://favicondl.com/api/proxy?url=https%3A%2F%2Fgithub.githubassets.com%2Ffavicons%2Ffavicon.svg",
   "source": "html",
@@ -423,8 +430,8 @@
   ]
 }</code></pre>
                         </div>
-                        <p class="mb-4"><code>iconUrl</code> is the original file on the website. <code>proxyUrl</code> serves the same image through our proxy with <code>Access-Control-Allow-Origin: *</code>, so you can draw it on a canvas or fetch it from browser code.</p>
-                        <p><code>format</code>, <code>width</code> and <code>height</code> describe the chosen file as we measured it (<code>width</code>/<code>height</code> are <code>null</code> for SVG). <code>candidates</code> lists up to 8 other verified icons from the same site (different sizes and formats) so you can pick another one; the list above is shortened. It is empty when we had to fall back to Google or DuckDuckGo.</p>
+                        <p class="mb-4"><code>iconUrl</code> is the original file on the website. <code>proxyUrl</code> is the image to download: the original file when <code>size</code> is omitted, or an exact square PNG (<code>&amp;size=32</code> and so on) when <code>size</code> is set. It sends <code>Access-Control-Allow-Origin: *</code>.</p>
+                        <p><code>width</code> and <code>height</code> are the measured source (<code>null</code> for SVG). When <code>size</code> is set, <code>outputWidth</code> and <code>outputHeight</code> match it, <code>nativeWidth</code> / <code>nativeHeight</code> are the source pixels, and <code>upscaled</code> is true only when a raster was enlarged — that PNG may look soft. <code>candidates</code> lists up to 8 other verified icons. It is empty when we had to fall back to Google or DuckDuckGo.</p>
                     </div>
                 </section>
 
@@ -438,7 +445,7 @@
                             <li><strong class="text-gray-900">Every candidate is downloaded and checked</strong>: the bytes must really be an image (PNG, ICO, SVG, WebP, JPEG, GIF …), and we measure its real pixel size instead of trusting the file name.</li>
                             <li><strong class="text-gray-900">Google's favicon service, then DuckDuckGo,</strong> are used only if nothing on the site works, at the <code>size</code> you request (<code>source: "google_s2"</code> or <code>"duckduckgo"</code>).</li>
                         </ol>
-                        <p class="mb-4">The verified candidates are ranked so the sharpest file wins: a full-colour SVG first, then the largest square PNG/ICO/WebP. Safari's single-colour <code>mask-icon</code> and manifest icons marked only as <code>maskable</code> are ranked lower because they do not look like the normal favicon. Icons found on the website are returned at their original size; the <code>size</code> parameter only affects the fallbacks.</p>
+                        <p class="mb-4">The verified candidates are ranked so the largest sharp source wins: a full-colour SVG first, then the largest square PNG/ICO/WebP. Safari's single-colour <code>mask-icon</code> and manifest icons marked only as <code>maskable</code> are ranked lower because they do not look like the normal favicon. That source is then resized to the requested <code>size</code> (16–512, for example 32). Omit <code>size</code> to keep the original file. Downscales use Lanczos, upscales use high-quality resampling, non-square icons are padded with transparency, and SVG is rasterized at the requested size. An upscaled raster may look soft; the response never describes it as a sharp original.</p>
                         <p>If you get <code>google_s2</code>, the site either has no icon we could reach or blocked our request (for example a bot challenge page). For a single site, the <a href="/" class="text-blue-600 hover:underline">favicon downloader</a> on our homepage also tries a few extra sources directly from your browser and shows every size it found so you can pick one.</p>
                     </div>
                 </section>
@@ -456,8 +463,8 @@
                                     <tr><td>Endpoint</td><td><code>/api/extract?url=example.com</code></td><td><code>google.com/s2/favicons?domain=example.com&amp;sz=64</code></td><td><code>icons.duckduckgo.com/ip3/example.com.ico</code></td><td><code>icon.horse/icon/example.com</code></td></tr>
                                     <tr><td>API key</td><td>No</td><td>No</td><td>No</td><td>No (free plan)</td></tr>
                                     <tr><td>Published free quota</td><td>None (fair use)</td><td>None published</td><td>None published</td><td>1,000 icons/month on the free plan</td></tr>
-                                    <tr><td>Size parameter</td><td><code>size</code> (16–512, for the Google fallback)</td><td><code>sz</code></td><td>No</td><td>Not documented</td></tr>
-                                    <tr><td>What you get back</td><td>The site's original file (SVG, PNG, ICO …) when found</td><td>PNG or JPEG (observed)</td><td>ICO (observed)</td><td>PNG (observed)</td></tr>
+                                    <tr><td>Size parameter</td><td><code>size</code> 16–512 (for example 16, 32, 64, 256, 512). Omit it for the original file.</td><td><code>sz</code></td><td>No</td><td>Not documented</td></tr>
+                                    <tr><td>What you get back</td><td>An exact square PNG when <code>size</code> is set; otherwise the original file (SVG, PNG, ICO …)</td><td>PNG or JPEG (observed)</td><td>ICO (observed)</td><td>PNG (observed)</td></tr>
                                     <tr><td>JSON metadata</td><td>Yes (<code>format=json</code>: icon URL, source, format, measured pixel size and up to 8 alternative icons)</td><td>No</td><td>No</td><td>No</td></tr>
                                     <tr><td>Result for github.com in our test</td><td>favicon.svg (vector)</td><td>16×16 PNG at sz=16, 180×180 at sz=256</td><td>ICO with 16×16 and 32×32</td><td>256×256 PNG</td></tr>
                                 </tbody>
@@ -579,8 +586,8 @@
                                     <td><code>size</code></td>
                                     <td>number</td>
                                     <td data-en="No" data-zh="否">No</td>
-                                    <td>128</td>
-                                    <td data-en="Fallback size in pixels (16–512). Only used when we fall back to Google's favicon service; icons found on the site itself are returned at their original size." data-zh="回退尺寸（16–512 像素）。仅在回退到 Google favicon 服务时使用；从网站本身找到的图标按原始尺寸返回。" data-ja="フォールバック時のサイズ（16〜512ピクセル）。Google のファビコンサービスにフォールバックする場合のみ使用され、サイト自体で見つかったアイコンは元のサイズのまま返されます。" data-ko="대체 크기(16–512픽셀). Google 파비콘 서비스로 대체할 때만 사용되며, 사이트 자체에서 찾은 아이콘은 원본 크기로 반환됩니다." data-es="Tamaño de respaldo en píxeles (16–512). Solo se usa cuando recurrimos al servicio de favicons de Google; los iconos encontrados en el propio sitio se devuelven en su tamaño original.">Fallback size in pixels (16–512). Only used when we fall back to Google's favicon service; icons found on the site itself are returned at their original size.</td>
+                                    <td data-en="none (original file)" data-zh="无（原始文件）" data-ja="なし（元のファイル）" data-ko="없음 (원본 파일)" data-es="ninguno (archivo original)">none (original file)</td>
+                                    <td data-en="Exact output size in pixels, from 16 to 512 (for example 16, 32, 64, 128, 256, 512). You get a square PNG of that size. Out-of-range values are clamped. Omit size for the original file. A smaller raster is upscaled and may look soft; SVG is rasterized at the requested size." data-zh="精确输出尺寸（16–512 像素，例如 16、32、64、128、256、512），返回恰好该边长的正方形 PNG。超出范围会夹到 16–512。省略 size 则返回原始文件。更小的位图会被放大，可能发虚；SVG 按请求尺寸栅格化。" data-ja="出力サイズ（16〜512。例: 16、32、64、128、256、512）。ちょうどその一辺の正方形 PNG を返します。範囲外は 16〜512 に収めます。size を省略すると元のファイルです。小さいラスタは拡大され、ぼやけることがあります。SVG は指定サイズでラスタライズします。" data-ko="정확한 출력 크기(16–512, 예: 16, 32, 64, 128, 256, 512). 그 한 변의 정사각형 PNG를 반환합니다. 범위 밖은 16–512로 맞춥니다. size를 생략하면 원본 파일입니다. 더 작은 래스터는 확대되어 흐려 보일 수 있고, SVG는 요청 크기로 래스터화합니다." data-es="Tamaño de salida exacto, de 16 a 512 (por ejemplo 16, 32, 64, 128, 256, 512). Devuelve un PNG cuadrado de ese lado. Los valores fuera de rango se ajustan a 16–512. Omite size para el archivo original. Un raster más pequeño se amplía y puede verse borroso; un SVG se rasteriza al tamaño pedido.">Exact output size in pixels, from 16 to 512 (for example 16, 32, 64, 128, 256, 512). You get a square PNG of that size. Out-of-range values are clamped. Omit size for the original file. A smaller raster is upscaled and may look soft; SVG is rasterized at the requested size.</td>
                                 </tr>
                                 <tr>
                                     <td><code>format</code></td>
@@ -610,11 +617,13 @@
 
                                 <div class="border-l-4 border-green-500 pl-4">
                                     <h5 class="font-medium" data-en="size" data-zh="尺寸">size</h5>
-                                    <p class="text-gray-600 text-sm" data-en="Fallback size for the Google favicon service, from 16 to 512 pixels:" data-zh="Google favicon 服务的回退尺寸，范围 16 到 512 像素：" data-ja="Google ファビコンサービス用のフォールバックサイズ（16〜512ピクセル）：" data-ko="Google 파비콘 서비스용 대체 크기, 16~512픽셀:" data-es="Tamaño de respaldo para el servicio de favicons de Google, de 16 a 512 píxeles:">Fallback size for the Google favicon service, from 16 to 512 pixels:</p>
+                                    <p class="text-gray-600 text-sm" data-en="Exact square PNG from 16 to 512 pixels. Omit it for the original file. Common values:" data-zh="16 到 512 像素的精确正方形 PNG。省略则返回原始文件。常用值：" data-ja="16〜512 ピクセルの正確な正方形 PNG。省略すると元のファイルです。よく使う値：" data-ko="16~512픽셀의 정확한 정사각형 PNG. 생략하면 원본 파일입니다. 자주 쓰는 값:" data-es="PNG cuadrado exacto de 16 a 512 píxeles. Omítelo para el archivo original. Valores habituales:">Exact square PNG from 16 to 512 pixels. Omit it for the original file. Common values:</p>
                                     <ul class="text-sm text-gray-600 mt-1 space-y-1">
                                         <li>• <code>16</code> - 16x16</li>
                                         <li>• <code>32</code> - 32x32</li>
+                                        <li>• <code>64</code> - 64x64</li>
                                         <li>• <code>128</code> - 128x128</li>
+                                        <li>• <code>256</code> - 256x256</li>
                                         <li>• <code>512</code> - 512x512</li>
                                     </ul>
                                 </div>
@@ -639,9 +648,17 @@
                             <pre class="p-4 text-sm"><code id="success-response" class="language-json">{
   "ok": true,
   "domain": "example.com",
-  "size": 128,
+  "size": 32,
+  "resized": true,
+  "outputFormat": "png",
+  "outputWidth": 32,
+  "outputHeight": 32,
+  "upscaled": false,
+  "nativeWidth": null,
+  "nativeHeight": null,
+  "vector": true,
   "iconUrl": "https://example.com/favicon.svg",
-  "proxyUrl": "https://favicondl.com/api/proxy?url=...",
+  "proxyUrl": "https://favicondl.com/api/proxy?url=...&size=32",
   "source": "html",
   "rel": "icon",
   "format": "svg",
@@ -769,11 +786,11 @@ file_put_contents('example-favicon', getFavicon('example.com', 128));
                                     <span class="text-gray-300 text-sm" data-en="HTML" data-zh="HTML">HTML</span>
                                     <button class="copy-button" onclick="copyCode('html-example')" data-en="Copy" data-zh="复制代码">Copy</button>
                                 </div>
-                                <pre class="p-4 text-sm"><code id="html-example" class="language-html">&lt;!-- Show a site icon next to a link --&gt;
-&lt;img src="https://favicondl.com/api/extract?url=example.com" alt="example.com favicon" width="32" height="32"&gt;
+                                <pre class="p-4 text-sm"><code id="html-example" class="language-html">&lt;!-- Exact 32×32 PNG. Also valid: 16, 64, 128, 256, 512 (clamped to 16–512). --&gt;
+&lt;img src="https://favicondl.com/api/extract?url=example.com&amp;size=32" alt="example.com favicon" width="32" height="32"&gt;
 
-&lt;!-- Larger Google fallback size, if the site has no icon of its own --&gt;
-&lt;img src="https://favicondl.com/api/extract?url=example.com&amp;size=128" alt="example.com favicon" width="128" height="128"&gt;</code></pre>
+&lt;!-- Omit size for the original file. Small rasters requested above native size may look soft. --&gt;
+&lt;img src="https://favicondl.com/api/extract?url=example.com" alt="example.com favicon"&gt;</code></pre>
                             </div>
                         </div>
                     </div>
