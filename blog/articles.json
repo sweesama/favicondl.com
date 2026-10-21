@@ -3857,5 +3857,26 @@
     ],
     "qualityScore": 85,
     "qualityGrade": "A"
+  },
+  {
+    "slug": "curl-download-favicon",
+    "publishDate": "2026-10-21",
+    "titleEn": "curl download favicon: A Step-by-Step Guide",
+    "titleZh": "curl 下载 favicon：分步指南",
+    "titleJa": "curlでfaviconをダウンロードする方法",
+    "titleKo": "curl로 favicon 다운로드하기",
+    "titleEs": "Descargar favicon con curl: guía paso a paso",
+    "descEn": "Learn how to use curl to download a favicon from any website. Step-by-step commands, handling redirects, and common pitfalls.",
+    "descZh": "学习如何使用 curl 从任何网站下载 favicon。分步命令、处理重定向和常见陷阱。",
+    "descJa": "curlを使って任意のウェブサイトからfaviconをダウンロードする方法を学びます。手順、リダイレクト処理、よくある落とし穴を解説。",
+    "descKo": "curl을 사용하여 모든 웹사이트에서 favicon을 다운로드하는 방법을 배우세요. 단계별 명령어, 리디렉션 처리 및 일반적인 함정.",
+    "descEs": "Aprende a usar curl para descargar un favicon de cualquier sitio web. Comandos paso a paso, manejo de redirecciones y errores comunes.",
+    "keyword": "curl download favicon",
+    "tags": [
+      "developer",
+      "cli"
+    ],
+    "qualityScore": 85,
+    "qualityGrade": "A"
   }
 ]

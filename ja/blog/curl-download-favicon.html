@@ -1,0 +1,129 @@
+<!DOCTYPE html><html lang="ja"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>curlでfaviconをダウンロードする方法</title>
+    <meta name="description" content="curlを使って任意のウェブサイトからfaviconをダウンロードする方法を学びます。手順、リダイレクト処理、よくある落とし穴を解説。">
+    <meta name="keywords" content="curl download favicon, favicon download, curl favicon, download favicon">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/ja/blog/curl-download-favicon.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/curl-download-favicon.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/curl-download-favicon.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/curl-download-favicon.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/curl-download-favicon.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/curl-download-favicon.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/curl-download-favicon.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/ja/blog/curl-download-favicon.html">
+    <meta property="og:title" content="curlでfaviconをダウンロードする方法">
+    <meta property="og:description" content="curlを使って任意のウェブサイトからfaviconをダウンロードする方法を学びます。手順、リダイレクト処理、よくある落とし穴を解説。">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="curlでfaviconをダウンロードする方法">
+    <meta name="twitter:description" content="curlを使って任意のウェブサイトからfaviconをダウンロードする方法を学びます。手順、リダイレクト処理、よくある落とし穴を解説。">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "curlでfaviconをダウンロードする方法",
+  "description": "curlを使って任意のウェブサイトからfaviconをダウンロードする方法を学びます。手順、リダイレクト処理、よくある落とし穴を解説。",
+  "datePublished": "2026-10-21",
+  "dateModified": "2026-10-21",
+  "author": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "mainEntityOfPage": "https://favicondl.com/ja/blog/curl-download-favicon.html",
+  "inLanguage": "ja"
+}</script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/ja/" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/ja/documentation.html" class="nav-link">ドキュメント</a>
+                <a href="/ja/tools.html" class="nav-link">ツール</a>
+                <a href="/ja/blog/" class="nav-link">ブログ</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/curl-download-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/curl-download-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/curl-download-favicon.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/curl-download-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/curl-download-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/ja/" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/ja/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600">curlでfaviconをダウンロードする方法</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">developer</span><time class="text-sm text-gray-400">2026-10-21</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">curlでfaviconをダウンロードする方法</h1>
+        </header>
+
+        <div class="article-body"><p>ブラウザを開かずに、あるいは GUI ツールを使わずに、サイトの favicon を取得したいことがあります。アセット監査の自動化に取り組んでいる、あるいは単にターミナルでの作業のほうが好みという場合もあるでしょう。そんなときに適しているのが <code>curl</code> です。ただし、その特有のクセを把握しておく必要があります。本記事では、デフォルトパスからの単純な取得から、HTML を解析してカスタムアイコンを取り出すところまで、<strong>curl で favicon をダウンロードする</strong>ための具体的なコマンドを順を追って紹介していきます。</p><p>ここでは <code>curl</code> がすでにインストールされている前提で進めます(macOS や Linux では標準で付属しており、Windows でも入手可能です)。追加の依存関係は一切ありません。</p><h2>ステップ 1: デフォルトの favicon.ico パスを試す</h2><p>多くのサイトでは今でも <code>/favicon.ico</code> というファイルを提供しています。これを取得する最も手軽な方法は次のとおりです。</p><pre><code>curl -O https://example.com/favicon.ico</code></pre><p><code>-O</code> フラグは、リモート側と同じファイル名で保存するものです。もしサーバーが 404 を返してきた場合、保存されるのは HTML のエラーページで、ファイル名は <code>favicon.ico</code> のままとなり、意図したものとは異なります。そこで、HTTP エラー時にはメッセージを出さずに失敗扱いとする <code>-f</code> を併用します。</p><pre><code>curl -f -O https://example.com/favicon.ico</code></pre><p>これで、ファイルが存在しないときには curl がエラーステータスで終了するようになるため、スクリプト側で適切にハンドリングできます。</p><h2>ステップ 2: リダイレクトを追従する</h2><p>多くのサイトでは <code>/favicon.ico</code> を CDN や別のパスへリダイレクトしています。<code>-L</code> を付けないと、curl はそのリダイレクトを追わないため、得られるのは 301 のレスポンスボディにすぎません。リダイレクトを辿らせるには <code>-L</code> を追加します。</p><pre><code>curl -L -f -O https://example.com/favicon.ico</code></pre><p>「curl で favicon をダウンロードしたのに、中身が空っぽだったり極端に小さなファイルしか返ってこない」というケースでは、このオプションが抜けていただけ、ということがほとんどです。</p><h2>ステップ 3: カスタムアイコンのリンクを HTML から抽出する</h2><p>近年のサイトでは、<code>&lt;head&gt;</code> 内の <code>&lt;link rel="icon"&gt;</code> タグでアイコンを宣言するのが一般的です。WHATWG の HTML 仕様では、<code>rel=icon</code> がページとアイコンを結びつける標準的な手段として定義されています(<a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">仕様</a>)。これらの URL を見つけるには、ページを取得して <code>rel="icon"</code> を grep します。</p><pre><code>curl -sL https://example.com | grep -o '&lt;link[^&gt;]*rel="[^"]*icon[^"]*"[^&gt;]*&gt;'</code></pre><p>これで link タグがそのまま出力されます。実際の出力はたとえば <code>&lt;link rel="icon" href="/assets/favicon-32.png" sizes="32x32"&gt;</code> のような形になります。この <code>href</code> の値を取り出したら、curl でダウンロードすれば OK です。</p><pre><code>curl -L -f -O https://example.com/assets/favicon-32.png</code></pre><p>href が相対パス（<code>/</code> で始まる場合）なら、先頭にドメインを追加します。より堅牢な方法としては、HTML を適切に解析できる <a href="/ja/blog/python-get-favicon.html">Python</a> や <a href="/ja/blog/php-get-favicon.html">PHP</a> などのツールを使用してください。</p><h2>Step 4: 複数の icon format に対応する</h2><p>サイトによっては、SVG、PNG、ICO、Apple Touch など、複数の icon が宣言されている場合があります。それらを loop 処理できます。次の bash スニペットは、すべての <code>rel="icon"</code> と <code>rel="apple-touch-icon"</code> link をダウンロードします。</p><pre><code>curl -sL https://example.com | grep -oE 'href="[^"]+\.(ico|png|svg)"' | cut -d'"' -f2 | while read -r path; do
+  url="https://example.com${path}"
+  curl -L -f -O "$url"
+done</code></pre><p>必要に応じて、ドメインとパスの処理を調整してください。サイトの icon stack を audit するامجに便利です。</p><h2>よくある落とし穴</h2><ul><li><strong><code>-L</code> の付け忘れ</strong>：redirect によって空ファイルが保存されます。favicon をダウンロードするときは、必ず <code>-L</code> を使用してください。</li><li><strong><code>-f</code> の付け忘れ</strong>：curl は icon であるかのように error page を保存してしまいます。HTTP error で失敗するように <code>-f</code> を使用してください。</li><li><strong>相対 URL</strong>：HTML 内の <code>href</code> は相対パスになっている場合があります。page URL を基準に解決する必要があります。</li><li><strong>Content-Type の不一致</strong>：一部の server では、存在しない icon に対して <code>text/html</code> が返されます。<code>file favicon.ico</code> でファイルを調べ、画像であることを確認してください。</li><li><strong>SVG favicon</strong>：サイトが SVG favicon を使っている場合、curl では問題なくダウンロードできますが、一部の古い tool は SVG を扱えません。必要に応じて変換してください。</li></ul><p>より自動化する方法として、favicon 専用の downloader の使用も検討してください。favicon のダウンロード方法に関する<a href="/ja/blog/how-to-download-favicon.html">ガイド</a>では、curl を補完する browser の的小技や API method を解説しています。</p><h2>まとめ</h2><p>redirect、error handling、HTML parsing に注意すれば、curl で favicon をダウンロードするのは_logs/_logs относительно straightforward です。デフォルトの <code>/favicon.ico</code> path から始め、信頼性を高めるために <code>-L -f</code> を追加し、特定|format が必要になったときは HTML を解析してください。これらの手順を使えば/sites/file.html#site-panel で、任意のサイトの favicon ダウンロードをスクリプト化できます。</p></div>
+
+        <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
+
+        <div class="cta-box">
+            <h3>サイトにfaviconが必要ですか？</h3>
+            <p>Mzu favicondlで、すべてのfaviconサイズとフォーマットをワンクリックで生成します。</p>
+            <a href="/ja/" class="cta-btn">無料で試す →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/ja/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">ホーム</a>
+                <a href="/ja/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">ブログ</a>
+                <a href="/ja/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">プライバシー</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js?v=20260211"></script>
+
+</body></html>

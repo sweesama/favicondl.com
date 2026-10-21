@@ -390,7 +390,7 @@
 
             <!-- Main Content -->
             <div class="lg:col-span-3">
-<section id="quick-start" class="mb-12">
+                <section id="quick-start" class="mb-12">
                     <div class="bg-white rounded-lg shadow-sm p-8 text-gray-600">
                         <h2 class="text-2xl font-bold text-gray-900 mb-6">빠른 시작</h2>
                         <p class="mb-4">favicondl 파비콘 API는 GET 요청 한 번으로 어떤 도메인이나 URL이든 그 사이트의 파비콘으로 바꿔 줍니다. API 키, 계정, SDK가 모두 필요 없습니다. <code>size</code>(16–512, 흔히 16, 32, 64, 128, 256, 512)를 넘기면 정확히 그 한 변의 정사각형 PNG가 옵니다.</p>
@@ -433,7 +433,7 @@ curl "https://favicondl.com/api/extract?url=github.com&amp;size=32&amp;format=js
                     </div>
                 </section>
 
-<section id="how-it-works" class="mb-12">
+                <section id="how-it-works" class="mb-12">
                     <div class="bg-white rounded-lg shadow-sm p-8 text-gray-600">
                         <h2 class="text-2xl font-bold text-gray-900 mb-6">API가 아이콘을 고르는 방식</h2>
                         <ol class="list-decimal pl-5 space-y-3 mb-4">
@@ -444,11 +444,11 @@ curl "https://favicondl.com/api/extract?url=github.com&amp;size=32&amp;format=js
                             <li><strong class="text-gray-900">Google 파비콘 서비스, 그다음 DuckDuckGo</strong>는 사이트의 아이콘을 하나도 쓸 수 없을 때만, 요청한 <code>size</code>로 사용합니다(<code>source: "google_s2"</code> 또는 <code>"duckduckgo"</code>).</li>
                         </ol>
                         <p class="mb-4">검증된 후보는 가장 선명한 파일이 선택되도록 순위를 매깁니다. 풀컬러 SVG가 먼저이고, 그다음이 가장 큰 정사각형 PNG/ICO/WebP입니다. Safari의 단색 <code>mask-icon</code>과 <code>maskable</code>로만 표시된 매니페스트 아이콘은 일반 파비콘과 모양이 달라 낮은 순위를 줍니다. 고른 원본은 요청한 <code>size</code>(16–512, 예: 32)로 맞춥니다. <code>size</code>를 생략하면 원본 파일입니다. 축소는 Lanczos, 확대는 고품질 리샘플링이고, 정사각형이 아니면 투명하게 채우며, SVG는 요청 크기로 래스터화합니다. 확대한 래스터는 흐려 보일 수 있으며, 응답은 그것을 선명한 원본이라고 하지 않습니다.</p>
-                        <p><code>google_s2</code>가 나왔다면 그 사이트에 저희가 접근할 수 있는 아이콘이 없거나 요청이 차단된 것입니다(예: 봇 확인 페이지). 사이트 하나만 확인한다면 홈페이지의 <a href="/" class="text-blue-600 hover:underline">파비콘 다운로더</a>가 브라우저에서 직접 몇 가지 출처를 더 시도하고, 찾은 모든 크기를 보여 주므로 그중에서 고를 수 있습니다.</p>
+                        <p><code>google_s2</code>가 나왔다면 그 사이트에 저희가 접근할 수 있는 아이콘이 없거나 요청이 차단된 것입니다(예: 봇 확인 페이지). 사이트 하나만 확인한다면 홈페이지의 <a href="/ko/" class="text-blue-600 hover:underline">파비콘 다운로더</a>가 브라우저에서 직접 몇 가지 출처를 더 시도하고, 찾은 모든 크기를 보여 주므로 그중에서 고를 수 있습니다.</p>
                     </div>
                 </section>
 
-<section id="comparison" class="mb-12">
+                <section id="comparison" class="mb-12">
                     <div class="bg-white rounded-lg shadow-sm p-8 text-gray-600">
                         <h2 class="text-2xl font-bold text-gray-900 mb-6">파비콘 API 비교: favicondl, Google S2, DuckDuckGo, Icon Horse</h2>
                         <p class="mb-4">네 서비스 모두 무료로 시작할 수 있고 API 키가 필요 없습니다. 차이는 돌려주는 결과에 있습니다.</p>
@@ -645,7 +645,7 @@ curl "https://favicondl.com/api/extract?url=github.com&amp;size=32&amp;format=js
   "nativeHeight": null,
   "vector": true,
   "iconUrl": "https://example.com/favicon.svg",
-  "proxyUrl": "https://favicondl.com/api/proxy?url=...&size=32",
+  "proxyUrl": "https://favicondl.com/api/proxy?url=...&amp;size=32",
   "source": "html",
   "rel": "icon",
   "format": "svg",

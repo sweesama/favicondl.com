@@ -390,7 +390,7 @@
 
             <!-- Main Content -->
             <div class="lg:col-span-3">
-<section id="quick-start" class="mb-12">
+                <section id="quick-start" class="mb-12">
                     <div class="bg-white rounded-lg shadow-sm p-8 text-gray-600">
                         <h2 class="text-2xl font-bold text-gray-900 mb-6">クイックスタート</h2>
                         <p class="mb-4">favicondl のファビコン API は、GET リクエスト 1 回であらゆるドメインや URL をそのファビコンに変換します。API キーもアカウントも SDK も不要です。<code>size</code>（16〜512。よく使う値は 16、32、64、128、256、512）を渡すと、ちょうどその一辺の正方形 PNG が返ります。</p>
@@ -433,7 +433,7 @@ curl "https://favicondl.com/api/extract?url=github.com&amp;size=32&amp;format=js
                     </div>
                 </section>
 
-<section id="how-it-works" class="mb-12">
+                <section id="how-it-works" class="mb-12">
                     <div class="bg-white rounded-lg shadow-sm p-8 text-gray-600">
                         <h2 class="text-2xl font-bold text-gray-900 mb-6">API がアイコンを選ぶ仕組み</h2>
                         <ol class="list-decimal pl-5 space-y-3 mb-4">
@@ -444,11 +444,11 @@ curl "https://favicondl.com/api/extract?url=github.com&amp;size=32&amp;format=js
                             <li><strong class="text-gray-900">Google のファビコンサービス、次いで DuckDuckGo</strong> は、サイト上のアイコンがどれも使えなかったときだけ、リクエストした <code>size</code> で使用します（<code>source: "google_s2"</code> または <code>"duckduckgo"</code>）。</li>
                         </ol>
                         <p class="mb-4">検証済みの候補は、最も鮮明なファイルが選ばれるように順位付けされます。フルカラーの SVG が最優先で、次に最も大きい正方形の PNG/ICO/WebP です。Safari の単色 <code>mask-icon</code> や、<code>maskable</code> とだけ指定された manifest アイコンは、通常のファビコンとは見た目が異なるため順位を下げています。選ばれた元画像は、リクエストされた <code>size</code>（16〜512。例: 32）にリサイズされます。<code>size</code> を省略すると元のファイルのままです。縮小は Lanczos、拡大は高品質な再サンプリング、正方形でない画像は透明で埋め、SVG は指定サイズでラスタライズします。拡大したラスタはぼやけることがあり、応答はそれを鮮明な原寸だとは言いません。</p>
-                        <p><code>google_s2</code> が返ってきた場合、そのサイトには当社から取得できるアイコンがないか、リクエストがブロックされています（ボット確認ページが返された場合など）。1 サイトだけなら、トップページの<a href="/" class="text-blue-600 hover:underline">ファビコンダウンローダー</a>がブラウザから直接いくつかの取得元も試し、見つかったすべてのサイズを表示するので、そこから選べます。</p>
+                        <p><code>google_s2</code> が返ってきた場合、そのサイトには当社から取得できるアイコンがないか、リクエストがブロックされています（ボット確認ページが返された場合など）。1 サイトだけなら、トップページの<a href="/ja/" class="text-blue-600 hover:underline">ファビコンダウンローダー</a>がブラウザから直接いくつかの取得元も試し、見つかったすべてのサイズを表示するので、そこから選べます。</p>
                     </div>
                 </section>
 
-<section id="comparison" class="mb-12">
+                <section id="comparison" class="mb-12">
                     <div class="bg-white rounded-lg shadow-sm p-8 text-gray-600">
                         <h2 class="text-2xl font-bold text-gray-900 mb-6">ファビコン API 比較：favicondl・Google S2・DuckDuckGo・Icon Horse</h2>
                         <p class="mb-4">4 つのサービスはいずれも無料で使い始められ、API キーも不要です。違いは返ってくる内容です。</p>
@@ -645,7 +645,7 @@ curl "https://favicondl.com/api/extract?url=github.com&amp;size=32&amp;format=js
   "nativeHeight": null,
   "vector": true,
   "iconUrl": "https://example.com/favicon.svg",
-  "proxyUrl": "https://favicondl.com/api/proxy?url=...&size=32",
+  "proxyUrl": "https://favicondl.com/api/proxy?url=...&amp;size=32",
   "source": "html",
   "rel": "icon",
   "format": "svg",

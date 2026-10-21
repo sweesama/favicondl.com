@@ -390,7 +390,7 @@
 
             <!-- Main Content -->
             <div class="lg:col-span-3">
-<section id="quick-start" class="mb-12">
+                <section id="quick-start" class="mb-12">
                     <div class="bg-white rounded-lg shadow-sm p-8 text-gray-600">
                         <h2 class="text-2xl font-bold text-gray-900 mb-6">Inicio rápido</h2>
                         <p class="mb-4">La API de favicons de favicondl convierte cualquier dominio o URL en su favicon con una sola petición GET. Sin clave de API, sin cuenta y sin SDK. Pasa <code>size</code> (16–512; lo habitual es 16, 32, 64, 128, 256 y 512) para obtener un PNG cuadrado de exactamente ese tamaño:</p>
@@ -433,7 +433,7 @@ curl "https://favicondl.com/api/extract?url=github.com&amp;size=32&amp;format=js
                     </div>
                 </section>
 
-<section id="how-it-works" class="mb-12">
+                <section id="how-it-works" class="mb-12">
                     <div class="bg-white rounded-lg shadow-sm p-8 text-gray-600">
                         <h2 class="text-2xl font-bold text-gray-900 mb-6">Cómo elige la API el icono</h2>
                         <ol class="list-decimal pl-5 space-y-3 mb-4">
@@ -444,11 +444,11 @@ curl "https://favicondl.com/api/extract?url=github.com&amp;size=32&amp;format=js
                             <li><strong class="text-gray-900">El servicio de favicons de Google y, después, DuckDuckGo</strong> solo se usan si nada del propio sitio funciona, con el <code>size</code> que pidas (<code>source: "google_s2"</code> o <code>"duckduckgo"</code>).</li>
                         </ol>
                         <p class="mb-4">Los candidatos verificados se ordenan para que gane el archivo más nítido: primero un SVG a todo color y después el PNG/ICO/WebP cuadrado más grande. El <code>mask-icon</code> monocromo de Safari y los iconos del manifiesto marcados solo como <code>maskable</code> quedan más abajo porque no se parecen al favicon normal. Esa fuente se redimensiona al <code>size</code> pedido (16–512, por ejemplo 32). Omite <code>size</code> para conservar el archivo original. La reducción usa Lanczos, la ampliación un remuestreo de alta calidad, los iconos no cuadrados se rellenan con transparencia y el SVG se rasteriza al tamaño pedido. Un raster ampliado puede verse borroso; la respuesta no lo presenta como un original nítido.</p>
-                        <p>Si obtienes <code>google_s2</code>, el sitio no tiene ningún icono al que podamos llegar o ha bloqueado nuestra petición (por ejemplo, con una página de verificación anti-bots). Para un solo sitio, el <a href="/" class="text-blue-600 hover:underline">descargador de favicons</a> de nuestra página de inicio prueba además algunas fuentes extra directamente desde tu navegador y muestra todos los tamaños encontrados para que elijas uno.</p>
+                        <p>Si obtienes <code>google_s2</code>, el sitio no tiene ningún icono al que podamos llegar o ha bloqueado nuestra petición (por ejemplo, con una página de verificación anti-bots). Para un solo sitio, el <a href="/es/" class="text-blue-600 hover:underline">descargador de favicons</a> de nuestra página de inicio prueba además algunas fuentes extra directamente desde tu navegador y muestra todos los tamaños encontrados para que elijas uno.</p>
                     </div>
                 </section>
 
-<section id="comparison" class="mb-12">
+                <section id="comparison" class="mb-12">
                     <div class="bg-white rounded-lg shadow-sm p-8 text-gray-600">
                         <h2 class="text-2xl font-bold text-gray-900 mb-6">Comparativa de APIs de favicon: favicondl frente a Google S2, DuckDuckGo e Icon Horse</h2>
                         <p class="mb-4">Los cuatro servicios se pueden empezar a usar gratis y no necesitan clave de API. Se diferencian en lo que devuelven:</p>
@@ -645,7 +645,7 @@ curl "https://favicondl.com/api/extract?url=github.com&amp;size=32&amp;format=js
   "nativeHeight": null,
   "vector": true,
   "iconUrl": "https://example.com/favicon.svg",
-  "proxyUrl": "https://favicondl.com/api/proxy?url=...&size=32",
+  "proxyUrl": "https://favicondl.com/api/proxy?url=...&amp;size=32",
   "source": "html",
   "rel": "icon",
   "format": "svg",

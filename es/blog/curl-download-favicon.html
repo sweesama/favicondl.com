@@ -1,0 +1,129 @@
+<!DOCTYPE html><html lang="es"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Descargar favicon con curl: guía paso a paso</title>
+    <meta name="description" content="Aprende a usar curl para descargar un favicon de cualquier sitio web. Comandos paso a paso, manejo de redirecciones y errores comunes.">
+    <meta name="keywords" content="curl download favicon, favicon download, curl favicon, download favicon">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/es/blog/curl-download-favicon.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/curl-download-favicon.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/curl-download-favicon.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/curl-download-favicon.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/curl-download-favicon.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/curl-download-favicon.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/curl-download-favicon.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/es/blog/curl-download-favicon.html">
+    <meta property="og:title" content="Descargar favicon con curl: guía paso a paso">
+    <meta property="og:description" content="Aprende a usar curl para descargar un favicon de cualquier sitio web. Comandos paso a paso, manejo de redirecciones y errores comunes.">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Descargar favicon con curl: guía paso a paso">
+    <meta name="twitter:description" content="Aprende a usar curl para descargar un favicon de cualquier sitio web. Comandos paso a paso, manejo de redirecciones y errores comunes.">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Descargar favicon con curl: guía paso a paso",
+  "description": "Aprende a usar curl para descargar un favicon de cualquier sitio web. Comandos paso a paso, manejo de redirecciones y errores comunes.",
+  "datePublished": "2026-10-21",
+  "dateModified": "2026-10-21",
+  "author": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "mainEntityOfPage": "https://favicondl.com/es/blog/curl-download-favicon.html",
+  "inLanguage": "es"
+}</script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/es/" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/es/documentation.html" class="nav-link">Documentación</a>
+                <a href="/es/tools.html" class="nav-link">Herramientas</a>
+                <a href="/es/blog/" class="nav-link">Blog</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/curl-download-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/curl-download-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/curl-download-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/curl-download-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/curl-download-favicon.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/es/" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/es/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600">Descargar favicon con curl: guía paso a paso</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">developer</span><time class="text-sm text-gray-400">2026-10-21</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">Descargar favicon con curl: guía paso a paso</h1>
+        </header>
+
+        <div class="article-body"><p>Si necesitas obtener el favicon de un sitio, pero no quieres abrir un navegador ni usar una herramienta de GUI, <code>curl</code> es la opción adecuada, siempre que sepas cómo manejar sus peculiaridades. Puede que estés automatizando una auditoría de assets o que simplemente prefieras la terminal. Esta guía te muestra los comandos exactos para <strong>descargar favicons con curl</strong>, desde la ruta predeterminada más sencilla hasta el análisis del HTML para encontrar iconos personalizados.</p><p>Daremos por supuesto que tienes <code>curl</code> instalado (viene de serie en macOS y Linux, y está disponible para Windows). No necesitas ninguna otra dependencia.</p><h2>Paso 1: prueba la ruta predeterminada favicon.ico</h2><p>La mayoría de los sitios aún sirven un archivo en <code>/favicon.ico</code>. La forma más rápida de descargarlo es:</p><pre><code>curl -O https://example.com/favicon.ico</code></pre><p>El flag <code>-O</code> guarda el archivo con el nombre que tiene en el servidor. Si el sitio devuelve un 404, guardarás una página HTML de error como <code>favicon.ico</code>, no el favicon. Usa <code>-f</code> para que curl no genere salida ante errores HTTP:</p><pre><code>curl -f -O https://example.com/favicon.ico</code></pre><p>Ahora, curl devuelve un error si el archivo no existe, por lo que podrás gestionar esta situación desde un script.</p><h2>Paso 2: sigue las redirecciones</h2><p>Muchos sitios redirigen <code>/favicon.ico</code> a un CDN o a otra ruta. Sin <code>-L</code>, curl no seguirá esas redirecciones y terminarás obteniendo el cuerpo de una respuesta 301. Añade <code>-L</code> para seguirlas:</p><pre><code>curl -L -f -O https://example.com/favicon.ico</code></pre><p>Esta es la solución más habitual para los intentos de «curl download favicon» que devuelven un archivo vacío o muy pequeño.</p><h2>Paso 3: analiza el HTML para encontrar enlaces a iconos personalizados</h2><p>Los sitios modernos suelen declarar sus iconos mediante etiquetas <code>&lt;link rel="icon"&gt;</code> dentro del <code>&lt;head&gt;</code>. La especificación HTML de WHATWG define <code>rel=icon</code> como la forma estándar de asociar un icono a una página (<a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">fuente</a>). Para encontrar esas URL, descarga la página y usa grep para buscar <code>rel="icon"</code>:</p><pre><code>curl -sL https://example.com | grep -o '&lt;link[^&gt;]*rel="[^"]*icon[^"]*"[^&gt;]*&gt;'</code></pre><p>Esto muestra las etiquetas <code>link</code> sin procesar. Verás algo como <code>&lt;link rel="icon" href="/assets/favicon-32.png" sizes="32x32"&gt;</code>. Extrae el valor de <code>href</code> y descárgalo con curl:</p><pre><code>curl -L -f -O https://example.com/assets/favicon-32.png</code></pre><p>Si el href es relativo (empieza por <code>/</code>), antepone el dominio. Para un enfoque más robusto, utiliza una herramienta como <a href="/es/blog/python-get-favicon.html">Python</a> o <a href="/es/blog/php-get-favicon.html">PHP</a> para analizar correctamente el HTML.</p><h2>Paso 4: gestiona varios formatos de iconos</h2><p>Los sitios pueden declarar varios iconos: SVG, PNG, ICO y Apple Touch. Puedes recorrerlos en un bucle. Este es un fragmento de bash que descarga todos los enlaces <code>rel="icon"</code> y <code>rel="apple-touch-icon"</code>:</p><pre><code>curl -sL https://example.com | grep -oE 'href="[^"]+\.(ico|png|svg)"' | cut -d'"' -f2 | while read -r path; do
+  url="https://example.com${path}"
+  curl -L -f -O "$url"
+done</code></pre><p>Ajusta el dominio y el tratamiento de las rutas según sea necesario. Esto resulta útil para auditar el conjunto de iconos de un sitio.</p><h2>Problemas habituales</h2><ul><li><strong>Olvidar <code>-L</code></strong>: los redirects provocan archivos vacíos. Usa siempre <code>-L</code> al descargar favicons.</li><li><strong>No usar <code>-f</code></strong>: curl guarda páginas de error como si fueran iconos. Usa <code>-f</code> para que falle ante errores HTTP.</li><li><strong>URLs relativas</strong>: el <code>href</code> del HTML puede ser relativo. Debes resolverlo con respecto a la URL de la página.</li><li><strong>Desajuste de <code>Content-Type</code></strong>: algunos servidores devuelven <code>text/html</code> para iconos inexistentes. Comprueba el archivo con <code>file favicon.ico</code> para confirmar que es una imagen.</li><li><strong>Favicons SVG</strong>: si el sitio usa un favicon SVG, curl lo descargará correctamente, pero algunas herramientas más antiguas no pueden manejar SVG. Conviértelo si es necesario.</li></ul><p>Para un enfoque más automatizado, considera usar un descargador de favicons dedicado. Nuestra <a href="/es/blog/how-to-download-favicon.html">guía para descargar favicons</a> cubre trucos del navegador y métodos de API que complementan el uso de curl.</p><h2>Conclusión</h2><p>Usar curl para descargar un favicon es sencillo una vez que tienes en cuenta los redirects, el manejo de errores y el análisis del HTML. Empieza con la ruta predeterminada <code>/favicon.ico</code>, añade <code>-L -f</code> para asegurar la fiabilidad y analiza el HTML cuando necesites formatos específicos. Con estos pasos, puedes automatizar mediante scripts las descargas de favicons de cualquier sitio.</p></div>
+
+        <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
+
+        <div class="cta-box">
+            <h3>¿Necesitas un favicon para tu sitio?</h3>
+            <p>Genera todos los tamaños y formatos de favicon en un clic con Mzu favicondl.</p>
+            <a href="/es/" class="cta-btn">Pruébalo gratis →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/es/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">Inicio</a>
+                <a href="/es/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">Blog</a>
+                <a href="/es/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">Privacidad</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js?v=20260211"></script>
+
+</body></html>
