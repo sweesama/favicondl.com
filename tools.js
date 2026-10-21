@@ -596,6 +596,13 @@ class FaviconTools {
         
         const sizeInfo = this.faviconSizes[size] || { name: `favicon-${size}x${size}.png` };
         this.triggerDownload(dataUrl, sizeInfo.name);
+        this.trackEvent('favicon_download', {
+            tool: 'generator',
+            download_type: 'single',
+            file_format: 'png',
+            icon_size: String(size),
+            file_count: 1,
+        });
         this.showToast(this.currentLang === 'en' ? `${size}x${size} icon downloaded successfully!` : `${size}x${size} 图标下载成功！`);
     }
 
@@ -634,6 +641,14 @@ class FaviconTools {
             this.triggerDownload(url, 'favicons.zip');
             URL.revokeObjectURL(url);
 
+            const sizes = Array.from(this.generatedIcons.keys()).map(String).join(',');
+            this.trackEvent('favicon_download', {
+                tool: 'generator',
+                download_type: 'bulk',
+                file_format: 'zip',
+                icon_size: sizes || 'mixed',
+                file_count: this.generatedIcons.size,
+            });
             this.showToast(this.currentLang === 'zh' ? 'ZIP文件下载成功！' : 'ZIP downloaded!');
         } catch (error) {
             console.error('ZIP生成失败:', error);
@@ -702,6 +717,13 @@ class FaviconTools {
         try {
             const blob = await this.createIcoBlob(this.originalImage, [16, 32, 48]);
             this.downloadBlob(blob, 'favicon.ico');
+            this.trackEvent('favicon_download', {
+                tool: 'generator',
+                download_type: 'single',
+                file_format: 'ico',
+                icon_size: '16x32x48',
+                file_count: 1,
+            });
             this.showToast(
                 this.currentLang === 'zh'
                     ? 'favicon.ico 下载成功！（包含 16、32、48 三种尺寸）'
@@ -876,6 +898,7 @@ Project site: https://favicondl.com
 
         this.batchOutputMode = outputMode;
         this.batchNamingMode = namingMode;
+        this.batchIconSize = size === 'large' ? '64+' : '16/32';
 
         this.showBatchProgress(true);
         document.getElementById('batch-progress')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -1029,6 +1052,13 @@ Project site: https://favicondl.com
             const filename = this.buildBatchFilename({ domain, index }, 'png');
             this.triggerDownload(blobUrl, filename);
             URL.revokeObjectURL(blobUrl);
+            this.trackEvent('favicon_download', {
+                tool: 'batch',
+                download_type: 'single',
+                file_format: 'png',
+                icon_size: this.currentBatchIconSize(),
+                file_count: 1,
+            });
             this.showToast(this.currentLang === 'zh' ? `${domain} 图标下载成功！` : `${domain} icon downloaded!`);
         } catch {
             // 降级：在新窗口打开
@@ -1069,6 +1099,13 @@ Project site: https://favicondl.com
             }
 
             if (downloaded > 0) {
+                this.trackEvent('favicon_download', {
+                    tool: 'batch',
+                    download_type: 'bulk',
+                    file_format: 'png',
+                    icon_size: this.currentBatchIconSize(),
+                    file_count: downloaded,
+                });
                 this.showToast(
                     this.currentLang === 'zh'
                         ? `下载完成！共 ${downloaded} 个文件`
@@ -1122,7 +1159,14 @@ Project site: https://favicondl.com
             const url = URL.createObjectURL(content);
             this.triggerDownload(url, 'batch-favicons.zip');
             URL.revokeObjectURL(url);
-            
+
+            this.trackEvent('favicon_download', {
+                tool: 'batch',
+                download_type: 'bulk',
+                file_format: 'zip',
+                icon_size: this.currentBatchIconSize(),
+                file_count: addedCount,
+            });
             this.showToast(
                 this.currentLang === 'zh'
                     ? `批量下载完成！共 ${addedCount} 个图标`
@@ -1262,7 +1306,10 @@ Project site: https://favicondl.com
                 this.convertedImage = dataUrl;
             }
             this.convertedExtension = extension;
-            
+            this.convertedIconSize = format === 'ico'
+                ? sizes.slice().sort((a, b) => a - b).join('x')
+                : String(maxSize);
+
             this.showConversionResult(format, dataUrl);
         } catch (error) {
             console.error('转换失败:', error);
@@ -1290,7 +1337,15 @@ Project site: https://favicondl.com
         // 绑定下载按钮
         document.getElementById('download-converted')?.addEventListener('click', () => {
             if (this.convertedImage) {
-                this.triggerDownload(this.convertedImage, `${this.convertFileName || 'converted'}.${this.convertedExtension}`);
+                const extension = this.convertedExtension || 'png';
+                this.triggerDownload(this.convertedImage, `${this.convertFileName || 'converted'}.${extension}`);
+                this.trackEvent('favicon_download', {
+                    tool: 'converter',
+                    download_type: 'single',
+                    file_format: extension,
+                    icon_size: this.convertedIconSize || undefined,
+                    file_count: 1,
+                });
                 this.showToast(this.currentLang === 'zh' ? '下载成功！' : 'Downloaded!');
             }
         }, { once: true });
@@ -1305,6 +1360,19 @@ Project site: https://favicondl.com
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
+    }
+
+    currentBatchIconSize() {
+        if (this.batchIconSize) return this.batchIconSize;
+        const size = document.getElementById('batch-size')?.value;
+        return size === 'large' ? '64+' : '16/32';
+    }
+
+    trackEvent(name, params) {
+        try {
+            if (typeof window.favicondlTrack === 'function') window.favicondlTrack(name, params);
+        } catch {
+        }
     }
 
     showLoading(show) {
