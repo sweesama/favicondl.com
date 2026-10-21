@@ -915,6 +915,7 @@ file_put_contents('example-favicon', getFavicon('example.com', 128));
         <span id="toast-message">已复制！</span>
     </div>
 
+    <script src="/analytics.js?v=20261021a"></script>
     <script>
         // Mobile menu functionality
         document.getElementById('mobile-menu-button').addEventListener('click', () => {
@@ -1066,17 +1067,38 @@ file_put_contents('example-favicon', getFavicon('example.com', 128));
             });
         });
 
-        // Copy to clipboard functions
-        function copyToClipboard(text) {
+        // Copy to clipboard functions. snippet metadata is for GA only and is
+        // never the copied text (that can contain example domains).
+        const API_SNIPPETS = {
+            'success-response': { snippet_type: 'success_response', snippet_language: 'json' },
+            'error-response': { snippet_type: 'error_response', snippet_language: 'json' },
+            'js-example': { snippet_type: 'example', snippet_language: 'javascript' },
+            'python-example': { snippet_type: 'example', snippet_language: 'python' },
+            'php-example': { snippet_type: 'example', snippet_language: 'php' },
+            'html-example': { snippet_type: 'example', snippet_language: 'html' },
+        };
+
+        function copyToClipboard(text, meta) {
             navigator.clipboard.writeText(text).then(() => {
                 showToast(currentLang === 'zh' ? '已复制到剪贴板！' : 'Copied!');
+                try {
+                    if (typeof window.favicondlTrack === 'function') {
+                        window.favicondlTrack('copy_api', meta || {
+                            snippet_type: 'endpoint_url',
+                            snippet_language: 'url',
+                        });
+                    }
+                } catch (err) {}
             });
         }
 
         function copyCode(elementId) {
             const element = document.getElementById(elementId);
             const text = element.textContent;
-            copyToClipboard(text);
+            copyToClipboard(text, API_SNIPPETS[elementId] || {
+                snippet_type: elementId || 'code',
+                snippet_language: 'text',
+            });
         }
 
         function showToast(message) {

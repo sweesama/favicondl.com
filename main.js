@@ -268,12 +268,22 @@ class FaviconTool {
         // 复制按钮
         document.getElementById('copy-url-btn')?.addEventListener('click', () => {
             const url = document.getElementById('api-url')?.textContent;
-            if (url) this.copyToClipboard(url);
+            if (url) this.copyToClipboard(url, {
+                event: 'copy_snippet',
+                snippet_type: 'direct_url',
+                snippet_language: 'url',
+                tool: 'homepage',
+            });
         });
 
         document.getElementById('copy-html-btn')?.addEventListener('click', () => {
             const html = document.getElementById('html-code')?.textContent;
-            if (html) this.copyToClipboard(html);
+            if (html) this.copyToClipboard(html, {
+                event: 'copy_snippet',
+                snippet_type: 'favicon_html',
+                snippet_language: 'html',
+                tool: 'homepage',
+            });
         });
 
         // 下载和重置按钮
@@ -913,6 +923,7 @@ class FaviconTool {
 
                 const ok = await this.writeBlobToFileHandle(handle, finalBlob);
                 if (ok) {
+                    this.trackHomepageDownload(exportSize);
                     this.showToast(
                         this.currentLang === 'zh'
                             ? '已保存。注意：浏览器不允许网页读取你保存到的本地路径。'
@@ -949,6 +960,7 @@ class FaviconTool {
             const blobUrl = URL.createObjectURL(finalBlob);
             this.triggerDownload(blobUrl, filename);
             setTimeout(() => URL.revokeObjectURL(blobUrl), 300);
+            this.trackHomepageDownload(targetSize);
             this.showToast(
                 this.currentLang === 'zh'
                     ? '已保存。注意：浏览器不允许网页读取你保存到的本地路径。'
@@ -1263,6 +1275,28 @@ class FaviconTool {
         document.body.removeChild(link);
     }
 
+    // Successful homepage save only. Failures and a cancelled save picker
+    // return earlier and must not count as a download.
+    trackHomepageDownload(targetSize) {
+        const sized = typeof targetSize === 'number' && targetSize > 0;
+        const sourceFormat = this.iconMeta && this.iconMeta.format ? this.iconMeta.format : undefined;
+        this.trackEvent('favicon_download', {
+            tool: 'homepage',
+            download_type: 'single',
+            file_format: 'png',
+            icon_size: sized ? String(targetSize) : 'original',
+            file_count: 1,
+            source_format: sourceFormat,
+        });
+    }
+
+    trackEvent(name, params) {
+        try {
+            if (typeof window.favicondlTrack === 'function') window.favicondlTrack(name, params);
+        } catch {
+        }
+    }
+
     // ==================== 候选图标（多尺寸/格式） ====================
     candidateLabel(c) {
         const fmt = String(c.format || '').toUpperCase();
@@ -1340,10 +1374,18 @@ class FaviconTool {
     }
 
     // ==================== 工具方法 ====================
-    async copyToClipboard(text) {
+    async copyToClipboard(text, meta) {
+        const notify = () => {
+            this.showToast(this.currentLang === 'zh' ? '复制成功！' : 'Copied!');
+            if (meta && meta.event) {
+                const params = Object.assign({}, meta);
+                delete params.event;
+                this.trackEvent(meta.event, params);
+            }
+        };
         try {
             await navigator.clipboard.writeText(text);
-            this.showToast(this.currentLang === 'zh' ? '复制成功！' : 'Copied!');
+            notify();
         } catch {
             // 降级方案
             const textArea = document.createElement('textarea');
@@ -1354,7 +1396,7 @@ class FaviconTool {
             textArea.select();
             document.execCommand('copy');
             document.body.removeChild(textArea);
-            this.showToast(this.currentLang === 'zh' ? '复制成功！' : 'Copied!');
+            notify();
         }
     }
 
