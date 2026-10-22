@@ -3878,5 +3878,26 @@
     ],
     "qualityScore": 85,
     "qualityGrade": "A"
+  },
+  {
+    "slug": "chrome-default-favicon",
+    "publishDate": "2026-10-22",
+    "titleEn": "Chrome Default Favicon Globe Icon: What It Means",
+    "titleZh": "Chrome 默认地球图标 favicon：含义与解决方法",
+    "titleJa": "Chromeのデフォルト地球アイコンfaviconとは？意味と対処法",
+    "titleKo": "Chrome 기본 지구본 favicon 아이콘: 의미와 해결 방법",
+    "titleEs": "Icono de globo predeterminado de Chrome: qué significa",
+    "descEn": "Why does Chrome show a globe icon instead of your favicon? Learn what the default globe means, why it appears, and how to replace it with your own icon.",
+    "descZh": "Chrome 标签页显示地球图标而不是你的 favicon？了解这个默认图标的含义、出现原因，以及如何用你自己的图标替换它。",
+    "descJa": "Chromeのタブにfaviconの代わりに地球アイコンが表示される理由を解説。デフォルトアイコンの意味、発生原因、独自アイコンへの置き換え方法を紹介します。",
+    "descKo": "Chrome 탭에 favicon 대신 지구본 아이콘이 표시되는 이유를 알아보세요. 기본 아이콘의 의미와 원인, 그리고 자신의 아이콘으로 교체하는 방법을 설명합니다.",
+    "descEs": "¿Por qué Chrome muestra un globo en lugar de tu favicon? Descubre qué significa el icono predeterminado, por qué aparece y cómo reemplazarlo.",
+    "keyword": "chrome default favicon globe icon",
+    "tags": [
+      "chrome",
+      "basics"
+    ],
+    "qualityScore": 72,
+    "qualityGrade": "B"
   }
 ]
