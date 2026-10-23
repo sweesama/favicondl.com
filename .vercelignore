@@ -3,3 +3,13 @@ Dockerfile
 .dockerignore
 glama.json
 server.json
+
+# Internal source and notes stay in git, but are not uploaded.
+# Root-anchored so blog pages, llms.txt, sitemap, and robots are untouched.
+/cloudflare-worker.js
+/AUTO_BLOG_SOP.md
+/project.md
+/design.md
+/interaction.md
+/SKILL.md
+/README.md
