@@ -2934,7 +2934,9 @@
     "avoidOverlap": [
       "favicon-generator-free"
     ],
-    "status": "pending"
+    "status": "done",
+    "qualityScore": 95,
+    "qualityGrade": "A"
   },
   {
     "keyword": "favicon not showing in yandex",

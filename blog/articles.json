@@ -3899,5 +3899,26 @@
     ],
     "qualityScore": 72,
     "qualityGrade": "B"
+  },
+  {
+    "slug": "open-source-favicon-generator",
+    "publishDate": "2026-10-23",
+    "titleEn": "Open Source Favicon Generator: Best Options Compared",
+    "titleZh": "开源 Favicon 生成器对比：如何选择",
+    "titleJa": "オープンソースのFavicon生成ツールを比較して選ぼう",
+    "titleKo": "오픈소스 파비콘 생성 도구 비교와 선택",
+    "titleEs": "Generador de favicon de código abierto: comparativa",
+    "descEn": "Compare open source favicon generators, command-line converters, build tools, and hosted options for creating deployable ICO, PNG, and SVG icons.",
+    "descZh": "对比开源 favicon 生成器、命令行转换器、构建工具和托管方案，了解如何选择适合 CI/CD 与网页部署的 ICO、PNG、SVG 输出。",
+    "descJa": "オープンソースのFavicon生成ツール、CLI変換、ビルドツール、ホスト型サービスを比較し、CI/CDやWeb公開に適したICO・PNG・SVGの選び方を解説します。",
+    "descKo": "오픈소스 파비콘 생성기, CLI 변환기, 빌드 도구, 호스팅 서비스를 비교하고 CI/CD와 웹 배포에 맞는 ICO·PNG·SVG 출력 방식을 설명합니다.",
+    "descEs": "Compara generadores de favicon de código abierto, conversores CLI, herramientas de compilación y servicios alojados para elegir los archivos ICO, PNG y SVG adecuados.",
+    "keyword": "open source favicon generator",
+    "tags": [
+      "tools",
+      "generator"
+    ],
+    "qualityScore": 95,
+    "qualityGrade": "A"
   }
 ]
