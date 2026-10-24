@@ -3920,5 +3920,26 @@
     ],
     "qualityScore": 95,
     "qualityGrade": "A"
+  },
+  {
+    "slug": "favicon-yandex",
+    "publishDate": "2026-10-24",
+    "titleEn": "Favicon Not Showing in Yandex? Fix Browser and Search Icons",
+    "titleZh": "Yandex 中 favicon 不显示？修复浏览器与搜索结果图标",
+    "titleJa": "Yandexでfaviconが表示されない？タブと検索結果をすぐ直します",
+    "titleKo": "Yandex에서 favicon이 보이지 않는 문제, 이렇게 해결합니다",
+    "titleEs": "¿Favicon no aparece en Yandex? Solución para pestañas y búsqueda",
+    "descEn": "Fix a favicon not showing in Yandex Browser or Yandex Search with checks for link tags, file paths, responses, caching, and recrawling that actually apply.",
+    "descZh": "Yandex 浏览器标签页或搜索结果缺少 favicon？按顺序检查 HTML 链接、文件路径、服务器响应、缓存和重新抓取，快速定位问题。",
+    "descJa": "Yandexのタブや検索結果でfaviconが表示されない原因を、HTML、ファイルパス、サーバー応答、キャッシュ、再クロールの順で確認します。",
+    "descKo": "Yandex 탭이나 검색 결과에서 favicon이 보이지 않는 문제를 HTML 링크, 파일 경로, 서버 응답, 캐시와 재크롤링 순서로 확인하고 해결하는 방법을 안내합니다.",
+    "descEs": "Si tu favicon no aparece en Yandex, revisa el HTML, la ruta, la respuesta del servidor, la caché y el recrawl paso a paso.",
+    "keyword": "favicon not showing in yandex",
+    "tags": [
+      "seo",
+      "search-engines"
+    ],
+    "qualityScore": 95,
+    "qualityGrade": "A"
   }
 ]

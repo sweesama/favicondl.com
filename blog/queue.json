@@ -2950,7 +2950,9 @@
     "avoidOverlap": [
       "favicon-not-showing-google-results"
     ],
-    "status": "pending"
+    "status": "done",
+    "qualityScore": 95,
+    "qualityGrade": "A"
   },
   {
     "keyword": "ico to png converter",

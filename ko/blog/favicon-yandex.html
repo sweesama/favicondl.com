@@ -1,0 +1,136 @@
+<!DOCTYPE html><html lang="ko"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yandex에서 favicon이 보이지 않는 문제, 이렇게 해결합니다</title>
+    <meta name="description" content="Yandex 탭이나 검색 결과에서 favicon이 보이지 않는 문제를 HTML 링크, 파일 경로, 서버 응답, 캐시와 재크롤링 순서로 확인하고 해결하는 방법을 안내합니다.">
+    <meta name="keywords" content="favicon not showing in yandex, yandex favicon, yandex search icon, favicon fix">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/ko/blog/favicon-yandex.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/favicon-yandex.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/favicon-yandex.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/favicon-yandex.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/favicon-yandex.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/favicon-yandex.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/favicon-yandex.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/ko/blog/favicon-yandex.html">
+    <meta property="og:title" content="Yandex에서 favicon이 보이지 않는 문제, 이렇게 해결합니다">
+    <meta property="og:description" content="Yandex 탭이나 검색 결과에서 favicon이 보이지 않는 문제를 HTML 링크, 파일 경로, 서버 응답, 캐시와 재크롤링 순서로 확인하고 해결하는 방법을 안내합니다.">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Yandex에서 favicon이 보이지 않는 문제, 이렇게 해결합니다">
+    <meta name="twitter:description" content="Yandex 탭이나 검색 결과에서 favicon이 보이지 않는 문제를 HTML 링크, 파일 경로, 서버 응답, 캐시와 재크롤링 순서로 확인하고 해결하는 방법을 안내합니다.">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Yandex에서 favicon이 보이지 않는 문제, 이렇게 해결합니다",
+  "description": "Yandex 탭이나 검색 결과에서 favicon이 보이지 않는 문제를 HTML 링크, 파일 경로, 서버 응답, 캐시와 재크롤링 순서로 확인하고 해결하는 방법을 안내합니다.",
+  "datePublished": "2026-10-24",
+  "dateModified": "2026-10-24",
+  "author": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "mainEntityOfPage": "https://favicondl.com/ko/blog/favicon-yandex.html",
+  "inLanguage": "ko"
+}</script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/ko/" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/ko/documentation.html" class="nav-link">문서</a>
+                <a href="/ko/tools.html" class="nav-link">도구</a>
+                <a href="/ko/blog/" class="nav-link">블로그</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/favicon-yandex.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/favicon-yandex.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/favicon-yandex.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/favicon-yandex.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/favicon-yandex.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/ko/" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/ko/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600">Yandex에서 favicon이 보이지 않는 문제, 이렇게 해결합니다</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">seo</span><time class="text-sm text-gray-400">2026-10-24</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">Yandex에서 favicon이 보이지 않는 문제, 이렇게 해결합니다</h1>
+        </header>
+
+        <div class="article-body"><p>Chrome에서는 아이콘이 보이는데 Yandex에서는 보이지 않거나, Yandex Search 결과에 아이콘이 없다면 서로 다른 두 시스템을 보고 있을 가능성이 있습니다. <strong>Yandex에서 favicon이 표시되지 않는</strong> 문제는 Yandex Browser가 이미지를 불러오지 못했거나, Yandex Search가 이미 색인된 페이지의 아이콘을 갱신하지 못했다는 의미일 수 있습니다.</p>
+<h2>빠른 해결 방법: Yandex에서 favicon이 표시되지 않을 때</h2>
+<p>먼저 아이콘이 없는 곳이 탭, 주소창, 북마크, 검색 결과 중 어디인지 확인합니다. Browser와 검색 결과는 갱신 경로가 서로 다르므로, 탭에서 정상적으로 표시된다는 사실만으로 검색 결과도 최신 상태라고 단정할 수는 없습니다.</p>
+<ol><li><strong>선언을 찾습니다.</strong> 페이지 소스를 확인하고 <code>rel</code>에 <code>icon</code>이 포함된 <code>link</code>를 찾습니다. 없다면 문서의 <code>head</code>에 추가합니다.</li><li><strong>정확한 파일 URL을 테스트합니다.</strong> <code>href</code> 값을 새 탭에서 엽니다. 이 URL은 404 페이지, 로그인 화면 또는 HTML 오류 문서가 아니라 이미지 파일 자체를 반환해야 합니다.</li><li><strong>루트 상대 경로를 기준으로 한 대안을 사용합니다.</strong> 유효한 ICO 파일을 <code>/favicon.ico</code>에 놓고 해당 경로를 명시적으로 참조합니다. 이렇게 하면 중첩된 페이지에서 경로 해석이 모호해지는 문제를 피할 수 있습니다.</li><li><strong>오래된 캐시 사본을 우회합니다.</strong> 탭을 닫고, 캐시를 사용하지 않은 상태로 새로 고친 뒤 페이지를 다시 엽니다. <code>/favicon.ico?v=2</code> 같은 임시 값을 사용하면 캐시가 불일치의 원인이었는지 확인할 수 있습니다.</li><li><strong>검색 결과는 별도로 갱신합니다.</strong> 파일에 직접 접근하면 정상적으로 표시되지만 Yandex Search에 여전히 아이콘이 없다면, 해당 페이지가 예상한 URL로 색인되었는지 확인합니다. Yandex Webmaster를 사용한다면 아이콘을 반복해서 변경하는 대신 수정된 URL을 재색인하도록 제출합니다.</li></ol>
+<p>첫 번째 확인에는 작고 예측 가능한 선언만 있으면 됩니다.</p>
+<pre><code>&amp;lt;link rel='icon' href='/favicon.ico'&amp;gt;</code></pre>
+<p>지원하는 설정에 SVG가 포함되어 있다면 SVG 후보를 추가할 수도 있습니다.</p>
+<pre><code>&amp;lt;link rel='icon' type='image/svg+xml' href='/favicon.svg'&amp;gt;</code></pre>
+<p><a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">HTML 표준</a>은 외부 리소스를 위한 <code>icon</code> link relation과 선택적 <code>sizes</code> attribute를 정의합니다. 선언한 크기는 실제로 제공하는 파일과 일치하도록 유지해야 합니다.</p>
+<h2>Yandex에서만 문제가 발생하는 근본 원인</h2>
+<h3>1. 경로는 맞아 보이지만 실제 해석 위치가 다릅니다</h3><p>상대 icon URL은 페이지의 base URL을 기준으로 해석됩니다. <code>https://example.com/products/item/</code>에서 <code>href='favicon.ico'</code>는 site root가 아니라 현재 path 아래를 가리킬 수 있습니다. <code>base</code> element이나 framework가 생성한 URL에 따라 결과가 달라질 수도 있습니다.</p><p>Network panel을 열고 icon request로 filter한 뒤 final URL을 확인하세요. <code>/products/item/favicon.ico</code>와 <code>/favicon.ico</code>는 서로 다른 resource입니다. project tree에서 두 이름 모두 익숙해 보일 수 있더라도 마찬가지입니다.</p><h3>2. 서버가 이미지를 반환하지 않는 경우</h3><p>build folder에 file이 있다고 해서 live site에서 반드시 제공되는 것은 아닙니다. 오래된 deployment, 대소문자를 구분하는 filename 불일치, 차단된 CDN path, redirect loop 또는 authentication rule을 확인하세요.</p><p>response status, final URL 및 content type을 확인하세요. ICO에는 icon media type이 필요하고, SVG와 PNG에는 각각 일치하는 image type이 필요합니다. response body가 HTML이라면 browser는 icon이 아니라 error page를 받은 것입니다.</p><h3>3. 검색 결과와 browser tab은 서로 다른 상태를 사용합니다</h3><p>tab은 현재 방문 중인 페이지에서 icon을 load합니다. Yandex Search 결과 항목에는 이전 crawl에서 얻은 정보가 반영될 수 있으므로, live tab은 정상적으로 보이더라도 검색 결과에는 icon이 없거나 오래된 icon이 표시될 수 있습니다.</p><p>검색 결과의 destination URL을 먼저 확인하세요. old URL, staging page, redirect 또는 다른 indexed version을 가리키고 있다면 현재 page만 변경해서는 해당 결과 항목을 바로잡지 못할 수 있습니다. icon을 누구나 접근할 수 있도록 공개하고 경로를 안정적으로 유지한 다음, 제공되는 webmaster tools를 통해 refresh를 요청하세요.</p><h3>4. Cache나 중복 link가 올바른 file을 가립니다</h3><p>Yandex Browser는 이미 가져온 icon을 보관할 수 있으며, server나 CDN은 오래된 deployment를 보관할 수도 있습니다. <code>/favicon-v2.ico</code>처럼 versioned filename을 사용하면 오래된 request path가 드러날 수 있습니다. 다만 HTML link도 동시에 update해야 합니다.</p><p>추가로 삽입된 모든 icon link도 확인하세요. CMS theme, plugin 또는 template이 다른 <code>rel='icon'</code> declaration을 추가하면서 path가 서로 다른 후보 두 개를 만들 수 있습니다. selection order에 의존하지 말고 의도하지 않은 duplicate declaration을 제거하세요.</p><h2>Prevention: icon을 예측 가능하게 만들기</h2><ul><li><strong>fallback 하나는 안정적인 URL에 유지하세요.</strong> 페이지와 동일한 origin의 <code>/favicon.ico</code>에 ICO를 제공하세요. 유일한 아이콘을 login, cookie wall 또는 JavaScript로만 접근할 수 있는 URL에 두지 마세요.</li><li><strong>사이트 루트 기준 참조를 사용하세요.</strong> <code>href</code>를 <code>/</code>로 시작하면 현재 route와 무관하게 파일을 찾을 수 있습니다.</li><li><strong>공개 응답을 확인하세요.</strong> crawler와 로그인하지 않은 방문자가 cookies나 JavaScript 없이도 아이콘을 가져올 수 있어야 합니다.</li><li><strong>의도적인 교체에는 버전을 적용하세요.</strong> 동일한 파일명으로 아트워크를 교체할 때는 파일만 변경하지 말고 경로도 함께 변경해야 브라우저와 CDN 캐시가 이전 이미지를 조용히 반환하지 않습니다.</li><li><strong>두 가지 화면을 모두 점검하세요.</strong> Yandex Browser에서 실제 favicon을 테스트하고, recrawl 이후 대응하는 Yandex Search 결과를 확인하세요.</li></ul><h2>최종 확인</h2><p>직접 요청이 실패한다면 Yandex를 worrying하기 전에 전달 상태부터 해결하세요. 요청은 성공했는데 검색 결과가 잘못됐다면 indexed URL과 recrawl 경로를 점검하세요. 이렇게 구분하면 막연한 favicon 문제가 각각 해결할 수 있는 두 가지 확인 항목으로 바뀝니다.</p><p>브라우저 측에서 더 폭넓게 확인하려면 <a href="/ko/blog/favicon-not-showing.html">Favicon이 표시되지 않나요? 7가지 원인과 빠른 해결 방법</a>을 참고하세요. 검색 엔진을 비교하고 있다면 Google의 기준은 별개입니다. Yandex가 동일한 검증 기준을 사용한다고 가정하지 말고 <a href="/ko/blog/favicon-not-showing-google-results.html">Google favicon 체크리스트</a>를 확인하세요.</p><p><a href="/ko/">Mzu favicondl</a>을 활용하면 root path에 게시하기 전에 깨끗한 ICO 또는 PNG fallback을 준비할 수 있습니다. Yandex가 사용할 수 있는 최종 URL, 응답, refresh 경로가 가장 중요한 부분입니다.</p></div>
+
+        <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
+
+        <div class="cta-box">
+            <h3>Yandex용 favicon을 안정적으로 준비합니다</h3>
+            <p>ICO와 PNG 대체 아이콘을 만들고 안정적인 공개 URL에 게시한 뒤 실제 응답을 확인합니다.</p>
+            <a href="/ko/" class="cta-btn">무료로 사용해 보세요 →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/ko/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">홈</a>
+                <a href="/ko/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">블로그</a>
+                <a href="/ko/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">개인정보</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js?v=20260211"></script>
+
+</body></html>

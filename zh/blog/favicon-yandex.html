@@ -1,0 +1,130 @@
+<!DOCTYPE html><html lang="zh"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yandex 中 favicon 不显示？修复浏览器与搜索结果图标</title>
+    <meta name="description" content="Yandex 浏览器标签页或搜索结果缺少 favicon？按顺序检查 HTML 链接、文件路径、服务器响应、缓存和重新抓取，快速定位问题。">
+    <meta name="keywords" content="favicon not showing in yandex, yandex favicon, yandex search icon, favicon fix">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/zh/blog/favicon-yandex.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/favicon-yandex.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/favicon-yandex.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/favicon-yandex.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/favicon-yandex.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/favicon-yandex.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/favicon-yandex.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/zh/blog/favicon-yandex.html">
+    <meta property="og:title" content="Yandex 中 favicon 不显示？修复浏览器与搜索结果图标">
+    <meta property="og:description" content="Yandex 浏览器标签页或搜索结果缺少 favicon？按顺序检查 HTML 链接、文件路径、服务器响应、缓存和重新抓取，快速定位问题。">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Yandex 中 favicon 不显示？修复浏览器与搜索结果图标">
+    <meta name="twitter:description" content="Yandex 浏览器标签页或搜索结果缺少 favicon？按顺序检查 HTML 链接、文件路径、服务器响应、缓存和重新抓取，快速定位问题。">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Yandex 中 favicon 不显示？修复浏览器与搜索结果图标",
+  "description": "Yandex 浏览器标签页或搜索结果缺少 favicon？按顺序检查 HTML 链接、文件路径、服务器响应、缓存和重新抓取，快速定位问题。",
+  "datePublished": "2026-10-24",
+  "dateModified": "2026-10-24",
+  "author": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "mainEntityOfPage": "https://favicondl.com/zh/blog/favicon-yandex.html",
+  "inLanguage": "zh-CN"
+}</script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/zh/" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/zh/documentation.html" class="nav-link">文档</a>
+                <a href="/zh/tools.html" class="nav-link">工具</a>
+                <a href="/zh/blog/" class="nav-link">博客</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/favicon-yandex.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/favicon-yandex.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/favicon-yandex.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/favicon-yandex.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/favicon-yandex.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/zh/" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/zh/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600">Yandex 中 favicon 不显示？修复浏览器与搜索结果图标</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">seo</span><time class="text-sm text-gray-400">2026-10-24</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">Yandex 中 favicon 不显示？修复浏览器与搜索结果图标</h1>
+        </header>
+
+        <div class="article-body"><p>如果图标在 Chrome 中显示正常，到了 Yandex 却不出现，或者 Yandex Search 的某条结果没有图标，你可能面对的是两套彼此独立的系统。<strong>favicon 在 Yandex 中不显示</strong>，可能是 Yandex Browser 无法加载图片，也可能是 Yandex Search 尚未刷新已收录页面的图标。</p><h2>快速修复：favicon 在 Yandex 中不显示</h2><p>先判断图标究竟在哪里缺失：标签页、地址栏、书签，还是搜索结果。浏览器和搜索结果的刷新路径不同，所以标签页显示正常，并不能证明搜索结果条目已经是最新的。</p><ol><li><strong>找到声明。</strong>查看页面源代码，搜索 <code>rel</code> 中包含 <code>icon</code> 的 link 元素。如果不存在，就在文档的 <code>head</code> 中添加一个。</li><li><strong>测试准确的文件 URL。</strong>在新标签页中打开 <code>href</code> 的值。它必须直接返回图片本身，而不是 404 页面、登录界面或 HTML 错误文档。</li><li><strong>使用 root-relative 备用路径。</strong>将有效的 ICO 文件放在 <code>/favicon.ico</code>，并明确引用这个路径。这样可以消除嵌套页面上的路由歧义。</li><li><strong>绕开旧缓存副本。</strong>关闭标签页，在禁用缓存的情况下重新加载，然后再次打开页面。临时使用类似 <code>/favicon.ico?v=2</code> 的值，可以确认缓存是否导致了不一致。</li><li><strong>单独刷新搜索结果。</strong>如果直接访问文件正常，但 Yandex Search 仍然没有图标，请确认页面是否已按预期 URL 收录。如果你使用 Yandex Webmaster，应提交修正后的 URL 以申请重新索引，而不是反复更换图标。</li></ol><p>第一轮排查时，一段简单、可预期的声明就足够了：</p><pre><code>&amp;lt;link rel='icon' href='/favicon.ico'&amp;gt;</code></pre><p>如果你的支持方案包含 SVG，也可以添加一个 SVG 候选项：</p><pre><code>&amp;lt;link rel='icon' type='image/svg+xml' href='/favicon.svg'&amp;gt;</code></pre><p><a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">HTML 标准</a>定义了指向外部资源的 <code>icon</code> 链接关系，以及该关系可选的 <code>sizes</code> 属性。如果声明了尺寸，请确保它们与实际提供的文件一致。</p><h2>仅在 Yandex 中出现故障的根本原因</h2><h3>1. 路径看起来正确，实际却解析到了别处</h3><p>相对路径形式的 icon URL 会以页面的 base URL 为基准解析。在 <code>https://example.com/products/item/</code> 上，<code>href='favicon.ico'</code> 最终可能指向当前路径下，而不是站点根目录。添加 <code>base</code> 元素或使用框架生成的 URL，也可能改变解析结果。</p><p>打开 Network 面板，筛选 icon 请求并检查它的最终 URL。<code>/products/item/favicon.ico</code> 和 <code>/favicon.ico</code> 是两个不同的资源，即使它们在项目目录树中的名字看起来很熟悉。</p><h3>2. 服务器没有返回图片</h3><p>build 目录中存在的文件，部署到线上后仍可能无法正常加载。需要检查部署是否过期、文件名大小写是否不匹配、CDN 路径是否被拦截，以及是否存在重定向循环或身份验证规则。</p><p>查看响应的状态码、最终 URL 和 content type。ICO 需要使用 icon media type，SVG 和 PNG 则需要各自匹配的 image type。如果响应正文是 HTML，说明浏览器收到的是错误页面，而不是图标。</p><h3>3. 搜索结果与浏览器标签页使用的状态不同</h3><p>浏览器标签页会从当前访问的页面加载 icon；Yandex Search 中的结果可能仍采用此前爬取时获取的信息。因此，实时标签页中的图标可能显示正常，而搜索结果里没有图标，或者仍显示旧图标。</p><p>先检查搜索结果指向的目标 URL。如果它指向旧 URL、staging 页面、重定向地址或其他被索引的版本，只修改当前页面可能无法修复该条结果。应确保 icon 可以公开访问且地址稳定，然后通过可用的 webmaster tools 申请刷新。</p><h3>4. 缓存或重复链接掩盖了正确的文件</h3><p>Yandex Browser 可能保留已经获取过的 icon，服务器或 CDN 也可能仍在提供旧部署中的文件。像 <code>/favicon-v2.ico</code> 这样的带版本文件名可以暴露过时的请求路径，前提是同时更新 HTML 中的 link。</p><p>还要检查每一个被注入的 icon link。CMS 主题、插件或模板可能额外添加一条 <code>rel='icon'</code> 声明，从而留下两个路径不同的候选项。应移除意外产生的重复声明，而不是依赖浏览器的选择顺序。</p><h2>预防：让 icon 的定位更可预测</h2><ul><li><strong>在稳定的 URL 保留一个 fallback。</strong> 将 ICO 放在与页面同源的 <code>/favicon.ico</code> 路径下。不要把唯一的图标放在需要登录才能访问、设有 cookie wall，或仅靠 JavaScript 才能访问的 URL 后面。</li><li><strong>使用站点根路径引用。</strong> 让 <code>href</code> 以 <code>/</code> 开头，这样文件就不会依赖当前路由。</li><li><strong>检查公开响应。</strong> crawler 和未登录访客都必须在不携带 cookies、也不依赖 JavaScript 的情况下获取到图标。</li><li><strong>有意替换时更新版本。</strong> 如果在相同文件名下替换图像内容，既要换文件，也要改路径，避免浏览器缓存和 CDN 缓存悄悄返回旧图。</li><li><strong>两个入口都要检查。</strong> 在 Yandex Browser 中测试线上图标，并在 recrawl（重新抓取）后查看对应的 Yandex Search 结果。</li></ul>
+<h2>最后检查</h2>
+<p>如果直接请求失败，先修复图标的交付问题，再排查 Yandex。如果请求成功、但搜索结果仍然不对，就检查已收录的 URL，并处理 recrawl 路径。这个拆分通常能把一个模糊的 favicon 问题，变成两个可以逐项完成的检查。</p>
+<p>如果需要一份更全面的浏览器端排查清单，请参阅<a href="/zh/blog/favicon-not-showing.html">Favicon 不显示？7 个原因与快速修复</a>。如果你在比较不同搜索引擎，Google 采用的是另一套规则；请查看<a href="/zh/blog/favicon-not-showing-google-results.html">Google favicon 检查清单</a>，不要假设 Yandex 使用相同的准入规则。</p>
+<p>你可以先用<a href="/zh/">Mzu favicondl</a> 准备一个干净的 ICO 或 PNG fallback，再发布到根路径。关键细节在于最终 URL、响应，以及 Yandex 能够使用的 refresh 路径。</p></div>
+
+        <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
+
+        <div class="cta-box">
+            <h3>为 Yandex 准备可靠的 favicon</h3>
+            <p>创建清晰的 ICO 和 PNG 备用图标，将其发布在稳定的公开 URL 上，并验证实际响应。</p>
+            <a href="/zh/" class="cta-btn">免费试用 →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/zh/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">首页</a>
+                <a href="/zh/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">博客</a>
+                <a href="/zh/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">隐私政策</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js?v=20260211"></script>
+
+</body></html>
