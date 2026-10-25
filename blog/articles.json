@@ -3941,5 +3941,26 @@
     ],
     "qualityScore": 95,
     "qualityGrade": "A"
+  },
+  {
+    "slug": "ico-to-png-converter",
+    "publishDate": "2026-10-25",
+    "titleEn": "ICO to PNG Converter: Extract Raster Favicons Easily",
+    "titleZh": "ICO 转 PNG 转换器：提取清晰的网站图标",
+    "titleJa": "ICOをPNGに変換｜ファビコン画像を簡単に抽出",
+    "titleKo": "ICO를 PNG로 변환해 파비콘 이미지 추출하기",
+    "titleEs": "Convertidor ICO a PNG: extrae iconos nítidos",
+    "descEn": "Convert ICO favicons to PNG with Mzu favicondl. Extract a usable raster icon, check transparency and size, then add it cleanly to your site with the right.",
+    "descZh": "使用 Mzu favicondl 将 ICO 转换为 PNG，提取清晰的位图图标，检查透明度与尺寸，并按正确的 HTML 代码部署到网站。",
+    "descJa": "Mzu favicondlでICOをPNGに変換し、鮮明なラスターアイコンを取り出します。透明感とサイズを確認して、適切なHTMLでサイトに設定できます。",
+    "descKo": "Mzu favicondl에서 ICO를 PNG로 변환해 선명한 래스터 아이콘을 추출합니다. 투명도와 크기를 확인하고 올바른 HTML로 사이트에 설정할 수 있습니다.",
+    "descEs": "Convierte favicon ICO a PNG con Mzu favicondl. Extrae un icono nítido, revisa transparencia y tamaño, y añádelo a tu sitio con el HTML correcto.",
+    "keyword": "ico to png converter",
+    "tags": [
+      "conversion",
+      "tools"
+    ],
+    "qualityScore": 95,
+    "qualityGrade": "A"
   }
 ]
