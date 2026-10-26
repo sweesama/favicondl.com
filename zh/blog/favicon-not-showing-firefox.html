@@ -1,0 +1,133 @@
+<!DOCTYPE html><html lang="zh"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Firefox 中 favicon 不显示？几分钟内修复</title>
+    <meta name="description" content="快速修复 Firefox 中 favicon 不显示的问题。了解从缓存到 SVG 解析的常见原因，以及让图标重新出现在标签页中的确切步骤。">
+    <meta name="keywords" content="favicon not showing firefox, firefox favicon fix, favicon cache firefox, svg favicon firefox">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/zh/blog/favicon-not-showing-firefox.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/favicon-not-showing-firefox.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/favicon-not-showing-firefox.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/favicon-not-showing-firefox.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/favicon-not-showing-firefox.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/favicon-not-showing-firefox.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/favicon-not-showing-firefox.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/zh/blog/favicon-not-showing-firefox.html">
+    <meta property="og:title" content="Firefox 中 favicon 不显示？几分钟内修复">
+    <meta property="og:description" content="快速修复 Firefox 中 favicon 不显示的问题。了解从缓存到 SVG 解析的常见原因，以及让图标重新出现在标签页中的确切步骤。">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Firefox 中 favicon 不显示？几分钟内修复">
+    <meta name="twitter:description" content="快速修复 Firefox 中 favicon 不显示的问题。了解从缓存到 SVG 解析的常见原因，以及让图标重新出现在标签页中的确切步骤。">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Firefox 中 favicon 不显示？几分钟内修复",
+  "description": "快速修复 Firefox 中 favicon 不显示的问题。了解从缓存到 SVG 解析的常见原因，以及让图标重新出现在标签页中的确切步骤。",
+  "datePublished": "2026-10-26",
+  "dateModified": "2026-10-26",
+  "author": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "mainEntityOfPage": "https://favicondl.com/zh/blog/favicon-not-showing-firefox.html",
+  "inLanguage": "zh-CN"
+}</script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/zh/" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/zh/documentation.html" class="nav-link">文档</a>
+                <a href="/zh/tools.html" class="nav-link">工具</a>
+                <a href="/zh/blog/" class="nav-link">博客</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/favicon-not-showing-firefox.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/favicon-not-showing-firefox.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/favicon-not-showing-firefox.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/favicon-not-showing-firefox.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/favicon-not-showing-firefox.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/zh/" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/zh/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600">Firefox 中 favicon 不显示？几分钟内修复</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">troubleshooting</span><time class="text-sm text-gray-400">2026-10-26</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">Firefox 中 favicon 不显示？几分钟内修复</h1>
+        </header>
+
+        <div class="article-body"><p>你已经给网站加了 favicon，但 Firefox 的标签页里仍然显示一个空白页面图标。这问题很常见，原因通常是以下三种之一：缓存机制、严格的解析规则，或路径写错。先把图标找回来。</p><h2>快速修复：强制 Firefox 重新获取 favicon</h2><p>在动手改代码之前，先试试最快的办法。Firefox 会 aggressively 地缓存 favicon，有时甚至持续数天。可以专门清除 favicon 缓存：</p><ol><li>打开一个新标签页，访问 <code>about:cache</code>。</li><li>在“Disk cache”（磁盘缓存）下，点击“List Cache Entries”（列出缓存条目）。</li><li>搜索“favicon”，删除与你的站点有关的条目。</li><li>重启 Firefox，然后重新加载页面。</li></ol><p>如果这样仍然无效，可以在 HTML 中给 favicon URL 追加 query string，例如 <code>favicon.ico?v=2</code>，彻底绕过缓存。这样会让 Firefox 将它视为一个新资源。</p><h2>为什么偏偏是 Firefox 无法显示 favicon</h2><p>相比某些浏览器，Firefox 的规则更严格。以下是最常见的原因：</p><ul><li><strong>SVG 解析错误：</strong>Firefox 要求 SVG 是有效的 XML。如果缺少 namespace，或者某个标签没有闭合，Firefox 就会直接忽略这个 SVG favicon。</li><li><strong>MIME type 不正确：</strong>如果服务器为 PNG 文件返回 <code>image/x-icon</code>，Firefox 可能拒绝加载。请确保 <code>type</code> 属性与文件的实际格式一致。</li><li><strong>相对路径问题：</strong><code>./favicon.ico</code> 这样的路径在嵌套路由中可能失效。请改用绝对路径或根相对路径（<code>/favicon.ico</code>）。</li><li><strong>缺少 link tag：</strong>只有页面中完全没有 link tag 时，Firefox 才会回退到 <code>/favicon.ico</code>。如果 link tag 指向的文件不存在，Firefox 就不会继续回退。</li></ul><p>想进一步了解 Firefox 的具体行为，可以查看我们的 <a href="/zh/blog/firefox-favicon-guide.html">Firefox favicon 指南</a>。</p><h2>检查 HTML 和服务器响应</h2><p>先确认 HTML head 中的 link tag，正确的写法应该如下：</p><pre><code>&lt;link rel='icon' type='image/svg+xml' href='/favicon.svg'&gt;
+&lt;link rel='icon' type='image/png' href='/favicon-32x32.png'&gt;</code></pre><p>根据 <a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">HTML 规范</a>，<code>rel='icon'</code> 属性是定义 favicon 的标准方式。Firefox 支持这一属性，但也会检查文件的完整性。</p>
+<p>接下来，打开 Firefox 的 Developer Tools（F12），切换到 Network 面板并重新加载页面。查找 favicon 请求。如果返回 404，说明路径有误；如果返回 200 但图标仍未显示，文件可能已损坏，或者格式不受支持。</p>
+<h2>预防建议</h2>
+<p>为避免以后再遇到这个问题，可以将多尺寸 ICO 文件作为备用资源提供，并始终包含带有正确 XML 头信息的 SVG。使用绝对路径；更新图标时，还可以考虑添加版本查询字符串。关于完整检查清单，请参阅我们的 <a href="/zh/blog/favicon-not-showing.html">favicon 不显示指南</a>。</p>
+<p>如果需要快速生成一套正确的 favicon，<a href="/zh/">Mzu favicondl</a> 可以创建尺寸和格式均正确的 ICO、PNG 和 SVG 文件。</p>
+<h2>结论</h2>
+<p>Firefox 的 favicon 问题通常与缓存有关，或者源于严格的解析规则。清除缓存、验证 SVG，并再次检查路径。按照这些步骤操作，图标应该很快就会显示出来。</p></div>
+
+        <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
+
+        <div class="cta-box">
+            <h3>生成适用于 Firefox 的 favicon</h3>
+            <p>创建适用于所有浏览器的 ICO、PNG 和 SVG favicon。免费试用 Mzu favicondl。</p>
+            <a href="/zh/" class="cta-btn">免费试用 →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/zh/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">首页</a>
+                <a href="/zh/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">博客</a>
+                <a href="/zh/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">隐私政策</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js?v=20260211"></script>
+
+</body></html>

@@ -2984,7 +2984,9 @@
       "firefox-favicon-guide",
       "favicon-not-showing-chrome"
     ],
-    "status": "pending"
+    "status": "done",
+    "qualityScore": 85,
+    "qualityGrade": "A"
   },
   {
     "keyword": "favicon not showing safari",

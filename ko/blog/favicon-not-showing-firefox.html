@@ -1,0 +1,138 @@
+<!DOCTYPE html><html lang="ko"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Firefox에서 favicon이 표시되지 않나요? 몇 분 안에 해결</title>
+    <meta name="description" content="Firefox에서 favicon이 표시되지 않는 문제를 빠르게 해결하세요. 캐시부터 SVG 파싱까지 일반적인 원인과 탭에 아이콘을 다시 표시하는 정확한 방법을 알아봅니다.">
+    <meta name="keywords" content="favicon not showing firefox, firefox favicon fix, favicon cache firefox, svg favicon firefox">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/ko/blog/favicon-not-showing-firefox.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/favicon-not-showing-firefox.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/favicon-not-showing-firefox.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/favicon-not-showing-firefox.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/favicon-not-showing-firefox.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/favicon-not-showing-firefox.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/favicon-not-showing-firefox.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/ko/blog/favicon-not-showing-firefox.html">
+    <meta property="og:title" content="Firefox에서 favicon이 표시되지 않나요? 몇 분 안에 해결">
+    <meta property="og:description" content="Firefox에서 favicon이 표시되지 않는 문제를 빠르게 해결하세요. 캐시부터 SVG 파싱까지 일반적인 원인과 탭에 아이콘을 다시 표시하는 정확한 방법을 알아봅니다.">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Firefox에서 favicon이 표시되지 않나요? 몇 분 안에 해결">
+    <meta name="twitter:description" content="Firefox에서 favicon이 표시되지 않는 문제를 빠르게 해결하세요. 캐시부터 SVG 파싱까지 일반적인 원인과 탭에 아이콘을 다시 표시하는 정확한 방법을 알아봅니다.">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Firefox에서 favicon이 표시되지 않나요? 몇 분 안에 해결",
+  "description": "Firefox에서 favicon이 표시되지 않는 문제를 빠르게 해결하세요. 캐시부터 SVG 파싱까지 일반적인 원인과 탭에 아이콘을 다시 표시하는 정확한 방법을 알아봅니다.",
+  "datePublished": "2026-10-26",
+  "dateModified": "2026-10-26",
+  "author": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "mainEntityOfPage": "https://favicondl.com/ko/blog/favicon-not-showing-firefox.html",
+  "inLanguage": "ko"
+}</script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/ko/" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/ko/documentation.html" class="nav-link">문서</a>
+                <a href="/ko/tools.html" class="nav-link">도구</a>
+                <a href="/ko/blog/" class="nav-link">블로그</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/favicon-not-showing-firefox.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/favicon-not-showing-firefox.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/favicon-not-showing-firefox.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/favicon-not-showing-firefox.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/favicon-not-showing-firefox.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/ko/" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/ko/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600">Firefox에서 favicon이 표시되지 않나요? 몇 분 안에 해결</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">troubleshooting</span><time class="text-sm text-gray-400">2026-10-26</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">Firefox에서 favicon이 표시되지 않나요? 몇 분 안에 해결</h1>
+        </header>
+
+        <div class="article-body"><p>사이트에 favicon을 추가했는데도 Firefox 탭에는 여전히 빈 페이지 아이콘이 표시됩니다. 꽤 흔한 문제이며, 원인은 대부분 세 가지 중 하나입니다. 캐싱 관련 특이 동작, 엄격한 파싱 규칙, 또는 단순한 경로 오류입니다. 이번에는 favicon을 다시 표시해 봅시다.</p>
+<h2>빠른 해결법: Firefox가 favicon을 다시 가져오도록 강제하기</h2>
+<p>코드를 살펴보기 전에 가장 빠른 해결책부터 시도해 보세요. Firefox는 favicon을 강하게 캐싱하며, 경우에 따라 며칠 동안 캐시를 유지합니다. favicon 캐시만 따로 삭제해 보세요.</p>
+<ol><li>새 탭을 열고 <code>about:cache</code>로 이동합니다.</li><li>'Disk cache' 아래에서 'List Cache Entries'를 클릭합니다.</li><li>'favicon'을 검색하고 해당 사이트와 관련된 항목을 삭제합니다.</li><li>Firefox를 다시 시작한 뒤 페이지를 새로 고칩니다.</li></ol>
+<p>그래도 해결되지 않으면 HTML에 지정한 favicon URL에 query string을 추가해 캐시를 완전히 우회할 수 있습니다. 예를 들어 <code>favicon.ico?v=2</code>처럼 지정하면 됩니다. 이렇게 하면 Firefox가 해당 favicon을 새로운 리소스로 인식합니다.</p>
+<h2>Firefox에서만 favicon이 표시되지 않는 이유</h2>
+<p>Firefox는 일부 브라우저보다 favicon 처리 규칙이 더 엄격합니다. 가장 흔한 원인은 다음과 같습니다.</p>
+<ul><li><strong>SVG 파싱 오류:</strong> Firefox는 유효한 XML을 요구합니다. namespace이 없거나 태그가 닫히지 않으면 SVG favicon을 조용히 무시합니다.</li><li><strong>잘못된 MIME type:</strong> 서버가 PNG 파일에 <code>image/x-icon</code>을 전송하면 Firefox가 이를 거부할 수 있습니다. <code>type</code> 속성이 실제 파일 형식과 일치하는지 확인하세요.</li><li><strong>상대 경로 문제:</strong> <code>./favicon.ico</code> 같은 경로는 중첩된 경로에서 동작하지 않을 수 있습니다. 절대 경로 또는 루트 기준 경로(<code>/favicon.ico</code>)를 사용하세요.</li><li><strong>link 태그 누락:</strong> Firefox는 link 태그가 전혀 없을 때만 <code>/favicon.ico</code>로 대체 표시합니다. link 태그가 존재하면서 지정된 파일이 없다면 대체 동작을 하지 않습니다.</li></ul>
+<p>Firefox의 동작을 더 자세히 알아보려면 <a href="/ko/blog/firefox-favicon-guide.html">Firefox favicon 안내서</a>를 참고하세요.</p>
+<h2>HTML과 서버 응답 확인하기</h2>
+<p>먼저 HTML head 안의 link 태그를 확인하세요. 다음과 같은 형태여야 합니다.</p>
+<pre><code>&lt;link rel='icon' type='image/svg+xml' href='/favicon.svg'&gt;
+&lt;link rel='icon' type='image/png' href='/favicon-32x32.png'&gt;</code></pre><p><a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">HTML 표준</a>에 따르면, <code>rel='icon'</code> 속성은 favicon을 정의하는 표준 방법입니다. Firefox는 이 속성을 지원하지만, 파일의 무결성도 함께 확인합니다.</p><p>다음으로 Firefox의 Developer Tools(F12)를 열고 Network 탭으로 이동한 뒤 페이지를 새로고침합니다. favicon 요청을 찾아보세요. 요청이 404를 반환한다면 경로가 잘못된 것입니다. 200을 반환하는데도 아이콘이 표시되지 않는다면 파일이 손상되었거나 지원하지 않는 형식일 수 있습니다.</p><h2>미리 방지하는 팁</h2><p>앞으로 이런 문제를 피하려면 여러 크기를 담은 ICO 파일을 fallback으로 제공하고, 올바른 XML 헤더가 포함된 SVG를 항상 포함하세요. 절대 경로를 사용하고, 아이콘을 업데이트할 때는 version query string을 추가하는 것도 고려해 보세요. 자세한 체크리스트는 <a href="/ko/blog/favicon-not-showing.html">favicon이 표시되지 않는 문제 해결 가이드</a>에서 확인할 수 있습니다.</p><p>올바른 favicon 세트를 빠르게 생성해야 한다면, <a href="/ko/"><strong>Mzu favicondl</strong></a>에서 ICO, PNG, SVG 파일을 적절한 크기와 형식으로 만들 수 있습니다.</p><h2>결론</h2><p>Firefox에서 favicon이 표시되지 않는 문제는 대개 캐시 관련 문제이거나 엄격한 파싱 때문입니다. 캐시를 지우고, SVG를 검증하고, 경로를 다시 확인하세요. 이 단계들을 따르면 아이콘이 곧바로 표시될 것입니다.</p></div>
+
+        <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
+
+        <div class="cta-box">
+            <h3>Firefox에 최적화된 favicon 생성</h3>
+            <p>모든 브라우저에서 작동하는 ICO, PNG, SVG favicon을 생성하세요. Mzu favicondl을 무료로 사용해보세요.</p>
+            <a href="/ko/" class="cta-btn">무료로 사용해보기 →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/ko/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">홈</a>
+                <a href="/ko/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">블로그</a>
+                <a href="/ko/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">개인정보</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js?v=20260211"></script>
+
+</body></html>

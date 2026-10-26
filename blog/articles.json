@@ -3962,5 +3962,26 @@
     ],
     "qualityScore": 95,
     "qualityGrade": "A"
+  },
+  {
+    "slug": "favicon-not-showing-firefox",
+    "publishDate": "2026-10-26",
+    "titleEn": "Favicon Not Showing in Firefox? Fix It in Minutes",
+    "titleZh": "Firefox 中 favicon 不显示？几分钟内修复",
+    "titleJa": "Firefoxでfaviconが表示されない？数分で解決",
+    "titleKo": "Firefox에서 favicon이 표시되지 않나요? 몇 분 안에 해결",
+    "titleEs": "¿Favicon no se muestra en Firefox? Soluciónalo en minutos",
+    "descEn": "Fix favicon not showing in Firefox fast. Learn the common causes, from cache to SVG parsing, and the exact steps to get your icon back in the tab.",
+    "descZh": "快速修复 Firefox 中 favicon 不显示的问题。了解从缓存到 SVG 解析的常见原因，以及让图标重新出现在标签页中的确切步骤。",
+    "descJa": "Firefoxでfaviconが表示されない問題を迅速に解決。キャッシュからSVG解析まで、一般的な原因とタブにアイコンを戻すための正確な手順を解説します。",
+    "descKo": "Firefox에서 favicon이 표시되지 않는 문제를 빠르게 해결하세요. 캐시부터 SVG 파싱까지 일반적인 원인과 탭에 아이콘을 다시 표시하는 정확한 방법을 알아봅니다.",
+    "descEs": "Soluciona rápidamente el favicon que no se muestra en Firefox. Conoce las causas comunes, desde la caché hasta el análisis de SVG, y los pasos exactos para recuperar tu icono en la pestaña.",
+    "keyword": "favicon not showing firefox",
+    "tags": [
+      "troubleshooting",
+      "browsers"
+    ],
+    "qualityScore": 85,
+    "qualityGrade": "A"
   }
 ]
