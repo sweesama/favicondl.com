@@ -3983,5 +3983,26 @@
     ],
     "qualityScore": 85,
     "qualityGrade": "A"
+  },
+  {
+    "slug": "favicon-not-showing-safari",
+    "publishDate": "2026-10-27",
+    "titleEn": "Favicon Not Showing in Safari? Fix It Fast",
+    "titleZh": "Safari 中 favicon 不显示？快速修复指南",
+    "titleJa": "Safariでfaviconが表示されない？迅速な解決策",
+    "titleKo": "Safari에서 favicon이 표시되지 않음? 빠른 해결 방법",
+    "titleEs": "¿Favicon no aparece en Safari? Solución rápida",
+    "descEn": "Safari not showing your favicon? Learn the most common causes and quick fixes to get your site icon back in the tab, bookmarks, and favorites.",
+    "descZh": "Safari 不显示 favicon？了解最常见的原因和快速修复方法，让你的网站图标重新出现在标签页、书签和收藏夹中。",
+    "descJa": "Safariでfaviconが表示されない？一般的な原因と迅速な修正方法を学び、タブ、ブックマーク、お気に入りにサイトアイコンを戻しましょう。",
+    "descKo": "Safari에서 favicon이 표시되지 않나요? 가장 흔한 원인과 빠른 해결 방법을 알아보고 탭, 북마크, 즐겨찾기에 사이트 아이콘을 다시 표시하세요.",
+    "descEs": "¿Safari no muestra tu favicon? Conoce las causas más comunes y soluciones rápidas para que el icono de tu sitio vuelva a la pestaña, marcadores y favoritos.",
+    "keyword": "favicon not showing safari",
+    "tags": [
+      "troubleshooting",
+      "browsers"
+    ],
+    "qualityScore": 95,
+    "qualityGrade": "A"
   }
 ]

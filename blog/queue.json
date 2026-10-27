@@ -3001,7 +3001,9 @@
       "favicon-ios-safari",
       "safari-pinned-tab-icon"
     ],
-    "status": "pending"
+    "status": "done",
+    "qualityScore": 95,
+    "qualityGrade": "A"
   },
   {
     "keyword": "favicon for notion site",
