@@ -5,7 +5,13 @@
     "api/proxy.js": { "maxDuration": 20 }
   },
   "redirects": [
-    { "source": "/index.html", "destination": "/", "permanent": true }
+    { "source": "/index.html", "destination": "/", "permanent": true },
+    { "source": "/es/tamanos-de-favicon.html", "destination": "/es/tamanos-de-favicon.html", "permanent": true },
+    { "source": "/blog/chrome-not-showing-favicons.html", "destination": "/blog/favicon-not-showing.html", "permanent": true },
+    { "source": "/zh/blog/chrome-not-showing-favicons.html", "destination": "/zh/blog/favicon-not-showing.html", "permanent": true },
+    { "source": "/ja/blog/chrome-not-showing-favicons.html", "destination": "/ja/blog/favicon-not-showing.html", "permanent": true },
+    { "source": "/ko/blog/chrome-not-showing-favicons.html", "destination": "/ko/blog/favicon-not-showing.html", "permanent": true },
+    { "source": "/es/blog/chrome-not-showing-favicons.html", "destination": "/es/blog/favicon-not-showing.html", "permanent": true }
   ],
   "rewrites": [
     { "source": "/zh", "destination": "/zh/index.html" },

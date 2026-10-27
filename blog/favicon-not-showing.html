@@ -1,8 +1,8 @@
 <!DOCTYPE html><html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Favicon Not Showing? 7 Causes and Quick Fixes (2026)</title>
-    <meta name="description" content="Favicon not showing in the browser tab or on Google? Fix it fast: clear the favicon cache, check the file path, <link> tag, MIME type and format. Step-by-step checklist.">
+    <title>Favicon Not Showing? Checklist, Causes and Fixes</title>
+    <meta name="description" content="Favicon not showing? Run the checklist first, then fix the cache, file path, missing link tags, format or size, HTTPS, a CDN cache, and Google's favicon rules plus recrawl time.">
     <meta name="keywords" content="favicon not showing, favicon not working, favicon not appearing, favicon troubleshooting, favicon cache, favicon fix">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://favicondl.com/blog/favicon-not-showing.html">
@@ -22,12 +22,12 @@
 
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://favicondl.com/blog/favicon-not-showing.html">
-    <meta property="og:title" content="Favicon Not Showing? 7 Causes and Quick Fixes (2026)">
-    <meta property="og:description" content="Favicon not showing in the browser tab or on Google? Fix it fast: clear the favicon cache, check the file path, <link> tag, MIME type and format. Step-by-step checklist.">
+    <meta property="og:title" content="Favicon Not Showing? Checklist, Causes and Fixes">
+    <meta property="og:description" content="Favicon not showing? Run the checklist first, then fix the cache, file path, missing link tags, format or size, HTTPS, a CDN cache, and Google's favicon rules plus recrawl time.">
     <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Favicon Not Showing? 7 Causes and Quick Fixes (2026)">
-    <meta name="twitter:description" content="Favicon not showing in the browser tab or on Google? Fix it fast: clear the favicon cache, check the file path, <link> tag, MIME type and format. Step-by-step checklist.">
+    <meta name="twitter:title" content="Favicon Not Showing? Checklist, Causes and Fixes">
+    <meta name="twitter:description" content="Favicon not showing? Run the checklist first, then fix the cache, file path, missing link tags, format or size, HTTPS, a CDN cache, and Google's favicon rules plus recrawl time.">
     <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
 
     <script src="https://cdn.tailwindcss.com"></script>
@@ -43,10 +43,10 @@
 <script type="application/ld+json">{
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "Favicon Not Showing? 7 Causes and Quick Fixes (2026)",
-  "description": "Favicon not showing in the browser tab or on Google? Fix it fast: clear the favicon cache, check the file path, <link> tag, MIME type and format. Step-by-step checklist.",
+  "headline": "Favicon Not Showing? Checklist, Causes and Fixes",
+  "description": "Favicon not showing? Run the checklist first, then fix the cache, file path, missing link tags, format or size, HTTPS, a CDN cache, and Google's favicon rules plus recrawl time.",
   "datePublished": "2026-02-16",
-  "dateModified": "2026-10-12",
+  "dateModified": "2026-10-27",
   "author": {
     "@type": "Organization",
     "name": "Mzu favicondl"
@@ -57,7 +57,7 @@
   },
   "mainEntityOfPage": "https://favicondl.com/blog/favicon-not-showing.html",
   "inLanguage": "en"
-}</script><script type="application/ld+json" data-i18n-only="en">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Why is my favicon not showing in Chrome?","acceptedAnswer":{"@type":"Answer","text":"Chrome caches favicons aggressively, sometimes for days. Open the icon URL directly to confirm it loads, then add a version query (/favicon.ico?v=2) to the link tag or clear the cache. More fixes: favicon not showing in Chrome."}},{"@type":"Question","name":"Why does Google not show my favicon in search results?","acceptedAnswer":{"@type":"Answer","text":"Google needs a square icon of at least 48×48 px, declared with a <link rel=\"icon\"> tag on the homepage, and crawlable by Googlebot. It can take days to weeks to update. See favicon not showing in Google."}},{"@type":"Question","name":"How long does it take for a new favicon to show?","acceptedAnswer":{"@type":"Answer","text":"In the browser, immediately after a cache-busting refresh. In Google Search, usually a few days to a few weeks after Googlebot recrawls your homepage."}},{"@type":"Question","name":"How can I check whether my favicon is set up correctly?","acceptedAnswer":{"@type":"Answer","text":"Enter your domain in the favicon downloader: it lists every icon your site exposes, its size and URL, so you can spot missing or broken files instantly."}}]}</script></head>
+}</script><script type="application/ld+json" data-i18n-only="en">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Why is my favicon not showing?","acceptedAnswer":{"@type":"Answer","text":"Open the icon URL. If it is not an image, fix the path or upload the file. If it is an image, the browser is still holding the previous response: use a private window or add ?v=2 to the link. Then confirm the link rel=icon tag is inside the head in the page source."}},{"@type":"Question","name":"Why is my favicon not showing in Chrome?","acceptedAnswer":{"@type":"Answer","text":"Chrome caches icons in its own database, sometimes for days, and it also requests /favicon.ico on its own. Load the icon URL directly, then add a version query to the link tag."}},{"@type":"Question","name":"Why does Google not show my favicon in search results?","acceptedAnswer":{"@type":"Answer","text":"Google wants a square icon larger than 48×48 px, declared with a link rel=icon tag on the homepage, and crawlable by Googlebot and Googlebot-Image. An SVG alone is not in Google’s format list for Search. Updating the result takes days to weeks after a recrawl."}},{"@type":"Question","name":"How long does it take for a new favicon to show?","acceptedAnswer":{"@type":"Answer","text":"In the browser, as soon as the cache-busting URL is fetched. In Google Search, usually a few days to a few weeks after Googlebot recrawls the homepage."}},{"@type":"Question","name":"How can I check whether my favicon is set up correctly?","acceptedAnswer":{"@type":"Answer","text":"Enter the domain in the favicon downloader. It lists every icon the site exposes, with its size and URL, including manifest icons and /favicon.ico."}}]}</script></head>
 <body>
     <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
         <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
@@ -87,123 +87,109 @@
         <nav class="text-sm text-gray-400 mb-8">
             <a href="/" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
             <a href="/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
-            <span class="text-gray-600" data-en="Favicon Not Showing? 7 Causes and Quick Fixes (2026)" data-zh="Favicon 不显示？7 个常见原因及解决方法" data-ja="Faviconが表示されない？7つの原因と修正方法" data-ko="Favicon이 안 보이나요? 7가지 원인과 해결법" data-es="¿Favicon no aparece? 7 causas comunes y soluciones">Favicon Not Showing? 7 Causes and Quick Fixes (2026)</span>
+            <span class="text-gray-600" data-en="Favicon Not Showing? Checklist, Causes and Fixes" data-zh="Favicon 不显示？7 个常见原因及解决方法" data-ja="Faviconが表示されない？7つの原因と修正方法" data-ko="Favicon이 안 보이나요? 7가지 원인과 해결법" data-es="¿Favicon no aparece? 7 causas comunes y soluciones">Favicon Not Showing? Checklist, Causes and Fixes</span>
         </nav>
 
         <header class="mb-10">
             <div class="flex items-center gap-3 mb-4"><span class="tag">troubleshooting</span><time class="text-sm text-gray-400">2026-02-16</time></div>
-            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight" data-en="Favicon Not Showing? 7 Causes and Quick Fixes (2026)" data-zh="Favicon 不显示？7 个常见原因及解决方法" data-ja="Faviconが表示されない？7つの原因と修正方法" data-ko="Favicon이 안 보이나요? 7가지 원인과 해결법" data-es="¿Favicon no aparece? 7 causas comunes y soluciones">Favicon Not Showing? 7 Causes and Quick Fixes (2026)</h1>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight" data-en="Favicon Not Showing? Checklist, Causes and Fixes" data-zh="Favicon 不显示？7 个常见原因及解决方法" data-ja="Faviconが表示されない？7つの原因と修正方法" data-ko="Favicon이 안 보이나요? 7가지 원인과 해결법" data-es="¿Favicon no aparece? 7 causas comunes y soluciones">Favicon Not Showing? Checklist, Causes and Fixes</h1>
         </header>
 
         <div class="article-body" data-lang="en">
-            <p>You've added a favicon to your website, but it's not appearing in the browser tab. Frustrating? Let's go through the <strong>7 most common reasons</strong> and their fixes, ordered from most to least likely.</p>
-            <div class="info-box"><p><strong>Short answer:</strong> if your favicon is not showing, it is almost always one of three things: the browser cached the old (or missing) icon, the <code>&lt;link rel="icon"&gt;</code> path is wrong, or the file at that path returns a 404 or the wrong MIME type. Open the icon URL directly in a new tab (e.g. <code>https://yoursite.com/favicon.ico</code>); if it loads, hard-refresh or add <code>?v=2</code> to the href; if it doesn't, fix the path or upload the file.</p></div>
+            <p>A favicon that is not showing is almost always a file the browser cannot fetch, a <code>&lt;link rel="icon"&gt;</code> the browser never reads, or a cache that still holds the old response. Work the checklist before changing the artwork.</p>
+            <div class="info-box"><p><strong>Check the live icon.</strong> Paste the site into the <a href="/">favicon downloader</a>. It lists every icon the homepage, the web app manifest, and the well-known paths actually return, with the real pixel size, so a 404 or an HTML error page shows up immediately.</p></div>
 
-            <h2>Jump to Your Exact Symptom</h2>
-            <p>The seven causes below apply to every browser. If your problem matches one of these specific situations, the dedicated guide will get you there faster:</p>
-            <ul>
-                <li><a href="/blog/favicon-not-showing-chrome.html">Favicon not showing in Chrome</a> (Chrome's own icon cache, localhost and strict SVG parsing)</li>
-                <li><a href="/blog/favicon-not-showing-google-results.html">Favicon not showing in Google Search results</a></li>
-                <li><a href="/blog/favicon-not-showing-localhost.html">Favicon not showing on localhost</a></li>
-                <li><a href="/blog/favicon-not-showing-after-cache-clear.html">Favicon still missing after clearing the cache</a></li>
-                <li><a href="/blog/favicon-not-updating-deployment.html">Favicon not updating after a deployment</a></li>
-                <li><a href="/blog/react-vite-favicon-not-showing.html">Favicon not showing in a React + Vite app</a></li>
-            </ul>
-
-            <h2>1. Browser Cache (Most Common)</h2>
-            <p>Favicons are cached more aggressively than almost anything else in the browser. Even after you update the file, the browser may show the old one (or no icon) for hours or days.</p>
-            <p><strong>Fix:</strong></p>
-            <ul>
-                <li>Hard refresh: <code>Ctrl+Shift+R</code> (Windows/Linux) or <code>Cmd+Shift+R</code> (Mac)</li>
-                <li>Open in <strong>Incognito/Private</strong> mode</li>
-                <li>Clear browser cache: <code>Settings → Privacy → Clear browsing data → Cached images and files</code></li>
-                <li>Add a cache-busting query string: <code>href="/favicon.ico?v=2"</code></li>
-            </ul>
-
-            <h2>2. Wrong File Path</h2>
-            <p>The most common coding error. The browser can't find your favicon file because the path is incorrect.</p>
-            <p><strong>Fix:</strong></p>
-            <ul>
-                <li>Use <strong>absolute paths</strong> starting with <code>/</code>: <code>href="/favicon.ico"</code></li>
-                <li>Open <code>https://yoursite.com/favicon.ico</code> directly in the browser — can you see the icon?</li>
-                <li>Check for typos in the filename (e.g., <code>favicon.ico</code> vs <code>Favicon.ico</code> — case matters on Linux servers)</li>
-            </ul>
-
-            <h2>3. Missing or Incorrect HTML Tags</h2>
-            <p>The <code>&lt;link&gt;</code> tag might be missing, malformed, or placed outside the <code>&lt;head&gt;</code>.</p>
-            <p><strong>Fix:</strong> Ensure this code is inside your <code>&lt;head&gt;</code> tags:</p>
-            <pre><code>&lt;link rel="icon" type="image/x-icon" href="/favicon.ico"&gt;</code></pre>
-            <p>Common mistakes:</p>
-            <ul>
-                <li>Using <code>rel="shortcut icon"</code> — while still supported, <code>rel="icon"</code> is the standard</li>
-                <li>Missing the <code>type</code> attribute — add <code>type="image/x-icon"</code> or <code>type="image/png"</code></li>
-                <li>Placing the link tag in <code>&lt;body&gt;</code> instead of <code>&lt;head&gt;</code></li>
-            </ul>
-
-            <h2>4. Corrupt or Invalid File</h2>
-            <p>The file might look fine on your computer but be corrupted or in the wrong format.</p>
-            <p><strong>Fix:</strong></p>
-            <ul>
-                <li>Verify the file is a valid ICO/PNG — open it in an image viewer</li>
-                <li>Don't just rename a JPEG to <code>.ico</code> — that doesn't convert the format</li>
-                <li>Regenerate using a proper tool like <a href="/tools.html">Mzu favicondl's Image to Favicon</a></li>
-            </ul>
-
-            <h2>5. Server Not Serving the Correct MIME Type</h2>
-            <p>Some servers don't recognize <code>.ico</code> files and serve them with the wrong Content-Type header.</p>
-            <p><strong>Fix:</strong> Check the response headers in DevTools (Network tab). The MIME type should be:</p>
-            <ul>
-                <li><code>.ico</code> → <code>image/x-icon</code> or <code>image/vnd.microsoft.icon</code></li>
-                <li><code>.png</code> → <code>image/png</code></li>
-                <li><code>.svg</code> → <code>image/svg+xml</code></li>
-            </ul>
-            <p>For Apache, add to <code>.htaccess</code>:</p>
-            <pre><code>AddType image/x-icon .ico</code></pre>
-            <p>For Nginx:</p>
-            <pre><code>location ~* \.ico$ {
-    add_header Content-Type image/x-icon;
-}</code></pre>
-
-            <h2>6. HTTPS / Mixed Content Issues</h2>
-            <p>If your site is on HTTPS but the favicon URL uses HTTP, the browser will block it silently.</p>
-            <p><strong>Fix:</strong></p>
-            <ul>
-                <li>Use protocol-relative paths: <code>href="/favicon.ico"</code> (no <code>http://</code> or <code>https://</code>)</li>
-                <li>Or explicitly use HTTPS: <code>href="https://yoursite.com/favicon.ico"</code></li>
-            </ul>
-
-            <h2>7. Favicon Not Showing in Google Search Results</h2>
-            <p>Your favicon appears in the browser tab but not in Google search results. This is a separate issue.</p>
-            <p><strong>Google's favicon requirements:</strong></p>
-            <ul>
-                <li>The favicon URL must be crawlable (not blocked by <code>robots.txt</code>)</li>
-                <li>Size must be a <strong>multiple of 48px</strong> (e.g., 48×48, 96×96, 144×144)</li>
-                <li>Must be a square image</li>
-                <li>Google won't display favicons that it deems inappropriate or low quality</li>
-                <li>It can take <strong>days to weeks</strong> for Google to pick up a new favicon</li>
-            </ul>
-            <p><strong>Fix:</strong> Use the <a href="https://search.google.com/search-console" rel="noopener">Google Search Console</a> URL Inspection tool to request re-crawling of your homepage.</p>
-
-            <h2>Quick Debugging Checklist</h2>
+            <h2>Checklist</h2>
             <ol>
-                <li>Open <code>https://yoursite.com/favicon.ico</code> — does it load?</li>
-                <li>Open DevTools → Network tab → reload → filter by "favicon" — any 404 errors?</li>
-                <li>Check the HTML source — is the <code>&lt;link&gt;</code> tag correct and inside <code>&lt;head&gt;</code>?</li>
-                <li>Try Incognito mode — does it show there?</li>
-                <li>Check another browser — is it browser-specific?</li>
+                <li>Open the icon URL in a new tab (<code>https://example.com/favicon.ico</code> or the <code>href</code> from the page source). The response must be an image, not an HTML 404 or a login page.</li>
+                <li>View the page <strong>source</strong> (not the DOM after JavaScript). A <code>&lt;link rel="icon"&gt;</code> has to sit inside <code>&lt;head&gt;</code>.</li>
+                <li>Hard-refresh (<code>Ctrl+Shift+R</code> or <code>Cmd+Shift+R</code>) or open a private window. If the private window shows the icon, the normal profile is serving a cached copy. Add <code>?v=2</code> to the <code>href</code>.</li>
+                <li>Confirm the file is a real ICO, PNG, or SVG, and that it is square. Renaming a JPEG to <code>.ico</code> does not convert it. An SVG needs an <code>xmlns</code> and must not contain a script or an external image.</li>
+                <li>On an HTTPS site, the icon URL must not be <code>http://</code>. Mixed content is blocked with no console warning in some browsers. Use a root-relative path: <code>href="/favicon.ico"</code>.</li>
+                <li>If a CDN sits in front of the site, purge that icon URL. The edge cache is separate from the browser cache and from the HTML cache.</li>
+                <li>For Google results, the tab can be correct while Search is still on the previous crawl. See the Google section below. Allow days to weeks after a recrawl request.</li>
             </ol>
 
-            <h2>Favicon Not Showing in Safari or on iPhone</h2>
-            <p>Safari keeps its own long-lived icon cache and prefers an <code>apple-touch-icon</code> (180×180 PNG) for bookmarks and the home screen. If Safari still shows a blank or letter icon, add the touch icon, then clear Safari's cache. See <a href="/blog/favicon-ios-safari.html">favicon on iOS Safari</a> for the exact tags.</p>
-            <h2 id="faq-favicon-not-showing">Frequently Asked Questions</h2>
+            <h2>1. Cache</h2>
+            <p>Browsers keep favicons longer than stylesheets. A hard refresh reloads the page; it does not always drop the icon database.</p>
+            <ul>
+                <li>Private window. If the icon appears there, the installed profile is the cache.</li>
+                <li>Cache-bust the URL: <code>href="/favicon.ico?v=2"</code>. Change the number when you ship a new file.</li>
+                <li>Chrome stores icons in a separate SQLite database. Clearing “cached images” can leave it. Details: <a href="/blog/favicon-not-showing-chrome.html">Chrome favicon cache</a>.</li>
+                <li>Firefox has its own icon store. Details: <a href="/blog/favicon-not-showing-firefox.html">Firefox favicon refetch</a>.</li>
+                <li>If a data clear still shows the old icon, check a service worker and the CDN edge: <a href="/blog/favicon-not-showing-after-cache-clear.html">favicon still cached after clearing browser data</a>.</li>
+            </ul>
+
+            <h2>2. Wrong path</h2>
+            <p>The usual miss is a relative URL. On <code>https://example.com/app/settings</code>, <code>href="favicon.ico"</code> requests <code>/app/favicon.ico</code>, not the file in the site root.</p>
+            <ul>
+                <li>Use a root-relative path: <code>href="/favicon.ico"</code>.</li>
+                <li>Linux hosts are case-sensitive. <code>Favicon.ico</code> and <code>favicon.ico</code> are different files.</li>
+                <li>Chrome requests <code>/favicon.ico</code> even when the HTML has no link tag. A 404 there looks like a missing icon. Put a real file at the root or declare a link that points at a file that exists.</li>
+                <li>On a dev server the base path and the static folder often disagree. See <a href="/blog/favicon-not-showing-localhost.html">localhost favicon paths</a>. For Vite, the file belongs in <code>public/</code>: <a href="/blog/react-vite-favicon-not-showing.html">React + Vite public folder</a>.</li>
+            </ul>
+
+            <h2>3. Missing or broken link tags</h2>
+            <p>Browsers read icon links from <code>&lt;head&gt;</code>. A tag in <code>&lt;body&gt;</code>, an unclosed quote, or a tag injected only after JavaScript runs is invisible to the first fetch and to many crawlers.</p>
+            <pre><code>&lt;link rel="icon" href="/favicon.ico" sizes="32x32"&gt;
+&lt;link rel="icon" href="/icon.svg" type="image/svg+xml" sizes="any"&gt;
+&lt;link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"&gt;
+&lt;link rel="apple-touch-icon" href="/apple-touch-icon.png"&gt;</code></pre>
+            <ul>
+                <li><code>rel="icon"</code> is the current token. <code>rel="shortcut icon"</code> still works in old clients; it is not a substitute for a file that 404s.</li>
+                <li>Set <code>type</code> when it is not obvious: <code>image/png</code> or <code>image/svg+xml</code>. A wrong type can make the browser skip the file.</li>
+                <li>Confirm the tags in “View page source”, because a framework can render them in the DOM without putting them in the HTML response.</li>
+            </ul>
+
+            <h2>4. Wrong format or size</h2>
+            <p>A file the browser cannot decode is the same symptom as a missing file: an empty tab.</p>
+            <ul>
+                <li>Do not rename <code>.jpg</code> or <code>.png</code> to <code>.ico</code>. Build a real ICO, or serve the PNG with <code>type="image/png"</code>.</li>
+                <li>The icon should be square. A wide logo gets cropped or ignored.</li>
+                <li>For the tab, publish 32×32 (and 16×16 inside the ICO). A single 512×512 PNG is the right file for a PWA splash, and a poor one for a 16px tab: the browser scales it and thin strokes disappear. That looks broken even when the request returns 200.</li>
+                <li>SVG that Chrome or Firefox rejects: missing <code>xmlns="http://www.w3.org/2000/svg"</code>, a <code>&lt;script&gt;</code>, or an external bitmap. Keep the SVG self-contained.</li>
+                <li>The server must send a matching Content-Type: <code>image/x-icon</code> or <code>image/vnd.microsoft.icon</code> for ICO, <code>image/png</code> for PNG, <code>image/svg+xml</code> for SVG. An <code>text/html</code> body means the URL returned an error page.</li>
+            </ul>
+
+            <h2>5. HTTPS and mixed content</h2>
+            <p>An HTTPS page will not load an icon from <code>http://</code>. The failure is often silent. Root-relative URLs avoid the scheme entirely. If the icon is on another host, use <code>https://</code> and, for a manifest fetched cross-origin, the <code>crossorigin</code> attribute that host expects.</p>
+
+            <h2>6. CDN and edge cache</h2>
+            <p>A CDN can keep the previous <code>favicon.ico</code> after the origin file has changed. Purging the HTML does not purge the icon if they are different cache keys. Purge the icon URL, or change the query string on the link tag so the edge treats it as a new object.</p>
+            <p>A stale edge cache explains an old icon in the browser tab. It does not, by itself, prove that Googlebot was blocked. Check the response the public URL returns before changing firewall rules.</p>
+
+            <h2>7. Google Search favicon rules and recrawl time</h2>
+            <p>The tab and Google Search are different systems. Google reads one favicon per hostname from the homepage. The <a href="https://developers.google.com/search/docs/appearance/favicon-in-search" rel="noopener">Search Central favicon documentation</a> (updated 4 February 2026) asks for:</p>
+            <ul>
+                <li>A square image. The minimum is 8×8 px. Google recommends something <strong>larger than 48×48 px</strong>. The older “multiple of 48” rule is not in the current document.</li>
+                <li>A format Google lists for this feature: ICO, PNG, GIF, JPEG, BMP, TIFF, or PPM. An SVG can drive the browser tab and still be ineligible as the only Search icon. Keep an ICO or PNG as well.</li>
+                <li>A <code>&lt;link rel="icon"&gt;</code> on the homepage HTML (view source, not only the rendered DOM).</li>
+                <li>Googlebot able to crawl the homepage, and Googlebot-Image able to crawl the icon file. Neither URL should be blocked by <code>robots.txt</code> or a login wall.</li>
+                <li>A stable icon URL. Renaming the file on every deploy restarts the wait.</li>
+            </ul>
+            <p>Meeting the rules does not guarantee the icon appears. After the homepage is correct, request indexing in Search Console URL Inspection. Recrawl and processing take <strong>several days to several weeks</strong>. The longer checklist of what Google does and does not require is <a href="/blog/favicon-not-showing-google-results.html">Google Search favicon rules and recrawl time</a>.</p>
+
+            <h2>Narrower cases</h2>
+            <ul>
+                <li><a href="/blog/favicon-not-showing-chrome.html">Chrome’s favicon database, SVG parsing, and localhost</a></li>
+                <li><a href="/blog/favicon-not-showing-firefox.html">Forcing Firefox to refetch an icon</a></li>
+                <li><a href="/blog/favicon-not-showing-localhost.html">Paths on a local dev server</a></li>
+                <li><a href="/blog/favicon-not-showing-after-cache-clear.html">An icon that survives a browser data clear</a></li>
+                <li><a href="/blog/react-vite-favicon-not-showing.html">React and Vite: the public folder</a></li>
+                <li><a href="/blog/wordpress-favicon-fix.html">WordPress site icon</a></li>
+            </ul>
+
+            <h2 id="faq-favicon-not-showing">Frequently asked questions</h2>
+            <h3>Why is my favicon not showing?</h3>
+            <p>Open the icon URL. If it is not an image, fix the path or upload the file. If it is an image, the browser is still holding the previous response: use a private window or add <code>?v=2</code> to the link. Then confirm the <code>&lt;link rel="icon"&gt;</code> is inside <code>&lt;head&gt;</code> in the page source.</p>
             <h3>Why is my favicon not showing in Chrome?</h3>
-            <p>Chrome caches favicons aggressively, sometimes for days. Open the icon URL directly to confirm it loads, then add a version query (<code>/favicon.ico?v=2</code>) to the link tag or clear the cache. More fixes: <a href="/blog/favicon-not-showing-chrome.html">favicon not showing in Chrome</a>.</p>
+            <p>Chrome caches icons in its own database, sometimes for days, and it also requests <code>/favicon.ico</code> on its own. Load the icon URL directly, then add a version query to the link tag. Chrome-only cache, SVG, and localhost notes are in the <a href="/blog/favicon-not-showing-chrome.html">Chrome favicon cache</a> page.</p>
             <h3>Why does Google not show my favicon in search results?</h3>
-            <p>Google needs a square icon of at least 48×48 px, declared with a <code>&lt;link rel="icon"&gt;</code> tag on the homepage, and crawlable by Googlebot. It can take days to weeks to update. See <a href="/blog/favicon-not-showing-google-results.html">favicon not showing in Google</a>.</p>
+            <p>Google wants a square icon larger than 48×48 px, declared with <code>&lt;link rel="icon"&gt;</code> on the homepage, and crawlable by Googlebot and Googlebot-Image. An SVG alone is not in Google’s format list for Search. Updating the result takes days to weeks after a recrawl. See <a href="/blog/favicon-not-showing-google-results.html">Google Search favicon rules and recrawl time</a>.</p>
             <h3>How long does it take for a new favicon to show?</h3>
-            <p>In the browser, immediately after a cache-busting refresh. In Google Search, usually a few days to a few weeks after Googlebot recrawls your homepage.</p>
+            <p>In the browser, as soon as the cache-busting URL is fetched. In Google Search, usually a few days to a few weeks after Googlebot recrawls the homepage.</p>
             <h3>How can I check whether my favicon is set up correctly?</h3>
-            <p>Enter your domain in the <a href="/">favicon downloader</a>: it lists every icon your site exposes, its size and URL, so you can spot missing or broken files instantly.</p>
+            <p>Enter the domain in the <a href="/">favicon downloader</a>. It lists every icon the site exposes, with its size and URL, including manifest icons and <code>/favicon.ico</code>.</p>
         </div><template data-article-lang="es">
             <p>Has añadido un favicon a tu sitio web, pero no aparece en la pestaña del navegador. ¿Frustrante? Repasemos las <strong>7 razones más comunes</strong> y sus soluciones, ordenadas de la más a la menos probable.</p>
 

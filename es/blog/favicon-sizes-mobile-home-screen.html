@@ -1,8 +1,8 @@
 <!DOCTYPE html><html lang="es"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tamaños de favicon para pantalla de inicio móvil: Guía 2026</title>
-    <meta name="description" content="Guía completa de tamaños de favicon para pantalla de inicio móvil en 2026: 180x180 para iOS, 192x192 y 512x512 para Android, con código HTML y manifest.">
+    <title>Icono de pantalla de inicio en iPhone y Android</title>
+    <meta name="description" content="Qué archivo usa iOS al añadir el sitio a inicio y qué pide el manifiesto en Android. La tabla general de tamaño favicon y medidas favicon está en la guía canónica.">
     <meta name="keywords" content="favicon sizes for mobile home screen, mobile favicon, apple touch icon, web app manifest">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://favicondl.com/es/blog/favicon-sizes-mobile-home-screen.html">
@@ -22,12 +22,12 @@
 
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://favicondl.com/es/blog/favicon-sizes-mobile-home-screen.html">
-    <meta property="og:title" content="Tamaños de favicon para pantalla de inicio móvil: Guía 2026">
-    <meta property="og:description" content="Guía completa de tamaños de favicon para pantalla de inicio móvil en 2026: 180x180 para iOS, 192x192 y 512x512 para Android, con código HTML y manifest.">
+    <meta property="og:title" content="Icono de pantalla de inicio en iPhone y Android">
+    <meta property="og:description" content="Qué archivo usa iOS al añadir el sitio a inicio y qué pide el manifiesto en Android. La tabla general de tamaño favicon y medidas favicon está en la guía canónica.">
     <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Tamaños de favicon para pantalla de inicio móvil: Guía 2026">
-    <meta name="twitter:description" content="Guía completa de tamaños de favicon para pantalla de inicio móvil en 2026: 180x180 para iOS, 192x192 y 512x512 para Android, con código HTML y manifest.">
+    <meta name="twitter:title" content="Icono de pantalla de inicio en iPhone y Android">
+    <meta name="twitter:description" content="Qué archivo usa iOS al añadir el sitio a inicio y qué pide el manifiesto en Android. La tabla general de tamaño favicon y medidas favicon está en la guía canónica.">
     <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
 
     <script src="https://cdn.tailwindcss.com"></script>
@@ -45,8 +45,8 @@
     <script type="application/ld+json">{
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "Tamaños de favicon para pantalla de inicio móvil: Guía 2026",
-  "description": "Guía completa de tamaños de favicon para pantalla de inicio móvil en 2026: 180x180 para iOS, 192x192 y 512x512 para Android, con código HTML y manifest.",
+  "headline": "Icono de pantalla de inicio en iPhone y Android",
+  "description": "Qué archivo usa iOS al añadir el sitio a inicio y qué pide el manifiesto en Android. La tabla general de tamaño favicon y medidas favicon está en la guía canónica.",
   "datePublished": "2026-09-11",
   "dateModified": "2026-09-11",
   "author": {
@@ -92,23 +92,24 @@
         <nav class="text-sm text-gray-400 mb-8">
             <a href="/es/" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
             <a href="/es/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
-            <span class="text-gray-600">Tamaños de favicon para pantalla de inicio móvil: Guía 2026</span>
+            <span class="text-gray-600">Icono de pantalla de inicio en iPhone y Android</span>
         </nav>
 
         <header class="mb-10">
             <div class="flex items-center gap-3 mb-4"><span class="tag">mobile</span><time class="text-sm text-gray-400">2026-09-11</time></div>
-            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">Tamaños de favicon para pantalla de inicio móvil: Guía 2026</h1>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">Icono de pantalla de inicio en iPhone y Android</h1>
         </header>
 
-        <div class="article-body"><p>Guardas tu web app favorita en la pantalla de inicio del iPhone esperando ver tu logo pulido. En lugar de eso, obtienes una captura diminuta de toda la página — pixelada e ilegible. El culpable no es tu diseño. Es que enviaste los tamaños de favicon incorrectos para los requisitos de pantalla de inicio móvil.</p>
+        <div class="article-body">
+            <p>Las medidas generales del favicon están en la <a href="/es/tamanos-de-favicon.html">tabla de tamaño favicon</a>. Esta página trata el icono que aparece al añadir el sitio a la pantalla de inicio.</p><p>Guardas tu web app favorita en la pantalla de inicio del iPhone esperando ver tu logo pulido. En lugar de eso, obtienes una captura diminuta de toda la página — pixelada e ilegible. El culpable no es tu diseño. Es que el icono de la pestaña no es el de la pantalla de inicio para los requisitos de pantalla de inicio móvil.</p>
 <p>Las pantallas de inicio móviles tratan tu sitio como una app instalada. Eso significa que necesitan una imagen cuadrada y de alta resolución que escale desde miniaturas pequeñas hasta launchers grandes sin descomponerse.</p>
 <h2>Lo que significa realmente 'icono de pantalla de inicio móvil'</h2>
 <p>Un favicon (la pestaña del navegador) de 16x16 o 32x32 píxeles es una bestia completamente distinta de un icono de pantalla de inicio móvil. El icono de la pestaña vive en un rectángulo diminuto y compite con otras siete pestañas. Un icono de pantalla de inicio ocupa un espacio de 60–120 píxeles en una rejilla de apps, a menudo con esquinas redondeadas, sombras y máscaras del propio sistema operativo.</p>
 <p>Cuando un usuario toca 'Añadir a pantalla de inicio' en Safari o 'Instalar app' en Chrome, el sistema operativo busca declaraciones HTML específicas. Si no encuentra los tamaños correctos, recurre a una captura de pantalla de tu página (iOS) o al favicon estándar (Android). Ninguna de las dos opciones se ve profesional.</p>
-<h2>Por qué los tamaños de favicon estándar fallan aquí</h2>
+<h2>Por qué el icono de la pestaña no basta en la pantalla de inicio</h2>
 <p>La mayoría de los desarrolladores aprenden que un archivo ICO de 32x32 es 'suficiente' para favicons. Ese archivo funciona bien para pestañas, marcadores y barras de direcciones. Pero en el momento en que iOS necesita un icono de pantalla de inicio, espera un Apple Touch Icon bastante más grande.</p>
 <p>El archivo ICO de 32x32 técnicamente es cuadrado, pero carece de la densidad de píxeles que necesita un launcher de pantalla de inicio Retina. iOS lo escala hacia arriba y obtienes ese emborronamiento que los usuarios asocian con web apps 'inconclusas'.</p>
-<h2>Dos ecosistemas móviles, dos reglas de tamaño</h2>
+<h2>iPhone y Android no comparten el mismo archivo</h2>
 <p>Los requisitos de pantalla de inicio móvil se dividen en dos bandos, cada uno con su propia especificación.</p>
 <h3>iOS: el Apple Touch Icon</h3>
 <p>El comportamiento documentado por Apple consiste en buscar una etiqueta HTML <code>&lt;link rel='apple-touch-icon'&gt;</code> que apunte a un PNG cuadrado. El iOS moderno (iOS 8+) trata el tamaño 180x180 como el estándar de facto para las pantallas de inicio del iPhone. Cualquier cosa más pequeña hará que iOS lo rechace o lo escale hacia arriba, con la pérdida de calidad que cabe esperar.</p>

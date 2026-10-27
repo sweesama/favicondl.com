@@ -92,12 +92,12 @@
         <nav class="text-sm text-gray-400 mb-8">
             <a href="/" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
             <a href="/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
-            <span class="text-gray-600" data-en="The Favicon Best Size 2026: A Minimalist Dev Guide" data-zh="2026年 Favicon 最佳尺寸指南：告别冗余图标文件" data-ja="2026年版ファビコン最適なサイズ：開発者のための最小構成ガイド" data-ko="2026년 파비콘 최적의 크기: 개발자를 위한 미니멀 가이드" data-es="El mejor tamaño de favicon en 2026: Guía minimalista">The Favicon Best Size 2026: A Minimalist Dev Guide</span>
+            <span class="text-gray-600" data-en="The Favicon Best Size 2026: A Minimalist Dev Guide" data-zh="2026年 Favicon 最佳尺寸指南：告别冗余图标文件" data-ja="2026年版ファビコン最適なサイズ：開発者のための最小構成ガイド" data-ko="2026년 파비콘 최적의 크기: 개발자를 위한 미니멀 가이드" data-es="Stack mínimo de iconos: SVG, ICO y manifiesto">The Favicon Best Size 2026: A Minimalist Dev Guide</span>
         </nav>
 
         <header class="mb-10">
             <div class="flex items-center gap-3 mb-4"><span class="tag">sizes</span><time class="text-sm text-gray-400">2026-05-03</time></div>
-            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight" data-en="The Favicon Best Size 2026: A Minimalist Dev Guide" data-zh="2026年 Favicon 最佳尺寸指南：告别冗余图标文件" data-ja="2026年版ファビコン最適なサイズ：開発者のための最小構成ガイド" data-ko="2026년 파비콘 최적의 크기: 개발자를 위한 미니멀 가이드" data-es="El mejor tamaño de favicon en 2026: Guía minimalista">The Favicon Best Size 2026: A Minimalist Dev Guide</h1>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight" data-en="The Favicon Best Size 2026: A Minimalist Dev Guide" data-zh="2026年 Favicon 最佳尺寸指南：告别冗余图标文件" data-ja="2026年版ファビコン最適なサイズ：開発者のための最小構成ガイド" data-ko="2026년 파비콘 최적의 크기: 개발자를 위한 미니멀 가이드" data-es="Stack mínimo de iconos: SVG, ICO y manifiesto">The Favicon Best Size 2026: A Minimalist Dev Guide</h1>
         </header>
 
         <div class="article-body" data-lang="en">
@@ -153,12 +153,12 @@
 <h2>Stop Guessing, Start Generating</h2>
 <p>Manually resizing PNGs in Photoshop and writing out manifest JSON files is tedious. You have better things to build.</p>
 <p>If you have a high-resolution logo (preferably 512x512 or an SVG), you can just drop it into Mzu favicondl. Our tool automatically generates the exact 2026 golden stack—the SVG, the 192x192, the 512x512, and the 32x32 fallback. It even writes the HTML and JSON for you. Keep your <code>&lt;head&gt;</code> tag clean, serve the right pixels to the right devices, and get back to writing actual code.</p>
-        </div><template data-article-lang="es">
+        </div><template data-article-lang="es">            <p>La tabla de <a href="/es/tamanos-de-favicon.html">tamaño favicon y medidas favicon</a> (16, 32, 48, 180, 192 y 512, y dónde se usa cada una) está en una sola página. Lo que sigue es el stack mínimo de archivos.</p>
             <p>Si alguna vez has mirado tu aplicación web perfectamente diseñada en una pantalla Android de alta resolución, solo para darte cuenta de que el ícono de tu sitio parece una mancha borrosa atrapada dentro de un círculo blanco masivo... tu estrategia de tamaños está rota.</p>
-<p>Todos hemos pasado por eso. Buscas el <strong>favicon best size 2026</strong> y te encuentras con tutoriales que exigen que generes 35 archivos PNG diferentes, desde 16x16 hasta alguna dimensión oscura de 76x76 para iPad.</p>
+<p>Todos hemos pasado por eso. Los tutoriales piden 35 archivos PNG, desde 16x16 hasta alguna dimensión oscura de 76x76 para iPad.</p>
 <p>Deja de hacer eso. Es una pérdida masiva de ancho de banda y tiempo de desarrollo.</p>
-<p>Los navegadores se han vuelto increíblemente inteligentes. Los días de necesitar una hoja de cálculo gigante con dimensiones de iconos han terminado. Necesitas exactamente tres tamaños (y un formato vectorial) para cubrir el 99% de los dispositivos modernos a la perfección. Déjame mostrarte la estrategia de tamaño exacta que uso en aplicaciones de producción ahora mismo.</p>
-<h2>La estrategia del mejor tamaño de favicon en 2026</h2>
+<p>Los navegadores se han vuelto increíblemente inteligentes. Los días de necesitar una hoja de cálculo gigante con dimensiones de iconos han terminado. Hacen falta tres archivos y un SVG para cubrir el 99% de los dispositivos. Este es el stack mínimo que uso en producción.</p>
+<h2>El stack mínimo de archivos de icono</h2>
 <p>Si tuviera que darte una sola dimensión en píxeles para gobernarlos a todos, sería 512x512. Pero eso es una ligera simplificación excesiva. Los navegadores no quieren descargar un solo archivo masivo cada vez que un usuario abre una nueva pestaña. Quieren opciones.</p>
 <p>En lugar de un solo tamaño, el mejor enfoque es un stack minimalista. Aquí tienes el desglose.</p>
 <h3>1. El tamaño infinito (SVG)</h3>
@@ -175,7 +175,7 @@
 <p>Un simple ICO de 32x32 es el fallback perfecto. Cubre versiones antiguas de Safari, navegadores empresariales legacy, y lectores RSS que todavía raspan la ruta raíz <code>/favicon.ico</code>.</p>
 <h2>Por qué deberías ignorar el resto</h2>
 <p>Te estarás preguntando sobre 16x16, 180x180 (Apple Touch), o los tamaños de los tiles de Windows Metro.</p>
-<p>Aquí está la dura verdad: los dispositivos iOS modernos escalarán felizmente un PNG de 192x192 a 180x180 para el Apple Touch Icon. Estrictamente no necesitas un archivo separado a menos que tu diseño requiera ajustes de padding específicos para iOS. Si quieres profundizar en los tipos de archivos exactos, revisa nuestra <a href="/blog/website-icon-guide.html">guía completa de iconos de sitios web</a>.</p>
+<p>Aquí está la dura verdad: los dispositivos iOS modernos escalarán felizmente un PNG de 192x192 a 180x180 para el Apple Touch Icon. Estrictamente no necesitas un archivo separado a menos que tu diseño requiera ajustes de padding específicos para iOS. Si quieres profundizar en los tipos de archivos exactos, revisa nuestra <a href="/es/blog/website-icon-guide.html">guía completa de iconos de sitios web</a>.</p>
 <h2>La implementación del código</h2>
 <p>Conocer los tamaños es solo la mitad de la batalla. Tienes que decirle al navegador cómo encontrarlos. Aquí está el fragmento HTML exacto que deberías soltar en tu etiqueta <code>&lt;head&gt;</code>. Nota lo limpio que es comparado con las monstruosidades de 20 líneas de hace cinco años.</p>
 <pre><code>&lt;!-- El Fallback Legacy --&gt;
@@ -201,7 +201,7 @@
 <ul>
 <li><strong>Simplifica el 32x32:</strong> No te limites a encoger tu logo de 512x512 a 32 píxeles. Se convertirá en una mancha borrosa. Elimina el texto, quita los detalles finos y concéntrate en la marca principal.</li>
 <li><strong>Cuidado con la Zona Segura:</strong> Para tus iconos de 192x192 y 512x512, mantén el arte crítico dentro del 80% central del lienzo. Android a menudo aplica máscaras circulares o en forma de lágrima a estos iconos. Si tu logo toca el borde, será cortado.</li>
-<li><strong>Optimiza el SVG:</strong> Pasa tu SVG por un minificador. Quieres que este archivo pese menos de 2KB para que cargue instantáneamente. Lee nuestra <a href="/blog/svg-favicon.html">guía de favicon SVG</a> para trucos del modo oscuro.</li>
+<li><strong>Optimiza el SVG:</strong> Pasa tu SVG por un minificador. Quieres que este archivo pese menos de 2KB para que cargue instantáneamente. Lee nuestra <a href="/es/blog/svg-favicon.html">guía de favicon SVG</a> para trucos del modo oscuro.</li>
 </ul>
 <h2>Deja de adivinar, empieza a generar</h2>
 <p>Redimensionar PNGs manualmente en Photoshop y escribir archivos JSON de manifiesto es tedioso. Tienes cosas mejores que construir.</p>
