@@ -1488,7 +1488,7 @@
   {
     "slug": "favicon-not-showing-chrome",
     "publishDate": "2026-05-01",
-    "titleEn": "Chrome Favicon Cache: SQLite, SVG and Localhost",
+    "titleEn": "Favicon Not Showing in Chrome? Fix Cache, Localhost & SVG",
     "titleZh": "Chrome 不显示 Favicon？2026年开发者排坑指南",
     "titleJa": "ChromeでFaviconが表示されない？2026年版の解決策",
     "titleKo": "Chrome에서 파비콘이 안 보이나요? 2026년 개발자 해결법",
@@ -3021,7 +3021,7 @@
   {
     "slug": "favicon-not-showing-localhost",
     "publishDate": "2026-08-14",
-    "titleEn": "Localhost Favicon Paths for Dev Servers",
+    "titleEn": "Favicon Not Showing on Localhost? The Quick Dev Fix",
     "titleZh": "本地开发时 Favicon 不显示？开发者快速修复指南",
     "titleJa": "ローカルホストで Favicon が表示されない？開発者のクイックフィックス",
     "titleKo": "Localhost에서 Favicon이 표시되지 않습니까? 빠른 개발자 수정 가이드",
@@ -3042,7 +3042,7 @@
   {
     "slug": "favicon-not-showing-after-cache-clear",
     "publishDate": "2026-08-15",
-    "titleEn": "Favicon Still Cached After Clearing Browser Data",
+    "titleEn": "Favicon Not Showing After Clearing Cache? The Real Fix",
     "titleZh": "清除缓存后 Favicon 仍不显示？真正有效的修复方法",
     "titleJa": "キャッシュクリア後に Favicon が表示されない？本当の修正方法",
     "titleKo": "캐시 삭제 후 Favicon이 표시되지 않음? 진짜 해결 방법",
@@ -3063,7 +3063,7 @@
   {
     "slug": "favicon-not-showing-google-results",
     "publishDate": "2026-08-16",
-    "titleEn": "Google Search Favicon Rules and Recrawl Time",
+    "titleEn": "Favicon Not Showing in Google Search? A Verified Checklist",
     "titleZh": "Google 搜索结果不显示 Favicon？一份可验证的排查清单",
     "titleJa": "Google検索にFaviconが表示されないときの確認手順",
     "titleKo": "Google 검색에 파비콘이 표시되지 않을 때 확인할 항목",
@@ -3273,7 +3273,7 @@
   {
     "slug": "react-vite-favicon-not-showing",
     "publishDate": "2026-08-31",
-    "titleEn": "React + Vite Favicon: public Folder and Paths",
+    "titleEn": "React Vite Favicon Not Showing? Quick Fixes That Work",
     "titleZh": "React Vite 网站图标不显示？快速修复指南",
     "titleJa": "React Viteファビコンが表示されない？即効修正ガイド",
     "titleKo": "React Vite 파비콘이 표시되지 않나요? 빠른 해결 가이드",
@@ -3966,7 +3966,7 @@
   {
     "slug": "favicon-not-showing-firefox",
     "publishDate": "2026-10-26",
-    "titleEn": "Firefox Favicon Cache: Force a Refetch",
+    "titleEn": "Favicon Not Showing in Firefox? Fix It in Minutes",
     "titleZh": "Firefox 中 favicon 不显示？几分钟内修复",
     "titleJa": "Firefoxでfaviconが表示されない？数分で解決",
     "titleKo": "Firefox에서 favicon이 표시되지 않나요? 몇 분 안에 해결",
