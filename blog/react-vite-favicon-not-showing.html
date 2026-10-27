@@ -1,8 +1,8 @@
 <!DOCTYPE html><html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>React Vite Favicon Not Showing? Quick Fixes That Work</title>
-    <meta name="description" content="React Vite favicon not showing? Fix the 7 most common causes—from wrong file paths to caching—in this focused troubleshooting guide for developers.">
+    <title>React + Vite Favicon: public Folder and Paths</title>
+    <meta name="description" content="A React app on Vite serves a favicon from public/, not from src/. Fix the folder, the link path, the base URL, SPA fallback, and SVG syntax.">
     <meta name="keywords" content="react vite favicon, vite favicon not showing, react favicon fix">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://favicondl.com/blog/react-vite-favicon-not-showing.html">
@@ -22,12 +22,12 @@
 
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://favicondl.com/blog/react-vite-favicon-not-showing.html">
-    <meta property="og:title" content="React Vite Favicon Not Showing? Quick Fixes That Work">
-    <meta property="og:description" content="React Vite favicon not showing? Fix the 7 most common causes—from wrong file paths to caching—in this focused troubleshooting guide for developers.">
+    <meta property="og:title" content="React + Vite Favicon: public Folder and Paths">
+    <meta property="og:description" content="A React app on Vite serves a favicon from public/, not from src/. Fix the folder, the link path, the base URL, SPA fallback, and SVG syntax.">
     <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="React Vite Favicon Not Showing? Quick Fixes That Work">
-    <meta name="twitter:description" content="React Vite favicon not showing? Fix the 7 most common causes—from wrong file paths to caching—in this focused troubleshooting guide for developers.">
+    <meta name="twitter:title" content="React + Vite Favicon: public Folder and Paths">
+    <meta name="twitter:description" content="A React app on Vite serves a favicon from public/, not from src/. Fix the folder, the link path, the base URL, SPA fallback, and SVG syntax.">
     <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
 
     <script src="https://cdn.tailwindcss.com"></script>
@@ -45,8 +45,8 @@
     <script type="application/ld+json">{
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "React Vite Favicon Not Showing? Quick Fixes That Work",
-  "description": "React Vite favicon not showing? Fix the 7 most common causes—from wrong file paths to caching—in this focused troubleshooting guide for developers.",
+  "headline": "React + Vite Favicon: public Folder and Paths",
+  "description": "A React app on Vite serves a favicon from public/, not from src/. Fix the folder, the link path, the base URL, SPA fallback, and SVG syntax.",
   "datePublished": "2026-08-31",
   "dateModified": "2026-08-31",
   "author": {
@@ -92,15 +92,16 @@
         <nav class="text-sm text-gray-400 mb-8">
             <a href="/" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
             <a href="/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
-            <span class="text-gray-600" data-en="React Vite Favicon Not Showing? Quick Fixes That Work" data-zh="React Vite 网站图标不显示？快速修复指南" data-ja="React Viteファビコンが表示されない？即効修正ガイド" data-ko="React Vite 파비콘이 표시되지 않나요? 빠른 해결 가이드" data-es="¿El favicon de React Vite no aparece? Solución rápida">React Vite Favicon Not Showing? Quick Fixes That Work</span>
+            <span class="text-gray-600" data-en="React + Vite Favicon: public Folder and Paths" data-zh="React Vite 网站图标不显示？快速修复指南" data-ja="React Viteファビコンが表示されない？即効修正ガイド" data-ko="React Vite 파비콘이 표시되지 않나요? 빠른 해결 가이드" data-es="¿El favicon de React Vite no aparece? Solución rápida">React + Vite Favicon: public Folder and Paths</span>
         </nav>
 
         <header class="mb-10">
             <div class="flex items-center gap-3 mb-4"><span class="tag">react</span><time class="text-sm text-gray-400">2026-08-31</time></div>
-            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight" data-en="React Vite Favicon Not Showing? Quick Fixes That Work" data-zh="React Vite 网站图标不显示？快速修复指南" data-ja="React Viteファビコンが表示されない？即効修正ガイド" data-ko="React Vite 파비콘이 표시되지 않나요? 빠른 해결 가이드" data-es="¿El favicon de React Vite no aparece? Solución rápida">React Vite Favicon Not Showing? Quick Fixes That Work</h1>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight" data-en="React + Vite Favicon: public Folder and Paths" data-zh="React Vite 网站图标不显示？快速修复指南" data-ja="React Viteファビコンが表示されない？即効修正ガイド" data-ko="React Vite 파비콘이 표시되지 않나요? 빠른 해결 가이드" data-es="¿El favicon de React Vite no aparece? Solución rápida">React + Vite Favicon: public Folder and Paths</h1>
         </header>
 
         <div class="article-body" data-lang="en">
+            <div class="info-box"><p>If the icon is missing on any site, use the <a href="/blog/favicon-not-showing.html">favicon not showing checklist</a>. This page is the React + Vite layout: the file belongs in <code>public/</code>, not <code>src/</code>.</p></div>
             <p>You shipped a new React + Vite app, dropped your <code>favicon.ico</code> into <code>public/</code>, restarted the dev server — and the browser tab still shows the Vite lightning bolt. Or worse, nothing at all. This is the classic React Vite favicon not showing problem, and it almost always traces back to one of a handful of specific misconfigurations.</p>
 <p>If you are still setting up icons rather than troubleshooting, our <a href="/blog/vite-favicon.html">Vite favicon guide</a> covers the full setup.</p>
 <p>Here's the two-minute fix first, then the root causes explained.</p>

@@ -317,6 +317,8 @@
                             const today = new Date().toISOString().split('T')[0];
                             allPublishedArticles = articles
                                 .filter(a => a.publishDate <= today)
+                                .filter(a => a.slug !== 'chrome-not-showing-favicons')
+                                .filter(a => !(lang === 'es' && a.slug === 'favicon-sizes-guide'))
                                 .sort((a, b) => b.publishDate.localeCompare(a.publishDate));
                         }
 

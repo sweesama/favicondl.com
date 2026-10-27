@@ -105,21 +105,13 @@ function loadTranslations() {
 // ─── hreflang 标签生成 ──────────────────────────────
 // page 可以是 'index.html' 或 'blog/index.html' 等子目录路径
 function hreflangTags(page) {
-  // 将 page 转换为 URL 路径：'index.html' -> '/', 'blog/index.html' -> '/blog/', 'tools.html' -> '/tools.html'
-  let pagePath;
-  if (page.endsWith('/index.html')) {
-    pagePath = '/' + page.replace('/index.html', '/'); // 'blog/index.html' -> '/blog/'
-  } else if (page === 'index.html') {
-    pagePath = '/';
-  } else {
-    pagePath = '/' + page;
-  }
+  const enPath = languagePath(page, 'en');
   const tags = [];
-  tags.push(`<link rel="alternate" hreflang="en" href="${DOMAIN}${pagePath}">`);
-  tags.push(`<link rel="alternate" hreflang="x-default" href="${DOMAIN}${pagePath}">`);
+  tags.push(`<link rel="alternate" hreflang="en" href="${DOMAIN}${enPath}">`);
+  tags.push(`<link rel="alternate" hreflang="x-default" href="${DOMAIN}${enPath}">`);
   for (const lang of LANGUAGES) {
     tags.push(
-      `<link rel="alternate" hreflang="${lang}" href="${DOMAIN}/${lang}${pagePath}">`
+      `<link rel="alternate" hreflang="${lang}" href="${DOMAIN}${languagePath(page, lang)}">`
     );
   }
   return '\n    ' + tags.join('\n    ');
@@ -173,6 +165,22 @@ function pageToPath(page) {
   if (page.endsWith('/index.html')) return '/' + page.replace('/index.html', '/');
   if (page === 'index.html') return '/';
   return '/' + page;
+}
+
+// Spanish size queries consolidate on /es/tamanos-de-favicon.html.
+// The blog translation stays on disk and 301s, so hreflang and the language
+// switcher must name the canonical URL, not the blog translation.
+const ALT_PATH_OVERRIDES = {
+  'blog/favicon-sizes-guide.html': {
+    es: '/es/tamanos-de-favicon.html',
+  },
+};
+
+function languagePath(page, lang) {
+  const override = ALT_PATH_OVERRIDES[page]?.[lang];
+  if (override) return override;
+  const pagePath = pageToPath(page);
+  return lang === 'en' ? pagePath : `/${lang}${pagePath}`;
 }
 
 function getArticleRecord(page) {
@@ -301,9 +309,8 @@ function stripTranslationAttributes($) {
 }
 
 function switcherDropdown(currentLang, page) {
-  const pagePath = pageToPath(page);
   const options = ALL_LANGS.map((lang) => {
-    const href = lang === 'en' ? pagePath : `/${lang}${pagePath}`;
+    const href = languagePath(page, lang);
     const active = lang === currentLang ? ' active' : '';
     return `<a href="${href}" class="lang-option${active}" style="text-decoration:none;"><img src="${flagUrl(lang)}" alt="${FLAGS[lang].name}" style="width:18px;height:18px;"><span>${FLAGS[lang].name}</span></a>`;
   }).join('\n                        ');
@@ -321,9 +328,8 @@ function switcherDropdown(currentLang, page) {
 
 // ─── 移动端语言切换器 ─────────────────────────────
 function switcherMobile(currentLang, page) {
-  const pagePath = pageToPath(page);
   return ALL_LANGS.map((lang) => {
-    const href = lang === 'en' ? pagePath : `/${lang}${pagePath}`;
+    const href = languagePath(page, lang);
     const active = lang === currentLang ? ' active' : '';
     return `<a href="${href}" class="lang-mobile-btn${active}" style="text-decoration:none;"><img src="${flagUrl(lang)}" alt="${FLAGS[lang].name}" style="width:18px;height:18px;"><span>${FLAGS[lang].name}</span></a>`;
   }).join('\n                    ');
@@ -362,6 +368,14 @@ function prefixLinks($, lang) {
       $(this).attr('href', prefix + href);
     }
   });
+  if (lang === 'es') {
+    $('a[href]').each(function () {
+      const href = $(this).attr('href') || '';
+      if (href.startsWith('/es/blog/favicon-sizes-guide.html')) {
+        $(this).attr('href', href.replace('/es/blog/favicon-sizes-guide.html', '/es/tamanos-de-favicon.html'));
+      }
+    });
+  }
 }
 
 // ─── 替换文本内容 ───────────────────────────────────────

@@ -92,12 +92,12 @@
         <nav class="text-sm text-gray-400 mb-8">
             <a href="/" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
             <a href="/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
-            <span class="text-gray-600" data-en="Favicon Sizes for Mobile Home Screen: The 2026 Guide" data-zh="移动主屏幕图标尺寸：2026 年完整指南" data-ja="モバイルホーム画面用ファビコンサイズ：2026年完全ガイド" data-ko="모바일 홈 화면 파비콘 사이즈: 2026 완벽 가이드" data-es="Tamaños de favicon para pantalla de inicio móvil: Guía 2026">Favicon Sizes for Mobile Home Screen: The 2026 Guide</span>
+            <span class="text-gray-600" data-en="Favicon Sizes for Mobile Home Screen: The 2026 Guide" data-zh="移动主屏幕图标尺寸：2026 年完整指南" data-ja="モバイルホーム画面用ファビコンサイズ：2026年完全ガイド" data-ko="모바일 홈 화면 파비콘 사이즈: 2026 완벽 가이드" data-es="Icono de pantalla de inicio en iPhone y Android">Favicon Sizes for Mobile Home Screen: The 2026 Guide</span>
         </nav>
 
         <header class="mb-10">
             <div class="flex items-center gap-3 mb-4"><span class="tag">mobile</span><time class="text-sm text-gray-400">2026-09-11</time></div>
-            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight" data-en="Favicon Sizes for Mobile Home Screen: The 2026 Guide" data-zh="移动主屏幕图标尺寸：2026 年完整指南" data-ja="モバイルホーム画面用ファビコンサイズ：2026年完全ガイド" data-ko="모바일 홈 화면 파비콘 사이즈: 2026 완벽 가이드" data-es="Tamaños de favicon para pantalla de inicio móvil: Guía 2026">Favicon Sizes for Mobile Home Screen: The 2026 Guide</h1>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight" data-en="Favicon Sizes for Mobile Home Screen: The 2026 Guide" data-zh="移动主屏幕图标尺寸：2026 年完整指南" data-ja="モバイルホーム画面用ファビコンサイズ：2026年完全ガイド" data-ko="모바일 홈 화면 파비콘 사이즈: 2026 완벽 가이드" data-es="Icono de pantalla de inicio en iPhone y Android">Favicon Sizes for Mobile Home Screen: The 2026 Guide</h1>
         </header>
 
         <div class="article-body" data-lang="en">
@@ -322,19 +322,19 @@
 </ol>
 <p>사이트가 현재 무엇을 서빙하고 있는지 확인하려면 <a href="/blog/favicon-tester-all-browsers.html">모든 브라우저용 favicon 테스터</a> 가이드에서 DevTools 검증 절차를 확인할 수 있습니다. 패키지 자체를 생성하려면 Mzu favicondl에서 한 번의 클릭으로 다섯 개 파일을 모두 내보낼 수 있습니다.</p>
 <p>모바일 홈 화면용 favicon 사이즈는 수십 개의 파일을 생성하는 것이 아닙니다. 올바른 3~4개의 PNG를 출시하고, HTML과 manifest에 올바르게 선언하며, OS가 실제로 그것을 찾을 수 있는지 검증하는 것이 핵심입니다.</p></template>
-        <template data-article-lang="es"><p>Guardas tu web app favorita en la pantalla de inicio del iPhone esperando ver tu logo pulido. En lugar de eso, obtienes una captura diminuta de toda la página — pixelada e ilegible. El culpable no es tu diseño. Es que enviaste los tamaños de favicon incorrectos para los requisitos de pantalla de inicio móvil.</p>
+        <template data-article-lang="es">            <p>Las medidas generales del favicon están en la <a href="/es/tamanos-de-favicon.html">tabla de tamaño favicon</a>. Esta página trata el icono que aparece al añadir el sitio a la pantalla de inicio.</p><p>Guardas tu web app favorita en la pantalla de inicio del iPhone esperando ver tu logo pulido. En lugar de eso, obtienes una captura diminuta de toda la página — pixelada e ilegible. El culpable no es tu diseño. Es que el icono de la pestaña no es el de la pantalla de inicio para los requisitos de pantalla de inicio móvil.</p>
 <p>Las pantallas de inicio móviles tratan tu sitio como una app instalada. Eso significa que necesitan una imagen cuadrada y de alta resolución que escale desde miniaturas pequeñas hasta launchers grandes sin descomponerse.</p>
 <h2>Lo que significa realmente 'icono de pantalla de inicio móvil'</h2>
 <p>Un favicon (la pestaña del navegador) de 16x16 o 32x32 píxeles es una bestia completamente distinta de un icono de pantalla de inicio móvil. El icono de la pestaña vive en un rectángulo diminuto y compite con otras siete pestañas. Un icono de pantalla de inicio ocupa un espacio de 60–120 píxeles en una rejilla de apps, a menudo con esquinas redondeadas, sombras y máscaras del propio sistema operativo.</p>
 <p>Cuando un usuario toca 'Añadir a pantalla de inicio' en Safari o 'Instalar app' en Chrome, el sistema operativo busca declaraciones HTML específicas. Si no encuentra los tamaños correctos, recurre a una captura de pantalla de tu página (iOS) o al favicon estándar (Android). Ninguna de las dos opciones se ve profesional.</p>
-<h2>Por qué los tamaños de favicon estándar fallan aquí</h2>
+<h2>Por qué el icono de la pestaña no basta en la pantalla de inicio</h2>
 <p>La mayoría de los desarrolladores aprenden que un archivo ICO de 32x32 es 'suficiente' para favicons. Ese archivo funciona bien para pestañas, marcadores y barras de direcciones. Pero en el momento en que iOS necesita un icono de pantalla de inicio, espera un Apple Touch Icon bastante más grande.</p>
 <p>El archivo ICO de 32x32 técnicamente es cuadrado, pero carece de la densidad de píxeles que necesita un launcher de pantalla de inicio Retina. iOS lo escala hacia arriba y obtienes ese emborronamiento que los usuarios asocian con web apps 'inconclusas'.</p>
-<h2>Dos ecosistemas móviles, dos reglas de tamaño</h2>
+<h2>iPhone y Android no comparten el mismo archivo</h2>
 <p>Los requisitos de pantalla de inicio móvil se dividen en dos bandos, cada uno con su propia especificación.</p>
 <h3>iOS: el Apple Touch Icon</h3>
 <p>El comportamiento documentado por Apple consiste en buscar una etiqueta HTML <code>&lt;link rel='apple-touch-icon'&gt;</code> que apunte a un PNG cuadrado. El iOS moderno (iOS 8+) trata el tamaño 180x180 como el estándar de facto para las pantallas de inicio del iPhone. Cualquier cosa más pequeña hará que iOS lo rechace o lo escale hacia arriba, con la pérdida de calidad que cabe esperar.</p>
-<p>Para el iPad, históricamente necesitabas varios tamaños. Hoy puedes enviar un único PNG de 180x180 y cubrirá la mayoría de los dispositivos actuales — la estrategia del <a href="/blog/apple-touch-icon-180x180.html">apple touch icon 180x180</a> funciona porque iOS reduce imágenes más grandes de forma limpia.</p>
+<p>Para el iPad, históricamente necesitabas varios tamaños. Hoy puedes enviar un único PNG de 180x180 y cubrirá la mayoría de los dispositivos actuales — la estrategia del <a href="/es/blog/apple-touch-icon-180x180.html">apple touch icon 180x180</a> funciona porque iOS reduce imágenes más grandes de forma limpia.</p>
 <h3>Android: el Web App Manifest</h3>
 <p>Android se apoya en el Web App Manifest, definido por el W3C. Según la <a href="https://www.w3.org/TR/appmanifest/#icons-member" target="_blank" rel="noopener">especificación del Web App Manifest</a>, el miembro <code>icons</code> acepta un array de objetos de imagen con atributos explícitos <code>sizes</code>, <code>type</code> y <code>purpose</code>.</p>
 <p>Los dos tamaños que Android espera de forma consistente son:</p>
@@ -374,8 +374,16 @@
 <li><strong>Valida el manifest.</strong> Un error tipográfico en <code>sizes</code> rompe silenciosamente las instalaciones en Android. Usa la pestaña Application de Chrome DevTools para verificarlo.</li>
 <li><strong>Aplica cache-busting de forma agresiva.</strong> Los sistemas operativos móviles cachean los iconos de pantalla de inicio durante semanas. Una URL versionada (p. ej. <code>?v=2</code>) fuerza la actualización tras un rediseño.</li>
 </ol>
-<p>Si necesitas inspeccionar lo que un sitio está sirviendo en este momento, la guía del <a href="/blog/favicon-tester-all-browsers.html">favicon tester para todos los navegadores</a> explica paso a paso cómo verificarlo en DevTools. Para generar el paquete en sí, Mzu favicondl puede exportar los cinco archivos con un solo clic.</p>
-<p>Los tamaños de favicon para pantalla de inicio móvil no consisten en generar docenas de archivos. Se trata de enviar los tres o cuatro PNG correctos, declararlos bien en HTML y en el manifest, y comprobar que el sistema operativo realmente pueda encontrarlos.</p></template>
+<p>Si necesitas inspeccionar lo que un sitio está sirviendo en este momento, la guía del <a href="/es/blog/favicon-tester-all-browsers.html">favicon tester para todos los navegadores</a> explica paso a paso cómo verificarlo en DevTools. Para generar el paquete en sí, Mzu favicondl puede exportar los cinco archivos con un solo clic.</p>
+<p>Los tamaños de favicon para pantalla de inicio móvil no consisten en generar docenas de archivos. Se trata de enviar los tres o cuatro PNG correctos, declararlos bien en HTML y en el manifest, y comprobar que el sistema operativo realmente pueda encontrarlos.</p></div>
+
+        <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
+
+        <div class="cta-box">
+            <h3>Genera tus iconos para móvil</h3>
+            <p>Usa Mzu favicondl para exportar PNGs de 180x180, 192x192 y 512x512, junto con el site.webmanifest, en un solo clic.</p>
+            <a href="/es/" class="cta-btn">Pruébalo gratis →</a>
+        </template>
 
         <div class="cta-box">
             <h3 data-en="Generate Your Mobile Home Screen Icons" data-zh="一键生成移动主屏幕图标" data-ja="モバイルホーム画面用アイコンを生成" data-ko="모바일 홈 화면 아이콘 생성하기" data-es="Genera tus iconos para móvil">Generate Your Mobile Home Screen Icons</h3>

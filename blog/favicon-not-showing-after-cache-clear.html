@@ -1,8 +1,8 @@
 <!DOCTYPE html><html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Favicon Not Showing After Clearing Cache? The Real Fix</title>
-    <meta name="description" content="Cleared your browser cache but your favicon is still missing? Discover why cache clearing fails and the exact server-side fixes to restore your icon.">
+    <title>Favicon Still Cached After Clearing Browser Data</title>
+    <meta name="description" content="Clearing browsing data often leaves the favicon database, a service worker, or the CDN edge untouched. What to check on the server when the icon still will not change.">
     <meta name="keywords" content="favicon not showing, favicon cache, favicon missing, favicon fix">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://favicondl.com/blog/favicon-not-showing-after-cache-clear.html">
@@ -22,12 +22,12 @@
 
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://favicondl.com/blog/favicon-not-showing-after-cache-clear.html">
-    <meta property="og:title" content="Favicon Not Showing After Clearing Cache? The Real Fix">
-    <meta property="og:description" content="Cleared your browser cache but your favicon is still missing? Discover why cache clearing fails and the exact server-side fixes to restore your icon.">
+    <meta property="og:title" content="Favicon Still Cached After Clearing Browser Data">
+    <meta property="og:description" content="Clearing browsing data often leaves the favicon database, a service worker, or the CDN edge untouched. What to check on the server when the icon still will not change.">
     <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Favicon Not Showing After Clearing Cache? The Real Fix">
-    <meta name="twitter:description" content="Cleared your browser cache but your favicon is still missing? Discover why cache clearing fails and the exact server-side fixes to restore your icon.">
+    <meta name="twitter:title" content="Favicon Still Cached After Clearing Browser Data">
+    <meta name="twitter:description" content="Clearing browsing data often leaves the favicon database, a service worker, or the CDN edge untouched. What to check on the server when the icon still will not change.">
     <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
 
     <script src="https://cdn.tailwindcss.com"></script>
@@ -45,8 +45,8 @@
     <script type="application/ld+json">{
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "Favicon Not Showing After Clearing Cache? The Real Fix",
-  "description": "Cleared your browser cache but your favicon is still missing? Discover why cache clearing fails and the exact server-side fixes to restore your icon.",
+  "headline": "Favicon Still Cached After Clearing Browser Data",
+  "description": "Clearing browsing data often leaves the favicon database, a service worker, or the CDN edge untouched. What to check on the server when the icon still will not change.",
   "datePublished": "2026-08-15",
   "dateModified": "2026-08-15",
   "author": {
@@ -92,15 +92,16 @@
         <nav class="text-sm text-gray-400 mb-8">
             <a href="/" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
             <a href="/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
-            <span class="text-gray-600" data-en="Favicon Not Showing After Clearing Cache? The Real Fix" data-zh="清除缓存后 Favicon 仍不显示？真正有效的修复方法" data-ja="キャッシュクリア後に Favicon が表示されない？本当の修正方法" data-ko="캐시 삭제 후 Favicon이 표시되지 않음? 진짜 해결 방법" data-es="¿Favicon No Aparece Tras Limpiar Caché? La Solución Real">Favicon Not Showing After Clearing Cache? The Real Fix</span>
+            <span class="text-gray-600" data-en="Favicon Still Cached After Clearing Browser Data" data-zh="清除缓存后 Favicon 仍不显示？真正有效的修复方法" data-ja="キャッシュクリア後に Favicon が表示されない？本当の修正方法" data-ko="캐시 삭제 후 Favicon이 표시되지 않음? 진짜 해결 방법" data-es="¿Favicon No Aparece Tras Limpiar Caché? La Solución Real">Favicon Still Cached After Clearing Browser Data</span>
         </nav>
 
         <header class="mb-10">
             <div class="flex items-center gap-3 mb-4"><span class="tag">troubleshooting</span><time class="text-sm text-gray-400">2026-08-15</time></div>
-            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight" data-en="Favicon Not Showing After Clearing Cache? The Real Fix" data-zh="清除缓存后 Favicon 仍不显示？真正有效的修复方法" data-ja="キャッシュクリア後に Favicon が表示されない？本当の修正方法" data-ko="캐시 삭제 후 Favicon이 표시되지 않음? 진짜 해결 방법" data-es="¿Favicon No Aparece Tras Limpiar Caché? La Solución Real">Favicon Not Showing After Clearing Cache? The Real Fix</h1>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight" data-en="Favicon Still Cached After Clearing Browser Data" data-zh="清除缓存后 Favicon 仍不显示？真正有效的修复方法" data-ja="キャッシュクリア後に Favicon が表示されない？本当の修正方法" data-ko="캐시 삭제 후 Favicon이 표시되지 않음? 진짜 해결 방법" data-es="¿Favicon No Aparece Tras Limpiar Caché? La Solución Real">Favicon Still Cached After Clearing Browser Data</h1>
         </header>
 
         <div class="article-body" data-lang="en">
+            <div class="info-box"><p>The <a href="/blog/favicon-not-showing.html">favicon not showing checklist</a> is the place to start. This page is the case where clearing browsing data still leaves the icon: the favicon database, a service worker, or the CDN edge.</p></div>
             <p>You cleared your browser cache, hit refresh, and your favicon is still a blank white square. If you are dealing with a favicon not showing after clearing cache, you are likely blaming the browser when the actual culprit is your server.</p><p>I spent three hours last Tuesday fighting this exact issue on a client's staging site. I wiped Chrome's favicon database, restarted the machine, and still got nothing. The problem wasn't the browser cache at all.</p><p>Here is the fastest way to fix this, followed by the root causes you need to check so it never happens again.</p><h2>The Quick Fix: Bypass the Browser Cache Entirely</h2><p>If the browser refuses to fetch your new icon, you need to force a unique request. You do this by appending a query string to your favicon path. This tricks the browser into thinking it is downloading a brand new file.</p><p>Update your HTML <code>&lt;link&gt;</code> tag to include a version parameter:</p><pre><code>&lt;link rel='icon' href='/favicon.ico?v=20260115' type='image/x-icon'&gt;</code></pre><p>Change that version number every time you update your icon. This is the single most reliable way to force a refresh without asking users to wipe their browsing data. For a deeper look at long-term strategies, check our guide on <a href="/blog/favicon-cache-busting.html">favicon cache busting best practices</a>.</p><h2>Why Clearing Cache Does Not Always Work</h2><p>Browsers are stubborn creatures. When you clear your cache, you are only wiping the HTTP cache. Favicons often live in a completely separate, persistent database that standard cache clearing ignores.</p><h3>The Secret SQLite Favicon Database</h3><p>Chrome and Firefox maintain a dedicated SQLite database for favicons. This database survives standard cache clears because it is tied to your browser history and bookmarks. If the browser thinks the favicon URL has not changed, it will not attempt a new fetch.</p><p>This is why your icon stubbornly refuses to update even after you nuke your browsing data. The browser looks at the hardcoded URL, checks the SQLite DB, finds a match, and serves the stale file.</p><h3>Service Worker Interception</h3><p>If you are building a Progressive Web App, your service worker might be serving the old favicon directly from the Cache API. Clearing the browser cache does not touch the service worker cache.</p><p>To fix this, you must unregister the service worker in your DevTools (Application &gt; Service Workers &gt; Unregister) or update your service worker file to delete the old cached favicon entry.</p><h2>Root Causes: What to Check on Your Server</h2><p>If the query string trick does not work, your server is actively blocking or misrouting the request. Here are the three server-side issues I see most often.</p><h3>1. Aggressive CDN Edge Caching</h3><p>Your CDN might be serving a stale version of the file to users globally. Cloudflare and Vercel often cache static assets like <code>favicon.ico</code> for months by default.</p><p>You need to log into your CDN dashboard and manually purge the cache for your favicon file. Alternatively, set a shorter Time to Live (TTL) for your icon files.</p><h3>2. Missing MIME Type Declarations</h3><p>If your server does not tell the browser what type of file it is serving, modern browsers will reject it. I have seen Nginx and Apache setups that serve <code>.ico</code> files as <code>application/octet-stream</code>, which Chrome silently ignores.</p><p>Ensure your Nginx config includes the correct MIME type:</p><pre><code>types {
     image/x-icon ico;
     image/svg+xml svg;

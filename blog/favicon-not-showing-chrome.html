@@ -1,8 +1,8 @@
 <!DOCTYPE html><html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Favicon Not Showing in Chrome? Fix Cache, Localhost &amp; SVG</title>
-    <meta name="description" content="Troubleshoot why your favicon is not showing in Chrome. Learn about Chrome's hidden SQLite cache, strict SVG parsing, and the quick query string fix.">
+    <title>Chrome Favicon Cache: SQLite, SVG and Localhost</title>
+    <meta name="description" content="Chrome keeps favicons in its own SQLite database, separate from the normal page cache. How to bust that store, fix an SVG Chrome rejects, and the localhost exception.">
     <meta name="keywords" content="favicon not showing in chrome, chrome favicon cache, fix favicon">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://favicondl.com/blog/favicon-not-showing-chrome.html">
@@ -22,12 +22,12 @@
 
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://favicondl.com/blog/favicon-not-showing-chrome.html">
-    <meta property="og:title" content="Favicon Not Showing in Chrome? Fix Cache, Localhost &amp; SVG">
-    <meta property="og:description" content="Troubleshoot why your favicon is not showing in Chrome. Learn about Chrome's hidden SQLite cache, strict SVG parsing, and the quick query string fix.">
+    <meta property="og:title" content="Chrome Favicon Cache: SQLite, SVG and Localhost">
+    <meta property="og:description" content="Chrome keeps favicons in its own SQLite database, separate from the normal page cache. How to bust that store, fix an SVG Chrome rejects, and the localhost exception.">
     <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Favicon Not Showing in Chrome? Fix Cache, Localhost &amp; SVG">
-    <meta name="twitter:description" content="Troubleshoot why your favicon is not showing in Chrome. Learn about Chrome's hidden SQLite cache, strict SVG parsing, and the quick query string fix.">
+    <meta name="twitter:title" content="Chrome Favicon Cache: SQLite, SVG and Localhost">
+    <meta name="twitter:description" content="Chrome keeps favicons in its own SQLite database, separate from the normal page cache. How to bust that store, fix an SVG Chrome rejects, and the localhost exception.">
     <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
 
     <script src="https://cdn.tailwindcss.com"></script>
@@ -45,8 +45,8 @@
     <script type="application/ld+json">{
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "Favicon Not Showing in Chrome? Fix Cache, Localhost & SVG",
-  "description": "Troubleshoot why your favicon is not showing in Chrome. Learn about Chrome's hidden SQLite cache, strict SVG parsing, and the quick query string fix.",
+  "headline": "Chrome Favicon Cache: SQLite, SVG and Localhost",
+  "description": "Chrome keeps favicons in its own SQLite database, separate from the normal page cache. How to bust that store, fix an SVG Chrome rejects, and the localhost exception.",
   "datePublished": "2026-05-01",
   "dateModified": "2026-05-01",
   "author": {
@@ -92,15 +92,16 @@
         <nav class="text-sm text-gray-400 mb-8">
             <a href="/" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
             <a href="/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
-            <span class="text-gray-600" data-en="Favicon Not Showing in Chrome? Fix Cache, Localhost &amp; SVG" data-zh="Chrome 不显示 Favicon？2026年开发者排坑指南" data-ja="ChromeでFaviconが表示されない？2026年版の解決策" data-ko="Chrome에서 파비콘이 안 보이나요? 2026년 개발자 해결법" data-es="¿Favicon no se ve en Chrome? La solución definitiva (2026)">Favicon Not Showing in Chrome? Fix Cache, Localhost &amp; SVG</span>
+            <span class="text-gray-600" data-en="Chrome Favicon Cache: SQLite, SVG and Localhost" data-zh="Chrome 不显示 Favicon？2026年开发者排坑指南" data-ja="ChromeでFaviconが表示されない？2026年版の解決策" data-ko="Chrome에서 파비콘이 안 보이나요? 2026년 개발자 해결법" data-es="¿Favicon no se ve en Chrome? La solución definitiva (2026)">Chrome Favicon Cache: SQLite, SVG and Localhost</span>
         </nav>
 
         <header class="mb-10">
             <div class="flex items-center gap-3 mb-4"><span class="tag">troubleshooting</span><time class="text-sm text-gray-400">2026-05-01</time></div>
-            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight" data-en="Favicon Not Showing in Chrome? Fix Cache, Localhost &amp; SVG" data-zh="Chrome 不显示 Favicon？2026年开发者排坑指南" data-ja="ChromeでFaviconが表示されない？2026年版の解決策" data-ko="Chrome에서 파비콘이 안 보이나요? 2026년 개발자 해결법" data-es="¿Favicon no se ve en Chrome? La solución definitiva (2026)">Favicon Not Showing in Chrome? Fix Cache, Localhost &amp; SVG</h1>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight" data-en="Chrome Favicon Cache: SQLite, SVG and Localhost" data-zh="Chrome 不显示 Favicon？2026年开发者排坑指南" data-ja="ChromeでFaviconが表示されない？2026年版の解決策" data-ko="Chrome에서 파비콘이 안 보이나요? 2026년 개발자 해결법" data-es="¿Favicon no se ve en Chrome? La solución definitiva (2026)">Chrome Favicon Cache: SQLite, SVG and Localhost</h1>
         </header>
 
         <div class="article-body" data-lang="en">
+            <div class="info-box"><p>The checklist for a favicon that is not showing — cache, path, link tags, format and size, HTTPS, CDN, and Google — is <a href="/blog/favicon-not-showing.html">Favicon Not Showing</a>. This page covers Chrome’s own favicon database, the SVG rules Chrome enforces, and localhost.</p></div>
             <p>You push a site update. The new logo looks great. You check Firefox—perfect. Safari—crisp. You open Chrome, and there it is: that generic, gray globe mocking you. If you are dealing with a favicon not showing in Chrome while it works everywhere else, you aren't crazy. Chrome handles site icons differently than other browsers.</p>
 <p>Not sure the problem is Chrome-specific? Our <a href="/blog/favicon-not-showing.html">favicon not showing troubleshooting guide</a> covers the seven most common causes in every browser.</p><p>The quickest way to fix this right now? Bypass Chrome's memory entirely.</p><h2>The 10-Second Fix: Cache Busting</h2><p>Don't bother telling your clients to clear their browser cache. Chrome's favicon cache is notoriously stubborn. Instead, append a version query string to your favicon URL in your HTML.</p><pre><code>&lt;link rel='icon' href='/favicon.svg?v=2' type='image/svg+xml'&gt;</code></pre><p>When Chrome sees <code>?v=2</code>, it treats it as a completely new file and fetches it immediately. This is the exact strategy companies like Stripe use to ensure their dashboard icons update instantly when switching between live and test modes.</p><h2>Why is my favicon not showing in Chrome specifically?</h2><p>If the versioning trick worked, you ran into Chrome's aggressive caching. If it didn't, you have a structural issue. Here is exactly what goes wrong under the hood.</p><h3>The Hidden SQLite Database</h3><p>Unlike standard images or CSS files, Chrome does not store favicons in the regular browser disk cache. It stores them in a dedicated, hidden SQLite database file on your hard drive (usually located in the <code>User Data/Default/Favicons</code> directory).</p><p>This is why a hard refresh (Cmd+Shift+R or Ctrl+F5) often does absolutely nothing for your tab icon. The browser clears the page assets but leaves the SQLite database untouched. While you can read about <a href="/blog/favicon-cache-clear.html">forcing a favicon cache clear</a> manually, relying on users to do this is terrible UX.</p><h3>The Localhost Protocol Trap</h3><p>Testing a static HTML file by dragging it directly into Chrome? Your favicon will fail. Chrome intentionally blocks favicon requests on <code>file://</code> URLs for security reasons to prevent local file probing.</p><p>To see your icon locally, you must serve the site over <code>http://localhost</code> using a local development server like Vite, Live Server, or a basic Python HTTP server.</p><h3>Strict SVG Parsing</h3><p>Chrome is unforgiving with malformed SVGs. Safari might render an SVG with missing XML namespaces, but Chrome will silently drop it and fall back to the default globe.</p><p>If you are using an SVG icon, open the file in a text editor. It must contain the <code>xmlns</code> attribute. If it's missing, Chrome rejects the file entirely. GitHub ran into similar strict-parsing issues years ago when transitioning to modern SVG icons, forcing them to ensure perfectly valid XML across all repositories.</p><h2>How Chrome Prioritizes Favicon Tags in 2026</h2><p>Chrome doesn't just read your HTML top-to-bottom and pick the first icon. It has a specific hierarchy. If you have conflicting tags, Chrome might be picking a broken file you forgot you even linked.</p><table><thead><tr><th>Format</th><th>Chrome Priority</th><th>Common Failure Reason</th></tr></thead><tbody><tr><td>Web Manifest</td><td>Highest</td><td>Relative paths resolving incorrectly</td></tr><tr><td>SVG</td><td>High</td><td>Missing xmlns attribute</td></tr><tr><td>PNG</td><td>Medium</td><td>Incorrect sizes attribute</td></tr><tr><td>ICO (Root)</td><td>Lowest</td><td>Corrupted ICO container</td></tr></tbody></table><ul><li><strong>Web App Manifest:</strong> Chrome checks <code>manifest.json</code> early. If you have a broken icon path in your manifest, Chrome might prioritize that failure over a perfectly valid HTML tag.</li><li><strong>SVG over PNG:</strong> Chrome prefers modern vector formats over PNGs, assuming the SVG is valid.</li><li><strong>The implicit root request:</strong> Even if you define nothing, Chrome will quietly request <code>/favicon.ico</code> in the background.</li></ul><h2>The Bulletproof Chrome Setup</h2><p>To stop fighting Chrome, you need a setup that leaves no room for interpretation.</p><h3>1. Clean up your HTML</h3><p>Delete legacy tags. You do not need <code>rel='shortcut icon'</code> anymore. Chrome ignores the 'shortcut' part, but it can cause parsing conflicts. Use standard, clean HTML. If you aren't sure what that looks like, grab the exact snippets from our <a href="/blog/favicon-html-code.html">favicon HTML code examples</a> guide.</p><h3>2. Audit your Manifest</h3><p>Open your Chrome DevTools, navigate to the Application tab, and click on Manifest. Look at the Icons section. Are there any red errors? If Chrome cannot resolve the paths here, your PWA and tab icons will suffer.</p><h3>3. Generate the Right Files</h3><p>Hand-coding these paths and resizing images manually is a waste of your development time. You need a valid SVG, a fallback PNG, and a properly formatted ICO file for older enterprise Chrome versions.</p><p>We built Mzu favicondl to handle this exact headache. You upload your logo, and we generate the exact file stack and HTML snippets that Chrome, Safari, and Firefox expect in 2026. No more guessing why the tab is blank.</p><p>Chrome's aggressive caching and strict parsing make it the most frustrating browser for favicon deployment. Always use query strings for updates, serve your files over a real HTTP server locally, and validate your SVGs. Fix those three things, and that gray globe will disappear for good.</p>
         </div><template data-article-lang="es">
