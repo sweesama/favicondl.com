@@ -6,7 +6,7 @@
   },
   "redirects": [
     { "source": "/index.html", "destination": "/", "permanent": true },
-    { "source": "/es/tamanos-de-favicon.html", "destination": "/es/tamanos-de-favicon.html", "permanent": true },
+    { "source": "/es/blog/favicon-sizes-guide.html", "destination": "/es/tamanos-de-favicon.html", "permanent": true },
     { "source": "/blog/chrome-not-showing-favicons.html", "destination": "/blog/favicon-not-showing.html", "permanent": true },
     { "source": "/zh/blog/chrome-not-showing-favicons.html", "destination": "/zh/blog/favicon-not-showing.html", "permanent": true },
     { "source": "/ja/blog/chrome-not-showing-favicons.html", "destination": "/ja/blog/favicon-not-showing.html", "permanent": true },
