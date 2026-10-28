@@ -4004,5 +4004,25 @@
     ],
     "qualityScore": 95,
     "qualityGrade": "A"
+  },
+  {
+    "slug": "notion-site-favicon",
+    "publishDate": "2026-10-28",
+    "titleEn": "Favicon for Notion Site: Add a Custom Icon",
+    "titleZh": "Notion 站点 favicon 设置：添加自定义图标",
+    "titleJa": "Notion サイトの favicon 設定：カスタムアイコンを追加",
+    "titleKo": "Notion 사이트 favicon 설정: 사용자 지정 아이콘 추가",
+    "titleEs": "Favicon para sitio Notion: agrega un icono personalizado",
+    "descEn": "Learn how to set a custom favicon for your Notion site. Step-by-step guide to upload an icon, use a custom domain, and verify it in browser tabs.",
+    "descZh": "了解如何为你的 Notion 站点设置自定义 favicon。分步指南：上传图标、使用自定义域名，并在浏览器标签中验证。",
+    "descJa": "Notion サイトにカスタム favicon を設定する方法を解説。アイコンのアップロード、カスタムドメインの使用、ブラウザタブでの確認までをステップバイステップで説明します。",
+    "descKo": "Notion 사이트에 사용자 지정 favicon을 설정하는 방법을 알아보세요. 아이콘 업로드, 사용자 지정 도메인 사용, 브라우저 탭에서 확인하는 단계별 가이드입니다.",
+    "descEs": "Aprende a establecer un favicon personalizado para tu sitio de Notion. Guía paso a paso para subir un icono, usar un dominio personalizado y verificarlo en las pestañas del navegador.",
+    "keyword": "favicon for notion site",
+    "tags": [
+      "platforms"
+    ],
+    "qualityScore": 73,
+    "qualityGrade": "B"
   }
 ]

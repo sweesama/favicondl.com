@@ -3016,7 +3016,9 @@
     "avoidOverlap": [
       "no-code-website-favicon"
     ],
-    "status": "pending"
+    "status": "done",
+    "qualityScore": 73,
+    "qualityGrade": "B"
   },
   {
     "keyword": "framer favicon",
