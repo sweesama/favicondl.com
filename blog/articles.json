@@ -4024,5 +4024,25 @@
     ],
     "qualityScore": 73,
     "qualityGrade": "B"
+  },
+  {
+    "slug": "framer-favicon",
+    "publishDate": "2026-10-29",
+    "titleEn": "Framer Favicon: How to Add and Replace It Correctly",
+    "titleZh": "Framer favicon：添加与替换网站图标指南",
+    "titleJa": "Framer faviconを追加・変更する手順",
+    "titleKo": "Framer favicon 추가 및 교체 방법",
+    "titleEs": "Cómo añadir y cambiar un favicon en Framer",
+    "descEn": "Add or replace a Framer favicon in clear steps, publish it correctly, verify the live domain, and troubleshoot caching or conflicting icon links.",
+    "descZh": "几步即可为 Framer 网站添加或替换 favicon，涵盖图标准备、项目设置、发布验证、缓存排查与自定义代码回退方案。",
+    "descJa": "Framerのプロジェクト設定からfaviconを追加し、公開後の確認、キャッシュ対策、カスタムコードの適用まで解説します。",
+    "descKo": "Framer 프로젝트 설정에서 favicon을 추가하고 게시 후 확인, 캐시 문제, 커스텀 코드 적용까지 단계별로 설명합니다.",
+    "descEs": "Añade un favicon en Framer con pasos claros: preparación, configuración, publicación, comprobación de caché y código personalizado.",
+    "keyword": "framer favicon",
+    "tags": [
+      "platforms"
+    ],
+    "qualityScore": 80,
+    "qualityGrade": "A"
   }
 ]

@@ -1,0 +1,151 @@
+<!DOCTYPE html><html lang="ja"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Framer faviconを追加・変更する手順</title>
+    <meta name="description" content="Framerのプロジェクト設定からfaviconを追加し、公開後の確認、キャッシュ対策、カスタムコードの適用まで解説します。">
+    <meta name="keywords" content="framer favicon, add favicon in Framer, Framer website icon, Framer SEO">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/ja/blog/framer-favicon.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/framer-favicon.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/framer-favicon.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/framer-favicon.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/framer-favicon.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/framer-favicon.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/framer-favicon.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/ja/blog/framer-favicon.html">
+    <meta property="og:title" content="Framer faviconを追加・変更する手順">
+    <meta property="og:description" content="Framerのプロジェクト設定からfaviconを追加し、公開後の確認、キャッシュ対策、カスタムコードの適用まで解説します。">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Framer faviconを追加・変更する手順">
+    <meta name="twitter:description" content="Framerのプロジェクト設定からfaviconを追加し、公開後の確認、キャッシュ対策、カスタムコードの適用まで解説します。">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Framer faviconを追加・変更する手順",
+  "description": "Framerのプロジェクト設定からfaviconを追加し、公開後の確認、キャッシュ対策、カスタムコードの適用まで解説します。",
+  "datePublished": "2026-10-29",
+  "dateModified": "2026-10-29",
+  "author": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "mainEntityOfPage": "https://favicondl.com/ja/blog/framer-favicon.html",
+  "inLanguage": "ja"
+}</script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/ja/" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/ja/documentation.html" class="nav-link">ドキュメント</a>
+                <a href="/ja/tools.html" class="nav-link">ツール</a>
+                <a href="/ja/blog/" class="nav-link">ブログ</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/framer-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/framer-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/framer-favicon.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/framer-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/framer-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/ja/" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/ja/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600">Framer faviconを追加・変更する手順</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">platforms</span><time class="text-sm text-gray-400">2026-10-29</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">Framer faviconを追加・変更する手順</h1>
+        </header>
+
+        <div class="article-body"><p>Framerで公開したサイトのブラウザタブに汎用の地球アイコンが表示される場合は、3つのレイヤーを確認してください。プロジェクトに設定したfavicon、公開先ドメイン、HTMLレスポンスです。プロジェクト全体のFramer faviconは、ページのリデザインなしで差し替えられます。</p>
+<p>まずFramerの標準アップロード機能を使ってください。アイコンがプロジェクトに紐づけられるため、別途HTML snippetを追加する必要はありません。Custom codeは、SVGを使う、指定サイズにする、またはasset URLを明示的に管理する場合にだけ使ってください。</p>
+<h2>始める前に</h2>
+<ul>
+<li>Framerプロジェクトと、そのSettingsパネルにアクセスできること。</li>
+<li>正方形の元画像。<a href="/ja/"><strong>Mzu favicondl</strong></a>で、512×512のPNGと、必要に応じてICOまたはSVGを書き出してください。</li>
+<li>利用者がアクセスする正確なドメイン（custom domainを含む）。</li>
+</ul>
+<p>より広いアップロード手順については、<a href="/ja/blog/no-code-website-favicon.html">no-code faviconガイド</a>を参照してください。以下ではFramerの設定、公開、検証に絞って説明します。</p>
+<h2>Framer faviconを追加する方法</h2>
+<ol>
+<li><strong>プロジェクト設定を開く。</strong><p>Framerでプロジェクトを開き、プロジェクト上部のメニューから<strong>Settings</strong>を選んでサイト設定を開きます。一般的なサイト情報の項目にある<strong>Favicon</strong>または<strong>Site Icon</strong>を探してください。見つからない場合は、同じパネルのSEOまたはsite-metadataセクションを確認します。1つのページだけで設定しないでください。</p></li>
+<li><strong>正方形のアイコンをアップロードする。</strong><p><strong>Upload</strong>を選択し、PNGを選んでcropを確認します。マークを中央に配置し、タブの表示サイズでは消えてしまう小さな文字は削除してください。変更を保存します。この項目がSVGまたはICOを受け付ける場合は、その書き出しデータを使い、受け付けない場合はPNGを使ってください。</p></li>
+<li><strong>プロジェクトを公開する。</strong><p><strong>Publish</strong>を選択し、公開後のURLを新しいタブで開いてください。editor canvasは、利用者が受け取る内容ではありません。</p></li>
+<li><strong>公開後のレスポンスを検証する。</strong><p>DevToolsのElementsパネルで<code>rel='icon'</code>を検索します。URLがアップロードしたassetを指していることを確認してください。Networkパネルでそのassetをリクエストし、statusを確認してください。リクエストが失敗した場合、タブアイコンは更新できません。</p></li>
+<li><strong>意図的なoverrideにだけCustom codeを使う。</strong><p>プロジェクト設定に<strong>Custom Code</strong>がある場合は、Headセクションを開いて次のコードを追加し、両方のURLをpublicアクセス可能なHTTPS asset URLに置き換えてください。</p><pre><code>&amp;lt;link rel='icon' type='image/svg+xml' href='https://your-domain.com/favicon.svg'&amp;gt;
+&amp;lt;link rel='icon' type='image/png' sizes='512x512' href='https://your-domain.com/favicon-512.png'&amp;gt;</code></pre><p><a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">HTML Standard</a>では、<code>rel='icon'</code>による外部icon linkの指定が定義されています。iconの指定元を1つに統一するため、標準のアップロード機能と、それ以前に追加したsnippetは無効にしてください。</p></li>
+</ol><h2>よくある落とし穴</h2>
+<ul>
+<li><strong>エディタ上では動くが、公開後に反映されない。</strong> もう一度公開し、プレビュー URL ではなく本番ドメインでテストしてください。</li>
+<li><strong>icon link が重複している。</strong> Framer の uploader がすでにアイコンを設定している場合は、古いカスタムコードを削除してください。</li>
+<li><strong>古いアイコンが残る。</strong> まずアセットのレスポンスを確認し、その後<a href="/ja/blog/favicon-not-showing.html">favicon のトラブルシューティングチェックリスト</a>でキャッシュ起因の問題を確認してください。</li>
+<li><strong>アセットは表示されるが、見た目がおかしい。</strong> 元画像の正方形クロップをやり直し、細かい装飾を整理してから、もう一度変換してください。</li>
+</ul>
+<h2>まとめ</h2>
+<p>最も subreddits な運用では、project setting にすべての管理を一本化します。正方形の PNG をアップロードして公開し、本番の HTML を確認してください。カスタムコードは、意図的な override に限って使用します。これで、次回の変更も予測可能な状態に保てます。</p></div>
+
+        <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
+
+        <div class="cta-box">
+            <h3> 깔끔な Framer favicon を作成</h3>
+            <p>Mzu favicondlでPNG、ICO、SVGを作成し、Framerプロジェクトへアップロードします。</p>
+            <a href="/ja/" class="cta-btn">無料で試す →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/ja/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">ホーム</a>
+                <a href="/ja/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">ブログ</a>
+                <a href="/ja/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">プライバシー</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js?v=20260211"></script>
+
+</body></html>

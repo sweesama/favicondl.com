@@ -1,0 +1,151 @@
+<!DOCTYPE html><html lang="ko"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Framer favicon 추가 및 교체 방법</title>
+    <meta name="description" content="Framer 프로젝트 설정에서 favicon을 추가하고 게시 후 확인, 캐시 문제, 커스텀 코드 적용까지 단계별로 설명합니다.">
+    <meta name="keywords" content="framer favicon, add favicon in Framer, Framer website icon, Framer SEO">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/ko/blog/framer-favicon.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/framer-favicon.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/framer-favicon.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/framer-favicon.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/framer-favicon.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/framer-favicon.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/framer-favicon.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/ko/blog/framer-favicon.html">
+    <meta property="og:title" content="Framer favicon 추가 및 교체 방법">
+    <meta property="og:description" content="Framer 프로젝트 설정에서 favicon을 추가하고 게시 후 확인, 캐시 문제, 커스텀 코드 적용까지 단계별로 설명합니다.">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Framer favicon 추가 및 교체 방법">
+    <meta name="twitter:description" content="Framer 프로젝트 설정에서 favicon을 추가하고 게시 후 확인, 캐시 문제, 커스텀 코드 적용까지 단계별로 설명합니다.">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Framer favicon 추가 및 교체 방법",
+  "description": "Framer 프로젝트 설정에서 favicon을 추가하고 게시 후 확인, 캐시 문제, 커스텀 코드 적용까지 단계별로 설명합니다.",
+  "datePublished": "2026-10-29",
+  "dateModified": "2026-10-29",
+  "author": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "mainEntityOfPage": "https://favicondl.com/ko/blog/framer-favicon.html",
+  "inLanguage": "ko"
+}</script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/ko/" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/ko/documentation.html" class="nav-link">문서</a>
+                <a href="/ko/tools.html" class="nav-link">도구</a>
+                <a href="/ko/blog/" class="nav-link">블로그</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/framer-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/framer-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/framer-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/framer-favicon.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/framer-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/ko/" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/ko/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600">Framer favicon 추가 및 교체 방법</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">platforms</span><time class="text-sm text-gray-400">2026-10-29</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">Framer favicon 추가 및 교체 방법</h1>
+        </header>
+
+        <div class="article-body"><p>Framer 사이트를 발행한 뒤 브라우저 탭에 일반적인 지구 모양 아이콘이 표시된다면 다음 세 가지를 확인하세요. 프로젝트의 favicon 설정, 발행된 도메인, HTML 응답입니다. 프로젝트 수준에서 Framer favicon을 교체할 수 있으므로 페이지 디자인을 다시 할 필요는 없습니다.</p>
+<p>우선 Framer의 기본 업로더를 사용하세요. 아이콘이 프로젝트에 연결된 상태로 유지되고, 별도의 HTML 코드 스니펫이 필요하지 않습니다. SVG, 특정 크기 또는 직접 관리하는 asset URL이 필요한 경우에만 custom code를 사용하세요.</p>
+<h2>시작하기 전에</h2>
+<ul>
+<li>Framer 프로젝트와 Settings 패널에 접근할 수 있어야 합니다.</li>
+<li>정사각형 원본 이미지가 필요합니다. <a href="/ko/">/Mzu favicondl</a>로 512×512 PNG를 내보내고, 필요하면 ICO 또는 SVG도 준비하세요.</li>
+<li>custom domain을 포함해 방문자들이 사용하는 정확한 도메인이 필요합니다.</li>
+</ul>
+<p>더 넓은 범위의 업로드 방법은 <a href="/ko/blog/no-code-website-favicon.html">no-code favicon 가이드</a>에서 확인하세요. 아래에서는 Framer 설정, 발행 및 검증에 초점을 둡니다.</p>
+<h2>Framer favicon 추가 방법</h2>
+<ol>
+<li><strong>프로젝트 설정을 여세요.</strong><p>Framer에서 프로젝트를 열고, 상단 프로젝트 메뉴에서 <strong>Settings</strong>를 선택한 다음 사이트 설정을 여세요. 일반적인 사이트 세부 정보 아래에서 <strong>Favicon</strong> 또는 <strong>Site Icon</strong> 필드를 찾으세요. 필드가 보이지 않으면 같은 패널의 SEO 또는 사이트 메타데이터 섹션을 확인하세요. 특정 한 페이지에만 설정하지 마세요.</p></li>
+<li><strong>정사각형 아이콘을 업로드하세요.</strong><p><strong>Upload</strong>를 선택하고 PNG를 선택한 뒤 크롭을 확인하세요. 중앙에 맞추고, 탭 크기에서는 사라지는 작은 글자는 제거하세요. 변경 사항을 저장합니다. 필드에서 SVG 또는 ICO를 허용하면 해당 파일을 사용하고, 그렇지 않으면 PNG를 사용하세요.</p></li>
+<li><strong>프로젝트를 발행하세요.</strong><p><strong>Publish</strong>를 선택한 다음 발행된 URL을 새 탭에서 여세요. 방문자에게 제공되는 화면은 편집기 canvas가 아닙니다.</p></li>
+<li><strong>실제 응답을 검증하세요.</strong><p>DevTools의 Elements 패널에서 <code>rel='icon'</code>을 검색하세요. URL이 업로드한 asset을 가리키는지 확인합니다. Network 패널에서 해당 asset을 요청하고 status를 확인하세요. 실패한 요청은 탭 아이콘을 업데이트할 수 없습니다.</p></li>
+<li><strong>명시적인 override가 필요할 때만 custom code를 사용하세요.</strong><p>프로젝트 설정에 <strong>Custom Code</strong>가 있다면 Head 섹션을 열고 아래 코드를 추가하세요. 이때 두 URL을 모두 공개적으로 접근할 수 있는 HTTPS asset URL로 바꾸세요.</p><pre><code>&amp;lt;link rel='icon' type='image/svg+xml' href='https://your-domain.com/favicon.svg'&amp;gt;
+&amp;lt;link rel='icon' type='image/png' sizes='512x512' href='https://your-domain.com/favicon-512.png'&amp;gt;</code></pre><p><a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">HTML Standard</a>는 <code>rel='icon'</code>을 사용하는 외부 아이콘 링크를 정의합니다. 기본 업로더나 기존 코드 스니펫을 비활성화해 아이콘의 source가 하나뿐이도록 하세요.</p></li>
+</ol><h2>흔히 빠지는 함정</h2>
+<ul>
+<li><strong>에디터에서만 동작합니다.</strong> 다시 게시한 뒤 preview URL이 아닌 live domain에서 테스트하세요.</li>
+<li><strong>아이콘 링크가 중복됩니다.</strong> Framer의 uploader가 이미 아이콘을 설정했다면 남아 있는 custom code를 삭제하세요.</li>
+<li><strong>기존 아이콘이 계속 남습니다.</strong> 먼저 asset 응답을 확인한 다음 <a href="/ko/blog/favicon-not-showing.html">favicon 문제 해결 체크리스트</a>를 따라 cache 관련 항목을 확인하세요.</li>
+<li><strong>asset은 정상적으로 작동하지만 모양이 잘못되었습니다.</strong> 원본 정사각형 이미지를 다시 crop하고 세부 요소를 단순화한 뒤 다시 변환하세요.</li>
+</ul>
+<h2>결론</h2>
+<p>가장 깔끔한 구성은 관리 주체를 하나로 두는 것입니다. 프로젝트 설정에서 favicon을 관리하세요. 정사각형 PNG를 업로드하고 게시한 뒤 live HTML을 점검하며, custom code는 의도적으로 기본값을 재정의할 때만 사용하세요. 이렇게 하면 다음 favicon 교체도 예측 가능한 상태로 유지됩니다.</p></div>
+
+        <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
+
+        <div class="cta-box">
+            <h3>깔끔한 Framer favicon 만들기</h3>
+            <p>Mzu favicondl로 PNG, ICO, SVG를 만든 뒤 Framer 프로젝트에 업로드하세요.</p>
+            <a href="/ko/" class="cta-btn">무료로 사용해보기 →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/ko/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">홈</a>
+                <a href="/ko/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">블로그</a>
+                <a href="/ko/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">개인정보</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js?v=20260211"></script>
+
+</body></html>

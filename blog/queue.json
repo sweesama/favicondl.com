@@ -3032,7 +3032,9 @@
       "webflow-favicon",
       "no-code-website-favicon"
     ],
-    "status": "pending"
+    "status": "done",
+    "qualityScore": 80,
+    "qualityGrade": "A"
   },
   {
     "keyword": "hugo favicon",
