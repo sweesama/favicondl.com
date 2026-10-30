@@ -8,6 +8,15 @@
             </ol>
             <p class="mt-4">手順はこれだけです。アカウント登録もブラウザ拡張もアップロードも必要ありません。PNG ではなく元の <code>.ico</code> や <code>.svg</code> ファイルが欲しい場合は、結果に表示される直接 URL を開いて保存してください。</p>
 
+            <h2 id="favicon-download" class="text-2xl font-semibold text-gray-900 mt-14 mb-6">ファビコン ダウンロードで確認できること</h2>
+            <p class="mb-4">ファビコン ダウンロードは、見ているサイトのアイコンファイルを手元に保存することです。このページの入力欄に URL を入れると、そのサイトが公開しているアイコンを探して、保存まで続けてできます。</p>
+            <ul class="space-y-2 list-disc pl-5 mb-4">
+                <li><strong class="text-gray-900">アイコンの URL を知る。</strong>結果に出る直接 URL が、<code>favicon.ico</code> や PNG、SVG など、サイトが実際に配信しているファイルの場所です。</li>
+                <li><strong class="text-gray-900">サイズと link タグを見る。</strong><code>rel="icon"</code>、Apple touch icon、manifest のアイコンを、測ったピクセルサイズ付きで一覧できます。</li>
+                <li><strong class="text-gray-900">ファイルを保存する。</strong>ダウンロードボタンは PNG です。元の ICO や SVG が必要なら、表示された直接 URL を開いて保存します。登録は要りません。</li>
+            </ul>
+            <p>ブラウザのソースを開いて自分で探す手順は、<a href="/blog/how-to-download-favicon.html" class="text-blue-600 hover:underline">ウェブサイトからファビコンをダウンロードする方法</a>にまとめています。</p>
+
             <h2 id="what-we-extract" class="text-2xl font-semibold text-gray-900 mt-14 mb-6">ファビコン抽出ツールが探すもの</h2>
             <p class="mb-4">アイコンを 1 つしか置いていないサイトはほとんどありません。一般的なサイトには、昔ながらの <code>favicon.ico</code>、数枚の PNG、iPhone 用の Apple touch icon、Android 用の Web App Manifest があります。favicondl の抽出ツールは、通常のブラウザと同じようにトップページを読み込み（<code>www</code> から素のドメインへのリダイレクトなども追跡します）、ページ HTML 内のすべての <code>&lt;link rel="…icon…"&gt;</code> タグを読み取り、リンクされた manifest を開いて中のアイコンを集め、さらに定番のパス <code>/favicon.ico</code> と <code>/apple-touch-icon.png</code> も試します。各ファイルは実際にダウンロードして本当に画像かどうかを確認し、実際のピクセルサイズを測定します。</p>
             <div class="overflow-x-auto">

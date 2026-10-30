@@ -2,8 +2,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Favicon Sizes Guide: What Sizes Do You Really Need?</title>
-    <meta name="description" content="Favicon size chart by platform: ICO 16/32/48, PNG 32/192/512, Apple touch icon 180×180, manifest 192 and 512 including maskable, plus SVG and Safari mask-icon.">
-    <meta name="keywords" content="favicon sizes, favicon size chart, favicon.ico 16 32 48, apple-touch-icon 180x180, maskable icon, safari mask-icon, msapplication tile">
+    <meta name="description" content="Favicon.ico size: put 16×16, 32×32, and 48×48 in one file. The chart also covers PNG 32/192/512, apple-touch-icon 180×180, manifest icons, SVG, and Safari mask-icon.">
+    <meta name="keywords" content="favicon ico size, favicon sizes, favicon size chart, favicon.ico 16 32 48, apple-touch-icon 180x180, maskable icon, safari mask-icon, msapplication tile">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://favicondl.com/blog/favicon-sizes-guide.html">
     <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/favicon-sizes-guide.html">
@@ -23,11 +23,11 @@
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://favicondl.com/blog/favicon-sizes-guide.html">
     <meta property="og:title" content="Favicon Sizes Guide: What Sizes Do You Really Need?">
-    <meta property="og:description" content="Favicon size chart by platform: ICO 16/32/48, PNG 32/192/512, Apple touch icon 180×180, manifest 192 and 512 including maskable, plus SVG and Safari mask-icon.">
+    <meta property="og:description" content="Favicon.ico size: put 16×16, 32×32, and 48×48 in one file. The chart also covers PNG 32/192/512, apple-touch-icon 180×180, manifest icons, SVG, and Safari mask-icon.">
     <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Favicon Sizes Guide: What Sizes Do You Really Need?">
-    <meta name="twitter:description" content="Favicon size chart by platform: ICO 16/32/48, PNG 32/192/512, Apple touch icon 180×180, manifest 192 and 512 including maskable, plus SVG and Safari mask-icon.">
+    <meta name="twitter:description" content="Favicon.ico size: put 16×16, 32×32, and 48×48 in one file. The chart also covers PNG 32/192/512, apple-touch-icon 180×180, manifest icons, SVG, and Safari mask-icon.">
     <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
 
     <script src="https://cdn.tailwindcss.com"></script>
@@ -44,7 +44,7 @@
   "@context": "https://schema.org",
   "@type": "Article",
   "headline": "Favicon Sizes Guide: What Sizes Do You Really Need?",
-  "description": "Favicon size chart by platform: ICO 16/32/48, PNG 32/192/512, Apple touch icon 180×180, manifest 192 and 512 including maskable, plus SVG and Safari mask-icon.",
+  "description": "Favicon.ico size: put 16×16, 32×32, and 48×48 in one file. The chart also covers PNG 32/192/512, apple-touch-icon 180×180, manifest icons, SVG, and Safari mask-icon.",
   "datePublished": "2026-02-13",
   "dateModified": "2026-10-30",
   "author": {
@@ -76,7 +76,7 @@
       "name": "Which sizes belong in favicon.ico?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "16×16, 32×32, and 48×48. The browser picks one layer from the container. Put larger artwork in PNG or SVG so the ICO stays small."
+        "text": "16×16, 32×32, and 48×48, stored together in one favicon.ico. The browser or operating system picks one layer: 16 for a standard tab, 32 for a high-DPI tab, and 48 for a Windows desktop shortcut. Image to Favicon on the Tools page writes those three sizes into one .ico. Keep larger artwork in PNG or SVG so the ICO stays small."
       }
     },
     {
@@ -194,7 +194,17 @@
                 </tbody>
             </table>
             </div>
-            <p>An ICO is a container, not a renamed PNG. Put 16, 32, and 48 in that one file. Keep the SVG, the 180×180 touch icon, and the manifest PNGs as separate files. The ICO layer details are in <a href="/blog/favicon-ico-multiple-sizes-16-32-48.html">multi-size favicon.ico</a>. Home-screen files are in <a href="/blog/apple-touch-icon-180x180.html">apple-touch-icon 180×180</a> and <a href="/blog/web-app-manifest-icons-192-512.html">manifest icons 192 and 512</a>.</p>
+            <p>An ICO is a container, not a renamed PNG. Put 16, 32, and 48 in that one file. Keep the SVG, the 180×180 touch icon, and the manifest PNGs as separate files. Home-screen files are in <a href="/blog/apple-touch-icon-180x180.html">apple-touch-icon 180×180</a> and <a href="/blog/web-app-manifest-icons-192-512.html">manifest icons 192 and 512</a>.</p>
+
+            <h2 id="favicon-ico-size">Favicon.ico size: 16, 32, and 48 in one file</h2>
+            <p>The favicon.ico size people ask for is not a single pixel dimension. A <code>.ico</code> file is a container that can hold several images. The useful set is three layers in that one file: 16×16, 32×32, and 48×48. The browser or operating system reads the container and picks a layer close to the surface it is drawing. It does not scale one bitmap for every case.</p>
+            <ul>
+                <li><strong>16×16</strong> is the standard-DPI browser tab, about 16 CSS pixels.</li>
+                <li><strong>32×32</strong> is the same tab on a 2× screen, so the icon stays sharp. It is also the PNG size to declare beside the ICO.</li>
+                <li><strong>48×48</strong> is the layer Windows uses for a desktop shortcut. It is not a Google Search minimum. Google's current rule is a square of at least 8×8 px, with a file larger than 48×48 recommended, and that guidance is in the Google row of the table above.</li>
+            </ul>
+            <p>Leave 256×256 and other large artwork out of the ICO. Those belong in a PNG or an SVG. A huge bitmap inside the ICO makes the file heavy, and the tab never needs it.</p>
+            <p>To make the file, start from one square image and embed 16×16, 32×32, and 48×48 in a single <code>.ico</code>. On the <a href="/tools.html">Image to Favicon</a> tool, <strong>Download ICO</strong> does that: it scales the upload to those three sizes and writes them as PNG images inside one <code>favicon.ico</code>. The ZIP from the same tool includes that file. Any other ICO writer that accepts multiple images can pack the same three PNGs. How browsers choose a layer is in <a href="/blog/favicon-ico-multiple-sizes-16-32-48.html">multi-size favicon.ico</a>.</p>
 
             <h2>Minimal link tags</h2>
             <p>Put this set in the <code>&lt;head&gt;</code> of the home page. It covers the tab, iOS, the manifest, and Safari pinned tabs. It leaves out the legacy <code>msapplication</code> tile tags.</p>
@@ -216,7 +226,7 @@
 
             <h2>What each size is for</h2>
             <h3>ICO, 16 / 32 / 48</h3>
-            <p>The tab is drawn at about 16 CSS pixels. A 2× screen needs 32 physical pixels to stay sharp, which is why 32×32 is the PNG to declare and a layer inside the ICO. 48×48 is the layer Windows uses for a desktop shortcut. Do not also stuff a 256×256 bitmap into the ICO. That layer belongs in a PNG or an SVG, and it makes the ICO heavy.</p>
+            <p>Those three sizes are the <a href="#favicon-ico-size">favicon.ico size</a> set, stored in one file. The tab is drawn at about 16 CSS pixels. A 2× screen needs 32 physical pixels to stay sharp, which is why 32×32 is the PNG to declare and a layer inside the ICO. 48×48 is the Windows desktop shortcut layer. Do not also stuff a 256×256 bitmap into the ICO.</p>
             <h3>PNG, 32 / 192 / 512</h3>
             <p>Current browsers prefer the 32×32 PNG for the tab when you declare it next to the ICO. 192×192 is the home-screen icon Android reads from the manifest. 512×512 is the install and splash icon. A single 512×512 PNG scaled down to 16 pixels is a poor tab icon: fine strokes blur, and the file is far larger than a tab needs.</p>
             <h3>apple-touch-icon, 180×180</h3>
@@ -234,7 +244,7 @@
             <h3>What favicon size should I use?</h3>
             <p>Use a <code>favicon.ico</code> with 16×16, 32×32, and 48×48 layers, a 32×32 PNG, a 180×180 apple-touch-icon, and manifest PNGs at 192×192 and 512×512. Add a maskable PNG, usually 512×512, when the launcher crops the icon. An SVG with <code>sizes="any"</code> covers the tab in current browsers. A separate black SVG is the Safari mask-icon.</p>
             <h3>Which sizes belong in favicon.ico?</h3>
-            <p>16×16, 32×32, and 48×48. The browser picks one layer from the container. Put larger artwork in PNG or SVG so the ICO stays small.</p>
+            <p>16×16, 32×32, and 48×48, stored together in one <code>favicon.ico</code>. The browser or operating system picks one layer: 16 for a standard tab, 32 for a high-DPI tab, and 48 for a Windows desktop shortcut. <a href="/tools.html">Image to Favicon</a> writes those three sizes into one <code>.ico</code>. Keep larger artwork in PNG or SVG so the ICO stays small.</p>
             <h3>What size is the apple-touch-icon?</h3>
             <p>180×180 pixels, one opaque PNG, with <code>rel="apple-touch-icon"</code>. iOS scales that file. You do not need a file for each older iPhone and iPad size.</p>
             <h3>Must a Google Search favicon be a multiple of 48px, minimum 48×48?</h3>
