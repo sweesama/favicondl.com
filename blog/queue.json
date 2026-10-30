@@ -3047,7 +3047,9 @@
     "avoidOverlap": [
       "static-site-generator-favicon"
     ],
-    "status": "pending"
+    "status": "done",
+    "qualityScore": 80,
+    "qualityGrade": "A"
   },
   {
     "keyword": "jekyll favicon",

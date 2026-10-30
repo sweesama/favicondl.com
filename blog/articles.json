@@ -4044,5 +4044,25 @@
     ],
     "qualityScore": 80,
     "qualityGrade": "A"
+  },
+  {
+    "slug": "hugo-favicon",
+    "publishDate": "2026-10-30",
+    "titleEn": "Hugo Favicon Setup: Add a Custom Icon to Any Hugo Site",
+    "titleZh": "Hugo Favicon：自定义 Hugo 站点图标",
+    "titleJa": "Hugo favicon 設定方法：サイトアイコンをカスタマイズ",
+    "titleKo": "Hugo favicon 설정으로 사이트 아이콘을 바꾸기",
+    "titleEs": "Favicon en Hugo: personaliza el icono de tu sitio",
+    "descEn": "Add a Hugo favicon with static assets, reusable templates, and deploy-safe paths. Follow practical steps for SVG, PNG, ICO, and cache-friendly updates.",
+    "descZh": "通过 Hugo 静态资源、模板和部署安全的路径添加 favicon。一步步配置 SVG、ICO，并检查生成结果与常见问题。",
+    "descJa": "Hugoの静的アセットとテンプレートを使って favicon を追加します。SVG、ICOの設定、生成結果の確認、よくある問題も解説します。",
+    "descKo": "Hugo 정적 자산과 템플릿으로 favicon을 추가하세요. SVG와 ICO 설정, 빌드 결과 확인, 자주 발생하는 문제까지 단계별로 다룹니다.",
+    "descEs": "Añade un favicon en Hugo con recursos estáticos, plantillas y rutas seguras. Configura SVG e ICO, comprueba la compilación y evita errores comunes.",
+    "keyword": "hugo favicon",
+    "tags": [
+      "frameworks"
+    ],
+    "qualityScore": 80,
+    "qualityGrade": "A"
   }
 ]
