@@ -13,7 +13,7 @@ Extracting a good favicon is often more involved than reading one `<link rel="ic
 5. Ranks the verified icons: full-colour SVG first, then the largest square raster image; single-colour mask icons rank lower.
 6. Falls back to Google's public favicon service, then DuckDuckGo (`source: "google_s2"` or `"duckduckgo"`), only when nothing on the site works.
 
-Other pages: bulk download for up to 100 domains (https://favicondl.com/bulk-favicon-downloader.html), image-to-favicon generator and converter (https://favicondl.com/tools.html), and API documentation (https://favicondl.com/documentation.html). Spanish favicon size table (tamaño favicon / medidas favicon): https://favicondl.com/es/tamanos-de-favicon.html. English troubleshooting checklist for a favicon that is not showing: https://favicondl.com/blog/favicon-not-showing.html.
+Other pages: bulk download for up to 100 domains (https://favicondl.com/bulk-favicon-downloader.html), image-to-favicon generator and converter (https://favicondl.com/tools.html), and API documentation (https://favicondl.com/documentation.html). English favicon size chart (ICO 16/32/48, PNG 32/192/512, apple-touch-icon 180×180, manifest 192 and 512 including maskable, SVG, and Safari mask-icon): https://favicondl.com/blog/favicon-sizes-guide.html. Spanish favicon size table (tamaño favicon / medidas favicon): https://favicondl.com/es/tamanos-de-favicon.html. English troubleshooting checklist for a favicon that is not showing: https://favicondl.com/blog/favicon-not-showing.html.
 
 ## Integration Guide (API Usage for Agents)
 
