@@ -2,8 +2,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Favicon Sizes Guide: What Sizes Do You Really Need?</title>
-    <meta name="description" content="The definitive guide to favicon sizes in 2026. From 16x16 to 512x512, learn what each size is for.">
-    <meta name="keywords" content="favicon sizes, favicon dimensions, favicon size guide, favicon 16x16, favicon 32x32, favicon 512x512, favicon resolution">
+    <meta name="description" content="Favicon size chart by platform: ICO 16/32/48, PNG 32/192/512, Apple touch icon 180×180, manifest 192 and 512 including maskable, plus SVG and Safari mask-icon.">
+    <meta name="keywords" content="favicon sizes, favicon size chart, favicon.ico 16 32 48, apple-touch-icon 180x180, maskable icon, safari mask-icon, msapplication tile">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://favicondl.com/blog/favicon-sizes-guide.html">
     <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/favicon-sizes-guide.html">
@@ -23,11 +23,11 @@
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://favicondl.com/blog/favicon-sizes-guide.html">
     <meta property="og:title" content="Favicon Sizes Guide: What Sizes Do You Really Need?">
-    <meta property="og:description" content="The definitive guide to favicon sizes in 2026. From 16x16 to 512x512, learn what each size is for.">
+    <meta property="og:description" content="Favicon size chart by platform: ICO 16/32/48, PNG 32/192/512, Apple touch icon 180×180, manifest 192 and 512 including maskable, plus SVG and Safari mask-icon.">
     <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Favicon Sizes Guide: What Sizes Do You Really Need?">
-    <meta name="twitter:description" content="The definitive guide to favicon sizes in 2026. From 16x16 to 512x512, learn what each size is for.">
+    <meta name="twitter:description" content="Favicon size chart by platform: ICO 16/32/48, PNG 32/192/512, Apple touch icon 180×180, manifest 192 and 512 including maskable, plus SVG and Safari mask-icon.">
     <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
 
     <script src="https://cdn.tailwindcss.com"></script>
@@ -44,9 +44,9 @@
   "@context": "https://schema.org",
   "@type": "Article",
   "headline": "Favicon Sizes Guide: What Sizes Do You Really Need?",
-  "description": "The definitive guide to favicon sizes in 2026. From 16x16 to 512x512, learn what each size is for.",
+  "description": "Favicon size chart by platform: ICO 16/32/48, PNG 32/192/512, Apple touch icon 180×180, manifest 192 and 512 including maskable, plus SVG and Safari mask-icon.",
   "datePublished": "2026-02-13",
-  "dateModified": "2026-10-27",
+  "dateModified": "2026-10-30",
   "author": {
     "@type": "Organization",
     "name": "Mzu favicondl"
@@ -68,7 +68,39 @@
       "name": "What favicon size should I use?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "For the browser tab, the favicon size to publish is 32×32, with 16×16 and 48×48 inside the same favicon.ico. Add a 180×180 apple-touch-icon and, in the web app manifest, 192×192 and 512×512. An SVG with sizes=\"any\" covers the tab in current browsers."
+        "text": "Use a favicon.ico with 16×16, 32×32, and 48×48 layers, a 32×32 PNG, a 180×180 apple-touch-icon, and manifest PNGs at 192×192 and 512×512. Add a maskable PNG, usually 512×512, when the launcher crops the icon. An SVG with sizes=\"any\" covers the tab in current browsers. A separate black SVG is the Safari mask-icon."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which sizes belong in favicon.ico?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "16×16, 32×32, and 48×48. The browser picks one layer from the container. Put larger artwork in PNG or SVG so the ICO stays small."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What size is the apple-touch-icon?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "180×180 pixels, one opaque PNG, with rel=\"apple-touch-icon\". iOS scales that file. You do not need a file for each older iPhone and iPad size."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Must a Google Search favicon be a multiple of 48px, minimum 48×48?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. That sentence is the old rule, and it is not in the current guidelines. Google requires a square icon of at least 8×8 px and recommends one larger than 48×48 px. Supported formats are BMP, GIF, ICO, PNG, JPEG, PPM, and TIFF. SVG is not on that list. A 48×48 file meets the minimum and is not larger than 48×48."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I still need msapplication tiles?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Only for old Internet Explorer and Windows 8 Start tiles. The sizes are 70×70, 144×144, 150×150, 310×150, and 310×310. Current Edge uses the web app manifest, so those tags are not in the minimal set."
       }
     }
   ]
@@ -112,80 +144,105 @@
         </header>
 
         <div class="article-body" data-lang="en">
-            <p>The favicon size you publish depends on where the icon shows up. With so many devices, browsers, and platforms, favicon sizes can be confusing. Do you need 6 different files? Or can you get away with just one? This guide cuts through the noise.</p>
+            <p>A favicon does not have one pixel size. The browser tab, the Apple home screen, Android, Google Search, and an old Windows tile each read a different file. This chart is the set worth publishing, plus the smallest <code>&lt;link&gt;</code> block that points at it.</p>
 
-            <h2>The Complete Favicon Size Table</h2>
+            <h2>Favicon sizes by platform</h2>
+            <div style="overflow-x:auto">
             <table>
-                <thead><tr><th>Size</th><th>File</th><th>Used By</th><th>Required?</th></tr></thead>
+                <thead><tr><th>Platform</th><th>Size</th><th>File and markup</th></tr></thead>
                 <tbody>
-                    <tr><td>16×16</td><td>favicon-16x16.png</td><td>Browser tabs (standard screens)</td><td>Recommended</td></tr>
-                    <tr><td>32×32</td><td>favicon-32x32.png</td><td>Browser tabs (Retina/HiDPI), taskbar</td><td><strong>Yes</strong></td></tr>
-                    <tr><td>48×48</td><td>favicon.ico (multi-size)</td><td>Windows desktop shortcut</td><td>Optional</td></tr>
-                    <tr><td>180×180</td><td>apple-touch-icon.png</td><td>iOS home screen (iPhone/iPad)</td><td><strong>Yes</strong></td></tr>
-                    <tr><td>192×192</td><td>android-chrome-192x192.png</td><td>Android home screen, PWA icon</td><td>Recommended</td></tr>
-                    <tr><td>512×512</td><td>android-chrome-512x512.png</td><td>PWA splash screen, app stores</td><td>Recommended</td></tr>
+                    <tr>
+                        <td><code>.ico</code></td>
+                        <td>16×16, 32×32, and 48×48, as layers in one file</td>
+                        <td><code>/favicon.ico</code>. Browsers still request this path. 16 is the 1× tab, 32 is the Retina tab, and 48 is a Windows desktop shortcut.</td>
+                    </tr>
+                    <tr>
+                        <td>PNG</td>
+                        <td>32×32, 192×192, and 512×512</td>
+                        <td>32×32 for the tab (<code>rel="icon"</code>). 192×192 and 512×512 are the PNG sizes named in the web app manifest, not extra tab icons.</td>
+                    </tr>
+                    <tr>
+                        <td>apple-touch-icon</td>
+                        <td>180×180</td>
+                        <td>One opaque PNG. <code>&lt;link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"&gt;</code>. iOS scales this for iPhone and iPad.</td>
+                    </tr>
+                    <tr>
+                        <td>Web app manifest</td>
+                        <td>192×192 and 512×512, including a maskable icon</td>
+                        <td><code>purpose</code> <code>any</code> at both sizes. Add a separate image, usually 512×512 and optionally 192×192, with <code>purpose</code> <code>maskable</code>. The <a href="https://www.w3.org/TR/appmanifest/#icon-masks" rel="noopener" target="_blank">safe zone</a> is a centered circle whose radius is 2/5 of the shorter side.</td>
+                    </tr>
+                    <tr>
+                        <td>msapplication tiles</td>
+                        <td>70×70, 144×144, 150×150, 310×150, 310×310</td>
+                        <td>Legacy Internet Explorer and Windows 8 Start tiles: <code>msapplication-square70x70logo</code>, <code>msapplication-TileImage</code> (144×144), <code>msapplication-square150x150logo</code>, <code>msapplication-wide310x150logo</code>, <code>msapplication-square310x310logo</code>, plus <code>msapplication-TileColor</code>. Current Edge reads the manifest instead.</td>
+                    </tr>
+                    <tr>
+                        <td>SVG favicon</td>
+                        <td>No fixed pixel size</td>
+                        <td><code>&lt;link rel="icon" href="/icon.svg" type="image/svg+xml" sizes="any"&gt;</code>. Current Chrome, Firefox, Edge, and Safari draw this in the tab. <code>sizes="any"</code> marks it as scalable.</td>
+                    </tr>
+                    <tr>
+                        <td>Safari mask-icon</td>
+                        <td>SVG with <code>viewBox="0 0 16 16"</code></td>
+                        <td>A single-layer, 100% black silhouette on a transparent background. <code>&lt;link rel="mask-icon" href="/safari-pinned-tab.svg" color="#000000"&gt;</code>. Safari tints that shape with <code>color</code>. It is not the SVG favicon.</td>
+                    </tr>
+                    <tr>
+                        <td>Google Search</td>
+                        <td>Square. Minimum 8×8 px. Recommended larger than 48×48 px.</td>
+                        <td>The older line “must be a multiple of 48px, minimum 48×48” is not in the <a href="https://developers.google.com/search/docs/appearance/favicon-in-search" rel="noopener" target="_blank">current guidelines</a>. A 48×48 file clears the 8×8 minimum and is not “larger than 48×48.” Formats: BMP, GIF, ICO, PNG, JPEG, PPM, TIFF. SVG is not listed.</td>
+                    </tr>
                 </tbody>
             </table>
+            </div>
+            <p>An ICO is a container, not a renamed PNG. Put 16, 32, and 48 in that one file. Keep the SVG, the 180×180 touch icon, and the manifest PNGs as separate files. The ICO layer details are in <a href="/blog/favicon-ico-multiple-sizes-16-32-48.html">multi-size favicon.ico</a>. Home-screen files are in <a href="/blog/apple-touch-icon-180x180.html">apple-touch-icon 180×180</a> and <a href="/blog/web-app-manifest-icons-192-512.html">manifest icons 192 and 512</a>.</p>
 
-            <h2>The Minimal Setup (3 Files)</h2>
-            <p>If you want to keep things simple, these <strong>3 files</strong> cover 99% of real-world scenarios:</p>
-            <ol>
-                <li><strong>favicon.ico</strong> (32×32) — The universal fallback. Every browser supports it.</li>
-                <li><strong>apple-touch-icon.png</strong> (180×180) — For iOS devices and some Android launchers.</li>
-                <li><strong>site.webmanifest</strong> — Points to your 192×192 and 512×512 icons for PWA support.</li>
-            </ol>
-            <pre><code>&lt;link rel="icon" href="/favicon.ico" sizes="32x32"&gt;
-&lt;link rel="apple-touch-icon" href="/apple-touch-icon.png"&gt;
-&lt;link rel="manifest" href="/site.webmanifest"&gt;</code></pre>
-            <div class="info-box"><p><strong>Tip:</strong> Modern browsers actually prefer PNG over ICO. If you include a 32×32 PNG alongside the ICO, modern browsers will use the PNG for crisper rendering.</p></div>
-
-            <h2>The Full Setup (6 Files)</h2>
-            <p>For the best experience across all platforms:</p>
-            <pre><code>&lt;link rel="icon" type="image/x-icon" href="/favicon.ico"&gt;
+            <h2>Minimal link tags</h2>
+            <p>Put this set in the <code>&lt;head&gt;</code> of the home page. It covers the tab, iOS, the manifest, and Safari pinned tabs. It leaves out the legacy <code>msapplication</code> tile tags.</p>
+            <pre><code>&lt;link rel="icon" href="/favicon.ico" sizes="48x48"&gt;
+&lt;link rel="icon" href="/icon.svg" type="image/svg+xml" sizes="any"&gt;
 &lt;link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"&gt;
-&lt;link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"&gt;
 &lt;link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"&gt;
 &lt;link rel="manifest" href="/site.webmanifest"&gt;
-&lt;meta name="theme-color" content="#ffffff"&gt;</code></pre>
+&lt;link rel="mask-icon" href="/safari-pinned-tab.svg" color="#000000"&gt;</code></pre>
+            <p>The 192 and 512 PNGs are not extra <code>rel="icon"</code> tags. The manifest names them:</p>
+            <pre><code>{
+  "icons": [
+    { "src": "/icon-192.png", "type": "image/png", "sizes": "192x192", "purpose": "any" },
+    { "src": "/icon-512.png", "type": "image/png", "sizes": "512x512", "purpose": "any" },
+    { "src": "/icon-maskable-512.png", "type": "image/png", "sizes": "512x512", "purpose": "maskable" }
+  ]
+}</code></pre>
+            <p>Use a separate maskable file when the artwork needs padding. An icon whose only <code>purpose</code> is <code>maskable</code> is not a substitute for the <code>any</code> icons. How the mask crops is in <a href="/blog/maskable-icon.html">maskable icons</a>. The SVG tab icon is in <a href="/blog/svg-favicon.html">SVG favicons</a>. The pinned-tab file is in <a href="/blog/safari-pinned-tab-icon.html">Safari pinned tab icons</a>. Windows tile meta tags, if you still ship them, are in <a href="/blog/windows-tile-icon.html">Windows tile icons</a>.</p>
 
-            <h2>Why Not Just Use One Large Image?</h2>
-            <p>A common mistake is providing only a 512×512 icon and expecting browsers to scale it down. Here's why that's problematic:</p>
-            <ul>
-                <li><strong>Performance</strong> — A 512×512 PNG can be 50KB+. Browser tabs only need 16×16 (under 1KB). That's 50x more data than necessary.</li>
-                <li><strong>Quality</strong> — Downscaling a complex logo from 512px to 16px often produces a blurry mess. Hand-optimized small icons look much better.</li>
-                <li><strong>ICO compatibility</strong> — Older browsers and Windows shortcuts still expect ICO format.</li>
-            </ul>
-
-            <h2>Generate All Sizes from One Image</h2>
-            <p>The good news: you don't need to manually create each size. Use the <a href="/tools.html">Image to Favicon</a> tool on Mzu favicondl to upload one high-resolution image and automatically generate all the sizes listed above, packaged in a ready-to-use ZIP file.</p>
-
-            <h2>Quick Reference Cheat Sheet</h2>
-            <table>
-                <thead><tr><th>Platform</th><th>Size Needed</th><th>Format</th></tr></thead>
-                <tbody>
-                    <tr><td>Chrome/Firefox/Edge tab</td><td>32×32</td><td>PNG or ICO</td></tr>
-                    <tr><td>Safari tab</td><td>32×32</td><td>PNG or ICO</td></tr>
-                    <tr><td>Google Search results</td><td>Square, larger than 48×48 (minimum 8×8)</td><td>ICO, PNG, GIF, JPEG, BMP, TIFF or PPM</td></tr>
-                    <tr><td>iPhone/iPad home screen</td><td>180×180</td><td>PNG</td></tr>
-                    <tr><td>Android home screen</td><td>192×192</td><td>PNG</td></tr>
-                    <tr><td>Windows taskbar</td><td>32×32</td><td>ICO</td></tr>
-                    <tr><td>macOS Dock (PWA)</td><td>512×512</td><td>PNG</td></tr>
-                </tbody>
-            </table>
-
-            <h2>Official specs behind these sizes</h2>
-            <p>The key sizes come from published platform documents, so you can check them yourself:</p>
-            <ul>
-                <li><strong>Google Search:</strong> a square favicon of at least 8×8 px, preferably larger than 48×48 px. <a href="https://developers.google.com/search/docs/appearance/favicon-in-search" rel="noopener" target="_blank">Google Search Central: Define a favicon to show in search results</a></li>
-                <li><strong>apple-touch-icon:</strong> the <code>&lt;link rel="apple-touch-icon" sizes="180x180"&gt;</code> syntax. <a href="https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html" rel="noopener" target="_blank">Apple Safari Web Content Guide: Configuring Web Applications</a></li>
-                <li><strong>Manifest icons (192×192 and 512×512):</strong> <a href="https://web.dev/articles/add-manifest" rel="noopener" target="_blank">web.dev: Add a web app manifest</a></li>
-                <li><strong><code>&lt;link rel="icon" sizes&gt;</code> syntax:</strong> <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/rel#icon" rel="noopener" target="_blank">MDN: rel="icon"</a></li>
-            </ul>
-            <p>Showing favicons of other sites in your own app or link list? See the <a href="/favicon-embed.html">favicon embed code and badge</a>.</p>
+            <h2>What each size is for</h2>
+            <h3>ICO, 16 / 32 / 48</h3>
+            <p>The tab is drawn at about 16 CSS pixels. A 2× screen needs 32 physical pixels to stay sharp, which is why 32×32 is the PNG to declare and a layer inside the ICO. 48×48 is the layer Windows uses for a desktop shortcut. Do not also stuff a 256×256 bitmap into the ICO. That layer belongs in a PNG or an SVG, and it makes the ICO heavy.</p>
+            <h3>PNG, 32 / 192 / 512</h3>
+            <p>Current browsers prefer the 32×32 PNG for the tab when you declare it next to the ICO. 192×192 is the home-screen icon Android reads from the manifest. 512×512 is the install and splash icon. A single 512×512 PNG scaled down to 16 pixels is a poor tab icon: fine strokes blur, and the file is far larger than a tab needs.</p>
+            <h3>apple-touch-icon, 180×180</h3>
+            <p>Publish one opaque 180×180 PNG. iOS uses it for Add to Home Screen and scales it down. The older sizes (57, 72, 76, 114, 120, 144, 152, 167) do not need their own files. Transparent pixels can turn black on older iOS, so use a solid background. <code>apple-touch-icon-precomposed</code> only stopped a gloss effect that ended with iOS 7.</p>
+            <h3>Manifest 192 and 512, including maskable</h3>
+            <p><a href="https://web.dev/articles/add-manifest" rel="noopener" target="_blank">web.dev</a> documents 192×192 and 512×512 as the two manifest sizes. <code>maskable</code> means the launcher may crop to a circle, squircle, or rounded square. Keep the mark inside the safe zone: a circle at the center with a radius of 2/5 of the icon's shorter side (about 205 px on a 512 px icon). Pixels outside that circle can be hidden. A maskable icon should use a solid background. Transparent pixels are composited onto a fill the user agent chooses.</p>
+            <h3>SVG favicon and Safari mask-icon</h3>
+            <p>These are two different SVGs. The favicon is drawn with the colors in the file, including a <code>prefers-color-scheme</code> rule if you change that one fill for dark mode. Safari's <code>mask-icon</code> ignores those colors. Apple's <a href="https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariWebContent/pinnedTabs/pinnedTabs.html" rel="noopener" target="_blank">pinned tab icon</a> rules are: one layer, 100% black artwork, transparent background, <code>viewBox="0 0 16 16"</code>. The <code>color</code> attribute on the link is the only tint.</p>
+            <h3>Google Search</h3>
+            <p>Google shows at most one favicon per hostname. The <a href="https://developers.google.com/search/docs/appearance/favicon-in-search" rel="noopener" target="_blank">Search Central favicon guidelines</a> say the image must be square and at least 8×8 px, and they recommend a file larger than 48×48 px. They do not say the favicon must be a multiple of 48px, and they do not set a 48×48 minimum. 48×48 itself meets the 8×8 minimum and misses the “larger than” recommendation. 96×96 and 144×144 are simply convenient sizes that are larger than 48×48. SVG is not a supported search format, so keep an ICO or PNG on the home page even if the tab uses SVG. Meeting the rules does not guarantee the icon appears. The longer note is <a href="/blog/google-favicon-requirements-48x48.html">Google's 48×48 favicon rule</a>.</p>
+            <h3>msapplication tiles</h3>
+            <p>If you still publish Windows 8 / IE tiles, the image sizes are 70×70, 150×150, 310×150, and 310×310, with a 144×144 <code>msapplication-TileImage</code>. Current Edge does not need <code>browserconfig.xml</code> or those meta tags. The manifest icons cover the installed-app icon.</p>
 
             <h2>FAQ</h2>
             <h3>What favicon size should I use?</h3>
-            <p>For the browser tab, the favicon size to publish is 32×32, with 16×16 and 48×48 inside the same favicon.ico. Add a 180×180 apple-touch-icon and, in the web app manifest, 192×192 and 512×512. An SVG with sizes="any" covers the tab in current browsers.</p>
+            <p>Use a <code>favicon.ico</code> with 16×16, 32×32, and 48×48 layers, a 32×32 PNG, a 180×180 apple-touch-icon, and manifest PNGs at 192×192 and 512×512. Add a maskable PNG, usually 512×512, when the launcher crops the icon. An SVG with <code>sizes="any"</code> covers the tab in current browsers. A separate black SVG is the Safari mask-icon.</p>
+            <h3>Which sizes belong in favicon.ico?</h3>
+            <p>16×16, 32×32, and 48×48. The browser picks one layer from the container. Put larger artwork in PNG or SVG so the ICO stays small.</p>
+            <h3>What size is the apple-touch-icon?</h3>
+            <p>180×180 pixels, one opaque PNG, with <code>rel="apple-touch-icon"</code>. iOS scales that file. You do not need a file for each older iPhone and iPad size.</p>
+            <h3>Must a Google Search favicon be a multiple of 48px, minimum 48×48?</h3>
+            <p>No. That sentence is the old rule, and it is not in the current guidelines. Google requires a square icon of at least 8×8 px and recommends one larger than 48×48 px. Supported formats are BMP, GIF, ICO, PNG, JPEG, PPM, and TIFF. SVG is not on that list. A 48×48 file meets the minimum and is not larger than 48×48.</p>
+            <h3>Do I still need msapplication tiles?</h3>
+            <p>Only for old Internet Explorer and Windows 8 Start tiles. The sizes are 70×70, 144×144, 150×150, 310×150, and 310×310. Current Edge uses the web app manifest, so those tags are not in the minimal set above.</p>
+
+            <p>The same table in Spanish is <a href="/es/tamanos-de-favicon.html">tamaño de favicon</a>. To see the sizes a live site actually publishes, paste its URL into the <a href="/">favicon extractor</a>. To export this set from one logo, use the <a href="/tools.html">Image to Favicon</a> tool.</p>
         </div><template data-article-lang="es">
             <div class="info-box"><p><strong>Respuesta rápida:</strong> el tamaño estándar del favicon es <strong>32×32 px</strong> para la pestaña del navegador (con 16×16 como respaldo dentro de un <code>favicon.ico</code>). Añade un <strong>apple-touch-icon de 180×180 px</strong> para iPhone/iPad y <strong>iconos de 192×192 y 512×512 px</strong> en el manifest para Android y PWA. Google Search muestra el favicon a partir de un icono cuadrado de al menos 48×48 px.</p></div>
             <p>Con tantos dispositivos, navegadores y plataformas, las medidas del favicon pueden ser confusas. ¿Necesitas 6 archivos diferentes o basta con uno? Abajo tienes la tabla de tamaños de favicon en píxeles, la configuración mínima y el código HTML para cada caso.</p>
@@ -445,9 +502,9 @@
         </template>
 
 <div class="cta-box">
-            <h3 data-en="Need to check a website's favicon sizes?" data-zh="需要查看网站的 Favicon 尺寸？">Need to check a website's favicon sizes?</h3>
-            <p data-en="Mzu favicondl shows you exactly what sizes a website uses." data-zh="Mzu favicondl 能精确显示网站使用的 Favicon 尺寸。">Mzu favicondl shows you exactly what sizes a website uses.</p>
-            <a href="/" class="cta-btn" data-en="Check Favicon Sizes →" data-zh="查看 Favicon 尺寸 →">Check Favicon Sizes →</a>
+            <h3 data-en="Generate this favicon size set" data-zh="需要查看网站的 Favicon 尺寸？">Generate this favicon size set</h3>
+            <p data-en="Upload one logo. The Image to Favicon tool exports the ICO, PNG, Apple touch icon, and manifest sizes in the chart above." data-zh="Mzu favicondl 能精确显示网站使用的 Favicon 尺寸。">Upload one logo. The Image to Favicon tool exports the ICO, PNG, Apple touch icon, and manifest sizes in the chart above.</p>
+            <a href="/tools.html" class="cta-btn" data-en="Open the favicon tool →" data-zh="查看 Favicon 尺寸 →">Open the favicon tool →</a>
         </div>
     </article>
 

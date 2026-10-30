@@ -45,7 +45,7 @@
     "titleJa": "Faviconサイズガイド：本当に必要なサイズは？",
     "titleKo": "Favicon 크기 가이드: 실제로 필요한 크기는?",
     "titleEs": "Tamaño del favicon: medidas recomendadas en píxeles (tabla 2026)",
-    "descEn": "The definitive guide to favicon sizes in 2026. From 16x16 to 512x512, learn what each size is for.",
+    "descEn": "Favicon size chart by platform: ICO 16/32/48, PNG 32/192/512, Apple touch icon 180×180, manifest 192 and 512 including maskable, plus SVG and Safari mask-icon.",
     "descZh": "2026 年 Favicon 尺寸权威指南：从 16x16 到 512x512，了解每种尺寸的用途。",
     "descJa": "2026年のFaviconサイズ決定版ガイド。16x16から512x512まで、各サイズの用途を解説。",
     "descKo": "2026년 Favicon 크기 완벽 가이드. 16x16부터 512x512까지, 각 크기의 용도를 알아보세요.",
