@@ -1,0 +1,155 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jekyll Favicon Guide: Add Icons Without Breaking baseurl</title>
+    <meta name="description" content="Add a Jekyll favicon with the right asset paths, baseurl handling, head markup, build checks, and fixes for common caching issues across deployments.">
+    <meta name="keywords" content="jekyll favicon, jekyll site icon, baseurl, favicon setup">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/blog/jekyll-favicon.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/jekyll-favicon.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/jekyll-favicon.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/jekyll-favicon.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/jekyll-favicon.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/jekyll-favicon.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/jekyll-favicon.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/blog/jekyll-favicon.html">
+    <meta property="og:title" content="Jekyll Favicon Guide: Add Icons Without Breaking baseurl">
+    <meta property="og:description" content="Add a Jekyll favicon with the right asset paths, baseurl handling, head markup, build checks, and fixes for common caching issues across deployments.">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Jekyll Favicon Guide: Add Icons Without Breaking baseurl">
+    <meta name="twitter:description" content="Add a Jekyll favicon with the right asset paths, baseurl handling, head markup, build checks, and fixes for common caching issues across deployments.">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Jekyll Favicon Guide: Add Icons Without Breaking baseurl",
+  "description": "Add a Jekyll favicon with the right asset paths, baseurl handling, head markup, build checks, and fixes for common caching issues across deployments.",
+  "datePublished": "2026-10-31",
+  "dateModified": "2026-10-31",
+  "author": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "mainEntityOfPage": "https://favicondl.com/blog/jekyll-favicon.html",
+  "inLanguage": "en"
+}</script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/documentation.html" class="nav-link" data-en="Docs" data-zh="文档">Docs</a>
+                <a href="/tools.html" class="nav-link" data-en="Tools" data-zh="工具">Tools</a>
+                <a href="/blog/" class="nav-link" data-en="Blog" data-zh="博客">Blog</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/jekyll-favicon.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/jekyll-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/jekyll-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/jekyll-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/jekyll-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600" data-en="Jekyll Favicon Guide: Add Icons Without Breaking baseurl" data-zh="Jekyll favicon：适配 baseurl 的完整设置指南" data-ja="Jekyll faviconをbaseurlに対応させる設置ガイド" data-ko="Jekyll favicon baseurl 대응 설정 가이드" data-es="Favicon para Jekyll: guía con baseurl">Jekyll Favicon Guide: Add Icons Without Breaking baseurl</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">frameworks</span><time class="text-sm text-gray-400">2026-10-31</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight" data-en="Jekyll Favicon Guide: Add Icons Without Breaking baseurl" data-zh="Jekyll favicon：适配 baseurl 的完整设置指南" data-ja="Jekyll faviconをbaseurlに対応させる設置ガイド" data-ko="Jekyll favicon baseurl 대응 설정 가이드" data-es="Favicon para Jekyll: guía con baseurl">Jekyll Favicon Guide: Add Icons Without Breaking baseurl</h1>
+        </header>
+
+        <div class="article-body" data-lang="en">
+            <p>A Jekyll favicon can build successfully and still break when the site uses a <code>baseurl</code>: the asset lands in a nested path, but the HTML points to the domain root. Keep source files in a static directory, generate URLs through Jekyll, and inspect the built output before publishing.</p><h2>Prerequisites</h2><ul><li>A Jekyll project with editable layouts or includes.</li><li>A square SVG, an ICO fallback, and optionally a 180×180 PNG. <a href="/">Mzu favicondl</a> can create these from one image.</li><li>Local access to <code>bundle exec jekyll build</code>.</li></ul><h2>Add a Jekyll favicon in five steps</h2><ol><li><h3>Create a permanent source folder</h3><p>Add <code>favicon.svg</code>, <code>favicon.ico</code>, and <code>apple-touch-icon.png</code> to <code>assets/images/</code>. Never edit <code>_site/</code>; Jekyll recreates that directory during the next build.</p></li><li><h3>Add links to the document head</h3><p>Open your theme’s <code>_includes/head.html</code> and insert these tags before its closing <code>head</code> element. If the theme has no include, place them directly in <code>_layouts/default.html</code>. Confirm that the layout still calls <code>{% include head.html %}</code>.</p><pre><code>&lt;link rel='icon' type='image/svg+xml' href='{{ '/assets/images/favicon.svg' | relative_url }}'&gt;
+&lt;link rel='icon' sizes='16x16 32x32 48x48' href='{{ '/assets/images/favicon.ico' | relative_url }}'&gt;
+&lt;link rel='apple-touch-icon' sizes='180x180' href='{{ '/assets/images/apple-touch-icon.png' | relative_url }}'&gt;</code></pre><p>The <a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">HTML specification</a> defines <code>rel='icon'</code> for an icon resource. Keeping the links in the head lets the browser discover them while parsing the page.</p></li><li><h3>Generate baseurl-aware URLs</h3><p>Set <code>baseurl</code> in <code>_config.yml</code> to match the deployment path. Then run every icon path through Jekyll’s <code>relative_url</code> filter. It prefixes the configured base path, so the template works at the domain root and under a project subpath. Do not hard-code <code>href='/assets/images/favicon.svg'</code>, because it ignores that subpath.</p></li><li><h3>Build and inspect the generated site</h3><p>Run the build and local server:</p><pre><code>bundle exec jekyll build
+bundle exec jekyll serve</code></pre><p>Open <code>_site/index.html</code> and confirm that each link includes the expected base path. Check that the three files exist under <code>_site/assets/images/</code>. For the preview, use the baseurl-aware URL printed by Jekyll instead of assuming the site starts at <code>/</code>.</p></li><li><h3>Verify the deployed response</h3><p>After publishing, inspect the page source and request an icon URL directly. The page must reference the deployed path, and the icon request must not return a 404. If the old mark persists, rename the file or add a query such as <code>favicon.svg?v=2</code>. The <a href="/blog/favicon-not-showing.html">favicon troubleshooting guide</a> covers cache-specific checks.</p></li></ol><h2>Common pitfalls</h2><ul><li><strong>Editing generated files:</strong> changes in <code>_site/</code> disappear on the next build.</li><li><strong>Ignoring <code>baseurl</code>:</strong> root-relative paths can request the icon from the wrong location.</li><li><strong>Keeping duplicate links:</strong> a theme icon and your custom icon can compete. Remove the unwanted link from the rendered head.</li><li><strong>Placing markup in the body:</strong> move the links into the head include or layout.</li></ul><h2>Conclusion</h2><p>With assets under <code>assets/</code>, links in your reusable head template, and URLs generated by <code>relative_url</code>, your Jekyll favicon moves cleanly from source to production. For format choices and broader tag examples, read the <a href="/blog/how-to-add-favicon-to-website.html">HTML favicon guide</a>.</p>
+        </div>
+
+        <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
+        <template data-article-lang="zh"><p>favicon 即使能随 Jekyll 站点成功构建，站点使用 <code>baseurl</code> 时仍可能出问题：资源会生成到嵌套路径中，但 HTML 仍指向域名根目录。应将源文件放在静态目录中，通过 Jekyll 生成 URL，并在发布前检查构建产物。</p><h2>前置条件</h2><ul><li>一个可编辑 layout 或 include 的 Jekyll 项目。</li><li>一个正方形 SVG、一个 ICO 后备图标，以及可选的 180×180 PNG。<a href="/">Mzu favicondl</a> 可以从一张图片生成这些文件。</li><li>能够在本地运行 <code>bundle exec jekyll build</code>。</li></ul><h2>五步添加 Jekyll favicon</h2><ol><li><h3>创建固定的源文件目录</h3><p>将 <code>favicon.svg</code>、<code>favicon.ico</code> 和 <code>apple-touch-icon.png</code> 放入 <code>assets/images/</code>。不要直接修改 <code>_site/</code>；下次构建时，Jekyll 会重新创建该目录。</p></li><li><h3>在文档 head 中添加链接</h3><p>打开主题的 <code>_includes/head.html</code>，把这些标签插入到 <code>head</code> 元素结束标签之前。如果主题中没有这个 include 文件，就直接放到 <code>_layouts/default.html</code> 中。同时确认 layout 中仍然调用了 <code>{% include head.html %}</code>。</p><pre><code>&lt;link rel='icon' type='image/svg+xml' href='{{ '/assets/images/favicon.svg' | relative_url }}'&gt;
+&lt;link rel='icon' sizes='16x16 32x32 48x48' href='{{ '/assets/images/favicon.ico' | relative_url }}'&gt;
+&lt;link rel='apple-touch-icon' sizes='180x180' href='{{ '/assets/images/apple-touch-icon.png' | relative_url }}'&gt;</code></pre><p><a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">HTML 规范</a>将 <code>rel='icon'</code> 定义为指向图标资源的关联类型。把这些链接保留在 head 中，浏览器解析页面时就能发现它们。</p></li><li><h3>生成兼容 baseurl 的 URL</h3><p>在 <code>_config.yml</code> 中设置 <code>baseurl</code>，使其与实际部署路径一致。然后让所有图标路径都经过 Jekyll 的 <code>relative_url</code> filter 处理。该 filter 会添加配置中的 base path，因此同一套模板既能用于域名根目录，也能用于项目的子路径。不要把 <code>href='/assets/images/favicon.svg'</code> 写死，因为这样会忽略子路径。</p></li><li><h3>构建并检查生成的站点</h3><p>执行构建并启动本地服务器：</p><pre><code>bundle exec jekyll build
+bundle exec jekyll serve</code></pre><p>打开 <code>_site/index.html</code>，确认每个链接都包含预期的 base path。检查这三个文件是否都存在于 <code>_site/assets/images/</code> 下。预览时，请使用 Jekyll 输出的兼容 baseurl 的 URL，不要想当然地认为站点从 <code>/</code> 开始。</p></li><li><h3>验证线上响应</h3><p>发布后，检查页面源代码，并直接请求 icon URL。页面必须引用部署后的实际路径，icon 请求也不能返回 404。如果旧图标仍然显示，可以重命名文件，或添加 <code>favicon.svg?v=2</code> 这样的查询参数。<a href="/blog/favicon-not-showing.html">favicon 排障指南</a>介绍了与缓存有关的检查方法。</p></li></ol><h2>常见误区</h2><ul><li><strong>修改生成文件：</strong>对 <code>_site/</code> 的改动会在下次构建时消失。</li><li><strong>忽略 <code>baseurl</code>：</strong>以根路径开头的 URL 可能导致图标从错误的位置被请求。</li><li><strong>保留重复链接：</strong>主题图标和自定义图标可能相互冲突。请从渲染后的 head 中移除不需要的链接。</li><li><strong>把标记放在 body 中：</strong>应将链接移入 head include 或 layout 中。</li></ul><h2>结语</h2><p>将资源放在 <code>assets/</code> 下，在可复用的 head 模板中配置链接，并使用 <code>relative_url</code> 生成 URL，这样 Jekyll favicon 就能顺利从源码迁移到生产环境。有关格式选择和更多标签示例，请阅读 <a href="/blog/how-to-add-favicon-to-website.html">HTML favicon 指南</a>。</p></template>
+        <template data-article-lang="ja"><p>Jekyll の favicon は、ビルドが成功しても、<code>baseurl</code> を使う Poweredな Reliance  degenerativeサイトفل identify 。 asset がネストされた path に配置される一方、HTML は domain root を指してしまうためです。 source file は static directory に置き、URL は Jekyll で生成し、publish 前に built output を確認してください。</p><h2>前提条件</h2><ul><li>layout または include を編集できる Jekyll プロジェクト。</li><li>正方形の SVG と ICO fallback、必要に応じて180×180 PNG。<a href="/">Mzu favicondl</a> を使えば、1つの画像からこれらを生成できます。</li><li>ローカルで <code>bundle exec jekyll build</code> を実行できること。</li></ul><h2>5ステップで Jekyll favicon を追加する</h2><ol><li><h3>永続的なソースディレクトリを作成</h3><p><code>favicon.svg</code>、<code>favicon.ico</code>、<code>apple-touch-icon.png</code> を <code>assets/images/</code> に追加します。<code>_site/</code> は編集しないでください。Jekyll は次のビルド時にこのディレクトリを再作成します。</p></li><li><h3>ドキュメントの head にリンクを追加</h3><p>テーマの <code>_includes/head.html</code> を開き、閉じている <code>head</code> 要素の前に次のタグを挿入します。テーマに対応する include がない場合は、<code>_layouts/default.html</code> に直接追加します。レイアウトが引き続き <code>{% include head.html %}</code> を呼び出していることを確認してください。</p><pre><code>&lt;link rel='icon' type='image/svg+xml' href='{{ '/assets/images/favicon.svg' | relative_url }}'&gt;
+&lt;link rel='icon' sizes='16x16 32x32 48x48' href='{{ '/assets/images/favicon.ico' | relative_url }}'&gt;
+&lt;link rel='apple-touch-icon' sizes='180x180' href='{{ '/assets/images/apple-touch-icon.png' | relative_url }}'&gt;</code></pre><p><a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">HTML specification</a> は、アイコン用リソースを指定する <code>rel='icon'</code> を定義しています。リンクを head 内に置いておくことで、ブラウザがページの解析中にアイコンを検出できます。</p></li><li><h3>baseurl に対応する URL を生成</h3><p><code>_config.yml</code> の <code>baseurl</code> をデプロイ先のパスに合わせて設定します。その後、すべてのアイコンパスに Jekyll の <code>relative_url</code> フィルタを適用します。このフィルタは設定されたベースパスを先頭に付加するため、同じテンプレートがドメインのルートでも、プロジェクト配下のサブパスでも動作します。<code>href='/assets/images/favicon.svg'</code> のようにハードコードすると、サブパスを無視するため使用しないでください。</p></li><li><h3>ビルドして生成されたサイトを確認</h3><p>ビルドとローカルサーバーを実行します。</p><pre><code>bundle exec jekyll build
+bundle exec jekyll serve</code></pre><p><code>_site/index.html</code> を開き、各リンクに想定したベースパスが含まれていることを確認します。<code>_site/assets/images/</code> 配下に3つのファイルが存在することも確認してください。プレビューでは、サイトの開始位置を <code>/</code> と決めつけないのではなく、Jekyll が出力する baseurl 対応 URL を使用します。</p></li><li><h3>公開後のレスポンスを確認</h3><p>公開後、ページのソースを調べ、アイコンの URL に直接リクエストします。ページは公開後のパスを参照している必要があり、アイコンへのリクエストが 404 を返してはなりません。以前のアイコンが残る場合は、ファイル名を変更するか、<code>favicon.svg?v=2</code> のようなクエリを追加します。<a href="/blog/favicon-not-showing.html">favicon トラブルシューティングガイド</a> では、キャッシュреди特有的な確認項目を説明しています。</p></li></ol><h2>よくある落とし穴</h2><ul><li><strong>生成済みファイルを編集すること：</strong><code>_site/</code>内への変更は、次回のbuildで消えてしまいます。</li><li><strong><code>baseurl</code>を無視すること：</strong>ルート相対パスを使うと、faviconを誤った場所から読み込もうとする可能性があります。</li><li><strong>重複するlinkを残したままにすること：</strong>themeのfaviconとカスタムfaviconが競合する場合があります。レンダリングされたheadから不要なlinkを削除してください。</li><li><strong>markupをbody内に配置すること：</strong>linkをhead includeまたはlayout内へ移動してください。</li></ul><h2>まとめ</h2><p><code>assets/</code>配下にassetを配置し、再利用可能なhead template内にlinkを置き、<code>relative_url</code>でURLを生成すれば、Jekyllのfaviconをソースから本番環境へ問題なく移行できます。formatの選び方や、より豊富なtagの例については、<a href="/blog/how-to-add-favicon-to-website.html">HTML faviconガイド</a>を参照してください。</p></template>
+        <template data-article-lang="ko"><p>Jekyll favicon은 사이트에서 <code>baseurl</code>을 사용하는 경우 빌드가 성공하더라도 문제가 생길 수 있습니다. 에셋은 중첩 경로에 배치되지만 HTML은 도메인 루트를 가리키기 때문입니다. 정적 디렉터리에 소스 파일을 두고 Jekyll로 URL을 생성한 다음, 게시하기 전에 빌드 결과를 확인하세요.</p><h2>준비 사항</h2><ul><li>layout 또는 include를 수정할 수 있는 Jekyll 프로젝트.</li><li>정사각형 SVG, ICO fallback, 선택적으로 180×180 PNG. <a href="/">Mzu favicondl</a>을 사용하면 하나의 이미지로 이 파일들을 만들 수 있습니다.</li><li><code>bundle exec jekyll build</code>를 로컬에서 실행할 수 있어야 합니다.</li></ul><h2>다섯 단계로 Jekyll favicon 추가하기</h2><ol>
+<li><h3>영구 소스 폴더 만들기</h3><p><code>favicon.svg</code>, <code>favicon.ico</code>, <code>apple-touch-icon.png</code>을 <code>assets/images/</code>에 추가합니다. <code>_site/</code>는 직접 수정하지 않습니다. Jekyll이 다음 빌드에서 해당 디렉터리를 다시 생성하기 때문입니다.</p></li>
+<li><h3>문서 head에 링크 추가하기</h3><p>테마의 <code>_includes/head.html</code>을 열고 닫는 <code>head</code> 요소 바로 앞에 다음 태그를 삽입합니다. 테마에 해당 include 파일이 없다면 <code>_layouts/default.html</code>에 직접 넣습니다. 레이아웃에서 <code>{% include head.html %}</code>을 계속 호출하는지도 확인합니다.</p><pre><code>&lt;link rel='icon' type='image/svg+xml' href='{{ '/assets/images/favicon.svg' | relative_url }}'&gt;
+&lt;link rel='icon' sizes='16x16 32x32 48x48' href='{{ '/assets/images/favicon.ico' | relative_url }}'&gt;
+&lt;link rel='apple-touch-icon' sizes='180x180' href='{{ '/assets/images/apple-touch-icon.png' | relative_url }}'&gt;</code></pre><p><a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">HTML 명세</a>는 <code>rel='icon'</code>을 아이콘 리소스를 위해 정의합니다. 이 링크를 <code>head</code> 안에 두면 브라우저가 페이지를 파싱하는 동안 favicon을 발견할 수 있습니다.</p></li>
+<li><h3>baseurl을 반영한 URL 생성하기</h3><p><code>_config.yml</code>에서 <code>baseurl</code>을 배포 경로와 일치하도록 설정합니다. 그런 다음 모든 아이콘 경로에 Jekyll의 <code>relative_url</code> 필터를 적용합니다. 이 필터는 설정된 base path를 경로 앞에 붙이므로, 하나의 템플릿을 도메인 루트와 프로젝트 하위 경로 모두에서 사용할 수 있습니다. <code>href='/assets/images/favicon.svg'</code>처럼 경로를 직접 지정하지 않습니다. 하위 경로를 무시하기 때문입니다.</p></li>
+<li><h3>빌드하고 생성된 사이트 검사하기</h3><p>다음과 같이 빌드하고 로컬 서버를 실행합니다.</p><pre><code>bundle exec jekyll build
+bundle exec jekyll serve</code></pre><p><code>_site/index.html</code>을 열어 각 링크에 예상한 base path가 포함되어 있는지 확인합니다. <code>_site/assets/images/</code> 아래에 세 파일이 존재하는지 확인합니다. 미리보기할 때는 사이트가 <code>/</code>에서 시작한다고 가정하지 말고, Jekyll이 출력한 baseurl 반영 URL을 사용합니다.</p></li>
+<li><h3>배포된 응답 검증하기</h3><p>게시 후 페이지 소스를 확인하고 아이콘 URL을 직접 요청합니다. 페이지가 배포된 경로를 참조해야 하며, 아이콘 요청이 404를 반환하지 않아야 합니다. 이전 아이콘이 계속 표시된다면 파일 이름을 변경하거나 <code>favicon.svg?v=2</code>처럼 query string을 추가합니다. <a href="/blog/favicon-not-showing.html">favicon 문제 해결 가이드</a>에는 캐시 관련 점검 항목이 정리되어 있습니다.</p></li>
+</ol><h2>흔한 실수</h2><ul><li><strong>생성된 파일 직접 수정:</strong> <code>_site/</code>에 적용한 변경은 다음 build에서 사라집니다.</li><li><strong><code>baseurl</code> 무시:</strong> root-relative path를 사용하면 icon이 잘못된 위치에서 요청될 수 있습니다.</li><li><strong>중복 link 유지:</strong> theme icon과 사용자 정의 icon이 서로 경쟁할 수 있습니다. 렌더링된 head에서 원치 않는 link를 제거하세요.</li><li><strong>markup을 body에 배치:</strong> link를 head include 또는 layout 안으로 옮기세요.</li></ul><h2>결론</h2><p><code>assets/</code> 아래에 assets를 배치하고, 재사용 가능한 head template에 link를 넣고, <code>relative_url</code>로 URL을 생성하면 Jekyll favicon을 source에서 production까지 문제없이 옮길 수 있습니다. format 선택과 더 폭넓은 tag 예제는 <a href="/blog/how-to-add-favicon-to-website.html">HTML favicon 가이드</a>를 참고하세요.</p></template>
+        <template data-article-lang="es">Guía del favicon en Jekyll: añade iconos sin romper el baseurl
+
+<p>Un favicon de Jekyll puede compilarse correctamente y aun así fallar cuando el sitio usa un <code>baseurl</code>: el recurso termina en una ruta anidada, pero el HTML apunta a la raíz del dominio. Mantén los archivos fuente en un directorio estático, genera las URL con Jekyll y revisa el output compilado antes de publicar.</p><h2>Requisitos previos</h2><ul><li>Un proyecto Jekyll con <code>layouts</code> o <code>includes</code> que puedas editar.</li><li>Un SVG cuadrado, un ICO como fallback y, opcionalmente, un PNG de 180×180. <a href="/">Mzu favicondl</a> puede crearlos a partir de una sola imagen.</li><li>Acceso local para ejecutar <code>bundle exec jekyll build</code>.</li></ul><h2>Añade un favicon a Jekyll en cinco pasos</h2><ol><li><h3>Crea una carpeta de origen permanente</h3><p>Añade <code>favicon.svg</code>, <code>favicon.ico</code> y <code>apple-touch-icon.png</code> a <code>assets/images/</code>. No edites nunca <code>_site/</code>; Jekyll vuelve a crear ese directorio durante la siguiente compilación.</p></li><li><h3>Añade los enlaces al head del documento</h3><p>Abre <code>_includes/head.html</code> de tu tema e inserta estas etiquetas antes de que se cierre el elemento <code>head</code>. Si el tema no tiene ese include, colócalas directamente en <code>_layouts/default.html</code>. Comprueba que el layout siga invocando <code>{% include head.html %}</code>.</p><pre><code>&lt;link rel='icon' type='image/svg+xml' href='{{ '/assets/images/favicon.svg' | relative_url }}'&gt;
+&lt;link rel='icon' sizes='16x16 32x32 48x48' href='{{ '/assets/images/favicon.ico' | relative_url }}'&gt;
+&lt;link rel='apple-touch-icon' sizes='180x180' href='{{ '/assets/images/apple-touch-icon.png' | relative_url }}'&gt;</code></pre><p>La <a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">especificación de HTML</a> define <code>rel='icon'</code> para un recurso de icono. Mantener los enlaces en el head permite que el navegador los descubra mientras analiza la página.</p></li><li><h3>Genera URLs compatibles con baseurl</h3><p>Establece <code>baseurl</code> en <code>_config.yml</code> para que coincida con la ruta de despliegue. Después, haz pasar todas las rutas de los iconos por el filtro <code>relative_url</code> de Jekyll. Este añade como prefijo la ruta base configurada, de modo que la plantilla funciona tanto en la raíz del dominio como bajo una subruta del proyecto. No codifiques de forma fija <code>href='/assets/images/favicon.svg'</code>, porque así se ignora esa subruta.</p></li><li><h3>Compila e inspecciona el sitio generado</h3><p>Ejecuta la compilación y el servidor local:</p><pre><code>bundle exec jekyll build
+bundle exec jekyll serve</code></pre><p>Abre <code>_site/index.html</code> y comprueba que cada enlace incluya la ruta base prevista. Comprueba que los tres archivos existan en <code>_site/assets/images/</code>. Para la previsualización, usa la URL compatible con baseurl que muestra Jekyll en lugar de suponer que el sitio empieza en <code>/</code>.</p></li><li><h3>Verifica la respuesta del despliegue</h3><p>Tras publicar, inspecciona el código fuente de la página y solicita directamente una URL de icono. La página debe hacer referencia a la ruta desplegada, y la solicitud del icono no debe devolver un 404. Si persiste el icono anterior, renombra el archivo o añade un parámetro de consulta como <code>favicon.svg?v=2</code>. La <a href="/blog/favicon-not-showing.html">guía para solucionar problemas del favicon</a> cubre las comprobaciones específicas de la caché.</p></li></ol><h2>Problemas habituales</h2><ul><li><strong>Editar archivos generados:</strong> los cambios en <code>_site/</code> desaparecen en la siguiente compilación.</li><li><strong>Ignorar <code>baseurl</code>:</strong> las rutas relativas a la raíz pueden solicitar el icono desde una ubicación incorrecta.</li><li><strong>Mantener enlaces duplicados:</strong> el icono del theme y el icono personalizado pueden competir. Elimina del <code>head</code> final el enlace que no quieras incluir.</li><li><strong>Colocar el marcado en el body:</strong> mueve los enlaces al include o layout del <code>head</code>.</li></ul><h2>Conclusión</h2><p>Con los assets en <code>assets/</code>, los enlaces en tu plantilla de <code>head</code> reutilizable y las URL generadas por <code>relative_url</code>, tu favicon de Jekyll pasará de source a production sin problemas. Para elegir el formato y consultar más ejemplos de etiquetas, lee la <a href="/blog/how-to-add-favicon-to-website.html">guía de favicon en HTML</a>.</p></template>
+
+        <div class="cta-box">
+            <h3 data-en="Prepare a Jekyll favicon package" data-zh="准备 Jekyll favicon 文件" data-ja="Jekyll用のfaviconを作成" data-ko="Jekyll용 favicon 만들기" data-es="Prepara los favicon de tu sitio Jekyll">Prepare a Jekyll favicon package</h3>
+            <p data-en="Use Mzu favicondl to convert one image into the SVG, ICO, and PNG assets referenced by your Jekyll head template." data-zh="使用 Mzu favicondl 将一张图片转换为 Jekyll head 模板所需的 SVG、ICO 和 PNG 资源。" data-ja="Mzu favicondlで、1つの画像からJekyllのheadテンプレートに必要なSVG、ICO、PNGを作成できます。" data-ko="Mzu favicondl로 이미지 하나에서 Jekyll head 템플릿에 필요한 SVG, ICO, PNG 파일을 준비하세요." data-es="Usa Mzu favicondl para crear los archivos SVG, ICO y PNG que necesita la plantilla head de tu sitio Jekyll.">Use Mzu favicondl to convert one image into the SVG, ICO, and PNG assets referenced by your Jekyll head template.</p>
+            <a href="/" class="cta-btn" data-en="Try It Free →" data-zh="免费试用 →" data-ja="無料で試す →" data-ko="무료로 사용해보기 →" data-es="Pruébalo gratis →">Try It Free →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Home" data-zh="首页">Home</a>
+                <a href="/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Blog" data-zh="博客">Blog</a>
+                <a href="/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Privacy" data-zh="隐私政策">Privacy</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js?v=20260211"></script>
+
+</body></html>

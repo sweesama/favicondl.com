@@ -1,0 +1,135 @@
+<!DOCTYPE html><html lang="ko"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jekyll favicon baseurl 대응 설정 가이드</title>
+    <meta name="description" content="정적 자산 폴더와 relative_url 필터, 올바른 head 태그로 Jekyll에 favicon을 설정하고 baseurl, 캐시, 404 문제를 해결하세요.">
+    <meta name="keywords" content="jekyll favicon, jekyll site icon, baseurl, favicon setup">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/ko/blog/jekyll-favicon.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/jekyll-favicon.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/jekyll-favicon.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/jekyll-favicon.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/jekyll-favicon.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/jekyll-favicon.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/jekyll-favicon.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/ko/blog/jekyll-favicon.html">
+    <meta property="og:title" content="Jekyll favicon baseurl 대응 설정 가이드">
+    <meta property="og:description" content="정적 자산 폴더와 relative_url 필터, 올바른 head 태그로 Jekyll에 favicon을 설정하고 baseurl, 캐시, 404 문제를 해결하세요.">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Jekyll favicon baseurl 대응 설정 가이드">
+    <meta name="twitter:description" content="정적 자산 폴더와 relative_url 필터, 올바른 head 태그로 Jekyll에 favicon을 설정하고 baseurl, 캐시, 404 문제를 해결하세요.">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Jekyll favicon baseurl 대응 설정 가이드",
+  "description": "정적 자산 폴더와 relative_url 필터, 올바른 head 태그로 Jekyll에 favicon을 설정하고 baseurl, 캐시, 404 문제를 해결하세요.",
+  "datePublished": "2026-10-31",
+  "dateModified": "2026-10-31",
+  "author": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "mainEntityOfPage": "https://favicondl.com/ko/blog/jekyll-favicon.html",
+  "inLanguage": "ko"
+}</script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/ko/" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/ko/documentation.html" class="nav-link">문서</a>
+                <a href="/ko/tools.html" class="nav-link">도구</a>
+                <a href="/ko/blog/" class="nav-link">블로그</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/jekyll-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/jekyll-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/jekyll-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/jekyll-favicon.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/jekyll-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/ko/" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/ko/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600">Jekyll favicon baseurl 대응 설정 가이드</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">frameworks</span><time class="text-sm text-gray-400">2026-10-31</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">Jekyll favicon baseurl 대응 설정 가이드</h1>
+        </header>
+
+        <div class="article-body"><p>Jekyll favicon은 사이트에서 <code>baseurl</code>을 사용하는 경우 빌드가 성공하더라도 문제가 생길 수 있습니다. 에셋은 중첩 경로에 배치되지만 HTML은 도메인 루트를 가리키기 때문입니다. 정적 디렉터리에 소스 파일을 두고 Jekyll로 URL을 생성한 다음, 게시하기 전에 빌드 결과를 확인하세요.</p><h2>준비 사항</h2><ul><li>layout 또는 include를 수정할 수 있는 Jekyll 프로젝트.</li><li>정사각형 SVG, ICO fallback, 선택적으로 180×180 PNG. <a href="/ko/">Mzu favicondl</a>을 사용하면 하나의 이미지로 이 파일들을 만들 수 있습니다.</li><li><code>bundle exec jekyll build</code>를 로컬에서 실행할 수 있어야 합니다.</li></ul><h2>다섯 단계로 Jekyll favicon 추가하기</h2><ol>
+<li><h3>영구 소스 폴더 만들기</h3><p><code>favicon.svg</code>, <code>favicon.ico</code>, <code>apple-touch-icon.png</code>을 <code>assets/images/</code>에 추가합니다. <code>_site/</code>는 직접 수정하지 않습니다. Jekyll이 다음 빌드에서 해당 디렉터리를 다시 생성하기 때문입니다.</p></li>
+<li><h3>문서 head에 링크 추가하기</h3><p>테마의 <code>_includes/head.html</code>을 열고 닫는 <code>head</code> 요소 바로 앞에 다음 태그를 삽입합니다. 테마에 해당 include 파일이 없다면 <code>_layouts/default.html</code>에 직접 넣습니다. 레이아웃에서 <code>{% include head.html %}</code>을 계속 호출하는지도 확인합니다.</p><pre><code>&lt;link rel='icon' type='image/svg+xml' href='{{ '/assets/images/favicon.svg' | relative_url }}'&gt;
+&lt;link rel='icon' sizes='16x16 32x32 48x48' href='{{ '/assets/images/favicon.ico' | relative_url }}'&gt;
+&lt;link rel='apple-touch-icon' sizes='180x180' href='{{ '/assets/images/apple-touch-icon.png' | relative_url }}'&gt;</code></pre><p><a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">HTML 명세</a>는 <code>rel='icon'</code>을 아이콘 리소스를 위해 정의합니다. 이 링크를 <code>head</code> 안에 두면 브라우저가 페이지를 파싱하는 동안 favicon을 발견할 수 있습니다.</p></li>
+<li><h3>baseurl을 반영한 URL 생성하기</h3><p><code>_config.yml</code>에서 <code>baseurl</code>을 배포 경로와 일치하도록 설정합니다. 그런 다음 모든 아이콘 경로에 Jekyll의 <code>relative_url</code> 필터를 적용합니다. 이 필터는 설정된 base path를 경로 앞에 붙이므로, 하나의 템플릿을 도메인 루트와 프로젝트 하위 경로 모두에서 사용할 수 있습니다. <code>href='/assets/images/favicon.svg'</code>처럼 경로를 직접 지정하지 않습니다. 하위 경로를 무시하기 때문입니다.</p></li>
+<li><h3>빌드하고 생성된 사이트 검사하기</h3><p>다음과 같이 빌드하고 로컬 서버를 실행합니다.</p><pre><code>bundle exec jekyll build
+bundle exec jekyll serve</code></pre><p><code>_site/index.html</code>을 열어 각 링크에 예상한 base path가 포함되어 있는지 확인합니다. <code>_site/assets/images/</code> 아래에 세 파일이 존재하는지 확인합니다. 미리보기할 때는 사이트가 <code>/</code>에서 시작한다고 가정하지 말고, Jekyll이 출력한 baseurl 반영 URL을 사용합니다.</p></li>
+<li><h3>배포된 응답 검증하기</h3><p>게시 후 페이지 소스를 확인하고 아이콘 URL을 직접 요청합니다. 페이지가 배포된 경로를 참조해야 하며, 아이콘 요청이 404를 반환하지 않아야 합니다. 이전 아이콘이 계속 표시된다면 파일 이름을 변경하거나 <code>favicon.svg?v=2</code>처럼 query string을 추가합니다. <a href="/ko/blog/favicon-not-showing.html">favicon 문제 해결 가이드</a>에는 캐시 관련 점검 항목이 정리되어 있습니다.</p></li>
+</ol><h2>흔한 실수</h2><ul><li><strong>생성된 파일 직접 수정:</strong> <code>_site/</code>에 적용한 변경은 다음 build에서 사라집니다.</li><li><strong><code>baseurl</code> 무시:</strong> root-relative path를 사용하면 icon이 잘못된 위치에서 요청될 수 있습니다.</li><li><strong>중복 link 유지:</strong> theme icon과 사용자 정의 icon이 서로 경쟁할 수 있습니다. 렌더링된 head에서 원치 않는 link를 제거하세요.</li><li><strong>markup을 body에 배치:</strong> link를 head include 또는 layout 안으로 옮기세요.</li></ul><h2>결론</h2><p><code>assets/</code> 아래에 assets를 배치하고, 재사용 가능한 head template에 link를 넣고, <code>relative_url</code>로 URL을 생성하면 Jekyll favicon을 source에서 production까지 문제없이 옮길 수 있습니다. format 선택과 더 폭넓은 tag 예제는 <a href="/ko/blog/how-to-add-favicon-to-website.html">HTML favicon 가이드</a>를 참고하세요.</p></div>
+
+        <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
+
+        <div class="cta-box">
+            <h3>Jekyll용 favicon 만들기</h3>
+            <p>Mzu favicondl로 이미지 하나에서 Jekyll head 템플릿에 필요한 SVG, ICO, PNG 파일을 준비하세요.</p>
+            <a href="/ko/" class="cta-btn">무료로 사용해보기 →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/ko/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">홈</a>
+                <a href="/ko/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">블로그</a>
+                <a href="/ko/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">개인정보</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js?v=20260211"></script>
+
+</body></html>

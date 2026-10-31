@@ -1,0 +1,129 @@
+<!DOCTYPE html><html lang="zh"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jekyll favicon：适配 baseurl 的完整设置指南</title>
+    <meta name="description" content="通过静态资源目录、relative_url 过滤器和正确的 head 标签为 Jekyll 添加 favicon，并排查 baseurl、缓存及 404 问题。">
+    <meta name="keywords" content="jekyll favicon, jekyll site icon, baseurl, favicon setup">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/zh/blog/jekyll-favicon.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/jekyll-favicon.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/jekyll-favicon.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/jekyll-favicon.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/jekyll-favicon.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/jekyll-favicon.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/jekyll-favicon.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/zh/blog/jekyll-favicon.html">
+    <meta property="og:title" content="Jekyll favicon：适配 baseurl 的完整设置指南">
+    <meta property="og:description" content="通过静态资源目录、relative_url 过滤器和正确的 head 标签为 Jekyll 添加 favicon，并排查 baseurl、缓存及 404 问题。">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Jekyll favicon：适配 baseurl 的完整设置指南">
+    <meta name="twitter:description" content="通过静态资源目录、relative_url 过滤器和正确的 head 标签为 Jekyll 添加 favicon，并排查 baseurl、缓存及 404 问题。">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Jekyll favicon：适配 baseurl 的完整设置指南",
+  "description": "通过静态资源目录、relative_url 过滤器和正确的 head 标签为 Jekyll 添加 favicon，并排查 baseurl、缓存及 404 问题。",
+  "datePublished": "2026-10-31",
+  "dateModified": "2026-10-31",
+  "author": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "mainEntityOfPage": "https://favicondl.com/zh/blog/jekyll-favicon.html",
+  "inLanguage": "zh-CN"
+}</script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/zh/" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/zh/documentation.html" class="nav-link">文档</a>
+                <a href="/zh/tools.html" class="nav-link">工具</a>
+                <a href="/zh/blog/" class="nav-link">博客</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/jekyll-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/jekyll-favicon.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/jekyll-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/jekyll-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/jekyll-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/zh/" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/zh/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600">Jekyll favicon：适配 baseurl 的完整设置指南</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">frameworks</span><time class="text-sm text-gray-400">2026-10-31</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">Jekyll favicon：适配 baseurl 的完整设置指南</h1>
+        </header>
+
+        <div class="article-body"><p>favicon 即使能随 Jekyll 站点成功构建，站点使用 <code>baseurl</code> 时仍可能出问题：资源会生成到嵌套路径中，但 HTML 仍指向域名根目录。应将源文件放在静态目录中，通过 Jekyll 生成 URL，并在发布前检查构建产物。</p><h2>前置条件</h2><ul><li>一个可编辑 layout 或 include 的 Jekyll 项目。</li><li>一个正方形 SVG、一个 ICO 后备图标，以及可选的 180×180 PNG。<a href="/zh/">Mzu favicondl</a> 可以从一张图片生成这些文件。</li><li>能够在本地运行 <code>bundle exec jekyll build</code>。</li></ul><h2>五步添加 Jekyll favicon</h2><ol><li><h3>创建固定的源文件目录</h3><p>将 <code>favicon.svg</code>、<code>favicon.ico</code> 和 <code>apple-touch-icon.png</code> 放入 <code>assets/images/</code>。不要直接修改 <code>_site/</code>；下次构建时，Jekyll 会重新创建该目录。</p></li><li><h3>在文档 head 中添加链接</h3><p>打开主题的 <code>_includes/head.html</code>，把这些标签插入到 <code>head</code> 元素结束标签之前。如果主题中没有这个 include 文件，就直接放到 <code>_layouts/default.html</code> 中。同时确认 layout 中仍然调用了 <code>{% include head.html %}</code>。</p><pre><code>&lt;link rel='icon' type='image/svg+xml' href='{{ '/assets/images/favicon.svg' | relative_url }}'&gt;
+&lt;link rel='icon' sizes='16x16 32x32 48x48' href='{{ '/assets/images/favicon.ico' | relative_url }}'&gt;
+&lt;link rel='apple-touch-icon' sizes='180x180' href='{{ '/assets/images/apple-touch-icon.png' | relative_url }}'&gt;</code></pre><p><a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">HTML 规范</a>将 <code>rel='icon'</code> 定义为指向图标资源的关联类型。把这些链接保留在 head 中，浏览器解析页面时就能发现它们。</p></li><li><h3>生成兼容 baseurl 的 URL</h3><p>在 <code>_config.yml</code> 中设置 <code>baseurl</code>，使其与实际部署路径一致。然后让所有图标路径都经过 Jekyll 的 <code>relative_url</code> filter 处理。该 filter 会添加配置中的 base path，因此同一套模板既能用于域名根目录，也能用于项目的子路径。不要把 <code>href='/assets/images/favicon.svg'</code> 写死，因为这样会忽略子路径。</p></li><li><h3>构建并检查生成的站点</h3><p>执行构建并启动本地服务器：</p><pre><code>bundle exec jekyll build
+bundle exec jekyll serve</code></pre><p>打开 <code>_site/index.html</code>，确认每个链接都包含预期的 base path。检查这三个文件是否都存在于 <code>_site/assets/images/</code> 下。预览时，请使用 Jekyll 输出的兼容 baseurl 的 URL，不要想当然地认为站点从 <code>/</code> 开始。</p></li><li><h3>验证线上响应</h3><p>发布后，检查页面源代码，并直接请求 icon URL。页面必须引用部署后的实际路径，icon 请求也不能返回 404。如果旧图标仍然显示，可以重命名文件，或添加 <code>favicon.svg?v=2</code> 这样的查询参数。<a href="/zh/blog/favicon-not-showing.html">favicon 排障指南</a>介绍了与缓存有关的检查方法。</p></li></ol><h2>常见误区</h2><ul><li><strong>修改生成文件：</strong>对 <code>_site/</code> 的改动会在下次构建时消失。</li><li><strong>忽略 <code>baseurl</code>：</strong>以根路径开头的 URL 可能导致图标从错误的位置被请求。</li><li><strong>保留重复链接：</strong>主题图标和自定义图标可能相互冲突。请从渲染后的 head 中移除不需要的链接。</li><li><strong>把标记放在 body 中：</strong>应将链接移入 head include 或 layout 中。</li></ul><h2>结语</h2><p>将资源放在 <code>assets/</code> 下，在可复用的 head 模板中配置链接，并使用 <code>relative_url</code> 生成 URL，这样 Jekyll favicon 就能顺利从源码迁移到生产环境。有关格式选择和更多标签示例，请阅读 <a href="/zh/blog/how-to-add-favicon-to-website.html">HTML favicon 指南</a>。</p></div>
+
+        <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
+
+        <div class="cta-box">
+            <h3>准备 Jekyll favicon 文件</h3>
+            <p>使用 Mzu favicondl 将一张图片转换为 Jekyll head 模板所需的 SVG、ICO 和 PNG 资源。</p>
+            <a href="/zh/" class="cta-btn">免费试用 →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/zh/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">首页</a>
+                <a href="/zh/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">博客</a>
+                <a href="/zh/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">隐私政策</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js?v=20260211"></script>
+
+</body></html>

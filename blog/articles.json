@@ -4064,5 +4064,25 @@
     ],
     "qualityScore": 80,
     "qualityGrade": "A"
+  },
+  {
+    "slug": "jekyll-favicon",
+    "publishDate": "2026-10-31",
+    "titleEn": "Jekyll Favicon Guide: Add Icons Without Breaking baseurl",
+    "titleZh": "Jekyll favicon：适配 baseurl 的完整设置指南",
+    "titleJa": "Jekyll faviconをbaseurlに対応させる設置ガイド",
+    "titleKo": "Jekyll favicon baseurl 대응 설정 가이드",
+    "titleEs": "Favicon para Jekyll: guía con baseurl",
+    "descEn": "Add a Jekyll favicon with the right asset paths, baseurl handling, head markup, build checks, and fixes for common caching issues across deployments.",
+    "descZh": "通过静态资源目录、relative_url 过滤器和正确的 head 标签为 Jekyll 添加 favicon，并排查 baseurl、缓存及 404 问题。",
+    "descJa": "静的アセット、relative_urlフィルター、正しいheadタグでJekyll faviconを設定し、baseurl、キャッシュ、404の問題を確認します。",
+    "descKo": "정적 자산 폴더와 relative_url 필터, 올바른 head 태그로 Jekyll에 favicon을 설정하고 baseurl, 캐시, 404 문제를 해결하세요.",
+    "descEs": "Añade un favicon a Jekyll con una carpeta de recursos estáticos, relative_url y etiquetas head correctas; evita errores de baseurl, caché y 404.",
+    "keyword": "jekyll favicon",
+    "tags": [
+      "frameworks"
+    ],
+    "qualityScore": 100,
+    "qualityGrade": "A"
   }
 ]

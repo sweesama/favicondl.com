@@ -3063,7 +3063,9 @@
       "static-site-generator-favicon",
       "github-pages-favicon"
     ],
-    "status": "pending"
+    "status": "done",
+    "qualityScore": 100,
+    "qualityGrade": "A"
   },
   {
     "keyword": "docusaurus favicon",

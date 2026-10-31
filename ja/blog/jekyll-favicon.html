@@ -1,0 +1,129 @@
+<!DOCTYPE html><html lang="ja"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jekyll faviconをbaseurlに対応させる設置ガイド</title>
+    <meta name="description" content="静的アセット、relative_urlフィルター、正しいheadタグでJekyll faviconを設定し、baseurl、キャッシュ、404の問題を確認します。">
+    <meta name="keywords" content="jekyll favicon, jekyll site icon, baseurl, favicon setup">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/ja/blog/jekyll-favicon.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/jekyll-favicon.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/jekyll-favicon.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/jekyll-favicon.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/jekyll-favicon.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/jekyll-favicon.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/jekyll-favicon.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/ja/blog/jekyll-favicon.html">
+    <meta property="og:title" content="Jekyll faviconをbaseurlに対応させる設置ガイド">
+    <meta property="og:description" content="静的アセット、relative_urlフィルター、正しいheadタグでJekyll faviconを設定し、baseurl、キャッシュ、404の問題を確認します。">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Jekyll faviconをbaseurlに対応させる設置ガイド">
+    <meta name="twitter:description" content="静的アセット、relative_urlフィルター、正しいheadタグでJekyll faviconを設定し、baseurl、キャッシュ、404の問題を確認します。">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Jekyll faviconをbaseurlに対応させる設置ガイド",
+  "description": "静的アセット、relative_urlフィルター、正しいheadタグでJekyll faviconを設定し、baseurl、キャッシュ、404の問題を確認します。",
+  "datePublished": "2026-10-31",
+  "dateModified": "2026-10-31",
+  "author": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "mainEntityOfPage": "https://favicondl.com/ja/blog/jekyll-favicon.html",
+  "inLanguage": "ja"
+}</script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/ja/" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/ja/documentation.html" class="nav-link">ドキュメント</a>
+                <a href="/ja/tools.html" class="nav-link">ツール</a>
+                <a href="/ja/blog/" class="nav-link">ブログ</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/jekyll-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/jekyll-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/jekyll-favicon.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/jekyll-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/jekyll-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/ja/" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/ja/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600">Jekyll faviconをbaseurlに対応させる設置ガイド</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">frameworks</span><time class="text-sm text-gray-400">2026-10-31</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">Jekyll faviconをbaseurlに対応させる設置ガイド</h1>
+        </header>
+
+        <div class="article-body"><p>Jekyll の favicon は、ビルドが成功しても、<code>baseurl</code> を使う Poweredな Reliance  degenerativeサイトفل identify 。 asset がネストされた path に配置される一方、HTML は domain root を指してしまうためです。 source file は static directory に置き、URL は Jekyll で生成し、publish 前に built output を確認してください。</p><h2>前提条件</h2><ul><li>layout または include を編集できる Jekyll プロジェクト。</li><li>正方形の SVG と ICO fallback、必要に応じて180×180 PNG。<a href="/ja/">Mzu favicondl</a> を使えば、1つの画像からこれらを生成できます。</li><li>ローカルで <code>bundle exec jekyll build</code> を実行できること。</li></ul><h2>5ステップで Jekyll favicon を追加する</h2><ol><li><h3>永続的なソースディレクトリを作成</h3><p><code>favicon.svg</code>、<code>favicon.ico</code>、<code>apple-touch-icon.png</code> を <code>assets/images/</code> に追加します。<code>_site/</code> は編集しないでください。Jekyll は次のビルド時にこのディレクトリを再作成します。</p></li><li><h3>ドキュメントの head にリンクを追加</h3><p>テーマの <code>_includes/head.html</code> を開き、閉じている <code>head</code> 要素の前に次のタグを挿入します。テーマに対応する include がない場合は、<code>_layouts/default.html</code> に直接追加します。レイアウトが引き続き <code>{% include head.html %}</code> を呼び出していることを確認してください。</p><pre><code>&lt;link rel='icon' type='image/svg+xml' href='{{ '/assets/images/favicon.svg' | relative_url }}'&gt;
+&lt;link rel='icon' sizes='16x16 32x32 48x48' href='{{ '/assets/images/favicon.ico' | relative_url }}'&gt;
+&lt;link rel='apple-touch-icon' sizes='180x180' href='{{ '/assets/images/apple-touch-icon.png' | relative_url }}'&gt;</code></pre><p><a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">HTML specification</a> は、アイコン用リソースを指定する <code>rel='icon'</code> を定義しています。リンクを head 内に置いておくことで、ブラウザがページの解析中にアイコンを検出できます。</p></li><li><h3>baseurl に対応する URL を生成</h3><p><code>_config.yml</code> の <code>baseurl</code> をデプロイ先のパスに合わせて設定します。その後、すべてのアイコンパスに Jekyll の <code>relative_url</code> フィルタを適用します。このフィルタは設定されたベースパスを先頭に付加するため、同じテンプレートがドメインのルートでも、プロジェクト配下のサブパスでも動作します。<code>href='/assets/images/favicon.svg'</code> のようにハードコードすると、サブパスを無視するため使用しないでください。</p></li><li><h3>ビルドして生成されたサイトを確認</h3><p>ビルドとローカルサーバーを実行します。</p><pre><code>bundle exec jekyll build
+bundle exec jekyll serve</code></pre><p><code>_site/index.html</code> を開き、各リンクに想定したベースパスが含まれていることを確認します。<code>_site/assets/images/</code> 配下に3つのファイルが存在することも確認してください。プレビューでは、サイトの開始位置を <code>/</code> と決めつけないのではなく、Jekyll が出力する baseurl 対応 URL を使用します。</p></li><li><h3>公開後のレスポンスを確認</h3><p>公開後、ページのソースを調べ、アイコンの URL に直接リクエストします。ページは公開後のパスを参照している必要があり、アイコンへのリクエストが 404 を返してはなりません。以前のアイコンが残る場合は、ファイル名を変更するか、<code>favicon.svg?v=2</code> のようなクエリを追加します。<a href="/ja/blog/favicon-not-showing.html">favicon トラブルシューティングガイド</a> では、キャッシュреди特有的な確認項目を説明しています。</p></li></ol><h2>よくある落とし穴</h2><ul><li><strong>生成済みファイルを編集すること：</strong><code>_site/</code>内への変更は、次回のbuildで消えてしまいます。</li><li><strong><code>baseurl</code>を無視すること：</strong>ルート相対パスを使うと、faviconを誤った場所から読み込もうとする可能性があります。</li><li><strong>重複するlinkを残したままにすること：</strong>themeのfaviconとカスタムfaviconが競合する場合があります。レンダリングされたheadから不要なlinkを削除してください。</li><li><strong>markupをbody内に配置すること：</strong>linkをhead includeまたはlayout内へ移動してください。</li></ul><h2>まとめ</h2><p><code>assets/</code>配下にassetを配置し、再利用可能なhead template内にlinkを置き、<code>relative_url</code>でURLを生成すれば、Jekyllのfaviconをソースから本番環境へ問題なく移行できます。formatの選び方や、より豊富なtagの例については、<a href="/ja/blog/how-to-add-favicon-to-website.html">HTML faviconガイド</a>を参照してください。</p></div>
+
+        <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
+
+        <div class="cta-box">
+            <h3>Jekyll用のfaviconを作成</h3>
+            <p>Mzu favicondlで、1つの画像からJekyllのheadテンプレートに必要なSVG、ICO、PNGを作成できます。</p>
+            <a href="/ja/" class="cta-btn">無料で試す →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/ja/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">ホーム</a>
+                <a href="/ja/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">ブログ</a>
+                <a href="/ja/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">プライバシー</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js?v=20260211"></script>
+
+</body></html>
