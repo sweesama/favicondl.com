@@ -1,0 +1,428 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Docusaurus Favicon Setup: A Practical Step-by-Step Guide</title>
+    <meta name="description" content="Add a Docusaurus favicon with the correct static path, config setting, ICO or PNG files, and base URL checks for a clean browser tab on every deployed route.">
+    <meta name="keywords" content="docusaurus favicon, docusaurus static assets, favicon.ico, docusaurus config">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/blog/docusaurus-favicon.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/docusaurus-favicon.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/docusaurus-favicon.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/docusaurus-favicon.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/docusaurus-favicon.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/docusaurus-favicon.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/docusaurus-favicon.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/blog/docusaurus-favicon.html">
+    <meta property="og:title" content="Docusaurus Favicon Setup: A Practical Step-by-Step Guide">
+    <meta property="og:description" content="Add a Docusaurus favicon with the correct static path, config setting, ICO or PNG files, and base URL checks for a clean browser tab on every deployed route.">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Docusaurus Favicon Setup: A Practical Step-by-Step Guide">
+    <meta name="twitter:description" content="Add a Docusaurus favicon with the correct static path, config setting, ICO or PNG files, and base URL checks for a clean browser tab on every deployed route.">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Docusaurus Favicon Setup: A Practical Step-by-Step Guide",
+  "description": "Add a Docusaurus favicon with the correct static path, config setting, ICO or PNG files, and base URL checks for a clean browser tab on every deployed route.",
+  "datePublished": "2026-11-01",
+  "dateModified": "2026-11-01",
+  "author": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "mainEntityOfPage": "https://favicondl.com/blog/docusaurus-favicon.html",
+  "inLanguage": "en"
+}</script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/documentation.html" class="nav-link" data-en="Docs" data-zh="文档">Docs</a>
+                <a href="/tools.html" class="nav-link" data-en="Tools" data-zh="工具">Tools</a>
+                <a href="/blog/" class="nav-link" data-en="Blog" data-zh="博客">Blog</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/docusaurus-favicon.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/docusaurus-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/docusaurus-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/docusaurus-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/docusaurus-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600" data-en="Docusaurus Favicon Setup: A Practical Step-by-Step Guide" data-zh="Docusaurus Favicon 设置指南" data-ja="Docusaurus favicon 設定ガイド" data-ko="Docusaurus favicon 설정 가이드" data-es="Guía para configurar un favicon en Docusaurus">Docusaurus Favicon Setup: A Practical Step-by-Step Guide</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">frameworks</span><time class="text-sm text-gray-400">2026-11-01</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight" data-en="Docusaurus Favicon Setup: A Practical Step-by-Step Guide" data-zh="Docusaurus Favicon 设置指南" data-ja="Docusaurus favicon 設定ガイド" data-ko="Docusaurus favicon 설정 가이드" data-es="Guía para configurar un favicon en Docusaurus">Docusaurus Favicon Setup: A Practical Step-by-Step Guide</h1>
+        </header>
+
+        <div class="article-body" data-lang="en">
+            <p>If your Docusaurus favicon still shows the framework's default icon after you replace the asset, the file may be in the wrong folder or the config may not point to it. Put the icon in <code>static/</code>, set one config value, and verify the built output.</p>
+<h2>Prerequisites</h2>
+<p>You need a Docusaurus project, a square source image, and access to <code>docusaurus.config.ts</code>.</p>
+<ul>
+<li>A PNG or SVG whose mark stays recognizable at 16×16 pixels.</li>
+<li>The project dependencies installed and a terminal open at the repository root.</li>
+</ul>
+<h2>Add a Docusaurus favicon in five steps</h2>
+<ol>
+<li>
+<strong>Generate suitable files.</strong> Use <a href="/">Mzu favicondl</a> to convert a square PNG or SVG into an ICO, then download an SVG or PNG. Keep the source artwork simple; a full wordmark becomes unreadable in a tab.
+</li>
+<li>
+<strong>Use the <code>static/</code> directory.</strong> Docusaurus copies it into the build output without changing its internal paths. Replace the default icon or arrange your files like this:
+<pre><code>static/
+└── img/
+    ├── favicon.ico
+    ├── favicon.svg
+    └── favicon-32.png</code></pre>
+</li>
+<li>
+<strong>Set the built-in config option.</strong> In the existing object in <code>docusaurus.config.ts</code>, keep or add:
+<pre><code>const config: Config = {
+  // ...other options
+  favicon: 'img/favicon.ico',
+};</code></pre>
+<p>Use a path relative to <code>static/</code>, without a leading slash. The built-in option adds the icon link and applies <code>baseUrl</code>, so the configuration works at a domain root or under a subpath.</p>
+</li>
+<li>
+<strong>Add SVG when you want a scalable icon.</strong> Add this property to the same config object while retaining the ICO fallback:
+<pre><code>headTags: [
+  {
+    tagName: 'link',
+    attributes: {
+      rel: 'icon',
+      type: 'image/svg+xml',
+      href: '/img/favicon.svg',
+    },
+  },
+],</code></pre>
+<p>The tag follows HTML's <a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon"><code>rel='icon'</code> link relationship</a>. Because <code>headTags</code> are literal, include the base path: with <code>baseUrl: '/docs/'</code>, use <code>/docs/img/favicon.svg</code>.</p>
+</li>
+<li>
+<strong>Build and check the real output.</strong> Run:
+<pre><code>npm run build
+npm run serve</code></pre>
+<p>Inspect the rendered <code>&lt;head&gt;</code>. It should contain an icon link like:</p>
+<pre><code>&lt;link rel='icon' href='/img/favicon.ico'&gt;</code></pre>
+<p>Confirm <code>build/img/favicon.ico</code> exists and the Network panel returns an image, not HTML. With <code>baseUrl</code>, check the prefixed URL. Deploy the complete <code>build/</code> directory.</p>
+</li>
+</ol>
+<h2>Common pitfalls</h2>
+<ul>
+<li><strong>Putting files in <code>src/img</code>:</strong> Imported assets are bundled by the app; they are not automatically published at <code>/img/</code>. Use <code>static/</code> for this setup.</li>
+<li><strong>Ignoring <code>baseUrl</code>:</strong> The config option handles it; literal icon URLs in <code>headTags</code> do not.</li>
+<li><strong>Checking a cached tab:</strong> Open the site in a private window or force a reload. If the response is correct but the tab remains stale, use the <a href="/blog/favicon-not-showing.html">favicon troubleshooting checklist</a>.</li>
+<li><strong>Overlapping icon links:</strong> Inspect the generated head for tags added by a theme or plugin. Keep one intentional SVG and one ICO fallback, then remove accidental duplicates.</li>
+<li><strong>Comparing broader workflows:</strong> For shared principles, compare the <a href="/blog/static-site-generator-favicon.html">static-site-generator favicon guide</a>; the Docusaurus-specific parts are its <code>favicon</code> option and <code>static/</code> output.</li>
+</ul>
+<h2>Conclusion</h2>
+<p>A Docusaurus favicon does not need a page-level component or plugin. Generate the right files, keep them in <code>static/img/</code>, point <code>favicon</code> at the ICO, and verify the built head after every deployment or base-path change.</p>
+        </div>
+
+        <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
+        <template data-article-lang="zh"><p>如果替换资源后，Docusaurus 的 favicon 仍显示框架自带图标，通常是文件放错了目录，或配置没有指向它。把图标放进 <code>static/</code>，设置一项配置，再检查构建产物即可。</p>
+<h2>准备工作</h2>
+<p>你需要准备一个 Docusaurus 项目、一张正方形源图片，并确保能够修改 <code>docusaurus.config.ts</code>。</p>
+<ul>
+<li>图片格式为 PNG 或 SVG，缩小到 16×16 像素后，标志仍然清晰可辨。</li>
+<li>项目依赖已安装，并在仓库根目录打开终端。</li>
+</ul>
+<h2>用五个步骤添加 Docusaurus favicon</h2>
+<ol>
+<li>
+<strong>生成合适的文件。</strong> 使用 <a href="/">Mzu favicondl</a> 将正方形 PNG 或 SVG 转换为 ICO，再下载 SVG 或 PNG。源图应尽量简洁；完整的字标放在浏览器标签页中会难以辨认。
+</li>
+<li>
+<strong>使用 <code>static/</code> 目录。</strong> Docusaurus 会把该目录复制到构建产物中，不改变目录内部的路径。替换默认图标，或按下面的结构整理文件：
+<pre><code>static/
+└── img/
+    ├── favicon.ico
+    ├── favicon.svg
+    └── favicon-32.png</code></pre>
+</li>
+<li>
+<strong>设置内置配置项。</strong> 在 <code>docusaurus.config.ts</code> 的现有对象中保留或添加：
+<pre><code>const config: Config = {
+  // ...other options
+  favicon: 'img/favicon.ico',
+};</code></pre>
+<p>使用相对于 <code>static/</code> 的路径，不要加前导斜杠。内置选项会添加图标链接并应用 <code>baseUrl</code>，因此无论站点部署在域名根目录还是子路径下，这项配置都能生效。</p>
+</li>
+<li>
+<strong>需要可缩放图标时，再添加 SVG。</strong> 在同一个配置对象中添加以下属性，同时保留 ICO 作为回退：
+<pre><code>headTags: [
+  {
+    tagName: 'link',
+    attributes: {
+      rel: 'icon',
+      type: 'image/svg+xml',
+      href: '/img/favicon.svg',
+    },
+  },
+],</code></pre>
+<p>该标签遵循 HTML 的 <a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon"><code>rel='icon'</code> 链接关系</a>。由于 <code>headTags</code> 按原样插入，需要包含基础路径：当 <code>baseUrl: '/docs/'</code> 时，应使用 <code>/docs/img/favicon.svg</code>。</p>
+</li>
+<li>
+<strong>构建并检查实际输出。</strong> 运行：
+<pre><code>npm run build
+npm run serve</code></pre>
+<p>检查渲染后的 <code>&lt;head&gt;</code>。其中应包含类似下面的图标链接：</p>
+<pre><code>&lt;link rel='icon' href='/img/favicon.ico'&gt;</code></pre>
+<p>确认 <code>build/img/favicon.ico</code> 确实存在，并查看 Network 面板中的响应：返回的应是图片，而不是 HTML。设置了 <code>baseUrl</code> 时，请检查带此前缀的 URL。部署完整的 <code>build/</code> 目录。</p>
+</li>
+</ol><h2>常见误区</h2>
+<ul>
+<li><strong>把文件放进 <code>src/img</code>：</strong>通过 import 引入的资源会随应用一起打包，不会自动发布到 <code>/img/</code>。这种配置应使用 <code>static/</code> 目录。</li>
+<li><strong>忽略 <code>baseUrl</code>：</strong><code>baseUrl</code> 配置项会正确处理路径，但 <code>headTags</code> 中直接写死的图标 URL 不会。</li>
+<li><strong>只检查缓存中的标签页：</strong>在无痕窗口中打开站点，或强制刷新。如果响应内容正确，但页面仍然显示旧内容，请使用<a href="/blog/favicon-not-showing.html">favicon 排查清单</a>。</li>
+<li><strong>添加重复的图标链接：</strong>检查生成的 head 中是否包含 theme 或 plugin 添加的标签。保留一个有意设置的 SVG 和一个 ICO fallback，删除意外重复的标签。</li>
+<li><strong>比较更通用的工作流：</strong>如需了解共通原则，可以参考<a href="/blog/static-site-generator-favicon.html">static-site-generator favicon 指南</a>；其中与 Docusaurus 相关的部分，是 <code>favicon</code> 配置项和 <code>static/</code> 目录输出。</li>
+</ul>
+<h2>总结</h2>
+<p>设置 Docusaurus favicon 不需要页面级组件或 plugin。生成正确的文件，将其保存在 <code>static/img/</code> 中，让 <code>favicon</code> 指向 ICO，并在每次部署或更改 base path 后检查构建生成的 head。</p></template>
+        <template data-article-lang="ja"><p>Docusaurus の favicon を差し替えた後もフレームワークのデフォルトアイコンが表示される場合、ファイルが誤ったフォルダにあるか、設定がアイコンを参照していない可能性があります。アイコンを <code>static/</code> に配置し、設定を1つ追加して、ビルド結果を検証してください。</p>
+<h2>前提条件</h2>
+<p>Docusaurus プロジェクト、正方形のソース画像、および <code>docusaurus.config.ts</code> へのアクセス権が必要です。</p>
+<ul>
+<li>16×16 ピクセルでもマークが判別できる PNG または SVG。</li>
+<li>プロジェクトの依存関係をインストールし、リポジトリのルートでターミナルを開いていること。</li>
+</ul>
+<h2>5ステップで Docusaurus favicon を追加する</h2>
+<ol>
+<li>
+<strong>適切なファイルを生成する。</strong> <a href="/">Mzu favicondl</a> で正方形の PNG または SVG を ICO に変換し、その後 SVG または PNG をダウンロードします。元のグラフィックは簡潔に保ち、wordmark 全体はタブ内で判読できません。
+</li>
+<li>
+<strong><code>static/</code> ディレクトリを使う。</strong> Docusaurus は、内部のパスを変更せずにこのディレクトリをビルド出力へコピーします。デフォルトアイコンを置き換えるか、ファイルを次のように配置します。
+<pre><code>static/
+└── img/
+    ├── favicon.ico
+    ├── favicon.svg
+    └── favicon-32.png</code></pre>
+</li>
+<li>
+<strong>組み込みの設定オプションを使用する。</strong> <code>docusaurus.config.ts</code> 内の既存の設定オブジェクトに、次の設定を追加または維持します。
+<pre><code>const config: Config = {
+  // ...other options
+  favicon: 'img/favicon.ico',
+};</code></pre>
+<p><code>static/</code> からの相対パスを使い、先頭のスラッシュは付けません。組み込みオプションは icon link を追加して <code>baseUrl</code> を適用するため、ドメインのルートでもサブディレクトリ配下でも設定が機能します。</p>
+</li>
+<li>
+<strong>スケーラブルなアイコンとして SVG を追加する。</strong> 同じ設定オブジェクトに次のプロパティを追加し、ICO fallback は維持します。
+<pre><code>headTags: [
+  {
+    tagName: 'link',
+    attributes: {
+      rel: 'icon',
+      type: 'image/svg+xml',
+      href: '/img/favicon.svg',
+    },
+  },
+],</code></pre>
+<p>このタグは HTML の <a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon"><code>rel='icon'</code> link relationship</a>に従います。<code>headTags</code> では値がリテラルとして扱われるため、base path を含める必要があります。<code>baseUrl: '/docs/'</code> の場合は <code>/docs/img/favicon.svg</code> を使用してください。</p>
+</li>
+<li>
+<strong>ビルドして実際の出力を確認する。</strong> 次を実行します。
+<pre><code>npm run build
+npm run serve</code></pre>
+<p>レンダリングされた <code>&lt;head&gt;</code> を確認します。次のような icon link が含まれるはずです。</p>
+<pre><code>&lt;link rel='icon' href='/img/favicon.ico'&gt;</code></pre>
+<p><code>build/img/favicon.ico</code> が存在し、Network panel が HTML ではなく image を返すことを確認します。<code>baseUrl</code> を設定している場合は、prefix を付けた URL を確認します。<code>build/</code> ディレクトリ全体をデプロイしてください。</p>
+</li>
+</ol><h2>よくある落とし穴</h2>
+<ul>
+<li><strong><code>src/img</code> にファイルを置く:</strong> インポートしたアセットはアプリにバンドルされ、自動的に <code>/img/</code> に公開されるわけではありません。この構成では <code>static/</code> を使用してください。</li>
+<li><strong><code>baseUrl</code> を考慮しない:</strong> <code>baseUrl</code> は config option で処理されますが、<code>headTags</code> に直接記載した icon URL は処理されません。</li>
+<li><strong>キャッシュされたタブを確認する:</strong> サイトをプライベートウィンドウで開くか、強制的にリロードしてください。レスポンスが正しいのにタブに古い内容が表示され続ける場合は、<a href="/blog/favicon-not-showing.html">favicon troubleshooting checklist</a> を使用してください。</li>
+<li><strong>icon link が重複する:</strong> 生成された head を調べ、theme や plugin によって追加された tag を確認してください。意図した SVG を1つ、ICO fallback を1つ残し、意図しない重複は削除してください。</li>
+<li><strong>一般的なワークフローを比較する:</strong> 共通 principles については、<a href="/blog/static-site-generator-favicon.html">static-site-generator favicon guide</a> と比較してください。Docusaurus 固有の要素は、<code>favicon</code> option と <code>static/</code> output です。</li>
+</ul>
+<h2>結論</h2>
+<p>Docusaurus の favicon にページ単位のコンポーネントやプラグインは必要ありません。適切なファイルを生成し、<code>static/img/</code> に配置して、<code>favicon</code> を ICO に指定してください。また、deployment または base path を変更するたびに、build 後の head を検証してください。</p></template>
+        <template data-article-lang="ko"><p>favicon을 교체한 뒤에도 Docusaurus의 기본 아이콘이 계속 표시된다면, 파일이 잘못된 폴더에 있거나 설정이 해당 파일을 가리키지 않을 수 있습니다. favicon을 <code>static/</code>에 놓고 설정 값 하나만 지정한 다음 빌드 결과를 확인하면 됩니다.</p>
+<h2>사전 준비</h2>
+<p>다음이 필요합니다.</p>
+<ul>
+<li>16×16 픽셀에서도 표식이 식별 가능한 PNG 또는 SVG</li>
+<li>프로젝트 의존성을 설치하고, 저장소 루트에서 터미널을 열어 둔 상태</li>
+</ul>
+<h2>Docusaurus favicon 추가하기: 5단계</h2>
+<ol>
+<li>
+<strong>적합한 파일을 생성합니다.</strong> 정사각형 PNG 또는 SVG를 ICO로 변환하는 데 <a href="/">Mzu favicondl</a>을 사용한 다음 SVG 또는 PNG를 다운로드하세요. 원본 artwork는 단순하게 유지하세요. 전체 wordmark는 탭에서 읽기 어려워집니다.
+</li>
+<li>
+<strong><code>static/</code> 디렉터리를 사용합니다.</strong> Docusaurus는 내부 경로를 변경하지 않고 <code>static/</code> 디렉터리를 빌드 출력으로 복사합니다. 기본 아이콘을 교체하거나, 다음과 같이 파일을 배치하세요.
+<pre><code>static/
+└── img/
+    ├── favicon.ico
+    ├── favicon.svg
+    └── favicon-32.png</code></pre>
+</li>
+<li>
+<strong>Docusaurus 내장 설정 옵션을 지정합니다.</strong> <code>docusaurus.config.ts</code>의 기존 객체에 다음 구문을 유지하거나 추가하세요.
+<pre><code>const config: Config = {
+  // ...other options
+  favicon: 'img/favicon.ico',
+};</code></pre>
+<p><code>static/</code> 기준의 상대 경로를 사용하고, 맨 앞에 slash를 붙이지 마세요. 내장 옵션이 아이콘 링크를 추가하고 <code>baseUrl</code>을 적용하므로 도메인 루트나 하위 경로 모두에서 설정이 작동합니다.</p>
+</li>
+<li>
+<strong>크기에 따라 확대되는 아이콘이 필요하면 SVG를 추가합니다.</strong> ICO fallback을 그대로 유지하면서 동일한 config 객체에 다음 속성을 추가하세요.
+<pre><code>headTags: [
+  {
+    tagName: 'link',
+    attributes: {
+      rel: 'icon',
+      type: 'image/svg+xml',
+      href: '/img/favicon.svg',
+    },
+  },
+],</code></pre>
+<p>이 태그는 HTML의 <a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon"><code>rel='icon'</code> link relationship</a>를 따릅니다. <code>headTags</code>는 literal로 처리되므로 base path를 포함해야 합니다. <code>baseUrl: '/docs/'</code>인 경우 <code>/docs/img/favicon.svg</code>를 사용하세요.</p>
+</li>
+<li>
+<strong>빌드하고 실제 output을 확인합니다.</strong> 다음 명령을 실행하세요.
+<pre><code>npm run build
+npm run serve</code></pre>
+<p>렌더링된 <code>&lt;head&gt;</code>를 확인하세요. 다음과 같은 icon link가 포함되어야 합니다.</p>
+<pre><code>&lt;link rel='icon' href='/img/favicon.ico'&gt;</code></pre>
+<p><code>build/img/favicon.ico</code>가 존재하는지 확인하고, Network panel이 HTML이 아닌 image을 반환하는지 확인하세요. <code>baseUrl</code>을 사용하는 경우 prefix가 적용된 URL도 확인하세요. 전체 <code>build/</code> 디렉터리를 배포하세요.</p>
+</li>
+</ol><h2>흔히 빠지기 쉬운 함정</h2>
+<ul>
+<li><strong><code>src/img</code>에 파일 넣기:</strong> import된 asset은 app에서 bundling되지만, 자동으로 <code>/img/</code>에 게시되지는 않습니다. 이 설정에서는 <code>static/</code>를 사용하세요.</li>
+<li><strong><code>baseUrl</code> 무시하기:</strong> config option이 이를 처리하지만, <code>headTags</code>에 직접 입력한 icon URL은 처리하지 않습니다.</li>
+<li><strong>캐시된 탭 확인하기:</strong> 사이트를 private window에서 열거나 강제로 reload하세요. 응답이 올바른데도 탭에 이전 상태가 남아 있다면 <a href="/blog/favicon-not-showing.html">favicon troubleshooting checklist</a>를 사용하세요.</li>
+<li><strong>서로 겹치는 icon link:</strong> 생성된 head에서 theme 또는 plugin이 추가한 tag를 확인하세요. 의도한 SVG 하나와 ICO fallback 하나만 유지하고, 실수로 중복된 항목은 제거하세요.</li>
+<li><strong>더 넓은 범위의 workflow 비교하기:</strong> 공통 원칙은 <a href="/blog/static-site-generator-favicon.html">static-site-generator favicon guide</a>와 비교해 확인하세요. Docusaurus에만 해당하는 부분은 <code>favicon</code> option과 <code>static/</code> output입니다.</li>
+</ul>
+<h2>결론</h2>
+<p>Docusaurus favicon에는 page-level component나 plugin이 필요하지 않습니다. 적절한 파일을 생성해 <code>static/img/</code>에 보관하고, <code>favicon</code>이 ICO 파일을 가리키도록 설정하세요. 배포할 때마다 또는 base-path를 변경할 때마다 빌드 결과의 head를 확인하세요.</p></template>
+        <template data-article-lang="es"><p>Si el favicon de tu Docusaurus sigue mostrando el icono predeterminado del framework después de sustituir el recurso, puede que el archivo esté en la carpeta equivocada o que la configuración no apunte a él. Coloca el icono en <code>static/</code>, define el valor de configuración correspondiente y comprueba la salida del build.</p>
+<h2>Requisitos previos</h2>
+<p>Necesitas un proyecto de Docusaurus, una imagen fuente cuadrada y acceso a <code>docusaurus.config.ts</code>.</p>
+<ul>
+<li>Un PNG o SVG cuyo diseño siga siendo reconocible a 16×16 píxeles.</li>
+<li>Las dependencias del proyecto instaladas y una terminal abierta en la raíz del repositorio.</li>
+</ul>
+<h2>Añade un favicon de Docusaurus en cinco pasos</h2>
+<ol>
+<li>
+<strong>Genera los archivos adecuados.</strong> Usa <a href="/"><strong>Mzu favicondl</strong></a> para convertir un PNG o SVG cuadrado en un ICO y descarga después un SVG o PNG. Mantén simple el diseño de origen; un wordmark completo se vuelve ilegible en una pestaña.
+</li>
+<li>
+<strong>Usa el directorio <code>static/</code>.</strong> Docusaurus lo copia en la salida del build sin modificar sus rutas internas. Sustituye el icono predeterminado o organiza tus archivos así:
+<pre><code>static/
+└── img/
+    ├── favicon.ico
+    ├── favicon.svg
+    └── favicon-32.png</code></pre>
+</li>
+<li>
+<strong>Usa la opción de configuración integrada.</strong> En el objeto existente de <code>docusaurus.config.ts</code>, mantén o añade:
+<pre><code>const config: Config = {
+  // ...other options
+  favicon: 'img/favicon.ico',
+};</code></pre>
+<p>Usa una ruta relativa a <code>static/</code>, sin una barra inicial. La opción integrada añade el enlace al icono y aplica <code>baseUrl</code>, por lo que la configuración funciona tanto en la raíz de un dominio como bajo un subpath.</p>
+</li>
+<li>
+<strong>Añade un SVG si quieres un icono escalable.</strong> Añade esta propiedad al mismo objeto de configuración sin eliminar el fallback de ICO:
+<pre><code>headTags: [
+  {
+    tagName: 'link',
+    attributes: {
+      rel: 'icon',
+      type: 'image/svg+xml',
+      href: '/img/favicon.svg',
+    },
+  },
+],</code></pre>
+<p>La etiqueta sigue la relación de enlace <a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon"><code>rel='icon'</code></a> de HTML. Como <code>headTags</code> son literales, incluye la ruta base: con <code>baseUrl: '/docs/'</code>, usa <code>/docs/img/favicon.svg</code>.</p>
+</li>
+<li>
+<strong>Compila y comprueba la salida real.</strong> Ejecuta:
+<pre><code>npm run build
+npm run serve</code></pre>
+<p>Inspecciona el <code>&lt;head&gt;</code> renderizado. Debería contener un enlace al icono como:</p>
+<pre><code>&lt;link rel='icon' href='/img/favicon.ico'&gt;</code></pre>
+<p>Confirma que <code>build/img/favicon.ico</code> exista y que el panel Network devuelva una imagen, no HTML. Si usas <code>baseUrl</code>, comprueba la URL con el prefijo. Despliega el directorio <code>build/</code> completo.</p>
+</li>
+</ol><h2>Problemas habituales</h2>
+<ul>
+<li><strong>Colocar archivos en <code>src/img</code>:</strong> Los assets importados se empaquetan en la app; no se publican automáticamente en <code>/img/</code>. Para esta configuración, usa <code>static/</code>.</li>
+<li><strong>Ignorar <code>baseUrl</code>:</strong> La opción de configuración se encarga de esto; las URL literales de los iconos en <code>headTags</code>, no.</li>
+<li><strong>Revisar una pestaña con la caché:</strong> Abre el sitio en una ventana privada o fuerza una recarga. Si la respuesta es correcta pero la pestaña sigue desactualizada, usa la <a href="/blog/favicon-not-showing.html">lista de diagnóstico del favicon</a>.</li>
+<li><strong>Enlaces de iconos redundantes:</strong> Revisa el head generado para detectar las etiquetas que hayan añadido un theme o un plugin. Conserva un SVG intencional y un ICO como fallback, y elimina los duplicados accidentales.</li>
+<li><strong>Comparar otros flujos de trabajo:</strong> Para conocer los principios comunes, consulta la <a href="/blog/static-site-generator-favicon.html">guía de favicon para static site generators</a>; las partes específicas de Docusaurus son su opción <code>favicon</code> y el resultado en <code>static/</code>.</li>
+</ul>
+<h2>Conclusión</h2>
+<p>Un favicon en Docusaurus no necesita un componente a nivel de página ni un plugin. Genera los archivos correctos, mantenlos en <code>static/img/</code>, apunta la opción <code>favicon</code> al ICO y verifica el head generado después de cada despliegue o cambio de base path.</p></template>
+
+        <div class="cta-box">
+            <h3 data-en="Prepare a clean Docusaurus icon set" data-zh="生成清晰的 Docusaurus 图标集" data-ja="Docusaurus 向けの一貫したアイコンデータを用意" data-ko="Docusaurus용 아이콘 세트를 준비하세요" data-es="Prepara un conjunto de iconos limpio para Docusaurus">Prepare a clean Docusaurus icon set</h3>
+            <p data-en="Convert a square logo into ICO, PNG, and SVG files with Mzu favicondl, then add them to your Docusaurus static folder." data-zh="使用 Mzu favicondl 将方形 Logo 转换为 ICO、PNG 和 SVG 文件，再放入 Docusaurus 静态目录。" data-ja="Mzu favicondl で正方形のロゴを ICO、PNG、SVG に変換し、Docusaurus の静的フォルダーへ配置できます。" data-ko="Mzu favicondl로 정사각형 로고를 ICO, PNG, SVG 파일로 변환한 뒤 Docusaurus 정적 폴더에 추가하세요." data-es="Convierte un logotipo cuadrado en archivos ICO, PNG y SVG con Mzu favicondl y añádelos a la carpeta estática de Docusaurus.">Convert a square logo into ICO, PNG, and SVG files with Mzu favicondl, then add them to your Docusaurus static folder.</p>
+            <a href="/" class="cta-btn" data-en="Try It Free →" data-zh="免费试用 →" data-ja="無料で試す →" data-ko="무료로 사용해보기 →" data-es="Pruébalo gratis →">Try It Free →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Home" data-zh="首页">Home</a>
+                <a href="/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Blog" data-zh="博客">Blog</a>
+                <a href="/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Privacy" data-zh="隐私政策">Privacy</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js?v=20260211"></script>
+
+</body></html>

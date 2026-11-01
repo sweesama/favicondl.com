@@ -1,0 +1,185 @@
+<!DOCTYPE html><html lang="ko"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Docusaurus favicon 설정 가이드</title>
+    <meta name="description" content="정적 자산 경로와 사이트 설정, 빌드 검증을 사용해 Docusaurus에 favicon을 추가하고 baseUrl과 캐시 문제도 해결하세요.">
+    <meta name="keywords" content="docusaurus favicon, docusaurus static assets, favicon.ico, docusaurus config">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/ko/blog/docusaurus-favicon.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/docusaurus-favicon.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/docusaurus-favicon.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/docusaurus-favicon.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/docusaurus-favicon.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/docusaurus-favicon.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/docusaurus-favicon.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/ko/blog/docusaurus-favicon.html">
+    <meta property="og:title" content="Docusaurus favicon 설정 가이드">
+    <meta property="og:description" content="정적 자산 경로와 사이트 설정, 빌드 검증을 사용해 Docusaurus에 favicon을 추가하고 baseUrl과 캐시 문제도 해결하세요.">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Docusaurus favicon 설정 가이드">
+    <meta name="twitter:description" content="정적 자산 경로와 사이트 설정, 빌드 검증을 사용해 Docusaurus에 favicon을 추가하고 baseUrl과 캐시 문제도 해결하세요.">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Docusaurus favicon 설정 가이드",
+  "description": "정적 자산 경로와 사이트 설정, 빌드 검증을 사용해 Docusaurus에 favicon을 추가하고 baseUrl과 캐시 문제도 해결하세요.",
+  "datePublished": "2026-11-01",
+  "dateModified": "2026-11-01",
+  "author": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "mainEntityOfPage": "https://favicondl.com/ko/blog/docusaurus-favicon.html",
+  "inLanguage": "ko"
+}</script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/ko/" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/ko/documentation.html" class="nav-link">문서</a>
+                <a href="/ko/tools.html" class="nav-link">도구</a>
+                <a href="/ko/blog/" class="nav-link">블로그</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/docusaurus-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/docusaurus-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/docusaurus-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/docusaurus-favicon.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/docusaurus-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/ko/" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/ko/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600">Docusaurus favicon 설정 가이드</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">frameworks</span><time class="text-sm text-gray-400">2026-11-01</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">Docusaurus favicon 설정 가이드</h1>
+        </header>
+
+        <div class="article-body"><p>favicon을 교체한 뒤에도 Docusaurus의 기본 아이콘이 계속 표시된다면, 파일이 잘못된 폴더에 있거나 설정이 해당 파일을 가리키지 않을 수 있습니다. favicon을 <code>static/</code>에 놓고 설정 값 하나만 지정한 다음 빌드 결과를 확인하면 됩니다.</p>
+<h2>사전 준비</h2>
+<p>다음이 필요합니다.</p>
+<ul>
+<li>16×16 픽셀에서도 표식이 식별 가능한 PNG 또는 SVG</li>
+<li>프로젝트 의존성을 설치하고, 저장소 루트에서 터미널을 열어 둔 상태</li>
+</ul>
+<h2>Docusaurus favicon 추가하기: 5단계</h2>
+<ol>
+<li>
+<strong>적합한 파일을 생성합니다.</strong> 정사각형 PNG 또는 SVG를 ICO로 변환하는 데 <a href="/ko/">Mzu favicondl</a>을 사용한 다음 SVG 또는 PNG를 다운로드하세요. 원본 artwork는 단순하게 유지하세요. 전체 wordmark는 탭에서 읽기 어려워집니다.
+</li>
+<li>
+<strong><code>static/</code> 디렉터리를 사용합니다.</strong> Docusaurus는 내부 경로를 변경하지 않고 <code>static/</code> 디렉터리를 빌드 출력으로 복사합니다. 기본 아이콘을 교체하거나, 다음과 같이 파일을 배치하세요.
+<pre><code>static/
+└── img/
+    ├── favicon.ico
+    ├── favicon.svg
+    └── favicon-32.png</code></pre>
+</li>
+<li>
+<strong>Docusaurus 내장 설정 옵션을 지정합니다.</strong> <code>docusaurus.config.ts</code>의 기존 객체에 다음 구문을 유지하거나 추가하세요.
+<pre><code>const config: Config = {
+  // ...other options
+  favicon: 'img/favicon.ico',
+};</code></pre>
+<p><code>static/</code> 기준의 상대 경로를 사용하고, 맨 앞에 slash를 붙이지 마세요. 내장 옵션이 아이콘 링크를 추가하고 <code>baseUrl</code>을 적용하므로 도메인 루트나 하위 경로 모두에서 설정이 작동합니다.</p>
+</li>
+<li>
+<strong>크기에 따라 확대되는 아이콘이 필요하면 SVG를 추가합니다.</strong> ICO fallback을 그대로 유지하면서 동일한 config 객체에 다음 속성을 추가하세요.
+<pre><code>headTags: [
+  {
+    tagName: 'link',
+    attributes: {
+      rel: 'icon',
+      type: 'image/svg+xml',
+      href: '/img/favicon.svg',
+    },
+  },
+],</code></pre>
+<p>이 태그는 HTML의 <a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon"><code>rel='icon'</code> link relationship</a>를 따릅니다. <code>headTags</code>는 literal로 처리되므로 base path를 포함해야 합니다. <code>baseUrl: '/docs/'</code>인 경우 <code>/docs/img/favicon.svg</code>를 사용하세요.</p>
+</li>
+<li>
+<strong>빌드하고 실제 output을 확인합니다.</strong> 다음 명령을 실행하세요.
+<pre><code>npm run build
+npm run serve</code></pre>
+<p>렌더링된 <code>&lt;head&gt;</code>를 확인하세요. 다음과 같은 icon link가 포함되어야 합니다.</p>
+<pre><code>&lt;link rel='icon' href='/img/favicon.ico'&gt;</code></pre>
+<p><code>build/img/favicon.ico</code>가 존재하는지 확인하고, Network panel이 HTML이 아닌 image을 반환하는지 확인하세요. <code>baseUrl</code>을 사용하는 경우 prefix가 적용된 URL도 확인하세요. 전체 <code>build/</code> 디렉터리를 배포하세요.</p>
+</li>
+</ol><h2>흔히 빠지기 쉬운 함정</h2>
+<ul>
+<li><strong><code>src/img</code>에 파일 넣기:</strong> import된 asset은 app에서 bundling되지만, 자동으로 <code>/img/</code>에 게시되지는 않습니다. 이 설정에서는 <code>static/</code>를 사용하세요.</li>
+<li><strong><code>baseUrl</code> 무시하기:</strong> config option이 이를 처리하지만, <code>headTags</code>에 직접 입력한 icon URL은 처리하지 않습니다.</li>
+<li><strong>캐시된 탭 확인하기:</strong> 사이트를 private window에서 열거나 강제로 reload하세요. 응답이 올바른데도 탭에 이전 상태가 남아 있다면 <a href="/ko/blog/favicon-not-showing.html">favicon troubleshooting checklist</a>를 사용하세요.</li>
+<li><strong>서로 겹치는 icon link:</strong> 생성된 head에서 theme 또는 plugin이 추가한 tag를 확인하세요. 의도한 SVG 하나와 ICO fallback 하나만 유지하고, 실수로 중복된 항목은 제거하세요.</li>
+<li><strong>더 넓은 범위의 workflow 비교하기:</strong> 공통 원칙은 <a href="/ko/blog/static-site-generator-favicon.html">static-site-generator favicon guide</a>와 비교해 확인하세요. Docusaurus에만 해당하는 부분은 <code>favicon</code> option과 <code>static/</code> output입니다.</li>
+</ul>
+<h2>결론</h2>
+<p>Docusaurus favicon에는 page-level component나 plugin이 필요하지 않습니다. 적절한 파일을 생성해 <code>static/img/</code>에 보관하고, <code>favicon</code>이 ICO 파일을 가리키도록 설정하세요. 배포할 때마다 또는 base-path를 변경할 때마다 빌드 결과의 head를 확인하세요.</p></div>
+
+        <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
+
+        <div class="cta-box">
+            <h3>Docusaurus용 아이콘 세트를 준비하세요</h3>
+            <p>Mzu favicondl로 정사각형 로고를 ICO, PNG, SVG 파일로 변환한 뒤 Docusaurus 정적 폴더에 추가하세요.</p>
+            <a href="/ko/" class="cta-btn">무료로 사용해보기 →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/ko/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">홈</a>
+                <a href="/ko/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">블로그</a>
+                <a href="/ko/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">개인정보</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js?v=20260211"></script>
+
+</body></html>

@@ -4084,5 +4084,25 @@
     ],
     "qualityScore": 100,
     "qualityGrade": "A"
+  },
+  {
+    "slug": "docusaurus-favicon",
+    "publishDate": "2026-11-01",
+    "titleEn": "Docusaurus Favicon Setup: A Practical Step-by-Step Guide",
+    "titleZh": "Docusaurus Favicon 设置指南",
+    "titleJa": "Docusaurus favicon 設定ガイド",
+    "titleKo": "Docusaurus favicon 설정 가이드",
+    "titleEs": "Guía para configurar un favicon en Docusaurus",
+    "descEn": "Add a Docusaurus favicon with the correct static path, config setting, ICO or PNG files, and base URL checks for a clean browser tab on every deployed route.",
+    "descZh": "通过静态资源目录、站点配置和构建验证，为 Docusaurus 添加 favicon，并正确处理 baseUrl 与缓存问题。",
+    "descJa": "静的アセット、設定ファイル、ビルド確認を使って Docusaurus に favicon を追加し、baseUrl とキャッシュの問題も回避します。",
+    "descKo": "정적 자산 경로와 사이트 설정, 빌드 검증을 사용해 Docusaurus에 favicon을 추가하고 baseUrl과 캐시 문제도 해결하세요.",
+    "descEs": "Añade un favicon a Docusaurus con la ruta de recursos estáticos, la configuración y la verificación de compilación.",
+    "keyword": "docusaurus favicon",
+    "tags": [
+      "frameworks"
+    ],
+    "qualityScore": 85,
+    "qualityGrade": "A"
   }
 ]
