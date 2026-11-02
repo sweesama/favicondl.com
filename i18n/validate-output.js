@@ -107,11 +107,18 @@ for (const article of articles) {
       const robots = $('meta[name="robots"]').attr('content') || '';
       if (!robots.includes('noindex')) fail(`${relativeFile}: damaged article must remain noindex`);
     } else if (lang === 'en') {
-      if (bodyCount !== 1 || templateCount !== 4) {
-        fail(`${relativeFile}: English source must have 1 visible body and 4 translation templates`);
+      // favicon-sizes-guide keeps translations on the localized URLs. Embedding
+      // them in the English article duplicates that content for crawlers.
+      const expectedTemplates = article.slug === 'favicon-sizes-guide' ? 0 : 4;
+      if (bodyCount !== 1 || templateCount !== expectedTemplates) {
+        fail(`${relativeFile}: English source must have 1 visible body and ${expectedTemplates} translation templates`);
       }
     } else if (bodyCount !== 1 || templateCount !== 0) {
       fail(`${relativeFile}: localized page must contain exactly 1 body and no translation templates`);
+    }
+
+    if (article.slug === 'favicon-sizes-guide' && lang !== 'en' && /48\s*的倍数|48の倍数|48의 배수|múltiplos de 48/.test(rawHtml)) {
+      fail(`${relativeFile}: still states the retired "multiple of 48" favicon rule`);
     }
 
     const visibleBody = $('.article-body').first();

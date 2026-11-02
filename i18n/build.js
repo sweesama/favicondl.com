@@ -167,6 +167,11 @@ function pageToPath(page) {
   return '/' + page;
 }
 
+// The English size guide must not embed zh/ja/ko/es bodies. Those translations
+// live on their own URLs. A rebuild reads the localized article body from disk
+// and never writes it back into the English file.
+const DETACHED_TRANSLATION_PAGES = new Set(['blog/favicon-sizes-guide.html']);
+
 // Spanish size queries consolidate on /es/tamanos-de-favicon.html.
 // The blog translation stays on disk and 301s, so hreflang and the language
 // switcher must name the canonical URL, not the blog translation.
@@ -251,21 +256,34 @@ function updateArticleJsonLd($, article, lang, pagePath) {
   }
 }
 
-function findArticleBodyHtml($, lang) {
+function readDetachedLocaleBody(page, lang) {
+  const file = path.join(ROOT, lang, page);
+  if (!fs.existsSync(file)) return '';
+  const $ = load(fs.readFileSync(file, 'utf-8'), { decodeEntities: false });
+  const body = $('.article-body').first();
+  return body.length ? (body.html() || '') : '';
+}
+
+function findArticleBodyHtml($, lang, page = '') {
+  if (lang !== 'en' && DETACHED_TRANSLATION_PAGES.has(page)) {
+    const detached = readDetachedLocaleBody(page, lang);
+    if (detached.replace(/\s+/g, ' ').trim().length >= 200) return detached;
+  }
+
   const direct = $(`.article-body[data-lang="${lang}"]`).first();
   if (direct.length) return direct.html() || '';
 
   const template = $(`template[data-article-lang="${lang}"]`).first();
   if (template.length) return template.html() || '';
 
-  if (lang !== 'en') return findArticleBodyHtml($, 'en');
+  if (lang !== 'en') return findArticleBodyHtml($, 'en', page);
   return '';
 }
 
 function localizeArticlePage($, article, lang, page) {
   if (!article) return;
 
-  const selectedBody = findArticleBodyHtml($, lang);
+  const selectedBody = findArticleBodyHtml($, lang, page);
   const anchor = $('.article-body').first();
   if (anchor.length) {
     anchor.before(`<div class="article-body">${selectedBody}</div>`);
@@ -281,7 +299,15 @@ function localizeArticlePage($, article, lang, page) {
   updateArticleJsonLd($, article, lang, pageToPath(page));
 }
 
-function storeTranslationsAsTemplates($) {
+function storeTranslationsAsTemplates($, page = '') {
+  if (DETACHED_TRANSLATION_PAGES.has(page)) {
+    $('template[data-article-lang]').remove();
+    $('.article-body[data-lang]').each(function () {
+      if ($(this).attr('data-lang') !== 'en') $(this).remove();
+    });
+    return;
+  }
+
   const englishBody = $('.article-body[data-lang="en"]').first();
   if (!englishBody.length) return;
 
@@ -644,7 +670,7 @@ function patchEnglishPage(html, page) {
 
   // 英文源页保留英文正文；其他语言译文放入 template，供后续构建使用但不渲染。
   if (article) {
-    storeTranslationsAsTemplates($);
+    storeTranslationsAsTemplates($, page);
     addContextualToolLink($);
     updateEnglishArticleLabels($, article);
     updateArticleJsonLd($, article, 'en', pageToPath(page));

@@ -97,7 +97,7 @@
         </header>
 
         <div class="article-body">
-            <div class="info-box"><p><strong>Respuesta rápida:</strong> el tamaño estándar del favicon es <strong>32×32 px</strong> para la pestaña del navegador (con 16×16 como respaldo dentro de un <code>favicon.ico</code>). Añade un <strong>apple-touch-icon de 180×180 px</strong> para iPhone/iPad y <strong>iconos de 192×192 y 512×512 px</strong> en el manifest para Android y PWA. Google Search muestra el favicon a partir de un icono cuadrado de al menos 48×48 px.</p></div>
+            <div class="info-box"><p><strong>Respuesta rápida:</strong> el tamaño estándar del favicon es <strong>32×32 px</strong> para la pestaña del navegador (con 16×16 como respaldo dentro de un <code>favicon.ico</code>). Añade un <strong>apple-touch-icon de 180×180 px</strong> para iPhone/iPad y <strong>iconos de 192×192 y 512×512 px</strong> en el manifest para Android y PWA. Google Search pide un icono cuadrado de al menos 8×8 px y recomienda uno mayor de 48×48 px.</p></div>
             <p>Con tantos dispositivos, navegadores y plataformas, las medidas del favicon pueden ser confusas. ¿Necesitas 6 archivos diferentes o basta con uno? Abajo tienes la tabla de tamaños de favicon en píxeles, la configuración mínima y el código HTML para cada caso.</p>
 
             <h2>Tabla de tamaños y medidas del favicon (px)</h2>
@@ -151,7 +151,7 @@
                 <tbody>
                     <tr><td>Pestaña de Chrome/Firefox/Edge</td><td>32×32</td><td>PNG o ICO</td></tr>
                     <tr><td>Pestaña de Safari</td><td>32×32</td><td>PNG o ICO</td></tr>
-                    <tr><td>Resultados de búsqueda de Google</td><td>≥48×48 (múltiplos de 48)</td><td>Cualquiera</td></tr>
+                    <tr><td>Resultados de búsqueda de Google</td><td>Cuadrado, mínimo 8×8, se recomienda mayor de 48×48</td><td>ICO, PNG, GIF, JPEG, BMP, TIFF o PPM</td></tr>
                     <tr><td>Pantalla de inicio de iPhone/iPad</td><td>180×180</td><td>PNG</td></tr>
                     <tr><td>Pantalla de inicio de Android</td><td>192×192</td><td>PNG</td></tr>
                     <tr><td>Barra de tareas de Windows</td><td>32×32</td><td>ICO</td></tr>
@@ -163,7 +163,7 @@
             <h3>¿Cuál es el tamaño ideal de un favicon?</h3>
             <p>32×32 px para las pestañas del navegador. Si solo puedes subir una imagen (por ejemplo en WordPress o Shopify), usa un PNG cuadrado de 512×512 px y deja que la plataforma genere los tamaños pequeños.</p>
             <h3>¿Qué medidas debe tener el favicon para Google?</h3>
-            <p>Google pide un icono cuadrado de al menos 48×48 px (o múltiplos: 96×96, 144×144…). Un favicon de 16×16 es demasiado pequeño para los resultados de búsqueda.</p>
+            <p>Google Search exige un icono cuadrado de al menos 8×8 px y recomienda uno mayor de 48×48 px. Admite ICO, PNG, GIF, JPEG, BMP, TIFF y PPM. El SVG no está en esa lista. Un archivo de solo 16×16 cumple el mínimo, pero queda por debajo de la recomendación.</p>
             <h3>¿Cuánto debe pesar un favicon?</h3>
             <p>Lo ideal es menos de 10 KB para el <code>favicon.ico</code> y menos de 50 KB para el icono de 512×512. Un SVG sencillo suele pesar 1–2 KB.</p>
             <h3>¿Un favicon puede ser rectangular?</h3>
