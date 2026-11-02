@@ -50,6 +50,9 @@ async function main() {
   const needTranslation = [];
 
   for (const file of htmlFiles) {
+    // Translations for this guide live on the localized URLs, not in the
+    // English file. Re-inserting them would duplicate that content again.
+    if (file === 'favicon-sizes-guide.html') continue;
     const content = fs.readFileSync(path.join(BLOG_DIR, file), 'utf-8');
     // 同时兼容旧正文块与新构建流程使用的非渲染 template。
     if (content.includes('data-lang="ja"') || content.includes('data-article-lang="ja"')) {
