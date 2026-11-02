@@ -1,0 +1,182 @@
+<!DOCTYPE html><html lang="ja"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask favicon 設定：開発者向けステップガイド</title>
+    <meta name="description" content="Flask アプリへの favicon 追加方法を、静的ファイル、Jinja テンプレートのリンク、キャッシュ対策、表示エラーの確認まで解説します。">
+    <meta name="keywords" content="flask favicon, flask static files, jinja favicon, favicon setup">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/ja/blog/flask-favicon.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/flask-favicon.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/flask-favicon.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/flask-favicon.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/flask-favicon.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/flask-favicon.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/flask-favicon.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/ja/blog/flask-favicon.html">
+    <meta property="og:title" content="Flask favicon 設定：開発者向けステップガイド">
+    <meta property="og:description" content="Flask アプリへの favicon 追加方法を、静的ファイル、Jinja テンプレートのリンク、キャッシュ対策、表示エラーの確認まで解説します。">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Flask favicon 設定：開発者向けステップガイド">
+    <meta name="twitter:description" content="Flask アプリへの favicon 追加方法を、静的ファイル、Jinja テンプレートのリンク、キャッシュ対策、表示エラーの確認まで解説します。">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Flask favicon 設定：開発者向けステップガイド",
+  "description": "Flask アプリへの favicon 追加方法を、静的ファイル、Jinja テンプレートのリンク、キャッシュ対策、表示エラーの確認まで解説します。",
+  "datePublished": "2026-11-02",
+  "dateModified": "2026-11-02",
+  "author": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "mainEntityOfPage": "https://favicondl.com/ja/blog/flask-favicon.html",
+  "inLanguage": "ja"
+}</script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/ja/" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/ja/documentation.html" class="nav-link">ドキュメント</a>
+                <a href="/ja/tools.html" class="nav-link">ツール</a>
+                <a href="/ja/blog/" class="nav-link">ブログ</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/flask-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/flask-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/flask-favicon.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/flask-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/flask-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/ja/" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/ja/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600">Flask favicon 設定：開発者向けステップガイド</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">frameworks</span><time class="text-sm text-gray-400">2026-11-02</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">Flask favicon 設定：開発者向けステップガイド</h1>
+        </header>
+
+        <div class="article-body"><p>Flask のページが正しくレンダリングされても、プロジェクトに favicon link がなければ、ブラウザのタブは空欄のままです。より Peaks な <strong>flask favicon</strong> の設定方法は、icon を Flask の static directory に保存し、共通的に使用する Jinja template から link することです。</p>
+<h2>始める前に必要なものは何ですか？</h2>
+<ul>
+<li><code>templates/base.html</code> を備えた、動作中の Flask project。</li>
+<li><code>favicon.ico</code> という名前の icon file。複数サイズを収録した ICO は、ブラウザでのフォールバックとして実用的です。</li>
+<li>サイト共通の HTML head をレンダリングするファイルへのアクセス権。</li>
+</ul>
+<h2>flask favicon を5ステップで追加する方法</h2>
+<ol>
+<li>
+<h3>1. icon を static directory に配置する</h3>
+<p>次の folder が存在しない場合は作成し、file をこの場所に配置します。</p>
+<pre><code>myapp/
+├── app.py
+├── static/
+│   └── favicon.ico
+└── templates/
+    └── base.html</code></pre>
+<p>PNG のファイル名を <code>favicon.ico</code> に変更しないでください。本物の ICO を使用してください。PNG や SVG を使う link format については、<a href="/ja/blog/how-to-add-favicon-to-website.html">HTML favicon guide</a> を参照してください。</p>
+</li>
+<li>
+<h3>2. base template に link を追加する</h3>
+<p><a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">HTML Standard</a> は、外部の icon resource を参照する <code>rel='icon'</code> link を定義しています。<code>templates/base.html</code> の既存の <code>&lt;head&gt;</code> 内に、次の block を追加してください。</p>
+<pre><code>{% block head %}
+  &lt;link rel='icon' href='{{ url_for('static', filename='favicon.ico') }}'&gt;
+{% endblock %}</code></pre>
+<p>app が URL prefix や独自の static path を使用する場合、<code>url_for</code> を使えば hard-coded な path を避けられます。</p>
+</li>
+<li>
+<h3>3. 各ページに継承させる</h3>
+<p>各ページから base template を継承させます。base template の head block に別の名前 붙いている場合は、以下のコードをその名前に置き換えてください。</p>
+<pre><code>{% extends 'base.html' %}
+{% block head %}
+  {{ super() }}
+{% endblock %}</code></pre>
+<p><code>super()</code> を呼び出すことで favicon を維持しながら、各ページで head content を追加できます。</p>
+</li>
+<li>
+<h3>4. 実行して response を確認する</h3>
+<p>development server を起動し、icon の URL に直接アクセスします。</p>
+<pre><code>flask --app app run --debug
+# Open http://127.0.0.1:5000/static/favicon.ico</code></pre>
+<p>直接リクエストした response は、HTML や 404 ではなく icon を返すはずです。レンダリングされた <code>&lt;head&gt;</code> を inspection し、<code>url_for</code> が生成した <code>rel='icon'</code> link が含まれていることを確認してください。</p>
+</li>
+<li>
+<h3>5. 安定した public URL で deploy する</h3>
+<p>本番環境では、<code>static/favicon.ico</code> を application route ではなく static asset として配信してください。file name は変更しないようにします。古い icon を差し替える場合は <code>favicon-v2.ico</code> を使い、template も更新してください。これにより、キャッシュに残った古いコピーの使用を避けられます。</p>
+</li>
+</ol><h2>よくあるトラブル</h2>
+<ul>
+<li><strong>タブが空白になる:</strong> ファイルは存在しますが、テンプレートから参照されていない、または link が document head の外にあります。</li>
+<li><strong>Network panel に 404 が表示される:</strong> ファイルが誤ったディレクトリにあるか、ハードコードした static URL がデプロイ環境と一致していません。</li>
+<li><strong>古いアイコンが表示され続ける:</strong> ブラウザがキャッシュされたコピーを使用しています。asset 名を変更するか、<a href="/ja/blog/favicon-cache-busting.html">favicon の cache-busting ガイド</a>に従ってください。</li>
+<li><strong>画像が壊れて表示される:</strong> ファイルの指定が誤っているか、server が誤った content type を返しています。</li>
+</ul>
+<h2>Flask の favicon 設定が完了するのはどのような場合ですか？</h2>
+<p>favicon の直接 URL からファイルが返り、すべてのページが <code>rel='icon'</code> 宣言を継承していれば、設定は完了です。元の artwork が必要なら、Flask に追加する前に <a href="/ja/">Mzu favicondl</a> で favicon ファイルを準備できます。</p></div>
+
+        <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
+
+        <div class="cta-box">
+            <h3>Flask 向け favicon を作成</h3>
+            <p>Mzu favicondl でロゴを ICO と PNG ファイルに変換し、上記の手順で Flask プロジェクトに追加できます。</p>
+            <a href="/ja/" class="cta-btn">無料で試す →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/ja/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">ホーム</a>
+                <a href="/ja/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">ブログ</a>
+                <a href="/ja/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">プライバシー</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js?v=20260211"></script>
+
+</body></html>

@@ -4104,5 +4104,25 @@
     ],
     "qualityScore": 85,
     "qualityGrade": "A"
+  },
+  {
+    "slug": "flask-favicon",
+    "publishDate": "2026-11-02",
+    "titleEn": "Flask Favicon Setup: A Step-by-Step Developer Guide",
+    "titleZh": "Flask favicon 设置：开发者分步指南",
+    "titleJa": "Flask favicon 設定：開発者向けステップガイド",
+    "titleKo": "Flask favicon 설정: 개발자 단계별 가이드",
+    "titleEs": "Configuración de favicon en Flask: guía para desarrolladores",
+    "descEn": "Add a flask favicon to your Flask app with static files, template link tags, cache-safe updates, and practical fixes for missing browser icons.",
+    "descZh": "使用静态文件、Jinja 模板链接和缓存安全更新，为 Flask 应用添加 favicon，并排查浏览器图标不显示的问题。",
+    "descJa": "Flask アプリへの favicon 追加方法を、静的ファイル、Jinja テンプレートのリンク、キャッシュ対策、表示エラーの確認まで解説します。",
+    "descKo": "정적 파일과 Jinja 템플릿 링크를 설정하고, favicon 업데이트와 표시 오류를 해결하는 단계별 방법을 소개합니다.",
+    "descEs": "Añade un favicon a Flask con archivos estáticos, enlaces en Jinja, actualizaciones seguras y soluciones para iconos que no aparecen.",
+    "keyword": "flask favicon",
+    "tags": [
+      "frameworks"
+    ],
+    "qualityScore": 100,
+    "qualityGrade": "A"
   }
 ]

@@ -3093,7 +3093,9 @@
     "avoidOverlap": [
       "django-favicon"
     ],
-    "status": "pending"
+    "status": "done",
+    "qualityScore": 100,
+    "qualityGrade": "A"
   },
   {
     "keyword": "express js favicon",
