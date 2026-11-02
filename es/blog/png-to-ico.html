@@ -98,7 +98,27 @@
         </header>
 
         <div class="article-body">
-            <p>El formato ICO ha sido el estándar para favicons desde los primeros días de la web. Aunque los navegadores modernos soportan favicons PNG, el formato ICO sigue siendo esencial para una <strong>compatibilidad máxima</strong>. Aquí te mostramos cómo convertir PNG a ICO utilizando diferentes métodos.</p>
+            <p>Convierte PNG a ICO cuando necesitas un <code>favicon.ico</code> con varias capas, no un PNG renombrado. Un PNG es un solo bitmap. Un ICO es un contenedor: el navegador o Windows elige una capa. Las medidas de cada superficie están en la <a href="/es/tamanos-de-favicon.html">guía de tamaño de favicon</a>.</p>
+
+            <h2>Cómo convertir PNG a ICO</h2>
+            <ol>
+                <li>Parte de un PNG cuadrado. 256×256 basta para un favicon; 512×512 es mejor si también exportas los iconos del manifiesto. Reducir se mantiene nítido. Ampliar un archivo de 16 o 32 px, no.</li>
+                <li>Abre <a href="/es/tools.html">Herramientas</a>. En Imagen a favicon, descargar ICO escribe 16×16, 32×32 y 48×48 en un solo <code>favicon.ico</code>. El ZIP añade los PNG que dejes marcados (16, 32, 180, 192 y 512 por defecto), el manifiesto y el HTML.</li>
+                <li>O usa el conversor de formato de esa misma página: elige ICO y deja marcados 16, 32 y 48. Marca 64, 128 o 256 solo si el archivo es un icono de aplicación de Windows.</li>
+                <li>Publica <code>favicon.ico</code> en la raíz y enlázalo desde la página de inicio.</li>
+            </ol>
+
+            <h2>Qué medidas incluir en el ICO</h2>
+            <p>Para el favicon de una web, el archivo lleva estas tres capas:</p>
+            <ul>
+                <li><strong>16×16</strong> — pestaña en una pantalla normal.</li>
+                <li><strong>32×32</strong> — pestaña en una pantalla de alta densidad.</li>
+                <li><strong>48×48</strong> — acceso directo de Windows.</li>
+                <li><strong>64, 128 y 256</strong> — solo para un icono de aplicación de Windows. Engordan el <code>favicon.ico</code> de un sitio sin mejorar la pestaña.</li>
+            </ul>
+            <p>180×180, 192×192 y 512×512 se quedan como PNG aparte: son el apple-touch-icon y los iconos del manifiesto.</p>
+
+            <p>El formato ICO sigue siendo el respaldo que los navegadores piden en <code>/favicon.ico</code> aunque la página no tenga una etiqueta <code>link</code>.</p>
 
             <h2>Por qué ICO sigue siendo importante en 2026</h2>
             <ul>
@@ -130,21 +150,23 @@
 # Convert PNG to ICO (single size)
 magick convert input.png -resize 32x32 favicon.ico
 
-# Create multi-size ICO (recommended)
+# Favicon.ico: 16, 32 y 48
+magick convert input.png -define icon:auto-resize=16,32,48 favicon.ico
+
+# Opcional: icono de aplicación de Windows, no el favicon de una web
 magick convert input.png -define icon:auto-resize=16,32,48,64,128,256 favicon.ico</code></pre>
-            <p>El enfoque de múltiples tamaños es el mejor: el navegador selecciona automáticamente el tamaño más apropiado.</p>
+            <p>Para un sitio, publica el archivo de tres medidas como <code>/favicon.ico</code>. El de seis medidas es un icono de aplicación de Windows: 256×256 es un icono grande, no un recurso de la pestaña.</p>
 
             <h2>Método 3: Usando FFmpeg</h2>
             <p>Si ya tienes FFmpeg instalado:</p>
             <pre><code>ffmpeg -i input.png -vf scale=32:32 favicon.ico</code></pre>
 
             <h2>Método 4: Script de Python</h2>
-            <p>Usando la librería Pillow:</p>
+            <p>Con la librería Pillow. La lista es el conjunto del favicon. Añade 64, 128 y 256 solo para un icono de aplicación de Windows:</p>
             <pre><code>from PIL import Image
 
 img = Image.open('input.png')
-img.save('favicon.ico', format='ICO',
-         sizes=[(16, 16), (32, 32), (48, 48), (64, 64), (128, 128), (256, 256)])</code></pre>
+img.save('favicon.ico', format='ICO', sizes=[(16, 16), (32, 32), (48, 48)])</code></pre>
 
             <h2>PNG vs ICO: Cuándo usar cada uno</h2>
             <table>
