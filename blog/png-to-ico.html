@@ -2,7 +2,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PNG to ICO Converter – Free, Multi-size .ico Online</title>
-    <meta name="description" content="Convert PNG to ICO online for free. This PNG to ICO converter packs 16, 32, 48, 64, 128 and 256 px into one multi-size .ico.">
+    <meta name="description" content="Convert PNG to ICO for free. A favicon.ico should include 16, 32 and 48 px. Add 64, 128 or 256 only for a Windows application icon. Steps for the browser tool, ImageMagick and Python.">
     <meta name="keywords" content="png to ico, convert png to ico, png to favicon, ico converter, image to ico, favicon converter, free png to ico">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://favicondl.com/blog/png-to-ico.html">
@@ -23,11 +23,11 @@
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://favicondl.com/blog/png-to-ico.html">
     <meta property="og:title" content="PNG to ICO Converter – Free, Multi-size .ico Online">
-    <meta property="og:description" content="Convert PNG to ICO online for free. This PNG to ICO converter packs 16, 32, 48, 64, 128 and 256 px into one multi-size .ico.">
+    <meta property="og:description" content="Convert PNG to ICO for free. A favicon.ico should include 16, 32 and 48 px. Add 64, 128 or 256 only for a Windows application icon. Steps for the browser tool, ImageMagick and Python.">
     <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="PNG to ICO Converter – Free, Multi-size .ico Online">
-    <meta name="twitter:description" content="Convert PNG to ICO online for free. This PNG to ICO converter packs 16, 32, 48, 64, 128 and 256 px into one multi-size .ico.">
+    <meta name="twitter:description" content="Convert PNG to ICO for free. A favicon.ico should include 16, 32 and 48 px. Add 64, 128 or 256 only for a Windows application icon. Steps for the browser tool, ImageMagick and Python.">
     <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
 
     <script src="https://cdn.tailwindcss.com"></script>
@@ -44,9 +44,9 @@
   "@context": "https://schema.org",
   "@type": "Article",
   "headline": "PNG to ICO Converter – Free, Multi-size .ico Online",
-  "description": "Convert PNG to ICO online for free. This PNG to ICO converter packs 16, 32, 48, 64, 128 and 256 px into one multi-size .ico.",
+  "description": "Convert PNG to ICO for free. A favicon.ico should include 16, 32 and 48 px. Add 64, 128 or 256 only for a Windows application icon. Steps for the browser tool, ImageMagick and Python.",
   "datePublished": "2026-02-15",
-  "dateModified": "2026-10-28",
+  "dateModified": "2026-11-02",
   "author": {
     "@type": "Organization",
     "name": "Mzu favicondl"
@@ -68,7 +68,7 @@
       "name": "What sizes should a PNG to ICO file include?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Include 16, 32, 48, 64, 128 and 256 px in one favicon.ico. Tabs use the small sizes; Windows shortcuts and high-DPI screens use 48 px and up. An ICO stores a separate bitmap for each size, which a single PNG cannot do."
+        "text": "For a website favicon.ico, include 16×16, 32×32 and 48×48. The browser or Windows picks one of those layers. Add 64, 128 or 256 only when the file is a Windows application icon; those layers make a site favicon heavier than the tab needs. An ICO stores a separate bitmap for each size, which a single PNG cannot do."
       }
     },
     {
@@ -84,7 +84,7 @@
       "name": "How do I convert PNG to ICO for free?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Upload the PNG with Image to Favicon on the Tools page and download favicon.ico. That ICO contains 16, 32 and 48 px, and the same tool exports larger sizes as PNGs. To pack 64, 128 and 256 into the ICO as well, use the ImageMagick or Python examples on this page."
+        "text": "Open the Tools page, upload a square PNG, and use Download ICO. That file contains 16, 32 and 48 px. The format converter on the same page lets you check those sizes, and also 64, 128 and 256 if you need a Windows application icon. ImageMagick and Python on this page do the same packing from the command line."
       }
     }
   ]
@@ -129,35 +129,46 @@
         </header>
 
         <div class="article-body" data-lang="en">
-            <p>Convert PNG to ICO when you need one multi-size <code>.ico</code> instead of a renamed PNG. This free PNG to ICO converter runs in the browser, and the steps below also cover ImageMagick and Python if you want the same file from the command line.</p>
+            <p>Convert PNG to ICO when you need one multi-size <code>.ico</code> instead of a renamed PNG. A PNG is one bitmap. An ICO is a container, so one <code>favicon.ico</code> can hold several sizes and the browser or Windows picks a layer. This free converter runs in the browser. ImageMagick and Python below write the same kind of file from the command line. Which pixel size belongs on which surface is in the <a href="/blog/favicon-sizes-guide.html">favicon size guide</a>.</p>
 
-            <h2 id="multi-size-ico">Multi-size ICO: 16, 32, 48, 64, 128 and 256</h2>
-            <p>A PNG to ICO conversion is not a rename. A PNG is one bitmap. An ICO is a container, so one <code>favicon.ico</code> can hold several sizes and the browser or Windows picks the sharpest one that fits. Use these six:</p>
-            <ul>
-                <li><strong>16×16</strong> — browser tabs and other tight UI.</li>
-                <li><strong>32×32</strong> — the usual tab and taskbar size on a standard display.</li>
-                <li><strong>48×48</strong> — desktop shortcuts and older Windows tiles.</li>
-                <li><strong>64×64</strong> — high-DPI tabs and some operating-system chrome.</li>
-                <li><strong>128×128</strong> — pinned sites and larger previews.</li>
-                <li><strong>256×256</strong> — Windows large icons and high-DPI shortcuts.</li>
-            </ul>
-            <p>Start from a square PNG of at least 256×256 pixels, or 512×512 if you have it, so every size is scaled down. <a href="/tools.html">Image to Favicon</a> writes 16, 32 and 48 into <code>favicon.ico</code> and saves the larger sizes as PNGs. Method 2 below packs all six sizes into the ICO.</p>
+            <h2 id="how-to-convert-png-to-ico">How to convert PNG to ICO</h2>
+            <ol>
+                <li>Start from a square PNG. 256×256 is enough for a favicon; 512×512 is the better source if you also export the manifest icons. Scaling down stays sharp. Scaling a 16 px or 32 px file up does not.</li>
+                <li>Open <a href="/tools.html">Tools</a>. <strong>Download ICO</strong> on Image to Favicon writes 16×16, 32×32 and 48×48 into one <code>favicon.ico</code>. The ZIP from that tool also includes the selected PNGs (16, 32, 180, 192 and 512 by default), <code>site.webmanifest</code>, and the HTML snippet.</li>
+                <li>Or use the format converter on the same page: choose ICO, leave 16, 32 and 48 checked, and convert. Check 64, 128 or 256 only when the file is a Windows application icon.</li>
+                <li>Put <code>favicon.ico</code> at the site root and point at it from the home page. The link tags are in the <a href="/blog/favicon-sizes-guide.html">favicon size chart</a>.</li>
+            </ol>
+
+            <h2 id="multi-size-ico">Which sizes belong in the ICO</h2>
+            <p>For a website favicon, put these three layers in the file:</p>
+            <div style="overflow-x:auto">
+            <table>
+                <thead><tr><th>Size</th><th>Include in favicon.ico?</th><th>What uses it</th></tr></thead>
+                <tbody>
+                    <tr><td>16×16</td><td>Yes</td><td>Browser tab on a standard display</td></tr>
+                    <tr><td>32×32</td><td>Yes</td><td>Browser tab on a high-DPI display</td></tr>
+                    <tr><td>48×48</td><td>Yes</td><td>Windows desktop shortcut</td></tr>
+                    <tr><td>64×64, 128×128, 256×256</td><td>Only for a Windows application icon</td><td>Large Windows icons. A site favicon does not need them, and they make <code>/favicon.ico</code> heavier</td></tr>
+                </tbody>
+            </table>
+            </div>
+            <p>180×180, 192×192 and 512×512 stay as separate PNGs. They are the apple-touch-icon and the web manifest icons, not extra layers inside the ICO. The full chart is the <a href="/blog/favicon-sizes-guide.html">favicon size guide</a>.</p>
 
             <h2>Why ICO Still Matters in 2026</h2>
             <ul>
                 <li><strong>Universal browser support</strong> — ICO works in every browser, including very old versions of IE.</li>
-                <li><strong>Multi-size container</strong> — A single ICO file can contain multiple image sizes (16×16, 32×32, 48×48, 64×64, 128×128 and 256×256) — the browser picks the best one.</li>
-                <li><strong>Windows integration</strong> — Windows desktop shortcuts and taskbar pins use ICO format.</li>
-                <li><strong>Automatic fallback</strong> — Browsers look for <code>/favicon.ico</code> at the root of every website by default.</li>
+                <li><strong>Multi-size container</strong> — One ICO holds a separate bitmap per size. For a site, that set is 16, 32 and 48. The browser or Windows picks one layer instead of scaling a single PNG.</li>
+                <li><strong>Windows integration</strong> — Windows desktop shortcuts use the ICO format.</li>
+                <li><strong>Automatic fallback</strong> — Browsers request <code>/favicon.ico</code> at the site root even when the page has no <code>&lt;link rel="icon"&gt;</code>.</li>
             </ul>
 
             <h2>Method 1: Online Tool (Easiest)</h2>
-            <p>The simplest way is to use <a href="/tools.html"><strong>Mzu favicondl's Image to Favicon</strong></a> tool:</p>
+            <p>The simplest way is <a href="/tools.html"><strong>Image to Favicon</strong></a>:</p>
             <ol>
                 <li>Go to the <a href="/tools.html">Tools</a> page.</li>
                 <li>Upload your PNG image.</li>
-                <li>The tool generates <strong>all favicon sizes</strong> (ICO, 16×16, 32×32, 180×180, 192×192, 512×512).</li>
-                <li>Download the complete package as a ZIP file.</li>
+                <li><strong>Download ICO</strong> saves <code>favicon.ico</code> with 16, 32 and 48. The ZIP also packs the PNG sizes you leave selected, plus the manifest and HTML.</li>
+                <li>To choose layers yourself, use the format converter on that page. 16, 32 and 48 start checked.</li>
             </ol>
             <div class="info-box">
                 <p><strong>Bonus:</strong> The ZIP also includes the HTML code snippet and a <code>site.webmanifest</code> file — everything you need to add favicons to your site.</p>
@@ -173,21 +184,23 @@
 # Convert PNG to ICO (single size)
 magick convert input.png -resize 32x32 favicon.ico
 
-# Create multi-size ICO (recommended)
+# Favicon.ico: 16, 32 and 48
+magick convert input.png -define icon:auto-resize=16,32,48 favicon.ico
+
+# Optional, for a Windows application icon rather than a site favicon
 magick convert input.png -define icon:auto-resize=16,32,48,64,128,256 favicon.ico</code></pre>
-            <p>The multi-size approach is best — the browser automatically selects the most appropriate size.</p>
+            <p>The three-size file is the one to publish as <code>/favicon.ico</code>. The browser or Windows picks a layer. The six-size command is for a Windows application icon, where 256×256 is a large icon and not a browser-tab asset.</p>
 
             <h2>Method 3: Using FFmpeg</h2>
-            <p>If you already have FFmpeg installed:</p>
+            <p>If you already have FFmpeg installed, this writes a single 32×32 image into the ICO. It does not pack 16 and 48 alongside it, so the browser converter or ImageMagick is the better way to make a multi-size favicon:</p>
             <pre><code>ffmpeg -i input.png -vf scale=32:32 favicon.ico</code></pre>
 
             <h2>Method 4: Python Script</h2>
-            <p>Using the Pillow library:</p>
+            <p>Using the Pillow library. The list below is the favicon set. Add 64, 128 and 256 only for a Windows application icon:</p>
             <pre><code>from PIL import Image
 
 img = Image.open('input.png')
-img.save('favicon.ico', format='ICO',
-         sizes=[(16, 16), (32, 32), (48, 48), (64, 64), (128, 128), (256, 256)])</code></pre>
+img.save('favicon.ico', format='ICO', sizes=[(16, 16), (32, 32), (48, 48)])</code></pre>
 
             <h2>PNG vs ICO: When to Use Each</h2>
             <table>
@@ -224,13 +237,33 @@ img.save('favicon.ico', format='ICO',
 
             <h2 id="png-to-ico-faq">PNG to ICO questions</h2>
             <h3>What sizes should a PNG to ICO file include?</h3>
-            <p>Include 16, 32, 48, 64, 128 and 256 px in one favicon.ico. Tabs use the small sizes; Windows shortcuts and high-DPI screens use 48 px and up. An ICO stores a separate bitmap for each size, which a single PNG cannot do.</p>
+            <p>For a website <code>favicon.ico</code>, include 16×16, 32×32 and 48×48. The browser or Windows picks one of those layers. Add 64, 128 or 256 only when the file is a Windows application icon; those layers make a site favicon heavier than the tab needs. An ICO stores a separate bitmap for each size, which a single PNG cannot do. The rest of the set, including 180, 192 and 512, is in the <a href="/blog/favicon-sizes-guide.html">favicon size guide</a>.</p>
             <h3>Will a small PNG stay sharp at 256 px?</h3>
             <p>No. Start from a square PNG of at least 256×256 px, and 512×512 is safer. Each ICO size should be scaled down from that source. Enlarging a 16 px or 32 px PNG only produces a blurry large icon.</p>
             <h3>How do I convert PNG to ICO for free?</h3>
-            <p>Upload the PNG with <a href="/tools.html">Image to Favicon</a> and download favicon.ico. That ICO contains 16, 32 and 48 px, and the same tool exports larger sizes as PNGs. To pack 64, 128 and 256 into the ICO as well, use the ImageMagick or Python examples on this page.</p>
-        </div><template data-article-lang="es">
-            <p>El formato ICO ha sido el estándar para favicons desde los primeros días de la web. Aunque los navegadores modernos soportan favicons PNG, el formato ICO sigue siendo esencial para una <strong>compatibilidad máxima</strong>. Aquí te mostramos cómo convertir PNG a ICO utilizando diferentes métodos.</p>
+            <p>Open the <a href="/tools.html">Tools</a> page, upload a square PNG, and use <strong>Download ICO</strong>. That file contains 16, 32 and 48 px. The format converter on the same page lets you check those sizes, and also 64, 128 and 256 if you need a Windows application icon. ImageMagick and Python on this page do the same packing from the command line.</p>
+        </div>        <template data-article-lang="es">
+            <p>Convierte PNG a ICO cuando necesitas un <code>favicon.ico</code> con varias capas, no un PNG renombrado. Un PNG es un solo bitmap. Un ICO es un contenedor: el navegador o Windows elige una capa. Las medidas de cada superficie están en la <a href="/blog/favicon-sizes-guide.html">guía de tamaño de favicon</a>.</p>
+
+            <h2>Cómo convertir PNG a ICO</h2>
+            <ol>
+                <li>Parte de un PNG cuadrado. 256×256 basta para un favicon; 512×512 es mejor si también exportas los iconos del manifiesto. Reducir se mantiene nítido. Ampliar un archivo de 16 o 32 px, no.</li>
+                <li>Abre <a href="/tools.html">Herramientas</a>. En Imagen a favicon, descargar ICO escribe 16×16, 32×32 y 48×48 en un solo <code>favicon.ico</code>. El ZIP añade los PNG que dejes marcados (16, 32, 180, 192 y 512 por defecto), el manifiesto y el HTML.</li>
+                <li>O usa el conversor de formato de esa misma página: elige ICO y deja marcados 16, 32 y 48. Marca 64, 128 o 256 solo si el archivo es un icono de aplicación de Windows.</li>
+                <li>Publica <code>favicon.ico</code> en la raíz y enlázalo desde la página de inicio.</li>
+            </ol>
+
+            <h2>Qué medidas incluir en el ICO</h2>
+            <p>Para el favicon de una web, el archivo lleva estas tres capas:</p>
+            <ul>
+                <li><strong>16×16</strong> — pestaña en una pantalla normal.</li>
+                <li><strong>32×32</strong> — pestaña en una pantalla de alta densidad.</li>
+                <li><strong>48×48</strong> — acceso directo de Windows.</li>
+                <li><strong>64, 128 y 256</strong> — solo para un icono de aplicación de Windows. Engordan el <code>favicon.ico</code> de un sitio sin mejorar la pestaña.</li>
+            </ul>
+            <p>180×180, 192×192 y 512×512 se quedan como PNG aparte: son el apple-touch-icon y los iconos del manifiesto.</p>
+
+            <p>El formato ICO sigue siendo el respaldo que los navegadores piden en <code>/favicon.ico</code> aunque la página no tenga una etiqueta <code>link</code>.</p>
 
             <h2>Por qué ICO sigue siendo importante en 2026</h2>
             <ul>
@@ -262,21 +295,23 @@ img.save('favicon.ico', format='ICO',
 # Convert PNG to ICO (single size)
 magick convert input.png -resize 32x32 favicon.ico
 
-# Create multi-size ICO (recommended)
+# Favicon.ico: 16, 32 y 48
+magick convert input.png -define icon:auto-resize=16,32,48 favicon.ico
+
+# Opcional: icono de aplicación de Windows, no el favicon de una web
 magick convert input.png -define icon:auto-resize=16,32,48,64,128,256 favicon.ico</code></pre>
-            <p>El enfoque de múltiples tamaños es el mejor: el navegador selecciona automáticamente el tamaño más apropiado.</p>
+            <p>Para un sitio, publica el archivo de tres medidas como <code>/favicon.ico</code>. El de seis medidas es un icono de aplicación de Windows: 256×256 es un icono grande, no un recurso de la pestaña.</p>
 
             <h2>Método 3: Usando FFmpeg</h2>
             <p>Si ya tienes FFmpeg instalado:</p>
             <pre><code>ffmpeg -i input.png -vf scale=32:32 favicon.ico</code></pre>
 
             <h2>Método 4: Script de Python</h2>
-            <p>Usando la librería Pillow:</p>
+            <p>Con la librería Pillow. La lista es el conjunto del favicon. Añade 64, 128 y 256 solo para un icono de aplicación de Windows:</p>
             <pre><code>from PIL import Image
 
 img = Image.open('input.png')
-img.save('favicon.ico', format='ICO',
-         sizes=[(16, 16), (32, 32), (48, 48), (64, 64), (128, 128), (256, 256)])</code></pre>
+img.save('favicon.ico', format='ICO', sizes=[(16, 16), (32, 32), (48, 48)])</code></pre>
 
             <h2>PNG vs ICO: Cuándo usar cada uno</h2>
             <table>

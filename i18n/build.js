@@ -176,6 +176,22 @@ const ALT_PATH_OVERRIDES = {
   },
 };
 
+// The Spanish homepage is generated from the English nav, which has no size
+// guide item. Inject the link here so a later i18n build does not drop it.
+function ensureSpanishHomepageSizeLink($, lang, page) {
+  if (lang !== 'es' || page !== 'index.html') return;
+  const href = '/es/tamanos-de-favicon.html';
+  const already = $('nav a.nav-link').filter((_, el) => $(el).attr('href') === href);
+  if (already.length) return;
+  const blog = $('nav a.nav-link').filter((_, el) => {
+    const value = $(el).attr('href') || '';
+    return value === '/es/blog/' || value === '/es/blog';
+  }).first();
+  const link = `<a href="${href}" class="nav-link">Tamaño</a>`;
+  if (blog.length) blog.after(`\n                ${link}`);
+  else $('.lang-dropdown').first().before(`${link}\n                `);
+}
+
 function languagePath(page, lang) {
   const override = ALT_PATH_OVERRIDES[page]?.[lang];
   if (override) return override;
@@ -580,6 +596,7 @@ function buildPage(html, lang, page, translations) {
 
   // 输出页不再携带其他语言的 data-* 文案，减少重复文本与错误抓取。
   stripTranslationAttributes($);
+  ensureSpanishHomepageSizeLink($, lang, page);
 
   // 输出（支持子目录如 blog/index.html）
   const outFile = path.join(ROOT, lang, page);
