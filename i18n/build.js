@@ -297,6 +297,54 @@ function localizeArticlePage($, article, lang, page) {
   $('article nav span.text-gray-600').first().text(title);
 
   updateArticleJsonLd($, article, lang, pageToPath(page));
+  appendArticleFaqJsonLd($, lang);
+}
+
+// Visible <h2 id="faq"> + following h3/p pairs inside an article body become
+// FAQPage JSON-LD on the localized page. English source files stay untouched
+// because patchEnglishPage does not call this.
+function appendArticleFaqJsonLd($, lang) {
+  const scripts = $('script[type="application/ld+json"]').toArray();
+  for (const el of scripts) {
+    try {
+      const parsed = JSON.parse($(el).html());
+      const types = [].concat(parsed['@type'] || []);
+      if (types.includes('FAQPage')) return;
+    } catch {
+      /* ignore unrelated invalid blocks */
+    }
+  }
+
+  const heading = $('.article-body h2#faq').first();
+  if (!heading.length) return;
+  const faq = [];
+  let node = heading.next();
+  while (node && node.length && !node.is('h2')) {
+    if (node.is('h3')) {
+      const question = node.text().replace(/\s+/g, ' ').trim();
+      const answerEl = node.next();
+      if (answerEl.is('p')) {
+        const answer = answerEl.text().replace(/\s+/g, ' ').trim();
+        if (question && answer) {
+          faq.push({
+            '@type': 'Question',
+            name: question,
+            acceptedAnswer: { '@type': 'Answer', text: answer },
+          });
+        }
+      }
+    }
+    node = node.next();
+  }
+  if (!faq.length) return;
+
+  const data = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    inLanguage: SCHEMA_LANG[lang] || lang,
+    mainEntity: faq,
+  };
+  $('head').append(`\n    <script type="application/ld+json">${JSON.stringify(data, null, 2)}</script>`);
 }
 
 function storeTranslationsAsTemplates($, page = '') {

@@ -1,9 +1,9 @@
 <!DOCTYPE html><html lang="ja"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>モノクロFaviconデザインガイド：単色アイコンを極める</title>
-    <meta name="description" content="完璧なモノクロFaviconの設計と実装方法を解説。単色SVGアイコン、ダークモード対応、鮮明なブラウザタブを実現するための開発者向けガイド。">
-    <meta name="keywords" content="favicon monochrome design, single color favicon, dark mode icon, svg favicon">
+    <title>単色アイコンとは？作り方とファビコンでの使い方</title>
+    <meta name="description" content="単色アイコンとは、1色のシルエットで表すアイコンです。Safariのmask-iconは新しいSafariではレガシーです。マニフェストの purpose: monochrome と、透明背景の単色SVGの作り方を説明します。">
+    <meta name="keywords" content="単色アイコン, favicon monochrome design, single color favicon, dark mode icon, svg favicon">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://favicondl.com/ja/blog/favicon-monochrome-design.html">
     <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/favicon-monochrome-design.html">
@@ -22,12 +22,12 @@
 
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://favicondl.com/ja/blog/favicon-monochrome-design.html">
-    <meta property="og:title" content="モノクロFaviconデザインガイド：単色アイコンを極める">
-    <meta property="og:description" content="完璧なモノクロFaviconの設計と実装方法を解説。単色SVGアイコン、ダークモード対応、鮮明なブラウザタブを実現するための開発者向けガイド。">
+    <meta property="og:title" content="単色アイコンとは？作り方とファビコンでの使い方">
+    <meta property="og:description" content="単色アイコンとは、1色のシルエットで表すアイコンです。Safariのmask-iconは新しいSafariではレガシーです。マニフェストの purpose: monochrome と、透明背景の単色SVGの作り方を説明します。">
     <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="モノクロFaviconデザインガイド：単色アイコンを極める">
-    <meta name="twitter:description" content="完璧なモノクロFaviconの設計と実装方法を解説。単色SVGアイコン、ダークモード対応、鮮明なブラウザタブを実現するための開発者向けガイド。">
+    <meta name="twitter:title" content="単色アイコンとは？作り方とファビコンでの使い方">
+    <meta name="twitter:description" content="単色アイコンとは、1色のシルエットで表すアイコンです。Safariのmask-iconは新しいSafariではレガシーです。マニフェストの purpose: monochrome と、透明背景の単色SVGの作り方を説明します。">
     <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
 
     <script src="https://cdn.tailwindcss.com"></script>
@@ -45,8 +45,8 @@
     <script type="application/ld+json">{
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "モノクロFaviconデザインガイド：単色アイコンを極める",
-  "description": "完璧なモノクロFaviconの設計と実装方法を解説。単色SVGアイコン、ダークモード対応、鮮明なブラウザタブを実現するための開発者向けガイド。",
+  "headline": "単色アイコンとは？作り方とファビコンでの使い方",
+  "description": "単色アイコンとは、1色のシルエットで表すアイコンです。Safariのmask-iconは新しいSafariではレガシーです。マニフェストの purpose: monochrome と、透明背景の単色SVGの作り方を説明します。",
   "datePublished": "2026-06-25",
   "dateModified": "2026-06-25",
   "author": {
@@ -61,6 +61,38 @@
   },
   "mainEntityOfPage": "https://favicondl.com/ja/blog/favicon-monochrome-design.html",
   "inLanguage": "ja"
+}</script>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "inLanguage": "ja",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "単色アイコンとは何ですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "形を1色のシルエットで表すアイコンです。タブ用の単色SVG、Safariのmask-icon、マニフェストの purpose \"monochrome\" は、見た目が似ていても色の決め方が違います。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Safariのmask-iconは今も必要ですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "新しいSafariでは必須ではありません。mask-iconはピン留めタブ用の古い仕組みで、Appleの案内はアーカイブにあります。通常のファビコンがあれば、現行のタブ表示には足ります。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "単色アイコンはどうやって作りますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "背景を透明にし、単純な形を1色で描きます。タブ用SVGは fill を1色にします。mask-iconの図形は100%黒のSVGです。マニフェストでは黒く不透明な形と透明な背景にし、purpose を \"monochrome\" と書きます。細い線は16pxで潰れやすいので避けます。"
+      }
+    }
+  ]
 }</script>
 </head>
 <body>
@@ -92,16 +124,21 @@
         <nav class="text-sm text-gray-400 mb-8">
             <a href="/ja/" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
             <a href="/ja/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
-            <span class="text-gray-600">モノクロFaviconデザインガイド：単色アイコンを極める</span>
+            <span class="text-gray-600">単色アイコンとは？作り方とファビコンでの使い方</span>
         </nav>
 
         <header class="mb-10">
             <div class="flex items-center gap-3 mb-4"><span class="tag">design</span><time class="text-sm text-gray-400">2026-06-25</time></div>
-            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">モノクロFaviconデザインガイド：単色アイコンを極める</h1>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">単色アイコンとは？作り方とファビコンでの使い方</h1>
         </header>
 
         <div class="article-body">
-            <p>OSをダークモードに切り替えたとき、ブラウザのタブからお気に入りのサイトのロゴが完全に消えてしまった経験はありませんか？これは典型的なFaviconの失敗例です。多くの開発者が、美しい多色ブランドロゴをアップロードし、ライトテーマでテストしただけで満足してしまっています。</p><p>多色ロゴは、レターヘッドやヒーローセクションでは見栄えがします。しかし、混雑したブラウザインターフェースの16x16ピクセルに縮小すると、多くの場合、濁って判読できない塊になってしまいます。だからこそ、トップクラスのエンジニアリングチームは積極的に単色（モノクロ）アイコンへと移行しているのです。</p><p>適切なモノクロFaviconデザインガイドとは、既存のPNGにグレースケールフィルターをかけることではありません。ブランドを絶対的なコアのシルエットまで削ぎ落とすことが求められます。極端な視覚的制約の中でデザインするということです。</p><h2>2026年に単色アイコンが勝つ理由</h2><p>GitHubを見てみましょう。彼らのOctocatロゴは非常に詳細ですが、Faviconは純粋な単色のシルエットです。OSをダークモードに切り替えると、アイコンは黒から白へ完璧に反転します。厄介な背景の四角形も、失われる詳細も、コントラストの問題もありません。</p><p>モノクロデザインは明確さを強制します。使える色が1つしかない場合、形状を定義するために陰影やグラデーションに頼ることはできません。完全に幾何学とネガティブスペース（余白）に頼る必要があります。これにより、ユーザーが40個のタブを開いてFaviconが小さな四角に縮小されても、即座に認識できるようになります。</p><p>さらに、OSやブラウザはユーザーの好みに応じてタブに色を付ける傾向が強まっています。フルカラーのロゴは、これらのカスタムテーマと衝突することがよくあります。モノクロアイコン、特にSVGとして実装された場合は、その環境に完璧に適応します。</p><h2>モノクロFaviconデザインのコア原則</h2><h3>詳細よりシルエット</h3><p>アイコンは、単一の形状として認識できる必要があります。ロゴが重なり合う色に依存している場合は、特定のモノクロバリアントを描画する必要があります。テキストを削除し、細部を削除し、最も重く、最も認識しやすい形状に焦点を当てます。形状の簡略化についてサポートが必要な場合は、先に進む前に<a href="/ja/blog/favicon-design-tips.html">一般的なFaviconデザインのヒント</a>を確認してください。</p><h3>ネガティブスペースの習得</h3><p>色が1つしかないため、透明度が2番目の色になります。内部の形状を定義するには、太く意図的な切り抜きを使用します。細い線は、低解像度の画面ではアンチエイリアスがかかり灰色の塊になります。ベタ塗りの形状の中に線がある場合は、縮小プロセスに耐えられるよう、少なくとも2ピクセルの幅を持たせてください。</p><h3>厳密なピクセルグリッドの配置</h3><p>単色で作業する場合、エッジのぼやけは非常に目立ちます。ベクターポイントを16x16または32x32ピクセルのグリッドにスナップする必要があります。2つのピクセルの間にある垂直の直線は、鋭い黒線ではなく、ぼやけた灰色の線としてレンダリングされます。ここでは精度が絶対に必要です。</p><h2>技術的実装：SVGアプローチ</h2><p>2026年におけるモノクロデザインの真の力は、動的に制御できることです。複数の静止画像を提供する代わりに、CSSメディアクエリを含む単一のSVGファイルを使用します。これにより、アイコンはユーザーのシステムテーマに即座に反応します。</p><p>レスポンシブなモノクロSVG Faviconの構成は次のとおりです。</p><pre><code>&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'&gt;
+            <p>単色アイコンとは、形を1色のシルエットで表すアイコンです。写真や多色ロゴを小さく縮めたものではなく、塗られていない部分は透明です。ブラウザのタブ、Safariの古いピン留めタブ、Androidのテーマアイコンでは、この「1色の形」が別々の仕組みで使われます。</p><p>多色のロゴは、印刷物やページの見出しでは見栄えがします。16×16ピクセルのタブに縮小すると、輪郭が潰れて読めなくなることがあります。色を1つに限ると、形だけで見分けがつくかを先に確認できます。</p><h2>単色アイコンとは</h2><p>見た目が1色でも、色を決める場所は仕組みごとに違います。次の3つは別物です。同じファイルを使い回さないでください。</p><h3>Safariの mask-icon（ピン留めタブ）</h3><p>ピン留めタブ用の単色アイコンは、通常のファビコンとは別のSVGです。Appleの<a href="https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariWebContent/pinnedTabs/pinnedTabs.html" rel="noopener" target="_blank">ピン留めタブの文書</a>はアーカイブにあり、最終更新は2016年です。そこでは、背景を透明にし、図形は100%の黒、SVGは1レイヤー、<code>viewBox</code>は<code>"0 0 16 16"</code>と定めています。SafariはSVGの中に書いた色を使わず、<code>&lt;link&gt;</code>の<code>color</code>属性の1色でその形を塗ります。</p><pre><code>&lt;link rel="mask-icon" href="/safari-pinned-tab.svg" color="#1d4ed8"&gt;</code></pre><p><code>color</code>には16進数、<code>rgb()</code>、または<code>red</code>のような色名を書けます。白、明るい黄、薄いグレーは見えにくい、とAppleは注意しています。</p><p>この仕組みは新しいSafariではレガシーです。Safari 12以降、タブには通常のファビコンを出せます。ピン留めタブ専用の mask-icon は、現行のSafariで必須ではありません。文書がアーカイブに残っているからといって、今も別ファイルを置かなければならないわけではありません。<code>mask-icon</code>を残すと、まだこの指定を読む版では通常のファビコンよりこちらが使われることがあります。新しく作るサイトでは、通常のファビコンを優先してください。手順の詳細は<a href="/ja/blog/safari-pinned-tab-icon.html">Safariピン留めタブアイコン</a>にあります。</p><h3>Androidのテーマアイコンと purpose: "monochrome"</h3><p>W3CのWeb Application Manifestでは、アイコンの<code>purpose</code>に<code>monochrome</code>を書けます。これは<code>maskable</code>とは別の値です。<code>maskable</code>は、円や角丸に切り取られてもロゴが残るセーフゾーン用です。<code>monochrome</code>は、バッジやピン留め、システムのテーマ色で塗る単色アイコン向けのヒントです。</p><p>Android 13以降のテーマアイコンは、透明なシルエットをシステムが選んだ1色で塗る表示です。<code>purpose</code>に<code>monochrome</code>と書くのは、そのためのヒントです。<a href="https://www.w3.org/TR/appmanifest/#purpose-member" rel="noopener" target="_blank">仕様</a>では、ユーザーエージェントは赤・緑・青をそのまま出してはならず、アルファ（透明度）だけを残して、自分で選んだ1色を塗ります。画素を黒にし、透明部分でシルエットを作る方法が案内されています。余白を足すことや、透明部分の背後に背景色を置くことも許されています。</p><pre><code>{
+  "src": "/icon-monochrome.png",
+  "sizes": "512x512",
+  "type": "image/png",
+  "purpose": "monochrome"
+}</code></pre><p>これはヒントであって、表示の保証ではありません。Chromeがホーム画面に追加したアイコンが、この画像を必ずテーマアイコンとして使うとは限りません。対応はブラウザと、アプリとしてパッケージするかどうかで違います。宣言しただけで、すべての端末のアイコンが単色になるわけではありません。</p><p><code>"purpose": "any maskable"</code>は切り抜き用であり、単色用ではありません。単色が必要なら<code>monochrome</code>を別の画像に書きます。<code>monochrome</code>だけのアイコンは、対応しないユーザーエージェントでは通常の起動アイコンとして使われません。192と512の通常アイコンは<a href="/ja/blog/favicon-sizes-guide.html">ファビコンサイズガイド</a>の表にあります。</p><h3>タブ用の1色SVGファビコン</h3><p>タブ用のSVGは<code>&lt;link rel="icon" type="image/svg+xml" href="/favicon.svg" sizes="any"&gt;</code>です。これはマスクではありません。ブラウザはSVGに書いた<code>fill</code>をそのまま描きます。塗りが1色なら、それが単色のSVGファビコンです。<code>sizes="any"</code>は、決まったピクセル数ではなく拡大縮小できる、というHTMLの印です。</p><p>ダークモードで色を変えるときは、SVGの中の<code>@media (prefers-color-scheme: dark)</code>で、同じ1つの塗りを切り替えます。その色はファイルの作者が決めた値です。Safariの<code>mask-icon</code>の<code>color</code>属性とも、マニフェストの<code>monochrome</code>が選ぶ色とも別です。</p><p>Google検索が受け付ける形式はICO、PNG、GIF、JPEG、BMP、TIFF、PPMです。SVGはこの一覧にありません。検索結果用には正方形のICOかPNGも残します。現行の案内は一辺8px以上で、48pxより大きい画像を推奨しています。「48pxの倍数で、最低48×48」という説明は現行の文書にはありません。</p><h2>単色アイコンの作り方</h2><p>用途でファイルの中身が違います。タブ用SVG、mask-icon、マニフェストの monochrome は、別々に用意します。</p><h3>SVGは1色にする</h3><p>タブ用なら、塗りの色は1色にします。次の例は、明るい画面では濃いグレー、暗い画面では薄いグレーに切り替えるSVGです。<code>#111111</code>と<code>#eeeeee</code>は見やすさのための選択であり、仕様が決めた必須値ではありません。</p><pre><code>&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'&gt;
   &lt;style&gt;
     path { fill: #111111; }
     @media (prefers-color-scheme: dark) {
@@ -109,18 +146,13 @@
     }
   &lt;/style&gt;
   &lt;path d='M50 10 L90 90 L10 90 Z' /&gt;
-&lt;/svg&gt;</code></pre><p>ここで何をしたかに注目してください。純粋な黒（<code>#000000</code>）や純粋な白（<code>#ffffff</code>）は使用していません。純粋な黒はライトグレーのタブでは過度にきつく見え、純粋な白はダークタブでわずかなブルーミング（光の滲み）効果を引き起こす可能性があります。コントラストをわずかに和らげる（<code>#111111</code>と<code>#eeeeee</code>を使用する）ことで、はるかに洗練されたプロフェッショナルな外観になります。</p><h2>レガシーブラウザと特定のOS要件の処理</h2><p>動的SVGは最新の標準ですが、すべてのプラットフォームが完璧に解釈するわけではありません。レガシー環境や特定のOSのUI要素には、依然として堅牢なフォールバックが必要です。</p><p>たとえば、Appleは歴史的に、ピン留めされたタブに対して非常に特殊な単色実装を要求してきました。最新のSafariは標準のSVGをより適切にサポートしていますが、モノクロアイコンがどこでも認識されるようにするには、HTMLを正しく構築する必要があります。その正確な仕様については、<a href="/ja/blog/safari-pinned-tab-icon.html">Safariピン留めタブアイコン</a>のガイドをお読みください。</p><h2>単色アイコンは3つの別々の仕組み</h2><p>「単色アイコン」は形が1色でも、ブラウザの扱い方は3通りあります。見た目が似ていても、色を決める場所が違います。</p><h3>Safariの mask-icon</h3><p>ピン留めタブ用のアイコンは、通常のファビコンとは別のSVGです。Appleの<a href="https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariWebContent/pinnedTabs/pinnedTabs.html" rel="noopener" target="_blank">ピン留めタブの文書</a>では、背景を透明にし、図形は100%の黒、SVGは1レイヤー、<code>viewBox</code>は<code>"0 0 16 16"</code>と定めています。SafariはSVGの中に書いた色を使わず、<code>&lt;link&gt;</code>の<code>color</code>属性の1色でその形を塗ります。</p><pre><code>&lt;link rel="mask-icon" href="/safari-pinned-tab.svg" color="#000000"&gt;</code></pre><p><code>color</code>には<code>#000000</code>のような16進数、<code>rgb()</code>、または<code>red</code>のような色名を書けます。白、明るい黄、薄いグレーは見えにくい、とAppleは注意しています。手順の全体は<a href="/ja/blog/safari-pinned-tab-icon.html">Safariピン留めタブアイコン</a>にあります。</p><h3>マニフェストの purpose "monochrome"</h3><p>W3CのWeb Application Manifestでは、アイコンの<code>purpose</code>に<code>monochrome</code>を指定できます。これは<code>maskable</code>とは別の値です。<code>maskable</code>は、円や角丸に切り取られてもロゴが残るセーフゾーン用です。<code>monochrome</code>は、バッジやピン留めのように単色で塗る場面向けのヒントです。</p><p><a href="https://www.w3.org/TR/appmanifest/#purpose-member" rel="noopener" target="_blank">仕様</a>では、ユーザーエージェントはアイコンの赤・緑・青をそのまま出さず、アルファ（透明度）だけを残して、自分で選んだ1色を塗ります。作り方としては、画素を黒にし、透明部分でシルエットを作る方法が案内されています。余白を足すことや、透明部分の背後に背景色を置くことも許されています。</p><pre><code>{
-  "src": "/icon-monochrome.png",
-  "sizes": "192x192",
-  "type": "image/png",
-  "purpose": "monochrome"
-}</code></pre><p><code>purpose</code>はヒントです。対応しないユーザーエージェントは、この値だけのアイコンを通常の起動アイコンとしては使いません。<code>"purpose": "any maskable"</code>は切り抜き用であり、単色用ではありません。単色が必要なら<code>monochrome</code>を別の画像に書きます。192と512の通常アイコンは<a href="/ja/blog/favicon-sizes-guide.html">ファビコンサイズガイド</a>の表にあります。</p><h3>1色のSVGファビコン</h3><p>タブ用のSVGは<code>&lt;link rel="icon" type="image/svg+xml" href="/favicon.svg" sizes="any"&gt;</code>です。これはマスクではありません。ブラウザはSVGに書いた<code>fill</code>をそのまま描きます。塗りが1色なら、それが単色のSVGファビコンです。<code>sizes="any"</code>は、決まったピクセル数ではなく拡大縮小できる、というHTMLの印です。</p><p>ダークモードで色を変えるときは、SVGの中の<code>@media (prefers-color-scheme: dark)</code>で、同じ1つの塗りを切り替えます。その色はファイルの作者が決めた値です。Safariの<code>mask-icon</code>の<code>color</code>属性とも、マニフェストの<code>monochrome</code>が選ぶ色とも別です。</p><p>Google検索が受け付ける形式はICO、PNG、GIF、JPEG、BMP、TIFF、PPMです。SVGはこの一覧にありません。検索結果用には正方形のICOかPNGも残します。現行の案内は一辺8px以上で、48pxより大きい画像を推奨しています。「48pxの倍数で、最低48×48」という説明は現行の文書にはありません。</p><h3>モノクロチェックリスト</h3><p>新しい単色アイコンをデプロイする前に、このチェックリストを実行してください。</p><ul><li><strong>16pxレンダリングの確認：</strong> 画面上でアイコンが正確に16x16ピクセルになるまでズームアウトします。まだ認識できますか？</li><li><strong>両極端のテスト：</strong> アイコンを純白の背景と純黒の背景に配置します。CSSメディアクエリが正しく機能していることを確認します。</li><li><strong>フォールバックの検証：</strong> SVGスタイルを解析できないブラウザ用に、静的な32x32 PNGフォールバックが生成されていることを確認します。</li></ul><p>複雑な多色ロゴでブラウザのUIと戦うのはやめましょう。ブランドをコアシルエットに削ぎ落とし、レスポンシブSVGとして実装し、Mzu favicondlを使用して必要なフォールバックファイルを生成します。ユーザー（そして混雑したタブバー）はあなたに感謝するはずです。</p>
+&lt;/svg&gt;</code></pre><p>純黒（<code>#000000</code>）は明るいグレーのタブで強く見え、純白（<code>#ffffff</code>）は暗いタブで滲むことがあります。これはタブ用SVGの話です。mask-iconの図形は、Appleの文書どおり100%の黒にします。表示色は<code>color</code>属性で指定します。</p><h3>背景は透明にする</h3><p>色を塗らない部分は透明にします。白や写真の背景を残すと、暗いタブでは白い四角になります。mask-iconも monochrome も、形以外は透明です。</p><h3>形は単純にする</h3><p>重なった色や細かい紋章は、1色にすると塊になります。文字は入れません。一番太いシルエットだけを残します。内部の線は、16pxまで縮めても残る太さ（目安として2px以上）にします。形を削る手順は<a href="/ja/blog/favicon-design-tips.html">一般的なFaviconデザインのヒント</a>も参照してください。</p><h3>コントラストを確認する</h3><p>タブ用SVGは、白背景と黒背景の両方に置いて、形が消えないかを見ます。マニフェストの monochrome は別です。仕様上、赤・緑・青は捨てられ、アルファだけが残ります。不透明なグレーで濃淡を描いても、そのグレーは色として残りません。薄い部分が必要なら、グレーの塗りではなく透明度で抜きます。</p><p>公開中のページが今どのURLを返しているかは、<a href="/ja/">ファビコン取得ツール</a>で確認できます。自分の画像から各サイズのPNGやICOを書き出す場合は、<a href="/ja/tools.html">ツール</a>の画像→ファビコンを使います。単色のSVGそのものを自動で描く機能ではありません。</p><h2>2026年に単色アイコンが勝つ理由</h2><p>GitHubを見てみましょう。彼らのOctocatロゴは非常に詳細ですが、Faviconは純粋な単色のシルエットです。OSをダークモードに切り替えると、アイコンは黒から白へ反転します。背景の四角形に頼らず、失われる細部も少なくなります。</p><p>使える色が1つしかない場合、陰影やグラデーションで形を定義できません。幾何学とネガティブスペース（余白）に頼る必要があります。タブが細くなっても、太い形の方が残りやすい、というのがこの選択の理由です。</p><p>OSやブラウザがタブの色を変えると、フルカラーのロゴは背景とぶつかりやすくなります。タブ用の単色SVGは、作者が決めた1色を暗い画面用に切り替えられます。ただし、その切り替えは mask-icon の<code>color</code>属性や、マニフェストの monochrome が選ぶ色とは別の仕組みです。</p><h2>モノクロFaviconデザインのコア原則</h2><h3>詳細よりシルエット</h3><p>アイコンは、単一の形状として認識できる必要があります。ロゴが重なり合う色に依存している場合は、特定のモノクロバリアントを描く必要があります。テキストを外し、一番太く、一番わかりやすい形に絞ります。</p><h3>ネガティブスペースの習得</h3><p>色が1つしかないため、透明度が2番目の色になります。内部の形は、太く意図的な切り抜きで作ります。細い線は、低解像度ではアンチエイリアスがかかり灰色の塊になります。</p><h3>厳密なピクセルグリッドの配置</h3><p>単色では、にじんだ縁が目立ちます。ベクターの点は16×16または32×32のグリッドに載せます。2つのピクセルの間に置いた直線は、鋭い線ではなく、ぼやけた灰色として描かれることがあります。</p><h2>入れる前の確認</h2><p>新しい単色アイコンを置く前に、この3点を見ます。</p><ul><li><strong>16pxで見る：</strong>画面上で16×16ピクセルになるまで縮小します。まだ形がわかりますか。</li><li><strong>白と黒の両方：</strong>純白と純黒の背景に置きます。タブ用SVGのメディアクエリが、意図した1色に切り替わっているかを確認します。</li><li><strong>PNGの予備：</strong>SVGのスタイルを読まない環境用に、静止した32×32のPNGも残します。検索結果用のICOまたはPNGも別です。</li></ul><h2 id="faq">単色アイコンのよくある質問</h2><h3>単色アイコンとは何ですか？</h3><p>形を1色のシルエットで表すアイコンです。タブ用の単色SVG、Safariのmask-icon、マニフェストの purpose "monochrome" は、見た目が似ていても色の決め方が違います。</p><h3>Safariのmask-iconは今も必要ですか？</h3><p>新しいSafariでは必須ではありません。mask-iconはピン留めタブ用の古い仕組みで、Appleの案内はアーカイブにあります。通常のファビコンがあれば、現行のタブ表示には足ります。</p><h3>単色アイコンはどうやって作りますか？</h3><p>背景を透明にし、単純な形を1色で描きます。タブ用SVGは fill を1色にします。mask-iconの図形は100%黒のSVGです。マニフェストでは黒く不透明な形と透明な背景にし、purpose を "monochrome" と書きます。細い線は16pxで潰れやすいので避けます。</p>
         </div>
 
         <div class="cta-box">
-            <h3>完璧なモノクロFaviconを生成</h3>
-            <p>SVGをアップロードするだけで、Mzu favicondlが100%のブラウザ互換性に必要なPNGとICOフォールバックファイルを生成します。</p>
-            <a href="/ja/" class="cta-btn">無料でFaviconを最適化 →</a>
+            <h3>サイトのファビコンURLを確認する</h3>
+            <p>公開中のページが返しているアイコンのURLは、ホームページのファビコン取得ツールで確認できます。ドメインを貼ると、見つかったアイコンを表示します。</p>
+            <a href="/ja/" class="cta-btn">ファビコンを取得する →</a>
         </div>
     </article>
 
