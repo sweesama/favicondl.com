@@ -139,6 +139,22 @@
     },
     {
       "@type": "Question",
+      "name": "How do I find a website's favicon URL?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Paste the domain into the box at the top of this page and press Download. The finder reads link tags whose rel includes icon (including shortcut icon), apple-touch-icon links, icons in a linked web app manifest, and the paths /favicon.ico and /apple-touch-icon.png. It keeps a URL only when the file is an image. When the icon comes from the site, the Direct URL field is /api/proxy?url= plus that file's URL, and the favicon URL is the url parameter. If the site has no usable image, the finder uses Google's favicon service or DuckDuckGo, which are not files on the site."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if a site has no /favicon.ico?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The finder still requests /favicon.ico and /apple-touch-icon.png, including when the HTML never links them. If those paths are missing or are not images, it uses an icon from a link tag or the web app manifest. When none of those responses are images, it falls back to Google's favicon service and then DuckDuckGo."
+      }
+    },
+    {
+      "@type": "Question",
       "name": "Why do some websites return a generic globe or no favicon?",
       "acceptedAnswer": {
         "@type": "Answer",
@@ -923,7 +939,17 @@
             </div>
 
             <div class="mt-12 text-gray-600 text-sm leading-relaxed" data-i18n-only="en">
-                <h2 class="text-xl font-semibold text-gray-900 mb-4">How to extract a favicon from a website</h2>
+                <h2 id="favicon-url-finder" class="text-xl font-semibold text-gray-900 mb-4">Favicon finder: find any website's favicon URL</h2>
+                <p class="mb-3">Paste a domain or page URL into the box at the top of this page and press Download. The finder calls <code>/api/extract</code>, which loads that site's homepage and collects icon addresses from the places below, plus other icon links on the page such as <code>rel="mask-icon"</code>. An address is kept only when the response is actually an image. A full-color icon is ranked ahead of a monochrome mask.</p>
+                <ul class="list-disc pl-5 space-y-2 mb-3">
+                    <li><code>&lt;link&gt;</code> tags whose <code>rel</code> includes <code>icon</code>, including <code>rel="icon"</code> and <code>rel="shortcut icon"</code>.</li>
+                    <li><code>&lt;link rel="apple-touch-icon"&gt;</code> and <code>rel="apple-touch-icon-precomposed"</code>.</li>
+                    <li>Icons listed in a linked web app manifest (<code>rel="manifest"</code>).</li>
+                    <li><code>/favicon.ico</code> and <code>/apple-touch-icon.png</code> on the site. These paths are checked even when the HTML does not mention them.</li>
+                </ul>
+                <p class="mb-3">When the icon comes from the site, the Direct URL field is <code>/api/proxy?url=</code> followed by that file's URL. The original favicon URL is the <code>url</code> value. Download saves a PNG of the preview. If the site returns no usable image, the finder uses Google's favicon service and then DuckDuckGo. Those results are not files on the site.</p>
+
+                <h2 class="text-xl font-semibold text-gray-900 mt-10 mb-4">How to extract a favicon from a website</h2>
                 <p class="mb-3">To extract a favicon from a website, paste a domain or full URL. The extractor reads the page's <code>&lt;head&gt;</code>, its web app manifest and <code>/favicon.ico</code>, then lists every icon it finds with its real pixel size, format and direct URL. The largest, sharpest version is picked automatically, so you don't end up with a blurry 16×16 file.</p>
                 <p>Unlike a basic favicon grabber that only fetches <code>/favicon.ico</code> or a low-resolution proxy image, favicondl also finds SVG icons, Apple touch icons and 512×512 manifest icons, and can convert them to ICO or PNG. Need many sites at once? Use the <a href="/bulk-favicon-downloader.html" class="text-blue-600 hover:underline">bulk favicon downloader</a> or the <a href="/documentation.html" class="text-blue-600 hover:underline">free favicon API</a>.</p>
 
@@ -1067,6 +1093,14 @@ with open("icon.png", "wb") as f:
                 <div>
                     <h3 class="text-base font-semibold text-gray-900 mb-1">What does a favicon finder do?</h3>
                     <p>A favicon finder takes a website address and returns the icons that site publishes. Paste a domain into the box at the top of this page to see each icon's direct URL, its measured pixel size, and where it was declared (a <code>&lt;link rel="icon"&gt;</code> tag, the web app manifest, or a path such as <code>/favicon.ico</code>). Download saves a PNG; open the direct URL for the original ICO, PNG or SVG. "Favicon grabber", "favicon fetcher" and "favicon extractor" are other names for this same tool.</p>
+                </div>
+                <div>
+                    <h3 class="text-base font-semibold text-gray-900 mb-1">How do I find a website's favicon URL?</h3>
+                    <p>Paste the domain into the box at the top of this page and press Download. The finder reads link tags whose rel includes icon (including shortcut icon), apple-touch-icon links, icons in a linked web app manifest, and the paths /favicon.ico and /apple-touch-icon.png. It keeps a URL only when the file is an image. When the icon comes from the site, the Direct URL field is /api/proxy?url= plus that file's URL, and the favicon URL is the url parameter. If the site has no usable image, the finder uses Google's favicon service or DuckDuckGo, which are not files on the site.</p>
+                </div>
+                <div>
+                    <h3 class="text-base font-semibold text-gray-900 mb-1">What if a site has no /favicon.ico?</h3>
+                    <p>The finder still requests /favicon.ico and /apple-touch-icon.png, including when the HTML never links them. If those paths are missing or are not images, it uses an icon from a link tag or the web app manifest. When none of those responses are images, it falls back to Google's favicon service and then DuckDuckGo.</p>
                 </div>
                 <div>
                     <h3 class="text-base font-semibold text-gray-900 mb-1">Why do some websites return a generic globe or no favicon?</h3>
