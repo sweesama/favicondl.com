@@ -3108,7 +3108,9 @@
     "avoidOverlap": [
       "favicon-404-error"
     ],
-    "status": "pending"
+    "status": "done",
+    "qualityScore": 100,
+    "qualityGrade": "A"
   },
   {
     "keyword": "electron app icon from favicon",
