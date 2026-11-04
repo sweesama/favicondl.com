@@ -385,10 +385,15 @@ function updateEnglishArticleLabels($, article) {
   const titleByLanguage = Object.fromEntries(
     ALL_LANGS.map((lang) => [lang, getArticleText(article, 'title', lang)])
   );
+  // Optional on-page heading. The <title> stays within the ~60 character
+  // SERP limit; h1En can be a fuller sentence without changing JSON-LD.
+  const visibleHeading = article.h1En || titleByLanguage.en;
   const labels = $('article h1, article nav span.text-gray-600');
   labels.each(function () {
-    $(this).text(titleByLanguage.en);
-    for (const lang of ALL_LANGS) $(this).attr(`data-${lang}`, titleByLanguage[lang]);
+    $(this).text(visibleHeading);
+    for (const lang of ALL_LANGS) {
+      $(this).attr(`data-${lang}`, lang === 'en' ? visibleHeading : titleByLanguage[lang]);
+    }
   });
 }
 
