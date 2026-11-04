@@ -190,7 +190,7 @@
       "name": "Which favicon sizes does my own site need?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "For most sites, an SVG or 32×32 PNG for browsers, a 180×180 Apple touch icon and 192×192 plus 512×512 manifest icons cover everything. Our favicon sizes guide explains each one."
+        "text": "For most sites, an SVG or 32×32 PNG for browsers, a 180×180 Apple touch icon and 192×192 plus 512×512 manifest icons cover everything. The favicon sizes and favicon dimensions chart explains each one."
       }
     }
   ]
@@ -549,6 +549,7 @@
             <div class="flex items-center gap-8">
                 <a href="documentation.html" class="nav-link" data-en="Docs" data-zh="文档">Docs</a>
                 <a href="tools.html" class="nav-link" data-en="Tools" data-zh="工具">Tools</a>
+                <a href="/blog/favicon-sizes-guide.html" class="nav-link" data-en="Sizes" data-zh="尺寸" data-ja="サイズ" data-ko="크기" data-es="Tamaño">Sizes</a>
                 <a href="/blog/" class="nav-link" data-en="Blog" data-zh="博客">Blog</a>
                 <div class="lang-dropdown">
                     <button id="lang-toggle" class="lang-btn">
@@ -930,7 +931,7 @@
 
                 <p data-en="Whether you're a web developer building a link preview, a designer collecting brand assets, or just curious about a site's icon, our favicon extractor handles it all. We support sizes from 16×16 to 512×512 pixels, and every download comes with copy-ready HTML snippets and direct URLs for easy integration into your project. Favicons (short for &quot;favorite icons&quot;) are the small icons displayed in browser tabs, bookmarks, and search results. They play a key role in brand recognition and user experience." data-zh="无论你是为链接预览开发功能的工程师、收集品牌素材的设计师，还是只是想查看某个网站图标的用户，我们的 favicon 提取器都能胜任。我们支持从 16×16 到 512×512 的尺寸，并且每次下载都会附带可直接复制的 HTML 代码片段和直链，方便集成到你的项目中。Favicon 是显示在浏览器标签页、书签和搜索结果中的小图标，对于品牌识别和用户体验都非常重要。">Whether you're a web developer building a link preview, a designer collecting brand assets, or just curious about a site's icon, our favicon extractor handles it all. We support sizes from 16×16 to 512×512 pixels, and every download comes with copy-ready HTML snippets and direct URLs for easy integration into your project. Favicons (short for "favorite icons") are the small icons displayed in browser tabs, bookmarks, and search results. They play a key role in brand recognition and user experience.</p>
 
-                <p data-i18n-block="home-sizes-callout">Not sure which sizes to export? Our <a href="/blog/favicon-sizes-guide.html" class="text-blue-600 hover:underline">favicon size chart</a> lists every pixel size by platform.</p>
+                <p data-i18n-block="home-sizes-callout">Looking up favicon size? The <a href="/blog/favicon-sizes-guide.html" class="text-blue-600 hover:underline">favicon sizes and favicon dimensions</a> chart lists every pixel size by platform.</p>
 
                 <p data-i18n-block="home-mdn">Learn more about the favicon standard from the <a href="https://developer.mozilla.org/en-US/docs/Glossary/Favicon" target="_blank" rel="noopener" class="text-blue-600 hover:underline">MDN Web Docs</a>.</p>
 
@@ -960,7 +961,7 @@
                     <li><strong class="text-gray-900">Inspect sizes and link tags.</strong> Every icon is shown with its measured pixel size and where it was declared: a <code>rel="icon"</code> tag, the web app manifest, or a well-known path such as <code>/favicon.ico</code>.</li>
                     <li><strong class="text-gray-900">Download the file.</strong> Download saves a PNG. Open the direct URL when you need the original ICO, PNG or SVG.</li>
                 </ul>
-                <p>Making your own multi-size <code>.ico</code> is a different job. That generator is on the <a href="/tools.html" class="text-blue-600 hover:underline">Tools page</a>, and the pixel sizes are in the <a href="/blog/favicon-sizes-guide.html" class="text-blue-600 hover:underline">favicon sizes guide</a>.</p>
+                <p>Making your own multi-size <code>.ico</code> is a different job. That generator is on the <a href="/tools.html" class="text-blue-600 hover:underline">Tools page</a>, and the pixel sizes are in the <a href="/blog/favicon-sizes-guide.html" class="text-blue-600 hover:underline">favicon sizes and favicon dimensions</a> chart.</p>
 
                 <h2 id="download-favicon-ico" class="text-xl font-semibold text-gray-900 mt-10 mb-4">How to download a site's favicon.ico</h2>
                 <p class="mb-3">Most sites still publish a classic <code>favicon.ico</code> at the domain root, even when the tab icon is a PNG or SVG. To download that file:</p>
@@ -1046,7 +1047,7 @@ with open("icon.png", "wb") as f:
                     </tbody>
                 </table>
             </div>
-            <p class="mt-4">When a site exposes none of these (for example because it blocks automated requests or only loads its icon with JavaScript), we fall back to Google's public favicon service so you still get a usable, if smaller, image. For a deeper look at which size is used where, see our <a href="/blog/favicon-sizes-guide.html" class="text-blue-600 hover:underline">favicon sizes guide</a>.</p>
+            <p class="mt-4">When a site exposes none of these (for example because it blocks automated requests or only loads its icon with JavaScript), we fall back to Google's public favicon service so you still get a usable, if smaller, image. For a deeper look at which size is used where, see the <a href="/blog/favicon-sizes-guide.html" class="text-blue-600 hover:underline">favicon sizes and favicon dimensions</a> chart.</p>
 
             <h2 id="highest-resolution" class="text-2xl font-semibold text-gray-900 mt-14 mb-6">How to get the highest-resolution icon</h2>
             <p class="mb-4">The extractor ranks every icon it finds and returns the sharpest one first. A full-colour SVG wins because it scales without losing detail. After that comes the largest square image by its measured size, which is usually a 512 or 192 px manifest icon or a 180 px Apple touch icon; the classic ICO file usually ends up last because it is often only 16 or 32 pixels wide. Safari's single-colour mask icon is ranked low. The downloader also shows the other sizes it found, so you can pick a different one.</p>
@@ -1120,7 +1121,7 @@ with open("icon.png", "wb") as f:
                 </div>
                 <div>
                     <h3 class="text-base font-semibold text-gray-900 mb-1">Which favicon sizes does my own site need?</h3>
-                    <p>For most sites, an SVG or 32×32 PNG for browsers, a 180×180 Apple touch icon and 192×192 plus 512×512 manifest icons cover everything. Our <a href="/blog/favicon-sizes-guide.html" class="text-blue-600 hover:underline">favicon sizes guide</a> explains each one.</p>
+                    <p>For most sites, an SVG or 32×32 PNG for browsers, a 180×180 Apple touch icon and 192×192 plus 512×512 manifest icons cover everything. The <a href="/blog/favicon-sizes-guide.html" class="text-blue-600 hover:underline">favicon sizes and favicon dimensions</a> chart explains each one.</p>
                 </div>
             </div>
         </div>
