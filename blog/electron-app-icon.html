@@ -1,0 +1,348 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electron App Icon from Favicon: Step-by-Step Setup</title>
+    <meta name="description" content="Turn a website favicon into a native Electron app icon for Windows, macOS, and Linux, then bundle it correctly for the taskbar, dock, and desktop.">
+    <meta name="keywords" content="electron app icon from favicon, favicon to ICO, Electron packaging">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/blog/electron-app-icon.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/electron-app-icon.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/electron-app-icon.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/electron-app-icon.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/electron-app-icon.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/electron-app-icon.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/electron-app-icon.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/blog/electron-app-icon.html">
+    <meta property="og:title" content="Electron App Icon from Favicon: Step-by-Step Setup">
+    <meta property="og:description" content="Turn a website favicon into a native Electron app icon for Windows, macOS, and Linux, then bundle it correctly for the taskbar, dock, and desktop.">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Electron App Icon from Favicon: Step-by-Step Setup">
+    <meta name="twitter:description" content="Turn a website favicon into a native Electron app icon for Windows, macOS, and Linux, then bundle it correctly for the taskbar, dock, and desktop.">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Electron App Icon from Favicon: Step-by-Step Setup",
+  "description": "Turn a website favicon into a native Electron app icon for Windows, macOS, and Linux, then bundle it correctly for the taskbar, dock, and desktop.",
+  "datePublished": "2026-11-04",
+  "dateModified": "2026-11-04",
+  "author": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "mainEntityOfPage": "https://favicondl.com/blog/electron-app-icon.html",
+  "inLanguage": "en"
+}</script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/documentation.html" class="nav-link" data-en="Docs" data-zh="文档">Docs</a>
+                <a href="/tools.html" class="nav-link" data-en="Tools" data-zh="工具">Tools</a>
+                <a href="/blog/" class="nav-link" data-en="Blog" data-zh="博客">Blog</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/electron-app-icon.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/electron-app-icon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/electron-app-icon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/electron-app-icon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/electron-app-icon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600" data-en="Electron App Icon from Favicon: Step-by-Step Setup" data-zh="从 favicon 创建 Electron 应用图标" data-ja="favicon から Electron アプリアイコンを作成" data-ko="favicon에서 Electron 앱 아이콘 만들기" data-es="Crear un icono de app Electron desde un favicon">Electron App Icon from Favicon: Step-by-Step Setup</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">apps</span><time class="text-sm text-gray-400">2026-11-04</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight" data-en="Electron App Icon from Favicon: Step-by-Step Setup" data-zh="从 favicon 创建 Electron 应用图标" data-ja="favicon から Electron アプリアイコンを作成" data-ko="favicon에서 Electron 앱 아이콘 만들기" data-es="Crear un icono de app Electron desde un favicon">Electron App Icon from Favicon: Step-by-Step Setup</h1>
+        </header>
+
+        <div class="article-body" data-lang="en">
+            <p>If your packaged Electron app still shows the default Electron logo, its native bundle icon has not been configured. Creating an <strong>electron app icon from favicon</strong> files requires platform assets; the page resource declared with <code>rel='icon'</code> is separate from an installed app's icon ([HTML Standard](https://html.spec.whatwg.org/multipage/links.html#rel-icon)).</p>
+
+<h2>Prerequisites</h2>
+<ul>
+<li>An Electron project, <code>electron-builder</code>, and ImageMagick available on your PATH.</li>
+<li>A square SVG or the largest PNG favicon available. Do not enlarge a 16-pixel raster and expect sharpness.</li>
+<li>For the macOS commands, open a macOS shell with <code>sips</code> and <code>iconutil</code>.</li>
+</ul>
+<p>If the source is missing, see <a href="/blog/how-to-download-favicon.html">How to Download a Favicon from Any Website</a>. <a href="/">Mzu favicondl</a> can convert it to PNG and ICO.</p>
+
+<h2>Create an Electron app icon from favicon files</h2>
+<ol>
+<li><strong>Create a 1024-pixel master.</strong> Keep the artwork centered on a transparent square canvas:<pre><code>magick -background none favicon.svg -resize '1024x1024&gt;' -gravity center -extent 1024x1024 icon.png</code></pre>
+Replace <code>favicon.svg</code> with your file. Prefer vector artwork; redraw a tiny raster before export.</li>
+<li><strong>Build a multi-resolution ICO.</strong> Renaming a PNG does not create one:<pre><code>magick -background none favicon.svg -define icon:auto-resize=256,128,64,48,32,24,16 icon.ico</code></pre>
+Substitute the actual input and keep <code>icon.png</code> beside <code>icon.ico</code>.</li>
+<li><strong>Create the macOS ICNS on macOS</strong> from that master:<pre><code>mkdir -p icon.iconset
+sips -z 16 16 icon.png --out icon.iconset/icon_16x16.png
+sips -z 32 32 icon.png --out icon.iconset/icon_16x16@2x.png
+sips -z 32 32 icon.png --out icon.iconset/icon_32x32.png
+sips -z 64 64 icon.png --out icon.iconset/icon_32x32@2x.png
+sips -z 128 128 icon.png --out icon.iconset/icon_128x128.png
+sips -z 256 256 icon.png --out icon.iconset/icon_128x128@2x.png
+sips -z 256 256 icon.png --out icon.iconset/icon_256x256.png
+sips -z 512 512 icon.png --out icon.iconset/icon_256x256@2x.png
+sips -z 512 512 icon.png --out icon.iconset/icon_512x512.png
+cp icon.png icon.iconset/icon_512x512@2x.png
+iconutil -c icns icon.iconset -o icon.icns</code></pre>
+This produces a native ICNS container.</li>
+<li><strong>Point electron-builder at each asset</strong> in <code>electron-builder.yml</code>:<pre><code>win:
+  icon: build/icon.ico
+mac:
+  icon: build/icon.icns
+linux:
+  icon: build/icon.png</code></pre>
+Copy all three files into <code>build/</code>. Run <code>npx electron-builder</code> and inspect the package for that platform.</li>
+</ol>
+
+<h2>Common pitfalls</h2>
+<ul>
+<li><strong>Using only a browser favicon.</strong> A tab favicon does not replace the bundle icon. See <a href="/blog/favicon-vs-app-icon.html">Favicon and App Icon Difference</a> for the design distinction.</li>
+<li><strong>Renaming PNG to ICO.</strong> The extension does not create the multi-size container; use the conversion command above.</li>
+<li><strong>Losing the mark when cropped.</strong> Keep important shapes away from edges and test the smallest rendering. Native icons need simpler artwork than a full logo.</li>
+<li><strong>Using mismatched paths.</strong> YAML paths are relative to the project configuration, and Linux paths are case-sensitive. Confirm each file exists before building.</li>
+</ul>
+
+<h2>Conclusion</h2>
+<p>Use the favicon as source artwork, export platform-native containers, and let the packaging tool place the correct icon in each application bundle. <a href="/">Mzu favicondl</a> handles favicon-to-PNG and ICO preparation so you can focus on a clean mark and a reproducible Electron build.</p>
+        </div>
+
+        <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
+        <template data-article-lang="zh"><p>如果打包后的 Electron app 仍然显示默认的 Electron logo，说明它的原生 bundle icon 还没有配置。用 favicon 文件制作 <strong>Electron app icon</strong> 需要准备对应平台的资源文件；通过 <code>rel='icon'</code> 声明的页面资源与已安装 app 的 icon 是两回事（[HTML Standard](https://html.spec.whatwg.org/multipage/links.html#rel-icon)）。</p>
+
+<h2>前置条件</h2>
+<ul>
+<li>准备好 Electron 项目和 electron-builder，并确保 ImageMagick 可通过 PATH 调用。</li>
+<li>一个正方形 SVG，或可用的最大尺寸 PNG favicon。不要把 16 像素的位图直接放大，还指望成品保持清晰。</li>
+<li>执行 macOS 相关命令时，请使用包含 <code>sips</code> 和 <code>iconutil</code> 的 macOS shell。</li>
+</ul>
+<p>如果缺少源文件，请参阅 <a href="/blog/how-to-download-favicon.html">如何从任意网站下载 Favicon</a>。<a href="/">Mzu favicondl</a> 可以将其转换为 PNG 和 ICO。</p>
+
+<h2>从 favicon 文件制作 Electron app icon</h2>
+<ol>
+<li><strong>创建 1024 像素主图。</strong> 将图形居中放在透明的正方形画布上：<pre><code>magick -background none favicon.svg -resize '1024x1024&gt;' -gravity center -extent 1024x1024 icon.png</code></pre>将 <code>favicon.svg</code> 替换成实际文件。优先使用矢量图；如果源图尺寸很小，导出前应重新绘制。</li>
+<li><strong>构建多分辨率 ICO。</strong> 仅给 PNG 改名并不能生成 ICO：<pre><code>magick -background none favicon.svg -define icon:auto-resize=256,128,64,48,32,24,16 icon.ico</code></pre>替换为实际输入文件，并让 <code>icon.png</code> 与 <code>icon.ico</code> 并排放在一起。</li>
+<li><strong>在 macOS 上根据主图创建 ICNS</strong>：<pre><code>mkdir -p icon.iconset
+sips -z 16 16 icon.png --out icon.iconset/icon_16x16.png
+sips -z 32 32 icon.png --out icon.iconset/icon_16x16@2x.png
+sips -z 32 32 icon.png --out icon.iconset/icon_32x32.png
+sips -z 64 64 icon.png --out icon.iconset/icon_32x32@2x.png
+sips -z 128 128 icon.png --out icon.iconset/icon_128x128.png
+sips -z 256 256 icon.png --out icon.iconset/icon_128x128@2x.png
+sips -z 256 256 icon.png --out icon.iconset/icon_256x256.png
+sips -z 512 512 icon.png --out icon.iconset/icon_256x256@2x.png
+sips -z 512 512 icon.png --out icon.iconset/icon_512x512.png
+cp icon.png icon.iconset/icon_512x512@2x.png
+iconutil -c icns icon.iconset -o icon.icns</code></pre>这样可以生成原生 ICNS 容器。</li>
+<li><strong>在 <code>electron-builder.yml</code> 中为 electron-builder 指定各项资源</strong>：<pre><code>win:
+  icon: build/icon.ico
+mac:
+  icon: build/icon.icns
+linux:
+  icon: build/icon.png</code></pre>把这三个文件全部复制到 <code>build/</code> 中。运行 <code>npx electron-builder</code>，然后检查对应平台的安装包。</li>
+</ol><h2>常见误区</h2>
+<ul>
+<li><strong>只使用浏览器 favicon。</strong> 标签页的 favicon 不能替代应用包图标。关于两者在设计上的区别，请参阅<a href="/blog/favicon-vs-app-icon.html">Favicon 与 App Icon 的区别</a>。</li>
+<li><strong>把 PNG 重命名为 ICO。</strong> 仅更改扩展名不会生成多尺寸容器；请使用上面的转换命令。</li>
+<li><strong>裁剪时丢失图形标识。</strong> 让重要形状远离边缘，并测试最小尺寸下的渲染效果。原生图标所需的图形应比完整 logo 更简洁。</li>
+<li><strong>使用不匹配的路径。</strong> YAML 路径相对于项目配置，而 Linux 路径区分大小写。构建前请确认每个文件都存在。</li>
+</ul>
+
+<h2>结论</h2>
+<p>将 favicon 作为源图形，导出各平台原生的容器，再让打包工具把正确的图标放入每个应用包。<a href="/">Mzu favicondl</a> 可处理 favicon 到 PNG 的转换以及 ICO 准备工作，让你专注于简洁的图形标识和可复现的 Electron 构建。</p></template>
+        <template data-article-lang="ja"><p>パッケージングしたElectron appがまだ既定のElectron logoを表示している場合は、アプリのネイティブバンドルアイコンが未設定です。<strong>faviconファイルからelectron app iconを作成する</strong>には、platformごとのassetが必要です。<code>rel='icon'</code>で宣言したページリソースは、インストール済みappのiconとは別のものです（[HTML Standard](https://html.spec.whatwg.org/multipage/links.html#rel-icon)）。</p>
+
+<h2>前提条件</h2>
+<ul>
+<li>Electron project、<code>electron-builder</code>を用意し、ImageMagickをPATH上で利用できるようにしてください。</li>
+<li>正方形のSVG、または利用可能な最大のPNG faviconを用意してください。16ピクセルのrasterを拡大しても、鮮明な画像は期待できません。</li>
+<li>macOSのcommandを実行する場合は、<code>sips</code>と<code>iconutil</code>が使えるmacOSのshellを開いてください。</li>
+</ul>
+<p>元ファイルがない場合は、<a href="/blog/how-to-download-favicon.html">How to Download a Favicon from Any Website</a>を参照してください。<a href="/">Mzu favicondl</a>を使えば、PNGとICOに変換できます。</p>
+
+<h2>faviconファイルからelectron app iconを作成する</h2>
+<ol>
+<li><strong>1024ピクセルのマスターを作成する。</strong> アートワークを透明な正方形キャンバスの中央に配置します。<pre><code>magick -background none favicon.svg -resize '1024x1024&gt;' -gravity center -extent 1024x1024 icon.png</code></pre><code>favicon.svg</code>を実際のファイルに置き換えてください。vector artworkを優先し、小さなrasterは書き直してからexportしてください。</li>
+<li><strong>複数解像度のICOを作成する。</strong> PNGのファイル名を変更してもICOは作成できません。<pre><code>magick -background none favicon.svg -define icon:auto-resize=256,128,64,48,32,24,16 icon.ico</code></pre>実際の入力ファイルに置き換えてください。また、<code>icon.png</code>を<code>icon.ico</code>と同じディレクトリに置いてください。</li>
+<li><strong>macOS上でマスターからmacOS向けICNSを作成する</strong>:<pre><code>mkdir -p icon.iconset
+sips -z 16 16 icon.png --out icon.iconset/icon_16x16.png
+sips -z 32 32 icon.png --out icon.iconset/icon_16x16@2x.png
+sips -z 32 32 icon.png --out icon.iconset/icon_32x32.png
+sips -z 64 64 icon.png --out icon.iconset/icon_32x32@2x.png
+sips -z 128 128 icon.png --out icon.iconset/icon_128x128.png
+sips -z 256 256 icon.png --out icon.iconset/icon_128x128@2x.png
+sips -z 256 256 icon.png --out icon.iconset/icon_256x256.png
+sips -z 512 512 icon.png --out icon.iconset/icon_256x256@2x.png
+sips -z 512 512 icon.png --out icon.iconset/icon_512x512.png
+cp icon.png icon.iconset/icon_512x512@2x.png
+iconutil -c icns icon.iconset -o icon.icns</code></pre>これにより、ネイティブICNSコンテナが生成されます。</li>
+<li><strong>electron-builderに各assetを指定する</strong>。<code>electron-builder.yml</code>で次のように設定します。<pre><code>win:
+  icon: build/icon.ico
+mac:
+  icon: build/icon.icns
+linux:
+  icon: build/icon.png</code></pre>3つのファイルをすべて<code>build/</code>にコピーしてください。<code>npx electron-builder</code>を実行し、対象platformのpackageを確認してください。</li>
+</ol><h2>よくある落とし穴</h2>
+<ul>
+<li><strong>ブラウザの favicon だけを使う。</strong> タブの favicon は、アプリケーションのバンドルアイコンを置き換えるものではありません。デザインの区别については、<a href="/blog/favicon-vs-app-icon.html">Favicon と App Icon の違い</a>を参照してください。</li>
+<li><strong>PNG の拡張子を ICO に変更する。</strong> 拡張子を変更しても、複数サイズのコンテナは作成されません。上記の変換コマンドを使用してください。</li>
+<li><strong>クロップによってマークが失われる。</strong> 重要な形状は端から離して配置し、最小の表示サイズでテストしてください。ネイティブアイコンには、フルロゴよりもシンプルなアートワークが必要です。</li>
+<li><strong>パスの不一致。</strong> YAML 内のパスはプロジェクト設定を基準とした相対パスであり、Linux のパスは大文字と小文字を区別します。ビルド前に、すべてのファイルが存在することを確認してください。</li>
+</ul>
+
+<h2>まとめ</h2>
+<p>favicon を元のアートワークとして使用し、各プラットフォームのネイティブ形式に書き出したうえで、 packaging tool が正しいアイコンを各アプリケーションのバンドルに配置するようにしてください。<a href="/">Mzu favicondl</a>は favicon から PNG および ICO への準備を処理するため、mast 清潔で再現性の高い Electron ビルドに集中できます。</p></template>
+        <template data-article-lang="ko"><p>패키징된 Electron 앱에 기본 Electron 로고가 계속 보인다면 native bundle 아이콘이 아직 설정되지 않은 것입니다. <strong>favicon 파일로 Electron 앱 아이콘 만들기</strong>에는 플랫폼별 asset이 필요합니다. <code>rel='icon'</code>으로 선언한 페이지 resource는 설치된 앱의 아이콘과 별개입니다([HTML Standard](https://html.spec.whatwg.org/multipage/links.html#rel-icon)).</p>
+<h2>사전 준비 사항</h2>
+<ul>
+<li>Electron 프로젝트와 <code>electron-builder</code>, <code>ImageMagick</code>가 PATH에서 사용 가능해야 합니다.</li>
+<li>정사각형 SVG 또는 사용할 수 있는 가장 큰 PNG favicon이 필요합니다. 16-pixel raster를 확대해 선명해질 것을 기대하면 안 됩니다.</li>
+<li>macOS 명령어를 실행하려면 <code>sips</code>와 <code>iconutil</code>을 사용할 수 있는 macOS shell을 여세요.</li>
+</ul>
+<p>원본 파일이 없다면 다음 글을 참고하세요: <a href="/blog/how-to-download-favicon.html">How to Download a Favicon from Any Website</a>. <a href="/">Mzu favicondl</a>을 사용해 PNG와 ICO로 변환할 수 있습니다.</p>
+<h2>favicon 파일로 Electron 앱 아이콘 만들기</h2>
+<ol>
+<li><strong>1024-pixel master를 만듭니다.</strong> artwork는 투명한 정사각형 canvas 중앙에 배치하세요:<pre><code>magick -background none favicon.svg -resize '1024x1024&amp;gt;' -gravity center -extent 1024x1024 icon.png</code></pre>
+<code>favicon.svg</code>를 실제 파일로 교체하세요. vector artwork를 우선 사용하고, 아주 작은 raster는 export 전에 다시 그리세요.</li>
+<li><strong>multi-resolution ICO를 만듭니다.</strong> PNG 파일명만 바꾸면 ICO가 만들어지지 않습니다:<pre><code>magick -background none favicon.svg -define icon:auto-resize=256,128,64,48,32,24,16 icon.ico</code></pre>
+실제 입력 파일명으로 바꾸고 <code>icon.png</code>와 <code>icon.ico</code>를 같은 위치에 두세요.</li>
+<li><strong>macOS에서 앞서 만든 master를 사용해 macOS ICNS를 만듭니다</strong>:<pre><code>mkdir -p icon.iconset
+sips -z 16 16 icon.png --out icon.iconset/icon_16x16.png
+sips -z 32 32 icon.png --out icon.iconset/icon_16x16@2x.png
+sips -z 32 32 icon.png --out icon.iconset/icon_32x32.png
+sips -z 64 64 icon.png --out icon.iconset/icon_32x32@2x.png
+sips -z 128 128 icon.png --out icon.iconset/icon_128x128.png
+sips -z 256 256 icon.png --out icon.iconset/icon_128x128@2x.png
+sips -z 256 256 icon.png --out icon.iconset/icon_256x256.png
+sips -z 512 512 icon.png --out icon.iconset/icon_256x256@2x.png
+sips -z 512 512 icon.png --out icon.iconset/icon_512x512.png
+cp icon.png icon.iconset/icon_512x512@2x.png
+iconutil -c icns icon.iconset -o icon.icns</code></pre>
+이 과정으로 native ICNS container가 만들어집니다.</li>
+<li><strong><code>electron-builder.yml</code>에서 각 asset을 지정해 <code>electron-builder</code>가 참조하도록 설정합니다</strong>:<pre><code>win:
+  icon: build/icon.ico
+mac:
+  icon: build/icon.icns
+linux:
+  icon: build/icon.png</code></pre>
+세 파일을 모두 <code>build/</code>에 복사하세요. <code>npx electron-builder</code>를 실행한 뒤 해당 플랫폼의 package를 확인하세요.</li>
+</ol><h2>자주 부딪히는 문제</h2>
+<ul>
+<li><strong>브라우저 favicon만 사용하는 경우.</strong> 탭에 표시되는 favicon은 bundle icon을 대신할 수 없습니다. 디자인 측면의 차이는 <a href="/blog/favicon-vs-app-icon.html">Favicon and App Icon Difference</a>에서 확인하세요.</li>
+<li><strong>PNG의 확장자만 ICO로 바꾸는 경우.</strong> 확장자만 변경해서는 multi-size container가 만들어지지 않습니다. 앞서 설명한 변환 명령을 사용하세요.</li>
+<li><strong>crop하면서 mark가 잘리는 경우.</strong> 중요한 형태는 가장자리에서 멀리 두세요. 가장 작은 크기로 rendering했을 때도 확인해야 합니다. Native icon은 full logo보다 단순한 artwork가 필요합니다.</li>
+<li><strong>path가 서로 맞지 않는 경우.</strong> YAML path는 project configuration을 기준으로 한 상대 경로이며, Linux path는 대소문자를 구분합니다. build 전에 각 file이 존재하는지 확인하세요.</li>
+</ul>
+<h2>결론</h2>
+<p>favicon을 source artwork로 사용하고, 플랫폼별 native container를 export한 다음, packaging tool이 각 application bundle에 올바른 icon을 배치하도록 하세요. <a href="/">Mzu favicondl</a>은 favicon-to-PNG 변환과 ICO 준비를 지원하므로, 깔끔한 mark와 재현 가능한 Electron build에 집중할 수 있습니다.</p></template>
+        <template data-article-lang="es"><p>Si tu app Electron empaquetada sigue mostrando el logotipo predeterminado de Electron, el icono nativo del bundle no está configurado. Crear un <strong>icono de aplicación Electron a partir de archivos favicon</strong> requiere recursos para cada plataforma; el recurso de la página declarado con <code>rel='icon'</code> es distinto del icono de la app instalada ([HTML Standard](https://html.spec.whatwg.org/multipage/links.html#rel-icon)).</p>
+
+<h2>Prerrequisitos</h2>
+<ul>
+<li>Un proyecto Electron, <code>electron-builder</code> e ImageMagick disponibles en tu PATH.</li>
+<li>Un SVG cuadrado o el favicon PNG de mayor tamaño disponible. No amplíes una imagen rasterizada de 16 píxeles y esperes que conserve la nitidez.</li>
+<li>Para los comandos de macOS, abre un shell de macOS con <code>sips</code> e <code>iconutil</code>.</li>
+</ul>
+<p>Si falta el archivo de origen, consulta <a href="/blog/how-to-download-favicon.html">Cómo descargar un favicon de cualquier sitio web</a>. <a href="/">Mzu favicondl</a> puede convertirlo a PNG e ICO.</p>
+
+<h2>Crear un icono de aplicación Electron a partir de archivos favicon</h2>
+<ol>
+<li><strong>Crea una imagen maestra de 1024 píxeles.</strong> Mantén la ilustración centrada en un lienzo cuadrado transparente:<pre><code>magick -background none favicon.svg -resize '1024x1024&gt;' -gravity center -extent 1024x1024 icon.png</code></pre>
+Sustituye <code>favicon.svg</code> por tu archivo. Prefiere el arte vectorial; vuelve a dibujar una imagen rasterizada muy pequeña antes de exportarla.</li>
+<li><strong>Genera un ICO multirresolución.</strong> Renombrar un PNG no crea un ICO:<pre><code>magick -background none favicon.svg -define icon:auto-resize=256,128,64,48,32,24,16 icon.ico</code></pre>
+Sustituye la entrada <code>favicon.svg</code> por tu archivo real y deja <code>icon.png</code> junto a <code>icon.ico</code>.</li>
+<li><strong>Crea el ICNS nativo de macOS en macOS</strong> a partir de esa imagen maestra:<pre><code>mkdir -p icon.iconset
+sips -z 16 16 icon.png --out icon.iconset/icon_16x16.png
+sips -z 32 32 icon.png --out icon.iconset/icon_16x16@2x.png
+sips -z 32 32 icon.png --out icon.iconset/icon_32x32.png
+sips -z 64 64 icon.png --out icon.iconset/icon_32x32@2x.png
+sips -z 128 128 icon.png --out icon.iconset/icon_128x128.png
+sips -z 256 256 icon.png --out icon.iconset/icon_128x128@2x.png
+sips -z 256 256 icon.png --out icon.iconset/icon_256x256.png
+sips -z 512 512 icon.png --out icon.iconset/icon_256x256@2x.png
+sips -z 512 512 icon.png --out icon.iconset/icon_512x512.png
+cp icon.png icon.iconset/icon_512x512@2x.png
+iconutil -c icns icon.iconset -o icon.icns</code></pre>
+Esto produce un contenedor ICNS nativo.</li>
+<li><strong>Indica a electron-builder la ruta de cada asset</strong> en <code>electron-builder.yml</code>:<pre><code>win:
+  icon: build/icon.ico
+mac:
+  icon: build/icon.icns
+linux:
+  icon: build/icon.png</code></pre>
+Copia los tres archivos en <code>build/</code>. Ejecuta <code>npx electron-builder</code> y revisa el paquete de esa plataforma.</li>
+</ol><h2>Errores comunes</h2>
+<ul>
+<li><strong>Usar únicamente el favicon del navegador.</strong> El favicon de una pestaña no sustituye al icono del paquete de la aplicación. Consulta <a href="/blog/favicon-vs-app-icon.html">la diferencia entre un favicon y un icono de aplicación</a> para conocer las distintas consideraciones de diseño.</li>
+<li><strong>Cambiar el nombre de un PNG a ICO.</strong> La extensión no crea el contenedor con varios tamaños; utiliza el comando de conversión indicado anteriormente.</li>
+<li><strong>Perder la marca al recortarla.</strong> Mantén las formas importantes lejos de los bordes y prueba el tamaño de visualización más pequeño. Los iconos nativos necesitan una ilustración más sencilla que un logo completo.</li>
+<li><strong>Usar rutas que no coinciden.</strong> Las rutas del YAML son relativas a la configuración del proyecto y, en Linux, distinguen entre mayúsculas y minúsculas. Confirma que todos los archivos existen antes de compilar.</li>
+</ul>
+
+<h2>Conclusión</h2>
+<p>Usa el favicon como arte fuente, exporta los contenedores nativos de cada plataforma y deja que la herramienta de empaquetado coloque el icono correcto en cada paquete de la aplicación. <a href="/">Mzu favicondl</a> prepara la conversión del favicon a PNG y la generación del ICO para que puedas centrarte en una marca limpia y en una compilación reproducible de Electron.</p></template>
+
+        <div class="cta-box">
+            <h3 data-en="Build a Native Electron Icon from Your Favicon" data-zh="从 favicon 制作 Electron 原生图标" data-ja="favicon から Electron ネイティブアイコンを作成" data-ko="favicon으로 Electron 네이티브 아이콘 만들기" data-es="Crea un icono nativo de Electron desde tu favicon">Build a Native Electron Icon from Your Favicon</h3>
+            <p data-en="Download and convert your favicon, then prepare reliable PNG, ICO, and ICNS assets for Electron packaging." data-zh="下载并转换 favicon，然后生成适用于 Electron 打包的 PNG、ICO 和 ICNS 资源。" data-ja="favicon をダウンロードして変換し、Electron のパッケージング向けに PNG、ICO、ICNS を作成します。" data-ko="favicon을 다운로드하고 변환해 Electron 패키징용 PNG, ICO, ICNS 파일을 준비하세요." data-es="Descarga y convierte tu favicon para preparar archivos PNG, ICO e ICNS para el empaquetado de Electron.">Download and convert your favicon, then prepare reliable PNG, ICO, and ICNS assets for Electron packaging.</p>
+            <a href="/" class="cta-btn" data-en="Try It Free →" data-zh="免费试用 →" data-ja="無料で試す →" data-ko="무료로 사용해보기 →" data-es="Pruébalo gratis →">Try It Free →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Home" data-zh="首页">Home</a>
+                <a href="/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Blog" data-zh="博客">Blog</a>
+                <a href="/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Privacy" data-zh="隐私政策">Privacy</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js?v=20260211"></script>
+
+</body></html>

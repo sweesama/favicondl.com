@@ -4144,5 +4144,25 @@
     ],
     "qualityScore": 100,
     "qualityGrade": "A"
+  },
+  {
+    "slug": "electron-app-icon",
+    "publishDate": "2026-11-04",
+    "titleEn": "Electron App Icon from Favicon: Step-by-Step Setup",
+    "titleZh": "从 favicon 创建 Electron 应用图标",
+    "titleJa": "favicon から Electron アプリアイコンを作成",
+    "titleKo": "favicon에서 Electron 앱 아이콘 만들기",
+    "titleEs": "Crear un icono de app Electron desde un favicon",
+    "descEn": "Turn a website favicon into a native Electron app icon for Windows, macOS, and Linux, then bundle it correctly for the taskbar, dock, and desktop.",
+    "descZh": "将网站 favicon 转换为 Windows、macOS 和 Linux 的 Electron 原生应用图标，并正确配置打包路径。",
+    "descJa": "サイトの favicon を Windows、macOS、Linux 用の Electron ネイティブアイコンに変換し、パッケージングの設定を正しく行います。",
+    "descKo": "웹사이트 favicon을 Windows, macOS, Linux용 Electron 네이티브 앱 아이콘으로 변환하고 패키징 경로를 올바르게 설정하세요.",
+    "descEs": "Convierte el favicon de un sitio web en un icono nativo de Electron para Windows, macOS y Linux, y configura las rutas de empaquetado.",
+    "keyword": "electron app icon from favicon",
+    "tags": [
+      "apps"
+    ],
+    "qualityScore": 85,
+    "qualityGrade": "A"
   }
 ]

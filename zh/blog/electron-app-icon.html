@@ -1,0 +1,167 @@
+<!DOCTYPE html><html lang="zh"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>从 favicon 创建 Electron 应用图标</title>
+    <meta name="description" content="将网站 favicon 转换为 Windows、macOS 和 Linux 的 Electron 原生应用图标，并正确配置打包路径。">
+    <meta name="keywords" content="electron app icon from favicon, favicon to ICO, Electron packaging">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/zh/blog/electron-app-icon.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/electron-app-icon.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/electron-app-icon.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/electron-app-icon.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/electron-app-icon.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/electron-app-icon.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/electron-app-icon.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/zh/blog/electron-app-icon.html">
+    <meta property="og:title" content="从 favicon 创建 Electron 应用图标">
+    <meta property="og:description" content="将网站 favicon 转换为 Windows、macOS 和 Linux 的 Electron 原生应用图标，并正确配置打包路径。">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="从 favicon 创建 Electron 应用图标">
+    <meta name="twitter:description" content="将网站 favicon 转换为 Windows、macOS 和 Linux 的 Electron 原生应用图标，并正确配置打包路径。">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "从 favicon 创建 Electron 应用图标",
+  "description": "将网站 favicon 转换为 Windows、macOS 和 Linux 的 Electron 原生应用图标，并正确配置打包路径。",
+  "datePublished": "2026-11-04",
+  "dateModified": "2026-11-04",
+  "author": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "mainEntityOfPage": "https://favicondl.com/zh/blog/electron-app-icon.html",
+  "inLanguage": "zh-CN"
+}</script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/zh/" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/zh/documentation.html" class="nav-link">文档</a>
+                <a href="/zh/tools.html" class="nav-link">工具</a>
+                <a href="/zh/blog/" class="nav-link">博客</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/electron-app-icon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/electron-app-icon.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/electron-app-icon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/electron-app-icon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/electron-app-icon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/zh/" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/zh/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600">从 favicon 创建 Electron 应用图标</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">apps</span><time class="text-sm text-gray-400">2026-11-04</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">从 favicon 创建 Electron 应用图标</h1>
+        </header>
+
+        <div class="article-body"><p>如果打包后的 Electron app 仍然显示默认的 Electron logo，说明它的原生 bundle icon 还没有配置。用 favicon 文件制作 <strong>Electron app icon</strong> 需要准备对应平台的资源文件；通过 <code>rel='icon'</code> 声明的页面资源与已安装 app 的 icon 是两回事（[HTML Standard](https://html.spec.whatwg.org/multipage/links.html#rel-icon)）。</p>
+
+<h2>前置条件</h2>
+<ul>
+<li>准备好 Electron 项目和 electron-builder，并确保 ImageMagick 可通过 PATH 调用。</li>
+<li>一个正方形 SVG，或可用的最大尺寸 PNG favicon。不要把 16 像素的位图直接放大，还指望成品保持清晰。</li>
+<li>执行 macOS 相关命令时，请使用包含 <code>sips</code> 和 <code>iconutil</code> 的 macOS shell。</li>
+</ul>
+<p>如果缺少源文件，请参阅 <a href="/zh/blog/how-to-download-favicon.html">如何从任意网站下载 Favicon</a>。<a href="/zh/">Mzu favicondl</a> 可以将其转换为 PNG 和 ICO。</p>
+
+<h2>从 favicon 文件制作 Electron app icon</h2>
+<ol>
+<li><strong>创建 1024 像素主图。</strong> 将图形居中放在透明的正方形画布上：<pre><code>magick -background none favicon.svg -resize '1024x1024&gt;' -gravity center -extent 1024x1024 icon.png</code></pre>将 <code>favicon.svg</code> 替换成实际文件。优先使用矢量图；如果源图尺寸很小，导出前应重新绘制。</li>
+<li><strong>构建多分辨率 ICO。</strong> 仅给 PNG 改名并不能生成 ICO：<pre><code>magick -background none favicon.svg -define icon:auto-resize=256,128,64,48,32,24,16 icon.ico</code></pre>替换为实际输入文件，并让 <code>icon.png</code> 与 <code>icon.ico</code> 并排放在一起。</li>
+<li><strong>在 macOS 上根据主图创建 ICNS</strong>：<pre><code>mkdir -p icon.iconset
+sips -z 16 16 icon.png --out icon.iconset/icon_16x16.png
+sips -z 32 32 icon.png --out icon.iconset/icon_16x16@2x.png
+sips -z 32 32 icon.png --out icon.iconset/icon_32x32.png
+sips -z 64 64 icon.png --out icon.iconset/icon_32x32@2x.png
+sips -z 128 128 icon.png --out icon.iconset/icon_128x128.png
+sips -z 256 256 icon.png --out icon.iconset/icon_128x128@2x.png
+sips -z 256 256 icon.png --out icon.iconset/icon_256x256.png
+sips -z 512 512 icon.png --out icon.iconset/icon_256x256@2x.png
+sips -z 512 512 icon.png --out icon.iconset/icon_512x512.png
+cp icon.png icon.iconset/icon_512x512@2x.png
+iconutil -c icns icon.iconset -o icon.icns</code></pre>这样可以生成原生 ICNS 容器。</li>
+<li><strong>在 <code>electron-builder.yml</code> 中为 electron-builder 指定各项资源</strong>：<pre><code>win:
+  icon: build/icon.ico
+mac:
+  icon: build/icon.icns
+linux:
+  icon: build/icon.png</code></pre>把这三个文件全部复制到 <code>build/</code> 中。运行 <code>npx electron-builder</code>，然后检查对应平台的安装包。</li>
+</ol><h2>常见误区</h2>
+<ul>
+<li><strong>只使用浏览器 favicon。</strong> 标签页的 favicon 不能替代应用包图标。关于两者在设计上的区别，请参阅<a href="/zh/blog/favicon-vs-app-icon.html">Favicon 与 App Icon 的区别</a>。</li>
+<li><strong>把 PNG 重命名为 ICO。</strong> 仅更改扩展名不会生成多尺寸容器；请使用上面的转换命令。</li>
+<li><strong>裁剪时丢失图形标识。</strong> 让重要形状远离边缘，并测试最小尺寸下的渲染效果。原生图标所需的图形应比完整 logo 更简洁。</li>
+<li><strong>使用不匹配的路径。</strong> YAML 路径相对于项目配置，而 Linux 路径区分大小写。构建前请确认每个文件都存在。</li>
+</ul>
+
+<h2>结论</h2>
+<p>将 favicon 作为源图形，导出各平台原生的容器，再让打包工具把正确的图标放入每个应用包。<a href="/zh/">Mzu favicondl</a> 可处理 favicon 到 PNG 的转换以及 ICO 准备工作，让你专注于简洁的图形标识和可复现的 Electron 构建。</p></div>
+
+        <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
+
+        <div class="cta-box">
+            <h3>从 favicon 制作 Electron 原生图标</h3>
+            <p>下载并转换 favicon，然后生成适用于 Electron 打包的 PNG、ICO 和 ICNS 资源。</p>
+            <a href="/zh/" class="cta-btn">免费试用 →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/zh/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">首页</a>
+                <a href="/zh/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">博客</a>
+                <a href="/zh/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">隐私政策</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js?v=20260211"></script>
+
+</body></html>

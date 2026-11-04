@@ -1,0 +1,171 @@
+<!DOCTYPE html><html lang="es"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear un icono de app Electron desde un favicon</title>
+    <meta name="description" content="Convierte el favicon de un sitio web en un icono nativo de Electron para Windows, macOS y Linux, y configura las rutas de empaquetado.">
+    <meta name="keywords" content="electron app icon from favicon, favicon to ICO, Electron packaging">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/es/blog/electron-app-icon.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/electron-app-icon.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/electron-app-icon.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/electron-app-icon.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/electron-app-icon.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/electron-app-icon.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/electron-app-icon.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/es/blog/electron-app-icon.html">
+    <meta property="og:title" content="Crear un icono de app Electron desde un favicon">
+    <meta property="og:description" content="Convierte el favicon de un sitio web en un icono nativo de Electron para Windows, macOS y Linux, y configura las rutas de empaquetado.">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Crear un icono de app Electron desde un favicon">
+    <meta name="twitter:description" content="Convierte el favicon de un sitio web en un icono nativo de Electron para Windows, macOS y Linux, y configura las rutas de empaquetado.">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Crear un icono de app Electron desde un favicon",
+  "description": "Convierte el favicon de un sitio web en un icono nativo de Electron para Windows, macOS y Linux, y configura las rutas de empaquetado.",
+  "datePublished": "2026-11-04",
+  "dateModified": "2026-11-04",
+  "author": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "mainEntityOfPage": "https://favicondl.com/es/blog/electron-app-icon.html",
+  "inLanguage": "es"
+}</script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/es/" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/es/documentation.html" class="nav-link">Documentación</a>
+                <a href="/es/tools.html" class="nav-link">Herramientas</a>
+                <a href="/es/blog/" class="nav-link">Blog</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/electron-app-icon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/electron-app-icon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/electron-app-icon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/electron-app-icon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/electron-app-icon.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/es/" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/es/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600">Crear un icono de app Electron desde un favicon</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">apps</span><time class="text-sm text-gray-400">2026-11-04</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">Crear un icono de app Electron desde un favicon</h1>
+        </header>
+
+        <div class="article-body"><p>Si tu app Electron empaquetada sigue mostrando el logotipo predeterminado de Electron, el icono nativo del bundle no está configurado. Crear un <strong>icono de aplicación Electron a partir de archivos favicon</strong> requiere recursos para cada plataforma; el recurso de la página declarado con <code>rel='icon'</code> es distinto del icono de la app instalada ([HTML Standard](https://html.spec.whatwg.org/multipage/links.html#rel-icon)).</p>
+
+<h2>Prerrequisitos</h2>
+<ul>
+<li>Un proyecto Electron, <code>electron-builder</code> e ImageMagick disponibles en tu PATH.</li>
+<li>Un SVG cuadrado o el favicon PNG de mayor tamaño disponible. No amplíes una imagen rasterizada de 16 píxeles y esperes que conserve la nitidez.</li>
+<li>Para los comandos de macOS, abre un shell de macOS con <code>sips</code> e <code>iconutil</code>.</li>
+</ul>
+<p>Si falta el archivo de origen, consulta <a href="/es/blog/how-to-download-favicon.html">Cómo descargar un favicon de cualquier sitio web</a>. <a href="/es/">Mzu favicondl</a> puede convertirlo a PNG e ICO.</p>
+
+<h2>Crear un icono de aplicación Electron a partir de archivos favicon</h2>
+<ol>
+<li><strong>Crea una imagen maestra de 1024 píxeles.</strong> Mantén la ilustración centrada en un lienzo cuadrado transparente:<pre><code>magick -background none favicon.svg -resize '1024x1024&gt;' -gravity center -extent 1024x1024 icon.png</code></pre>
+Sustituye <code>favicon.svg</code> por tu archivo. Prefiere el arte vectorial; vuelve a dibujar una imagen rasterizada muy pequeña antes de exportarla.</li>
+<li><strong>Genera un ICO multirresolución.</strong> Renombrar un PNG no crea un ICO:<pre><code>magick -background none favicon.svg -define icon:auto-resize=256,128,64,48,32,24,16 icon.ico</code></pre>
+Sustituye la entrada <code>favicon.svg</code> por tu archivo real y deja <code>icon.png</code> junto a <code>icon.ico</code>.</li>
+<li><strong>Crea el ICNS nativo de macOS en macOS</strong> a partir de esa imagen maestra:<pre><code>mkdir -p icon.iconset
+sips -z 16 16 icon.png --out icon.iconset/icon_16x16.png
+sips -z 32 32 icon.png --out icon.iconset/icon_16x16@2x.png
+sips -z 32 32 icon.png --out icon.iconset/icon_32x32.png
+sips -z 64 64 icon.png --out icon.iconset/icon_32x32@2x.png
+sips -z 128 128 icon.png --out icon.iconset/icon_128x128.png
+sips -z 256 256 icon.png --out icon.iconset/icon_128x128@2x.png
+sips -z 256 256 icon.png --out icon.iconset/icon_256x256.png
+sips -z 512 512 icon.png --out icon.iconset/icon_256x256@2x.png
+sips -z 512 512 icon.png --out icon.iconset/icon_512x512.png
+cp icon.png icon.iconset/icon_512x512@2x.png
+iconutil -c icns icon.iconset -o icon.icns</code></pre>
+Esto produce un contenedor ICNS nativo.</li>
+<li><strong>Indica a electron-builder la ruta de cada asset</strong> en <code>electron-builder.yml</code>:<pre><code>win:
+  icon: build/icon.ico
+mac:
+  icon: build/icon.icns
+linux:
+  icon: build/icon.png</code></pre>
+Copia los tres archivos en <code>build/</code>. Ejecuta <code>npx electron-builder</code> y revisa el paquete de esa plataforma.</li>
+</ol><h2>Errores comunes</h2>
+<ul>
+<li><strong>Usar únicamente el favicon del navegador.</strong> El favicon de una pestaña no sustituye al icono del paquete de la aplicación. Consulta <a href="/es/blog/favicon-vs-app-icon.html">la diferencia entre un favicon y un icono de aplicación</a> para conocer las distintas consideraciones de diseño.</li>
+<li><strong>Cambiar el nombre de un PNG a ICO.</strong> La extensión no crea el contenedor con varios tamaños; utiliza el comando de conversión indicado anteriormente.</li>
+<li><strong>Perder la marca al recortarla.</strong> Mantén las formas importantes lejos de los bordes y prueba el tamaño de visualización más pequeño. Los iconos nativos necesitan una ilustración más sencilla que un logo completo.</li>
+<li><strong>Usar rutas que no coinciden.</strong> Las rutas del YAML son relativas a la configuración del proyecto y, en Linux, distinguen entre mayúsculas y minúsculas. Confirma que todos los archivos existen antes de compilar.</li>
+</ul>
+
+<h2>Conclusión</h2>
+<p>Usa el favicon como arte fuente, exporta los contenedores nativos de cada plataforma y deja que la herramienta de empaquetado coloque el icono correcto en cada paquete de la aplicación. <a href="/es/">Mzu favicondl</a> prepara la conversión del favicon a PNG y la generación del ICO para que puedas centrarte en una marca limpia y en una compilación reproducible de Electron.</p></div>
+
+        <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
+
+        <div class="cta-box">
+            <h3>Crea un icono nativo de Electron desde tu favicon</h3>
+            <p>Descarga y convierte tu favicon para preparar archivos PNG, ICO e ICNS para el empaquetado de Electron.</p>
+            <a href="/es/" class="cta-btn">Pruébalo gratis →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/es/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">Inicio</a>
+                <a href="/es/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">Blog</a>
+                <a href="/es/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">Privacidad</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js?v=20260211"></script>
+
+</body></html>
