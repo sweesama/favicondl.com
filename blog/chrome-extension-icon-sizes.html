@@ -1,0 +1,240 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chrome Extension Icon Sizes: A Practical Packaging Guide</title>
+    <meta name="description" content="Learn Chrome extension icon sizes for toolbar, manifest, and Web Store use, with practical PNG dimensions, manifest examples, and tips for clear icons.">
+    <meta name="keywords" content="chrome extension icon sizes, extension manifest icons, toolbar icons, PNG icons">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/blog/chrome-extension-icon-sizes.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/chrome-extension-icon-sizes.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/chrome-extension-icon-sizes.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/chrome-extension-icon-sizes.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/chrome-extension-icon-sizes.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/chrome-extension-icon-sizes.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/chrome-extension-icon-sizes.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/blog/chrome-extension-icon-sizes.html">
+    <meta property="og:title" content="Chrome Extension Icon Sizes: A Practical Packaging Guide">
+    <meta property="og:description" content="Learn Chrome extension icon sizes for toolbar, manifest, and Web Store use, with practical PNG dimensions, manifest examples, and tips for clear icons.">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Chrome Extension Icon Sizes: A Practical Packaging Guide">
+    <meta name="twitter:description" content="Learn Chrome extension icon sizes for toolbar, manifest, and Web Store use, with practical PNG dimensions, manifest examples, and tips for clear icons.">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Chrome Extension Icon Sizes: A Practical Packaging Guide",
+  "description": "Learn Chrome extension icon sizes for toolbar, manifest, and Web Store use, with practical PNG dimensions, manifest examples, and tips for clear icons.",
+  "datePublished": "2026-11-05",
+  "dateModified": "2026-11-05",
+  "author": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "mainEntityOfPage": "https://favicondl.com/blog/chrome-extension-icon-sizes.html",
+  "inLanguage": "en"
+}</script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/documentation.html" class="nav-link" data-en="Docs" data-zh="文档">Docs</a>
+                <a href="/tools.html" class="nav-link" data-en="Tools" data-zh="工具">Tools</a>
+                <a href="/blog/" class="nav-link" data-en="Blog" data-zh="博客">Blog</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/chrome-extension-icon-sizes.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/chrome-extension-icon-sizes.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/chrome-extension-icon-sizes.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/chrome-extension-icon-sizes.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/chrome-extension-icon-sizes.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600" data-en="Chrome Extension Icon Sizes: A Practical Packaging Guide" data-zh="Chrome 扩展图标尺寸：实用打包指南" data-ja="Chrome 拡張機能のアイコンサイズと実装ガイド" data-ko="Chrome 확장 프로그램 아이콘 크기 가이드" data-es="Tamaños de iconos para extensiones de Chrome">Chrome Extension Icon Sizes: A Practical Packaging Guide</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">sizes</span><time class="text-sm text-gray-400">2026-11-05</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight" data-en="Chrome Extension Icon Sizes: A Practical Packaging Guide" data-zh="Chrome 扩展图标尺寸：实用打包指南" data-ja="Chrome 拡張機能のアイコンサイズと実装ガイド" data-ko="Chrome 확장 프로그램 아이콘 크기 가이드" data-es="Tamaños de iconos para extensiones de Chrome">Chrome Extension Icon Sizes: A Practical Packaging Guide</h1>
+        </header>
+
+        <div class="article-body" data-lang="en">
+            <p>A Chrome extension can show a sharp 128-pixel logo in one place but turn into a muddy square in the toolbar. That usually points to asset sizing, not the brand mark: choosing <strong>Chrome extension icon sizes</strong> correctly means treating toolbar, extension, and store artwork as related but distinct jobs.</p><p>These assets are not website favicons. The <a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">HTML Standard</a> defines <code>rel='icon'</code> as a page link relation, while an extension declares icons in <code>manifest.json</code> and can define separate action artwork. If you also need the site icon, our <a href="/blog/favicon-sizes-guide.html">favicon size guide</a> covers that separate setup.</p><h2>Chrome extension icon sizes: what each asset does</h2><p>For an extension, icon sizes are the pixel dimensions of files supplied for different UI and packaging contexts. A dimension does not determine placement by itself; the manifest property and requesting surface do.</p><ul><li><strong>Manifest artwork:</strong> General extension artwork declared in the top-level <code>icons</code> object. Keep this identity set consistent.</li><li><strong>Action artwork:</strong> The toolbar mark, supplied through <code>action.default_icon</code> when it should differ from the general icon.</li><li><strong>Store artwork:</strong> A 128x128 PNG prepared for the Chrome Web Store listing workflow. Treat it as a separate deliverable rather than assuming the package supplies every listing asset.</li></ul><p>The conservative baseline is 16x16, 24x24, 32x32, 48x48, and 128x128 pixels. These are recommended working sizes, not one universal display rule.</p><h2>Why extension icon sizes matter</h2><p>Small sizes remove detail. Fine lettering, thin strokes, and a complex mark can collapse into a colored blob at 16 pixels. If an exact-size file is missing, the browser must scale an available image, and that fallback can look soft or blurred.</p><p>A useful set separates purpose from resolution. Use compact artwork for toolbar density, a consistent family for general extension surfaces, and a high-resolution square for store presentation. Each export then has a defined job instead of relying on one oversized file to fit every slot.</p><h2>How to build the icon set in manifest.json</h2><p>In Manifest V3, numeric keys in <code>icons</code> declare the pixel dimensions of referenced files. Paths are relative to the extension root and should match the file names exactly, including case. This conservative example separates identity artwork from toolbar artwork:</p><pre><code>{
+  "manifest_version": 3,
+  "name": "Sample Extension",
+  "version": "1.0.0",
+  "icons": {
+    "16": "images/icon-16.png",
+    "32": "images/icon-32.png",
+    "48": "images/icon-48.png",
+    "128": "images/icon-128.png"
+  },
+  "action": {
+    "default_title": "Run Sample Extension",
+    "default_icon": {
+      "16": "images/action-16.png",
+      "24": "images/action-24.png",
+      "32": "images/action-32.png"
+    }
+  }
+}</code></pre><p>The <code>icons</code> object gives Chrome several general-purpose representations. The <code>default_icon</code> map supplies denser toolbar versions at 16, 24, and 32 pixels, where a simplified mark may read better than the full logo. If you omit an action-specific icon, the general icon can serve as the fallback, so declaring the toolbar set gives you tighter visual control.</p><p>Do not copy website favicon syntax into the manifest. The <code>sizes</code> attribute belongs in HTML such as <code>&lt;link rel='icon' sizes='32x32' ...&gt;</code>, not in the JSON map. Likewise, an <code>.ico</code> file that works as a favicon is not automatically the right extension asset; PNG is the conservative package format.</p><h2>Best practices for a consistent extension icon</h2><ul><li><strong>Design for 16 pixels first.</strong> Reduce the mark to a clear silhouette, limited colors, and shapes that remain distinct in light and dark toolbars. Refine larger exports afterward.</li><li><strong>Center it optically.</strong> Equal mathematical padding can still make a mark look low or crowded. Compare every variant in a real toolbar-sized preview.</li><li><strong>Match file dimensions.</strong> A file named <code>icon-32.png</code> should be 32x32 pixels, and its manifest key should say <code>32</code>. Check the package path as well.</li><li><strong>Keep one visual family.</strong> Toolbar, management, and store artwork should share geometry and color, even when the smallest version removes decoration.</li><li><strong>Verify what you package.</strong> Load the unpacked extension, inspect <code>chrome://extensions</code>, and confirm that every referenced image is present in the ZIP. Reload the extension after changes.</li></ul><p>Use <a href="/">Mzu favicondl</a> to export PNG variants from a clean SVG or PNG source. If the site also needs a favicon, the <a href="/blog/favicon-html-code.html">favicon HTML code guide</a> covers its separate markup path.</p><p>If an icon is missing after installation, check JSON syntax first, then verify the files, paths, and dimensions. Refreshing the underlying webpage does not necessarily reload packaged extension metadata, so use the extension's reload control while testing.</p><h2>Conclusion: ship a deliberate icon stack</h2><p>Chrome extension icon sizes matter because toolbar, extension-management, and store contexts have different visual budgets. A practical 16, 24, 32, 48, and 128-pixel PNG set gives Chrome exact source artwork instead of forcing one file into every slot. Treat those dimensions as a maintainable baseline, check the current Chrome Web Store upload rules before release, and keep extension icons separate from your website favicon.</p>
+        </div>
+
+        <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
+        <template data-article-lang="zh"><p>Chrome 扩展的 logo 可能在一个位置清晰锐利地显示为 128 像素，到了工具栏却糊成一个模糊的方块。这通常说明资源尺寸设置有问题，而不是品牌标识本身有问题：正确选择 <strong>Chrome extension icon sizes</strong>，意味着要把工具栏、扩展本身和商店展示图视为相互关联、但用途不同的资源。</p>
+<p>这些资源并不是网站 favicon。<a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">HTML Standard</a> 将 <code>rel='icon'</code> 定义为一种页面链接关系；扩展则在 <code>manifest.json</code> 中声明图标，也可以另外定义 action artwork。如果你还需要网站图标，我们的 <a href="/blog/favicon-sizes-guide.html">favicon 尺寸指南</a> 会介绍那套独立配置。</p>
+<h2>Chrome extension icon sizes：每种资源分别负责什么</h2>
+<p>对扩展而言，图标尺寸是为不同 UI 和打包场景提供的文件所对应的像素尺寸。尺寸本身不能决定资源放在哪里；真正决定放置位置的是 manifest 属性，以及发起请求的界面。</p>
+<ul><li><strong>Manifest artwork：</strong>在顶层 <code>icons</code> 对象中声明的通用扩展资源。应让这组用于标识扩展的资源保持一致。</li><li><strong>Action artwork：</strong>工具栏标识；当它需要与通用图标不同时，通过 <code>action.default_icon</code> 提供。</li><li><strong>Store artwork：</strong>为 Chrome Web Store 上架流程准备的 128x128 PNG。应将其视为单独的交付物，不要想当然地认为扩展包会提供全部上架资源。</li></ul>
+<p>一套保守的基准尺寸是 16x16、24x24、32x32、48x48 和 128x128 像素。这些是建议采用的工作尺寸，并不是一套对所有场景都适用的显示规则。</p>
+<h2>为什么扩展图标尺寸很重要</h2>
+<p>图标一小，细节就容易消失。细小文字、纤细线条和复杂标识到了 16 像素可能糊成一团色块。如果缺少某个精确尺寸的文件，浏览器就必须缩放一张可用图片，而这种回退处理可能让图标显得发虚或模糊。</p>
+<p>一套实用的图标集，应该把用途和分辨率区分开：为工具栏的高密度布局准备紧凑版本，为扩展的各类通用界面准备风格一致的图标系列，再为商店展示准备高分辨率方形图。这样每次导出都有明确用途，不必再依赖同一个超大文件去适配所有位置。</p>
+<h2>如何在 manifest.json 中构建图标集</h2><p>在 Manifest V3 中，<code>icons</code> 对象的数字键用于声明所引用文件的像素尺寸。路径以扩展程序根目录为基准，并且必须与文件名完全一致，包括字符大小写。下面这个较为稳妥的示例，将扩展识别用图标与工具栏图标分开：</p><pre><code>{
+  "manifest_version": 3,
+  "name": "Sample Extension",
+  "version": "1.0.0",
+  "icons": {
+    "16": "images/icon-16.png",
+    "32": "images/icon-32.png",
+    "48": "images/icon-48.png",
+    "128": "images/icon-128.png"
+  },
+  "action": {
+    "default_title": "Run Sample Extension",
+    "default_icon": {
+      "16": "images/action-16.png",
+      "24": "images/action-24.png",
+      "32": "images/action-32.png"
+    }
+  }
+}</code></pre><p><code>icons</code> 对象为 Chrome 提供多种通用尺寸的图标资源。<code>default_icon</code> 映射则提供 16、24 和 32 像素的紧凑工具栏版本；在空间有限的情况下，简化标识可能比完整 Logo 更容易辨认。如果不设置 action 专用图标，通用图标可以作为回退图标，因此声明工具栏图标组能让你更精确地控制视觉呈现。</p><p>不要把网站 favicon 的写法照搬到 manifest 中。<code>sizes</code> 属性应写在 HTML 中，例如 <code>&lt;link rel='icon' sizes='32x32' ...&gt;</code>，而不是放进 JSON 映射。同样，能作为 favicon 使用的 <code>.ico</code> 文件并不一定适合作为扩展程序资源；PNG 则是更稳妥的打包格式。</p><h2>保持扩展图标一致性的最佳实践</h2><ul><li><strong>先按 16 像素设计。</strong> 将图形收敛为清晰的轮廓、有限的配色，并确保其中的形状在浅色和深色工具栏中仍然清楚可辨。之后再细化更大尺寸的导出文件。</li><li><strong>按视觉重心居中。</strong> 即使数学上的留白完全相同，图形也可能显得偏低或过于拥挤。把每个版本放进实际工具栏尺寸的预览中逐一比较。</li><li><strong>文件尺寸要匹配。</strong> 名为 <code>icon-32.png</code> 的文件应为 32x32 像素，manifest 中的 key 也应设为 <code>32</code>。同时检查打包路径。</li><li><strong>保持统一的视觉体系。</strong> 工具栏、扩展管理页和商店展示图应共享相同的几何结构和配色，即使最小尺寸版本移除了装饰。</li><li><strong>核对你实际打包的内容。</strong> 加载解压版扩展，检查 <code>chrome://extensions</code>，确认 ZIP 中包含所有被引用的图片。修改后重新加载扩展。</li></ul><p>使用 <a href="/">Mzu favicondl</a> 从干净的 SVG 或 PNG 源文件导出各个 PNG 变体。如果网站还需要 favicon，<a href="/blog/favicon-html-code.html">favicon HTML 代码指南</a> 会介绍另一套独立的 markup 写法。</p><p>如果安装后图标缺失，先检查 JSON 语法，再核对文件、路径和尺寸。刷新底层网页并不一定会重新加载已打包扩展的 metadata，因此测试时应使用扩展的 reload control。</p><h2>结论：发布一套有明确规划的图标组合</h2><p>Chrome 扩展的图标尺寸很重要，因为工具栏、扩展管理界面和商店场景各自有不同的视觉预算。一套实用的 16、24、32、48 和 128 像素 PNG 组合，可以让 Chrome 在每个位置使用精确对应的源图，而不是把同一个文件强行塞进所有槽位。把这些尺寸视为可维护的基线，发布前检查当前的 Chrome Web Store 上传规则，并将扩展图标与网站 favicon 分开。</p></template>
+        <template data-article-lang="ja"><p>Chrome extensionは、ある表示箇所ではシャープな128ピクセルのロゴを表示できる一方、ツールバーではのっぺりした正方形に見えることがあります。これは通常、ブランドマークではなくアセットのサイズ設定が原因です。Chrome extension icon sizesを正しく選ぶには、ツールバー、拡張機能、ストアのアートワークを、関連はあるものの、それぞれ異なる役割として扱う必要があります。</p><p>これらのアセットは、Webサイトのfaviconではありません。<a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">HTML Standard</a>では<code>rel='icon'</code>はページのlink relationとして定義されていますが、拡張機能では<code>manifest.json</code>でiconsを宣言し、action用のアートワークを個別に定義できます。サイトアイコンも必要な場合は、別のセットアップを解説した<a href="/blog/favicon-sizes-guide.html">favicon size guide</a>を参照してください。</p><h2>Chrome extension icon sizes：各アセットの役割</h2><p>拡張機能におけるicon sizesは、異なるUIやパッケージングの文脈で提供されるファイルのピクセル寸法です。寸法だけでは配置は決まらず、manifestのpropertyと、表示が要求されるsurfaceによって決まります。</p><ul><li><strong>Manifest artwork:</strong> top-levelの<code>icons</code> objectで宣言する、拡張機能全般のアートワークです。このアイデンティティ用セットは一貫性を保ってください。</li><li><strong>Action artwork:</strong> ツールバーのマーク。general iconと差別化すべき場合は、<code>action.default_icon</code>で指定します。</li><li><strong>Store artwork:</strong> Chrome Web Storeのlisting workflow向けに用意する128x128 PNGです。packageがすべてのlisting用アセットを供給してくれるとは仮定せず、独立した成果物として扱ってください。</li></ul><p>保守的なベースラインは16x16、24x24、32x32、48x48、128x128ピクセルです。これらは作業用として推奨されるサイズ群であり、普遍的な表示ルールではありません。</p><h2>extension icon sizesが重要な理由</h2><p>小さいサイズではディテールが失われます。細かな文字、細いストローク、複雑なマークは、16ピクセルでは色付きの塊に潰れてしまうことがあります。正確なサイズのファイルがない場合、ブラウザは利用可能な画像を拡大縮小する必要があります。そのフォールバックによる表示は、にじんだりぼやけたりすることがあります。</p><p>実用的なセットでは、目的と解像度を区別します。ツールバーの表示密度に合わせたコンパクトなアートワーク、拡張機能の一般的な表示面には一貫したファミリー、ストア表示には高解像度の正方形を使用します。各書き出しファイルには役割が明確に定義され、1つの大きすぎるファイルをすべての配置枠で使い回すことに頼らずに済みます。</p><h2>manifest.jsonでicon setを構築する方法</h2><p>Manifest V3では、<code>icons</code>内の数値キーが参照先ファイルのピクセル寸法を示します。パスは拡張機能のルートを基準とした相対パスで、大文字と小文字も含めてファイル名と正確に一致させる必要があります。この安全な構成例では、ID用アートワークとツールバー用アートワークを分離しています。</p><pre><code>{
+  "manifest_version": 3,
+  "name": "Sample Extension",
+  "version": "1.0.0",
+  "icons": {
+    "16": "images/icon-16.png",
+    "32": "images/icon-32.png",
+    "48": "images/icon-48.png",
+    "128": "images/icon-128.png"
+  },
+  "action": {
+    "default_title": "Run Sample Extension",
+    "default_icon": {
+      "16": "images/action-16.png",
+      "24": "images/action-24.png",
+      "32": "images/action-32.png"
+    }
+  }
+}</code></pre><p><code>icons</code>オブジェクトは、Chromeに複数の汎用的な表現を提供します。<code>default_icon</code>マップには、16、24、32ピクセルの高密度なツールバー用バージョンが指定されます。このサイズでは、完全なロゴよりも簡略化したマークの方が視認しやすい場合があります。action固有のアイコンを省略すると、汎用アイコンがfallbackとして使われるため、ツールバー用アイコンを宣言することで、視覚的表現をより細かく制御できます。</p><p>Webサイトのfavicon用構文をmanifestにそのままコピーしないでください。<code>sizes</code>属性は、<code>&lt;link rel='icon' sizes='32x32' ...&gt;</code>のようなHTMLで使う属性であり、JSONのマップで使うものではありません。同様に、faviconとして動作する<code>.ico</code>ファイルが、拡張機能用のアセットとして最適とは限りません。パッケージ形式で:《PNG》を採用するのが安全です。</p><h2>一貫性のある拡張機能アイコンにするためのベストプラクティス</h2><ul><li><strong>まず16ピクセルで設計します。</strong> アイコンのマークを明瞭なシルエット、絞り込んだ色数、ライトとダークのtoolbarでも区別できる形之后再调整 larger exports。</li><li><strong>視覚的な中心mort aligned 配置します。</strong> 数学的に同じ余白でも、マークが下に見えたり窮屈に見えたり합니다。すべてのvariantを実際のtoolbarサイズのpreviewで比較してください。</li><li><strong>ファイルのdimensionを合わせます。</strong> <code>icon-32.png</code>という名前のファイルは32x32ピクセルにし、manifestのkeyも<code>32</code>にしてください。package pathも確認します。</li><li><strong>一貫したvisual familyを保ちます。</strong> toolbar、extension management、storeのartworkではgeometryとcolorを共有し、最小サイズで装飾を省く場合でも同じデザイン体系を維持してください。</li><li><strong>package contentsを確認します。</strong> unpacked extensionを読み込み、<code>chrome://extensions</code>で参照しているimageがすべてZIPに含まれているか確認します。変更後はextensionを再読み込みしてください。</li></ul><p>островCleanなSVGまたはPNGのsourceからPNG variantをexportするには<a href="/">Mzu favicondl</a>を利用できます。サイトにもfaviconが必要なら、<a href="/blog/favicon-html-code.html">faviconのHTML codeガイド</a>で、別のmarkup pathを扱ってください。</p><p>インストール後にiconが表示されない場合は、まずJSON syntaxを確認し、その後でfiles、paths、dimensionsを検証してください。元のwebpageを再読み込みしても、packageされたextensionのmetadataが必ず再読み込みされるとは限りません。テスト中はextensionのreload controlを使用してください。</p><h2>Conclusion: 意図的に整えたicon stackを出荷する</h2><p>Chrome extension icon sizesは、toolbar、extension management、storeという不同的なコンテキストで利用できる視覚領域が異なるため重要です。実用的な16、24、32、48、128ピクセル単位のPNG一式を用意すれば、1つのファイルをすべてのスロットに流用する必要がなく、Chromeにサイズごとの正確なartworkを渡せます。これらのdimensionsは維持しやすいbaselineとして扱い、release前に現在のChrome Web Storeのupload rulesを確認し、extension iconはwebサイトのfaviconとは分けて管理してください。</p></template>
+        <template data-article-lang="ko"><p>Chrome extension은 어떤 위치에서는 선명한 128픽셀 로고를 보여주지만, toolbar에서는 흐릿하고 탁한 정사각형으로 보일 수 있습니다. 이는 대개 brand mark 자체가 아니라 asset sizing 때문입니다. <strong>Chrome extension icon sizes</strong>를 올바르게 선택하려면 toolbar, extension, store artwork를 서로 연관되지만 역할은 다른 각각의 작업으로 다뤄야 합니다.</p><p>이 asset들은 웹사이트용 favicon과는 별개입니다. <a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">HTML Standard</a>는 <code>rel='icon'</code>을 페이지 link relation으로 정의하지만, extension은 <code>manifest.json</code>에서 icon을 선언하고 별도의 action artwork를 정의할 수도 있습니다. 사이트 icon도 필요하다면 별도 설정 방법은 <a href="/blog/favicon-sizes-guide.html">favicon size guide</a>에서 다룹니다.</p><h2>Chrome extension icon sizes: 각 asset의 역할</h2><p>extension에서 icon size는 서로 다른 UI와 packaging 환경에 제공되는 파일의 픽셀 크기입니다. 픽셀 크기만으로 배치 위치가 결정되는 것은 아니며, manifest property와 asset을 요청하는 surface에 따라 달라집니다.</p><ul><li><strong>Manifest artwork:</strong> 최상위 <code>icons</code> object에 선언하는 일반 extension artwork입니다. 이 아이콘 세트는 일관된 정체성을 유지해야 합니다.</li><li><strong>Action artwork:</strong> toolbar에 표시되는 mark로, 일반 icon과 구분해야 할 때 <code>action.default_icon</code>을 통해 제공합니다.</li><li><strong>Store artwork:</strong> Chrome Web Store의 listing workflow를 위해 준비하는 128x128 PNG입니다. package가 모든 listing asset을 제공한다고 가정하지 말고 별도 deliverable로 관리하세요.</li></ul><p>보수적인 기준선은 16x16, 24x24, 32x32, 48x48, 128x128 픽셀입니다. 이 크기들은 작업 시 권장하는 크기이며, 모든 화면에 공통으로 적용되는 단일 표시 규칙은 아닙니다.</p><h2>왜 extension icon size가 중요한가</h2><p>작은 크기에서는 세부 디테일이 사라집니다. 세밀한 글자, 가는 획, 복잡한 mark는 16픽셀에서 색 덩어리로 뭉개질 수 있습니다. 정확히 맞는 크기의 파일이 없으면 브라우저는 사용 가능한 이미지를 scaling해야 합니다. 이 fallback은 부드럽거나 흐리게 보일 수 있습니다.</p><p>목적과 해상도를 나눠 준비한 icon set이 유용합니다. toolbar의 밀도에 적합한 compact artwork, 일반 extension 표면 전반에 사용할 일관된 icon family, store presentation용 고해상도 정사각형 이미지를 준비하면 됩니다. 그러면 각 export에 정해진 역할이 생기고, 하나의 oversized file을 모든 slot에 맞추는 데 의존할 필요가 없습니다.</p><h2>manifest.json에서 icon set을 만드는 방법</h2><p>Manifest V3에서 <code>icons</code>의 숫자 키는 참조 대상 파일의 픽셀 크기를 선언합니다. 경로는 확장 프로그램 루트를 기준으로 하며, 대소문자를 포함해 파일명과 정확히 일치해야 합니다. 다음 예시는 확장 프로그램 식별용 이미지와 toolbar용 이미지를 분리한 보수적인 구성입니다:</p><pre><code>{
+  "manifest_version": 3,
+  "name": "Sample Extension",
+  "version": "1.0.0",
+  "icons" {
+    "16": "images/icon-16.png",
+    "32": "images/icon-32.png",
+    "48": "images/icon-48.png",
+    "128": "images/icon-128.png"
+  },
+  "action": {
+    "default_title": "Run Sample Extension",
+    "default_icon": {
+      "16": "images/action-16.png",
+      "24": "images/action-24.png",
+      "32": "images/action-32.png"
+    }
+  }
+}</code></pre><p><code>icons</code> 객체는 Chrome에 일반적인 용도로 사용할 수 있는 여러 아이콘 표현을 제공합니다. <code>default_icon</code> 맵은 16, 24, 32픽셀 크기의 더 세밀한 toolbar용 버전을 지정합니다. 이 크기에서는 전체 로고보다 단순화된 심벌릿이 더 잘 읽힐 수 있습니다. action 전용 아이콘을 생략하면 일반 아이콘이 fallback으로 사용될 수 있으므로, toolbar용 아이콘 세트를 선언하면 아이콘 표시를 더 정밀하게 제어할 수 있습니다.</p><p>웹사이트 favicon 구문을 manifest에 그대로 복사하지 마세요. <code>sizes</code> 속성은 <code>&lt;link rel='icon' sizes='32x32' ...&gt;</code> 같은 HTML에 넣어야 하며, JSON 맵에 넣는 것이 아닙니다. 마찬가지로 favicon으로 작동하는 <code>.ico</code> 파일이 자동으로 올바른 확장 프로그램 asset이 되는 것은 아닙니다. PNG가 보수적인 패키지 형식입니다.</p><h2>일관된 확장 프로그램 아이콘을 위한 권장 사항</h2><ul><li><strong>먼저 16픽셀을 기준으로 디자인하세요.</strong> 아이콘을 선명한 실루엣과 제한된 색상으로 구성하고, 밝고 어두운 toolbar에서도 형태가 구분되도록 해야 합니다. 더 큰 크기의 export는 그다음에 다듬으면 됩니다.</li><li><strong>시각적 중심을 맞추세요.</strong> 수학적으로 동일한 여백을 적용해도 아이콘이 낮거나 답답해 보일 수 있습니다. 각 변형을 실제 toolbar 크기의 preview에서 비교해 보세요.</li><li><strong>파일 dimensions를 일치시키세요.</strong> <code>icon-32.png</code>의 실제 크기는 32×32픽셀이어야 하고, manifest key도 <code>32</code>로 지정해야 합니다. package path도 함께 확인하세요.</li><li><strong>하나의 visual family를 유지하세요.</strong> toolbar, extension 관리 화면, store에 사용하는 artwork는 가장 작은 버전에서 장식 요소를 줄이더라도 도형 구성과 색상을 공유해야 합니다.</li><li><strong>패키징한 내용을 확인하세요.</strong> unpacked extension을 로드하고 <code>chrome://extensions</code>에서 참조된 모든 이미지가 ZIP에 들어 있는지 확인하세요. 변경 사항을 적용한 뒤에는 extension을 reload하세요.</li></ul><p><a href="/">Mzu favicondl</a>을 사용하면 깨끗한 SVG 또는 PNG 소스에서 PNG variants를 export할 수 있습니다. 사이트에 favicon도 필요하다면, <a href="/blog/favicon-html-code.html">favicon HTML code guide</a>에서 별도로 필요한 markup 경로를 설명합니다.</p><p>설치 후 아이콘이 표시되지 않는다면 먼저 JSON syntax를 확인한 다음 파일, 경로, dimensions를 검증하세요. underlying webpage을 새로 고치는 것만으로는 packaged extension metadata가 반드시 reload되지 않을 수 있으므로, 테스트할 때는 extension의 reload control을 사용하세요.</p><h2>결론: 목적에 맞게 구성한 아이콘 세트를 배포하세요</h2><p>Chrome extension 아이콘 크기가 중요한 이유는 toolbar, extension 관리 화면, store처럼 사용 context마다 시각적 여유가 다르기 때문입니다. 실용적인 16, 24, 32, 48, 128픽셀 PNG 세트를 준비하면 하나의 파일을 모든 슬롯에 억지로 사용하는 대신 Chrome에 크기별 원본 artwork를 정확하게 제공할 수 있습니다. 이러한 dimensions를 관리 가능한 baseline으로 삼고, release 전에 현재 Chrome Web Store upload rules를 확인하며, extension 아이콘과 website favicon은 분리해서 관리하세요.</p></template>
+        <template data-article-lang="es"><p>Una extensión de Chrome puede mostrar un logotipo nítido de 128 píxeles en un lugar y convertirse en un cuadrado borroso en la barra de herramientas. Eso suele indicar que el problema son las dimensiones de los recursos, no la marca: elegir correctamente los <strong>tamaños de los iconos de las extensiones de Chrome</strong> implica tratar los recursos de la barra de herramientas, de la extensión y de la tienda como funciones relacionadas pero distintas.</p>
+<p>Estos recursos no son favicons de sitios web. El <a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">estándar HTML</a> define <code>rel='icon'</code> como una relación de enlace de página, mientras que una extensión declara sus iconos en <code>manifest.json</code> y puede definir recursos de action independientes. Si también necesitas el icono del sitio, nuestra <a href="/blog/favicon-sizes-guide.html">guía de tamaños de favicon</a> cubre esa configuración aparte.</p>
+<h2>Tamaños de los iconos de las extensiones de Chrome: qué hace cada recurso</h2>
+<p>Para una extensión, los tamaños de los iconos son las dimensiones en píxeles de los archivos proporcionados para distintos contextos de UI y empaquetado. Una dimensión no determina por sí sola la ubicación; de eso se encargan la propiedad del manifest y la superficie que solicita el recurso.</p>
+<ul><li><strong>Recursos del manifest:</strong> son los recursos generales de la extensión declarados en el objeto <code>icons</code> de nivel superior. Mantén la coherencia de este conjunto de identidad.</li><li><strong>Recursos de action:</strong> el símbolo de la barra de herramientas, proporcionado mediante <code>action.default_icon</code> cuando debe diferir del icono general.</li><li><strong>Recursos de la tienda:</strong> un PNG de 128x128 preparado para el flujo de trabajo de publicación en Chrome Web Store. Trátalo como un entregable independiente, en lugar de asumir que el paquete proporciona todos los recursos necesarios para el listado.</li></ul>
+<p>El punto de partida conservador es 16x16, 24x24, 32x32, 48x48 y 128x128 píxeles. Son tamaños de trabajo recomendados, no una regla universal de visualización.</p>
+<h2>Por qué importan los tamaños de los iconos de las extensiones</h2>
+<p>Los tamaños pequeños hacen que desaparezcan los detalles. Las letras finas, los trazos delgados y un símbolo complejo pueden fundirse en una mancha de color a 16 píxeles. Si falta un archivo del tamaño exacto, el navegador debe escalar una imagen disponible, y ese recurso de reserva puede verse blando o desenfocado.</p>
+<p>Un conjunto útil separa el propósito de la resolución. Usa recursos compactos que se adapten a la densidad de la barra de herramientas, una familia coherente para las superficies generales de la extensión y un cuadrado de alta resolución para la presentación en la tienda. Así, cada exportación tiene una función definida en lugar de depender de un único archivo sobredimensionado que tenga que encajar en todos los espacios.</p>
+<h2>Cómo crear el conjunto de iconos en manifest.json</h2><p>En Manifest V3, las claves numéricas de <code>icons</code> declaran las dimensiones en píxeles de los archivos referenciados. Las rutas son relativas a la raíz de la extensión y deben coincidir exactamente con los nombres de archivo, teniendo en cuenta las mayúsculas y minúsculas. Este ejemplo conservador separa las piezas gráficas de identidad de las destinadas a la barra de herramientas:</p><pre><code>{
+  "manifest_version": 3,
+  "name": "Sample Extension",
+  "version": "1.0.0",
+  "icons": {
+    "16": "images/icon-16.png",
+    "32": "images/icon-32.png",
+    "48": "images/icon-48.png",
+    "128": "images/icon-128.png"
+  },
+  "action": {
+    "default_title": "Run Sample Extension",
+    "default_icon": {
+      "16": "images/action-16.png",
+      "24": "images/action-24.png",
+      "32": "images/action-32.png"
+    }
+  }
+}</code></pre><p>El objeto <code>icons</code> proporciona a Chrome varias representaciones de uso general. El mapa <code>default_icon</code> aporta representaciones con mayor densidad visual para la barra de herramientas a 16, 24 y 32 píxeles, donde un símbolo simplificado puede resultar más legible que el logotipo completo. Si omites un icono específico de <code>action</code>, el icono general puede servir como fallback, por lo que declarar el conjunto de iconos de la barra de herramientas te ofrece un control visual más preciso.</p><p>No copies la sintaxis del favicon de un sitio web al manifest. El atributo <code>sizes</code> pertenece a HTML, como en <code>&lt;link rel='icon' sizes='32x32' ...&gt;</code>, y no al mapa JSON. Del mismo modo, un archivo <code>.ico</code> que funciona como favicon no es automáticamente el recurso adecuado para una extensión; PNG es el formato conservador para el paquete.</p><h2>Prácticas recomendadas para un icono de extensión coherente</h2><ul><li><strong>Diseña primero para 16 píxeles.</strong> Reduce la marca a una silueta clara, con colores limitados y formas que sigan siendo distinguibles en toolbars claros y oscuros. Después, refina las exportaciones de mayor tamaño.</li><li><strong>Centra el icono ópticamente.</strong> Aunque el padding sea igual en términos matemáticos, la marca todavía puede parecer baja o apretada. Compara cada variante en una vista previa con el tamaño real del toolbar.</li><li><strong>Haz coincidir las dimensiones del archivo.</strong> Un archivo llamado <code>icon-32.png</code> debe medir 32x32 píxeles, y la clave de su manifest debe indicar <code>32</code>. Comprueba también la ruta del paquete.</li><li><strong>Mantén una única familia visual.</strong> Los gráficos para el toolbar, la gestión de extensiones y la tienda deben compartir geometría y color, aunque la versión más pequeña elimine los adornos.</li><li><strong>Verifica lo que empaquetas.</strong> Carga la extensión desempaquetada, inspecciona <code>chrome://extensions</code> y confirma que cada imagen referenciada esté presente en el ZIP. Recarga la extensión después de los cambios.</li></ul><p>Usa <a href="/">Mzu favicondl</a> para exportar variantes PNG desde un origen SVG o PNG limpio. Si el sitio también necesita un favicon, la <a href="/blog/favicon-html-code.html">guía de código HTML para favicons</a> cubre su ruta de marcado independiente.</p><p>Si un icono no aparece después de la instalación, comprueba primero la sintaxis JSON y luego verifica los archivos, las rutas y las dimensiones. Recargar la página web subyacente no necesariamente recarga los metadatos empaquetados de la extensión, así que usa el control de recarga de la extensión mientras realizas las pruebas.</p><h2>Conclusión: publica un conjunto de iconos bien pensado</h2><p>Los tamaños de los iconos de las extensiones de Chrome importan porque los contextos del toolbar, la gestión de extensiones y la tienda tienen presupuestos visuales distintos. Un conjunto práctico de archivos PNG de 16, 24, 32, 48 y 128 píxeles proporciona a Chrome los gráficos de origen exactos en lugar de obligarlo a usar un único archivo en todos los espacios. Trata esas dimensiones como una línea base fácil de mantener, consulta las reglas de carga vigentes de Chrome Web Store antes de publicar y mantén los iconos de las extensiones separados del favicon de tu sitio web.</p></template>
+
+        <div class="cta-box">
+            <h3 data-en="Build a consistent extension icon set" data-zh="生成统一的扩展图标集" data-ja="一貫した拡張機能アイコンセットを作成" data-ko="일관된 확장 프로그램 아이콘 세트 만들기" data-es="Crea un conjunto de iconos coherente">Build a consistent extension icon set</h3>
+            <p data-en="Convert your source artwork into the PNG sizes you need, then package each file with the correct manifest path." data-zh="将源图转换为所需 PNG 尺寸，再按正确的 manifest 路径打包每个文件。" data-ja="ソース画像を必要な PNG サイズへ変換し、正しい manifest パスで各ファイルをパッケージします。" data-ko="소스 이미지를 필요한 PNG 크기로 변환한 뒤 올바른 manifest 경로로 각 파일을 패키징하세요." data-es="Convierte tu arte original a los tamaños PNG que necesitas y empaqueta cada archivo con la ruta correcta del manifest.">Convert your source artwork into the PNG sizes you need, then package each file with the correct manifest path.</p>
+            <a href="/" class="cta-btn" data-en="Try It Free →" data-zh="免费试用 →" data-ja="無料で試す →" data-ko="무료로 사용해보기 →" data-es="Pruébalo gratis →">Try It Free →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Home" data-zh="首页">Home</a>
+                <a href="/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Blog" data-zh="博客">Blog</a>
+                <a href="/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Privacy" data-zh="隐私政策">Privacy</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js?v=20260211"></script>
+
+</body></html>

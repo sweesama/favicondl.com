@@ -3139,7 +3139,9 @@
     "avoidOverlap": [
       "favicon-chrome-new-tab"
     ],
-    "status": "pending"
+    "status": "done",
+    "qualityScore": 80,
+    "qualityGrade": "A"
   },
   {
     "keyword": "favicon api get website icon",

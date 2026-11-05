@@ -1,0 +1,144 @@
+<!DOCTYPE html><html lang="ja"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chrome 拡張機能のアイコンサイズと実装ガイド</title>
+    <meta name="description" content="Chrome 拡張機能のツールバー、manifest、Chrome Web Store 向けに推奨するアイコンサイズと、PNG 書き出し、manifest の設定方法を確認できます。">
+    <meta name="keywords" content="chrome extension icon sizes, extension manifest icons, toolbar icons, PNG icons">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/ja/blog/chrome-extension-icon-sizes.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/chrome-extension-icon-sizes.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/chrome-extension-icon-sizes.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/chrome-extension-icon-sizes.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/chrome-extension-icon-sizes.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/chrome-extension-icon-sizes.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/chrome-extension-icon-sizes.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/ja/blog/chrome-extension-icon-sizes.html">
+    <meta property="og:title" content="Chrome 拡張機能のアイコンサイズと実装ガイド">
+    <meta property="og:description" content="Chrome 拡張機能のツールバー、manifest、Chrome Web Store 向けに推奨するアイコンサイズと、PNG 書き出し、manifest の設定方法を確認できます。">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Chrome 拡張機能のアイコンサイズと実装ガイド">
+    <meta name="twitter:description" content="Chrome 拡張機能のツールバー、manifest、Chrome Web Store 向けに推奨するアイコンサイズと、PNG 書き出し、manifest の設定方法を確認できます。">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Chrome 拡張機能のアイコンサイズと実装ガイド",
+  "description": "Chrome 拡張機能のツールバー、manifest、Chrome Web Store 向けに推奨するアイコンサイズと、PNG 書き出し、manifest の設定方法を確認できます。",
+  "datePublished": "2026-11-05",
+  "dateModified": "2026-11-05",
+  "author": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "mainEntityOfPage": "https://favicondl.com/ja/blog/chrome-extension-icon-sizes.html",
+  "inLanguage": "ja"
+}</script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/ja/" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/ja/documentation.html" class="nav-link">ドキュメント</a>
+                <a href="/ja/tools.html" class="nav-link">ツール</a>
+                <a href="/ja/blog/" class="nav-link">ブログ</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/chrome-extension-icon-sizes.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/chrome-extension-icon-sizes.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/chrome-extension-icon-sizes.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/chrome-extension-icon-sizes.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/chrome-extension-icon-sizes.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/ja/" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/ja/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600">Chrome 拡張機能のアイコンサイズと実装ガイド</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">sizes</span><time class="text-sm text-gray-400">2026-11-05</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">Chrome 拡張機能のアイコンサイズと実装ガイド</h1>
+        </header>
+
+        <div class="article-body"><p>Chrome extensionは、ある表示箇所ではシャープな128ピクセルのロゴを表示できる一方、ツールバーではのっぺりした正方形に見えることがあります。これは通常、ブランドマークではなくアセットのサイズ設定が原因です。Chrome extension icon sizesを正しく選ぶには、ツールバー、拡張機能、ストアのアートワークを、関連はあるものの、それぞれ異なる役割として扱う必要があります。</p><p>これらのアセットは、Webサイトのfaviconではありません。<a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">HTML Standard</a>では<code>rel='icon'</code>はページのlink relationとして定義されていますが、拡張機能では<code>manifest.json</code>でiconsを宣言し、action用のアートワークを個別に定義できます。サイトアイコンも必要な場合は、別のセットアップを解説した<a href="/ja/blog/favicon-sizes-guide.html">favicon size guide</a>を参照してください。</p><h2>Chrome extension icon sizes：各アセットの役割</h2><p>拡張機能におけるicon sizesは、異なるUIやパッケージングの文脈で提供されるファイルのピクセル寸法です。寸法だけでは配置は決まらず、manifestのpropertyと、表示が要求されるsurfaceによって決まります。</p><ul><li><strong>Manifest artwork:</strong> top-levelの<code>icons</code> objectで宣言する、拡張機能全般のアートワークです。このアイデンティティ用セットは一貫性を保ってください。</li><li><strong>Action artwork:</strong> ツールバーのマーク。general iconと差別化すべき場合は、<code>action.default_icon</code>で指定します。</li><li><strong>Store artwork:</strong> Chrome Web Storeのlisting workflow向けに用意する128x128 PNGです。packageがすべてのlisting用アセットを供給してくれるとは仮定せず、独立した成果物として扱ってください。</li></ul><p>保守的なベースラインは16x16、24x24、32x32、48x48、128x128ピクセルです。これらは作業用として推奨されるサイズ群であり、普遍的な表示ルールではありません。</p><h2>extension icon sizesが重要な理由</h2><p>小さいサイズではディテールが失われます。細かな文字、細いストローク、複雑なマークは、16ピクセルでは色付きの塊に潰れてしまうことがあります。正確なサイズのファイルがない場合、ブラウザは利用可能な画像を拡大縮小する必要があります。そのフォールバックによる表示は、にじんだりぼやけたりすることがあります。</p><p>実用的なセットでは、目的と解像度を区別します。ツールバーの表示密度に合わせたコンパクトなアートワーク、拡張機能の一般的な表示面には一貫したファミリー、ストア表示には高解像度の正方形を使用します。各書き出しファイルには役割が明確に定義され、1つの大きすぎるファイルをすべての配置枠で使い回すことに頼らずに済みます。</p><h2>manifest.jsonでicon setを構築する方法</h2><p>Manifest V3では、<code>icons</code>内の数値キーが参照先ファイルのピクセル寸法を示します。パスは拡張機能のルートを基準とした相対パスで、大文字と小文字も含めてファイル名と正確に一致させる必要があります。この安全な構成例では、ID用アートワークとツールバー用アートワークを分離しています。</p><pre><code>{
+  "manifest_version": 3,
+  "name": "Sample Extension",
+  "version": "1.0.0",
+  "icons": {
+    "16": "images/icon-16.png",
+    "32": "images/icon-32.png",
+    "48": "images/icon-48.png",
+    "128": "images/icon-128.png"
+  },
+  "action": {
+    "default_title": "Run Sample Extension",
+    "default_icon": {
+      "16": "images/action-16.png",
+      "24": "images/action-24.png",
+      "32": "images/action-32.png"
+    }
+  }
+}</code></pre><p><code>icons</code>オブジェクトは、Chromeに複数の汎用的な表現を提供します。<code>default_icon</code>マップには、16、24、32ピクセルの高密度なツールバー用バージョンが指定されます。このサイズでは、完全なロゴよりも簡略化したマークの方が視認しやすい場合があります。action固有のアイコンを省略すると、汎用アイコンがfallbackとして使われるため、ツールバー用アイコンを宣言することで、視覚的表現をより細かく制御できます。</p><p>Webサイトのfavicon用構文をmanifestにそのままコピーしないでください。<code>sizes</code>属性は、<code>&lt;link rel='icon' sizes='32x32' ...&gt;</code>のようなHTMLで使う属性であり、JSONのマップで使うものではありません。同様に、faviconとして動作する<code>.ico</code>ファイルが、拡張機能用のアセットとして最適とは限りません。パッケージ形式で:《PNG》を採用するのが安全です。</p><h2>一貫性のある拡張機能アイコンにするためのベストプラクティス</h2><ul><li><strong>まず16ピクセルで設計します。</strong> アイコンのマークを明瞭なシルエット、絞り込んだ色数、ライトとダークのtoolbarでも区別できる形之后再调整 larger exports。</li><li><strong>視覚的な中心mort aligned 配置します。</strong> 数学的に同じ余白でも、マークが下に見えたり窮屈に見えたり합니다。すべてのvariantを実際のtoolbarサイズのpreviewで比較してください。</li><li><strong>ファイルのdimensionを合わせます。</strong> <code>icon-32.png</code>という名前のファイルは32x32ピクセルにし、manifestのkeyも<code>32</code>にしてください。package pathも確認します。</li><li><strong>一貫したvisual familyを保ちます。</strong> toolbar、extension management、storeのartworkではgeometryとcolorを共有し、最小サイズで装飾を省く場合でも同じデザイン体系を維持してください。</li><li><strong>package contentsを確認します。</strong> unpacked extensionを読み込み、<code>chrome://extensions</code>で参照しているimageがすべてZIPに含まれているか確認します。変更後はextensionを再読み込みしてください。</li></ul><p>островCleanなSVGまたはPNGのsourceからPNG variantをexportするには<a href="/ja/">Mzu favicondl</a>を利用できます。サイトにもfaviconが必要なら、<a href="/ja/blog/favicon-html-code.html">faviconのHTML codeガイド</a>で、別のmarkup pathを扱ってください。</p><p>インストール後にiconが表示されない場合は、まずJSON syntaxを確認し、その後でfiles、paths、dimensionsを検証してください。元のwebpageを再読み込みしても、packageされたextensionのmetadataが必ず再読み込みされるとは限りません。テスト中はextensionのreload controlを使用してください。</p><h2>Conclusion: 意図的に整えたicon stackを出荷する</h2><p>Chrome extension icon sizesは、toolbar、extension management、storeという不同的なコンテキストで利用できる視覚領域が異なるため重要です。実用的な16、24、32、48、128ピクセル単位のPNG一式を用意すれば、1つのファイルをすべてのスロットに流用する必要がなく、Chromeにサイズごとの正確なartworkを渡せます。これらのdimensionsは維持しやすいbaselineとして扱い、release前に現在のChrome Web Storeのupload rulesを確認し、extension iconはwebサイトのfaviconとは分けて管理してください。</p></div>
+
+        <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
+
+        <div class="cta-box">
+            <h3>一貫した拡張機能アイコンセットを作成</h3>
+            <p>ソース画像を必要な PNG サイズへ変換し、正しい manifest パスで各ファイルをパッケージします。</p>
+            <a href="/ja/" class="cta-btn">無料で試す →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/ja/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">ホーム</a>
+                <a href="/ja/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">ブログ</a>
+                <a href="/ja/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">プライバシー</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js?v=20260211"></script>
+
+</body></html>

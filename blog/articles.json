@@ -4165,5 +4165,26 @@
     ],
     "qualityScore": 85,
     "qualityGrade": "A"
+  },
+  {
+    "slug": "chrome-extension-icon-sizes",
+    "publishDate": "2026-11-05",
+    "titleEn": "Chrome Extension Icon Sizes: A Practical Packaging Guide",
+    "titleZh": "Chrome 扩展图标尺寸：实用打包指南",
+    "titleJa": "Chrome 拡張機能のアイコンサイズと実装ガイド",
+    "titleKo": "Chrome 확장 프로그램 아이콘 크기 가이드",
+    "titleEs": "Tamaños de iconos para extensiones de Chrome",
+    "descEn": "Learn Chrome extension icon sizes for toolbar, manifest, and Web Store use, with practical PNG dimensions, manifest examples, and tips for clear icons.",
+    "descZh": "了解 Chrome 扩展在工具栏、manifest 和应用商店中使用的图标尺寸，并附 PNG 尺寸建议、manifest 示例与清晰度检查方法。",
+    "descJa": "Chrome 拡張機能のツールバー、manifest、Chrome Web Store 向けに推奨するアイコンサイズと、PNG 書き出し、manifest の設定方法を確認できます。",
+    "descKo": "Chrome 확장 프로그램의 툴바, manifest, Chrome Web Store에 맞는 아이콘 크기와 PNG 제작 및 manifest 설정 방법을 알아보세요.",
+    "descEs": "Descubre los tamaños de iconos para la barra, el manifest y Chrome Web Store, con ejemplos de PNG y recomendaciones para mantenerlos nítidos.",
+    "keyword": "chrome extension icon sizes",
+    "tags": [
+      "sizes",
+      "apps"
+    ],
+    "qualityScore": 80,
+    "qualityGrade": "A"
   }
 ]

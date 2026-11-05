@@ -1,0 +1,144 @@
+<!DOCTYPE html><html lang="ko"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chrome 확장 프로그램 아이콘 크기 가이드</title>
+    <meta name="description" content="Chrome 확장 프로그램의 툴바, manifest, Chrome Web Store에 맞는 아이콘 크기와 PNG 제작 및 manifest 설정 방법을 알아보세요.">
+    <meta name="keywords" content="chrome extension icon sizes, extension manifest icons, toolbar icons, PNG icons">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/ko/blog/chrome-extension-icon-sizes.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/chrome-extension-icon-sizes.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/chrome-extension-icon-sizes.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/chrome-extension-icon-sizes.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/chrome-extension-icon-sizes.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/chrome-extension-icon-sizes.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/chrome-extension-icon-sizes.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/ko/blog/chrome-extension-icon-sizes.html">
+    <meta property="og:title" content="Chrome 확장 프로그램 아이콘 크기 가이드">
+    <meta property="og:description" content="Chrome 확장 프로그램의 툴바, manifest, Chrome Web Store에 맞는 아이콘 크기와 PNG 제작 및 manifest 설정 방법을 알아보세요.">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Chrome 확장 프로그램 아이콘 크기 가이드">
+    <meta name="twitter:description" content="Chrome 확장 프로그램의 툴바, manifest, Chrome Web Store에 맞는 아이콘 크기와 PNG 제작 및 manifest 설정 방법을 알아보세요.">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Chrome 확장 프로그램 아이콘 크기 가이드",
+  "description": "Chrome 확장 프로그램의 툴바, manifest, Chrome Web Store에 맞는 아이콘 크기와 PNG 제작 및 manifest 설정 방법을 알아보세요.",
+  "datePublished": "2026-11-05",
+  "dateModified": "2026-11-05",
+  "author": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "mainEntityOfPage": "https://favicondl.com/ko/blog/chrome-extension-icon-sizes.html",
+  "inLanguage": "ko"
+}</script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/ko/" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/ko/documentation.html" class="nav-link">문서</a>
+                <a href="/ko/tools.html" class="nav-link">도구</a>
+                <a href="/ko/blog/" class="nav-link">블로그</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/chrome-extension-icon-sizes.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/chrome-extension-icon-sizes.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/chrome-extension-icon-sizes.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/chrome-extension-icon-sizes.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/chrome-extension-icon-sizes.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/ko/" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/ko/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600">Chrome 확장 프로그램 아이콘 크기 가이드</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">sizes</span><time class="text-sm text-gray-400">2026-11-05</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">Chrome 확장 프로그램 아이콘 크기 가이드</h1>
+        </header>
+
+        <div class="article-body"><p>Chrome extension은 어떤 위치에서는 선명한 128픽셀 로고를 보여주지만, toolbar에서는 흐릿하고 탁한 정사각형으로 보일 수 있습니다. 이는 대개 brand mark 자체가 아니라 asset sizing 때문입니다. <strong>Chrome extension icon sizes</strong>를 올바르게 선택하려면 toolbar, extension, store artwork를 서로 연관되지만 역할은 다른 각각의 작업으로 다뤄야 합니다.</p><p>이 asset들은 웹사이트용 favicon과는 별개입니다. <a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">HTML Standard</a>는 <code>rel='icon'</code>을 페이지 link relation으로 정의하지만, extension은 <code>manifest.json</code>에서 icon을 선언하고 별도의 action artwork를 정의할 수도 있습니다. 사이트 icon도 필요하다면 별도 설정 방법은 <a href="/ko/blog/favicon-sizes-guide.html">favicon size guide</a>에서 다룹니다.</p><h2>Chrome extension icon sizes: 각 asset의 역할</h2><p>extension에서 icon size는 서로 다른 UI와 packaging 환경에 제공되는 파일의 픽셀 크기입니다. 픽셀 크기만으로 배치 위치가 결정되는 것은 아니며, manifest property와 asset을 요청하는 surface에 따라 달라집니다.</p><ul><li><strong>Manifest artwork:</strong> 최상위 <code>icons</code> object에 선언하는 일반 extension artwork입니다. 이 아이콘 세트는 일관된 정체성을 유지해야 합니다.</li><li><strong>Action artwork:</strong> toolbar에 표시되는 mark로, 일반 icon과 구분해야 할 때 <code>action.default_icon</code>을 통해 제공합니다.</li><li><strong>Store artwork:</strong> Chrome Web Store의 listing workflow를 위해 준비하는 128x128 PNG입니다. package가 모든 listing asset을 제공한다고 가정하지 말고 별도 deliverable로 관리하세요.</li></ul><p>보수적인 기준선은 16x16, 24x24, 32x32, 48x48, 128x128 픽셀입니다. 이 크기들은 작업 시 권장하는 크기이며, 모든 화면에 공통으로 적용되는 단일 표시 규칙은 아닙니다.</p><h2>왜 extension icon size가 중요한가</h2><p>작은 크기에서는 세부 디테일이 사라집니다. 세밀한 글자, 가는 획, 복잡한 mark는 16픽셀에서 색 덩어리로 뭉개질 수 있습니다. 정확히 맞는 크기의 파일이 없으면 브라우저는 사용 가능한 이미지를 scaling해야 합니다. 이 fallback은 부드럽거나 흐리게 보일 수 있습니다.</p><p>목적과 해상도를 나눠 준비한 icon set이 유용합니다. toolbar의 밀도에 적합한 compact artwork, 일반 extension 표면 전반에 사용할 일관된 icon family, store presentation용 고해상도 정사각형 이미지를 준비하면 됩니다. 그러면 각 export에 정해진 역할이 생기고, 하나의 oversized file을 모든 slot에 맞추는 데 의존할 필요가 없습니다.</p><h2>manifest.json에서 icon set을 만드는 방법</h2><p>Manifest V3에서 <code>icons</code>의 숫자 키는 참조 대상 파일의 픽셀 크기를 선언합니다. 경로는 확장 프로그램 루트를 기준으로 하며, 대소문자를 포함해 파일명과 정확히 일치해야 합니다. 다음 예시는 확장 프로그램 식별용 이미지와 toolbar용 이미지를 분리한 보수적인 구성입니다:</p><pre><code>{
+  "manifest_version": 3,
+  "name": "Sample Extension",
+  "version": "1.0.0",
+  "icons" {
+    "16": "images/icon-16.png",
+    "32": "images/icon-32.png",
+    "48": "images/icon-48.png",
+    "128": "images/icon-128.png"
+  },
+  "action": {
+    "default_title": "Run Sample Extension",
+    "default_icon": {
+      "16": "images/action-16.png",
+      "24": "images/action-24.png",
+      "32": "images/action-32.png"
+    }
+  }
+}</code></pre><p><code>icons</code> 객체는 Chrome에 일반적인 용도로 사용할 수 있는 여러 아이콘 표현을 제공합니다. <code>default_icon</code> 맵은 16, 24, 32픽셀 크기의 더 세밀한 toolbar용 버전을 지정합니다. 이 크기에서는 전체 로고보다 단순화된 심벌릿이 더 잘 읽힐 수 있습니다. action 전용 아이콘을 생략하면 일반 아이콘이 fallback으로 사용될 수 있으므로, toolbar용 아이콘 세트를 선언하면 아이콘 표시를 더 정밀하게 제어할 수 있습니다.</p><p>웹사이트 favicon 구문을 manifest에 그대로 복사하지 마세요. <code>sizes</code> 속성은 <code>&lt;link rel='icon' sizes='32x32' ...&gt;</code> 같은 HTML에 넣어야 하며, JSON 맵에 넣는 것이 아닙니다. 마찬가지로 favicon으로 작동하는 <code>.ico</code> 파일이 자동으로 올바른 확장 프로그램 asset이 되는 것은 아닙니다. PNG가 보수적인 패키지 형식입니다.</p><h2>일관된 확장 프로그램 아이콘을 위한 권장 사항</h2><ul><li><strong>먼저 16픽셀을 기준으로 디자인하세요.</strong> 아이콘을 선명한 실루엣과 제한된 색상으로 구성하고, 밝고 어두운 toolbar에서도 형태가 구분되도록 해야 합니다. 더 큰 크기의 export는 그다음에 다듬으면 됩니다.</li><li><strong>시각적 중심을 맞추세요.</strong> 수학적으로 동일한 여백을 적용해도 아이콘이 낮거나 답답해 보일 수 있습니다. 각 변형을 실제 toolbar 크기의 preview에서 비교해 보세요.</li><li><strong>파일 dimensions를 일치시키세요.</strong> <code>icon-32.png</code>의 실제 크기는 32×32픽셀이어야 하고, manifest key도 <code>32</code>로 지정해야 합니다. package path도 함께 확인하세요.</li><li><strong>하나의 visual family를 유지하세요.</strong> toolbar, extension 관리 화면, store에 사용하는 artwork는 가장 작은 버전에서 장식 요소를 줄이더라도 도형 구성과 색상을 공유해야 합니다.</li><li><strong>패키징한 내용을 확인하세요.</strong> unpacked extension을 로드하고 <code>chrome://extensions</code>에서 참조된 모든 이미지가 ZIP에 들어 있는지 확인하세요. 변경 사항을 적용한 뒤에는 extension을 reload하세요.</li></ul><p><a href="/ko/">Mzu favicondl</a>을 사용하면 깨끗한 SVG 또는 PNG 소스에서 PNG variants를 export할 수 있습니다. 사이트에 favicon도 필요하다면, <a href="/ko/blog/favicon-html-code.html">favicon HTML code guide</a>에서 별도로 필요한 markup 경로를 설명합니다.</p><p>설치 후 아이콘이 표시되지 않는다면 먼저 JSON syntax를 확인한 다음 파일, 경로, dimensions를 검증하세요. underlying webpage을 새로 고치는 것만으로는 packaged extension metadata가 반드시 reload되지 않을 수 있으므로, 테스트할 때는 extension의 reload control을 사용하세요.</p><h2>결론: 목적에 맞게 구성한 아이콘 세트를 배포하세요</h2><p>Chrome extension 아이콘 크기가 중요한 이유는 toolbar, extension 관리 화면, store처럼 사용 context마다 시각적 여유가 다르기 때문입니다. 실용적인 16, 24, 32, 48, 128픽셀 PNG 세트를 준비하면 하나의 파일을 모든 슬롯에 억지로 사용하는 대신 Chrome에 크기별 원본 artwork를 정확하게 제공할 수 있습니다. 이러한 dimensions를 관리 가능한 baseline으로 삼고, release 전에 현재 Chrome Web Store upload rules를 확인하며, extension 아이콘과 website favicon은 분리해서 관리하세요.</p></div>
+
+        <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
+
+        <div class="cta-box">
+            <h3>일관된 확장 프로그램 아이콘 세트 만들기</h3>
+            <p>소스 이미지를 필요한 PNG 크기로 변환한 뒤 올바른 manifest 경로로 각 파일을 패키징하세요.</p>
+            <a href="/ko/" class="cta-btn">무료로 사용해보기 →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/ko/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">홈</a>
+                <a href="/ko/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">블로그</a>
+                <a href="/ko/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">개인정보</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js?v=20260211"></script>
+
+</body></html>

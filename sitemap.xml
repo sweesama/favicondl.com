@@ -6216,4 +6216,34 @@
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
+  <url>
+    <loc>https://favicondl.com/blog/chrome-extension-icon-sizes.html</loc>
+    <lastmod>2026-11-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://favicondl.com/zh/blog/chrome-extension-icon-sizes.html</loc>
+    <lastmod>2026-11-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://favicondl.com/ja/blog/chrome-extension-icon-sizes.html</loc>
+    <lastmod>2026-11-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://favicondl.com/ko/blog/chrome-extension-icon-sizes.html</loc>
+    <lastmod>2026-11-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://favicondl.com/es/blog/chrome-extension-icon-sizes.html</loc>
+    <lastmod>2026-11-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
 </urlset>
