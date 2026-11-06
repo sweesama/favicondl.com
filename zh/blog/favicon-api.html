@@ -1,0 +1,219 @@
+<!DOCTYPE html><html lang="zh"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favicon API：获取网站图标候选</title>
+    <meta name="description" content="使用 favicon API 查找网站图标候选，验证响应、防止 SSRF，并用 Mzu favicondl 将可靠资源转换为所需格式。">
+    <meta name="keywords" content="favicon API, get website icon, website icon lookup, favicon retrieval">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/zh/blog/favicon-api.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/favicon-api.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/favicon-api.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/favicon-api.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/favicon-api.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/favicon-api.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/favicon-api.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/zh/blog/favicon-api.html">
+    <meta property="og:title" content="Favicon API：获取网站图标候选">
+    <meta property="og:description" content="使用 favicon API 查找网站图标候选，验证响应、防止 SSRF，并用 Mzu favicondl 将可靠资源转换为所需格式。">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Favicon API：获取网站图标候选">
+    <meta name="twitter:description" content="使用 favicon API 查找网站图标候选，验证响应、防止 SSRF，并用 Mzu favicondl 将可靠资源转换为所需格式。">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Favicon API：获取网站图标候选",
+  "description": "使用 favicon API 查找网站图标候选，验证响应、防止 SSRF，并用 Mzu favicondl 将可靠资源转换为所需格式。",
+  "datePublished": "2026-11-06",
+  "dateModified": "2026-11-06",
+  "author": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "mainEntityOfPage": "https://favicondl.com/zh/blog/favicon-api.html",
+  "inLanguage": "zh-CN"
+}</script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/zh/" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/zh/documentation.html" class="nav-link">文档</a>
+                <a href="/zh/tools.html" class="nav-link">工具</a>
+                <a href="/zh/blog/" class="nav-link">博客</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/favicon-api.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/favicon-api.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/favicon-api.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/favicon-api.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/favicon-api.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/zh/" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/zh/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600">Favicon API：获取网站图标候选</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">api</span><time class="text-sm text-gray-400">2026-11-06</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">Favicon API：获取网站图标候选</h1>
+        </header>
+
+        <div class="article-body"><p>如果你正在构建一个合作伙伴目录，需要<strong>从任意域名获取网站图标</strong>，一个靠谱的 favicon API 应该先收集网站图标候选，逐一验证，再返回稳定结果，而不是直接把 <code>/favicon.ico</code> 上碰巧存在的文件交出来。</p>
+
+<h2>favicon API 能做什么</h2>
+<p>Mzu favicondl 提供了一条在浏览器端查找站点图标并下载或转换图标的路径。在自动化产品中，应把这项查询用作资源解析阶段，而不能直接把输出的图片 URL 当作可信结果。</p>
+<p>一个可靠的服务需要完成四项工作：</p>
+<ul>
+<li><strong>解析：</strong>规范化输入 URL，并查找页面声明的图标链接。</li>
+<li><strong>获取：</strong>获取候选图标，并跟随网站的 redirects。</li>
+<li><strong>验证：</strong>确认响应确实是可以提供的图片。</li>
+<li><strong>缓存：</strong>返回稳定的 URL，同时允许在源文件发生变化后更新。</li>
+</ul>
+<p>根目录文件仍然适合作为 fallback，但答案并不只有它。<a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">HTML Standard 将 <code>icon</code> 列为一种 link relation，用于表示页面的外部资源</a>，因此建议先检查页面声明的链接，再回退到 <code>/favicon.ico</code>。</p>
+
+<h2>入门：获取一个网站图标</h2>
+<ol>
+<li>打开 <a href="/zh/">Mzu favicondl</a>，输入该站点的完整 HTTPS URL。</li>
+<li>执行查询，然后检查找到的图标候选。</li>
+<li>根据用途选择合适的来源：browser favicon、Apple Touch Icon 或 manifest icon。</li>
+<li>下载文件，或按需转换为 ICO、PNG 或 SVG。</li>
+</ol>
+<p>如果整个域名只需要一个统一标识，先从网站首页开始。只有在有意为不同页面使用不同图标时，才应指定特定页面的 URL。</p>
+<p>如果没有返回任何结果，请确认页面可以被公开访问，并检查它的图标声明。没有结果可能意味着抓取被阻止、页面由客户端渲染，或没有可用图标，并不代表该域名没有品牌素材。</p>
+
+<h2>favicon API 如何获取网站图标</h2>
+<p>如果查询必须在你的应用内部运行，应将图标发现与结果交付分开。Mzu favicondl 仍可用于检查真实候选图标和转换资源；你的服务可以将结果以 JSON 或图片字节的形式对外提供。</p><p>下面的 Node.js 解析器会读取页面 HTML，找到一个 <code>rel</code> 列表中包含 <code>icon</code> 的链接，解析该链接的 URL，然后获取图片。它使用 Cheerio 解析 HTML。</p>
+<pre><code>import { load } from 'cheerio';
+
+export async function getWebsiteIcon(inputUrl) {
+  const pageUrl = new URL(inputUrl);
+  const pageResponse = await fetch(pageUrl, {
+    headers: { 'User-Agent': 'FaviconResolver/1.0' },
+  });
+
+  if (!pageResponse.ok) {
+    throw new Error(`Page request failed: ${pageResponse.status}`);
+  }
+
+  const contentType = pageResponse.headers.get('content-type') || '';
+  if (!contentType.includes('text/html')) {
+    throw new Error('The target did not return HTML');
+  }
+
+  const $ = load(await pageResponse.text());
+  const iconLink = $('link[rel~=icon]').first();
+  const href = iconLink.attr('href');
+  if (!href) return null;
+
+  const finalPageUrl = new URL(pageResponse.url);
+  const iconUrl = new URL(href, finalPageUrl);
+  const iconResponse = await fetch(iconUrl);
+
+  if (!iconResponse.ok) {
+    throw new Error(`Icon request failed: ${iconResponse.status}`);
+  }
+
+  return {
+    sourceUrl: iconUrl.href,
+    finalUrl: iconResponse.url,
+    contentType: iconResponse.headers.get('content-type') || '',
+    bytes: Buffer.from(await iconResponse.arrayBuffer()),
+  };
+}</code></pre>
+<p>这个精简示例有意保持不完整。在接收公众提交的任意 URL 之前，应拦截指向私有地址和链路本地地址的请求，限制重定向次数和响应大小，并设置超时时间。这些控制措施有助于防止服务器端请求伪造（SSRF）和超大文件下载。</p>
+<p>如果使用托管服务，在选择服务商之前，请先查看<a href="/zh/blog/duckduckgo-favicon-api.html">DuckDuckGo favicon API 对比</a>。如果你的后端使用 PHP，<a href="/zh/blog/php-get-favicon.html">PHP 获取 favicon 教程</a>介绍了相关的解析并保存流程。</p>
+
+<h3>返回资源前先校验</h3>
+<ul>
+<li>仅允许 <code>http</code> 和 <code>https</code> URL。</li>
+<li>以最终重定向后的页面 URL 为基准解析相对链接。</li>
+<li>同时检查 content type 和文件签名；仅凭 <code>.png</code> 文件名无法判断文件类型。</li>
+<li>如果你的服务会重新托管 SVG 内容，请拒绝或净化其中的活动内容。</li>
+</ul>
+
+<h2>可靠图标服务的关键特性</h2>
+<h3>来源透明性</h3><p>返回选定的源 URL、最终 URL、检测到的媒体类型和更新元数据。这样，客户端既能解释为何选中某个图标，也能实现缓存失效。</p>
+
+<h3>转换但不替换原文件</h3>
+<p>保留下载的源文件原样，再针对不同使用方创建交付副本。需要容纳多个尺寸的位图容器时使用 ICO，单张位图使用 PNG，需要可缩放的输出时使用 SVG。</p>
+
+<h3>稳定缓存</h3>
+<p>以规范化后的站点 URL 和源图标 URL 作为缓存键。资源未发生变化时直接复用；字节发生变化时发布带版本的新 URL，避免客户端继续显示旧图标。</p>
+
+<h2>可靠查询的实用建议</h2>
+<ul>
+<li>保留所有候选项和最终选中的来源，调试会容易得多。</li>
+<li>不要仅凭域名推断图标。</li>
+<li>先获取一次最终资源；如果需要统一格式和来源策略，则提供受控副本。</li>
+<li>在可用时使用 <code>ETag</code> 或 <code>Last-Modified</code> 值，避免不必要的传输。</li>
+<li>在新标签页中检查返回的 URL；空响应也可能对应成功的状态码。</li>
+</ul>
+
+<h2>结语</h2>
+<p>可靠的 favicon API 会解析已声明的资源、校验返回的字节，并提供足够稳定、可供缓存的结果。交互式查询和转换可使用 Mzu favicondl；工作流需要自动化时，再通过自有 endpoint 实现这些规则。</p>
+<p><a href="/zh/">打开 Mzu favicondl</a> 获取网站图标，或者采用这种 resolver pattern，为你的产品加入同样的能力。</p></div>
+
+        <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
+
+        <div class="cta-box">
+            <h3>查找并转换网站图标</h3>
+            <p>查找网站图标，检查来源，并转换为项目需要的格式。</p>
+            <a href="/zh/" class="cta-btn">免费试用 →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/zh/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">首页</a>
+                <a href="/zh/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">博客</a>
+                <a href="/zh/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">隐私政策</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js?v=20260211"></script>
+
+</body></html>

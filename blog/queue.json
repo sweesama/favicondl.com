@@ -3156,7 +3156,9 @@
       "download-favicon-from-url",
       "website-favicon-downloader-formats"
     ],
-    "status": "pending"
+    "status": "done",
+    "qualityScore": 100,
+    "qualityGrade": "A"
   },
   {
     "keyword": "google favicon service s2 alternative",

@@ -4186,5 +4186,26 @@
     ],
     "qualityScore": 80,
     "qualityGrade": "A"
+  },
+  {
+    "slug": "favicon-api",
+    "publishDate": "2026-11-06",
+    "titleEn": "Favicon API — Get Website Icon Candidates Without Guesswork",
+    "titleZh": "Favicon API：获取网站图标候选",
+    "titleJa": "Favicon APIでサイトアイコンの候補を取得",
+    "titleKo": "Favicon API로 사이트 아이콘 후보 가져오기",
+    "titleEs": "Favicon API para obtener iconos de sitios web",
+    "descEn": "Use a favicon API to get website icon candidates, validate responses, avoid SSRF, and convert reliable assets with Mzu favicondl for production apps.",
+    "descZh": "使用 favicon API 查找网站图标候选，验证响应、防止 SSRF，并用 Mzu favicondl 将可靠资源转换为所需格式。",
+    "descJa": "favicon APIでサイトアイコンの候補を取得し、レスポンスの検証、SSRF対策、アイコンの変換までを実践的に解説します。",
+    "descKo": "Favicon API로 사이트 아이콘 후보를 찾고, 응답 검증과 SSRF 방지를 적용한 뒤 Mzu favicondl에서 아이콘을 변환합니다.",
+    "descEs": "Usa una Favicon API para obtener iconos de sitios web, validar respuestas, evitar SSRF y convertir recursos con Mzu favicondl.",
+    "keyword": "favicon api get website icon",
+    "tags": [
+      "api",
+      "developer"
+    ],
+    "qualityScore": 100,
+    "qualityGrade": "A"
   }
 ]

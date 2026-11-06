@@ -1,0 +1,596 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favicon API — Get Website Icon Candidates Without Guesswork</title>
+    <meta name="description" content="Use a favicon API to get website icon candidates, validate responses, avoid SSRF, and convert reliable assets with Mzu favicondl for production apps.">
+    <meta name="keywords" content="favicon API, get website icon, website icon lookup, favicon retrieval">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/blog/favicon-api.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/favicon-api.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/favicon-api.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/favicon-api.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/favicon-api.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/favicon-api.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/favicon-api.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/blog/favicon-api.html">
+    <meta property="og:title" content="Favicon API — Get Website Icon Candidates Without Guesswork">
+    <meta property="og:description" content="Use a favicon API to get website icon candidates, validate responses, avoid SSRF, and convert reliable assets with Mzu favicondl for production apps.">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Favicon API — Get Website Icon Candidates Without Guesswork">
+    <meta name="twitter:description" content="Use a favicon API to get website icon candidates, validate responses, avoid SSRF, and convert reliable assets with Mzu favicondl for production apps.">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Favicon API — Get Website Icon Candidates Without Guesswork",
+  "description": "Use a favicon API to get website icon candidates, validate responses, avoid SSRF, and convert reliable assets with Mzu favicondl for production apps.",
+  "datePublished": "2026-11-06",
+  "dateModified": "2026-11-06",
+  "author": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "mainEntityOfPage": "https://favicondl.com/blog/favicon-api.html",
+  "inLanguage": "en"
+}</script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/documentation.html" class="nav-link" data-en="Docs" data-zh="文档">Docs</a>
+                <a href="/tools.html" class="nav-link" data-en="Tools" data-zh="工具">Tools</a>
+                <a href="/blog/" class="nav-link" data-en="Blog" data-zh="博客">Blog</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/favicon-api.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/favicon-api.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/favicon-api.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/favicon-api.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/favicon-api.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600" data-en="Favicon API — Get Website Icon Candidates Without Guesswork" data-zh="Favicon API：获取网站图标候选" data-ja="Favicon APIでサイトアイコンの候補を取得" data-ko="Favicon API로 사이트 아이콘 후보 가져오기" data-es="Favicon API para obtener iconos de sitios web">Favicon API — Get Website Icon Candidates Without Guesswork</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">api</span><time class="text-sm text-gray-400">2026-11-06</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight" data-en="Favicon API — Get Website Icon Candidates Without Guesswork" data-zh="Favicon API：获取网站图标候选" data-ja="Favicon APIでサイトアイコンの候補を取得" data-ko="Favicon API로 사이트 아이콘 후보 가져오기" data-es="Favicon API para obtener iconos de sitios web">Favicon API — Get Website Icon Candidates Without Guesswork</h1>
+        </header>
+
+        <div class="article-body" data-lang="en">
+            <p>You’re building a partner directory that needs to <strong>get a website icon from any domain</strong>. A good favicon API gets website icon candidates, validates them, and returns one stable result—not simply whatever happens to sit at <code>/favicon.ico</code>.</p>
+
+<h2>What the favicon API does</h2>
+<p>Mzu favicondl provides a browser-side path to find a site’s icon and download or convert it. In an automated product, use that lookup as the resource-resolution stage rather than treating an image URL as trusted output.</p>
+<p>A dependable service handles four jobs:</p>
+<ul>
+<li><strong>Resolve:</strong> normalize the input URL and find declared icon links.</li>
+<li><strong>Fetch:</strong> retrieve the candidate and follow the site’s redirects.</li>
+<li><strong>Validate:</strong> confirm that the response is an image you can serve.</li>
+<li><strong>Cache:</strong> return a stable URL while allowing updates when the source changes.</li>
+</ul>
+<p>The root file remains a useful fallback, but it is not the whole answer. The <a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">HTML Standard lists <code>icon</code> as a link relation for an external resource representing the page</a>, so we recommend checking declared links before falling back to <code>/favicon.ico</code>.</p>
+
+<h2>Getting started: retrieve one website icon</h2>
+<ol>
+<li>Open <a href="/">Mzu favicondl</a> and enter the site’s full HTTPS URL.</li>
+<li>Run the lookup, then review the icon candidates it found.</li>
+<li>Choose the source that matches your use: browser favicon, Apple Touch Icon, or manifest icon.</li>
+<li>Download the file, or convert it to ICO, PNG, or SVG as required.</li>
+</ol>
+<p>Start with the site’s homepage when you need one identity for the whole domain. Use a page-specific URL only when distinct icons are intentional.</p>
+<p>If nothing is returned, check that the page is publicly reachable and inspect its icon declarations. A missing result can mean blocked retrieval, a client-rendered page, or no usable icon—not that the domain has no brand asset.</p>
+
+<h2>How a favicon API gets a website icon</h2>
+<p>If the lookup must run inside your application, separate discovery from delivery. Mzu favicondl remains useful for checking real candidates and converting assets; your service can expose the result as JSON or image bytes.</p>
+<p>The following Node.js resolver reads the page HTML, selects a link whose <code>rel</code> list contains <code>icon</code>, resolves its URL, and fetches the image. It uses Cheerio for HTML parsing.</p>
+<pre><code>import { load } from 'cheerio';
+
+export async function getWebsiteIcon(inputUrl) {
+  const pageUrl = new URL(inputUrl);
+  const pageResponse = await fetch(pageUrl, {
+    headers: { 'User-Agent': 'FaviconResolver/1.0' },
+  });
+
+  if (!pageResponse.ok) {
+    throw new Error(`Page request failed: ${pageResponse.status}`);
+  }
+
+  const contentType = pageResponse.headers.get('content-type') || '';
+  if (!contentType.includes('text/html')) {
+    throw new Error('The target did not return HTML');
+  }
+
+  const $ = load(await pageResponse.text());
+  const iconLink = $('link[rel~=icon]').first();
+  const href = iconLink.attr('href');
+  if (!href) return null;
+
+  const finalPageUrl = new URL(pageResponse.url);
+  const iconUrl = new URL(href, finalPageUrl);
+  const iconResponse = await fetch(iconUrl);
+
+  if (!iconResponse.ok) {
+    throw new Error(`Icon request failed: ${iconResponse.status}`);
+  }
+
+  return {
+    sourceUrl: iconUrl.href,
+    finalUrl: iconResponse.url,
+    contentType: iconResponse.headers.get('content-type') || '',
+    bytes: Buffer.from(await iconResponse.arrayBuffer()),
+  };
+}</code></pre>
+<p>This compact example is intentionally incomplete. Before accepting arbitrary URLs from the public, block requests to private and link-local addresses, cap redirects and response size, and set a timeout. Those controls help prevent server-side request forgery (SSRF) and oversized downloads.</p>
+<p>For hosted services, review the <a href="/blog/duckduckgo-favicon-api.html">DuckDuckGo favicon API comparison</a> before choosing a provider. If your backend uses PHP, the <a href="/blog/php-get-favicon.html">PHP get-favicon tutorial</a> covers a related resolve-and-save workflow.</p>
+
+<h3>Validate before returning the asset</h3>
+<ul>
+<li>Allow only <code>http</code> and <code>https</code> URLs.</li>
+<li>Resolve relative links against the final redirected page URL.</li>
+<li>Check both the content type and the file signature; a <code>.png</code> filename proves nothing.</li>
+<li>Reject or sanitize active SVG content if your service will rehost it.</li>
+</ul>
+
+<h2>Key features for a dependable icon service</h2>
+<h3>Source transparency</h3>
+<p>Return the selected source URL, final URL, detected media type, and update metadata. That lets clients explain why an icon was chosen and makes cache invalidation possible.</p>
+
+<h3>Conversion without replacing the original</h3>
+<p>Keep the downloaded source intact, then create delivery copies for each consumer. Use ICO when a multi-size raster container is expected, PNG for a single raster image, and SVG for scalable output.</p>
+
+<h3>Stable caching</h3>
+<p>Key cache entries by the normalized site URL and source icon URL. Reuse an unchanged asset, but publish a new versioned URL when the bytes change so clients do not keep displaying the old logo.</p>
+
+<h2>Pro tips for reliable lookups</h2>
+<ul>
+<li>Retain every candidate and the winning source; debugging becomes much easier.</li>
+<li>Do not infer an icon from the domain name alone.</li>
+<li>Fetch the final asset once, then serve a controlled copy if you need consistent formats and origin policy.</li>
+<li>Use <code>ETag</code> or <code>Last-Modified</code> values where available to avoid unnecessary transfers.</li>
+<li>Check the returned URL in a fresh tab; an empty response can still have a successful status code.</li>
+</ul>
+
+<h2>Conclusion</h2>
+<p>A reliable favicon API resolves declared resources, validates the returned bytes, and provides something stable enough to cache. Use Mzu favicondl for the interactive lookup and conversion step, then put those rules behind your own endpoint when the workflow needs automation.</p>
+<p><a href="/">Open Mzu favicondl</a> to retrieve a site icon, or use the resolver pattern to add the same behavior to your product.</p>
+        </div>
+
+        <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
+        <template data-article-lang="zh"><p>如果你正在构建一个合作伙伴目录，需要<strong>从任意域名获取网站图标</strong>，一个靠谱的 favicon API 应该先收集网站图标候选，逐一验证，再返回稳定结果，而不是直接把 <code>/favicon.ico</code> 上碰巧存在的文件交出来。</p>
+
+<h2>favicon API 能做什么</h2>
+<p>Mzu favicondl 提供了一条在浏览器端查找站点图标并下载或转换图标的路径。在自动化产品中，应把这项查询用作资源解析阶段，而不能直接把输出的图片 URL 当作可信结果。</p>
+<p>一个可靠的服务需要完成四项工作：</p>
+<ul>
+<li><strong>解析：</strong>规范化输入 URL，并查找页面声明的图标链接。</li>
+<li><strong>获取：</strong>获取候选图标，并跟随网站的 redirects。</li>
+<li><strong>验证：</strong>确认响应确实是可以提供的图片。</li>
+<li><strong>缓存：</strong>返回稳定的 URL，同时允许在源文件发生变化后更新。</li>
+</ul>
+<p>根目录文件仍然适合作为 fallback，但答案并不只有它。<a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">HTML Standard 将 <code>icon</code> 列为一种 link relation，用于表示页面的外部资源</a>，因此建议先检查页面声明的链接，再回退到 <code>/favicon.ico</code>。</p>
+
+<h2>入门：获取一个网站图标</h2>
+<ol>
+<li>打开 <a href="/">Mzu favicondl</a>，输入该站点的完整 HTTPS URL。</li>
+<li>执行查询，然后检查找到的图标候选。</li>
+<li>根据用途选择合适的来源：browser favicon、Apple Touch Icon 或 manifest icon。</li>
+<li>下载文件，或按需转换为 ICO、PNG 或 SVG。</li>
+</ol>
+<p>如果整个域名只需要一个统一标识，先从网站首页开始。只有在有意为不同页面使用不同图标时，才应指定特定页面的 URL。</p>
+<p>如果没有返回任何结果，请确认页面可以被公开访问，并检查它的图标声明。没有结果可能意味着抓取被阻止、页面由客户端渲染，或没有可用图标，并不代表该域名没有品牌素材。</p>
+
+<h2>favicon API 如何获取网站图标</h2>
+<p>如果查询必须在你的应用内部运行，应将图标发现与结果交付分开。Mzu favicondl 仍可用于检查真实候选图标和转换资源；你的服务可以将结果以 JSON 或图片字节的形式对外提供。</p><p>下面的 Node.js 解析器会读取页面 HTML，找到一个 <code>rel</code> 列表中包含 <code>icon</code> 的链接，解析该链接的 URL，然后获取图片。它使用 Cheerio 解析 HTML。</p>
+<pre><code>import { load } from 'cheerio';
+
+export async function getWebsiteIcon(inputUrl) {
+  const pageUrl = new URL(inputUrl);
+  const pageResponse = await fetch(pageUrl, {
+    headers: { 'User-Agent': 'FaviconResolver/1.0' },
+  });
+
+  if (!pageResponse.ok) {
+    throw new Error(`Page request failed: ${pageResponse.status}`);
+  }
+
+  const contentType = pageResponse.headers.get('content-type') || '';
+  if (!contentType.includes('text/html')) {
+    throw new Error('The target did not return HTML');
+  }
+
+  const $ = load(await pageResponse.text());
+  const iconLink = $('link[rel~=icon]').first();
+  const href = iconLink.attr('href');
+  if (!href) return null;
+
+  const finalPageUrl = new URL(pageResponse.url);
+  const iconUrl = new URL(href, finalPageUrl);
+  const iconResponse = await fetch(iconUrl);
+
+  if (!iconResponse.ok) {
+    throw new Error(`Icon request failed: ${iconResponse.status}`);
+  }
+
+  return {
+    sourceUrl: iconUrl.href,
+    finalUrl: iconResponse.url,
+    contentType: iconResponse.headers.get('content-type') || '',
+    bytes: Buffer.from(await iconResponse.arrayBuffer()),
+  };
+}</code></pre>
+<p>这个精简示例有意保持不完整。在接收公众提交的任意 URL 之前，应拦截指向私有地址和链路本地地址的请求，限制重定向次数和响应大小，并设置超时时间。这些控制措施有助于防止服务器端请求伪造（SSRF）和超大文件下载。</p>
+<p>如果使用托管服务，在选择服务商之前，请先查看<a href="/blog/duckduckgo-favicon-api.html">DuckDuckGo favicon API 对比</a>。如果你的后端使用 PHP，<a href="/blog/php-get-favicon.html">PHP 获取 favicon 教程</a>介绍了相关的解析并保存流程。</p>
+
+<h3>返回资源前先校验</h3>
+<ul>
+<li>仅允许 <code>http</code> 和 <code>https</code> URL。</li>
+<li>以最终重定向后的页面 URL 为基准解析相对链接。</li>
+<li>同时检查 content type 和文件签名；仅凭 <code>.png</code> 文件名无法判断文件类型。</li>
+<li>如果你的服务会重新托管 SVG 内容，请拒绝或净化其中的活动内容。</li>
+</ul>
+
+<h2>可靠图标服务的关键特性</h2>
+<h3>来源透明性</h3><p>返回选定的源 URL、最终 URL、检测到的媒体类型和更新元数据。这样，客户端既能解释为何选中某个图标，也能实现缓存失效。</p>
+
+<h3>转换但不替换原文件</h3>
+<p>保留下载的源文件原样，再针对不同使用方创建交付副本。需要容纳多个尺寸的位图容器时使用 ICO，单张位图使用 PNG，需要可缩放的输出时使用 SVG。</p>
+
+<h3>稳定缓存</h3>
+<p>以规范化后的站点 URL 和源图标 URL 作为缓存键。资源未发生变化时直接复用；字节发生变化时发布带版本的新 URL，避免客户端继续显示旧图标。</p>
+
+<h2>可靠查询的实用建议</h2>
+<ul>
+<li>保留所有候选项和最终选中的来源，调试会容易得多。</li>
+<li>不要仅凭域名推断图标。</li>
+<li>先获取一次最终资源；如果需要统一格式和来源策略，则提供受控副本。</li>
+<li>在可用时使用 <code>ETag</code> 或 <code>Last-Modified</code> 值，避免不必要的传输。</li>
+<li>在新标签页中检查返回的 URL；空响应也可能对应成功的状态码。</li>
+</ul>
+
+<h2>结语</h2>
+<p>可靠的 favicon API 会解析已声明的资源、校验返回的字节，并提供足够稳定、可供缓存的结果。交互式查询和转换可使用 Mzu favicondl；工作流需要自动化时，再通过自有 endpoint 实现这些规则。</p>
+<p><a href="/">打开 Mzu favicondl</a> 获取网站图标，或者采用这种 resolver pattern，为你的产品加入同样的能力。</p></template>
+        <template data-article-lang="ja"><p>Partner Directoryの構築で、<strong>任意のドメインからWebサイトのアイコンを取得する</strong>必要MODULEがあるなら、優れたfavicon APIは、Webサイトアイコンの候補を取得して検証し、安定した1つの結果を返します。<code>/favicon.ico</code>にたまたま置かれている画像をそのまま返すだけではありません。</p>
+
+<h2>favicon APIでできること</h2>
+<p>Mzu favicondlは、サイトのアイコンを見つけてダウンロードまたは変換するためのブラウザ側の手段を提供します。自動化された製品では、画像のURLを信頼済みの出力として扱うのではなく、この検索処理をリソース解決のフェーズとして利用してください。</p>
+<p>信頼できるサービスは、4つの役割を担います。</p>
+<ul>
+<li><strong>Resolve:</strong> 入力URLを正規化し、宣言されたアイコンリンクを探す。</li>
+<li><strong>Fetch:</strong> 候補を取得し、サイトのリダイレクトを追従する。</li>
+<li><strong>Validate:</strong> レスポンスが配信可能な画像であることを確認する。</li>
+<li><strong>Cache:</strong> 安定したURLを返しつつ、ソースが変更された場合は更新を許可する。</li>
+</ul>
+<p>ルートファイルは引き続き便利なフォールバックですが、すべてではありません。<a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">HTML Standardでは、ページを表す外部リソースのlink relationとして<code>icon</code>が挙げられている</a>ため、<code>/favicon.ico</code>にフォールバックする前に、宣言されたリンクを確認することをお勧めします。</p>
+
+<h2>guide: Webサイトのアイコンを1つ取得する</h2>
+<ol>
+<li><a href="/">Mzu favicondl</a>を開き、サイトの完全なHTTPS URLを入力します。</li>
+<li>検索処理を実行し、検出されたアイコンの候補を確認します。</li>
+<li>用途に合うソースを選択します。browser favicon、Apple Touch Icon、manifest iconなどです。</li>
+<li>ファイルをダウンロードするか、必要な形式に変換します。ICO、PNG、SVGなどに対応しています。</li>
+</ol>
+<p>ドメイン全体で使う1つのアイデンティティが必要な場合は、まずサイトのホームページから始めてください。異なるアイコンを意図的に分けている場合にのみ、ページ固有のURLを使用します。</p>
+<p>結果が返らない場合は、そのページが公開アクセス可能か確認し、アイコンの宣言を調べてください。結果が得られない原因には、取得がブロックされている、クライアントサイドレンダリングのページ、利用可能なアイコンがないことなどが考えられ、そのドメインにブランドアセットが存在しないことを意味するものではありません。</p>
+
+<h2>favicon APIがWebサイトのアイコンを取得する仕組み</h2>
+<p>検索処理をアプリケーション内で実行する必要がある場合は、探索と配信を分離してください。Mzu favicondlは、実際の候補を確認したりアセットを変換したり화에引き続き利用できます。ligationは、結果をJSONまたは画像バイトとして公開できます。</p><p>以下の Node.js resolver は、ページ HTML を読み込み、<code>rel</code> リストに <code>icon</code> が含まれる link 要素を選択し、その URL を解決して画像を取得します。HTML の解析には Cheerio を使用します。</p>
+<pre><code>import { load } from 'cheerio';
+
+export async function getWebsiteIcon(inputUrl) {
+  const pageUrl = new URL(inputUrl);
+  const pageResponse = await fetch(pageUrl, {
+    headers: { 'User-Agent': 'FaviconResolver/1.0' },
+  });
+
+  if (!pageResponse.ok) {
+    throw new Error(`Page request failed: ${pageResponse.status}`);
+  }
+
+  const contentType = pageResponse.headers.get('content-type') || '';
+  if (!contentType.includes('text/html')) {
+    throw new Error('The target did not return HTML');
+  }
+
+  const $ = load(await pageResponse.text());
+  const iconLink = $('link[rel~=icon]').first();
+  const href = iconLink.attr('href');
+  if (!href) return null;
+
+  const finalPageUrl = new URL(pageResponse.url);
+  const iconUrl = new URL(href, finalPageUrl);
+  const iconResponse = await fetch(iconUrl);
+
+  if (!iconResponse.ok) {
+    throw new Error(`Icon request failed: ${iconResponse.status}`);
+  }
+
+  return {
+    sourceUrl: iconUrl.href,
+    finalUrl: iconResponse.url,
+    contentType: iconResponse.headers.get('content-type') || '',
+    bytes: Buffer.from(await iconResponse.arrayBuffer()),
+  };
+}</code></pre>
+<p>このコンパクトな例は、意図的に不完全なものです。ユーザーから任意の URL を受け付ける前に、private および link-local アドレスへのリクエストをブロックし、redirect の回数と response size に上限を設け、timeout を設定してください。これらの制御は、server-side request forgery（SSRF）や過大なダウンロードの防止に役立ちます。</p>
+<p>ホスティング型のサービスを使う場合は、provider を選ぶ前に<a href="/blog/duckduckgo-favicon-api.html">DuckDuckGo favicon API 比較</a>を確認してください。backend が PHP を使っている場合は、<a href="/blog/php-get-favicon.html">PHP で favicon を取得するチュートリアル</a>で、関連する resolve-and-save ワークフローを解説しています。</p>
+
+<h3>アセットを返す前に検証する</h3>
+<ul>
+<li><code>http</code> と <code>https</code> の URL のみ許可します。</li>
+<li>相対リンクは、redirect 後の最終ページ URL を基準に解決します。</li>
+<li>content type と file signature の両方をチェックします。ファイル名が <code>.png</code> であることは何も証明しません。</li>
+<li>service が active な SVG content を再ホストする場合は、その内容を拒否またはサニタイズします。</li>
+</ul>
+
+<h2>信頼できる icon service の重要機能</h2>
+<h3>取得元の透明性</h3><p>選択したsource URL、final URL、検出されたmedia type、更新メタデータを返します。これにより、クライアントはアイコンが選定された理由を説明でき、cache invalidationも可能になります。</p>
+
+<h3>元のファイルを置き換えない変換</h3>
+<p>ダウンロードしたsourceは元のまま保持し、利用側ごとに配信用コピーを作成します。複数サイズのraster containerが想定される場合はICO、単一のraster imageにはPNG、自由に拡大縮小できる出力にはSVGを使います。</p>
+
+<h3>安定したcache管理</h3>
+<p>cache entryのkeyには、normalizedしたsite URLとsource icon URLを使います。assetが変更されていない間は再利用できますが、bytesが変わった場合は新しいversioned URLを公開してください。これにより、クライアントが古いlogoを表示し続けることを防げます。</p>
+
+<h2>信頼性の高いlookupのためのヒント</h2>
+<ul>
+<li>すべてのcandidateと採用されたsourceを保持します。debuggingが大幅に簡単になります。</li>
+<li>domain名だけからiconを推測しないでください。</li>
+<li>final assetを一度だけ取得し、formatの統一やorigin policyの適用が必要なら、制御されたcopyを配信してください。</li>
+<li>利用可能な場合は<code>ETag</code>または<code>Last-Modified</code>を使い、不要なtransferを避けてください。</li>
+<li>新しいタブで返されたURLを確認してください。空のresponseでもsuccessful status codeになることがあります。</li>
+</ul>
+
+<h2>Conclusion</h2>
+<p>信頼できるfavicon APIは、宣言されたresourceを解決し、返されたbytesを検証し、cacheできるほど安定した結果を提供します。lookupとconversionにはMzu favicondlを使い、workflowでautomationが必要になった場合は、これらのruleを独自のendpointで処理してください。</p>
+<p><a href="/">Mzu favicondlを開く</a>ことでサイトアイコンを取得できます。また、resolver patternを使えば、同じ動作をproductに追加できます。</p></template>
+        <template data-article-lang="ko"><p>파트너 디렉터리를 구축하면서 <strong>어떤 도메인에서든 웹사이트 아이콘을 가져와야 한다</strong>면, 좋은 favicon API는 웹사이트 아이콘 후보를 찾고 검증해 하나의 안정적인 결과를 반환해야 합니다. 단순히 <code>/favicon.ico</code>에 우연히 놓인 파일을 그대로 반환하는 방식만으로는 충분하지 않습니다.</p>
+<h2>favicon API의 역할</h2>
+<p>Mzu favicondl은 사이트 아이콘을 찾아 다운로드하거나 변환할 수 있는 browser-side 경로를 제공합니다. 자동화된 제품에서는 이미지 URL 자체를 신뢰할 수 있는 결과로 취급하지 말고, 이 조회 기능을 resource-resolution 단계로 사용합니다.</p>
+<p>신뢰할 수 있는 서비스는 다음 네 가지 작업을 처리합니다.</p>
+<ul>
+<li><strong>Resolve:</strong> 입력 URL을 정규화하고 선언된 아이콘 링크를 찾습니다.</li>
+<li><strong>Fetch:</strong> 후보를 가져오고 사이트의 redirect를 따라갑니다.</li>
+<li><strong>Validate:</strong> 응답이 직접 제공할 수 있는 이미지인지 확인합니다.</li>
+<li><strong>Cache:</strong> 안정적인 URL을 반환하면서 source가 변경되면 업데이트할 수 있도록 합니다.</li>
+</ul>
+<p>루트 파일은 여전히 유용한 fallback이지만, 이것만으로 모든 경우를 처리할 수는 없습니다. <a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">HTML Standard은 페이지를 대표하는 외부 리소스의 link relation으로 <code>icon</code>을 명시합니다</a>. 따라서 <code>/favicon.ico</code>로 fallback하기 전에 선언된 링크를 확인하도록 권장합니다.</p>
+<h2>시작하기: 웹사이트 아이콘 하나 가져오기</h2>
+<ol>
+<li><a href="/">Mzu favicondl</a>을 열고 사이트의 전체 HTTPS URL을 입력합니다.</li>
+<li>조회를 실행한 뒤 찾은 아이콘 후보를 검토합니다.</li>
+<li>browser favicon, Apple Touch Icon, manifest icon 중 사용 사례에 맞는 소스를 선택합니다.</li>
+<li>파일을 다운로드하거나 필요에 따라 ICO, PNG, SVG로 변환합니다.</li>
+</ol>
+<p>도메인 전체를 하나의 아이콘으로 표현해야 할 때는 사이트의 홈페이지부터 시작합니다. 서로 다른 아이콘을 의도적으로 사용하려는 경우에만 페이지별 URL을 사용합니다.</p>
+<p>결과가 반환되지 않으면 페이지가 공개 상태에서 접근 가능한지 확인하고 선언된 아이콘 정보를 점검합니다. 결과가 누락된 것은 조회 자체가 차단됐거나, client-rendered page이거나, 사용할 수 있는 아이콘이 없다는 의미일 수 있습니다. 그렇다고 도메인에 brand asset이 없다는 뜻은 아닙니다.</p>
+<h2>favicon API가 웹사이트 아이콘을 가져오는 방식</h2>
+<p>조회 기능이 애플리케이션 내부에서 실행되어야 한다면 discovery와 delivery를 분리합니다. Mzu favicondl은 실제 후보를 확인하고 asset을 변환하는 데 여전히 유용합니다. 서비스는 결과를 JSON이나 image bytes 형태로 노출할 수 있습니다.</p><p>아래 Node.js resolver는 페이지 HTML을 읽고, <code>rel</code> 목록에 <code>icon</code>이 포함된 link 요소를 선택한 뒤 해당 URL을 resolve하여 이미지를 fetch합니다. HTML 파싱에는 Cheerio를 사용합니다.</p>
+<pre><code>import { load } from 'cheerio';
+
+export async function getWebsiteIcon(inputUrl) {
+  const pageUrl = new URL(inputUrl);
+  const pageResponse = await fetch(pageUrl, {
+    headers: { 'User-Agent': 'FaviconResolver/1.0' },
+  });
+
+  if (!pageResponse.ok) {
+    throw new Error(`Page request failed: ${pageResponse.status}`);
+  }
+
+  const contentType = pageResponse.headers.headers.get('content-type') || '';
+  if (!contentType.includes('text/html')) {
+    throw new Error('The target did not return HTML');
+  }
+
+  const $ = load(await pageResponse.text());
+  const iconLink = $('link[rel~=icon]').first();
+  const href = iconLink.attr('href');
+  if (!href) return null;
+
+  const finalPageUrl = new URL(pageResponse.url);
+  const iconUrl = new URL(href, finalPageUrl);
+  const iconResponse = await fetch(iconUrl);
+
+  if (!iconResponse.ok) {
+    throw new Error(`Icon request failed: ${iconResponse.status}`);
+  }
+
+  return {
+    sourceUrl: iconUrl.href,
+    finalUrl: iconResponse.url,
+    contentType: iconResponse.headers.get('content-type') || '',
+    bytes: Buffer.from(await iconResponse.arrayBuffer()),
+  };
+}</code></pre>
+<p>이 컴팩트한 예제는 의도적으로 불완전합니다. 외부 사용자가 입력한 임의의 URL을 허용하기 전에 private 및 link-local 주소로의 요청을 차단하고, redirect 횟수와 response size를 제한하며, timeout을 설정하세요. 이러한 통제 조치는 server-side request forgery (SSRF)와 지나치게 큰 다운로드를 예방하는 데 도움이 됩니다.</p>
+<p>호스팅 서비스의 경우 provider를 선택하기 전에 <a href="/blog/duckduckgo-favicon-api.html">DuckDuckGo favicon API 비교</a>를 검토하세요. backend가 PHP를 사용한다면 <a href="/blog/php-get-favicon.html">PHP get-favicon 튜토리얼</a>에서 URL을 resolve하고 저장하는 관련 workflow를 다룹니다.</p>
+
+<h3>파일을 반환하기 전에 검증</h3>
+<ul>
+<li><code>http</code>와 <code>https</code> URL만 허용합니다.</li>
+<li>relative link는 최종적으로 redirect된 페이지 URL을 기준으로 resolve합니다.</li>
+<li>content type과 file signature을 모두 확인합니다. <code>.png</code> 파일명만으로는 아무것도 증명할 수 없습니다.</li>
+<li>서비스에서 SVG content를 rehost한다면 active SVG content를 거부하거나 sanitize하세요.</li>
+</ul>
+
+<h2>신뢰할 수 있는 icon service의 핵심 기능</h2>
+<h3>출처 투명성</h3><p>선택된 source URL, 최종 URL, 감지된 media type, update metadata를 반환합니다. 이를 통해 클라이언트는 아이콘이 선택된 이유를 설명할 수 있으며, cache invalidation도 가능합니다.</p>
+
+<h3>원본을 교체하지 않고 변환하기</h3>
+<p>다운로드한 source는 그대로 유지하고, consumer별 delivery copy를 만듭니다. multi-size raster container가 필요한 경우에는 ICO를, 단일 raster image에는 PNG를, scalable output에는 SVG를 사용합니다.</p>
+
+<h3>안정적인 caching</h3>
+<p>normalized site URL과 source icon URL을 key로 삼아 cache entry를 관리합니다. 변경되지 않은 asset은 재사용하되, byte가 바뀔 때는 새로운 versioned URL을 게시해야 합니다. 그래야 clients가 이전 logo를 계속 표시하지 않습니다.</p>
+
+<h2>신뢰할 수 있는 lookup을 위한 프로 팁</h2>
+<ul>
+<li>모든 candidate와 최종 선택된 source를 보관하세요. 그러면 debugging이 훨씬 쉬워집니다.</li>
+<li>domain 이름만으로 icon을 추론하지 마세요.</li>
+<li>최종 asset을 한 번만 fetch한 뒤, 일관된 format과 origin policy가 필요하다면 통제된 copy를 제공하세요.</li>
+<li><code>ETag</code> 또는 <code>Last-Modified</code> 값이 있으면 이를 사용하여 불필요한 transfer를 피하세요.</li>
+<li>반환된 URL을 새 탭에서 열어 확인하세요. 빈 응답이어도 성공 status code를 가질 수 있습니다.</li>
+</ul>
+
+<h2>결론</h2>
+<p>신뢰할 수 있는 favicon API는 선언된 resource를 resolve하고, 반환된 byte를 검증하며, cache하기에 충분히 안정적인 대상을 제공합니다. interactive lookup 및 conversion 단계에서는 Mzu favicondl을 사용하고, workflow에 automation이 필요할 때는 자체 endpoint에서 이 규칙들을 적용하도록 구성하세요.</p>
+<p><a href="/">Mzu favicondl 열기</a>를 통해 site icon을 가져오거나, resolver pattern을 사용해 제품에 동일한 동작을 추가하세요.</p></template>
+        <template data-article-lang="es"><p>Estás creando un directorio de partners que necesita <strong>obtener el icono de un sitio web a partir de cualquier dominio</strong>. Un buen favicon API recupera candidatos, los valida y devuelve un resultado estable, en lugar de limitarse a ofrecer lo que haya en <code>/favicon.ico</code>.</p>
+
+<h2>Qué hace un favicon API</h2>
+<p>Mzu favicondl ofrece una vía desde el navegador para localizar el icono de un sitio y descargarlo o convertirlo. En un producto automatizado, utiliza esa búsqueda como fase de resolución de recursos, en lugar de tratar la URL de una imagen como una salida fiable.</p>
+<p>Un servicio fiable se ocupa de cuatro tareas:</p>
+<ul>
+<li><strong>Resolve:</strong> normaliza la URL de entrada y localiza los enlaces de iconos declarados.</li>
+<li><strong>Fetch:</strong> recupera el candidato y sigue las redirecciones del sitio.</li>
+<li><strong>Validate:</strong> confirma que la respuesta sea una imagen que puedas servir.</li>
+<li><strong>Cache:</strong> devuelve una URL estable y permite actualizaciones cuando cambia el origen.</li>
+</ul>
+<p>El archivo raíz sigue siendo un fallback útil, pero no es toda la respuesta. El <a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">HTML Standard enumera <code>icon</code> como una relación de enlaces para un recurso externo que representa la página</a>, por lo que recomendamos comprobar primero los enlaces declarados y solo después recurrir a <code>/favicon.ico</code>.</p>
+
+<h2>Primeros pasos: recupera el icono de un sitio web</h2>
+<ol>
+<li>Abre <a href="/">Mzu favicondl</a> e introduce la URL HTTPS completa del sitio.</li>
+<li>Ejecuta la búsqueda y revisa los candidatos que encuentre.</li>
+<li>Elige el origen que se ajuste a tu uso: favicon del navegador, Apple Touch Icon o icono de manifest.</li>
+<li>Descarga el archivo o conviértelo a ICO, PNG o SVG, según lo que necesites.</li>
+</ol>
+<p>Empieza por la página de inicio del sitio cuando necesites una sola identidad para todo el dominio. Usa una URL específica de una página únicamente cuando haya iconos distintos de forma intencionada.</p>
+<p>Si no se devuelve nada, comprueba que la página sea accesible públicamente e inspecciona sus declaraciones de iconos. La ausencia de un resultado puede deberse a una recuperación bloqueada, una página renderizada en el cliente o a que no exista un icono utilizable; no significa que el dominio no tenga recursos de marca.</p>
+
+<h2>Cómo obtiene un favicon API el icono de un sitio web</h2>
+<p>Si la búsqueda debe ejecutarse dentro de tu aplicación, separa el descubrimiento de la entrega. Mzu favicondl sigue siendo útil para verificar candidatos reales y convertir recursos; tu servicio puede exponer el resultado como JSON o como bytes de imagen.</p><p>El siguiente resolutor de Node.js lee el HTML de la página, selecciona un enlace cuya lista <code>rel</code> contiene <code>icon</code>, resuelve su URL y descarga la imagen. Usa Cheerio para analizar el HTML.</p>
+<pre><code>import { load } from 'cheerio';
+
+export async function getWebsiteIcon(inputUrl) {
+  const pageUrl = new URL(inputUrl);
+  const pageResponse = await fetch(pageUrl, {
+    headers: { 'User-Agent': 'FaviconResolver/1.0' },
+  });
+
+  if (!pageResponse.ok) {
+    throw new Error(`Page request failed: ${pageResponse.status}`);
+  }
+
+  const contentType = pageResponse.headers.get('content-type') || '';
+  if (!contentType.includes('text/html')) {
+    throw new Error('The target did not return HTML');
+  }
+
+  const $ = load(await pageResponse.text());
+  const iconLink = $('link[rel~=icon]').first();
+  const href = iconLink.attr('href');
+  if (!href) return null;
+
+  const finalPageUrl = new URL(pageResponse.url);
+  const iconUrl = new URL(href, finalPageUrl);
+  const iconResponse = await fetch(iconUrl);
+
+  if (!iconResponse.ok) {
+    throw new Error(`Icon request failed: ${iconResponse.status}`);
+  }
+
+  return {
+    sourceUrl: iconUrl.href,
+    finalUrl: iconResponse.url,
+    contentType: iconResponse.headers.get('content-type') || '',
+    bytes: Buffer.from(await iconResponse.arrayBuffer()),
+  };
+}</code></pre>
+<p>Este ejemplo compacto es intencionadamente incompleto. Antes de aceptar URLs arbitrarias enviadas por el público, bloquea las solicitudes hacia direcciones privadas y link-local, limita el número de redirecciones y el tamaño de la respuesta, y establece un timeout. These controles ayudan a prevenir el server-side request forgery (SSRF) y las descargas de tamaño excesivo.</p>
+<p>Si utilizas servicios alojados, revisa la <a href="/blog/duckduckgo-favicon-api.html">comparativa de la favicon API de DuckDuckGo</a> antes de elegir un proveedor. Si tu backend usa PHP, el <a href="/blog/php-get-favicon.html">tutorial de PHP para obtener un favicon</a> cubre un flujo relacionado de resolución y guardado.</p>
+
+<h3>Valida el recurso antes de devolverlo</h3>
+<ul>
+<li>Permite únicamente URLs <code>http</code> y <code>https</code>.</li>
+<li>Resuelve los enlaces relativos con respecto a la URL final de la página tras las redirecciones.</li>
+<li>Comprueba tanto el content type como la firma del archivo; un nombre de archivo <code>.png</code> no demuestra nada.</li>
+<li>Rechaza o sanea el contenido SVG activo si tu servicio va a volver a alojarlo.</li>
+</ul>
+
+<h2>Características clave para un servicio de iconos fiable</h2>
+<h3>Transparencia de las fuentes</h3><p>Devuelve la URL de origen seleccionada, la URL final, el tipo de medio detectado y los metadatos de actualización. Así, los clientes pueden explicar por qué se eligió un icono y se puede invalidar la caché.</p>
+
+<h3>Conversión sin sustituir el original</h3>
+<p>Conserva intacta la fuente descargada y crea copias de entrega para cada consumidor. Usa ICO cuando se espere un contenedor raster de varios tamaños, PNG para una imagen raster individual y SVG para una salida escalable.</p>
+
+<h3>Caché estable</h3>
+<p>Asigna a las entradas de caché una clave basada en la URL normalizada del sitio y la URL del icono de origen. Reutiliza el recurso si no ha cambiado, pero publica una nueva URL versionada cuando cambien los bytes, para que los clientes no sigan mostrando el logotipo anterior.</p>
+
+<h2>Consejos para realizar búsquedas fiables</h2>
+<ul>
+<li>Conserva todos los candidatos y el origen seleccionado; la depuración será mucho más sencilla.</li>
+<li>No deduzcas un icono solo a partir del nombre de dominio.</li>
+<li>Descarga el recurso final una sola vez y sirve una copia que tengas bajo control si necesitas formatos coherentes y una política de origen.</li>
+<li>Usa los valores <code>ETag</code> o <code>Last-Modified</code> cuando estén disponibles para evitar transferencias innecesarias.</li>
+<li>Comprueba la URL devuelta en una pestaña nueva; una respuesta vacía puede tener un código de estado exitoso.</li>
+</ul>
+
+<h2>Conclusión</h2>
+<p>Un favicon API fiable resuelve los recursos declarados, valida los bytes devueltos y ofrece un resultado lo bastante estable para almacenarlo en caché. Usa Mzu favicondl para realizar la búsqueda interactiva y la conversión; después, implementa esas reglas en tu propio endpoint cuando el flujo necesite automatización.</p>
+<p><a href="/">Abre Mzu favicondl</a> para obtener el icono de un sitio o usa el patrón de resolución para incorporar el mismo comportamiento a tu producto.</p></template>
+
+        <div class="cta-box">
+            <h3 data-en="Find and Convert a Website Icon" data-zh="查找并转换网站图标" data-ja="サイトアイコンを見つけて変換" data-ko="웹사이트 아이콘 찾고 변환하기" data-es="Encuentra y convierte el icono de un sitio web">Find and Convert a Website Icon</h3>
+            <p data-en="Find a site’s icon, check its source, and convert it into the format your project needs." data-zh="查找网站图标，检查来源，并转换为项目需要的格式。" data-ja="サイトアイコンを見つけて来源を確認し、必要な形式に変換できます。" data-ko="사이트 아이콘을 찾고 출처를 확인한 뒤 프로젝트에 필요한 형식으로 변환하세요." data-es="Encuentra el icono de un sitio, comprueba su origen y conviértelo al formato que necesita tu proyecto.">Find a site’s icon, check its source, and convert it into the format your project needs.</p>
+            <a href="/" class="cta-btn" data-en="Try It Free →" data-zh="免费试用 →" data-ja="無料で試す →" data-ko="무료로 사용해보기 →" data-es="Pruébalo gratis →">Try It Free →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Home" data-zh="首页">Home</a>
+                <a href="/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Blog" data-zh="博客">Blog</a>
+                <a href="/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Privacy" data-zh="隐私政策">Privacy</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js?v=20260211"></script>
+
+</body></html>

@@ -1,0 +1,219 @@
+<!DOCTYPE html><html lang="ja"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favicon APIでサイトアイコンの候補を取得</title>
+    <meta name="description" content="favicon APIでサイトアイコンの候補を取得し、レスポンスの検証、SSRF対策、アイコンの変換までを実践的に解説します。">
+    <meta name="keywords" content="favicon API, get website icon, website icon lookup, favicon retrieval">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/ja/blog/favicon-api.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/favicon-api.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/favicon-api.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/favicon-api.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/favicon-api.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/favicon-api.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/favicon-api.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/ja/blog/favicon-api.html">
+    <meta property="og:title" content="Favicon APIでサイトアイコンの候補を取得">
+    <meta property="og:description" content="favicon APIでサイトアイコンの候補を取得し、レスポンスの検証、SSRF対策、アイコンの変換までを実践的に解説します。">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Favicon APIでサイトアイコンの候補を取得">
+    <meta name="twitter:description" content="favicon APIでサイトアイコンの候補を取得し、レスポンスの検証、SSRF対策、アイコンの変換までを実践的に解説します。">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Favicon APIでサイトアイコンの候補を取得",
+  "description": "favicon APIでサイトアイコンの候補を取得し、レスポンスの検証、SSRF対策、アイコンの変換までを実践的に解説します。",
+  "datePublished": "2026-11-06",
+  "dateModified": "2026-11-06",
+  "author": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "mainEntityOfPage": "https://favicondl.com/ja/blog/favicon-api.html",
+  "inLanguage": "ja"
+}</script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/ja/" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/ja/documentation.html" class="nav-link">ドキュメント</a>
+                <a href="/ja/tools.html" class="nav-link">ツール</a>
+                <a href="/ja/blog/" class="nav-link">ブログ</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/favicon-api.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/favicon-api.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/favicon-api.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/favicon-api.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/favicon-api.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/ja/" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/ja/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600">Favicon APIでサイトアイコンの候補を取得</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">api</span><time class="text-sm text-gray-400">2026-11-06</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">Favicon APIでサイトアイコンの候補を取得</h1>
+        </header>
+
+        <div class="article-body"><p>Partner Directoryの構築で、<strong>任意のドメインからWebサイトのアイコンを取得する</strong>必要MODULEがあるなら、優れたfavicon APIは、Webサイトアイコンの候補を取得して検証し、安定した1つの結果を返します。<code>/favicon.ico</code>にたまたま置かれている画像をそのまま返すだけではありません。</p>
+
+<h2>favicon APIでできること</h2>
+<p>Mzu favicondlは、サイトのアイコンを見つけてダウンロードまたは変換するためのブラウザ側の手段を提供します。自動化された製品では、画像のURLを信頼済みの出力として扱うのではなく、この検索処理をリソース解決のフェーズとして利用してください。</p>
+<p>信頼できるサービスは、4つの役割を担います。</p>
+<ul>
+<li><strong>Resolve:</strong> 入力URLを正規化し、宣言されたアイコンリンクを探す。</li>
+<li><strong>Fetch:</strong> 候補を取得し、サイトのリダイレクトを追従する。</li>
+<li><strong>Validate:</strong> レスポンスが配信可能な画像であることを確認する。</li>
+<li><strong>Cache:</strong> 安定したURLを返しつつ、ソースが変更された場合は更新を許可する。</li>
+</ul>
+<p>ルートファイルは引き続き便利なフォールバックですが、すべてではありません。<a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">HTML Standardでは、ページを表す外部リソースのlink relationとして<code>icon</code>が挙げられている</a>ため、<code>/favicon.ico</code>にフォールバックする前に、宣言されたリンクを確認することをお勧めします。</p>
+
+<h2>guide: Webサイトのアイコンを1つ取得する</h2>
+<ol>
+<li><a href="/ja/">Mzu favicondl</a>を開き、サイトの完全なHTTPS URLを入力します。</li>
+<li>検索処理を実行し、検出されたアイコンの候補を確認します。</li>
+<li>用途に合うソースを選択します。browser favicon、Apple Touch Icon、manifest iconなどです。</li>
+<li>ファイルをダウンロードするか、必要な形式に変換します。ICO、PNG、SVGなどに対応しています。</li>
+</ol>
+<p>ドメイン全体で使う1つのアイデンティティが必要な場合は、まずサイトのホームページから始めてください。異なるアイコンを意図的に分けている場合にのみ、ページ固有のURLを使用します。</p>
+<p>結果が返らない場合は、そのページが公開アクセス可能か確認し、アイコンの宣言を調べてください。結果が得られない原因には、取得がブロックされている、クライアントサイドレンダリングのページ、利用可能なアイコンがないことなどが考えられ、そのドメインにブランドアセットが存在しないことを意味するものではありません。</p>
+
+<h2>favicon APIがWebサイトのアイコンを取得する仕組み</h2>
+<p>検索処理をアプリケーション内で実行する必要がある場合は、探索と配信を分離してください。Mzu favicondlは、実際の候補を確認したりアセットを変換したり화에引き続き利用できます。ligationは、結果をJSONまたは画像バイトとして公開できます。</p><p>以下の Node.js resolver は、ページ HTML を読み込み、<code>rel</code> リストに <code>icon</code> が含まれる link 要素を選択し、その URL を解決して画像を取得します。HTML の解析には Cheerio を使用します。</p>
+<pre><code>import { load } from 'cheerio';
+
+export async function getWebsiteIcon(inputUrl) {
+  const pageUrl = new URL(inputUrl);
+  const pageResponse = await fetch(pageUrl, {
+    headers: { 'User-Agent': 'FaviconResolver/1.0' },
+  });
+
+  if (!pageResponse.ok) {
+    throw new Error(`Page request failed: ${pageResponse.status}`);
+  }
+
+  const contentType = pageResponse.headers.get('content-type') || '';
+  if (!contentType.includes('text/html')) {
+    throw new Error('The target did not return HTML');
+  }
+
+  const $ = load(await pageResponse.text());
+  const iconLink = $('link[rel~=icon]').first();
+  const href = iconLink.attr('href');
+  if (!href) return null;
+
+  const finalPageUrl = new URL(pageResponse.url);
+  const iconUrl = new URL(href, finalPageUrl);
+  const iconResponse = await fetch(iconUrl);
+
+  if (!iconResponse.ok) {
+    throw new Error(`Icon request failed: ${iconResponse.status}`);
+  }
+
+  return {
+    sourceUrl: iconUrl.href,
+    finalUrl: iconResponse.url,
+    contentType: iconResponse.headers.get('content-type') || '',
+    bytes: Buffer.from(await iconResponse.arrayBuffer()),
+  };
+}</code></pre>
+<p>このコンパクトな例は、意図的に不完全なものです。ユーザーから任意の URL を受け付ける前に、private および link-local アドレスへのリクエストをブロックし、redirect の回数と response size に上限を設け、timeout を設定してください。これらの制御は、server-side request forgery（SSRF）や過大なダウンロードの防止に役立ちます。</p>
+<p>ホスティング型のサービスを使う場合は、provider を選ぶ前に<a href="/ja/blog/duckduckgo-favicon-api.html">DuckDuckGo favicon API 比較</a>を確認してください。backend が PHP を使っている場合は、<a href="/ja/blog/php-get-favicon.html">PHP で favicon を取得するチュートリアル</a>で、関連する resolve-and-save ワークフローを解説しています。</p>
+
+<h3>アセットを返す前に検証する</h3>
+<ul>
+<li><code>http</code> と <code>https</code> の URL のみ許可します。</li>
+<li>相対リンクは、redirect 後の最終ページ URL を基準に解決します。</li>
+<li>content type と file signature の両方をチェックします。ファイル名が <code>.png</code> であることは何も証明しません。</li>
+<li>service が active な SVG content を再ホストする場合は、その内容を拒否またはサニタイズします。</li>
+</ul>
+
+<h2>信頼できる icon service の重要機能</h2>
+<h3>取得元の透明性</h3><p>選択したsource URL、final URL、検出されたmedia type、更新メタデータを返します。これにより、クライアントはアイコンが選定された理由を説明でき、cache invalidationも可能になります。</p>
+
+<h3>元のファイルを置き換えない変換</h3>
+<p>ダウンロードしたsourceは元のまま保持し、利用側ごとに配信用コピーを作成します。複数サイズのraster containerが想定される場合はICO、単一のraster imageにはPNG、自由に拡大縮小できる出力にはSVGを使います。</p>
+
+<h3>安定したcache管理</h3>
+<p>cache entryのkeyには、normalizedしたsite URLとsource icon URLを使います。assetが変更されていない間は再利用できますが、bytesが変わった場合は新しいversioned URLを公開してください。これにより、クライアントが古いlogoを表示し続けることを防げます。</p>
+
+<h2>信頼性の高いlookupのためのヒント</h2>
+<ul>
+<li>すべてのcandidateと採用されたsourceを保持します。debuggingが大幅に簡単になります。</li>
+<li>domain名だけからiconを推測しないでください。</li>
+<li>final assetを一度だけ取得し、formatの統一やorigin policyの適用が必要なら、制御されたcopyを配信してください。</li>
+<li>利用可能な場合は<code>ETag</code>または<code>Last-Modified</code>を使い、不要なtransferを避けてください。</li>
+<li>新しいタブで返されたURLを確認してください。空のresponseでもsuccessful status codeになることがあります。</li>
+</ul>
+
+<h2>Conclusion</h2>
+<p>信頼できるfavicon APIは、宣言されたresourceを解決し、返されたbytesを検証し、cacheできるほど安定した結果を提供します。lookupとconversionにはMzu favicondlを使い、workflowでautomationが必要になった場合は、これらのruleを独自のendpointで処理してください。</p>
+<p><a href="/ja/">Mzu favicondlを開く</a>ことでサイトアイコンを取得できます。また、resolver patternを使えば、同じ動作をproductに追加できます。</p></div>
+
+        <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
+
+        <div class="cta-box">
+            <h3>サイトアイコンを見つけて変換</h3>
+            <p>サイトアイコンを見つけて来源を確認し、必要な形式に変換できます。</p>
+            <a href="/ja/" class="cta-btn">無料で試す →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/ja/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">ホーム</a>
+                <a href="/ja/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">ブログ</a>
+                <a href="/ja/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">プライバシー</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js?v=20260211"></script>
+
+</body></html>
