@@ -3189,7 +3189,9 @@
     "avoidOverlap": [
       "favicon-api"
     ],
-    "status": "pending"
+    "status": "done",
+    "qualityScore": 95,
+    "qualityGrade": "A"
   },
   {
     "keyword": "realfavicongenerator alternative",

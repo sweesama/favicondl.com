@@ -4228,5 +4228,26 @@
     ],
     "qualityScore": 95,
     "qualityGrade": "A"
+  },
+  {
+    "slug": "favicon-mcp-server",
+    "publishDate": "2026-11-08",
+    "titleEn": "Favicon MCP Server for AI Agents: A Practical Guide",
+    "titleZh": "面向 AI 智能体的 Favicon MCP 服务器实用指南",
+    "titleJa": "AIエージェント向けFavicon MCPサーバー実践ガイド",
+    "titleKo": "AI 에이전트를 위한 Favicon MCP 서버 실전 가이드",
+    "titleEs": "Servidor MCP de favicon para agentes de IA: guía práctica",
+    "descEn": "Learn how to connect a favicon MCP server to an AI agent, discover site icons, convert formats, validate results, and return deployable assets safely.",
+    "descZh": "了解如何将 favicon MCP 服务器连接到 AI 智能体，发现网站图标、转换格式、验证结果并生成可部署的图标文件。",
+    "descJa": "favicon MCP サーバーを AI エージェントに接続し、サイトのアイコン探索、形式変換、検証、配置用ファイルの生成を学びます。",
+    "descKo": "favicon MCP 서버를 AI 에이전트에 연결해 사이트 아이콘 검색, 형식 변환, 결과 검증, 배포용 파일 생성을 익히세요.",
+    "descEs": "Aprende a conectar un servidor MCP de favicon a un agente de IA, descubre iconos, convierte formatos y genera archivos listos para desplegar.",
+    "keyword": "favicon mcp server for ai agents",
+    "tags": [
+      "api",
+      "ai"
+    ],
+    "qualityScore": 95,
+    "qualityGrade": "A"
   }
 ]
