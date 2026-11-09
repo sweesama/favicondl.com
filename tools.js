@@ -163,25 +163,62 @@ class FaviconTools {
         return `${base}/api/proxy?url=${encodeURIComponent(String(targetUrl))}`;
     }
 
+    // Same-origin proxy URLs must not carry size. Resizing happens in the
+    // browser so this page does not spend server CPU on sharp.
+    stripProxySize(url) {
+        const value = String(url || '');
+        const apiBase = this.getApiBase();
+        if (!apiBase || !value.startsWith(`${apiBase}/api/proxy?`)) return value;
+        try {
+            const u = new URL(value);
+            u.searchParams.delete('size');
+            return u.toString();
+        } catch {
+            return value;
+        }
+    }
+
+    async fetchWithBackoff(url, { attempts = 3, timeoutMs = 13000 } = {}) {
+        let delayMs = 400;
+        let last = null;
+        for (let attempt = 0; attempt < attempts; attempt++) {
+            const controller = new AbortController();
+            const timer = setTimeout(() => controller.abort(), timeoutMs);
+            try {
+                const response = await fetch(url, { signal: controller.signal });
+                if (response.status !== 429) return response;
+                last = response;
+                try { await response.arrayBuffer(); } catch {}
+            } finally {
+                clearTimeout(timer);
+            }
+            if (attempt === attempts - 1) break;
+            const retryAfter = Number(last?.headers?.get?.('retry-after'));
+            const wait = Number.isFinite(retryAfter) && retryAfter > 0
+                ? Math.min(retryAfter * 1000, 5000)
+                : delayMs;
+            await new Promise((resolve) => setTimeout(resolve, wait));
+            delayMs = Math.min(delayMs * 2, 2000);
+        }
+        return last;
+    }
+
     async fetchFaviconViaWorker(domain, size, timeoutMs = 8000) {
-        // Same-origin extractor first (better coverage, validated images),
-        // legacy Cloudflare Worker as a fallback.
+        // Same-origin extractor first (better coverage, validated images).
+        // size is omitted here; the batch tool scales the original in canvas.
+        // The legacy Cloudflare Worker still receives size as a fallback.
         const apiBase = this.getApiBase();
         if (apiBase) {
-            const controller = new AbortController();
-            const timer = setTimeout(() => controller.abort(), 14000);
             try {
-                const response = await fetch(
-                    `${apiBase}/api/extract?url=${encodeURIComponent(domain)}&size=${encodeURIComponent(size)}&format=json`,
-                    { signal: controller.signal }
+                const response = await this.fetchWithBackoff(
+                    `${apiBase}/api/extract?url=${encodeURIComponent(domain)}&format=json`,
+                    { attempts: 3, timeoutMs: 13000 }
                 );
-                if (response.ok) {
+                if (response && response.ok) {
                     const data = await response.json();
                     if (data?.ok && (data.proxyUrl || data.iconUrl)) return data;
                 }
             } catch {
-            } finally {
-                clearTimeout(timer);
             }
         }
         const base = String(this.workerBaseUrl || '').trim();
@@ -209,6 +246,7 @@ class FaviconTools {
 
     getBatchDownloadUrl(url) {
         const value = String(url || '');
+        if (value.startsWith('blob:') || value.startsWith('data:')) return value;
         if (value.startsWith(`${this.getApiBase()}/api/proxy?`)) {
             return value;
         }
@@ -878,6 +916,67 @@ Project site: https://favicondl.com
         });
     }
 
+    revokeBatchObjectUrls() {
+        for (const result of this.batchResults || []) {
+            if (result && typeof result.url === 'string' && result.url.startsWith('blob:')) {
+                URL.revokeObjectURL(result.url);
+            }
+        }
+    }
+
+    async createBitmapFromBlob(blob) {
+        if (typeof createImageBitmap === 'function') {
+            try {
+                return await createImageBitmap(blob);
+            } catch {
+            }
+        }
+        return await new Promise((resolve) => {
+            const url = URL.createObjectURL(blob);
+            const img = new Image();
+            img.onload = () => {
+                URL.revokeObjectURL(url);
+                resolve(img);
+            };
+            img.onerror = () => {
+                URL.revokeObjectURL(url);
+                resolve(null);
+            };
+            img.src = url;
+        });
+    }
+
+    // Contain-fit into a square PNG, same idea as the homepage canvas resize.
+    async resizeIconBlob(blob, size) {
+        const target = Number(size);
+        if (!blob || !Number.isFinite(target) || target <= 0) return null;
+        const bitmap = await this.createBitmapFromBlob(blob);
+        const width = bitmap && (bitmap.naturalWidth || bitmap.width);
+        const height = bitmap && (bitmap.naturalHeight || bitmap.height);
+        if (!width || !height) return null;
+        const canvas = document.createElement('canvas');
+        canvas.width = target;
+        canvas.height = target;
+        const ctx = canvas.getContext('2d');
+        ctx.clearRect(0, 0, target, target);
+        ctx.imageSmoothingEnabled = true;
+        ctx.imageSmoothingQuality = 'high';
+        const scale = Math.min(target / width, target / height);
+        const w = Math.max(1, Math.round(width * scale));
+        const h = Math.max(1, Math.round(height * scale));
+        ctx.drawImage(bitmap, Math.floor((target - w) / 2), Math.floor((target - h) / 2), w, h);
+        if (typeof bitmap.close === 'function') bitmap.close();
+        return await new Promise((resolve) => canvas.toBlob(resolve, 'image/png'));
+    }
+
+    async loadResizedBatchIcon(sourceUrl, pixelSize) {
+        const response = await this.fetchWithBackoff(sourceUrl, { attempts: 3, timeoutMs: 13000 });
+        if (!response || !response.ok) return { png: null, fetched: false };
+        const blob = await response.blob();
+        const png = await this.resizeIconBlob(blob, pixelSize);
+        return { png, fetched: true };
+    }
+
     async processBatch() {
         const domainsInput = document.getElementById('domains-input');
         if (!domainsInput) return;
@@ -902,6 +1001,7 @@ Project site: https://favicondl.com
 
         this.showBatchProgress(true);
         document.getElementById('batch-progress')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        this.revokeBatchObjectUrls();
         this.batchResults = [];
 
         const workerSize = size === 'large' ? 256 : 64;
@@ -917,7 +1017,18 @@ Project site: https://favicondl.com
                 const domain = this.cleanDomain(domains[index]);
                 const workerData = await this.fetchFaviconViaWorker(domain, workerSize);
                 const fallbackUrl = this.buildFaviconUrl(domain, size);
-                const faviconUrl = workerData?.proxyUrl || workerData?.iconUrl || fallbackUrl;
+                const rawUrl = workerData?.proxyUrl || workerData?.iconUrl || fallbackUrl;
+                const sourceUrl = this.stripProxySize(rawUrl);
+                let faviconUrl = sourceUrl;
+                const apiBase = this.getApiBase();
+                if (apiBase && sourceUrl.startsWith(`${apiBase}/api/proxy?`)) {
+                    try {
+                        const loaded = await this.loadResizedBatchIcon(sourceUrl, workerSize);
+                        if (loaded?.png) faviconUrl = URL.createObjectURL(loaded.png);
+                        else if (loaded && !loaded.fetched) faviconUrl = fallbackUrl;
+                    } catch {
+                    }
+                }
 
                 this.batchResults[index] = {
                     domain,

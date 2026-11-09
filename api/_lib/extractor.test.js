@@ -9,6 +9,8 @@ const {
   parseTarget,
   scoreCandidate,
   firstPageWithIcons,
+  isPublicHost,
+  withDeadline,
 } = require('./extractor');
 
 test('a 32px site icon outranks a 16px icon at size 512', () => {
@@ -32,6 +34,14 @@ test('homepage probes include apex and www, and direct icons do too when HTML is
   const origins = directOrigins(target, null);
   assert.ok(origins.includes('https://gnu.org'));
   assert.ok(origins.includes('https://www.gnu.org'));
+});
+
+test('dns lookups are bounded and private addresses never wait on dns', async () => {
+  const started = Date.now();
+  await assert.rejects(withDeadline(new Promise(() => {}), 30, 'DNS_TIMEOUT'), (err) => err.code === 'DNS_TIMEOUT');
+  assert.ok(Date.now() - started < 500);
+  assert.equal(await isPublicHost('127.0.0.1'), false);
+  assert.equal(await isPublicHost('localhost'), false);
 });
 
 test('a hung homepage probe does not delay one that already found icons', async () => {

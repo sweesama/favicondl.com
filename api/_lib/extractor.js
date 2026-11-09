@@ -26,7 +26,9 @@ const MAX_ICON_BYTES = 5 * 1024 * 1024;
 const MAX_REDIRECTS = 5;
 const MAX_CANDIDATES = 16;
 const CACHE_TTL_MS = 60 * 60 * 1000;
+const FALLBACK_CACHE_TTL_MS = 60 * 60 * 1000;
 const CACHE_MAX = 500;
+const DNS_TIMEOUT_MS = 2000;
 
 const cache = new Map();
 // Verified site icons, shared across requested sizes. A size=512 lookup must
@@ -93,22 +95,59 @@ function isPrivateIp(ip) {
   return true;
 }
 
+/**
+ * Rejects with `code` when `promise` is still pending after timeoutMs.
+ * The underlying promise is given a no-op catch so a later rejection
+ * (dns.lookup cannot be cancelled) does not surface as unhandled.
+ */
+function withDeadline(promise, timeoutMs, code) {
+  const guarded = Promise.resolve(promise);
+  guarded.catch(() => {});
+  let timer;
+  const timeout = new Promise((_, reject) => {
+    timer = setTimeout(() => {
+      const err = new Error(code);
+      err.code = code;
+      reject(err);
+    }, timeoutMs);
+  });
+  return Promise.race([guarded, timeout]).finally(() => clearTimeout(timer));
+}
+
 const dnsCache = new Map();
-async function isPublicHost(hostname) {
+async function isPublicHost(hostname, timeoutMs = DNS_TIMEOUT_MS) {
   const host = String(hostname || '').toLowerCase();
   if (isPrivateHostname(host)) return false;
   if (net.isIP(host)) return !isPrivateIp(host);
   const hit = dnsCache.get(host);
-  if (hit && hit.expires > Date.now()) return hit.ok;
-  let ok = false;
-  try {
-    const addrs = await dns.lookup(host, { all: true, verbatim: true });
-    ok = addrs.length > 0 && addrs.every((a) => !isPrivateIp(a.address));
-  } catch {
-    ok = false;
+  if (hit && hit.expires > Date.now()) {
+    if (hit.timeout) {
+      const err = new Error('DNS_TIMEOUT');
+      err.code = 'DNS_TIMEOUT';
+      throw err;
+    }
+    return hit.ok;
   }
-  dnsCache.set(host, { ok, expires: Date.now() + 5 * 60 * 1000 });
-  return ok;
+  const budget = Math.min(DNS_TIMEOUT_MS, Math.max(1, timeoutMs));
+  try {
+    const addrs = await withDeadline(
+      dns.lookup(host, { all: true, verbatim: true }),
+      budget,
+      'DNS_TIMEOUT'
+    );
+    const ok = addrs.length > 0 && addrs.every((a) => !isPrivateIp(a.address));
+    dnsCache.set(host, { ok, expires: Date.now() + 5 * 60 * 1000 });
+    return ok;
+  } catch (err) {
+    const timedOut = !!(err && err.code === 'DNS_TIMEOUT');
+    dnsCache.set(host, {
+      ok: false,
+      timeout: timedOut,
+      expires: Date.now() + (timedOut ? 60 * 1000 : 5 * 60 * 1000),
+    });
+    if (timedOut) throw err;
+    return false;
+  }
 }
 
 /* ----------------------------------------------------------------------- */
@@ -130,13 +169,21 @@ async function safeFetch(targetUrl, { accept, timeoutMs, maxBytes, referer, trun
       return { ok: false, error: 'bad_url' };
     }
     if (u.protocol !== 'http:' && u.protocol !== 'https:') return { ok: false, error: 'bad_protocol' };
-    if (!(await isPublicHost(u.hostname))) return { ok: false, error: 'blocked_host' };
 
     const remaining = timeoutMs - (Date.now() - started);
     if (remaining <= 50) return { ok: false, error: 'timeout' };
+    try {
+      if (!(await isPublicHost(u.hostname, remaining))) return { ok: false, error: 'blocked_host' };
+    } catch (err) {
+      if (err && err.code === 'DNS_TIMEOUT') return { ok: false, error: 'timeout' };
+      return { ok: false, error: 'blocked_host' };
+    }
+
+    const budget = timeoutMs - (Date.now() - started);
+    if (budget <= 50) return { ok: false, error: 'timeout' };
 
     const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), remaining);
+    const timer = setTimeout(() => controller.abort(), budget);
     let res;
     try {
       const headers = {
@@ -765,7 +812,7 @@ async function extractFavicon(input, opts = {}) {
   if (bestSite) {
     result = buildSiteResult(pool, page || { finalUrl: rememberedPageUrl(target.domain) }, target, size, proxyBase);
   } else {
-    const fb = await aggregatorFallback(target.domain, size, Math.max(deadline, Date.now()) + 2500);
+    const fb = await aggregatorFallback(target.domain, size, Math.max(deadline, Date.now()) + 2000);
     const fallbackIcon = {
       url: fb.url,
       origin: fb.source,
@@ -843,11 +890,12 @@ function buildSiteResult(icons, page, target, size, proxyBase) {
 
 function storeResult(cacheKey, result, fromSite) {
   if (cache.size >= CACHE_MAX) cache.delete(cache.keys().next().value);
-  // Cache real-site results for an hour; fallbacks only briefly so a site that
-  // was temporarily down gets another chance soon.
+  // Site icons stay for an hour. Aggregator fallbacks match the CDN window
+  // (one hour) so a warm instance does not rediscover a dead domain on every
+  // request. A site that was down is tried again after that hour.
   cache.set(cacheKey, {
     value: { ...result, debug: undefined },
-    expires: Date.now() + (fromSite ? CACHE_TTL_MS : 5 * 60 * 1000),
+    expires: Date.now() + (fromSite ? CACHE_TTL_MS : FALLBACK_CACHE_TTL_MS),
   });
 }
 
@@ -867,4 +915,6 @@ module.exports = {
   firstPageWithIcons,
   ACCEPT_IMAGE,
   MAX_ICON_BYTES,
+  withDeadline,
+  DNS_TIMEOUT_MS,
 };

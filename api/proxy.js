@@ -8,6 +8,38 @@
 
 const { safeFetch, sniffImage, ACCEPT_IMAGE, MAX_ICON_BYTES } = require('./_lib/extractor');
 const { parseRequestedSize, resizeIcon, setFaviconSizeHeaders, nativeSizeLabel } = require('./_lib/resize');
+const { redirectCacheBusters, sendError } = require('./_lib/httpCache');
+
+// Leave room under maxDuration (12s) for sniffing and sharp.
+const PROXY_TIMEOUT_MS = 7000;
+const ERROR_CACHE_MAX = 400;
+const errorCache = new Map();
+
+function errorKey(target, size) {
+  return `${target}|${size || ''}`;
+}
+
+function readError(key) {
+  const hit = errorCache.get(key);
+  if (!hit) return null;
+  if (hit.expires <= Date.now()) {
+    errorCache.delete(key);
+    return null;
+  }
+  return hit;
+}
+
+function storeError(key, status, error) {
+  if (!key) return;
+  if (errorCache.size >= ERROR_CACHE_MAX) errorCache.delete(errorCache.keys().next().value);
+  const ttl = status >= 500 ? 5 * 60 * 1000 : 60 * 60 * 1000;
+  errorCache.set(key, { status, error, expires: Date.now() + ttl });
+}
+
+function fail(res, key, status, error) {
+  storeError(key, status, error);
+  return sendError(res, status, error);
+}
 
 module.exports = async function handler(req, res) {
   res.setHeader('access-control-allow-origin', '*');
@@ -18,48 +50,54 @@ module.exports = async function handler(req, res) {
   }
   if (req.method !== 'GET') {
     res.setHeader('allow', 'GET');
-    return res.status(405).json({ ok: false, error: 'Method not allowed' });
+    return sendError(res, 405, 'Method not allowed');
   }
+  if (redirectCacheBusters(req, res)) return undefined;
 
   const { searchParams } = new URL(req.url, 'https://favicondl.com');
   const target = searchParams.get('url');
   const requested = parseRequestedSize(searchParams.get('size'));
-  if (!target) return res.status(400).json({ ok: false, error: 'Missing url' });
-  if (requested === null) return res.status(400).json({ ok: false, error: 'Invalid size' });
+  if (!target) return sendError(res, 400, 'Missing url');
+  if (requested === null) return sendError(res, 400, 'Invalid size');
 
   let targetUrl;
   try {
     targetUrl = new URL(target);
   } catch {
-    return res.status(400).json({ ok: false, error: 'Invalid url' });
+    return sendError(res, 400, 'Invalid url');
   }
   if (targetUrl.protocol !== 'http:' && targetUrl.protocol !== 'https:') {
-    return res.status(403).json({ ok: false, error: 'Target is not allowed' });
+    return sendError(res, 403, 'Target is not allowed');
   }
+
+  const key = errorKey(targetUrl.toString(), requested);
+  const cached = readError(key);
+  if (cached) return sendError(res, cached.status, cached.error);
 
   const upstream = await safeFetch(targetUrl.toString(), {
     accept: ACCEPT_IMAGE,
-    timeoutMs: 8000,
+    timeoutMs: PROXY_TIMEOUT_MS,
     maxBytes: MAX_ICON_BYTES,
     referer: `${targetUrl.origin}/`,
   });
 
   if (upstream.error === 'blocked_host' || upstream.error === 'bad_protocol') {
-    return res.status(403).json({ ok: false, error: 'Target is not allowed' });
+    return fail(res, key, 403, 'Target is not allowed');
   }
   if (upstream.error === 'timeout') {
-    return res.status(504).json({ ok: false, error: 'Proxy request timed out' });
+    return fail(res, key, 504, 'Proxy request timed out');
   }
   if (!upstream.body) {
-    return res.status(502).json({ ok: false, error: 'Could not fetch image' });
+    return fail(res, key, 502, 'Could not fetch image');
   }
   if (!upstream.ok) {
-    return res.status(upstream.status >= 400 ? upstream.status : 502).json({ ok: false, error: `Upstream returned ${upstream.status}` });
+    const status = upstream.status >= 400 ? upstream.status : 502;
+    return fail(res, key, status, `Upstream returned ${upstream.status}`);
   }
 
   const img = sniffImage(upstream.body);
   if (!img) {
-    return res.status(415).json({ ok: false, error: 'Target is not an image' });
+    return fail(res, key, 415, 'Target is not an image');
   }
 
   res.setHeader('x-content-type-options', 'nosniff');
@@ -69,7 +107,7 @@ module.exports = async function handler(req, res) {
     try {
       png = await resizeIcon(upstream.body, img, requested);
     } catch {
-      return res.status(502).json({ ok: false, error: 'Could not resize image' });
+      return fail(res, key, 502, 'Could not resize image');
     }
     res.setHeader('cache-control', 'public, max-age=86400, s-maxage=604800, stale-while-revalidate=604800');
     const upscaled = !img.vector

@@ -237,7 +237,7 @@ class FaviconTool {
             let debounceTimer;
             domainInput.addEventListener('input', (e) => {
                 clearTimeout(debounceTimer);
-                debounceTimer = setTimeout(() => this.handleDomainInput(e, false), 300);
+                debounceTimer = setTimeout(() => this.handleDomainInput(e, false), 700);
             });
             domainInput.addEventListener('keypress', (e) => {
                 if (e.key === 'Enter') {
@@ -414,14 +414,9 @@ class FaviconTool {
     }
 
     withCacheBust(url) {
-        try {
-            const u = new URL(url);
-            u.searchParams.set('v', String(Date.now()));
-            return u.toString();
-        } catch {
-            const sep = url.includes('?') ? '&' : '?';
-            return `${url}${sep}v=${Date.now()}`;
-        }
+        // t, v and _ are stripped by the API and only created a unique CDN miss.
+        // Enter still skips the in-page cache via forceRefresh.
+        return url;
     }
 
     getDomainVariants(domain) {

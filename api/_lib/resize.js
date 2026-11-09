@@ -4,9 +4,10 @@
  * Exact-size favicon rendering for the public API.
  *
  * When a caller passes size, the image we serve is a size×size PNG:
- * Lanczos downscale, high-quality upscale, crisp SVG rasterization, and
- * transparent padding for non-square sources. The original bytes are left
- * alone when size is omitted.
+ * Lanczos2 downscale, the same kernel for upscale, crisp SVG rasterization,
+ * and transparent padding for non-square sources. PNG encoding uses moderate
+ * zlib settings; an already-square PNG of the requested size is returned
+ * unchanged. The original bytes are left alone when size is omitted.
  */
 
 const MIN_SIZE = 16;
@@ -250,9 +251,23 @@ function loadSharp() {
  * @param {number} size exact output side, already clamped to 16–512
  * @returns {Promise<Buffer>} PNG of size×size
  */
+function isExactPng(buffer, info, target) {
+  return !!(
+    buffer
+    && info
+    && info.format === 'png'
+    && !info.vector
+    && info.width === target
+    && info.height === target
+  );
+}
+
 async function resizeIcon(buffer, info, size) {
-  const sharp = loadSharp();
   const target = Math.min(MAX_SIZE, Math.max(MIN_SIZE, Math.trunc(size)));
+  // Skip libvips entirely when the source is already the PNG we would emit.
+  if (isExactPng(buffer, info, target)) return buffer;
+
+  const sharp = loadSharp();
   let input = buffer;
   let raw = null;
 
@@ -275,25 +290,26 @@ async function resizeIcon(buffer, info, size) {
       };
 
   const source = raw ? raw.buffer : input;
-  const png = await sharp(source, options)
+  // lanczos2 is visually close to lanczos3 on icon-sized art and much cheaper.
+  // compressionLevel 6 / effort 2 is the moderate zlib preset; level 9 + effort
+  // 7 spends most of the CPU squeezing a few hundred bytes. Pipeline info
+  // already reports the output size, so we do not decode the PNG again.
+  const { data, info: outInfo } = await sharp(source, options)
     .rotate()
     .resize(target, target, {
       fit: 'contain',
       background: { r: 0, g: 0, b: 0, alpha: 0 },
-      // Lanczos for downscales; the same kernel is a high-quality upscale
-      // without claiming the result is sharper than the source pixels.
-      kernel: 'lanczos3',
+      kernel: 'lanczos2',
       withoutEnlargement: false,
-      fastShrinkOnLoad: false,
+      fastShrinkOnLoad: true,
     })
-    .png({ compressionLevel: 9, effort: 7 })
-    .toBuffer();
+    .png({ compressionLevel: 6, effort: 2 })
+    .toBuffer({ resolveWithObject: true });
 
-  const meta = await sharp(png).metadata();
-  if (meta.width !== target || meta.height !== target) {
-    throw new Error(`Resized image was ${meta.width}x${meta.height}, expected ${target}x${target}`);
+  if (outInfo.width !== target || outInfo.height !== target) {
+    throw new Error(`Resized image was ${outInfo.width}x${outInfo.height}, expected ${target}x${target}`);
   }
-  return png;
+  return data;
 }
 
 module.exports = {
