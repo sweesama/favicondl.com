@@ -2,6 +2,12 @@
 
 const { extractFavicon } = require('./extractor');
 const { parseRequestedSize, attachSize, setFaviconSizeHeaders } = require('./resize');
+const {
+  SUCCESS_SITE_CACHE,
+  SUCCESS_FALLBACK_CACHE,
+  redirectCacheBusters,
+  sendError,
+} = require('./httpCache');
 
 const RANK_SIZE = 128;
 const DISCOVERY_TIMEOUT_MS = 7000;
@@ -38,8 +44,9 @@ function createHandler({ defaultFormat }) {
     }
     if (req.method !== 'GET') {
       res.setHeader('allow', 'GET');
-      return res.status(405).json({ ok: false, error: 'Method not allowed' });
+      return sendError(res, 405, 'Method not allowed');
     }
+    if (redirectCacheBusters(req, res)) return undefined;
 
     const { searchParams } = new URL(req.url, 'https://favicondl.com');
     const target = searchParams.get('url') || searchParams.get('domain');
@@ -47,13 +54,13 @@ function createHandler({ defaultFormat }) {
     const requested = parseRequestedSize(searchParams.get('size'));
 
     if (!target) {
-      return res.status(400).json({ ok: false, error: 'Missing url' });
+      return sendError(res, 400, 'Missing url');
     }
     if (requested === null) {
-      return res.status(400).json({ ok: false, error: 'Invalid size' });
+      return sendError(res, 400, 'Invalid size');
     }
     if (format !== 'redirect' && format !== 'json') {
-      return res.status(400).json({ ok: false, error: 'Invalid format' });
+      return sendError(res, 400, 'Invalid format');
     }
 
     let data;
@@ -68,20 +75,17 @@ function createHandler({ defaultFormat }) {
         proxyBase: proxyBaseFor(req),
       });
     } catch {
-      return res.status(502).json({ ok: false, error: 'Favicon extraction failed' });
+      return sendError(res, 502, 'Favicon extraction failed');
     }
 
     if (!data.ok) {
-      return res.status(data.status || 502).json({ ok: false, error: data.error || 'Favicon extraction failed' });
+      return sendError(res, data.status || 502, data.error || 'Favicon extraction failed');
     }
     delete data.cached;
     data = attachSize(data, requested);
 
     const fromSite = data.source !== 'google_s2' && data.source !== 'duckduckgo';
-    res.setHeader(
-      'cache-control',
-      fromSite ? 'public, s-maxage=86400, stale-while-revalidate=604800' : 'public, s-maxage=600, stale-while-revalidate=3600'
-    );
+    res.setHeader('cache-control', fromSite ? SUCCESS_SITE_CACHE : SUCCESS_FALLBACK_CACHE);
     setFaviconSizeHeaders(res, data);
 
     if (format === 'json') {

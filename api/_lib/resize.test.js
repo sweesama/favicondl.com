@@ -128,6 +128,14 @@ test('attachSize does not call an SVG upscaled', () => {
   assert.equal(out.outputWidth, 32);
 });
 
+test('an already square PNG skips re-encoding and stays a PNG', async () => {
+  const square = await png(32, 32, { r: 1, g: 2, b: 3 });
+  const out = await resizeIcon(square, sniffImage(square), 32);
+  assert.equal(out, square);
+  assert.equal(out[0], 0x89);
+  assert.equal(out[1], 0x50);
+});
+
 test('downscale, upscale, and pad without stretching', async () => {
   const wide = await png(40, 20);
   const info = sniffImage(wide);
