@@ -4270,5 +4270,26 @@
     ],
     "qualityScore": 95,
     "qualityGrade": "A"
+  },
+  {
+    "slug": "streamlit-favicon",
+    "publishDate": "2026-11-10",
+    "titleEn": "Streamlit Favicon: Add a Custom Tab Icon Step by Step",
+    "titleZh": "Streamlit favicon 设置：一步步添加自定义标签图标",
+    "titleJa": "Streamlit favicon 設定：カスタムタブアイコンを追加する手順",
+    "titleKo": "Streamlit favicon 설정: 사용자 정의 탭 아이콘 추가 단계",
+    "titleEs": "Favicon de Streamlit: cómo añadir un icono de pestaña personalizado",
+    "descEn": "Learn how to set a Streamlit favicon with page_icon, a local image, or an emoji. Step-by-step code, common pitfalls, and how to verify the tab icon.",
+    "descZh": "了解如何通过 page_icon、本地图片或 emoji 设置 Streamlit favicon。包含分步代码、常见陷阱以及验证标签图标的方法。",
+    "descJa": "page_icon、ローカル画像、絵文字を使って Streamlit favicon を設定する方法を解説します。ステップごとのコード、よくある落とし穴、タブアイコンの確認方法も紹介します。",
+    "descKo": "page_icon, 로컬 이미지 또는 이모지를 사용하여 Streamlit favicon을 설정하는 방법을 알아보세요. 단계별 코드, 일반적인 함정, 탭 아이콘 확인 방법을 다룹니다.",
+    "descEs": "Aprende a configurar el favicon de Streamlit con page_icon, una imagen local o un emoji. Código paso a paso, errores comunes y cómo verificar el icono.",
+    "keyword": "streamlit favicon",
+    "tags": [
+      "python",
+      "framework"
+    ],
+    "qualityScore": 95,
+    "qualityGrade": "A"
   }
 ]

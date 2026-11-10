@@ -1,0 +1,186 @@
+<!DOCTYPE html><html lang="es"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favicon de Streamlit: cómo añadir un icono de pestaña personalizado</title>
+    <meta name="description" content="Aprende a configurar el favicon de Streamlit con page_icon, una imagen local o un emoji. Código paso a paso, errores comunes y cómo verificar el icono.">
+    <meta name="keywords" content="streamlit favicon, page_icon, streamlit icon, favicon setup, python streamlit">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/es/blog/streamlit-favicon.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/streamlit-favicon.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/streamlit-favicon.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/streamlit-favicon.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/streamlit-favicon.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/streamlit-favicon.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/streamlit-favicon.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/es/blog/streamlit-favicon.html">
+    <meta property="og:title" content="Favicon de Streamlit: cómo añadir un icono de pestaña personalizado">
+    <meta property="og:description" content="Aprende a configurar el favicon de Streamlit con page_icon, una imagen local o un emoji. Código paso a paso, errores comunes y cómo verificar el icono.">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Favicon de Streamlit: cómo añadir un icono de pestaña personalizado">
+    <meta name="twitter:description" content="Aprende a configurar el favicon de Streamlit con page_icon, una imagen local o un emoji. Código paso a paso, errores comunes y cómo verificar el icono.">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Favicon de Streamlit: cómo añadir un icono de pestaña personalizado",
+  "description": "Aprende a configurar el favicon de Streamlit con page_icon, una imagen local o un emoji. Código paso a paso, errores comunes y cómo verificar el icono.",
+  "datePublished": "2026-11-10",
+  "dateModified": "2026-11-10",
+  "author": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "mainEntityOfPage": "https://favicondl.com/es/blog/streamlit-favicon.html",
+  "inLanguage": "es"
+}</script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/es/" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/es/documentation.html" class="nav-link">Documentación</a>
+                <a href="/es/tools.html" class="nav-link">Herramientas</a>
+                <a href="/es/blog/" class="nav-link">Blog</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/streamlit-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/streamlit-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/streamlit-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/streamlit-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/streamlit-favicon.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/es/" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/es/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600">Favicon de Streamlit: cómo añadir un icono de pestaña personalizado</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">python</span><time class="text-sm text-gray-400">2026-11-10</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">Favicon de Streamlit: cómo añadir un icono de pestaña personalizado</h1>
+        </header>
+
+        <div class="article-body"><p>Has creado un dashboard de Streamlit limpio, has compartido el enlace con tu equipo y alguien te pregunta: «¿Por qué la pestaña del navegador muestra el logotipo genérico de Streamlit en lugar del de tu marca?» La solución es un parámetro que seguramente te has saltado: <code>page_icon</code>. En este tutorial te explicamos paso a paso cómo definir un <strong>favicon de Streamlit</strong> con una imagen local, un emoji o una URL, y cómo comprobar que aparece realmente en la pestaña.</p>
+
+<h2>Qué controla realmente page_icon</h2>
+<p>Streamlit renderiza tu app dentro de una página que genera. La función <code>st.set_page_config()</code> acepta el argumento <code>page_icon</code>, que le indica a Streamlit qué icono debe utilizar en la pestaña del navegador y, en algunos navegadores, en los marcadores. No se trata de un stack completo de HTML favicon, sino del mecanismo propio de Streamlit para controlar el icono de la pestaña.</p>
+<p>Según la especificación HTML, un favicon se declara mediante un enlace <code>rel="icon"</code> en el <code>head</code> del documento (<a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">especificación HTML de WHATWG</a>). Cuando le pasas <code>page_icon</code>, Streamlit se encarga de ese enlace por ti. Si quieres saber más sobre qué es un favicon y dónde aparece, consulta nuestra guía sobre <a href="/es/blog/what-is-favicon.html">qué es un favicon</a>.</p>
+
+<h2>Requisitos previos</h2>
+<ul>
+  <li>Una app de Streamlit que funcione (cualquier versión compatible con <code>st.set_page_config</code>).</li>
+  <li>Un archivo de icono: un PNG, JPG o SVG cuadrado. Para obtener el mejor resultado, utiliza una imagen cuadrada de al menos 64×64 px.</li>
+  <li>Lo básico sobre cómo ejecutar <code>streamlit run app.py</code>.</li>
+</ul>
+
+<h2>Cómo definir tu favicon de Streamlit paso a paso</h2>
+
+<h3>Paso 1 — Llama primero a set_page_config</h3>
+<p><code>st.set_page_config()</code> debe ser el primer comando de Streamlit de tu script. Si llamas antes a <code>st.title()</code> o a cualquier otra función de Streamlit, Streamlit genera un error. Coloca la llamada al principio del archivo de tu app, justo después de los imports.</p>
+<pre><code>import streamlit as st
+
+st.set_page_config(
+    page_title="My Dashboard",
+    page_icon="icon.png"
+)
+
+st.title("My Dashboard")
+</code></pre>
+
+<h3>Paso 2 — Apunta page_icon a tu imagen</h3>
+<p>El valor de <code>page_icon</code> puede ser:</p><ul>
+  <li>Una ruta relativa a un archivo de imagen de tu proyecto, como <code>"icon.png"</code>.</li>
+  <li>Una ruta absoluta, como <code>"/home/user/app/icon.png"</code>.</li>
+  <li>Una URL a una imagen, como <code>"https://example.com/icon.png"</code>.</li>
+  <li>Un único carácter emoji, como <code>"🚀"</code>.</li>
+</ul>
+<p>Para el icono de tu marca, un PNG o SVG local es la opción más fiable. Mantén el archivo en el mismo directorio que el script de tu app o utiliza una ruta relativa al directorio desde el que ejecutas <code>streamlit run</code>.</p>
+
+<h3>Paso 3 — Usa un emoji si todavía no tienes una imagen</h3>
+<p>Si estás haciendo un prototipo, un emoji es la opción más rápida. Streamlit lo convierte en un icono para la pestaña:</p>
+<pre><code>st.set_page_config(page_title="Prototype", page_icon="📊")
+</code></pre>
+<p>Te resulta útil para herramientas internas, pero no coincidirá con tu marca. Cuando estés listo para publicar, cámbialo por un archivo de imagen real.</p>
+
+<h3>Paso 4 — Prepara un archivo de icono adecuado</h3>
+<p>Streamlit acepta los formatos de imagen habituales, pero un PNG cuadrado con fondo transparente funciona mejor en distintos navegadores. Si solo tienes un logo, recórtalo para que aparezca únicamente el símbolo y redimensiona el resultado a 64×64 o 128×128 px. Nuestra <a href="/es/blog/make-favicon-from-image.html">guía para crear un favicon a partir de una imagen</a> explica los pasos de recorte y simplificación.</p>
+<p>Si necesitas un archivo ICO para otros usos, puedes convertir tu PNG con <a href="/es/">Mzu favicondl</a>. Streamlit no requiere ICO por sí mismo, pero tenerlo ayuda si también sirves la app detrás de un dominio personalizado que utiliza un favicon tradicional.</p>
+
+<h3>Paso 5 — Verifica el icono de la pestaña</h3>
+<p>Ejecuta tu app, ábrela en un navegador y mira la pestaña. Si todavía ves el icono predeterminado de Streamlit, haz una recarga forzada (Ctrl+Shift+R o Cmd+Shift+R). Los navegadores guardan los favicon en caché de forma agresiva, por lo que el icono antiguo puede seguir apareciendo incluso después de cambiar el código. Para una lista de comprobación más detallada, consulta nuestra guía sobre el <a href="/es/blog/favicon-not-showing.html">favicon que no aparece</a>.</p>
+
+<h2>Problemas comunes</h2><ul>
+  <li><strong>Invocar <code>set_page_config</code> demasiado tarde.</strong> Debe ser la primera llamada de Streamlit. Si la mueves al principio, se corrige el error.</li>
+  <li><strong>Ruta de archivo incorrecta.</strong> Una ruta relativa se resuelve desde el directorio desde el que inicias Streamlit, no desde la carpeta del script. Usa una ruta absoluta si no estás seguro.</li>
+  <li><strong>Imágenes no cuadradas.</strong> Un logo ancho se deforma o aparece con barras laterales. Recórtalo a un formato cuadrado antes.</li>
+  <li><strong>Caché del navegador.</strong> La pestaña puede mostrar el icono anterior durante un tiempo. Haz una recarga forzada o prueba en una ventana privada.</li>
+  <li><strong>Diferencias en las rutas de despliegue.</strong> En Streamlit Community Cloud o en un contenedor, el directorio de trabajo puede ser distinto al de tu entorno local. Usa una ruta relativa al archivo de la app o una ruta absoluta que exista en el entorno de despliegue.</li>
+</ul>
+
+<h2>Cuando necesitas más que <code>page_icon</code></h2>
+<p><code>page_icon</code> cubre la pestaña del navegador para la propia app de Streamlit. Si integras la app en un sitio más grande o necesitas Apple Touch icons y un web app manifest, son asuntos separados que gestiona el HTML que rodea la app. Para un conjunto completo de iconos, consulta nuestras <a href="/es/blog/favicon-best-practices.html">prácticas recomendadas para favicons</a>.</p>
+
+<p>Configurar un favicon de Streamlit es un cambio de una línea una vez que sabes dónde colocarlo. Empieza con <code>st.set_page_config(page_title=..., page_icon=...)</code> en la parte superior del script, usa un PNG o SVG cuadrado y comprueba el resultado con una recarga forzada. Eso es suficiente para sustituir el logo predeterminado de Streamlit por tu marca en la pestaña.</p></div>
+
+        <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
+
+        <div class="cta-box">
+            <h3>¿Necesitas un archivo de icono limpio para Streamlit?</h3>
+            <p>Usa Mzu favicondl para recortar, redimensionar y convertir tu logo en un PNG cuadrado o ICO listo para page_icon.</p>
+            <a href="/es/" class="cta-btn">Pruébalo gratis →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/es/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">Inicio</a>
+                <a href="/es/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">Blog</a>
+                <a href="/es/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">Privacidad</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js?v=20260211"></script>
+
+</body></html>
