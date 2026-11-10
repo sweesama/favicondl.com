@@ -76,7 +76,7 @@ async function pixel(buf, x, y) {
   return { r: data[i], g: data[i + 1], b: data[i + 2], a: data[i + 3], width: info.width, height: info.height };
 }
 
-test('parseRequestedSize clamps 16-512 and treats omission separately', () => {
+test('parseRequestedSize snaps to the allowed set and treats omission separately', () => {
   assert.equal(parseRequestedSize(undefined), undefined);
   assert.equal(parseRequestedSize(null), undefined);
   assert.equal(parseRequestedSize(''), undefined);
@@ -87,6 +87,9 @@ test('parseRequestedSize clamps 16-512 and treats omission separately', () => {
   assert.equal(parseRequestedSize('16'), 16);
   assert.equal(parseRequestedSize('32'), 32);
   assert.equal(parseRequestedSize('32.9'), 32);
+  assert.equal(parseRequestedSize('137'), 128);
+  assert.equal(parseRequestedSize('180'), 180);
+  assert.equal(parseRequestedSize('192'), 192);
   assert.equal(parseRequestedSize('512'), 512);
   assert.equal(parseRequestedSize('9000'), 512);
 });

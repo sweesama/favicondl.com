@@ -39,6 +39,18 @@ function loadTools(fetchImpl) {
   return new context.FaviconTools();
 }
 
+test('batch extract and proxy URLs are already canonical, so they do not follow a redirect', () => {
+  const { canonicalApiPath } = require('./api/_lib/canonical');
+  const extractPath = '/api/extract?url=github.com&format=json';
+  assert.equal(canonicalApiPath(extractPath).path, extractPath);
+  for (const size of [16, 32, 48, 64, 128, 180, 192, 256, 512]) {
+    const proxyPath = `/api/proxy?url=https%3A%2F%2Fgithub.com%2Ffavicon.ico&size=${size}`;
+    assert.equal(canonicalApiPath(proxyPath).path, proxyPath, String(size));
+  }
+  const unsized = '/api/proxy?url=https%3A%2F%2Fgithub.com%2Ffavicon.ico';
+  assert.equal(canonicalApiPath(unsized).path, unsized);
+});
+
 test('batch lookup hits same-origin extract without size and strips size from proxy urls', () => {
   const tools = loadTools(async () => {
     throw new Error('not used');

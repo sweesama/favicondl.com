@@ -8,7 +8,7 @@
 
 const { safeFetch, sniffImage, ACCEPT_IMAGE, MAX_ICON_BYTES } = require('./_lib/extractor');
 const { parseRequestedSize, resizeIcon, setFaviconSizeHeaders, nativeSizeLabel } = require('./_lib/resize');
-const { redirectCacheBusters, sendError } = require('./_lib/httpCache');
+const { PROXY_SUCCESS_CACHE, applyCacheHeaders, redirectIfNonCanonical, sendError } = require('./_lib/httpCache');
 
 // Leave room under maxDuration (12s) for sniffing and sharp.
 const PROXY_TIMEOUT_MS = 7000;
@@ -52,7 +52,7 @@ module.exports = async function handler(req, res) {
     res.setHeader('allow', 'GET');
     return sendError(res, 405, 'Method not allowed');
   }
-  if (redirectCacheBusters(req, res)) return undefined;
+  if (redirectIfNonCanonical(req, res)) return undefined;
 
   const { searchParams } = new URL(req.url, 'https://favicondl.com');
   const target = searchParams.get('url');
@@ -109,7 +109,7 @@ module.exports = async function handler(req, res) {
     } catch {
       return fail(res, key, 502, 'Could not resize image');
     }
-    res.setHeader('cache-control', 'public, max-age=86400, s-maxage=604800, stale-while-revalidate=604800');
+    applyCacheHeaders(res, PROXY_SUCCESS_CACHE);
     const upscaled = !img.vector
       && img.format !== 'svg'
       && img.width > 0
@@ -129,7 +129,7 @@ module.exports = async function handler(req, res) {
     return res.status(200).send(png);
   }
 
-  res.setHeader('cache-control', 'public, max-age=86400, s-maxage=604800, stale-while-revalidate=604800');
+  applyCacheHeaders(res, PROXY_SUCCESS_CACHE);
   res.setHeader('x-favicon-native-size', nativeSizeLabel(img));
   res.setHeader('x-favicon-upscaled', '0');
   res.setHeader('content-type', img.mime);

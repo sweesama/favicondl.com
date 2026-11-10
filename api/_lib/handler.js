@@ -5,7 +5,8 @@ const { parseRequestedSize, attachSize, setFaviconSizeHeaders } = require('./res
 const {
   SUCCESS_SITE_CACHE,
   SUCCESS_FALLBACK_CACHE,
-  redirectCacheBusters,
+  applyCacheHeaders,
+  redirectIfNonCanonical,
   sendError,
 } = require('./httpCache');
 
@@ -46,7 +47,7 @@ function createHandler({ defaultFormat }) {
       res.setHeader('allow', 'GET');
       return sendError(res, 405, 'Method not allowed');
     }
-    if (redirectCacheBusters(req, res)) return undefined;
+    if (redirectIfNonCanonical(req, res)) return undefined;
 
     const { searchParams } = new URL(req.url, 'https://favicondl.com');
     const target = searchParams.get('url') || searchParams.get('domain');
@@ -85,7 +86,7 @@ function createHandler({ defaultFormat }) {
     data = attachSize(data, requested);
 
     const fromSite = data.source !== 'google_s2' && data.source !== 'duckduckgo';
-    res.setHeader('cache-control', fromSite ? SUCCESS_SITE_CACHE : SUCCESS_FALLBACK_CACHE);
+    applyCacheHeaders(res, fromSite ? SUCCESS_SITE_CACHE : SUCCESS_FALLBACK_CACHE);
     setFaviconSizeHeaders(res, data);
 
     if (format === 'json') {

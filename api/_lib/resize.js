@@ -10,24 +10,30 @@
  * unchanged. The original bytes are left alone when size is omitted.
  */
 
-const MIN_SIZE = 16;
-const MAX_SIZE = 512;
+const { ALLOWED_SIZES, snapSize, buildProxyUrl } = require('./canonical');
+
+const MIN_SIZE = ALLOWED_SIZES[0];
+const MAX_SIZE = ALLOWED_SIZES[ALLOWED_SIZES.length - 1];
 
 /**
  * @param {string|null|undefined} value
- * @returns {number|null|undefined} integer 16–512, null if invalid, undefined if omitted
+ * @returns {number|null|undefined} an allowed size, null if not a number, undefined if omitted
  */
 function parseRequestedSize(value) {
   if (value === null || value === undefined || String(value).trim() === '') return undefined;
   const parsed = Number(String(value).trim());
   if (!Number.isFinite(parsed)) return null;
-  return Math.min(MAX_SIZE, Math.max(MIN_SIZE, Math.trunc(parsed)));
+  return snapSize(parsed);
 }
 
 function appendSize(proxyUrl, size) {
   const u = new URL(proxyUrl);
-  u.searchParams.set('size', String(size));
-  return u.toString();
+  const image = u.searchParams.get('url');
+  if (!image) {
+    u.searchParams.set('size', String(size));
+    return u.toString();
+  }
+  return buildProxyUrl(`${u.origin}${u.pathname}`, image, size);
 }
 
 function nativeSizeLabel(info) {
@@ -248,7 +254,7 @@ function loadSharp() {
 /**
  * @param {Buffer} buffer original image bytes already known to be an image
  * @param {{format?:string, width?:number, height?:number, vector?:boolean}} info sniffImage result
- * @param {number} size exact output side, already clamped to 16–512
+ * @param {number} size output side; snapped to the allowed set before rendering
  * @returns {Promise<Buffer>} PNG of size×size
  */
 function isExactPng(buffer, info, target) {
@@ -263,7 +269,8 @@ function isExactPng(buffer, info, target) {
 }
 
 async function resizeIcon(buffer, info, size) {
-  const target = Math.min(MAX_SIZE, Math.max(MIN_SIZE, Math.trunc(size)));
+  const target = snapSize(Number(size));
+  if (!target) throw new Error('Invalid size');
   // Skip libvips entirely when the source is already the PNG we would emit.
   if (isExactPng(buffer, info, target)) return buffer;
 
@@ -315,6 +322,7 @@ async function resizeIcon(buffer, info, size) {
 module.exports = {
   MIN_SIZE,
   MAX_SIZE,
+  ALLOWED_SIZES,
   parseRequestedSize,
   appendSize,
   attachSize,

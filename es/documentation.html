@@ -393,7 +393,7 @@
                 <section id="quick-start" class="mb-12">
                     <div class="bg-white rounded-lg shadow-sm p-8 text-gray-600">
                         <h2 class="text-2xl font-bold text-gray-900 mb-6">Inicio rápido</h2>
-                        <p class="mb-4">La API de favicons de favicondl convierte cualquier dominio o URL en su favicon con una sola petición GET. Sin clave de API, sin cuenta y sin SDK. Pasa <code>size</code> (16–512; lo habitual es 16, 32, 64, 128, 256 y 512) para obtener un PNG cuadrado de exactamente ese tamaño:</p>
+                        <p class="mb-4">La API de favicons de favicondl convierte cualquier dominio o URL en su favicon con una sola petición GET. Sin clave de API, sin cuenta y sin SDK. Pasa <code>size</code> con uno de estos valores: 16, 32, 48, 64, 128, 180, 192, 256 o 512, para obtener un PNG cuadrado de ese tamaño. Cualquier otro número se ajusta al más cercano (en empate, el menor):</p>
                         <div class="code-block mb-6">
                             <pre class="p-4 text-sm"><code class="language-html">&lt;img src="https://favicondl.com/api/extract?url=github.com&amp;size=32" width="32" height="32" alt="Favicon de GitHub"&gt;</code></pre>
                         </div>
@@ -443,7 +443,7 @@ curl "https://favicondl.com/api/extract?url=github.com&amp;size=32&amp;format=js
                             <li><strong class="text-gray-900">Cada candidato se descarga y se comprueba</strong>: los bytes deben ser realmente una imagen (PNG, ICO, SVG, WebP, JPEG, GIF…) y medimos su tamaño real en píxeles en lugar de fiarnos del nombre del archivo.</li>
                             <li><strong class="text-gray-900">El servicio de favicons de Google y, después, DuckDuckGo</strong> solo se usan si nada del propio sitio funciona, con el <code>size</code> que pidas (<code>source: "google_s2"</code> o <code>"duckduckgo"</code>).</li>
                         </ol>
-                        <p class="mb-4">Los candidatos verificados se ordenan para que gane el archivo más nítido: primero un SVG a todo color y después el PNG/ICO/WebP cuadrado más grande. El <code>mask-icon</code> monocromo de Safari y los iconos del manifiesto marcados solo como <code>maskable</code> quedan más abajo porque no se parecen al favicon normal. Esa fuente se redimensiona al <code>size</code> pedido (16–512, por ejemplo 32). Omite <code>size</code> para conservar el archivo original. La reducción usa Lanczos, la ampliación un remuestreo de alta calidad, los iconos no cuadrados se rellenan con transparencia y el SVG se rasteriza al tamaño pedido. Un raster ampliado puede verse borroso; la respuesta no lo presenta como un original nítido.</p>
+                        <p class="mb-4">Los candidatos verificados se ordenan para que gane el archivo más nítido: primero un SVG a todo color y después el PNG/ICO/WebP cuadrado más grande. El <code>mask-icon</code> monocromo de Safari y los iconos del manifiesto marcados solo como <code>maskable</code> quedan más abajo porque no se parecen al favicon normal. Esa fuente se redimensiona a uno de 16, 32, 48, 64, 128, 180, 192, 256 o 512 (cualquier otro número se ajusta al más cercano). Omite <code>size</code> para conservar el archivo original. La reducción usa Lanczos, la ampliación un remuestreo de alta calidad, los iconos no cuadrados se rellenan con transparencia y el SVG se rasteriza al tamaño pedido. Un raster ampliado puede verse borroso; la respuesta no lo presenta como un original nítido.</p>
                         <p>Si obtienes <code>google_s2</code>, el sitio no tiene ningún icono al que podamos llegar o ha bloqueado nuestra petición (por ejemplo, con una página de verificación anti-bots). Para un solo sitio, el <a href="/es/" class="text-blue-600 hover:underline">descargador de favicons</a> de nuestra página de inicio prueba además algunas fuentes extra directamente desde tu navegador y muestra todos los tamaños encontrados para que elijas uno.</p>
                     </div>
                 </section>
@@ -461,7 +461,7 @@ curl "https://favicondl.com/api/extract?url=github.com&amp;size=32&amp;format=js
                                     <tr><td>Endpoint</td><td><code>/api/extract?url=example.com</code></td><td><code>google.com/s2/favicons?domain=example.com&amp;sz=64</code></td><td><code>icons.duckduckgo.com/ip3/example.com.ico</code></td><td><code>icon.horse/icon/example.com</code></td></tr>
                                     <tr><td>Clave de API</td><td>No</td><td>No</td><td>No</td><td>No (plan gratuito)</td></tr>
                                     <tr><td>Cuota gratuita publicada</td><td>Ninguna (uso razonable)</td><td>No publicada</td><td>No publicada</td><td>1.000 iconos al mes en el plan gratuito</td></tr>
-                                    <tr><td>Parámetro de tamaño</td><td><code>size</code> 16–512 (por ejemplo 16, 32, 64, 256, 512). Omítelo para el archivo original.</td><td><code>sz</code></td><td>No</td><td>No documentado</td></tr>
+                                    <tr><td>Parámetro de tamaño</td><td><code>size</code> 16, 32, 48, 64, 128, 180, 192, 256 o 512. Los demás números se ajustan al más cercano. Omítelo para el archivo original.</td><td><code>sz</code></td><td>No</td><td>No documentado</td></tr>
                                     <tr><td>Qué devuelve</td><td>Un PNG cuadrado exacto si se indica <code>size</code>; si no, el archivo original (SVG, PNG, ICO…)</td><td>PNG o JPEG (observado)</td><td>ICO (observado)</td><td>PNG (observado)</td></tr>
                                     <tr><td>Metadatos JSON</td><td>Sí (<code>format=json</code>: URL del icono, origen, formato, tamaño medido en píxeles y hasta 8 iconos alternativos)</td><td>No</td><td>No</td><td>No</td></tr>
                                     <tr><td>Resultado para github.com en nuestra prueba</td><td>favicon.svg (vectorial)</td><td>PNG de 16×16 con sz=16, 180×180 con sz=256</td><td>ICO con 16×16 y 32×32</td><td>PNG de 256×256</td></tr>
@@ -577,7 +577,7 @@ curl "https://favicondl.com/api/extract?url=github.com&amp;size=32&amp;format=js
                                     <td>number</td>
                                     <td>No</td>
                                     <td>ninguno (archivo original)</td>
-                                    <td>Tamaño de salida exacto, de 16 a 512 (por ejemplo 16, 32, 64, 128, 256, 512). Devuelve un PNG cuadrado de ese lado. Los valores fuera de rango se ajustan a 16–512. Omite size para el archivo original. Un raster más pequeño se amplía y puede verse borroso; un SVG se rasteriza al tamaño pedido.</td>
+                                    <td>Solo 16, 32, 48, 64, 128, 180, 192, 256 o 512. Cualquier otro número se ajusta al tamaño permitido más cercano (en empate, el menor) y la petición redirige a esa URL. Omite size para el archivo original. Un valor que no es un número devuelve 400. Un raster más pequeño se amplía y puede verse borroso; un SVG se rasteriza al tamaño ajustado.</td>
                                 </tr>
                                 <tr>
                                     <td><code>format</code></td>
@@ -606,15 +606,19 @@ curl "https://favicondl.com/api/extract?url=github.com&amp;size=32&amp;format=js
 
                                 <div class="border-l-4 border-green-500 pl-4">
                                     <h5 class="font-medium">size</h5>
-                                    <p class="text-gray-600 text-sm">PNG cuadrado exacto de 16 a 512 píxeles. Omítelo para el archivo original. Valores habituales:</p>
+                                    <p class="text-gray-600 text-sm">PNG cuadrado de uno de los tamaños de abajo. Cualquier otro número se ajusta al más cercano. Omítelo para el archivo original.</p>
                                     <ul class="text-sm text-gray-600 mt-1 space-y-1">
                                         <li>• <code>16</code> - 16x16</li>
                                         <li>• <code>32</code> - 32x32</li>
+                                        <li>• <code>48</code> - 48x48</li>
                                         <li>• <code>64</code> - 64x64</li>
                                         <li>• <code>128</code> - 128x128</li>
+                                        <li>• <code>180</code> - 180x180</li>
+                                        <li>• <code>192</code> - 192x192</li>
                                         <li>• <code>256</code> - 256x256</li>
                                         <li>• <code>512</code> - 512x512</li>
                                     </ul>
+                                    <p class="text-gray-600 text-sm mt-4">Solo se leen url (domain sigue valiendo como alias), size y format. Cualquier otro parámetro se ignora. El host pasa a minúsculas, se asume https, se quita un www. inicial y la barra final. Una petición que no esté ya así redirige con 308 a la URL estable, que es la que guarda la CDN. /api/proxy conserva www y la ruta de la imagen, porque identifican el archivo.</p>
                                 </div>
                             </div>
                         </div>
@@ -766,7 +770,7 @@ file_put_contents('example-favicon', getFavicon('example.com', 128));
                                     <span class="text-gray-300 text-sm">HTML</span>
                                     <button class="copy-button" onclick="copyCode('html-example')">Copiar</button>
                                 </div>
-                                <pre class="p-4 text-sm"><code id="html-example" class="language-html">&lt;!-- Exact 32×32 PNG. Also valid: 16, 64, 128, 256, 512 (clamped to 16–512). --&gt;
+                                <pre class="p-4 text-sm"><code id="html-example" class="language-html">&lt;!-- Exact 32×32 PNG. Allowed: 16, 32, 48, 64, 128, 180, 192, 256, 512. Other numbers snap to the nearest. --&gt;
 &lt;img src="https://favicondl.com/api/extract?url=example.com&amp;size=32" alt="example.com favicon" width="32" height="32"&gt;
 
 &lt;!-- Omit size for the original file. Small rasters requested above native size may look soft. --&gt;

@@ -53,7 +53,7 @@
 
 ### API接口设计
 ```
-GET /api/favicon?domain={domain}&size={16..512}
+GET /api/favicon?url={domain}&size={16|32|48|64|128|180|192|256|512}
 响应格式：
 {
   "ok": boolean,

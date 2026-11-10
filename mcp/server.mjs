@@ -6,8 +6,7 @@ import {
 } from '@modelcontextprotocol/sdk/types.js';
 
 const API_ENDPOINT = 'https://favicondl.com/api/extract';
-const MIN_SIZE = 16;
-const MAX_SIZE = 512;
+const ALLOWED_SIZES = [16, 32, 48, 64, 128, 180, 192, 256, 512];
 const REQUEST_TIMEOUT_MS = 15000;
 
 const server = new Server(
@@ -19,7 +18,7 @@ server.setRequestHandler(ListToolsRequestSchema, async () => ({
   tools: [
     {
       name: 'extract_favicon',
-      description: 'Find a usable favicon for a domain or URL. Pass size (16-512, for example 32) for an exact square PNG. Omit size for the original file. Upscaled rasters may look soft.',
+      description: 'Find a usable favicon for a domain or URL. Pass one of 16, 32, 48, 64, 128, 180, 192, 256 or 512 for an exact square PNG. Any other number snaps to the nearest allowed size. Omit size for the original file. Upscaled rasters may look soft.',
       inputSchema: {
         type: 'object',
         properties: {
@@ -29,9 +28,8 @@ server.setRequestHandler(ListToolsRequestSchema, async () => ({
           },
           size: {
             type: 'integer',
-            minimum: MIN_SIZE,
-            maximum: MAX_SIZE,
-            description: 'Exact output size in pixels, from 16 to 512 (for example 16, 32, 64, 128, 256 or 512). Omit it to receive the original file. A raster smaller than this size is upscaled and may look soft.',
+            enum: ALLOWED_SIZES,
+            description: 'Square side in pixels: 16, 32, 48, 64, 128, 180, 192, 256 or 512. Any other number snaps to the nearest (a tie uses the smaller size). Omit it to receive the original file. A raster smaller than the snapped size is upscaled and may look soft.',
           },
         },
         required: ['url'],
@@ -77,7 +75,17 @@ function clampSize(value) {
   if (value === undefined || value === null || String(value).trim() === '') return null;
   const parsed = Number(value);
   if (!Number.isFinite(parsed)) return null;
-  return Math.min(MAX_SIZE, Math.max(MIN_SIZE, Math.trunc(parsed)));
+  const n = Math.trunc(parsed);
+  let best = ALLOWED_SIZES[0];
+  let bestDist = Infinity;
+  for (const size of ALLOWED_SIZES) {
+    const dist = Math.abs(size - n);
+    if (dist < bestDist || (dist === bestDist && size < best)) {
+      best = size;
+      bestDist = dist;
+    }
+  }
+  return best;
 }
 
 async function fetchWithTimeout(url) {

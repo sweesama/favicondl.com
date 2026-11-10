@@ -12,9 +12,25 @@ if [[ -z "$domain" || "$#" -gt 3 ]]; then
 fi
 
 if ! [[ "$size" =~ ^[0-9]+$ ]] || (( size < 16 || size > 512 )); then
-  printf 'Size must be an integer from 16 to 512.\n' >&2
+  printf 'Size must be an integer from 16 to 512. It is snapped to 16, 32, 48, 64, 128, 180, 192, 256 or 512.\n' >&2
   exit 2
 fi
+
+allowed=(16 32 48 64 128 180 192 256 512)
+best=16
+best_dist=999999
+for candidate in "${allowed[@]}"; do
+  if (( size > candidate )); then
+    dist=$((size - candidate))
+  else
+    dist=$((candidate - size))
+  fi
+  if (( dist < best_dist || (dist == best_dist && candidate < best) )); then
+    best=$candidate
+    best_dist=$dist
+  fi
+done
+size=$best
 
 host="$domain"
 host="${host#http://}"

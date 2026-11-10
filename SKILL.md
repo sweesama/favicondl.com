@@ -11,14 +11,14 @@ FaviconDL provides a stable REST API and two small command-line wrappers for fin
 
 ## What it supports
 
-- Request an exact square from 16 to 512 pixels (for example 16, 32, 64, 128, 256 or 512). Omit `size` for the original file.
+- Request one of 16, 32, 48, 64, 128, 180, 192, 256 or 512. Any other number snaps to the nearest allowed size (a tie uses the smaller one). Omit `size` for the original file.
 - Resolve icons from HTML links, SVG, Apple Touch Icons, web manifests, Android assets, and safe fallback sources.
 - Return a downloadable image through HTTP 302 or return JSON metadata.
 - Proxy remote images through a protected Worker when direct downloads are not reliable.
 - Reject unsupported protocols, private-network targets, oversized proxy responses, and non-image responses.
 - Use the API from any agent that can make an HTTPS GET request.
 
-When `size` is set, the download is a PNG of exactly that width and height. A raster smaller than the request is upscaled and may look soft; SVG is rasterized at the requested size. When `size` is omitted, the file format is whatever the site published (SVG, PNG, ICO, WebP, and so on). The CLI wrappers always send a size and default to 128, so they save a 128×128 PNG unless you pass another size such as 32.
+When `size` is set, the download is a PNG of the snapped size. A raster smaller than that size is upscaled and may look soft; SVG is rasterized at the snapped size. When `size` is omitted, the file format is whatever the site published (SVG, PNG, ICO, WebP, and so on). The CLI wrappers always send a size and default to 128, so they save a 128×128 PNG unless you pass another size such as 32.
 
 ## Install the CLI wrappers
 
@@ -96,7 +96,7 @@ The JSON response contains `ok`, `domain`, `size`, `iconUrl`, `proxyUrl`, and `s
 | Parameter | Required | Default | Description |
 |---|---:|---:|---|
 | `url` | yes | — | Domain or full HTTP(S) URL |
-| `size` | no | original file | Exact square side from `16` to `512` (for example `32`). Clamped. Omit it for the original file. |
+| `size` | no | original file | One of `16`, `32`, `48`, `64`, `128`, `180`, `192`, `256`, `512`. Other numbers snap to the nearest (ties use the smaller size) and the request 308s to that URL. Omit it for the original file. |
 | `format` | no | `redirect` | Use `json` for metadata; otherwise receive a 302 image redirect |
 
 ## Agent guidance

@@ -1,7 +1,7 @@
 <section id="quick-start" class="mb-12">
                     <div class="bg-white rounded-lg shadow-sm p-8 text-gray-600">
                         <h2 class="text-2xl font-bold text-gray-900 mb-6">快速开始</h2>
-                        <p class="mb-4">favicondl 的 favicon API 只需一个 GET 请求，就能把任意域名或网址转换成它的 favicon。不需要 API key，不需要账号，也不需要 SDK。传入 <code>size</code>（16–512，常用 16、32、64、128、256、512）会得到恰好该边长的正方形 PNG：</p>
+                        <p class="mb-4">favicondl 的 favicon API 只需一个 GET 请求，就能把任意域名或网址转换成它的 favicon。不需要 API key，不需要账号，也不需要 SDK。传入 <code>size</code>（只接受 16、32、48、64、128、180、192、256、512；其他数字会就近归并，距离相同取更小的）会得到该边长的正方形 PNG：</p>
                         <div class="code-block mb-6">
                             <pre class="p-4 text-sm"><code class="language-html">&lt;img src="https://favicondl.com/api/extract?url=github.com&amp;size=32" width="32" height="32" alt="GitHub 的 favicon"&gt;</code></pre>
                         </div>

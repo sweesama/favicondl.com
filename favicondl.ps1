@@ -56,6 +56,22 @@ function Get-OutputPath {
     return $RequestedOutput
 }
 
+function Get-AllowedSize {
+    param([int]$Value)
+    $allowed = 16, 32, 48, 64, 128, 180, 192, 256, 512
+    $best = $allowed[0]
+    $bestDist = [Math]::Abs($best - $Value)
+    foreach ($candidate in $allowed) {
+        $dist = [Math]::Abs($candidate - $Value)
+        if ($dist -lt $bestDist -or ($dist -eq $bestDist -and $candidate -lt $best)) {
+            $best = $candidate
+            $bestDist = $dist
+        }
+    }
+    return $best
+}
+
+$Size = Get-AllowedSize $Size
 $multiple = $Domain.Count -gt 1
 foreach ($target in $Domain) {
     $destination = Get-OutputPath $target $Output $multiple
