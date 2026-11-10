@@ -12,6 +12,7 @@
 
 const dns = require('dns').promises;
 const net = require('net');
+const { buildProxyUrl } = require('./canonical');
 
 const USER_AGENT =
   'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36';
@@ -833,7 +834,7 @@ async function extractFavicon(input, opts = {}) {
         domain: target.domain,
         size,
         iconUrl: fb.url,
-        proxyUrl: `${proxyBase}?url=${encodeURIComponent(fb.url)}`,
+        proxyUrl: buildProxyUrl(proxyBase, fb.url),
         source: fb.source,
         rel: null,
         format: fb.format || null,
@@ -862,7 +863,7 @@ function buildSiteResult(icons, page, target, size, proxyBase) {
   const best = chooseIcon(ranked, null, size);
   const toPublic = (c) => ({
     url: c.finalUrl || c.url,
-    proxyUrl: `${proxyBase}?url=${encodeURIComponent(c.finalUrl || c.url)}`,
+    proxyUrl: buildProxyUrl(proxyBase, c.finalUrl || c.url),
     source: c.origin || c.source,
     rel: c.rel,
     format: c.format,
@@ -876,7 +877,7 @@ function buildSiteResult(icons, page, target, size, proxyBase) {
     domain: target.domain,
     size,
     iconUrl: best.finalUrl || best.url,
-    proxyUrl: `${proxyBase}?url=${encodeURIComponent(best.finalUrl || best.url)}`,
+    proxyUrl: buildProxyUrl(proxyBase, best.finalUrl || best.url),
     source: best.origin || best.source,
     rel: best.rel || null,
     format: best.format,

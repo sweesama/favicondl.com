@@ -393,7 +393,7 @@
                 <section id="quick-start" class="mb-12">
                     <div class="bg-white rounded-lg shadow-sm p-8 text-gray-600">
                         <h2 class="text-2xl font-bold text-gray-900 mb-6">クイックスタート</h2>
-                        <p class="mb-4">favicondl のファビコン API は、GET リクエスト 1 回であらゆるドメインや URL をそのファビコンに変換します。API キーもアカウントも SDK も不要です。<code>size</code>（16〜512。よく使う値は 16、32、64、128、256、512）を渡すと、ちょうどその一辺の正方形 PNG が返ります。</p>
+                        <p class="mb-4">favicondl のファビコン API は、GET リクエスト 1 回であらゆるドメインや URL をそのファビコンに変換します。API キーもアカウントも SDK も不要です。<code>size</code>（16、32、48、64、128、180、192、256、512 のいずれか。それ以外の数値は最も近い値、同じ距離なら小さい方）を渡すと、その一辺の正方形 PNG が返ります。</p>
                         <div class="code-block mb-6">
                             <pre class="p-4 text-sm"><code class="language-html">&lt;img src="https://favicondl.com/api/extract?url=github.com&amp;size=32" width="32" height="32" alt="GitHub のファビコン"&gt;</code></pre>
                         </div>
@@ -443,7 +443,7 @@ curl "https://favicondl.com/api/extract?url=github.com&amp;size=32&amp;format=js
                             <li><strong class="text-gray-900">候補はすべてダウンロードして確認します</strong>。中身が本当に画像（PNG、ICO、SVG、WebP、JPEG、GIF など）であることを確かめ、ファイル名を信じるのではなく実際のピクセルサイズを測ります。</li>
                             <li><strong class="text-gray-900">Google のファビコンサービス、次いで DuckDuckGo</strong> は、サイト上のアイコンがどれも使えなかったときだけ、リクエストした <code>size</code> で使用します（<code>source: "google_s2"</code> または <code>"duckduckgo"</code>）。</li>
                         </ol>
-                        <p class="mb-4">検証済みの候補は、最も鮮明なファイルが選ばれるように順位付けされます。フルカラーの SVG が最優先で、次に最も大きい正方形の PNG/ICO/WebP です。Safari の単色 <code>mask-icon</code> や、<code>maskable</code> とだけ指定された manifest アイコンは、通常のファビコンとは見た目が異なるため順位を下げています。選ばれた元画像は、リクエストされた <code>size</code>（16〜512。例: 32）にリサイズされます。<code>size</code> を省略すると元のファイルのままです。縮小は Lanczos、拡大は高品質な再サンプリング、正方形でない画像は透明で埋め、SVG は指定サイズでラスタライズします。拡大したラスタはぼやけることがあり、応答はそれを鮮明な原寸だとは言いません。</p>
+                        <p class="mb-4">検証済みの候補は、最も鮮明なファイルが選ばれるように順位付けされます。フルカラーの SVG が最優先で、次に最も大きい正方形の PNG/ICO/WebP です。Safari の単色 <code>mask-icon</code> や、<code>maskable</code> とだけ指定された manifest アイコンは、通常のファビコンとは見た目が異なるため順位を下げています。選ばれた元画像は、16、32、48、64、128、180、192、256、512 のいずれかにリサイズされます（それ以外の数値は最も近い値）。<code>size</code> を省略すると元のファイルのままです。縮小は Lanczos、拡大は高品質な再サンプリング、正方形でない画像は透明で埋め、SVG は指定サイズでラスタライズします。拡大したラスタはぼやけることがあり、応答はそれを鮮明な原寸だとは言いません。</p>
                         <p><code>google_s2</code> が返ってきた場合、そのサイトには当社から取得できるアイコンがないか、リクエストがブロックされています（ボット確認ページが返された場合など）。1 サイトだけなら、トップページの<a href="/ja/" class="text-blue-600 hover:underline">ファビコンダウンローダー</a>がブラウザから直接いくつかの取得元も試し、見つかったすべてのサイズを表示するので、そこから選べます。</p>
                     </div>
                 </section>
@@ -461,7 +461,7 @@ curl "https://favicondl.com/api/extract?url=github.com&amp;size=32&amp;format=js
                                     <tr><td>エンドポイント</td><td><code>/api/extract?url=example.com</code></td><td><code>google.com/s2/favicons?domain=example.com&amp;sz=64</code></td><td><code>icons.duckduckgo.com/ip3/example.com.ico</code></td><td><code>icon.horse/icon/example.com</code></td></tr>
                                     <tr><td>API キー</td><td>不要</td><td>不要</td><td>不要</td><td>不要（無料プラン）</td></tr>
                                     <tr><td>公開されている無料枠</td><td>なし（フェアユース）</td><td>非公開</td><td>非公開</td><td>無料プランで月 1,000 アイコン</td></tr>
-                                    <tr><td>サイズ指定</td><td><code>size</code> 16〜512（例: 16、32、64、256、512）。省略すると元のファイル。</td><td><code>sz</code></td><td>なし</td><td>記載なし</td></tr>
+                                    <tr><td>サイズ指定</td><td><code>size</code> は 16、32、48、64、128、180、192、256、512。それ以外の数値は最も近い値。省略すると元のファイル。</td><td><code>sz</code></td><td>なし</td><td>記載なし</td></tr>
                                     <tr><td>返ってくるもの</td><td><code>size</code> 指定時はちょうどその正方形 PNG。省略時は元ファイル（SVG、PNG、ICO など）</td><td>PNG または JPEG（実測）</td><td>ICO（実測）</td><td>PNG（実測）</td></tr>
                                     <tr><td>JSON メタデータ</td><td>あり（<code>format=json</code>：アイコン URL、取得元、形式、実測ピクセルサイズ、最大 8 個の代替アイコン）</td><td>なし</td><td>なし</td><td>なし</td></tr>
                                     <tr><td>github.com のテスト結果</td><td>favicon.svg（ベクター）</td><td>sz=16 で 16×16 PNG、sz=256 で 180×180</td><td>16×16 と 32×32 を含む ICO</td><td>256×256 PNG</td></tr>
@@ -577,7 +577,7 @@ curl "https://favicondl.com/api/extract?url=github.com&amp;size=32&amp;format=js
                                     <td>number</td>
                                     <td>いいえ</td>
                                     <td>なし（元のファイル）</td>
-                                    <td>出力サイズ（16〜512。例: 16、32、64、128、256、512）。ちょうどその一辺の正方形 PNG を返します。範囲外は 16〜512 に収めます。size を省略すると元のファイルです。小さいラスタは拡大され、ぼやけることがあります。SVG は指定サイズでラスタライズします。</td>
+                                    <td>使える値は 16、32、48、64、128、180、192、256、512 だけです。それ以外の数値は最も近い値に揃え（同じ距離なら小さい方）、その URL へリダイレクトします。size を省略すると元のファイルです。数値でない値は 400 です。小さいラスタは拡大され、ぼやけることがあります。SVG は揃えたサイズでラスタライズします。</td>
                                 </tr>
                                 <tr>
                                     <td><code>format</code></td>
@@ -606,15 +606,19 @@ curl "https://favicondl.com/api/extract?url=github.com&amp;size=32&amp;format=js
 
                                 <div class="border-l-4 border-green-500 pl-4">
                                     <h5 class="font-medium">size</h5>
-                                    <p class="text-gray-600 text-sm">16〜512 ピクセルの正確な正方形 PNG。省略すると元のファイルです。よく使う値：</p>
+                                    <p class="text-gray-600 text-sm">下のサイズのいずれかの正方形 PNG。それ以外の数値は最も近い値に揃えます。省略すると元のファイルです。</p>
                                     <ul class="text-sm text-gray-600 mt-1 space-y-1">
                                         <li>• <code>16</code> - 16x16</li>
                                         <li>• <code>32</code> - 32x32</li>
+                                        <li>• <code>48</code> - 48x48</li>
                                         <li>• <code>64</code> - 64x64</li>
                                         <li>• <code>128</code> - 128x128</li>
+                                        <li>• <code>180</code> - 180x180</li>
+                                        <li>• <code>192</code> - 192x192</li>
                                         <li>• <code>256</code> - 256x256</li>
                                         <li>• <code>512</code> - 512x512</li>
                                     </ul>
+                                    <p class="text-gray-600 text-sm mt-4">読まれるのは url（domain は別名として使えます）、size、format だけです。それ以外のクエリは無視されます。ホストは小文字になり、スキームは https、先頭の www. は1つ取り除かれ、末尾のスラッシュも取り除かれます。すでにその形でないリクエストは 308 で安定した URL へリダイレクトされ、CDN はその URL をキャッシュします。/api/proxy は www と画像のパスを残します。ファイルを特定するためです。</p>
                                 </div>
                             </div>
                         </div>
@@ -766,7 +770,7 @@ file_put_contents('example-favicon', getFavicon('example.com', 128));
                                     <span class="text-gray-300 text-sm">HTML</span>
                                     <button class="copy-button" onclick="copyCode('html-example')">コピー</button>
                                 </div>
-                                <pre class="p-4 text-sm"><code id="html-example" class="language-html">&lt;!-- Exact 32×32 PNG. Also valid: 16, 64, 128, 256, 512 (clamped to 16–512). --&gt;
+                                <pre class="p-4 text-sm"><code id="html-example" class="language-html">&lt;!-- Exact 32×32 PNG. Allowed: 16, 32, 48, 64, 128, 180, 192, 256, 512. Other numbers snap to the nearest. --&gt;
 &lt;img src="https://favicondl.com/api/extract?url=example.com&amp;size=32" alt="example.com favicon" width="32" height="32"&gt;
 
 &lt;!-- Omit size for the original file. Small rasters requested above native size may look soft. --&gt;

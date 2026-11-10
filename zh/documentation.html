@@ -393,7 +393,7 @@
                 <section id="quick-start" class="mb-12">
                     <div class="bg-white rounded-lg shadow-sm p-8 text-gray-600">
                         <h2 class="text-2xl font-bold text-gray-900 mb-6">快速开始</h2>
-                        <p class="mb-4">favicondl 的 favicon API 只需一个 GET 请求，就能把任意域名或网址转换成它的 favicon。不需要 API key，不需要账号，也不需要 SDK。传入 <code>size</code>（16–512，常用 16、32、64、128、256、512）会得到恰好该边长的正方形 PNG：</p>
+                        <p class="mb-4">favicondl 的 favicon API 只需一个 GET 请求，就能把任意域名或网址转换成它的 favicon。不需要 API key，不需要账号，也不需要 SDK。传入 <code>size</code>（只接受 16、32、48、64、128、180、192、256、512；其他数字会就近归并，距离相同取更小的）会得到该边长的正方形 PNG：</p>
                         <div class="code-block mb-6">
                             <pre class="p-4 text-sm"><code class="language-html">&lt;img src="https://favicondl.com/api/extract?url=github.com&amp;size=32" width="32" height="32" alt="GitHub 的 favicon"&gt;</code></pre>
                         </div>
@@ -443,7 +443,7 @@ curl "https://favicondl.com/api/extract?url=github.com&amp;size=32&amp;format=js
                             <li><strong class="text-gray-900">每个候选都会被下载并检查</strong>：内容必须真的是图片（PNG、ICO、SVG、WebP、JPEG、GIF 等），并且会测量它的真实像素尺寸，而不是相信文件名。</li>
                             <li><strong class="text-gray-900">Google 的 favicon 服务，其次是 DuckDuckGo</strong>，只有在网站本身的图标都不可用时才会使用，并按你请求的 <code>size</code> 获取（<code>source: "google_s2"</code> 或 <code>"duckduckgo"</code>）。</li>
                         </ol>
-                        <p class="mb-4">通过验证的候选会按清晰度排序：全彩 SVG 优先，其次是尺寸最大的正方形 PNG/ICO/WebP。Safari 的单色 <code>mask-icon</code> 和只标注为 <code>maskable</code> 的 manifest 图标排位较低，因为它们看起来和普通的 favicon 不一样。选出的源图会再缩放到请求的 <code>size</code>（16–512，例如 32）。省略 <code>size</code> 则保留原始文件。缩小用 Lanczos，放大用高质量重采样，非正方形用透明边补齐，SVG 按请求尺寸栅格化。放大后的位图可能发虚，响应里不会把它说成清晰的原图。</p>
+                        <p class="mb-4">通过验证的候选会按清晰度排序：全彩 SVG 优先，其次是尺寸最大的正方形 PNG/ICO/WebP。Safari 的单色 <code>mask-icon</code> 和只标注为 <code>maskable</code> 的 manifest 图标排位较低，因为它们看起来和普通的 favicon 不一样。选出的源图会再缩放到 16、32、48、64、128、180、192、256 或 512 之一（其他数字就近归并）。省略 <code>size</code> 则保留原始文件。缩小用 Lanczos，放大用高质量重采样，非正方形用透明边补齐，SVG 按请求尺寸栅格化。放大后的位图可能发虚，响应里不会把它说成清晰的原图。</p>
                         <p>如果拿到的是 <code>google_s2</code>，说明这个网站要么没有我们能访问到的图标，要么拦截了我们的请求（比如返回了人机验证页面）。如果只查一个网站，首页上的 <a href="/zh/" class="text-blue-600 hover:underline">favicon 下载器</a>还会直接从你的浏览器尝试几个额外来源，并列出找到的所有尺寸供你选择。</p>
                     </div>
                 </section>
@@ -461,7 +461,7 @@ curl "https://favicondl.com/api/extract?url=github.com&amp;size=32&amp;format=js
                                     <tr><td>接口地址</td><td><code>/api/extract?url=example.com</code></td><td><code>google.com/s2/favicons?domain=example.com&amp;sz=64</code></td><td><code>icons.duckduckgo.com/ip3/example.com.ico</code></td><td><code>icon.horse/icon/example.com</code></td></tr>
                                     <tr><td>API key</td><td>不需要</td><td>不需要</td><td>不需要</td><td>不需要（免费套餐）</td></tr>
                                     <tr><td>公开的免费额度</td><td>无（合理使用）</td><td>未公开</td><td>未公开</td><td>免费套餐每月 1,000 个图标</td></tr>
-                                    <tr><td>尺寸参数</td><td><code>size</code> 16–512（例如 16、32、64、256、512）。省略则返回原始文件。</td><td><code>sz</code></td><td>无</td><td>文档未说明</td></tr>
+                                    <tr><td>尺寸参数</td><td><code>size</code> 为 16、32、48、64、128、180、192、256 或 512。其他数字就近归并。省略则返回原始文件。</td><td><code>sz</code></td><td>无</td><td>文档未说明</td></tr>
                                     <tr><td>返回内容</td><td>设置 <code>size</code> 时为恰好该尺寸的正方形 PNG；否则为原始文件（SVG、PNG、ICO 等）</td><td>PNG 或 JPEG（实测）</td><td>ICO（实测）</td><td>PNG（实测）</td></tr>
                                     <tr><td>JSON 元数据</td><td>有（<code>format=json</code>：图标地址、来源、格式、实测像素尺寸，以及最多 8 个备选图标）</td><td>无</td><td>无</td><td>无</td></tr>
                                     <tr><td>我们测试 github.com 的结果</td><td>favicon.svg（矢量图）</td><td>sz=16 时为 16×16 PNG，sz=256 时为 180×180</td><td>含 16×16 和 32×32 的 ICO</td><td>256×256 PNG</td></tr>
@@ -577,7 +577,7 @@ curl "https://favicondl.com/api/extract?url=github.com&amp;size=32&amp;format=js
                                     <td>number</td>
                                     <td>否</td>
                                     <td>无（原始文件）</td>
-                                    <td>精确输出尺寸（16–512 像素，例如 16、32、64、128、256、512），返回恰好该边长的正方形 PNG。超出范围会夹到 16–512。省略 size 则返回原始文件。更小的位图会被放大，可能发虚；SVG 按请求尺寸栅格化。</td>
+                                    <td>只接受 16、32、48、64、128、180、192、256、512。其他数字会就近归到允许的尺寸（距离相同取更小的），并重定向到该地址。省略 size 则返回原始文件。不是数字则返回 400。更小的位图会被放大，可能发虚；SVG 按归并后的尺寸栅格化。</td>
                                 </tr>
                                 <tr>
                                     <td><code>format</code></td>
@@ -606,15 +606,19 @@ curl "https://favicondl.com/api/extract?url=github.com&amp;size=32&amp;format=js
 
                                 <div class="border-l-4 border-green-500 pl-4">
                                     <h5 class="font-medium">尺寸</h5>
-                                    <p class="text-gray-600 text-sm">16 到 512 像素的精确正方形 PNG。省略则返回原始文件。常用值：</p>
+                                    <p class="text-gray-600 text-sm">下面列出的尺寸之一，返回正方形 PNG。其他数字会就近归并。省略则返回原始文件。</p>
                                     <ul class="text-sm text-gray-600 mt-1 space-y-1">
                                         <li>• <code>16</code> - 16x16</li>
                                         <li>• <code>32</code> - 32x32</li>
+                                        <li>• <code>48</code> - 48x48</li>
                                         <li>• <code>64</code> - 64x64</li>
                                         <li>• <code>128</code> - 128x128</li>
+                                        <li>• <code>180</code> - 180x180</li>
+                                        <li>• <code>192</code> - 192x192</li>
                                         <li>• <code>256</code> - 256x256</li>
                                         <li>• <code>512</code> - 512x512</li>
                                     </ul>
+                                    <p class="text-gray-600 text-sm mt-4">只会读取 url（domain 仍可作为别名）、size 和 format。其他查询参数会被忽略。主机会转成小写，默认使用 https，去掉开头的一个 www.，并去掉末尾的斜杠。还不是这个形式的请求会用 308 重定向到稳定地址，CDN 缓存的就是这个地址。/api/proxy 会保留 www 和图片路径，因为它们用来定位文件。</p>
                                 </div>
                             </div>
                         </div>
@@ -766,7 +770,7 @@ file_put_contents('example-favicon', getFavicon('example.com', 128));
                                     <span class="text-gray-300 text-sm">HTML</span>
                                     <button class="copy-button" onclick="copyCode('html-example')">复制代码</button>
                                 </div>
-                                <pre class="p-4 text-sm"><code id="html-example" class="language-html">&lt;!-- Exact 32×32 PNG. Also valid: 16, 64, 128, 256, 512 (clamped to 16–512). --&gt;
+                                <pre class="p-4 text-sm"><code id="html-example" class="language-html">&lt;!-- Exact 32×32 PNG. Allowed: 16, 32, 48, 64, 128, 180, 192, 256, 512. Other numbers snap to the nearest. --&gt;
 &lt;img src="https://favicondl.com/api/extract?url=example.com&amp;size=32" alt="example.com favicon" width="32" height="32"&gt;
 
 &lt;!-- Omit size for the original file. Small rasters requested above native size may look soft. --&gt;

@@ -19,11 +19,14 @@ paths:
       description: >
         Finds a usable favicon from the target domain and redirects to a
         downloadable image URL by default. Use format=json to receive the
-        resolved icon URL and source metadata instead. When size is set
-        (16-512, for example 32), the image is a PNG of exactly that square
-        size. Omit size for the original file. A smaller raster is upscaled
-        and may look soft. Native size is reported and is not described as sharp
-        when the image was enlarged.
+        resolved icon URL and source metadata instead. size is one of
+        16, 32, 48, 64, 128, 180, 192, 256 or 512; any other number snaps to
+        the nearest allowed size (a tie uses the smaller one) and the request
+        redirects (308) to the canonical URL. Omit size for the original file.
+        Only url, size and format are read. The host is lowercased, https is
+        assumed, one leading www. is removed, and a trailing slash is removed.
+        A smaller raster is upscaled and may look soft. Native size is reported
+        and is not described as sharp when the image was enlarged.
       operationId: extractFavicon
       parameters:
         - name: url
@@ -36,12 +39,12 @@ paths:
           in: query
           required: false
           description: >
-            Exact output size in pixels. Clamped to 16-512. Examples: 16, 32, 64, 128, 256, 512.
+            Square PNG side. Allowed values: 16, 32, 48, 64, 128, 180, 192, 256, 512.
+            Any other number snaps to the nearest allowed value (ties use the smaller size)
+            and the API redirects to that canonical URL. A non-numeric value is 400.
             Omit the parameter for the original file.
           schema:
             type: integer
-            minimum: 16
-            maximum: 512
         - name: format
           in: query
           required: false
