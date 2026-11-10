@@ -101,6 +101,7 @@
         </header>
 
         <div class="article-body" data-lang="en">
+            <p>This page is how to pack 16, 32, and 48 into one ICO. The definitive chart of every favicon size and dimension is the <a href="/blog/favicon-sizes-guide.html">favicon size and dimensions guide</a>.</p>
             <p>Ever noticed how some favicons look crisp on a high-res Retina display while others look like a pixelated mess from 1995? The culprit is usually a single-layer icon file. Even in 2026, where SVG is the modern standard, the <strong>multi size favicon ico</strong> remains the essential safety net for every professional website.</p>
 <p>Think of an ICO file not as a single image, but as a container—a folder, if you will—that holds multiple versions of your logo at different resolutions. When a browser like Chrome or a desktop environment like Windows needs an icon, it looks inside that container and picks the size that fits the current context perfectly. If you only provide a 16x16 image, and the user drags your link to their desktop (which needs a 48x48 icon), the OS will stretch your tiny image, resulting in a blurry disaster.</p>
 <p>Major brands like GitHub and Stripe understand this. They don't just hope for the best; they ship a robust ICO file as a fallback to ensure their brand identity remains sharp, whether it is in a browser tab, a bookmark bar, or a Windows taskbar shortcut.</p>
@@ -112,7 +113,7 @@
 <li><strong>32x32:</strong> Used for taskbars and high-DPI (Retina) browser tabs.</li>
 <li><strong>48x48:</strong> The default for Windows desktop shortcuts.</li>
 </ul>
-<p>Including a 256x256 layer inside an ICO is a common mistake. It balloons the file size to hundreds of kilobytes. For large icons, you should use PNG or SVG instead. You can read more about the specific use cases in our <a href="/blog/favicon-sizes-guide.html">Favicon Sizes Guide</a>.</p>
+<p>Including a 256x256 layer inside an ICO is a common mistake. It balloons the file size to hundreds of kilobytes. For large icons, you should use PNG or SVG instead. The definitive chart for the other surfaces is the <a href="/blog/favicon-sizes-guide.html">favicon size and dimensions guide</a>.</p>
 
 <h3>Step 1: Prepare Your Source Assets</h3>
 <p>Start with a high-quality PNG of your logo, ideally 512x512 pixels with a transparent background. You should simplify your design for the smaller sizes. A complex logo that looks great at 512px will become an unreadable smudge at 16px. Many developers create a simplified 'glyph' version of their logo specifically for the favicon.</p>
