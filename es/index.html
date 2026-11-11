@@ -521,11 +521,12 @@
 
     <!-- Navigation -->
     <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
-        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+        <div class="max-w-5xl mx-auto px-6 min-h-14 py-2 flex flex-wrap items-center justify-between gap-y-2">
             <a href="/es/" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
-            <div class="flex items-center gap-8">
+            <div class="flex flex-wrap items-center justify-end gap-x-5 gap-y-1 w-full sm:w-auto">
                 <a href="/es/documentation.html" class="nav-link">Documentación</a>
                 <a href="/es/tools.html" class="nav-link">Herramientas</a>
+                <a href="/favicon-checker" class="nav-link">Comprobar</a>
                 <a href="/es/tamanos-de-favicon.html" class="nav-link">Tamaño</a>
                 <a href="/es/blog/" class="nav-link">Blog</a>
                 <div class="lang-dropdown">
@@ -1007,6 +1008,10 @@ with open("icon.png", "wb") as f:
                     <h3 class="text-lg font-semibold text-gray-900 mb-2">API de favicon gratuita</h3>
                     <p>Obtén el icono de cualquier sitio por su URL con una sola petición GET. Sin clave de API ni registro; recibe una redirección a la imagen o un JSON con la URL del icono y su origen.</p>
                 </a>
+                <a href="/favicon-checker" class="block bg-gray-50 border border-gray-100 rounded-2xl p-6 hover:border-gray-300 transition-colors">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Comprobador de favicon</h3>
+                    <p>Pega un dominio para ver qué iconos publica el sitio, qué tamaños estándar faltan y el HTML que puedes pegar en cada caso.</p>
+                </a>
             </div>
 
             <h2 id="faq" class="text-2xl font-semibold text-gray-900 mt-14 mb-6">Preguntas frecuentes</h2>
@@ -1073,12 +1078,13 @@ with open("icon.png", "wb") as f:
     <footer class="py-8 px-6 border-t border-gray-200">
         <div class="max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
             <p class="text-gray-400 text-sm">© <script>document.write(new Date().getFullYear())</script> Mzu favicondl</p>
-            <div class="flex gap-6">
+            <div class="flex flex-wrap justify-center gap-x-6 gap-y-2">
                 <a href="/es/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">Inicio</a>
                 <a href="/es/documentation.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">Documentación</a>
                 <a href="/es/tools.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">Herramientas</a>
                 <a href="/es/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">Blog</a>
                 <a href="/es/bulk-favicon-downloader.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">Descarga masiva</a>
+                <a href="/favicon-checker" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">Comprobar</a>
                 <a href="/es/tamanos-de-favicon.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">Dimensions</a>
                 <a href="/es/favicon/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">Site icons</a>
                 <a href="/es/blog/png-to-favicon.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">PNG to favicon</a>
