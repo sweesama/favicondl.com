@@ -315,6 +315,7 @@
                 <a href="/" class="nav-link" data-en="Home" data-zh="首页">Home</a>
                 <a href="documentation.html" class="nav-link" data-en="Docs" data-zh="文档">Docs</a>
                 <a href="tools.html" class="nav-link" style="color:#0071e3;" data-en="Tools" data-zh="工具">Tools</a>
+                <a href="/favicon-checker" class="nav-link" data-en="Checker" data-zh="检查" data-ja="チェック" data-ko="검사" data-es="Comprobar">Checker</a>
                 <a href="/blog/" class="nav-link" data-en="Blog" data-zh="博客">Blog</a>
                 <div class="lang-dropdown">
                     <button id="lang-toggle" class="lang-btn">
@@ -345,6 +346,7 @@
                 <a href="/" class="nav-link block px-3 py-2 rounded-md text-base" data-en="Home" data-zh="首页">Home</a>
                 <a href="documentation.html" class="nav-link block px-3 py-2 rounded-md text-base" data-en="Docs" data-zh="文档">Docs</a>
                 <a href="tools.html" class="nav-link block px-3 py-2 rounded-md text-base" style="color:#0071e3;" data-en="Tools" data-zh="工具">Tools</a>
+                <a href="/favicon-checker" class="nav-link block px-3 py-2 rounded-md text-base" data-en="Checker" data-zh="检查" data-ja="チェック" data-ko="검사" data-es="Comprobar">Checker</a>
                 <a href="/blog/" class="nav-link block px-3 py-2 rounded-md text-base" data-en="Blog" data-zh="博客">Blog</a>
                 <div class="lang-mobile-group"><a href="/tools.html" class="lang-mobile-btn active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
                     <a href="/zh/tools.html" class="lang-mobile-btn" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
@@ -364,6 +366,7 @@
             <p class="mt-2 text-base text-gray-500"><a href="/blog/png-to-favicon.html" class="text-blue-600 hover:underline font-medium">PNG to favicon</a>, <a href="/blog/jpg-to-favicon-converter.html" class="text-blue-600 hover:underline font-medium">JPG to favicon</a>, and <a href="/blog/svg-to-ico.html" class="text-blue-600 hover:underline font-medium">SVG to ICO</a> <span data-en="each run the same in-browser converter." data-zh="使用同一个浏览器内转换器。" data-ja="は同じブラウザ内変換です。" data-ko="는 같은 브라우저 변환기입니다." data-es="usan el mismo conversor en el navegador.">each run the same in-browser converter.</span></p>
             <p class="mt-2 text-base text-gray-500"><a href="/blog/favicon-sizes-guide.html" class="text-blue-600 hover:underline font-medium" data-en="Favicon size &amp; dimensions" data-zh="尺寸表" data-ja="サイズ表" data-ko="크기표" data-es="Dimensiones">Favicon size &amp; dimensions</a> <span data-en="— ICO 16/32/48, 96, the 180×180 touch icon, 192/512, maskable, and SVG." data-zh="—— 各平台的 Favicon 尺寸表。" data-ja="—— プラットフォーム別の Favicon サイズ表。" data-ko="— 플랫폼별 Favicon 크기표." data-es="— medidas por plataforma.">— ICO 16/32/48, 96, the 180×180 touch icon, 192/512, maskable, and SVG.</span></p>
             <p class="mt-2 text-base text-gray-500" data-i18n-only="en"><a href="/" class="text-blue-600 hover:underline font-medium">Favicon finder</a> — paste a URL to see each icon's link tag, size and file address, then download it. This page generates a new icon from an image you upload.</p>
+            <p class="mt-2 text-base text-gray-500"><a href="/favicon-checker" class="text-blue-600 hover:underline font-medium" data-en="Favicon checker" data-zh="Favicon 检查" data-ja="ファビコンチェック" data-ko="파비콘 검사" data-es="Comprobar favicon">Favicon checker</a> <span data-en="— see which standard sizes a live site is missing, with HTML to paste for each gap." data-zh="—— 查看网站缺少哪些标准尺寸，并给出可粘贴的 HTML。" data-ja="—— 公開サイトに足りない標準サイズと、貼り付ける HTML。" data-ko="— 사이트에 없는 표준 크기와 붙여 넣을 HTML." data-es="— qué tamaños estándar faltan en un sitio, con el HTML para pegar.">— see which standard sizes a live site is missing, with HTML to paste for each gap.</span></p>
         </div>
     </section>
 
@@ -439,6 +442,24 @@
                         </span>
                     </div>
                 </div>
+
+                <a href="/favicon-checker" class="tool-card bg-white rounded-xl shadow-lg p-8 block">
+                    <div class="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-8 h-8 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-center mb-4" data-en="Favicon Checker" data-zh="Favicon 检查">Favicon Checker</h3>
+                    <p class="text-gray-600 text-center mb-6" data-en="See which icons a live site publishes, and which standard sizes are missing." data-zh="查看网站发布了哪些图标，以及缺少哪些标准尺寸。">See which icons a live site publishes, and which standard sizes are missing.</p>
+                    <div class="text-center">
+                        <span class="inline-flex items-center text-amber-600 font-medium">
+                            <span data-en="Check a site" data-zh="检查网站">Check a site</span>
+                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </span>
+                    </div>
+                </a>
             </div>
         </div>
     </section>

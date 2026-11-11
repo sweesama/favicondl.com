@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favicon Checker – See Which Icons a Site Is Missing</title>
+    <meta name="description" content="Free favicon checker. Paste a domain to see which icons were found, which standard sizes are missing, and the HTML to add for each gap.">
+    <meta name="keywords" content="favicon checker, check favicon, missing favicon, favicon.ico, apple touch icon, web manifest icons">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/favicon-checker">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/favicon-checker">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/favicon-checker">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://favicondl.com/favicon-checker">
+    <meta property="og:title" content="Favicon Checker – See Which Icons a Site Is Missing">
+    <meta property="og:description" content="Free favicon checker. Paste a domain to see which icons were found, which standard sizes are missing, and the HTML to add for each gap.">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Favicon Checker – See Which Icons a Site Is Missing">
+    <meta name="twitter:description" content="Free favicon checker. Paste a domain to see which icons were found, which standard sizes are missing, and the HTML to add for each gap.">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Favicon Checker",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Web",
+      "url": "https://favicondl.com/favicon-checker",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "description": "Checks a public website for favicon.ico, PNG sizes, an SVG, an apple-touch icon and web manifest icons, then shows the HTML to add for anything missing.",
+      "browserRequirements": "Requires JavaScript"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What does this favicon checker look for?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A favicon checker takes a domain and lists the icons that site actually publishes. This page calls /api/extract, then marks favicon.ico, PNG sizes 16, 32 and 48, a 180×180 apple-touch icon, web manifest icons at 192 and 512, and an SVG. Each missing item includes HTML you can paste into the page head."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why is a size marked missing when the site has a large icon?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A 512×512 manifest icon does not count as 16×16 or 32×32. Browsers and Google look for those smaller files, or for those layers inside favicon.ico. An SVG covers the SVG row only. It is not a substitute for the PNG sizes in the checklist."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I fix a missing favicon?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Copy the snippet next to the missing row into the site head, and put the matching file at that path. The Image to Favicon tool builds the ICO, the PNGs, the apple-touch icon and the manifest from one logo. The size guide explains where each size is used."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does the checker change my website?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. It only reads public icon files. Nothing is uploaded, and the page does not edit the site you check. The HTML snippets are for you to paste yourself."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why does the result only show a Google or DuckDuckGo icon?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The extractor uses those services only when the site itself returns no usable image. The checklist then shows every standard size as missing, because a fallback image is not a file on that site. Common causes are a bot check, a login wall, or an icon added only with JavaScript."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I check more than one site?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. The bulk favicon downloader accepts up to 100 domains. This page checks one site and tells you which sizes are missing. Saved copies of well-known site icons are on the site favicon pages."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        * { font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; -webkit-font-smoothing: antialiased; }
+        body { background: #fafafa; color: #1d1d1f; }
+        .nav-link { color: #1d1d1f; font-size: 14px; font-weight: 500; text-decoration: none; }
+        .nav-link:hover { color: #0071e3; }
+        .search-input { width: 100%; padding: 16px 20px; font-size: 17px; border: none; border-radius: 12px; background: #f5f5f7; color: #1d1d1f; }
+        .search-input:focus { outline: none; background: #fff; box-shadow: 0 0 0 4px rgba(0, 125, 250, 0.1), 0 2px 8px rgba(0, 0, 0, 0.08); }
+        .btn-primary { background: #0071e3; color: #fff; padding: 12px 24px; border-radius: 980px; font-size: 14px; font-weight: 500; border: none; cursor: pointer; }
+        .btn-primary:hover { background: #0077ed; }
+        .btn-primary:disabled { opacity: 0.6; cursor: wait; }
+        .copy-btn { background: transparent; color: #0071e3; border: none; font-size: 13px; font-weight: 500; cursor: pointer; }
+        .snippet { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 13px; background: #f5f5f7; border-radius: 12px; padding: 12px 14px; overflow-x: auto; white-space: pre-wrap; word-break: break-word; }
+        .checkerboard { background-color: #fff; background-image: linear-gradient(45deg, #ececee 25%, transparent 25%), linear-gradient(-45deg, #ececee 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #ececee 75%), linear-gradient(-45deg, transparent 75%, #ececee 75%); background-size: 12px 12px; background-position: 0 0, 0 6px, 6px -6px, -6px 0; }
+        .status-present { color: #166534; background: #f0fdf4; }
+        .status-missing { color: #9f1239; background: #fff1f2; }
+        .status-partial { color: #92400e; background: #fffbeb; }
+    </style>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-7QLC8QV609');
+    </script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 min-h-14 py-2 flex flex-wrap items-center justify-between gap-y-2">
+            <a href="/" class="flex items-center gap-2 font-semibold text-lg text-gray-900 shrink-0"><img src="/favicons/favicon-32x32.png" alt="" class="w-6 h-6" width="24" height="24">Mzu favicondl</a>
+            <div class="flex flex-wrap items-center justify-end gap-x-5 gap-y-1 w-full sm:w-auto">
+                <a href="/documentation.html" class="nav-link">Docs</a>
+                <a href="/tools.html" class="nav-link">Tools</a>
+                <a href="/favicon-checker" class="nav-link" style="color:#0071e3;" aria-current="page">Checker</a>
+                <a href="/blog/favicon-sizes-guide.html" class="nav-link">Dimensions</a>
+                <a href="/blog/" class="nav-link">Blog</a>
+            </div>
+        </div>
+    </nav>
+
+    <noscript>
+        <p class="max-w-3xl mx-auto px-6 pt-6 text-sm text-rose-700">This favicon checker runs in the browser and needs JavaScript to call the extractor.</p>
+    </noscript>
+    <main>
+        <section class="pt-16 pb-10 px-6">
+            <div class="max-w-3xl mx-auto text-center">
+                <h1 class="text-4xl md:text-5xl font-semibold tracking-tight mb-4">Favicon Checker</h1>
+                <p class="text-lg text-gray-500 mb-8">Paste a domain. The checker lists every icon it can verify, then marks the standard sizes that are present and the ones that are missing, with HTML you can paste for each gap.</p>
+                <form id="checker-form" class="max-w-xl mx-auto text-left" action="/favicon-checker" method="get">
+                    <label for="domain-input" class="block text-sm font-medium text-gray-700 mb-2">Website domain or URL</label>
+                    <div class="flex flex-col sm:flex-row gap-3">
+                        <input id="domain-input" name="url" type="text" class="search-input" placeholder="github.com" autocomplete="off" autocapitalize="off" spellcheck="false" inputmode="url" required>
+                        <button id="checker-submit" class="btn-primary shrink-0" type="submit">Check favicon</button>
+                    </div>
+                </form>
+                <p class="text-sm text-gray-400 mt-4">Try:</p>
+                <div class="flex flex-wrap justify-center gap-2 mt-3">
+                    <button type="button" class="example px-3 py-1.5 rounded-full bg-gray-100 text-gray-600 text-sm border border-gray-200" data-domain="github.com">github.com</button>
+                    <button type="button" class="example px-3 py-1.5 rounded-full bg-gray-100 text-gray-600 text-sm border border-gray-200" data-domain="openai.com">openai.com</button>
+                    <button type="button" class="example px-3 py-1.5 rounded-full bg-gray-100 text-gray-600 text-sm border border-gray-200" data-domain="wikipedia.org">wikipedia.org</button>
+                </div>
+                <p id="checker-status" class="mt-6 text-sm text-gray-500 min-h-5" role="status" aria-live="polite"></p>
+            </div>
+        </section>
+
+        <section id="checker-results" class="hidden px-6 pb-16" aria-live="polite">
+            <div class="max-w-3xl mx-auto space-y-8">
+                <div id="result-summary" class="bg-white border border-gray-200 rounded-2xl p-6"></div>
+                <div>
+                    <h2 class="text-2xl font-semibold mb-4">Icons found</h2>
+                    <div id="found-icons" class="grid sm:grid-cols-2 gap-4"></div>
+                </div>
+                <div>
+                    <h2 class="text-2xl font-semibold mb-2">Standard sizes</h2>
+                    <p class="text-sm text-gray-500 mb-4">Present means that exact size was verified. A larger PNG does not fill a smaller row. Layers inside <code>favicon.ico</code> count for 16, 32 and 48.</p>
+                    <ul id="checklist" class="space-y-3"></ul>
+                </div>
+                <div id="fix-all" class="hidden bg-white border border-gray-200 rounded-2xl p-6"></div>
+            </div>
+        </section>
+
+        <section class="px-6 pb-16">
+            <div class="max-w-3xl mx-auto text-gray-600 text-sm leading-relaxed">
+                <h2 class="text-2xl font-semibold text-gray-900 mb-4">How the favicon checker works</h2>
+                <p class="mb-4">The form sends one request to the existing <code>/api/extract</code> endpoint. The query uses only <code>url</code> and <code>format=json</code>. <code>https://www.GitHub.com/</code> and <code>github.com</code> become the same cache key: lowercase host, no leading <code>www</code>, no trailing slash, and no scheme in the parameter, for example <code>/api/extract?url=github.com&amp;format=json</code>. The browser then reads the JSON. When an ICO is returned, the page fetches that file through <code>/api/proxy</code> and reads the 16, 32 and 48 layers locally. Nothing new runs on the server for the checklist.</p>
+                <p class="mb-8">The list is the icons the extractor verified. A site can publish additional files that were not in the response. Use the snippets for anything the checklist marks missing, then publish the matching file.</p>
+
+                <h2 class="text-2xl font-semibold text-gray-900 mb-4">Make the missing files</h2>
+                <ul class="space-y-2 list-disc pl-5 mb-10">
+                    <li><a href="/tools.html" class="text-blue-600 hover:underline">Image to Favicon</a> builds the ICO, PNGs, apple-touch icon, manifest and head tags from one logo, in the browser.</li>
+                    <li><a href="/blog/png-to-ico.html" class="text-blue-600 hover:underline">PNG to ICO</a>, <a href="/blog/png-to-favicon.html" class="text-blue-600 hover:underline">PNG to favicon</a>, <a href="/blog/jpg-to-favicon-converter.html" class="text-blue-600 hover:underline">JPG to favicon</a> and <a href="/blog/svg-to-ico.html" class="text-blue-600 hover:underline">SVG to ICO</a> are the same converter with a format-specific start.</li>
+                    <li><a href="/bulk-favicon-downloader.html" class="text-blue-600 hover:underline">Bulk favicon downloader</a> fetches up to 100 domains when you need the icons, not the missing-size report.</li>
+                    <li><a href="/blog/favicon-sizes-guide.html" class="text-blue-600 hover:underline">Favicon size guide</a> explains where 16, 32, 48, 180, 192 and 512 are used.</li>
+                    <li><a href="/favicon/" class="text-blue-600 hover:underline">Site favicon examples</a> store real files from well-known sites, with the sizes measured from the bytes.</li>
+                    <li><a href="/blog/apple-touch-icon-guide.html" class="text-blue-600 hover:underline">Apple touch icon guide</a> and <a href="/blog/web-app-manifest-icons-192-512.html" class="text-blue-600 hover:underline">manifest icons at 192 and 512</a> cover the two home-screen files.</li>
+                </ul>
+
+                <h2 id="faq" class="text-2xl font-semibold text-gray-900 mb-6">Frequently asked questions</h2>
+                <div class="space-y-6">
+                    <div>
+                        <h3 class="text-base font-semibold text-gray-900 mb-1">What does this favicon checker look for?</h3>
+                        <p>A favicon checker takes a domain and lists the icons that site actually publishes. This page calls <code>/api/extract</code>, then marks favicon.ico, PNG sizes 16, 32 and 48, a 180×180 apple-touch icon, web manifest icons at 192 and 512, and an SVG. Each missing item includes HTML you can paste into the page head.</p>
+                    </div>
+                    <div>
+                        <h3 class="text-base font-semibold text-gray-900 mb-1">Why is a size marked missing when the site has a large icon?</h3>
+                        <p>A 512×512 manifest icon does not count as 16×16 or 32×32. Browsers and Google look for those smaller files, or for those layers inside favicon.ico. An SVG covers the SVG row only. It is not a substitute for the PNG sizes in the checklist.</p>
+                    </div>
+                    <div>
+                        <h3 class="text-base font-semibold text-gray-900 mb-1">How do I fix a missing favicon?</h3>
+                        <p>Copy the snippet next to the missing row into the site head, and put the matching file at that path. The <a href="/tools.html" class="text-blue-600 hover:underline">Image to Favicon</a> tool builds the ICO, the PNGs, the apple-touch icon and the manifest from one logo. The <a href="/blog/favicon-sizes-guide.html" class="text-blue-600 hover:underline">size guide</a> explains where each size is used.</p>
+                    </div>
+                    <div>
+                        <h3 class="text-base font-semibold text-gray-900 mb-1">Does the checker change my website?</h3>
+                        <p>No. It only reads public icon files. Nothing is uploaded, and the page does not edit the site you check. The HTML snippets are for you to paste yourself.</p>
+                    </div>
+                    <div>
+                        <h3 class="text-base font-semibold text-gray-900 mb-1">Why does the result only show a Google or DuckDuckGo icon?</h3>
+                        <p>The extractor uses those services only when the site itself returns no usable image. The checklist then shows every standard size as missing, because a fallback image is not a file on that site. Common causes are a bot check, a login wall, or an icon added only with JavaScript.</p>
+                    </div>
+                    <div>
+                        <h3 class="text-base font-semibold text-gray-900 mb-1">Can I check more than one site?</h3>
+                        <p>Yes. The <a href="/bulk-favicon-downloader.html" class="text-blue-600 hover:underline">bulk favicon downloader</a> accepts up to 100 domains. This page checks one site and tells you which sizes are missing. Saved copies of well-known site icons are on the <a href="/favicon/" class="text-blue-600 hover:underline">site favicon pages</a>.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="py-8 px-6 border-t border-gray-200">
+        <div class="max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+            <p class="text-gray-400 text-sm">© <script>document.write(new Date().getFullYear())</script> Mzu favicondl</p>
+            <div class="flex flex-wrap justify-center gap-x-6 gap-y-2">
+                <a href="/" class="text-gray-500 hover:text-gray-900 text-sm">Home</a>
+                <a href="/documentation.html" class="text-gray-500 hover:text-gray-900 text-sm">Docs</a>
+                <a href="/tools.html" class="text-gray-500 hover:text-gray-900 text-sm">Tools</a>
+                <a href="/favicon-checker" class="text-gray-500 hover:text-gray-900 text-sm">Checker</a>
+                <a href="/bulk-favicon-downloader.html" class="text-gray-500 hover:text-gray-900 text-sm">Bulk Download</a>
+                <a href="/blog/favicon-sizes-guide.html" class="text-gray-500 hover:text-gray-900 text-sm">Dimensions</a>
+                <a href="/favicon/" class="text-gray-500 hover:text-gray-900 text-sm">Site icons</a>
+                <a href="/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm">Privacy</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/analytics.js?v=20261021a"></script>
+    <script src="/js/favicon-checker.js?v=20261111b"></script>
+    <script>
+        (function () {
+            var form = document.getElementById('checker-form');
+            var input = document.getElementById('domain-input');
+            var submit = document.getElementById('checker-submit');
+            var statusEl = document.getElementById('checker-status');
+            var results = document.getElementById('checker-results');
+            var summary = document.getElementById('result-summary');
+            var found = document.getElementById('found-icons');
+            var checklist = document.getElementById('checklist');
+            var fixAll = document.getElementById('fix-all');
+            var FC = window.FaviconChecker;
+
+            var messages = {
+                empty: 'Enter a domain or URL.',
+                invalid: 'That does not look like a public website address. Use a host such as github.com.',
+                blocked: 'The checker only reaches public websites. Localhost and private addresses are skipped.',
+                network: 'The checker could not reach the extractor. Try again in a moment.',
+                bad: 'The extractor did not return a usable result for that address.'
+            };
+
+            function setStatus(text, isError) {
+                statusEl.textContent = text || '';
+                statusEl.className = 'mt-6 text-sm min-h-5 ' + (isError ? 'text-rose-700' : 'text-gray-500');
+            }
+
+            function el(tag, className, text) {
+                var node = document.createElement(tag);
+                if (className) node.className = className;
+                if (text != null) node.textContent = text;
+                return node;
+            }
+
+            function copyButton(text) {
+                var button = el('button', 'copy-btn', 'Copy');
+                button.type = 'button';
+                button.addEventListener('click', function () {
+                    var done = function () {
+                        button.textContent = 'Copied';
+                        if (window.favicondlTrack) window.favicondlTrack('copy_snippet', { snippet_type: 'favicon_checker' });
+                        setTimeout(function () { button.textContent = 'Copy'; }, 1500);
+                    };
+                    if (navigator.clipboard && navigator.clipboard.writeText) {
+                        navigator.clipboard.writeText(text).then(done, function () { setStatus('Select the snippet and copy it.', true); });
+                    } else {
+                        setStatus('Select the snippet and copy it.', true);
+                    }
+                });
+                return button;
+            }
+
+            function snippetBlock(text) {
+                var wrap = el('div', 'mt-3');
+                var row = el('div', 'flex justify-end');
+                row.appendChild(copyButton(text));
+                wrap.appendChild(row);
+                wrap.appendChild(el('pre', 'snippet mt-1', text));
+                return wrap;
+            }
+
+            function linkList(links) {
+                var p = el('p', 'text-sm text-gray-500 mt-2');
+                links.forEach(function (link, index) {
+                    if (index) p.appendChild(document.createTextNode(' · '));
+                    var a = el('a', 'text-blue-600 hover:underline', link.label);
+                    a.href = link.href;
+                    p.appendChild(a);
+                });
+                return p;
+            }
+
+            function statusWord(status) {
+                if (status === 'present') return 'Present';
+                if (status === 'partial') return 'Needs a fix';
+                return 'Missing';
+            }
+
+            function render(report) {
+                summary.textContent = '';
+                found.textContent = '';
+                checklist.textContent = '';
+                fixAll.textContent = '';
+                var heading = el('h2', 'text-2xl font-semibold', report.presentCount + ' of ' + report.total + ' standard icons found');
+                summary.appendChild(heading);
+                if (report.domain) summary.appendChild(el('p', 'text-gray-500 mt-1', report.domain));
+                if (report.notice) summary.appendChild(el('p', 'text-sm text-amber-800 bg-amber-50 border border-amber-200 rounded-xl px-3 py-2 mt-4', report.notice));
+
+                if (!report.icons.length) {
+                    found.appendChild(el('p', 'text-gray-500', 'No icon file was returned.'));
+                }
+                report.icons.forEach(function (icon) {
+                    var card = el('article', 'bg-white border border-gray-200 rounded-2xl p-4 flex gap-4');
+                    var preview = el('div', 'checkerboard w-16 h-16 rounded-xl flex items-center justify-center shrink-0');
+                    if (icon.proxyPath) {
+                        var img = document.createElement('img');
+                        img.src = icon.proxyPath;
+                        img.alt = '';
+                        img.width = 40;
+                        img.height = 40;
+                        img.className = 'w-10 h-10 object-contain';
+                        preview.appendChild(img);
+                    }
+                    card.appendChild(preview);
+                    var body = el('div', 'min-w-0');
+                    var title = icon.sizeLabel === 'SVG' ? 'SVG' : icon.sizeLabel + ' ' + icon.format;
+                    body.appendChild(el('p', 'font-medium', title));
+                    body.appendChild(el('p', 'text-sm text-gray-500', icon.sourceLabel + (icon.rel ? ' · ' + icon.rel : '')));
+                    if (icon.url) {
+                        var a = el('a', 'text-sm text-blue-600 hover:underline break-all', 'Open file');
+                        a.href = icon.url;
+                        a.target = '_blank';
+                        a.rel = 'noopener noreferrer';
+                        body.appendChild(a);
+                    }
+                    card.appendChild(body);
+                    found.appendChild(card);
+                });
+
+                report.checks.forEach(function (item) {
+                    var row = el('li', 'bg-white border border-gray-200 rounded-2xl p-4');
+                    var top = el('div', 'flex items-start justify-between gap-3');
+                    var text = el('div');
+                    text.appendChild(el('p', 'font-medium', item.label));
+                    text.appendChild(el('p', 'text-sm text-gray-600 mt-1', item.detail));
+                    top.appendChild(text);
+                    top.appendChild(el('span', 'text-xs font-medium px-2 py-1 rounded-full shrink-0 status-' + item.status, statusWord(item.status)));
+                    row.appendChild(top);
+                    if (item.status !== 'present') {
+                        if (item.snippet) row.appendChild(snippetBlock(item.snippet));
+                        if (item.links && item.links.length) row.appendChild(linkList(item.links));
+                    }
+                    checklist.appendChild(row);
+                });
+
+                if (report.fixHtml || report.fixManifest) {
+                    fixAll.hidden = false;
+                    fixAll.classList.remove('hidden');
+                    fixAll.appendChild(el('h2', 'text-xl font-semibold', 'HTML to paste'));
+                    fixAll.appendChild(el('p', 'text-sm text-gray-500 mt-2', 'Put these tags in the page head, and save the named files next to the homepage. Generate the set from one logo if you do not have the files yet.'));
+                    if (report.fixHtml) fixAll.appendChild(snippetBlock(report.fixHtml));
+                    if (report.fixManifest) {
+                        fixAll.appendChild(el('p', 'text-sm text-gray-600 mt-4', 'site.webmanifest'));
+                        fixAll.appendChild(snippetBlock(report.fixManifest));
+                    }
+                    fixAll.appendChild(linkList(report.related));
+                } else {
+                    fixAll.hidden = true;
+                    fixAll.classList.add('hidden');
+                }
+                results.hidden = false;
+                results.classList.remove('hidden');
+                results.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+
+            async function run(raw) {
+                var reason = FC.failureReason(raw);
+                if (reason) {
+                    results.hidden = true;
+                    results.classList.add('hidden');
+                    setStatus(messages[reason] || messages.invalid, true);
+                    return;
+                }
+                var target = FC.normalizeSiteTarget(raw);
+                var requestPath = FC.canonicalExtractPath(raw);
+                submit.disabled = true;
+                results.hidden = true;
+                results.classList.add('hidden');
+                setStatus('Checking ' + target + '…', false);
+                try {
+                    var response = await fetch(requestPath, { headers: { accept: 'application/json' } });
+                    var data = null;
+                    try { data = await response.json(); } catch (err) { data = null; }
+                    if (!response.ok || !data || !data.ok) {
+                        setStatus((data && data.error) || messages.bad, true);
+                        return;
+                    }
+                    setStatus('Reading ICO layers…', false);
+                    var icoSizes = await FC.loadIcoSizes(data);
+                    var report = FC.analyze(data, { icoSizes: icoSizes });
+                    if (!report) {
+                        setStatus(messages.bad, true);
+                        return;
+                    }
+                    render(report);
+                    setStatus('', false);
+                    var next = '/favicon-checker?url=' + encodeURIComponent(target);
+                    if (window.location.pathname + window.location.search !== next) {
+                        history.replaceState(null, '', next);
+                    }
+                    if (window.favicondlTrack) window.favicondlTrack('favicon_check', { domain: report.domain || target });
+                } catch (err) {
+                    setStatus(messages.network, true);
+                } finally {
+                    submit.disabled = false;
+                }
+            }
+
+            form.addEventListener('submit', function (event) {
+                event.preventDefault();
+                run(input.value);
+            });
+            document.querySelectorAll('.example').forEach(function (button) {
+                button.addEventListener('click', function () {
+                    input.value = button.getAttribute('data-domain');
+                    run(input.value);
+                });
+            });
+            var initial = '';
+            try { initial = new URL(window.location.href).searchParams.get('url') || ''; } catch (err) { initial = ''; }
+            if (initial) {
+                input.value = initial;
+                run(initial);
+            }
+        })();
+    </script>
+</body>
+</html>

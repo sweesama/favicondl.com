@@ -544,11 +544,12 @@
 
     <!-- Navigation -->
     <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
-        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+        <div class="max-w-5xl mx-auto px-6 min-h-14 py-2 flex flex-wrap items-center justify-between gap-y-2">
             <a href="/" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
-            <div class="flex items-center gap-8">
+            <div class="flex flex-wrap items-center justify-end gap-x-5 gap-y-1 w-full sm:w-auto">
                 <a href="documentation.html" class="nav-link" data-en="Docs" data-zh="文档">Docs</a>
                 <a href="tools.html" class="nav-link" data-en="Tools" data-zh="工具">Tools</a>
+                <a href="/favicon-checker" class="nav-link" data-en="Checker" data-zh="检查" data-ja="チェック" data-ko="검사" data-es="Comprobar">Checker</a>
                 <a href="/blog/favicon-sizes-guide.html" class="nav-link" data-en="Dimensions" data-zh="尺寸" data-ja="サイズ" data-ko="크기" data-es="Tamaño">Dimensions</a>
                 <a href="/blog/" class="nav-link" data-en="Blog" data-zh="博客">Blog</a>
                 <div class="lang-dropdown">
@@ -953,7 +954,7 @@
 
                 <h2 class="text-xl font-semibold text-gray-900 mt-10 mb-4">How to extract a favicon from a website</h2>
                 <p class="mb-3">To extract a favicon from a website, paste a domain or full URL. The extractor reads the page's <code>&lt;head&gt;</code>, its web app manifest and <code>/favicon.ico</code>, then lists every icon it finds with its real pixel size, format and direct URL. The largest, sharpest version is picked automatically, so you don't end up with a blurry 16×16 file.</p>
-                <p>Unlike a basic favicon grabber that only fetches <code>/favicon.ico</code> or a low-resolution proxy image, favicondl also finds SVG icons, Apple touch icons and 512×512 manifest icons, and can convert them to ICO or PNG. Need many sites at once? Use the <a href="/bulk-favicon-downloader.html" class="text-blue-600 hover:underline">bulk favicon downloader</a> or the <a href="/documentation.html" class="text-blue-600 hover:underline">free favicon API</a>.</p>
+                <p>Unlike a basic favicon grabber that only fetches <code>/favicon.ico</code> or a low-resolution proxy image, favicondl also finds SVG icons, Apple touch icons and 512×512 manifest icons, and can convert them to ICO or PNG. Need many sites at once? Use the <a href="/bulk-favicon-downloader.html" class="text-blue-600 hover:underline">bulk favicon downloader</a> or the <a href="/documentation.html" class="text-blue-600 hover:underline">free favicon API</a>. To see which standard sizes a live site is missing, use the <a href="/favicon-checker" class="text-blue-600 hover:underline">favicon checker</a>.</p>
 
                 <h2 id="favicon-finder" class="text-xl font-semibold text-gray-900 mt-10 mb-4">Favicon finder: URL, sizes, and download</h2>
                 <p class="mb-3">Use this page as a favicon finder when you need the icon a live site publishes, rather than guessing <code>/favicon.ico</code>.</p>
@@ -1068,6 +1069,10 @@ with open("icon.png", "wb") as f:
                     <h3 class="text-lg font-semibold text-gray-900 mb-2">Free favicon API</h3>
                     <p>Fetch any site's icon by URL with a single GET request. No API key, no sign-up; get a redirect to the image or JSON with the icon URL and its source.</p>
                 </a>
+                <a href="/favicon-checker" class="block bg-gray-50 border border-gray-100 rounded-2xl p-6 hover:border-gray-300 transition-colors">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Favicon checker</h3>
+                    <p>Paste a domain to see which icons the site publishes and which standard sizes are missing, with HTML you can paste for each gap.</p>
+                </a>
             </div>
 
             <h2 id="faq" class="text-2xl font-semibold text-gray-900 mt-14 mb-6">Frequently asked questions</h2>
@@ -1146,12 +1151,13 @@ with open("icon.png", "wb") as f:
     <footer class="py-8 px-6 border-t border-gray-200">
         <div class="max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
             <p class="text-gray-400 text-sm">© <script>document.write(new Date().getFullYear())</script> Mzu favicondl</p>
-            <div class="flex gap-6">
+            <div class="flex flex-wrap justify-center gap-x-6 gap-y-2">
                 <a href="/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Home" data-zh="首页">Home</a>
                 <a href="documentation.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Docs" data-zh="文档">Docs</a>
                 <a href="tools.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Tools" data-zh="工具">Tools</a>
                 <a href="/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Blog" data-zh="博客">Blog</a>
                 <a href="bulk-favicon-downloader.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Bulk Download" data-zh="批量下载" data-ja="一括ダウンロード" data-ko="일괄 다운로드" data-es="Descarga masiva">Bulk Download</a>
+                <a href="/favicon-checker" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Checker" data-zh="检查" data-ja="チェック" data-ko="검사" data-es="Comprobar">Checker</a>
                 <a href="/blog/favicon-sizes-guide.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Dimensions" data-zh="尺寸">Dimensions</a>
                 <a href="/favicon/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Site icons" data-zh="网站图标">Site icons</a>
                 <a href="/blog/png-to-favicon.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="PNG to favicon" data-zh="PNG 转图标">PNG to favicon</a>

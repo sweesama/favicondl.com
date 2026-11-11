@@ -3234,7 +3234,9 @@
     "intent": "how-to",
     "depth": "standard",
     "avoidOverlap": [],
-    "status": "pending"
+    "status": "done",
+    "qualityScore": 100,
+    "qualityGrade": "A"
   },
   {
     "keyword": "fastapi favicon",

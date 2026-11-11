@@ -1,0 +1,209 @@
+<!DOCTYPE html><html lang="ko"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flutter Web favicon 설정 가이드</title>
+    <meta name="description" content="web/index.html과 SVG, PNG, ICO를 사용해 Flutter Web 앱에 favicon을 추가하고 빌드 및 배포 경로를 확인하세요.">
+    <meta name="keywords" content="flutter web favicon, Flutter favicon, web/index.html, PWA icons">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/ko/blog/flutter-web-favicon.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/flutter-web-favicon.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/flutter-web-favicon.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/flutter-web-favicon.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/flutter-web-favicon.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/flutter-web-favicon.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/flutter-web-favicon.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/ko/blog/flutter-web-favicon.html">
+    <meta property="og:title" content="Flutter Web favicon 설정 가이드">
+    <meta property="og:description" content="web/index.html과 SVG, PNG, ICO를 사용해 Flutter Web 앱에 favicon을 추가하고 빌드 및 배포 경로를 확인하세요.">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Flutter Web favicon 설정 가이드">
+    <meta name="twitter:description" content="web/index.html과 SVG, PNG, ICO를 사용해 Flutter Web 앱에 favicon을 추가하고 빌드 및 배포 경로를 확인하세요.">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Flutter Web favicon 설정 가이드",
+  "description": "web/index.html과 SVG, PNG, ICO를 사용해 Flutter Web 앱에 favicon을 추가하고 빌드 및 배포 경로를 확인하세요.",
+  "datePublished": "2026-11-11",
+  "dateModified": "2026-11-11",
+  "author": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "mainEntityOfPage": "https://favicondl.com/ko/blog/flutter-web-favicon.html",
+  "inLanguage": "ko"
+}</script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/ko/" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/ko/documentation.html" class="nav-link">문서</a>
+                <a href="/ko/tools.html" class="nav-link">도구</a>
+                <a href="/ko/blog/" class="nav-link">블로그</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/flutter-web-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/flutter-web-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/flutter-web-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/flutter-web-favicon.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/flutter-web-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/ko/" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/ko/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600">Flutter Web favicon 설정 가이드</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">framework</span><time class="text-sm text-gray-400">2026-11-11</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">Flutter Web favicon 설정 가이드</h1>
+        </header>
+
+        <div class="article-body"><p>Flutter Web 앱이 브라우저 탭에 아직 기본 Flutter 마크를 표시한다면, 해결책은 보통 Dart widget이 아니라 <code>web/index.html</code>에 있습니다. Flutter web favicon은 브라우저가 애플리케이션 UI와 별도로 요청하는 정적 이미지입니다.</p>
+<p>Flutter의 web shell에서 이 이미지를 연결하고, web-app manifest의 이미지는 별도로 유지한 다음, 정적 출력물을 다시 빌드하면 됩니다. Dart 코드를 변경할 필요는 없습니다.</p>
+<h2>사전 조건</h2>
+<ul>
+<li>Web 지원이 활성화되어 있고 Flutter SDK가 Chrome을 대상으로 빌드할 수 있는지 확인하세요. 에셋을 변경하기 전에 <code>flutter doctor</code>를 실행하세요.</li>
+<li>간단한 실루엣으로 된 정사각형 원본 이미지를 준비하세요. 작은 디테일은 탭 크기에서 사라지는 경향이 있으므로, 내보내기 전에 <a href="/ko/blog/favicon-sizes-guide.html">favicon 크기 가이드</a>를 확인하세요.</li>
+<li>배포 base path가 root인지, <code>/portal/</code> 같은 하위 디렉터리인지 확인하세요. 이 경로는 상대 icon URL의 해석 방식에 영향을 줍니다.</li>
+</ul>
+<h2>Flutter web favicon 추가하기: 6단계</h2><ol>
+<li>
+<h3>Flutter의 웹 진입 파일 확인</h3>
+<p><code>web/index.html</code>을 열고 <code>rel='icon'</code>을 검색합니다. Flutter 템플릿에는 이미 기본 아이콘 링크가 포함되어 있을 수 있으므로, 두 개의 경쟁하는 스택을 남기지 말고 해당 참조를 교체하세요.</p>
+<p><code>web/manifest.json</code>도 엽니다. 이 파일의 <code>icons</code> 배열은 설치된 웹앱 이미지를 제공하지만, 다음에 추가할 브라우저 탭 링크를 대체하지는 않습니다.</p>
+</li>
+<li>
+<h3>정적 아이콘 파일 준비</h3>
+<p><a href="/ko/">Mzu favicondl</a>로 정사각형 아이콘 세트를 만듭니다. SVG, 16픽셀 및 32픽셀 PNG, 멀티 사이즈 ICO, 180픽셀 Apple touch 이미지, 그리고 manifest용 192픽셀 및 512픽셀 PNG를 내보내세요.</p>
+<p>Flutter가 나머지 정적 웹 자산과 함께 복사하도록 파일을 <code>web/icons/</code> 아래에 배치합니다:</p>
+<pre><code>web/
+├── index.html
+├── manifest.json
+└── icons/
+    ├── favicon.svg
+    ├── favicon-16.png
+    ├── favicon-32.png
+    ├── favicon.ico
+    ├── apple-touch-icon.png
+    ├── icon-192.png
+    └── icon-512.png</code></pre>
+</li>
+<li>
+<h3>HTML head에 아이콘 링크 추가</h3>
+<p><a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">HTML 표준</a>은 <code>rel='icon'</code>으로 아이콘 리소스를 연결합니다. <code>web/index.html</code>의 <code>&lt;head&gt;</code> 요소 안에 의도된 스택 하나를 추가하세요:</p>
+<pre><code>&lt;link rel='icon' type='image/svg+xml' href='icons/favicon.svg'&gt;
+&lt;link rel='icon' type='image/png' sizes='32x32' href='icons/favicon-32.png'&gt;
+&lt;link rel='icon' type='image/png' sizes='16x16' href='icons/favicon-16.png'&gt;
+&lt;link rel='icon' href='icons/favicon.ico'&gt;
+&lt;link rel='apple-touch-icon' href='icons/apple-touch-icon.png'&gt;</code></pre>
+<p>템플릿의 기존 아이콘 링크를 제거한 다음, Apple touch 항목은 다른 배치 표면을 대상으로 하므로 별도로 유지하세요.</p>
+</li>
+<li>
+<h3>웹앱 manifest 업데이트</h3>
+<p>PWA로 설치되는 Flutter 웹앱의 경우, <code>web/index.html</code>에 <code>&lt;link rel='manifest' href='manifest.json'&gt;</code>가 포함되어 있는지 확인합니다. 누락된 경우 head 안에 해당 링크를 추가한 다음, <code>web/manifest.json</code>의 기존 <code>icons</code> 배열을 업데이트하세요. manifest의 다른 키는 변경하지 마세요.</p>
+<pre><code>[
+  {
+    "src": "icons/icon-192.png",
+    "sizes": "192x192",
+    "type": "image/png"
+  },
+  {
+    "src": "icons/icon-512.png",
+    "sizes": "512x512",
+    "type": "image/png"
+  }
+]</code></pre>
+<p>이 파일들은 설치된 앱 표면을 지원하며, HTML 셸의 명시적 <code>rel='icon'</code> 링크를 대체하지 않습니다.</p>
+</li>
+<li>
+<h3>프로덕션 출력 빌드 및 검사</h3>
+<p>프로덕션 사이트를 빌드합니다:</p>
+<pre><code>flutter build web --release</code></pre>
+<p><code>build/web/index.html</code>과 <code>build/web/icons/</code>를 검사하세요. 빌드된 index에는 새 링크가 포함되어야 하며, 참조된 모든 파일이 존재해야 합니다.</p>
+<p>앱이 하위 디렉터리에서 제공되는 경우, 호스트가 기대하는 동일한 기본 경로로 빌드하세요:</p>
+<pre><code>flutter build web --release --base-href=/portal/</code></pre>
+<p>그러면 <code>icons/favicon.svg</code>와 같은 상대 경로가 생성된 기본 URL을 기준으로 확인됩니다.</p>
+</li>
+<li>
+<h3>브라우저 개발자 도구에서 요청 확인</h3>
+<p>프로덕션 출력을 로컬에서 제공합니다:</p>
+<pre><code>python3 -m http.server 8000 --directory build/web</code></pre>
+<p><code>http://localhost:8000</code>을 엽니다. 브라우저 개발자 도구에서 링크가 문서 head에 있는지 확인하세요. Network 패널에서 <code>favicon</code>으로 필터링하고, 캐시를 비활성화한 후 새로고침하여 아이콘 요청이 <code>200</code>을 반환하는지 확인합니다.</p>
+<p>로컬 폴더는 올바르지만 호스트가 다른 기본 경로를 사용하거나 자산을 차단할 수 있으므로, 배포된 HTTPS URL에서도 요청 확인을 반복하세요.</p>
+</li>
+</ol><h2>흔한 함정</h2>
+<ul>
+<li><strong>잘못된 파일을 수정하는 것:</strong> <code>build/web/index.html</code>이 아니라 <code>web/index.html</code>을 수정하세요. 다음 build를 실행하면 생성된 output가 대체됩니다.</li>
+<li><strong>링크에 Flutter asset을 사용하는 것:</strong> 번들된 asset은 HTML head에서 참조할 수 있는 public URL이 아닙니다. favicon 파일을 <code>web/</code>에 넣으세요.</li>
+<li><strong>중복 링크를 남겨 두는 것:</strong> 플러그인이 생성한 tag까지 포함해 모든 <code>rel='icon'</code> 항목을 검색하고, 의도적으로 구성한 하나의 icon stack만 유지해야 합니다.</li>
+<li><strong>base path를 무시하는 것:</strong> <code>/portal/icons/favicon.svg</code>가 404를 반환한다면 icon을 변경하기 전에 Flutter의 base path 또는 hosting rewrite를 바로잡으세요.</li>
+<li><strong>manifest만 업데이트하는 것:</strong> manifest 항목이 있다고 해서 브라우저 탭 아이콘이 보장되지는 않습니다. HTML 링크도 함께 업데이트하세요.</li>
+<li><strong>캐시된 탭만 보고 판단하는 것:</strong> 변경한 파일의 이름을 바꾸거나 URL에 version을 적용한 뒤, 더 포괄적인 <a href="/ko/blog/favicon-not-showing.html">favicon 문제 해결 체크리스트</a>를 따르세요.</li>
+</ul>
+<h2>결론</h2>
+<p>Flutter web favicon은 source 파일이 <code>web/</code>에 있고, HTML에 정돈된 icon stack 하나만 들어가 있으며, manifest 경로가 동일한 asset과 일치하고, production build에서 참조된 모든 파일을 제공할 때 준비된 것입니다. 이러한 구조는 Dart rendering과 브라우저 탭 아이콘을 분리하면서도 deployment에 각 아이콘의 예측 가능한 URL을 부여합니다.</p></div>
+
+        <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
+
+        <div class="cta-box">
+            <h3>Flutter Web용 favicon 세트 만들기</h3>
+            <p>Mzu favicondl로 정사각형 원본 이미지를 SVG, PNG, ICO로 변환하고 Flutter 프로젝트에 필요한 아이콘을 준비하세요.</p>
+            <a href="/ko/" class="cta-btn">무료로 사용해보기 →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/ko/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">홈</a>
+                <a href="/ko/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">블로그</a>
+                <a href="/ko/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">개인정보</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js?v=20260211"></script>
+
+</body></html>
