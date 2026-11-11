@@ -1,0 +1,549 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flutter Web Favicon Setup: A Step-by-Step Guide for Apps</title>
+    <meta name="description" content="Add or replace a Flutter web favicon through web/index.html, prepare PNG, ICO, and SVG assets, then verify the built site and deployment paths.">
+    <meta name="keywords" content="flutter web favicon, Flutter favicon, web/index.html, PWA icons">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/blog/flutter-web-favicon.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/flutter-web-favicon.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/flutter-web-favicon.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/flutter-web-favicon.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/flutter-web-favicon.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/flutter-web-favicon.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/flutter-web-favicon.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/blog/flutter-web-favicon.html">
+    <meta property="og:title" content="Flutter Web Favicon Setup: A Step-by-Step Guide for Apps">
+    <meta property="og:description" content="Add or replace a Flutter web favicon through web/index.html, prepare PNG, ICO, and SVG assets, then verify the built site and deployment paths.">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Flutter Web Favicon Setup: A Step-by-Step Guide for Apps">
+    <meta name="twitter:description" content="Add or replace a Flutter web favicon through web/index.html, prepare PNG, ICO, and SVG assets, then verify the built site and deployment paths.">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Flutter Web Favicon Setup: A Step-by-Step Guide for Apps",
+  "description": "Add or replace a Flutter web favicon through web/index.html, prepare PNG, ICO, and SVG assets, then verify the built site and deployment paths.",
+  "datePublished": "2026-11-11",
+  "dateModified": "2026-11-11",
+  "author": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "mainEntityOfPage": "https://favicondl.com/blog/flutter-web-favicon.html",
+  "inLanguage": "en"
+}</script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/documentation.html" class="nav-link" data-en="Docs" data-zh="文档">Docs</a>
+                <a href="/tools.html" class="nav-link" data-en="Tools" data-zh="工具">Tools</a>
+                <a href="/blog/" class="nav-link" data-en="Blog" data-zh="博客">Blog</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/flutter-web-favicon.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/flutter-web-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/flutter-web-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/flutter-web-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/flutter-web-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600" data-en="Flutter Web Favicon Setup: A Step-by-Step Guide for Apps" data-zh="Flutter Web Favicon 设置指南" data-ja="Flutter Webのfaviconを正しく設定する" data-ko="Flutter Web favicon 설정 가이드" data-es="Configura el favicon de Flutter Web paso a paso">Flutter Web Favicon Setup: A Step-by-Step Guide for Apps</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">framework</span><time class="text-sm text-gray-400">2026-11-11</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight" data-en="Flutter Web Favicon Setup: A Step-by-Step Guide for Apps" data-zh="Flutter Web Favicon 设置指南" data-ja="Flutter Webのfaviconを正しく設定する" data-ko="Flutter Web favicon 설정 가이드" data-es="Configura el favicon de Flutter Web paso a paso">Flutter Web Favicon Setup: A Step-by-Step Guide for Apps</h1>
+        </header>
+
+        <div class="article-body" data-lang="en">
+            <p>If your Flutter Web app still shows the default Flutter mark in a browser tab, the fix usually belongs in <code>web/index.html</code>, not in a Dart widget. A Flutter web favicon is a static image that the browser requests separately from your application UI.</p>
+<p>You will link that image from Flutter’s web shell, keep web-app manifest images separate, then rebuild the static output. No Dart changes are required.</p>
+<h2>Prerequisites</h2>
+<ul>
+<li>Confirm that Web is enabled and your Flutter SDK can target Chrome. Run <code>flutter doctor</code> before changing assets.</li>
+<li>Prepare a square source image with a simple silhouette. Tiny detail tends to disappear at tab size; review the <a href="/blog/favicon-sizes-guide.html">favicon size guide</a> before exporting.</li>
+<li>Know the deployment base path: root, or a subdirectory such as <code>/portal/</code>. It affects how relative icon URLs resolve.</li>
+</ul>
+<h2>Add a Flutter web favicon in six steps</h2>
+<ol>
+<li>
+<h3>Inspect Flutter’s web entry file</h3>
+<p>Open <code>web/index.html</code> and search for <code>rel='icon'</code>. Flutter’s template may already contain a default icon link, so replace that reference instead of leaving two competing stacks.</p>
+<p>Open <code>web/manifest.json</code> too. Its <code>icons</code> array supplies installed web-app images, but it does not replace the browser-tab link you will add next.</p>
+</li>
+<li>
+<h3>Prepare the static icon files</h3>
+<p>Create a square icon set with <a href="/">Mzu favicondl</a>. Export an SVG, 16- and 32-pixel PNGs, a multi-size ICO, a 180-pixel Apple touch image, and 192- and 512-pixel PNGs for the manifest.</p>
+<p>Place the files under <code>web/icons/</code> so Flutter copies them with the rest of the static web assets:</p>
+<pre><code>web/
+├── index.html
+├── manifest.json
+└── icons/
+    ├── favicon.svg
+    ├── favicon-16.png
+    ├── favicon-32.png
+    ├── favicon.ico
+    ├── apple-touch-icon.png
+    ├── icon-192.png
+    └── icon-512.png</code></pre>
+</li>
+<li>
+<h3>Add the icon links to the HTML head</h3>
+<p>The <a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">HTML standard</a> associates an icon resource with <code>rel='icon'</code>. Add one deliberate stack inside the <code>&lt;head&gt;</code> element of <code>web/index.html</code>:</p>
+<pre><code>&lt;link rel='icon' type='image/svg+xml' href='icons/favicon.svg'&gt;
+&lt;link rel='icon' type='image/png' sizes='32x32' href='icons/favicon-32.png'&gt;
+&lt;link rel='icon' type='image/png' sizes='16x16' href='icons/favicon-16.png'&gt;
+&lt;link rel='icon' href='icons/favicon.ico'&gt;
+&lt;link rel='apple-touch-icon' href='icons/apple-touch-icon.png'&gt;</code></pre>
+<p>Remove the template’s old icon links, then keep the Apple touch entry separate because it targets a different placement surface.</p>
+</li>
+<li>
+<h3>Update the web-app manifest</h3>
+<p>For a Flutter web app installed as a PWA, confirm that <code>web/index.html</code> contains <code>&lt;link rel='manifest' href='manifest.json'&gt;</code>. Add that link inside the head if it is missing, then update the existing <code>icons</code> array in <code>web/manifest.json</code>. Keep the manifest’s other keys unchanged.</p>
+<pre><code>[
+  {
+    "src": "icons/icon-192.png",
+    "sizes": "192x192",
+    "type": "image/png"
+  },
+  {
+    "src": "icons/icon-512.png",
+    "sizes": "512x512",
+    "type": "image/png"
+  }
+]</code></pre>
+<p>These files support installed-app surfaces; they do not replace the explicit <code>rel='icon'</code> links in the HTML shell.</p>
+</li>
+<li>
+<h3>Build and inspect the production output</h3>
+<p>Build the production site:</p>
+<pre><code>flutter build web --release</code></pre>
+<p>Inspect <code>build/web/index.html</code> and <code>build/web/icons/</code>. The built index should contain your new links, and every referenced file should be present.</p>
+<p>If the app is served from a subdirectory, build with the same base path your host expects:</p>
+<pre><code>flutter build web --release --base-href=/portal/</code></pre>
+<p>Relative paths such as <code>icons/favicon.svg</code> then resolve against that generated base URL.</p>
+</li>
+<li>
+<h3>Verify the request in browser developer tools</h3>
+<p>Serve the production output locally:</p>
+<pre><code>python3 -m http.server 8000 --directory build/web</code></pre>
+<p>Open <code>http://localhost:8000</code>. In browser developer tools, confirm the links are in the document head. In the Network panel, filter for <code>favicon</code>, disable the cache, reload, and verify that the icon request returns <code>200</code>.</p>
+<p>Repeat the request check on the deployed HTTPS URL, because the local folder can be correct while the host uses a different base path or blocks the asset.</p>
+</li>
+</ol>
+<h2>Common pitfalls</h2>
+<ul>
+<li><strong>Editing the wrong file:</strong> Change <code>web/index.html</code>, not <code>build/web/index.html</code>; the next build replaces generated output.</li>
+<li><strong>Using Flutter assets for the link:</strong> A bundled asset is not a public URL in the HTML head. Put favicon files in <code>web/</code>.</li>
+<li><strong>Leaving duplicate links:</strong> Search for every <code>rel='icon'</code> entry, including plugin-generated tags, and keep one intentional stack.</li>
+<li><strong>Ignoring the base path:</strong> If <code>/portal/icons/favicon.svg</code> returns 404, correct the Flutter base path or hosting rewrite before changing the icon.</li>
+<li><strong>Updating only the manifest:</strong> Manifest entries do not guarantee a browser-tab icon. Update the HTML links as well.</li>
+<li><strong>Judging by a cached tab:</strong> Rename the changed file or version its URL, then follow the broader <a href="/blog/favicon-not-showing.html">favicon troubleshooting checklist</a>.</li>
+</ul>
+<h2>Conclusion</h2>
+<p>A Flutter web favicon is ready when the source files live in <code>web/</code>, the HTML contains one clean icon stack, manifest paths match the same assets, and the production build serves every referenced file. That structure keeps the browser tab icon separate from Dart rendering while giving your deployment a predictable URL for each icon.</p>
+        </div>
+
+        <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
+        <template data-article-lang="zh"><p>如果你的 Flutter Web 应用在浏览器标签页中仍显示默认的 Flutter 标志，通常应在 <code>web/index.html</code> 中修复，而不是在 Dart widget 中处理。Flutter web favicon 是一张静态图片，浏览器会单独于应用 UI 请求它。</p>
+<p>你需要从 Flutter 的 Web 外壳中链接这张图片，将 web app manifest 中的图片分开处理，然后重新构建静态输出。整个过程无需修改 Dart 代码。</p>
+<h2>前置条件</h2>
+<ul>
+<li>确认 Web 已启用，并且 Flutter SDK 可以以 Chrome 为目标运行。修改资源前，先执行 <code>flutter doctor</code>。</li>
+<li>准备一张轮廓简单的正方形源图。标签页尺寸很小，细节很容易消失；导出前可查看<a href="/blog/favicon-sizes-guide.html">favicon 尺寸指南</a>。</li>
+<li>明确部署的基础路径：根目录，或 <code>/portal/</code> 这样的子目录。它会影响相对图标 URL 的解析方式。</li>
+</ul>
+<h2>用六步添加 Flutter web favicon</h2><ol>
+<li>
+<h3>检查 Flutter 的 Web 入口文件</h3>
+<p>打开 <code>web/index.html</code>，搜索 <code>rel='icon'</code>。Flutter 模板中可能已经包含默认的图标链接，因此应替换原有引用，避免同时保留两套互相冲突的图标链接配置。</p>
+<p>也要打开 <code>web/manifest.json</code>。其中的 <code>icons</code> 数组用于提供已安装 Web 应用的图标图像，但不能替代接下来要添加的浏览器标签页图标链接。</p>
+</li>
+<li>
+<h3>准备静态图标文件</h3>
+<p>使用 <a href="/">Mzu favicondl</a> 制作一套正方形图标。导出 SVG、16 像素和 32 像素 PNG、多尺寸 ICO、180 像素 Apple touch image，以及供 manifest 使用的 192 像素和 512 像素 PNG。</p>
+<p>将文件放在 <code>web/icons/</code> 下，这样 Flutter 会把它们与其他静态 Web 资源一并复制：</p>
+<pre><code>web/
+├── index.html
+├── manifest.json
+└── icons/
+    ├── favicon.svg
+    ├── favicon-16.png
+    ├── favicon-32.png
+    ├── favicon.ico
+    ├── apple-touch-icon.png
+    ├── icon-192.png
+    └── icon-512.png</code></pre>
+</li>
+<li>
+<h3>将图标链接添加到 HTML head</h3>
+<p><a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">HTML 标准</a>通过 <code>rel='icon'</code> 关联图标资源。在 <code>web/index.html</code> 的 <code>&lt;head&gt;</code> 元素中添加一套明确、完整的图标链接：</p>
+<pre><code>&lt;link rel='icon' type='image/svg+xml' href='icons/favicon.svg'&gt;
+&lt;link rel='icon' type='image/png' sizes='32x32' href='icons/favicon-32.png'&gt;
+&lt;link rel='icon' type='image/png' sizes='16x16' href='icons/favicon-16.png'&gt;
+&lt;link rel='icon' href='icons/favicon.ico'&gt;
+&lt;link rel='apple-touch-icon' href='icons/apple-touch-icon.png'&gt;</code></pre>
+<p>移除模板中的旧图标链接，并将 Apple touch 项单独保留，因为它对应不同的展示位置。</p>
+</li>
+<li>
+<h3>更新 Web App Manifest</h3>
+<p>对于以 PWA 形式安装的 Flutter Web 应用，确认 <code>web/index.html</code> 中包含 <code>&lt;link rel='manifest' href='manifest.json'&gt;</code>。如果缺少该链接，就将其添加到 head 中，然后更新 <code>web/manifest.json</code> 中已有的 <code>icons</code> 数组。manifest 的其他键保持不变。</p>
+<pre><code>[
+  {
+    "src": "icons/icon-192.png",
+    "sizes": "192x192",
+    "type": "image/png"
+  },
+  {
+    "src": "icons/icon-512.png",
+    "sizes": "512x512",
+    "type": "image/png"
+  }
+]</code></pre>
+<p>这些文件用于支持已安装应用的各种显示场景，不能替代 HTML 页面骨架中显式声明的 <code>rel='icon'</code> 链接。</p>
+</li>
+<li>
+<h3>构建并检查生产版本输出</h3>
+<p>构建生产版本站点：</p>
+<pre><code>flutter build web --release</code></pre>
+<p>检查 <code>build/web/index.html</code> 和 <code>build/web/icons/</code>。构建后的 index 应包含新链接，且每个被引用的文件都应存在。</p>
+<p>如果应用从子目录提供服务，请使用 host 所期望的相同 base path 进行构建：</p>
+<pre><code>flutter build web --release --base-href=/portal/</code></pre>
+<p>这样，<code>icons/favicon.svg</code> 等相对路径就会以生成的 base URL 为基准进行解析。</p>
+</li>
+<li>
+<h3>在浏览器开发者工具中验证请求</h3>
+<p>在本地启动服务器，托管生产版本输出：</p>
+<pre><code>python3 -m http.server 8000 --directory build/web</code></pre>
+<p>打开 <code>http://localhost:8000</code>。在浏览器开发者工具中，确认这些链接位于 document head 中。在 Network 面板中筛选 <code>favicon</code>，禁用缓存后重新加载，确认图标请求返回 <code>200</code>。</p>
+<p>还要在部署后的 HTTPS URL 上重复请求检查，因为即使本地目录完全正确，host 仍可能使用不同的 base path 或阻止该资源加载。</p>
+</li>
+</ol><h2>常见误区</h2>
+<ul>
+<li><strong>修改了错误的文件：</strong>应修改 <code>web/index.html</code>，而不是 <code>build/web/index.html</code>；下一次构建会替换生成的文件。</li>
+<li><strong>使用 Flutter assets 设置链接：</strong>打包的 asset 并不是 HTML head 中可用的公开 URL。favicon 文件应放在 <code>web/</code> 中。</li>
+<li><strong>留下重复链接：</strong>搜索所有 <code>rel='icon'</code> 条目，包括插件生成的标签，并只保留一套有意保留的 icon stack。</li>
+<li><strong>忽略 base path：</strong>如果 <code>/portal/icons/favicon.svg</code> 返回 404，应先修正 Flutter 的 base path 或托管环境的 rewrite，再更换图标。</li>
+<li><strong>只更新 manifest：</strong>manifest 条目并不能保证浏览器标签页显示图标；HTML links 也要一并更新。</li>
+<li><strong>只根据已缓存的标签页判断：</strong>给修改后的文件改名，或为它的 URL 添加版本号，然后按照更完整的 <a href="/blog/favicon-not-showing.html">favicon troubleshooting checklist</a> 排查。</li>
+</ul>
+<h2>结论</h2>
+<p>当源文件位于 <code>web/</code>、HTML 中包含一套干净的 icon stack、manifest 路径与同一批 assets 匹配，并且 production build 能够提供所有被引用的文件时，Flutter web favicon 才算配置完成。这样的结构既能让浏览器标签页图标与 Dart rendering 分离，也能为部署中的每个图标提供可预测的 URL。</p></template>
+        <template data-article-lang="ja"><p>Flutter WebアプリのブラウザタブにデフォルトのFlutterマークが表示されている場合、通常は修正が必要なのはDartのwidgetではなく、<code>web/index.html</code>です。Flutter web faviconは、アプリケーションUIとは別にブラウザがリクエストする静的画像です。</p>
+<p>Flutterのweb shellからその画像をリンクし、web-app manifestの画像は別に管理してから、静的出力を再ビルドします。Dartの変更は不要です。</p>
+<h2>前提条件</h2>
+<ul>
+<li>Webが有効になっていること、またFlutter SDKがChromeをターゲットにできることを確認します。assetsを変更する前に<code>flutter doctor</code>を実行してください。</li>
+<li>シンプルなシルエットの正方形ソース画像を準備します。タブのサイズでは微細なディテールが失われがちなので、エクスポート前に<a href="/blog/favicon-sizes-guide.html">faviconのサイズガイド</a>を確認してください。</li>
+<li>デプロイのベースパス（root、または<code>/portal/</code>のようなサブディレクトリ）を把握してください。これは相対的なicon URLの解決方法に影響します。</li>
+</ul>
+<h2>Flutter Web faviconを6ステップで追加する</h2><ol>
+<li>
+<h3>Flutter の Web エントリーファイルを確認する</h3>
+<p><code>web/index.html</code> を開き、<code>rel='icon'</code> を検索します。Flutter のテンプレートにはデフォルトの icon link がすでに含まれている場合があるため、競合する icon 定義が 2 組残らないように、その参照を置き換えてください。</p>
+<p><code>web/manifest.json</code> も開いてください。この <code>icons</code> 配列は、Web アプリをインストールした状態で表示する画像を提供しますが、上で追加するブラウザータブの icon link の代わりにはなりません。</p>
+</li>
+<li>
+<h3>静的 icon file を準備する</h3>
+<p><a href="/">Mzu favicondl</a> で正方形の icon set を作成します。SVG、16 ピクセルと 32 ピクセルの PNG、複数サイズの ICO、180 ピクセルの Apple touch icon、manifest 用の 192 ピクセルと 512 ピクセルの PNG を export してください。</p>
+<p>以下の場所に file を配置すると、Flutter がその他の静的 Web asset と同時にこれらをコピーします。</p>
+<pre><code>web/
+├── index.html
+├── manifest.json
+└── icons/
+    ├── favicon.svg
+    ├── favicon-16.png
+    ├── favicon-32.png
+    ├── favicon.ico
+    ├── apple-touch-icon.png
+    ├── icon-192.png
+    └── icon-512.png</code></pre>
+</li>
+<li>
+<h3>icon link を HTML head に追加する</h3>
+<p><a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">HTML 標準</a> では、<code>rel='icon'</code> を使って icon resource を関連付けます。<code>web/index.html</code> の <code>&lt;head&gt;</code> element 内に、意図的に構成した 1 組の link を追加してください。</p>
+<pre><code>&lt;link rel='icon' type='image/svg+xml' href='icons/favicon.svg'&gt;
+&lt;link rel='icon' type='image/png' sizes='32x32' href='icons/favicon-32.png'&gt;
+&lt;link rel='icon' type='image/png' sizes='16x16' href='icons/favicon-16.png'&gt;
+&lt;link rel='icon' href='icons/favicon.ico'&gt;
+&lt;link rel='apple-touch-icon' href='icons/apple-touch-icon.png'&gt;</code></pre>
+<p>テンプレートの古い icon link は削除してください。Apple touch entry は配置対象が異なるため、単独の link として分けて維持します。</p>
+</li>
+<li>
+<h3>Web app manifest を更新する</h3>
+<p>PWA としてインストールされる Flutter Web アプリでは、<code>web/index.html</code> に <code>&lt;link rel='manifest' href='manifest.json'&gt;</code> が含まれていることを確認してください。不足している場合は head 内に link を追加し、<code>web/manifest.json</code> の既存の <code>icons</code> 配列を更新します。manifest のその他の key は変更しないでください。</p>
+<pre><code>[
+  {
+    "src": "icons/icon-192.png",
+    "sizes": "192x192",
+    "type": "image/png"
+  },
+  {
+    "src": "icons/icon-512.png",
+    "sizes": "512x512",
+    "type": "image/png"
+  }
+]</code></pre>
+<p>これらの file はインストール後の app の各表示領域で使用されます。HTML shell 内で明示した <code>rel='icon'</code> link の代わりにはなりません。</p>
+</li>
+<li>
+<h3>本番用出力を build して確認する</h3>
+<p>本番用サイトを build します。</p>
+<pre><code>flutter build web --release</code></pre>
+<p><code>build/web/index.html</code> と <code>build/web/icons/</code> を確認します。build 後の index に新しい link が含まれ、参照されている file がすべて存在していることを確認してください。</p>
+<p>アプリを subdirectory から配信する場合は、ホストが期待する base path と同じ値を指定して build します。</p>
+<pre><code>flutter build web --release --base-href=/portal/</code></pre>
+<p><code>icons/favicon.svg</code> などの relative path は、生成された base URL を基準に解決されます。</p>
+</li>
+<li>
+<h3>browser developer tools で request を確認する</h3>
+<p>本番用の出力をローカルで serve します。</p>
+<pre><code>python3 -m http.server 8000 --directory build/web</code></pre>
+<p><code>http://localhost:8000</code> を開きます。browser developer tools で、link が document head にあることを確認します。Network panel で <code>favicon</code> だけに filter し、cache を無効にして reload した後、icon request が <code>200</code> を返すことを確認してください。</p>
+<p>デプロイ先の HTTPS URL でも request check を繰り返してください。ローカルの folder が正しくても、ホストが別の base path を使用していたり、asset の配信を block していたりする場合があるためです。</p>
+</li>
+</ol><h2>よくある落とし穴</h2>
+<ul>
+<li><strong>誤ったファイルを編集している:</strong> <code>web/index.html</code> を変更してください。<code>build/web/index.html</code> ではありません。次のビルドで生成された出力は置き換えられます。</li>
+<li><strong>link に Flutter assets を使っている:</strong> bundle された asset は HTML head 内で参照できる public URL ではありません。favicon ファイルは <code>web/</code> に配置してください。</li>
+<li><strong>重複した link を残している:</strong> plugin が生成した tag も含めて、すべての <code>rel='icon'</code> entry を探 し、意図した1つの icon stack に整理してください。</li>
+<li><strong>base path を無視している:</strong> <code>/portal/icons/favicon.svg</code> が404を返す場合は、icon を変更する前に、Flutter の base path または hosting の rewrite を修正してください。</li>
+<li><strong>manifest だけ更新している:</strong> manifest の entry を更新しても、browser tab に icon が表示される保証はありません。HTML の link も更新してください。</li>
+<li><strong>cached された tab で判断している:</strong> 変更したファイル名を変えるか、URL に version を付けてください。その後、より包括的な<a href="/blog/favicon-not-showing.html">favicon トラブルシューティング checklist</a>を確認してください。</li>
+</ul>
+<h2>まとめ</h2>
+<p>Flutter web favicon の準備が整った状態とは、source files が <code>web/</code> に配置され、HTML に整理された1つの icon stack が含まれ、manifest の path が同じ assets と一致し、production build が参照されているすべてのファイルを配信できる状態を指します。この構成なら、browser tab の icon を Dart の rendering と分離しながら、deployment 上の各アイコンに predictable な URL を確保できます。</p></template>
+        <template data-article-lang="ko"><p>Flutter Web 앱이 브라우저 탭에 아직 기본 Flutter 마크를 표시한다면, 해결책은 보통 Dart widget이 아니라 <code>web/index.html</code>에 있습니다. Flutter web favicon은 브라우저가 애플리케이션 UI와 별도로 요청하는 정적 이미지입니다.</p>
+<p>Flutter의 web shell에서 이 이미지를 연결하고, web-app manifest의 이미지는 별도로 유지한 다음, 정적 출력물을 다시 빌드하면 됩니다. Dart 코드를 변경할 필요는 없습니다.</p>
+<h2>사전 조건</h2>
+<ul>
+<li>Web 지원이 활성화되어 있고 Flutter SDK가 Chrome을 대상으로 빌드할 수 있는지 확인하세요. 에셋을 변경하기 전에 <code>flutter doctor</code>를 실행하세요.</li>
+<li>간단한 실루엣으로 된 정사각형 원본 이미지를 준비하세요. 작은 디테일은 탭 크기에서 사라지는 경향이 있으므로, 내보내기 전에 <a href="/blog/favicon-sizes-guide.html">favicon 크기 가이드</a>를 확인하세요.</li>
+<li>배포 base path가 root인지, <code>/portal/</code> 같은 하위 디렉터리인지 확인하세요. 이 경로는 상대 icon URL의 해석 방식에 영향을 줍니다.</li>
+</ul>
+<h2>Flutter web favicon 추가하기: 6단계</h2><ol>
+<li>
+<h3>Flutter의 웹 진입 파일 확인</h3>
+<p><code>web/index.html</code>을 열고 <code>rel='icon'</code>을 검색합니다. Flutter 템플릿에는 이미 기본 아이콘 링크가 포함되어 있을 수 있으므로, 두 개의 경쟁하는 스택을 남기지 말고 해당 참조를 교체하세요.</p>
+<p><code>web/manifest.json</code>도 엽니다. 이 파일의 <code>icons</code> 배열은 설치된 웹앱 이미지를 제공하지만, 다음에 추가할 브라우저 탭 링크를 대체하지는 않습니다.</p>
+</li>
+<li>
+<h3>정적 아이콘 파일 준비</h3>
+<p><a href="/">Mzu favicondl</a>로 정사각형 아이콘 세트를 만듭니다. SVG, 16픽셀 및 32픽셀 PNG, 멀티 사이즈 ICO, 180픽셀 Apple touch 이미지, 그리고 manifest용 192픽셀 및 512픽셀 PNG를 내보내세요.</p>
+<p>Flutter가 나머지 정적 웹 자산과 함께 복사하도록 파일을 <code>web/icons/</code> 아래에 배치합니다:</p>
+<pre><code>web/
+├── index.html
+├── manifest.json
+└── icons/
+    ├── favicon.svg
+    ├── favicon-16.png
+    ├── favicon-32.png
+    ├── favicon.ico
+    ├── apple-touch-icon.png
+    ├── icon-192.png
+    └── icon-512.png</code></pre>
+</li>
+<li>
+<h3>HTML head에 아이콘 링크 추가</h3>
+<p><a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">HTML 표준</a>은 <code>rel='icon'</code>으로 아이콘 리소스를 연결합니다. <code>web/index.html</code>의 <code>&lt;head&gt;</code> 요소 안에 의도된 스택 하나를 추가하세요:</p>
+<pre><code>&lt;link rel='icon' type='image/svg+xml' href='icons/favicon.svg'&gt;
+&lt;link rel='icon' type='image/png' sizes='32x32' href='icons/favicon-32.png'&gt;
+&lt;link rel='icon' type='image/png' sizes='16x16' href='icons/favicon-16.png'&gt;
+&lt;link rel='icon' href='icons/favicon.ico'&gt;
+&lt;link rel='apple-touch-icon' href='icons/apple-touch-icon.png'&gt;</code></pre>
+<p>템플릿의 기존 아이콘 링크를 제거한 다음, Apple touch 항목은 다른 배치 표면을 대상으로 하므로 별도로 유지하세요.</p>
+</li>
+<li>
+<h3>웹앱 manifest 업데이트</h3>
+<p>PWA로 설치되는 Flutter 웹앱의 경우, <code>web/index.html</code>에 <code>&lt;link rel='manifest' href='manifest.json'&gt;</code>가 포함되어 있는지 확인합니다. 누락된 경우 head 안에 해당 링크를 추가한 다음, <code>web/manifest.json</code>의 기존 <code>icons</code> 배열을 업데이트하세요. manifest의 다른 키는 변경하지 마세요.</p>
+<pre><code>[
+  {
+    "src": "icons/icon-192.png",
+    "sizes": "192x192",
+    "type": "image/png"
+  },
+  {
+    "src": "icons/icon-512.png",
+    "sizes": "512x512",
+    "type": "image/png"
+  }
+]</code></pre>
+<p>이 파일들은 설치된 앱 표면을 지원하며, HTML 셸의 명시적 <code>rel='icon'</code> 링크를 대체하지 않습니다.</p>
+</li>
+<li>
+<h3>프로덕션 출력 빌드 및 검사</h3>
+<p>프로덕션 사이트를 빌드합니다:</p>
+<pre><code>flutter build web --release</code></pre>
+<p><code>build/web/index.html</code>과 <code>build/web/icons/</code>를 검사하세요. 빌드된 index에는 새 링크가 포함되어야 하며, 참조된 모든 파일이 존재해야 합니다.</p>
+<p>앱이 하위 디렉터리에서 제공되는 경우, 호스트가 기대하는 동일한 기본 경로로 빌드하세요:</p>
+<pre><code>flutter build web --release --base-href=/portal/</code></pre>
+<p>그러면 <code>icons/favicon.svg</code>와 같은 상대 경로가 생성된 기본 URL을 기준으로 확인됩니다.</p>
+</li>
+<li>
+<h3>브라우저 개발자 도구에서 요청 확인</h3>
+<p>프로덕션 출력을 로컬에서 제공합니다:</p>
+<pre><code>python3 -m http.server 8000 --directory build/web</code></pre>
+<p><code>http://localhost:8000</code>을 엽니다. 브라우저 개발자 도구에서 링크가 문서 head에 있는지 확인하세요. Network 패널에서 <code>favicon</code>으로 필터링하고, 캐시를 비활성화한 후 새로고침하여 아이콘 요청이 <code>200</code>을 반환하는지 확인합니다.</p>
+<p>로컬 폴더는 올바르지만 호스트가 다른 기본 경로를 사용하거나 자산을 차단할 수 있으므로, 배포된 HTTPS URL에서도 요청 확인을 반복하세요.</p>
+</li>
+</ol><h2>흔한 함정</h2>
+<ul>
+<li><strong>잘못된 파일을 수정하는 것:</strong> <code>build/web/index.html</code>이 아니라 <code>web/index.html</code>을 수정하세요. 다음 build를 실행하면 생성된 output가 대체됩니다.</li>
+<li><strong>링크에 Flutter asset을 사용하는 것:</strong> 번들된 asset은 HTML head에서 참조할 수 있는 public URL이 아닙니다. favicon 파일을 <code>web/</code>에 넣으세요.</li>
+<li><strong>중복 링크를 남겨 두는 것:</strong> 플러그인이 생성한 tag까지 포함해 모든 <code>rel='icon'</code> 항목을 검색하고, 의도적으로 구성한 하나의 icon stack만 유지해야 합니다.</li>
+<li><strong>base path를 무시하는 것:</strong> <code>/portal/icons/favicon.svg</code>가 404를 반환한다면 icon을 변경하기 전에 Flutter의 base path 또는 hosting rewrite를 바로잡으세요.</li>
+<li><strong>manifest만 업데이트하는 것:</strong> manifest 항목이 있다고 해서 브라우저 탭 아이콘이 보장되지는 않습니다. HTML 링크도 함께 업데이트하세요.</li>
+<li><strong>캐시된 탭만 보고 판단하는 것:</strong> 변경한 파일의 이름을 바꾸거나 URL에 version을 적용한 뒤, 더 포괄적인 <a href="/blog/favicon-not-showing.html">favicon 문제 해결 체크리스트</a>를 따르세요.</li>
+</ul>
+<h2>결론</h2>
+<p>Flutter web favicon은 source 파일이 <code>web/</code>에 있고, HTML에 정돈된 icon stack 하나만 들어가 있으며, manifest 경로가 동일한 asset과 일치하고, production build에서 참조된 모든 파일을 제공할 때 준비된 것입니다. 이러한 구조는 Dart rendering과 브라우저 탭 아이콘을 분리하면서도 deployment에 각 아이콘의 예측 가능한 URL을 부여합니다.</p></template>
+        <template data-article-lang="es"><p>Si tu app Flutter Web todavía muestra el icono predeterminado de Flutter en la pestaña del navegador, la solución normalmente está en <code>web/index.html</code>, no en un widget de Dart. El favicon de Flutter Web es una imagen estática que el navegador solicita por separado de la interfaz de tu aplicación.</p>
+<p>Deberás enlazar esa imagen desde el shell web de Flutter, mantener separadas las imágenes del manifiesto de la aplicación web y, después, recompilar la salida estática. No hace falta modificar ningún archivo de Dart.</p>
+<h2>Requisitos previos</h2>
+<ul>
+<li>Comprueba que Web esté habilitado y que tu Flutter SDK pueda apuntar a Chrome. Ejecuta <code>flutter doctor</code> antes de modificar los assets.</li>
+<li>Prepara una imagen fuente cuadrada con una silueta sencilla. Los detalles pequeños suelen desaparecer al tamaño de una pestaña; consulta la <a href="/blog/favicon-sizes-guide.html">guía de tamaños de favicon</a> antes de exportar.</li>
+<li>Ten en cuenta la ruta base del despliegue: la raíz o un subdirectorio como <code>/portal/</code>. Esto afecta a la forma en que se resuelven las URL relativas de los iconos.</li>
+</ul>
+<h2>Añade un favicon para Flutter Web en seis pasos</h2><ol>
+<li>
+<h3>Revisa el archivo de entrada web de Flutter</h3>
+<p>Abre <code>web/index.html</code> y busca <code>rel='icon'</code>. La plantilla de Flutter puede que ya incluya un enlace a un icono predeterminado, así que sustituye esa referencia en lugar de dejar dos conjuntos de enlaces de iconos compitiendo.</p>
+<p>Abre también <code>web/manifest.json</code>. Su array <code>icons</code> proporciona las imágenes de la aplicación web instalada, pero no sustituye el enlace de la pestaña del navegador que añadirás a continuación.</p>
+</li>
+<li>
+<h3>Prepara los archivos estáticos del icono</h3>
+<p>Crea un conjunto de iconos cuadrados con <a href="/">Mzu favicondl</a>. Exporta un SVG, PNG de 16 y 32 píxeles, un ICO multirresolución, una imagen Apple touch de 180 píxeles y PNG de 192 y 512 píxeles para el manifest.</p>
+<p>Coloca los archivos en <code>web/icons/</code> para que Flutter los copie junto con el resto de los assets web estáticos:</p>
+<pre><code>web/
+├── index.html
+├── manifest.json
+└── icons/
+    ├── favicon.svg
+    ├── favicon-16.png
+    ├── favicon-32.png
+    ├── favicon.ico
+    ├── apple-touch-icon.png
+    ├── icon-192.png
+    └── icon-512.png</code></pre>
+</li>
+<li>
+<h3>Añade los enlaces del icono al head de HTML</h3>
+<p>El <a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">estándar HTML</a> asocia un recurso de icono con <code>rel='icon'</code>. Añade dentro del elemento <code>&lt;head&gt;</code> de <code>web/index.html</code> un conjunto de enlaces de icono bien definido:</p>
+<pre><code>&lt;link rel='icon' type='image/svg+xml' href='icons/favicon.svg'&gt;
+&lt;link rel='icon' type='image/png' sizes='32x32' href='icons/favicon-32.png'&gt;
+&lt;link rel='icon' type='image/png' sizes='16x16' href='icons/favicon-16.png'&gt;
+&lt;link rel='icon' href='icons/favicon.ico'&gt;
+&lt;link rel='apple-touch-icon' href='icons/apple-touch-icon.png'&gt;</code></pre>
+<p>Elimina los enlaces de iconos antiguos de la plantilla y mantén aparte la entrada Apple touch, porque corresponde a una superficie de visualización diferente.</p>
+</li>
+<li>
+<h3>Actualiza el manifest de la aplicación web</h3>
+<p>Para una aplicación web de Flutter instalada como PWA, comprueba que <code>web/index.html</code> contenga <code>&lt;link rel='manifest' href='manifest.json'&gt;</code>. Si falta, añade el enlace dentro del head y actualiza el array <code>icons</code> existente en <code>web/manifest.json</code>. Mantén sin cambios las demás claves del manifest.</p>
+<pre><code>[
+  {
+    "src": "icons/icon-192.png",
+    "sizes": "192x192",
+    "type": "image/png"
+  },
+  {
+    "src": "icons/icon-512.png",
+    "sizes": "512x512",
+    "type": "image/png"
+  }
+]</code></pre>
+<p>Estos archivos cubren las superficies de visualización de las aplicaciones instaladas; no sustituyen los enlaces <code>rel='icon'</code> explícitos de la estructura HTML.</p>
+</li>
+<li>
+<h3>Compila e inspecciona el output de producción</h3>
+<p>Compila el sitio de producción:</p>
+<pre><code>flutter build web --release</code></pre>
+<p>Inspecciona <code>build/web/index.html</code> y <code>build/web/icons/</code>. El index compilado debería contener los nuevos enlaces y todos los archivos referenciados deberían estar presentes.</p>
+<p>Si la aplicación se sirve desde un subdirectorio, compílala con el mismo base path que espera tu host:</p>
+<pre><code>flutter build web --release --base-href=/portal/</code></pre>
+<p>Las rutas relativas, como <code>icons/favicon.svg</code>, se resolverán entonces respecto de esa base URL generada.</p>
+</li>
+<li>
+<h3>Comprueba la petición en las herramientas de desarrollo del navegador</h3>
+<p>Sirve localmente el output de producción:</p>
+<pre><code>python3 -m http.server 8000 --directory build/web</code></pre>
+<p>Abre <code>http://localhost:8000</code>. En las herramientas de desarrollo del navegador, confirma que los enlaces están en el document head. En el panel Network, filtra por <code>favicon</code>, desactiva la caché, recarga la página y verifica que la petición del icono devuelve <code>200</code>.</p>
+<p>Repite la comprobación de la petición en la URL HTTPS desplegada, porque la carpeta local puede estar correcta mientras el host utiliza un base path diferente o bloquea el asset.</p>
+</li>
+</ol><h2>Errores comunes</h2>
+<ul>
+<li><strong>Editar el archivo equivocado:</strong> Modifica <code>web/index.html</code>, no <code>build/web/index.html</code>; la siguiente compilación reemplaza el output generado.</li>
+<li><strong>Usar assets de Flutter para el enlace:</strong> Un asset empaquetado no es una URL pública en el head del HTML. Coloca los archivos favicon en <code>web/</code>.</li>
+<li><strong>Dejar enlaces duplicados:</strong> Busca todas las entradas <code>rel='icon'</code>, incluidas las etiquetas generadas por plugins, y conserva una única pila de iconos deliberada.</li>
+<li><strong>Ignorar la ruta base:</strong> Si <code>/portal/icons/favicon.svg</code> devuelve 404, corrige la ruta base de Flutter o la regla de reescritura del hosting antes de cambiar el icono.</li>
+<li><strong>Actualizar solo el manifest:</strong> Las entradas del manifest no garantizan el icono de la pestaña del navegador. Actualiza también los enlaces del HTML.</li>
+<li><strong>Juzgar por una pestaña con la caché:</strong> Renombra el archivo modificado o versiona su URL y consulta la lista más completa de <a href="/blog/favicon-not-showing.html">solución de problemas con el favicon</a>.</li>
+</ul>
+<h2>Conclusión</h2>
+<p>Un favicon para Flutter web estará listo cuando los archivos de origen estén en <code>web/</code>, el HTML contenga una única pila de iconos limpia, las rutas del manifest coincidan con esos mismos assets y la compilación de producción sirva todos los archivos referenciados. Esta estructura mantiene el icono de la pestaña del navegador separado del renderizado de Dart y proporciona al despliegue una URL predecible para cada icono.</p></template>
+
+        <div class="cta-box">
+            <h3 data-en="Create a clean Flutter Web favicon set" data-zh="生成清晰的 Flutter Web favicon 图标包" data-ja="Flutter Web用faviconを一括で作成" data-ko="Flutter Web용 favicon 세트 만들기" data-es="Crea un set de favicons limpio para Flutter Web">Create a clean Flutter Web favicon set</h3>
+            <p data-en="Use Mzu favicondl to convert a square source mark into SVG, PNG, ICO, and installable app icons for your Flutter project." data-zh="用 Mzu favicondl 将方形源图转换为 SVG、PNG 和 ICO，并准备 Flutter 项目所需的移动端与应用图标。" data-ja="Mzu favicondl で正方形の元画像を SVG、PNG、ICO に変換し、Flutter プロジェクト用の各種アイコンをまとめて用意できます。" data-ko="Mzu favicondl로 정사각형 원본 이미지를 SVG, PNG, ICO로 변환하고 Flutter 프로젝트에 필요한 아이콘을 준비하세요." data-es="Usa Mzu favicondl para convertir una imagen cuadrada en SVG, PNG e ICO y preparar los iconos de tu proyecto Flutter.">Use Mzu favicondl to convert a square source mark into SVG, PNG, ICO, and installable app icons for your Flutter project.</p>
+            <a href="/" class="cta-btn" data-en="Try It Free →" data-zh="免费试用 →" data-ja="無料で試す →" data-ko="무료로 사용해보기 →" data-es="Pruébalo gratis →">Try It Free →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Home" data-zh="首页">Home</a>
+                <a href="/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Blog" data-zh="博客">Blog</a>
+                <a href="/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Privacy" data-zh="隐私政策">Privacy</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js?v=20260211"></script>
+
+</body></html>

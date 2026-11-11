@@ -4291,5 +4291,26 @@
     ],
     "qualityScore": 95,
     "qualityGrade": "A"
+  },
+  {
+    "slug": "flutter-web-favicon",
+    "publishDate": "2026-11-11",
+    "titleEn": "Flutter Web Favicon Setup: A Step-by-Step Guide for Apps",
+    "titleZh": "Flutter Web Favicon 设置指南",
+    "titleJa": "Flutter Webのfaviconを正しく設定する",
+    "titleKo": "Flutter Web favicon 설정 가이드",
+    "titleEs": "Configura el favicon de Flutter Web paso a paso",
+    "descEn": "Add or replace a Flutter web favicon through web/index.html, prepare PNG, ICO, and SVG assets, then verify the built site and deployment paths.",
+    "descZh": "使用 web/index.html、SVG、PNG 和 ICO 为 Flutter Web 应用添加 favicon，并检查构建产物与部署路径。",
+    "descJa": "web/index.html と SVG、PNG、ICO を使い、Flutter Web アプリに favicon を追加して、ビルドと公開先のパスを確認します。",
+    "descKo": "web/index.html과 SVG, PNG, ICO를 사용해 Flutter Web 앱에 favicon을 추가하고 빌드 및 배포 경로를 확인하세요.",
+    "descEs": "Añade un favicon a tu app Flutter Web con web/index.html, SVG, PNG e ICO; luego verifica la compilación y las rutas de despliegue.",
+    "keyword": "flutter web favicon",
+    "tags": [
+      "framework",
+      "mobile"
+    ],
+    "qualityScore": 100,
+    "qualityGrade": "A"
   }
 ]
