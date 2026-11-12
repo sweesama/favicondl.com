@@ -4313,5 +4313,26 @@
     ],
     "qualityScore": 100,
     "qualityGrade": "A"
+  },
+  {
+    "slug": "fastapi-favicon",
+    "publishDate": "2026-11-12",
+    "titleEn": "FastAPI Favicon: Serve Site Icons the Right Way",
+    "titleZh": "FastAPI Favicon：正确提供网站图标的完整指南",
+    "titleJa": "FastAPI favicon：正しい配信方法と設定ガイド",
+    "titleKo": "FastAPI favicon: 올바른 아이콘 제공 방법",
+    "titleEs": "FastAPI favicon: cómo servir el icono correctamente",
+    "descEn": "Learn how to add a fastapi favicon using StaticFiles, custom routes, and proper HTML link tags. Step-by-step guide with code examples and pitfalls.",
+    "descZh": "学习如何使用 StaticFiles、自定义路由和正确的 HTML 链接标签为 FastAPI 添加 favicon。包含代码示例和常见陷阱的分步指南。",
+    "descJa": "StaticFiles、カスタムルート、正しい HTML リンクタグを使って FastAPI に favicon を追加する方法を解説。コード例と注意点を含むステップバイステップガイドです。",
+    "descKo": "StaticFiles, 사용자 정의 라우트, 올바른 HTML 링크 태그를 사용하여 FastAPI에 favicon을 추가하는 방법을 배우세요. 코드 예제와 주의사항이 포함된 단계별 가이드입니다.",
+    "descEs": "Aprende a añadir un favicon a FastAPI usando StaticFiles, rutas personalizadas y etiquetas HTML correctas. Guía paso a paso con ejemplos de código.",
+    "keyword": "fastapi favicon",
+    "tags": [
+      "python",
+      "framework"
+    ],
+    "qualityScore": 80,
+    "qualityGrade": "A"
   }
 ]

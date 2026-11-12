@@ -1,0 +1,239 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FastAPI Favicon: Serve Site Icons the Right Way</title>
+    <meta name="description" content="Learn how to add a fastapi favicon using StaticFiles, custom routes, and proper HTML link tags. Step-by-step guide with code examples and pitfalls.">
+    <meta name="keywords" content="fastapi favicon, favicon fastapi, serve favicon, staticfiles favicon">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/blog/fastapi-favicon.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/fastapi-favicon.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/fastapi-favicon.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/fastapi-favicon.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/fastapi-favicon.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/fastapi-favicon.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/fastapi-favicon.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/blog/fastapi-favicon.html">
+    <meta property="og:title" content="FastAPI Favicon: Serve Site Icons the Right Way">
+    <meta property="og:description" content="Learn how to add a fastapi favicon using StaticFiles, custom routes, and proper HTML link tags. Step-by-step guide with code examples and pitfalls.">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="FastAPI Favicon: Serve Site Icons the Right Way">
+    <meta name="twitter:description" content="Learn how to add a fastapi favicon using StaticFiles, custom routes, and proper HTML link tags. Step-by-step guide with code examples and pitfalls.">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "FastAPI Favicon: Serve Site Icons the Right Way",
+  "description": "Learn how to add a fastapi favicon using StaticFiles, custom routes, and proper HTML link tags. Step-by-step guide with code examples and pitfalls.",
+  "datePublished": "2026-11-12",
+  "dateModified": "2026-11-12",
+  "author": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "mainEntityOfPage": "https://favicondl.com/blog/fastapi-favicon.html",
+  "inLanguage": "en"
+}</script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/documentation.html" class="nav-link" data-en="Docs" data-zh="文档">Docs</a>
+                <a href="/tools.html" class="nav-link" data-en="Tools" data-zh="工具">Tools</a>
+                <a href="/blog/" class="nav-link" data-en="Blog" data-zh="博客">Blog</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/fastapi-favicon.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/fastapi-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/fastapi-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/fastapi-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/fastapi-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600" data-en="FastAPI Favicon: Serve Site Icons the Right Way" data-zh="FastAPI Favicon：正确提供网站图标的完整指南" data-ja="FastAPI favicon：正しい配信方法と設定ガイド" data-ko="FastAPI favicon: 올바른 아이콘 제공 방법" data-es="FastAPI favicon: cómo servir el icono correctamente">FastAPI Favicon: Serve Site Icons the Right Way</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">python</span><time class="text-sm text-gray-400">2026-11-12</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight" data-en="FastAPI Favicon: Serve Site Icons the Right Way" data-zh="FastAPI Favicon：正确提供网站图标的完整指南" data-ja="FastAPI favicon：正しい配信方法と設定ガイド" data-ko="FastAPI favicon: 올바른 아이콘 제공 방법" data-es="FastAPI favicon: cómo servir el icono correctamente">FastAPI Favicon: Serve Site Icons the Right Way</h1>
+        </header>
+
+        <div class="article-body" data-lang="en">
+            <p>You have a FastAPI app running, the API docs look great, but the browser tab still shows a blank square or the default globe icon. This is a common issue: FastAPI does not automatically serve a favicon, and unlike Flask or Django, it has no built-in convention for one. The fix is straightforward once you know where to put the file and how to expose it.</p><p>In this guide, we will walk through the exact steps to serve a <strong>fastapi favicon</strong> using StaticFiles, a dedicated route, or a template tag. We will also cover the HTML markup that makes browsers pick up the icon reliably, plus the pitfalls that cause 404s and stale icons.</p><h2>Prerequisites</h2><p>Before you start, make sure you have:</p><ul><li>A working FastAPI project (any version that supports <code>StaticFiles</code>, which is all modern versions).</li><li>A favicon file ready. You can use an ICO, PNG, or SVG. If you need to create one, see our <a href="/blog/how-to-add-favicon-to-website.html">HTML favicon guide</a> or generate a multi-size ICO with <a href="/">Mzu favicondl</a>.</li><li>Basic familiarity with FastAPI routing and Jinja2 templates (if you serve HTML).</li></ul><h2>Step 1: Place the favicon file in a static directory</h2><p>Create a folder named <code>static</code> at the root of your project (or anywhere you prefer). Put your favicon file inside it. For maximum compatibility, name it <code>favicon.ico</code> and also include a PNG or SVG version if you have one.</p><pre><code>myproject/
+├── main.py
+├── static/
+│   └── favicon.ico
+└── templates/
+    └── index.html</code></pre><p>If you only have a PNG, that works too—just reference it correctly in the HTML. The ICO format is still requested by browsers when no link tag is present, so having <code>/favicon.ico</code> available avoids a 404 in the console.</p><h2>Step 2: Mount StaticFiles in your FastAPI app</h2><p>FastAPI uses Starlette's <code>StaticFiles</code> to serve static assets. Add this to your <code>main.py</code>:</p><pre><code>from fastapi import FastAPI
+from fastapi.staticfiles import StaticFiles
+
+app = FastAPI()
+
+app.mount('/static', StaticFiles(directory='static'), name='static')</code></pre><p>This makes any file in <code>static/</code> available at <code>/static/filename</code>. So your favicon will be at <code>/static/favicon.ico</code>.</p><h2>Step 3: Add the link tag in your HTML</h2><p>If you serve HTML templates (using Jinja2Templates), add the favicon link inside the <code>&lt;head&gt;</code> of your base template. The <code>rel</code> attribute must be <code>icon</code> according to the <a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon" target="_blank" rel="noopener">HTML specification</a>.</p><pre><code>&lt;link rel='icon' type='image/x-icon' href='/static/favicon.ico'&gt;</code></pre><p>If you also have an SVG or PNG, include them with appropriate <code>type</code> attributes. Browsers will pick the best supported format. For a deeper dive into link tag order, see our <a href="/blog/favicon-link-tag.html">favicon link tag guide</a>.</p><h2>Step 4: Serve /favicon.ico directly (optional but recommended)</h2><p>Browsers and some tools still request <code>/favicon.ico</code> at the root even if you have a link tag. To avoid a 404, you can add a dedicated route that returns the file:</p><pre><code>from fastapi import FastAPI
+from fastapi.responses import FileResponse
+
+app = FastAPI()
+
+@app.get('/favicon.ico', include_in_schema=False)
+async def favicon():
+    return FileResponse('static/favicon.ico')</code></pre><p>The <code>include_in_schema=False</code> keeps it out of the auto-generated docs. This route is especially useful for API-only apps that do not serve HTML but still want a clean network tab.</p><h2>Step 5: Verify the setup</h2><p>Start your server and open the app in a browser. Check the network tab: the favicon request should return 200. If you see a 404, confirm the file path and that the mount point matches the URL in your link tag. You can also use a favicon checker tool to audit the icon across browsers.</p><h2>Common pitfalls</h2><ul><li><strong>Wrong mount path:</strong> If you mount StaticFiles at <code>/static</code>, the URL must be <code>/static/favicon.ico</code>, not <code>/favicon.ico</code>.</li><li><strong>Missing file:</strong> FastAPI will return a 404 if the file does not exist in the directory. Double-check the filename and extension.</li><li><strong>Cache issues:</strong> Browsers cache favicons aggressively. After updating, do a hard refresh or clear the favicon cache. See our <a href="/blog/favicon-cache-clear.html">cache clearing guide</a>.</li><li><strong>SVG without proper MIME type:</strong> If you serve an SVG favicon, ensure the server sends <code>image/svg+xml</code>. StaticFiles usually handles this, but some custom routes may not.</li><li><strong>Template path errors:</strong> If using Jinja2, make sure the <code>href</code> is an absolute path starting with <code>/</code> or use <code>url_for</code> to generate it.</li></ul><h2>Conclusion</h2><p>Serving a favicon in FastAPI is a matter of placing the file, mounting a static directory, and adding the correct link tag. For API-only apps, a simple route for <code>/favicon.ico</code> keeps logs clean. Once set up, your app will show a proper icon in browser tabs, bookmarks, and history—no more blank squares.</p>
+        </div>
+
+        <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
+        <template data-article-lang="zh"><p>你的 FastAPI 应用已经运行起来，API 文档也很漂亮，但浏览器标签页里仍是一个空白方框，或者默认的地球图标。这个问题很常见：FastAPI 不会自动提供 favicon，也不像 Flask 或 Django 那样内置相关约定。只要清楚该把文件放在哪里，以及如何对外提供它，解决起来并不复杂。</p>
+<p>本文会一步步介绍如何通过 StaticFiles、独立路由或 template tag 来提供 fastapi favicon。我们还会说明哪些 HTML 标记能让浏览器稳定识别图标，并梳理那些容易引发 404 或图标未刷新的问题。</p>
+<h2>前提条件</h2>
+<p>开始之前，请确认你具备以下条件：</p>
+<ul><li>一个可以正常运行的 FastAPI 项目（版本需支持 <code>StaticFiles</code>，所有现代版本都支持）。</li><li>准备好的 favicon 文件。可以使用 ICO、PNG 或 SVG。如果需要制作，可参考我们的 <a href="/blog/how-to-add-favicon-to-website.html">HTML favicon 指南</a>，或使用 <a href="/">Mzu favicondl</a> 生成包含多种尺寸的 ICO。</li><li>基本了解 FastAPI 路由；如果需要提供 HTML，还应了解 Jinja2 模板。</li></ul>
+<h2>步骤 1：将 favicon 文件放入静态目录</h2>
+<p>在项目根目录下创建一个名为 <code>static</code> 的文件夹（放在其他位置也可以），再把 favicon 文件放进去。为了尽可能兼容不同浏览器，将其命名为 <code>favicon.ico</code>；如果还有 PNG 或 SVG 版本，也一并保留。</p>
+<pre><code>myproject/
+├── main.py
+├── static/
+│   └── favicon.ico
+└── templates/
+    └── index.html</code></pre>
+<p>如果手头只有 PNG 也能使用，只需在 HTML 中正确引用。浏览器在没有 link 标签时仍会请求 ICO 格式，因此让 <code>/favicon.ico</code> 可访问，可以避免控制台出现 404。</p>
+<h2>步骤 2：在 FastAPI 应用中挂载 StaticFiles</h2>
+<p>FastAPI 使用 Starlette 的 <code>StaticFiles</code> 提供静态资源。在 <code>main.py</code> 中加入以下代码：</p>
+<pre><code>from fastapi import FastAPI
+from fastapi.staticfiles import StaticFiles
+
+app = FastAPI()
+
+app.mount('/static', StaticFiles(directory='static'), name='static')</code></pre>
+<p>这样，<code>static/</code> 下的任何文件都可以通过 <code>/static/filename</code> 访问。因此，你的 favicon 路径是 <code>/static/favicon.ico</code>。</p>
+<h2>步骤 3：在 HTML 中添加 link 标签</h2><p>如果你的应用会提供 HTML 模板（使用 Jinja2Templates），请在基础模板的 <code>&lt;head&gt;</code> 中添加 favicon link。按照 <a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon" target="_blank" rel="noopener">HTML 规范</a>，<code>rel</code> 属性必须设为 <code>icon</code>。</p><pre><code>&lt;link rel='icon' type='image/x-icon' href='/static/favicon.ico'&gt;</code></pre><p>如果还准备了 SVG 或 PNG 版本，请为它们分别设置合适的 <code>type</code> 属性。浏览器会自动选择受支持的最佳格式。想进一步了解 link 标签的排列顺序，可以阅读我们的 <a href="/blog/favicon-link-tag.html">favicon link 标签指南</a>。</p><h2>第 4 步：直接提供 /favicon.ico（可选，但推荐）</h2><p>即使页面中已有 link 标签，浏览器和某些工具仍会请求根路径下的 <code>/favicon.ico</code>。为避免出现 404，可以添加一个专门返回该文件的路由：</p><pre><code>from fastapi import FastAPI
+from fastapi.responses import FileResponse
+
+app = FastAPI()
+
+@app.get('/favicon.ico', include_in_schema=False)
+async def favicon():
+    return FileResponse('static/favicon.ico')</code></pre><p><code>include_in_schema=False</code> 可以避免该路由出现在自动生成的文档中。对于不提供 HTML、但仍希望 Network 面板保持整洁的纯 API 应用，这个路由尤其有用。</p><h2>第 5 步：验证配置</h2><p>启动服务器，然后在浏览器中打开应用。查看 Network 面板，favicon 请求应返回 200。如果看到 404，请确认文件路径正确，并且挂载点与 link 标签中的 URL 一致。你也可以使用 favicon 检查工具，审查图标在不同浏览器中的表现。</p><h2>常见陷阱</h2><ul><li><strong>挂载路径错误：</strong>如果将 <code>StaticFiles</code> 挂载到 <code>/static</code>，URL 必须是 <code>/static/favicon.ico</code>，而不是 <code>/favicon.ico</code>。</li><li><strong>文件缺失：</strong>如果目录中不存在该文件，FastAPI 会返回 404。请再次确认文件名和扩展名。</li><li><strong>缓存问题：</strong>浏览器会大量缓存 favicon。更新后，请执行强制刷新或清除 favicon 缓存。请参阅我们的<a href="/blog/favicon-cache-clear.html">缓存清理指南</a>。</li><li><strong>SVG 的 MIME type 不正确：</strong>如果提供 SVG favicon，请确保服务器发送 <code>image/svg+xml</code>。<code>StaticFiles</code> 通常会正确处理，但某些自定义路由可能不会。</li><li><strong>模板路径错误：</strong>如果使用 Jinja2，请确保 <code>href</code> 是以 <code>/</code> 开头的绝对路径，或使用 <code>url_for</code> 生成路径。</li></ul><h2>结论</h2><p>在 FastAPI 中提供 favicon，只需放置文件、挂载静态目录并添加正确的 link tag。对于仅提供 API 的应用，为 <code>/favicon.ico</code> 设置一个简单路由即可保持日志整洁。配置完成后，你的应用会在浏览器标签页、书签和历史记录中显示正确的图标——不再出现空白方块。</p></template>
+        <template data-article-lang="ja"><p>FastAPI アプリを動かしていて、API ドキュメントはきれいに表示されているのに、ブラウザーのタブには空の四角やデフォルトの地球アイコンが表示されたままという状態かもしれません。これはよくある問題です。FastAPI は favicon を自動的に配信せず、Flask や Django のように favicon 用の built-in convention もありません。ファイルの置き場所と公開方法を知っていれば、対処は簡単です。</p><p>このガイドでは、StaticFiles、専用の route、または template tag を使って <strong>fastapi favicon</strong> を配信する具体的な手順を説明します。ブラウザーが icon を確実に取得できるようにする HTML markup も扱います。また、404 や古い icon を招く落とし穴も取り上げます。</p><h2>前提条件</h2><p>始める前に、次のものを用意してください。</p><ul><li>動作する FastAPI project（<code>StaticFiles</code> をサポートするバージョン。現代のバージョンではすべて対応しています）。</li><li>用意済みの favicon file。ICO、PNG、SVG のいずれかを使えます。作成が必要なら、<a href="/blog/how-to-add-favicon-to-website.html">HTML favicon ガイド</a>を参照するか、<a href="/">Mzu favicondl</a>で複数サイズの ICO を生成してください。</li><li>FastAPI の routing と Jinja2 templates の基本的な知識（HTML を配信する場合）。</li></ul><h2>手順1: favicon ファイルを static ディレクトリに配置する</h2><p>プロジェクトのルート（または好きな場所）に <code>static</code> という名前のフォルダを作成します。その中に favicon ファイルを配置してください。互換性を最大限高めるには、<code>favicon.ico</code> という名前にし、PNG や SVG のバージョンもあれば併せて配置してください。</p><pre><code>myproject/
+├── main.py
+├── static/
+│   └── favicon.ico
+└── templates/
+    └── index.html</code></pre><p>PNG しかない場合も、正しく HTML で参照すれば動作します。link tag がない場合でもブラウザーは ICO format を引き続きリクエストするため、<code>/favicon.ico</code> を用意しておけば、console に 404 が出るのを避けられます。</p><h2>手順2: FastAPI app に StaticFiles を mount する</h2><p>FastAPI は Starlette の <code>StaticFiles</code> を使って static assets を配信します。<code>main.py</code> に次を追加します：</p><pre><code>from fastapi import FastAPI
+from fastapi.staticfiles import StaticFiles
+
+app = FastAPI()
+
+app.mount('/static', StaticFiles(directory='static'), name='static')</code></pre><p>これにより、<code>static/</code> 内のすべてのファイルを <code>/static/filename</code> で配信できます。したがって、favicon は <code>/static/favicon.ico</code> に配置されます。</p><h2>手順3: HTML に link tag を追加する</h2><p>HTMLテンプレート（Jinja2Templatesを使用）を配信する場合は、ベーステンプレートの<code>&lt;head&gt;</code>内にfaviconのlinkを追加してください。<code>rel</code>属性は、<a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon" target="_blank" rel="noopener">HTML specification</a>によると<code>icon</code>でなければなりません。</p><pre><code>&lt;link rel='icon' type='image/x-icon' href='/static/favicon.ico'&gt;</code></pre><p>SVGやPNGも用意している場合は、適切な<code>type</code>属性を付けて指定します。ブラウザーはサポートされている形式のうち最適なものを選びます。link tagの順序については、さらに詳しく<a href="/blog/favicon-link-tag.html">favicon link tag guide</a>を参照してください。</p><h2>Step 4: /favicon.icoを直接配信する（任意ですが推奨）</h2><p>link tagがあっても、ブラウザーや一部のツールは依然としてルートで<code>/favicon.ico</code>をリクエストします。404を避けるには、ファイルを返す専用routeを追加できます。</p><pre><code>from fastapi import FastAPI
+from fastapi.responses import FileResponse
+
+app = FastAPI()
+
+@app.get('/favicon.ico', include_in_schema=False)
+async def favicon():
+    return FileResponse('static/favicon.ico')</code></pre><p><code>include_in_schema=False</code>を指定すると、自動生成されるドキュメントから除外されます。このルートは、HTMLを配信しないAPI-only appでも、Networkタブをきれいに保ちたい場合に特に便利です。</p><h2>Step 5: セットアップを確認する</h2><p>サーバーを起動して、ブラウザーでアプリを開きます。Networkタブを確認し、faviconのリクエストが200を返すことを確認してください。404が表示される場合は、file pathと、link tagのURLに一致するmount pointを確認してください。また、favicon checker toolを使って、ブラウザー間でiconを監査することもできます。</p><h2>よくある落とし穴</h2><ul><li><strong>Mount pathの誤り：</strong> StaticFilesを<code>/static</code>にマウントする場合、URLは<code>/favicon.ico</code>ではなく<code>/static/favicon.ico</code>にする必要があります。</li><li><strong>ファイルの欠落：</strong> 対象のディレクトリにファイルが存在しない場合、FastAPIは404を返します。ファイル名と拡張子を再度確認してください。</li><li><strong>キャッシュの問題：</strong> ブラウザはfaviconを非常に強くキャッシュします。更新後はハードリロードするか、faviconのキャッシュをクリアしてください。<a href="/blog/favicon-cache-clear.html">キャッシュクリアガイド</a>も参照してください。</li><li><strong>適切なMIME typeが設定されていないSVG：</strong> SVGのfaviconを配信する場合、サーバーが<code>image/svg+xml</code>を返すようにしてください。StaticFilesは通常この処理を行いますが、一部のcustom routeでは処理されないことがあります。</li><li><strong>Template pathの誤り：</strong> Jinja2を使用する場合、<code>href</code>が<code>/</code>で始まる絶対パスになっているか、<code>url_for</code>で生成してください。</li></ul><h2>まとめ</h2><p>FastAPIでfaviconを提供する上で必要なのは、ファイルを配置し、static directoryをマウントして、適切なlink tagを追加することです。API-only appでは、<code>/favicon.ico</code>用のsimple routeを用意すれば、logをきれいに保てます。設定が完了すると、ブラウザのタブ、ブックマーク、履歴に適切なアイコンが表示され、空欄の正方形はもう 나타나ません。</p></template>
+        <template data-article-lang="ko"><p>FastAPI 앱은 이미 실행 중이고 API 문서도 보기 좋지만, 브라우저 탭에는 여전히 빈 사각형이나 기본 지구본 아이콘이 표시됩니다. 이는 흔한 문제입니다. FastAPI는 favicon을 자동으로 제공하지 않으며, Flask나 Django와 달리 이를 위한 built-in 규약도 없습니다. 파일을 어디에 두고 어떻게 노출할지만 알면 해결할 수 있습니다.</p><p>이 가이드에서는 StaticFiles, 전용 route 또는 template tag를 사용해 <strong>fastapi favicon</strong>을 제공하는 정확한 과정을 살펴봅니다. 브라우저가 아이콘을 안정적으로 인식하도록 하는 HTML markup과 함께, 404 오류와 stale icon 문제를 일으키는 흔한 실수도 다룹니다.</p><h2>사전 준비 사항</h2><p>시작하기 전에 다음 사항을 확인하세요.</p><ul><li>작업이 가능한 FastAPI 프로젝트(<code>StaticFiles</code>를 지원하는 버전이면 되며, 모든 최신 버전이 해당합니다).</li><li>사용할 favicon 파일. ICO, PNG 또는 SVG를 사용할 수 있습니다. 직접 만들려면 <a href="/blog/how-to-add-favicon-to-website.html">HTML favicon 가이드</a>를 참고하거나, <a href="/">Mzu favicondl</a>로 여러 크기의 ICO를 생성하세요.</li><li>FastAPI routing과 Jinja2 template에 대한 기본적인 이해(HTML을 제공하는 경우).</li></ul><h2>1단계: favicon 파일을 static 디렉터리에 배치하기</h2><p>프로젝트 루트에 <code>static</code>이라는 이름의 폴더를 만듭니다(또는 원하는 위치에 만들어도 됩니다). favicon 파일을 이 폴더 안에 넣으세요. 호환성을 최대한 높이려면 파일 이름을 <code>favicon.ico</code>로 정하고, PNG나 SVG 버전이 있다면 함께 포함하세요.</p><pre><code>myproject/
+├── main.py
+├── static/
+│   └── favicon.ico
+└── templates/
+    └── index.html</code></pre><p>PNG 파일만 있는 경우에도 HTML에서 올바르게 참조하면 정상적으로 동작합니다. link tag가 없으면 브라우저는 여전히 ICO 형식을 요청하므로, <code>/favicon.ico</code>를 제공하면 console에 404 오류가 표시되지 않습니다.</p><h2>2단계: FastAPI 앱에 StaticFiles 마운트하기</h2><p>FastAPI는 static asset을 제공하기 위해 Starlette의 <code>StaticFiles</code>를 사용합니다. <code>main.py</code>에 다음 코드를 추가하세요.</p><pre><code>from fastapi import FastAPI
+from fastapi.staticfiles import StaticFiles
+
+app = FastAPI()
+
+app.mount('/static', StaticFiles(directory='static'), name='static')</code></pre><p>그러면 <code>static/</code> 안의 모든 파일을 <code>/static/filename</code> 경로에서 제공할 수 있습니다. 따라서 favicon의 경로는 <code>/static/favicon.ico</code>가 됩니다.</p><h2>3단계: HTML에 link tag 추가하기</h2><p>Jinja2Templates를 사용해 HTML template을 제공하는 경우, base template의 <code>&lt;head&gt;</code> 안에 favicon link를 추가하세요. <a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon" target="_blank" rel="noopener">HTML 명세</a>에 따르면 <code>rel</code> attribute는 <code>icon</code>이어야 합니다.</p>
+<pre><code>&lt;link rel='icon' type='image/x-icon' href='/static/favicon.ico'&gt;</code></pre>
+<p>SVG나 PNG도 함께 사용한다면 각각 적절한 <code>type</code> attribute를 지정해 포함하세요. browser는 지원하는 format 중 가장 적합한 것을 선택합니다. link tag 순서를 더 자세히 알아보려면 <a href="/blog/favicon-link-tag.html">favicon link tag guide</a>를 참고하세요.</p>
+<h2>4단계: /favicon.ico 직접 제공(선택 사항이지만 권장)</h2>
+<p>link tag를 추가했더라도 browser와 일부 도구는 여전히 root에서 <code>/favicon.ico</code>를 요청합니다. 404를 피하려면 file을 반환하는 전용 route를 추가할 수 있습니다.</p>
+<pre><code>from fastapi import FastAPI
+from fastapi.responses import FileResponse
+
+app = FastAPI()
+
+@app.get('/favicon.ico', include_in_schema=False)
+async def favicon():
+    return FileResponse('static/favicon.ico')</code></pre>
+<p><code>include_in_schema=False</code>를 지정하면 auto-generated docs에서 해당 route가 제외됩니다. 이 route는 HTML을 제공하지 않으면서도 network tab을 깔끔하게 유지하고 싶은 API-only app에 특히 유용합니다.</p>
+<h2>5단계: 설정 확인</h2>
+<p>server를 시작하고 browser에서 app을 열어 보세요. network tab을 확인하세요. favicon request가 200을 반환해야 합니다. 404가 보이면 file path를 확인하고, mount point가 link tag에 지정한 URL과 일치하는지 확인하세요. browser 전반에서 icon을 점검하려면 favicon checker tool을 사용할 수도 있습니다.</p>
+<h2>흔한 함정</h2><ul><li><strong>잘못된 mount path:</strong> StaticFiles를 <code>/static</code>에 mount하는 경우 URL은 <code>/favicon.ico</code>가 아니라 <code>/static/favicon.ico</code>여야 합니다.</li><li><strong>파일 누락:</strong> 파일이 디렉터리에 존재하지 않으면 FastAPI는 404를 반환합니다. 파일명과 확장자를 다시 확인하십시오.</li><li><strong>캐시 문제:</strong> 브라우저는 favicon을 적극적으로 캐시합니다. favicon을 업데이트한 뒤에는 hard refresh를 하거나 favicon 캐시를 지우십시오. 자세한 내용은 <a href="/blog/favicon-cache-clear.html">캐시 삭제 가이드</a>를 참고하십시오.</li><li><strong>올바른 MIME type이 없는 SVG:</strong> SVG favicon을 제공할 때 서버가 <code>image/svg+xml</code>을 전송하는지 확인해야 합니다. StaticFiles는 일반적으로 이를 처리하지만, 일부 custom route에서는 처리하지 않을 수 있습니다.</li><li><strong>Template 경로 오류:</strong> Jinja2를 사용하는 경우 <code>href</code>이 <code>/</code>로 시작하는 absolute path인지 확인하거나, <code>url_for</code>를 사용해 생성하십시오.</li></ul><h2>결론</h2><p>FastAPI에서 favicon을 제공하는 것은 파일을 배치하고 static 디렉터리를 mount한 다음 올바른 link tag를 추가하는 것으로 해결할 수 있습니다. API 전용 앱이라면 <code>/favicon.ico</code>를 위한 간단한 route를 추가해 로그를 깔끔하게 유지할 수 있습니다. 설정이 끝나면 브라우저 탭, 북마크, 기록에 앱의 아이콘이 정상적으로 표시되어 더 이상 빈 사각형이 나타나지 않습니다.</p></template>
+        <template data-article-lang="es"><p>Tienes una aplicación FastAPI en funcionamiento y la documentación de la API se ve muy bien, pero la pestaña del navegador sigue mostrando un cuadrado vacío o el icono predeterminado del globo. Es un problema habitual: FastAPI no sirve automáticamente un favicon y, a diferencia de Flask o Django, no incluye una convención integrada para él. La solución es sencilla cuando sabes dónde colocar el archivo y cómo exponerlo.</p><p>En esta guía te mostraremos los pasos exactos para servir un <strong>fastapi favicon</strong> usando StaticFiles, una ruta dedicada o una etiqueta de plantilla. También explicaremos el marcado HTML que hace que los navegadores detecten el icono de forma fiable, además de los errores que provocan 404 e iconos obsoletos.</p><h2>Requisitos previos</h2><p>Antes de empezar, asegúrate de tener:</p><ul><li>Un proyecto FastAPI que funcione (cualquier versión compatible con <code>StaticFiles</code>, es decir, todas las versiones modernas).</li><li>Un archivo favicon listo. Puedes usar un ICO, PNG o SVG. Si necesitas crear uno, consulta nuestra <a href="/blog/how-to-add-favicon-to-website.html">guía de favicon en HTML</a> o genera un ICO de varios tamaños con <a href="/">Mzu favicondl</a>.</li><li>Familiaridad básica con el enrutamiento de FastAPI y las plantillas Jinja2 (si sirves HTML).</li></ul><h2>Paso 1: Coloca el archivo favicon en un directorio estático</h2><p>Crea una carpeta llamada <code>static</code> en la raíz de tu proyecto (o donde prefieras). Coloca dentro el archivo favicon. Para máxima compatibilidad, ponle el nombre <code>favicon.ico</code> y, si tienes una versión PNG o SVG, inclúyela también.</p><pre><code>myproject/
+├── main.py
+├── static/
+│   └── favicon.ico
+└── templates/
+    └── index.html</code></pre><p>Si solo tienes un PNG, también funciona; basta con referenciarlo correctamente en el HTML. El formato ICO sigue siendo solicitado por los navegadores cuando no está presente una etiqueta link, por lo que tener <code>/favicon.ico</code> disponible evita un 404 en la consola.</p><h2>Paso 2: Monta StaticFiles en tu aplicación FastAPI</h2><p>FastAPI utiliza <code>StaticFiles</code> de Starlette para servir archivos estáticos. Añade lo siguiente a tu <code>main.py</code>:</p><pre><code>from fastapi import FastAPI
+from fastapi.staticfiles import StaticFiles
+
+app = FastAPI()
+
+app.mount('/static', StaticFiles(directory='static'), name='static')</code></pre><p>Esto hace que cualquier archivo de <code>static/</code> esté disponible en <code>/static/filename</code>. Por tanto, tu favicon estará en <code>/static/favicon.ico</code>.</p><h2>Paso 3: Añade la etiqueta link en tu HTML</h2><p>Si sirves plantillas HTML (usando <code>Jinja2Templates</code>), incluye el enlace al favicon dentro del <code>&lt;head&gt;</code> de tu plantilla base. El atributo <code>rel</code> debe tener el valor <code>icon</code>, según la <a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon" target="_blank" rel="noopener">especificación HTML</a>.</p><pre><code>&lt;link rel='icon' type='image/x-icon' href='/static/favicon.ico'&gt;</code></pre><p>Si también tienes un SVG o PNG, inclúyelos con los atributos <code>type</code> correspondientes. Los navegadores seleccionarán el formato mejor compatible. Para profundizar en el orden de los link tags, consulta nuestra <a href="/blog/favicon-link-tag.html">guía sobre el link tag del favicon</a>.</p><h2>Paso 4: Sirve /favicon.ico directamente (opcional, pero recomendado)</h2><p>Los navegadores y algunas herramientas siguen solicitando <code>/favicon.ico</code> en la raíz aunque tengas un link tag. Para evitar un 404, puedes añadir una ruta específica que devuelva el archivo:</p><pre><code>from fastapi import FastAPI
+from fastapi.responses import FileResponse
+
+app = FastAPI()
+
+@app.get('/favicon.ico', include_in_schema=False)
+async def favicon():
+    return FileResponse('static/favicon.ico')</code></pre><p>El parámetro <code>include_in_schema=False</code> mantiene la ruta fuera de la documentación generada automáticamente. Esta ruta es especialmente útil para aplicaciones solo de API que no sirven HTML, pero que sí quieren una pestaña de red limpia.</p><h2>Paso 5: Verifica la configuración</h2><p>Arranca tu servidor y abre la aplicación en un navegador. Comprueba la pestaña de red: la solicitud del favicon debería devolver un 200. Si ves un 404, verifica la ruta del archivo y que el punto de montaje coincida con la URL de tu link tag. También puedes usar una herramienta de comprobación de favicons para revisar el icono en distintos navegadores.</p><h2>Errores comunes</h2><ul><li><strong>Ruta de montaje incorrecta:</strong> Si montas StaticFiles en <code>/static</code>, la URL debe ser <code>/static/favicon.ico</code>, no <code>/favicon.ico</code>.</li><li><strong>Archivo inexistente:</strong> FastAPI devolverá un 404 si el archivo no existe en el directorio. Comprueba que el nombre y la extensión sean correctos.</li><li><strong>Problemas de caché:</strong> Los navegadores almacenan los favicon en caché de forma agresiva. Después de actualizarlo, haz una recarga forzada o borra la caché del favicon. Consulta nuestra <a href="/blog/favicon-cache-clear.html">guía para limpiar la caché</a>.</li><li><strong>SVG sin el MIME type correcto:</strong> Si sirves un favicon SVG, asegúrate de que el servidor envíe <code>image/svg+xml</code>. StaticFiles normalmente se encarga de esto, pero algunas rutas personalizadas puede que no lo hagan.</li><li><strong>Errores en la ruta de la plantilla:</strong> Si usas Jinja2, asegúrate de que el <code>href</code> sea una ruta absoluta que empiece por <code>/</code> o utiliza <code>url_for</code> para generarla.</li></ul><h2>Conclusión</h2><p>Servir un favicon en FastAPI consiste en colocar el archivo, montar un directorio estático y añadir la etiqueta link correcta. En las aplicaciones que solo ofrecen una API, una ruta sencilla para <code>/favicon.ico</code> mantiene limpios los logs. Una vez configurado, tu aplicación mostrará un icono adecuado en las pestañas, los marcadores y el historial del navegador: se acabaron los cuadrados en blanco.</p></template>
+
+        <div class="cta-box">
+            <h3 data-en="Need a favicon for your FastAPI app?" data-zh="需要为你的 FastAPI 应用制作 favicon？" data-ja="FastAPI アプリ用の favicon が必要ですか？" data-ko="FastAPI 앱을 위한 favicon이 필요하신가요?" data-es="¿Necesitas un favicon para tu app FastAPI?">Need a favicon for your FastAPI app?</h3>
+            <p data-en="Generate ICO, PNG, and SVG icons in seconds with Mzu favicondl. Free, fast, and no sign-up required." data-zh="使用 Mzu favicondl 几秒钟内生成 ICO、PNG 和 SVG 图标。免费、快速、无需注册。" data-ja="Mzu favicondl で ICO、PNG、SVG アイコンを数秒で生成。無料で高速、登録不要です。" data-ko="Mzu favicondl로 ICO, PNG, SVG 아이콘을 몇 초 만에 생성하세요. 무료이며 빠르고 가입이 필요 없습니다." data-es="Genera iconos ICO, PNG y SVG en segundos con Mzu favicondl. Gratis, rápido y sin registro.">Generate ICO, PNG, and SVG icons in seconds with Mzu favicondl. Free, fast, and no sign-up required.</p>
+            <a href="/" class="cta-btn" data-en="Try It Free →" data-zh="免费试用 →" data-ja="無料で試す →" data-ko="무료로 사용해보기 →" data-es="Pruébalo gratis →">Try It Free →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Home" data-zh="首页">Home</a>
+                <a href="/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Blog" data-zh="博客">Blog</a>
+                <a href="/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Privacy" data-zh="隐私政策">Privacy</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js?v=20260211"></script>
+
+</body></html>

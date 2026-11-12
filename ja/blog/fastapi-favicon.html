@@ -1,0 +1,143 @@
+<!DOCTYPE html><html lang="ja"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FastAPI favicon：正しい配信方法と設定ガイド</title>
+    <meta name="description" content="StaticFiles、カスタムルート、正しい HTML リンクタグを使って FastAPI に favicon を追加する方法を解説。コード例と注意点を含むステップバイステップガイドです。">
+    <meta name="keywords" content="fastapi favicon, favicon fastapi, serve favicon, staticfiles favicon">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/ja/blog/fastapi-favicon.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/fastapi-favicon.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/fastapi-favicon.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/fastapi-favicon.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/fastapi-favicon.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/fastapi-favicon.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/fastapi-favicon.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/ja/blog/fastapi-favicon.html">
+    <meta property="og:title" content="FastAPI favicon：正しい配信方法と設定ガイド">
+    <meta property="og:description" content="StaticFiles、カスタムルート、正しい HTML リンクタグを使って FastAPI に favicon を追加する方法を解説。コード例と注意点を含むステップバイステップガイドです。">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="FastAPI favicon：正しい配信方法と設定ガイド">
+    <meta name="twitter:description" content="StaticFiles、カスタムルート、正しい HTML リンクタグを使って FastAPI に favicon を追加する方法を解説。コード例と注意点を含むステップバイステップガイドです。">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "FastAPI favicon：正しい配信方法と設定ガイド",
+  "description": "StaticFiles、カスタムルート、正しい HTML リンクタグを使って FastAPI に favicon を追加する方法を解説。コード例と注意点を含むステップバイステップガイドです。",
+  "datePublished": "2026-11-12",
+  "dateModified": "2026-11-12",
+  "author": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "mainEntityOfPage": "https://favicondl.com/ja/blog/fastapi-favicon.html",
+  "inLanguage": "ja"
+}</script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/ja/" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/ja/documentation.html" class="nav-link">ドキュメント</a>
+                <a href="/ja/tools.html" class="nav-link">ツール</a>
+                <a href="/ja/blog/" class="nav-link">ブログ</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/fastapi-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/fastapi-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/fastapi-favicon.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/fastapi-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/fastapi-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/ja/" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/ja/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600">FastAPI favicon：正しい配信方法と設定ガイド</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">python</span><time class="text-sm text-gray-400">2026-11-12</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">FastAPI favicon：正しい配信方法と設定ガイド</h1>
+        </header>
+
+        <div class="article-body"><p>FastAPI アプリを動かしていて、API ドキュメントはきれいに表示されているのに、ブラウザーのタブには空の四角やデフォルトの地球アイコンが表示されたままという状態かもしれません。これはよくある問題です。FastAPI は favicon を自動的に配信せず、Flask や Django のように favicon 用の built-in convention もありません。ファイルの置き場所と公開方法を知っていれば、対処は簡単です。</p><p>このガイドでは、StaticFiles、専用の route、または template tag を使って <strong>fastapi favicon</strong> を配信する具体的な手順を説明します。ブラウザーが icon を確実に取得できるようにする HTML markup も扱います。また、404 や古い icon を招く落とし穴も取り上げます。</p><h2>前提条件</h2><p>始める前に、次のものを用意してください。</p><ul><li>動作する FastAPI project（<code>StaticFiles</code> をサポートするバージョン。現代のバージョンではすべて対応しています）。</li><li>用意済みの favicon file。ICO、PNG、SVG のいずれかを使えます。作成が必要なら、<a href="/ja/blog/how-to-add-favicon-to-website.html">HTML favicon ガイド</a>を参照するか、<a href="/ja/">Mzu favicondl</a>で複数サイズの ICO を生成してください。</li><li>FastAPI の routing と Jinja2 templates の基本的な知識（HTML を配信する場合）。</li></ul><h2>手順1: favicon ファイルを static ディレクトリに配置する</h2><p>プロジェクトのルート（または好きな場所）に <code>static</code> という名前のフォルダを作成します。その中に favicon ファイルを配置してください。互換性を最大限高めるには、<code>favicon.ico</code> という名前にし、PNG や SVG のバージョンもあれば併せて配置してください。</p><pre><code>myproject/
+├── main.py
+├── static/
+│   └── favicon.ico
+└── templates/
+    └── index.html</code></pre><p>PNG しかない場合も、正しく HTML で参照すれば動作します。link tag がない場合でもブラウザーは ICO format を引き続きリクエストするため、<code>/favicon.ico</code> を用意しておけば、console に 404 が出るのを避けられます。</p><h2>手順2: FastAPI app に StaticFiles を mount する</h2><p>FastAPI は Starlette の <code>StaticFiles</code> を使って static assets を配信します。<code>main.py</code> に次を追加します：</p><pre><code>from fastapi import FastAPI
+from fastapi.staticfiles import StaticFiles
+
+app = FastAPI()
+
+app.mount('/static', StaticFiles(directory='static'), name='static')</code></pre><p>これにより、<code>static/</code> 内のすべてのファイルを <code>/static/filename</code> で配信できます。したがって、favicon は <code>/static/favicon.ico</code> に配置されます。</p><h2>手順3: HTML に link tag を追加する</h2><p>HTMLテンプレート（Jinja2Templatesを使用）を配信する場合は、ベーステンプレートの<code>&lt;head&gt;</code>内にfaviconのlinkを追加してください。<code>rel</code>属性は、<a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon" target="_blank" rel="noopener">HTML specification</a>によると<code>icon</code>でなければなりません。</p><pre><code>&lt;link rel='icon' type='image/x-icon' href='/static/favicon.ico'&gt;</code></pre><p>SVGやPNGも用意している場合は、適切な<code>type</code>属性を付けて指定します。ブラウザーはサポートされている形式のうち最適なものを選びます。link tagの順序については、さらに詳しく<a href="/ja/blog/favicon-link-tag.html">favicon link tag guide</a>を参照してください。</p><h2>Step 4: /favicon.icoを直接配信する（任意ですが推奨）</h2><p>link tagがあっても、ブラウザーや一部のツールは依然としてルートで<code>/favicon.ico</code>をリクエストします。404を避けるには、ファイルを返す専用routeを追加できます。</p><pre><code>from fastapi import FastAPI
+from fastapi.responses import FileResponse
+
+app = FastAPI()
+
+@app.get('/favicon.ico', include_in_schema=False)
+async def favicon():
+    return FileResponse('static/favicon.ico')</code></pre><p><code>include_in_schema=False</code>を指定すると、自動生成されるドキュメントから除外されます。このルートは、HTMLを配信しないAPI-only appでも、Networkタブをきれいに保ちたい場合に特に便利です。</p><h2>Step 5: セットアップを確認する</h2><p>サーバーを起動して、ブラウザーでアプリを開きます。Networkタブを確認し、faviconのリクエストが200を返すことを確認してください。404が表示される場合は、file pathと、link tagのURLに一致するmount pointを確認してください。また、favicon checker toolを使って、ブラウザー間でiconを監査することもできます。</p><h2>よくある落とし穴</h2><ul><li><strong>Mount pathの誤り：</strong> StaticFilesを<code>/static</code>にマウントする場合、URLは<code>/favicon.ico</code>ではなく<code>/static/favicon.ico</code>にする必要があります。</li><li><strong>ファイルの欠落：</strong> 対象のディレクトリにファイルが存在しない場合、FastAPIは404を返します。ファイル名と拡張子を再度確認してください。</li><li><strong>キャッシュの問題：</strong> ブラウザはfaviconを非常に強くキャッシュします。更新後はハードリロードするか、faviconのキャッシュをクリアしてください。<a href="/ja/blog/favicon-cache-clear.html">キャッシュクリアガイド</a>も参照してください。</li><li><strong>適切なMIME typeが設定されていないSVG：</strong> SVGのfaviconを配信する場合、サーバーが<code>image/svg+xml</code>を返すようにしてください。StaticFilesは通常この処理を行いますが、一部のcustom routeでは処理されないことがあります。</li><li><strong>Template pathの誤り：</strong> Jinja2を使用する場合、<code>href</code>が<code>/</code>で始まる絶対パスになっているか、<code>url_for</code>で生成してください。</li></ul><h2>まとめ</h2><p>FastAPIでfaviconを提供する上で必要なのは、ファイルを配置し、static directoryをマウントして、適切なlink tagを追加することです。API-only appでは、<code>/favicon.ico</code>用のsimple routeを用意すれば、logをきれいに保てます。設定が完了すると、ブラウザのタブ、ブックマーク、履歴に適切なアイコンが表示され、空欄の正方形はもう 나타나ません。</p></div>
+
+        <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
+
+        <div class="cta-box">
+            <h3>FastAPI アプリ用の favicon が必要ですか？</h3>
+            <p>Mzu favicondl で ICO、PNG、SVG アイコンを数秒で生成。無料で高速、登録不要です。</p>
+            <a href="/ja/" class="cta-btn">無料で試す →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/ja/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">ホーム</a>
+                <a href="/ja/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">ブログ</a>
+                <a href="/ja/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">プライバシー</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js?v=20260211"></script>
+
+</body></html>
