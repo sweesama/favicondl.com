@@ -173,11 +173,16 @@ function pageToPath(page) {
 const DETACHED_TRANSLATION_PAGES = new Set(['blog/favicon-sizes-guide.html']);
 
 // Spanish size queries consolidate on /es/tamanos-de-favicon.html.
-// The blog translation stays on disk and 301s, so hreflang and the language
-// switcher must name the canonical URL, not the blog translation.
+// The blog translations stay on disk and 301 there, so hreflang and the
+// language switcher must name that canonical URL, not the blog translation.
+// tamanos itself keeps a single English alternate: /blog/favicon-sizes-guide.html.
+const SPANISH_SIZE_PATH = '/es/tamanos-de-favicon.html';
 const ALT_PATH_OVERRIDES = {
   'blog/favicon-sizes-guide.html': {
-    es: '/es/tamanos-de-favicon.html',
+    es: SPANISH_SIZE_PATH,
+  },
+  'blog/favicon-best-size-2026.html': {
+    es: SPANISH_SIZE_PATH,
   },
 };
 
@@ -185,7 +190,7 @@ const ALT_PATH_OVERRIDES = {
 // guide item. Inject the link here so a later i18n build does not drop it.
 function ensureSpanishHomepageSizeLink($, lang, page) {
   if (lang !== 'es' || page !== 'index.html') return;
-  const href = '/es/tamanos-de-favicon.html';
+  const href = SPANISH_SIZE_PATH;
   const already = $('nav a.nav-link').filter((_, el) => $(el).attr('href') === href);
   if (already.length) return;
   const blog = $('nav a.nav-link').filter((_, el) => {
@@ -464,10 +469,16 @@ function prefixLinks($, lang) {
     }
   });
   if (lang === 'es') {
+    const spanishSizeSources = [
+      '/es/blog/favicon-sizes-guide.html',
+      '/es/blog/favicon-best-size-2026.html',
+    ];
     $('a[href]').each(function () {
-      const href = $(this).attr('href') || '';
-      if (href.startsWith('/es/blog/favicon-sizes-guide.html')) {
-        $(this).attr('href', href.replace('/es/blog/favicon-sizes-guide.html', '/es/tamanos-de-favicon.html'));
+      let href = $(this).attr('href') || '';
+      for (const source of spanishSizeSources) {
+        if (!href.startsWith(source)) continue;
+        href = href.replace(source, SPANISH_SIZE_PATH);
+        $(this).attr('href', href);
       }
     });
   }

@@ -51,6 +51,18 @@ function expectedUrl(slug, lang) {
   return `${DOMAIN}${prefix}/blog/${slug}.html`;
 }
 
+// The es blog files stay on disk behind a 301. Their canonical stays the file
+// URL; hreflang es (and the language switcher) name the consolidated page.
+const ES_ALTERNATE_OVERRIDES = {
+  'favicon-sizes-guide': `${DOMAIN}/es/tamanos-de-favicon.html`,
+  'favicon-best-size-2026': `${DOMAIN}/es/tamanos-de-favicon.html`,
+};
+
+export function expectedAlternateUrl(slug, lang) {
+  if (lang === 'es' && ES_ALTERNATE_OVERRIDES[slug]) return ES_ALTERNATE_OVERRIDES[slug];
+  return expectedUrl(slug, lang);
+}
+
 function validatePublishedSite() {
 for (const article of articles) {
   const sourceFile = path.join(ROOT, 'blog', `${article.slug}.html`);
@@ -102,6 +114,13 @@ for (const article of articles) {
     }
     if ($('link[rel="alternate"][hreflang]').length !== 6) {
       fail(`${relativeFile}: must contain six hreflang alternatives`);
+    }
+    if (ES_ALTERNATE_OVERRIDES[article.slug]) {
+      const esAlternate = $('link[rel="alternate"][hreflang="es"]').attr('href') || '';
+      const expectedEs = expectedAlternateUrl(article.slug, 'es');
+      if (esAlternate !== expectedEs) {
+        fail(`${relativeFile}: hreflang es must be ${expectedEs}`);
+      }
     }
     const robots = $('meta[name="robots"]').attr('content') || '';
     if (!NOINDEX_SLUGS.has(article.slug) && robots.includes('noindex')) {
@@ -232,6 +251,21 @@ for (const slug of NOINDEX_SLUGS) {
   if (sitemap.includes(`/blog/${slug}.html`)) {
     fail(`sitemap.xml: noindex article ${slug} must not be included`);
   }
+}
+for (const slug of Object.keys(ES_ALTERNATE_OVERRIDES)) {
+  const retired = `${DOMAIN}/es/blog/${slug}.html`;
+  if (sitemap.includes(retired)) {
+    fail(`sitemap.xml: ${retired} must not be listed; Spanish alternate is ${ES_ALTERNATE_OVERRIDES[slug]}`);
+  }
+}
+if (!sitemap.includes(`${DOMAIN}/es/tamanos-de-favicon.html`)) {
+  fail('sitemap.xml: missing https://favicondl.com/es/tamanos-de-favicon.html');
+}
+for (const lang of ['en', 'zh', 'ja', 'ko']) {
+  const loc = expectedUrl('favicon-best-size-2026', lang);
+  if (!sitemap.includes(loc)) fail(`sitemap.xml: missing ${loc}`);
+  const sizes = expectedUrl('favicon-sizes-guide', lang);
+  if (!sitemap.includes(sizes)) fail(`sitemap.xml: missing ${sizes}`);
 }
 
 if (errors.length) {

@@ -163,9 +163,9 @@
                 <p><strong>Tamaño favicon, en corto.</strong> Los tamaños de favicon que conviene publicar: un <code>favicon.ico</code> con <strong>16×16, 32×32 y 48×48</strong>, un apple-touch-icon de <strong>180×180</strong>, y en el manifiesto web <strong>192×192</strong> y <strong>512×512</strong>. Un SVG para la pestaña. Los mosaicos de Windows solo hacen falta para Internet Explorer.</p>
             </div>
 
-            <p>No hay un único tamaño de favicon. La pestaña, el iPhone, Android y un acceso directo de Windows leen archivos distintos. La tabla rápida de <a href="/es/blog/favicon-best-size-2026.html">medidas y dimensiones correctas</a> está en una página aparte. Esta guía explica qué archivo elige cada plataforma, la zona segura maskable y qué tamaños heredados escala el sistema. Google Search pide un icono cuadrado de al menos 8×8 px y recomienda uno mayor de 48×48 px.</p>
+            <p>No hay un único tamaño de favicon. La pestaña, el iPhone, Android y un acceso directo de Windows leen archivos distintos. La tabla rápida de <a href="#tamaños-por-archivo">medidas y dimensiones correctas</a> está más abajo. Esta guía explica qué archivo elige cada plataforma, la zona segura maskable y qué tamaños heredados escala el sistema. Google Search pide un icono cuadrado de al menos 8×8 px y recomienda uno mayor de 48×48 px.</p>
 
-            <h2>Tamaños que usa cada archivo</h2>
+            <h2 id="tamaños-por-archivo">Tamaños que usa cada archivo</h2>
             <div style="overflow-x:auto">
             <table>
                 <thead>
@@ -250,7 +250,7 @@
   ]
 }</code></pre>
 
-            <h2>HTML para copiar</h2>
+            <h2 id="html-para-copiar">HTML para copiar</h2>
             <p>Pega este bloque en el <code>&lt;head&gt;</code> de la página de inicio. Cubre la pestaña, iOS, el manifiesto y la pestaña fijada de Safari. Deja fuera las etiquetas antiguas de mosaicos de Windows:</p>
             <pre><code>&lt;link rel="icon" href="/favicon.ico" sizes="48x48"&gt;
 &lt;link rel="icon" href="/icon.svg" type="image/svg+xml" sizes="any"&gt;
@@ -290,7 +290,7 @@
             <h3>¿Qué tamaño de favicon pide Google?</h3>
             <p>Google Search exige un icono cuadrado de al menos 8×8 px y recomienda uno mayor de 48×48 px. Admite ICO, PNG, GIF, JPEG, BMP, TIFF y PPM. El SVG no está en esa lista, así que no sirve como único favicon para los resultados de búsqueda.</p>
 
-            <p>Para ver qué medidas publica un sitio concreto, pega su dominio en el <a href="/favicon-checker">favicon checker</a> o en el <a href="/es/">extractor de favicon</a>. Si quieres generar el paquete desde un logo, la herramienta <a href="/es/tools.html">Imagen a favicon</a> exporta estas medidas en un ZIP. El paso de PNG a <code>.ico</code> está en el <a href="/es/blog/png-to-ico.html">conversor de PNG a ICO</a>. La tabla para copiar, con el HTML, está en <a href="/es/blog/favicon-best-size-2026.html">medidas y dimensiones correctas del favicon</a>. La versión en inglés de esta guía es <a href="/blog/favicon-sizes-guide.html">favicon size by platform</a>. La tabla en inglés está en <a href="/blog/favicon-best-size-2026.html">Favicon Dimensions &amp; Sizes</a>.</p>
+            <p>Para ver qué medidas publica un sitio concreto, pega su dominio en el <a href="/favicon-checker">favicon checker</a> o en el <a href="/es/">extractor de favicon</a>. Si quieres generar el paquete desde un logo, la herramienta <a href="/es/tools.html">Imagen a favicon</a> exporta estas medidas en un ZIP. El paso de PNG a <code>.ico</code> está en el <a href="/es/blog/png-to-ico.html">conversor de PNG a ICO</a>. La tabla para copiar, con el HTML, está en <a href="#html-para-copiar">medidas y dimensiones correctas del favicon</a>. La versión en inglés de esta guía es <a href="/blog/favicon-sizes-guide.html">favicon size by platform</a>. La tabla en inglés está en <a href="/blog/favicon-best-size-2026.html">Favicon Dimensions &amp; Sizes</a>.</p>
         </div>
 
         <div class="cta-box">

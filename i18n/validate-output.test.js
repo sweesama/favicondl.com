@@ -2,7 +2,10 @@ import assert from 'node:assert/strict';
 import test from 'node:test';
 import { load } from 'cheerio';
 
-import { encodedStructureError } from './validate-output.js';
+import { encodedStructureError, expectedAlternateUrl } from './validate-output.js';
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 // Run 43176903270: generation of fastapi favicon passed, then validate-output.js
 // reported six encoded-structure errors. The samples below are the shape of
@@ -36,6 +39,44 @@ function visibleHtml(page) {
   const $ = load(page, { decodeEntities: false });
   return $('.article-body').first().html() || '';
 }
+
+test('spanish size queries use tamanos as the es alternate', () => {
+  const tamanos = 'https://favicondl.com/es/tamanos-de-favicon.html';
+  assert.equal(expectedAlternateUrl('favicon-best-size-2026', 'es'), tamanos);
+  assert.equal(expectedAlternateUrl('favicon-sizes-guide', 'es'), tamanos);
+  assert.equal(
+    expectedAlternateUrl('favicon-best-size-2026', 'en'),
+    'https://favicondl.com/blog/favicon-best-size-2026.html',
+  );
+  assert.equal(
+    expectedAlternateUrl('favicon-best-size-2026', 'zh'),
+    'https://favicondl.com/zh/blog/favicon-best-size-2026.html',
+  );
+  assert.equal(
+    expectedAlternateUrl('png-to-ico', 'es'),
+    'https://favicondl.com/es/blog/png-to-ico.html',
+  );
+
+  const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+  const english = fs.readFileSync(path.join(root, 'blog/favicon-best-size-2026.html'), 'utf8');
+  const $ = load(english, { decodeEntities: false });
+  assert.equal($('link[rel="alternate"][hreflang="es"]').attr('href'), tamanos);
+  assert.equal($('link[rel="canonical"]').attr('href'), 'https://favicondl.com/blog/favicon-best-size-2026.html');
+  const englishAlternates = $('link[rel="alternate"][hreflang="en"]').map((_, el) => $(el).attr('href')).get();
+  assert.deepEqual(englishAlternates, ['https://favicondl.com/blog/favicon-best-size-2026.html']);
+
+  const tamanosPage = fs.readFileSync(path.join(root, 'es/tamanos-de-favicon.html'), 'utf8');
+  const tamanosDoc = load(tamanosPage, { decodeEntities: false });
+  assert.equal(
+    tamanosDoc('link[rel="alternate"][hreflang="en"]').attr('href'),
+    'https://favicondl.com/blog/favicon-sizes-guide.html',
+  );
+  assert.equal(
+    tamanosDoc('link[rel="alternate"][hreflang="x-default"]').attr('href'),
+    'https://favicondl.com/blog/favicon-sizes-guide.html',
+  );
+  assert.equal(tamanosDoc('link[rel="alternate"][hreflang="en"]').length, 1);
+});
 
 test('escaped structural tags inside pre and inline code pass both output checks', () => {
   const templates = ['zh', 'ja', 'ko', 'es']

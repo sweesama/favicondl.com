@@ -22,7 +22,29 @@ import {
   validateTranslationContent,
   validateKnownPlatformClaims,
   validateArticleData,
+  localizedSitemapUrl,
 } from './generate-article.js';
+
+assert.equal(
+  localizedSitemapUrl('favicon-best-size-2026', 'es'),
+  'https://favicondl.com/es/tamanos-de-favicon.html',
+);
+assert.equal(
+  localizedSitemapUrl('favicon-sizes-guide', 'es'),
+  'https://favicondl.com/es/tamanos-de-favicon.html',
+);
+assert.equal(
+  localizedSitemapUrl('favicon-best-size-2026', 'en'),
+  'https://favicondl.com/blog/favicon-best-size-2026.html',
+);
+assert.equal(
+  localizedSitemapUrl('favicon-best-size-2026', 'ja'),
+  'https://favicondl.com/ja/blog/favicon-best-size-2026.html',
+);
+assert.equal(
+  localizedSitemapUrl('png-to-ico', 'es'),
+  'https://favicondl.com/es/blog/png-to-ico.html',
+);
 
 assert.equal(ARTICLE_MODELS.includes('stepfun-ai/step-3.7-flash'), false);
 assert.equal(TRANSLATION_MODELS.includes('stepfun-ai/step-3.7-flash'), false);
