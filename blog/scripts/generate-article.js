@@ -143,6 +143,8 @@ const ALLOWED_CONTENT_TAGS = new Set([
   'table', 'thead', 'tbody', 'tr', 'th', 'td', 'blockquote', 'br'
 ]);
 const VOID_CONTENT_TAGS = new Set(['br']);
+// 示例里的尖括号不是正文结构。分块和“被转义结构标签”检查都要先跳过这两类元素。
+const OPAQUE_CONTENT_TAGS = new Set(['pre', 'code']);
 
 // CTA 链接白名单
 const VALID_CTA_LINKS = ['/', '/tools.html', '/documentation.html'];
@@ -791,6 +793,46 @@ async function callAI(prompt, label, temperature = 0.55, models = ARTICLE_MODELS
 // 长翻译分段 — 只在顶层块边界切开，拼回去必须等于原文
 // ============================================================
 
+// 从开标签之后的位置找到配对闭合标签。示例中的 &lt;/pre&gt; 不会被当成闭合标签。
+function findMatchingClose(source, fromIndex, tag) {
+  const re = new RegExp(`<\\/?${tag}\\b[^>]*?>`, 'gi');
+  re.lastIndex = fromIndex;
+  let nested = 1;
+  let match;
+  while ((match = re.exec(source)) !== null) {
+    const full = match[0];
+    if (full.startsWith('</')) nested -= 1;
+    else if (!/\/\s*>$/.test(full)) nested += 1;
+    if (nested === 0) return re.lastIndex;
+  }
+  return -1;
+}
+
+// 去掉 <pre>/<code> 的内部文本，保留外壳标签。转义标签检查只看剩下的散文。
+function htmlWithoutOpaqueContents(html) {
+  const source = String(html || '');
+  const tagRe = /<\/?([a-zA-Z][\w:-]*)\b[^>]*?>/g;
+  let result = '';
+  let cursor = 0;
+  let match;
+  while ((match = tagRe.exec(source)) !== null) {
+    const full = match[0];
+    const tag = match[1].toLowerCase();
+    const isClose = full.startsWith('</');
+    const isSelfClosing = /\/\s*>$/.test(full) || VOID_CONTENT_TAGS.has(tag);
+    if (isClose || isSelfClosing || !OPAQUE_CONTENT_TAGS.has(tag)) continue;
+    const end = findMatchingClose(source, tagRe.lastIndex, tag);
+    if (end === -1) continue;
+    const closer = source.slice(tagRe.lastIndex, end).match(new RegExp(`</${tag}\\b[^>]*>$`, 'i'));
+    result += source.slice(cursor, tagRe.lastIndex);
+    if (closer) result += closer[0];
+    cursor = end;
+    tagRe.lastIndex = end;
+  }
+  result += source.slice(cursor);
+  return result;
+}
+
 function splitTopLevelHtmlBlocks(html) {
   const source = String(html || '');
   const blocks = [];
@@ -803,6 +845,17 @@ function splitTopLevelHtmlBlocks(html) {
     const tag = match[1].toLowerCase();
     const isClose = full.startsWith('</');
     const isSelfClosing = /\/\s*>$/.test(full) || VOID_CONTENT_TAGS.has(tag);
+    if (!isClose && !isSelfClosing && OPAQUE_CONTENT_TAGS.has(tag)) {
+      const end = findMatchingClose(source, tagRe.lastIndex, tag);
+      if (end !== -1) {
+        tagRe.lastIndex = end;
+        if (depth === 0) {
+          blocks.push(source.slice(origin, end));
+          origin = end;
+        }
+        continue;
+      }
+    }
     if (isClose) {
       if (depth > 0) depth -= 1;
       if (depth === 0) {
@@ -1218,7 +1271,10 @@ function parseAIResponse(responseText) {
 function validateHtmlFragment(html, label, errors) {
   if (!html) return;
 
-  if (/&lt;\/?(?:p|h2|h3|ul|ol|li|pre|code|a|table|tr|td|th)\b/i.test(html)) {
+  // 代码示例按提示把尖括号写成 &lt; &gt;。先剥掉 <pre>/<code> 内容，
+  // 只拒绝散文里被转义的结构标签（模型把正文标签打成了可见文本）。
+  const prose = htmlWithoutOpaqueContents(html);
+  if (/&lt;\/?(?:p|h2|h3|ul|ol|li|pre|code|a|table|tr|td|th)\b/i.test(prose)) {
     errors.push(`${label} 包含被转义的结构标签，正文可能已损坏`);
   }
   if (/```|`<\/?(?:p|h2|h3|pre|code|a|table)\b/i.test(html)) {
