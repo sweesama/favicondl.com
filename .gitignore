@@ -4,3 +4,5 @@ i18n/node_modules/
 *.log
 .DS_Store
 Thumbs.db
+favicon-build/
+favicon-prev/
