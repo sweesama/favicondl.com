@@ -793,26 +793,49 @@ function buildParagraphs(site) {
     return paragraphs;
 }
 
+function icoAnswer(site) {
+    const ico = site.files.find((file) => file.format === 'ico' && !String(file.via).startsWith('PNG stored inside'));
+    if (ico && String(ico.sourceUrl).startsWith('http')) {
+        return 'The favicon.ico is at ' + ico.sourceUrl + ' (' + ico.bytes + ' bytes, directory sizes ' + sizeText(ico) + ').';
+    }
+    if (site.faviconIcoUrl) {
+        const matched = site.files.find((file) => file.sourceUrl === site.faviconIcoUrl);
+        const returned = matched
+            ? matched.format + (matched.width && matched.height ? ', ' + sizeText(matched) : '') + ', ' + matched.bytes + ' bytes'
+            : 'a non-ICO image';
+        return 'The favicon.ico URL ' + site.faviconIcoUrl + ' did not return an ICO container on ' + site.fetchedLabel + '. It returned ' + returned + '. The saved files are listed in the table.';
+    }
+    return 'No favicon.ico was published for ' + site.host + ' on ' + site.fetchedLabel + '. That host did not return an .ico that passed the image check. The files that did download are listed in the table.';
+}
+
+function appleAnswer(site) {
+    if (site.appleTouchIconUrl && site.appleTouchSaved) {
+        const apple = site.files.find((file) => file.filename === site.appleTouchFile)
+            || site.files.find((file) => file.sourceUrl === site.appleTouchIconUrl);
+        let text = 'The apple-touch-icon is at ' + site.appleTouchIconUrl;
+        if (apple) {
+            text += ' (' + apple.bytes + ' bytes';
+            if (apple.width && apple.height) text += ', ' + apple.width + '×' + apple.height + ' ' + apple.format;
+            text += ')';
+            if (apple.filename) text += ', saved as ' + apple.filename;
+        }
+        return text + '.';
+    }
+    if (site.appleTouchIconUrl) {
+        return 'An apple-touch-icon URL was declared at ' + site.appleTouchIconUrl + ', but that response was not saved as an image on ' + site.fetchedLabel + '.';
+    }
+    return 'No apple-touch-icon was published for ' + site.host + ' on ' + site.fetchedLabel + '.';
+}
+
 function questions(site) {
     const measured = site.files.map((file) => file.filename + ' (' + file.format + ', ' + file.bytes + ' bytes, ' + sizeText(file) + ')');
-    const ico = site.files.find((file) => file.format === 'ico' && !String(file.via).startsWith('PNG stored inside'));
-    const icoAnswer = ico
-        ? 'Yes. ' + ico.filename + ' (' + ico.bytes + ' bytes) from ' + ico.sourceUrl + '. Directory sizes: ' + sizeText(ico) + '.'
-        : (site.faviconIcoUrl
-            ? 'The URL ' + site.faviconIcoUrl + ' did not return an ICO container on ' + site.fetchedLabel + '. The files that did download are listed in the table.'
-            : 'No favicon.ico file was saved on ' + site.fetchedLabel + '. ' + site.host + ' did not return an .ico that passed the image check. The files that did download are listed in the table.');
-    const appleAnswer = site.appleTouchIconUrl
-        ? (site.appleTouchSaved
-            ? 'Yes. ' + site.appleTouchIconUrl + (site.appleTouchFile ? ' saved as ' + site.appleTouchFile + '.' : '.')
-            : 'Declared at ' + site.appleTouchIconUrl + ', but that response was not saved as an image on ' + site.fetchedLabel + '.')
-        : 'No apple-touch-icon URL was found for ' + site.host + ' on ' + site.fetchedLabel + '.';
     const colorAnswer = site.brandColor
-        ? site.brandColor.hex + ', from the ' + site.brandColor.source + '.'
-        : 'None. No theme-color, mask-icon colour, manifest colour, or readable dominant PNG colour was found on ' + site.fetchedLabel + '.';
+        ? 'The recorded brand colour is ' + site.brandColor.hex + ', from the ' + site.brandColor.source + '.'
+        : 'No brand colour was recorded on ' + site.fetchedLabel + '. The page had no theme-color, mask-icon colour, or manifest colour, and a dominant pixel colour was not readable from the saved PNGs.';
     return [
         {
             q: 'What is the ' + site.name + ' favicon.ico URL?',
-            a: icoAnswer
+            a: icoAnswer(site)
         },
         {
             q: 'What are the ' + site.name + ' favicon dimensions?',
@@ -820,7 +843,7 @@ function questions(site) {
         },
         {
             q: 'What apple-touch-icon does ' + site.name + ' publish?',
-            a: appleAnswer
+            a: appleAnswer(site)
         },
         {
             q: 'What brand colour does the ' + site.name + ' favicon page record?',
@@ -1235,7 +1258,34 @@ async function main() {
     console.log('pages ' + ok.length + ', omitted ' + omitted.length);
 }
 
-main().catch((error) => {
-    console.error(error);
-    process.exit(1);
-});
+function rerender() {
+    const catalogBySlug = new Map(CATALOG.map((site) => [site.slug, site]));
+    const ok = [];
+    for (const src of CATALOG) {
+        const metaPath = path.join(OUT, src.slug, 'meta.json');
+        if (!fs.existsSync(metaPath)) continue;
+        const meta = JSON.parse(fs.readFileSync(metaPath, 'utf8'));
+        if (!meta.files || !meta.files.length) continue;
+        ok.push({
+            ...meta,
+            name: src.name,
+            domain: src.domain,
+            host: src.domain,
+            category: src.category,
+            blurb: src.blurb
+        });
+    }
+    ok.sort((a, b) => a.name.localeCompare(b.name));
+    assignRelated(ok);
+    for (const site of ok) {
+        fs.writeFileSync(path.join(OUT, site.slug, 'index.html'), renderPage(site));
+    }
+    console.log('rerendered ' + ok.length);
+}
+
+if (require.main === module) {
+    Promise.resolve(process.env.FAVICON_RERENDER === '1' ? rerender() : main()).catch((error) => {
+        console.error(error);
+        process.exit(1);
+    });
+}

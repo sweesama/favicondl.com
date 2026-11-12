@@ -45,6 +45,27 @@ test('site favicon pages are real files with measured metadata', () => {
         if (site.faviconIcoUrl) assert.ok(html.includes(site.faviconIcoUrl), site.slug);
         if (site.appleTouchIconUrl) assert.ok(html.includes(site.appleTouchIconUrl), site.slug);
         if (site.brandColor) assert.ok(html.includes(site.brandColor.hex), site.slug);
+        const visibleFaqs = [...html.matchAll(/<h3>(.*?)<\/h3><p>(.*?)<\/p>/g)].map((match) => [match[1], match[2]]);
+        const ld = JSON.parse(html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1]);
+        assert.equal(ld.mainEntity.length, visibleFaqs.length, site.slug);
+        ld.mainEntity.forEach((entity, index) => {
+            const question = visibleFaqs[index][0].replace(/&amp;/g, '&').replace(/&#39;/g, "'");
+            const answer = visibleFaqs[index][1].replace(/&amp;/g, '&').replace(/&#39;/g, "'");
+            assert.equal(entity.name, question, site.slug);
+            assert.equal(entity.acceptedAnswer.text, answer, site.slug);
+            const yesNoQuestion = /^(May|Can|Is|Does|Do|Did)\b/.test(question);
+            const yesNoAnswer = /^(Yes|No)\./.test(answer);
+            assert.equal(yesNoAnswer, yesNoQuestion, site.slug + ' ' + question);
+        });
+        const icoFaq = ld.mainEntity.find((entity) => entity.name.indexOf('favicon.ico URL') !== -1);
+        if (site.faviconIcoFormat === 'ico' && site.faviconIcoUrl) {
+            assert.match(icoFaq.acceptedAnswer.text, new RegExp('^The favicon\\.ico is at ' + site.faviconIcoUrl.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')));
+            assert.match(icoFaq.acceptedAnswer.text, /directory sizes /);
+        } else if (!site.faviconIcoUrl) {
+            assert.match(icoFaq.acceptedAnswer.text, /^No favicon\.ico was published/);
+        } else {
+            assert.match(icoFaq.acceptedAnswer.text, /did not return an ICO container/);
+        }
         const imgs = [...html.matchAll(/<img\b[^>]*\ssrc="([^"]+)"/g)].map((match) => match[1]);
         assert.ok(imgs.length > 0, site.slug);
         for (const src of imgs) {
