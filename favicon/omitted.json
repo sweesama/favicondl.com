@@ -1,4 +1,166 @@
 {
-  "fetched": "2026-11-09",
-  "omitted": []
+  "fetched": "2026-11-12",
+  "omitted": [
+    {
+      "slug": "messenger",
+      "name": "Messenger",
+      "reason": "no image file downloaded",
+      "htmlStatus": 200,
+      "htmlUrl": "https://www.messenger.com/"
+    },
+    {
+      "slug": "skype",
+      "name": "Skype",
+      "reason": "no image file downloaded",
+      "htmlStatus": "timeout",
+      "htmlUrl": ""
+    },
+    {
+      "slug": "crunchyroll",
+      "name": "Crunchyroll",
+      "reason": "no image file downloaded",
+      "htmlStatus": 403,
+      "htmlUrl": "https://www.crunchyroll.com/"
+    },
+    {
+      "slug": "bandcamp",
+      "name": "Bandcamp",
+      "reason": "no image file downloaded",
+      "htmlStatus": 200,
+      "htmlUrl": "https://www.bandcamp.com/"
+    },
+    {
+      "slug": "adidas",
+      "name": "Adidas",
+      "reason": "no image file downloaded",
+      "htmlStatus": 403,
+      "htmlUrl": "https://www.adidas.com/"
+    },
+    {
+      "slug": "sony",
+      "name": "Sony",
+      "reason": "no image file downloaded",
+      "htmlStatus": 403,
+      "htmlUrl": "https://www.sony.com/"
+    },
+    {
+      "slug": "gemini",
+      "name": "Gemini",
+      "reason": "no image file downloaded",
+      "htmlStatus": "fetch failed",
+      "htmlUrl": ""
+    },
+    {
+      "slug": "stackoverflow",
+      "name": "Stack Overflow",
+      "reason": "no image file downloaded",
+      "htmlStatus": 403,
+      "htmlUrl": "https://stackoverflow.com/"
+    },
+    {
+      "slug": "npm",
+      "name": "npm",
+      "reason": "no image file downloaded",
+      "htmlStatus": 403,
+      "htmlUrl": "https://www.npmjs.com/"
+    },
+    {
+      "slug": "mastercard",
+      "name": "Mastercard",
+      "reason": "no image file downloaded",
+      "htmlStatus": 403,
+      "htmlUrl": "https://www.mastercard.com/"
+    },
+    {
+      "slug": "binance",
+      "name": "Binance",
+      "reason": "no image file downloaded",
+      "htmlStatus": 202,
+      "htmlUrl": "https://www.binance.com/"
+    },
+    {
+      "slug": "espn",
+      "name": "ESPN",
+      "reason": "no image file downloaded",
+      "htmlStatus": 202,
+      "htmlUrl": "https://www.espn.com/"
+    },
+    {
+      "slug": "booking",
+      "name": "Booking.com",
+      "reason": "no image file downloaded",
+      "htmlStatus": 202,
+      "htmlUrl": "https://www.booking.com/"
+    },
+    {
+      "slug": "hilton",
+      "name": "Hilton",
+      "reason": "no image file downloaded",
+      "htmlStatus": "timeout",
+      "htmlUrl": "https://www.hilton.com/en/"
+    },
+    {
+      "slug": "doordash",
+      "name": "DoorDash",
+      "reason": "no image file downloaded",
+      "htmlStatus": 403,
+      "htmlUrl": "https://www.doordash.com/"
+    },
+    {
+      "slug": "mcdonalds",
+      "name": "McDonald's",
+      "reason": "no image file downloaded",
+      "htmlStatus": 403,
+      "htmlUrl": "https://www.mcdonalds.com/"
+    },
+    {
+      "slug": "udemy",
+      "name": "Udemy",
+      "reason": "no image file downloaded",
+      "htmlStatus": 403,
+      "htmlUrl": "https://www.udemy.com/"
+    },
+    {
+      "slug": "quizlet",
+      "name": "Quizlet",
+      "reason": "no image file downloaded",
+      "htmlStatus": 403,
+      "htmlUrl": "https://www.quizlet.com/"
+    },
+    {
+      "slug": "fedex",
+      "name": "FedEx",
+      "reason": "no image file downloaded",
+      "htmlStatus": 200,
+      "htmlUrl": "https://www.fedex.com/"
+    },
+    {
+      "slug": "nordvpn",
+      "name": "NordVPN",
+      "reason": "no image file downloaded",
+      "htmlStatus": 403,
+      "htmlUrl": "https://nordvpn.com/"
+    },
+    {
+      "slug": "epicgames",
+      "name": "Epic Games",
+      "reason": "no image file downloaded",
+      "htmlStatus": 403,
+      "htmlUrl": "https://www.epicgames.com/"
+    },
+    {
+      "slug": "glassdoor",
+      "name": "Glassdoor",
+      "reason": "no image file downloaded",
+      "htmlStatus": 403,
+      "htmlUrl": "https://www.glassdoor.com/"
+    },
+    {
+      "slug": "godaddy",
+      "name": "GoDaddy",
+      "reason": "no image file downloaded",
+      "htmlStatus": 403,
+      "htmlUrl": "https://www.godaddy.com/"
+    }
+  ]
 }
