@@ -23,7 +23,8 @@ test('site favicon pages are real files with measured metadata', () => {
         assert.match(html, new RegExp('href="https://favicondl.com/favicon/' + site.slug + '"'));
         assert.match(html, /belong to their owners/i);
         assert.match(html, /href="\/"/);
-        assert.match(html, /favicon-sizes-guide\.html/);
+        assert.match(html, /favicon-best-size-2026\.html/);
+        assert.doesNotMatch(html, /favicon-sizes-guide\.html/);
         assert.match(html, /FAQPage/);
         assert.equal(html.includes('/api/extract') || html.includes('/api/proxy') || html.includes('/api/favicon'), false, site.slug);
         assert.doesNotMatch(html, /fetch\(|XMLHttpRequest/);

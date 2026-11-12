@@ -961,7 +961,7 @@ function renderPage(site) {
             </table></div>
             ${manifestRows}
             <h2>How this compares with a normal favicon set</h2>
-            <p>A site you publish yourself usually needs a different set from the one ${esc(site.name)} happens to ship: 16×16, 32×32 and 48×48 in one <code>favicon.ico</code>, a 180×180 apple-touch icon, and 192×192 plus 512×512 manifest PNGs. That chart is the <a href="/blog/favicon-sizes-guide.html">favicon dimensions</a> guide. Use these saved files as a reference, then build your own with the <a href="/blog/png-to-favicon.html">PNG to favicon converter</a>.</p>
+            <p>A site you publish yourself usually needs a different set from the one ${esc(site.name)} happens to ship: 16×16, 32×32 and 48×48 in one <code>favicon.ico</code>, a 180×180 apple-touch icon, and 192×192 plus 512×512 manifest PNGs. That chart, including 96×96, maskable icons, Windows tiles and SVG, is the <a href="/blog/favicon-best-size-2026.html">favicon dimensions</a> guide. Use ${esc(site.name)}’s files as a reference, then build your own with the <a href="/blog/png-to-favicon.html">PNG to favicon converter</a>.</p>
             <h2>Related site icons</h2>
             <ul>${related}</ul>
             <h2>FAQ</h2>
@@ -975,7 +975,7 @@ function renderPage(site) {
             <div class="flex gap-6">
                 <a href="/" class="text-gray-500 hover:text-gray-900 text-sm">Home</a>
                 <a href="/tools.html" class="text-gray-500 hover:text-gray-900 text-sm">Tools</a>
-                <a href="/blog/favicon-sizes-guide.html" class="text-gray-500 hover:text-gray-900 text-sm">Favicon dimensions</a>
+                <a href="/blog/favicon-best-size-2026.html" class="text-gray-500 hover:text-gray-900 text-sm">Favicon dimensions</a>
                 <a href="/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm">Privacy</a>
             </div>
         </div>
@@ -1045,7 +1045,7 @@ function renderIndex(sites) {
         <header class="mb-10 max-w-3xl">
             <h1 class="text-3xl md:text-4xl font-bold text-gray-900">Real favicons from ${sites.length} websites</h1>
             <p class="text-gray-600 mt-4">Each page stores favicon files downloaded from that site, including the pixel size read from the file, the favicon.ico URL, the apple-touch-icon URL when one existed, and a brand colour when one could be derived. Logos and favicons belong to their owners and are shown here for reference. A site that did not return an image is not listed. Images on these pages are static snapshots. They are not loaded through the favicon API.</p>
-            <p class="text-gray-600 mt-3">Last checked <time datetime="${esc(FETCHED)}">${esc(FETCHED_LABEL)}</time>. For any other domain, use the <a href="/" class="text-blue-600 hover:underline">favicon downloader</a>. The size chart for files you publish yourself is the <a href="/blog/favicon-sizes-guide.html" class="text-blue-600 hover:underline">favicon dimensions</a> guide.</p>
+            <p class="text-gray-600 mt-3">Last checked <time datetime="${esc(FETCHED)}">${esc(FETCHED_LABEL)}</time>. For any other domain, use the <a href="/" class="text-blue-600 hover:underline">favicon downloader</a> or the <a href="/favicon-checker" class="text-blue-600 hover:underline">favicon checker</a>. The size chart for files you publish yourself is the <a href="/blog/favicon-best-size-2026.html" class="text-blue-600 hover:underline">favicon dimensions</a> guide.</p>
             <p class="jump mt-4 text-sm">${jump}</p>
         </header>
         ${sections}
