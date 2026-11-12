@@ -4,6 +4,7 @@ import { load } from 'cheerio';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { hasEncodedStructuralMarkup } from '../blog/scripts/encoded-html.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -12,8 +13,14 @@ const LANGUAGES = ['en', 'zh', 'ja', 'ko', 'es'];
 const SUFFIX = { en: 'En', zh: 'Zh', ja: 'Ja', ko: 'Ko', es: 'Es' };
 const SCHEMA_LANG = { en: 'en', zh: 'zh-CN', ja: 'ja', ko: 'ko', es: 'es' };
 const NOINDEX_SLUGS = new Set();
-const ENCODED_STRUCTURE = /&lt;\/?(?:p|h2|h3|ul|ol|li|pre|code|a|table|thead|tbody|tr|th|td|blockquote)\b/i;
 const PAGE_LEVEL_TAGS = 'script, style, iframe, object, embed, form, input, meta, link, h1';
+
+export function encodedStructureError(html, kind) {
+  if (!hasEncodedStructuralMarkup(html)) return '';
+  return kind === 'source'
+    ? 'encoded structural HTML found outside a code example'
+    : 'encoded structural HTML found in visible article body';
+}
 
 const articles = JSON.parse(
   fs.readFileSync(path.join(ROOT, 'blog', 'articles.json'), 'utf-8')
@@ -44,6 +51,7 @@ function expectedUrl(slug, lang) {
   return `${DOMAIN}${prefix}/blog/${slug}.html`;
 }
 
+function validatePublishedSite() {
 for (const article of articles) {
   const sourceFile = path.join(ROOT, 'blog', `${article.slug}.html`);
   const sourceRelative = path.relative(ROOT, sourceFile).replaceAll('\\', '/');
@@ -52,9 +60,8 @@ for (const article of articles) {
     continue;
   }
   const sourceHtml = fs.readFileSync(sourceFile, 'utf-8');
-  if (ENCODED_STRUCTURE.test(sourceHtml)) {
-    fail(`${sourceRelative}: encoded structural HTML found outside a code example`);
-  }
+  const sourceProblem = encodedStructureError(sourceHtml, 'source');
+  if (sourceProblem) fail(`${sourceRelative}: ${sourceProblem}`);
   if (/```/.test(sourceHtml)) {
     fail(`${sourceRelative}: Markdown code fence found in HTML output`);
   }
@@ -131,9 +138,8 @@ for (const article of articles) {
     if (visibleBody.find(PAGE_LEVEL_TAGS).length) {
       fail(`${relativeFile}: page-level or unsafe tag found inside article body`);
     }
-    if (ENCODED_STRUCTURE.test(visibleBody.html() || '')) {
-      fail(`${relativeFile}: encoded structural HTML found in visible article body`);
-    }
+    const bodyProblem = encodedStructureError(visibleBody.html() || '', 'visible');
+    if (bodyProblem) fail(`${relativeFile}: ${bodyProblem}`);
     const badLinks = visibleBody.find('a[href=""], a[href="#"], a:not([href])').length;
     if (badLinks || visibleBody.find('a[href^="javascript:"]').length) {
       fail(`${relativeFile}: empty, placeholder, or javascript link found in article body`);
@@ -238,3 +244,8 @@ if (errors.length) {
 console.log(
   `✅ Validated ${articles.length * LANGUAGES.length} article pages plus core/404 pages: unique metadata, canonical URLs, hreflang, single-language output, JSON-LD and noindex policy.`
 );
+}
+
+const invokedDirectly = process.argv[1]
+  && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+if (invokedDirectly) validatePublishedSite();
