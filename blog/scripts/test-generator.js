@@ -21,6 +21,7 @@ import {
   translateArticleBody,
   validateTranslationContent,
   validateKnownPlatformClaims,
+  validateArticleData,
 } from './generate-article.js';
 
 assert.equal(ARTICLE_MODELS.includes('stepfun-ai/step-3.7-flash'), false);
@@ -248,6 +249,114 @@ await assert.rejects(
     sleep: async () => {},
   }),
   /所有模型均调用失败：[\s\S]*(HTML タグ閉合錯誤|段落\/标题\/列表\/表格结构|改变了英文原文)/,
+);
+
+// 2026-11-12 run 43170908506：fastapi favicon 的中文 chunk #2 四次失败，
+// 报错都是「包含被转义的结构标签」。how-to 代码块里的 &lt;a&gt; / &lt;p&gt; / &lt;code&gt; 是合法示例。
+const codeSample = "<pre><code>&lt;a href='/docs'&gt;API&lt;/a&gt;\n&lt;p&gt;icon&lt;/p&gt;\n&lt;code&gt;favicon.ico&lt;/code&gt;\n&lt;h2&gt;FastAPI&lt;/h2&gt;</code></pre>";
+const inlineSample = "<p>写在 <code>&lt;a href='/favicon.ico'&gt;</code> 和 <code>&lt;code&gt;rel='icon'&lt;/code&gt;</code> 里。</p>";
+assert.doesNotThrow(() => validateTranslationContent(
+  `<p>Return HTML from the index route.</p>${codeSample}`,
+  `<p>从首页路由返回 HTML。</p>${codeSample}`,
+  '中文翻译输出',
+));
+assert.doesNotThrow(() => validateTranslationContent(
+  "<p>Write <code>&lt;a href='/favicon.ico'&gt;</code> and <code>&lt;code&gt;rel='icon'&lt;/code&gt;</code>.</p>",
+  inlineSample,
+  '中文翻译输出',
+));
+assert.doesNotThrow(() => validateTranslationContent(
+  "<p>Upper</p><PRE><CODE>&lt;p&gt;Hi&lt;/p&gt;&lt;a href='/'&gt;home&lt;/a&gt;</CODE></PRE>",
+  "<p>大写标签</p><PRE><CODE>&lt;p&gt;Hi&lt;/p&gt;&lt;a href='/'&gt;home&lt;/a&gt;</CODE></PRE>",
+  '中文翻译输出',
+));
+assert.throws(
+  () => validateTranslationContent(
+    '<p>See the next section.</p>',
+    '<p>参见 &lt;h2&gt;下一节&lt;/h2&gt; 与 &lt;p&gt;正文&lt;/p&gt;。</p>',
+    '中文翻译输出',
+  ),
+  /中文翻译输出 包含被转义的结构标签/,
+);
+assert.throws(
+  () => validateTranslationContent(
+    `<p>See below.</p>${codeSample}`,
+    `<p>见 &lt;h2&gt;下一节&lt;/h2&gt;。</p>${codeSample}`,
+    '中文翻译输出',
+  ),
+  /被转义的结构标签/,
+);
+
+const escapedTagArticle = {
+  contentEn: `<p>See &lt;h2&gt;next&lt;/h2&gt;.</p>`,
+  contentZh: inlineSample,
+  contentJa: '<p>見よ &lt;p&gt;壊れ&lt;/p&gt;</p>',
+  contentKo: `<p>예시</p>${codeSample}`,
+  contentEs: '<p>Mira &lt;table&gt;&lt;tr&gt;&lt;td&gt;roto&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</p>',
+};
+assert.throws(() => validateArticleData(escapedTagArticle, 'fastapi favicon', 'brief'), error => {
+  assert.match(error.message, /英文 包含被转义的结构标签/);
+  assert.match(error.message, /日文 包含被转义的结构标签/);
+  assert.match(error.message, /西班牙文 包含被转义的结构标签/);
+  assert.doesNotMatch(error.message, /中文 包含被转义的结构标签/);
+  assert.doesNotMatch(error.message, /韩文 包含被转义的结构标签/);
+  return true;
+});
+
+const preWithTagLikeText = `<pre><code>if (html.includes("</p>")) {\n  names: Array<string>;\n  return "&lt;a href='/'&gt;&lt;code&gt;x&lt;/code&gt;";\n}</code></pre>`;
+const splittable = `<p>Before</p>${preWithTagLikeText}<h2>After</h2><p>Tail</p>`;
+const splitted = splitTranslationChunks(splittable, 40);
+assert.equal(splitted.join(''), splittable);
+assert.ok(splitted.some(chunk => chunk.includes('<pre') && chunk.includes('</pre>') && !chunk.includes('<h2>')));
+assert.ok(splitted.some(chunk => chunk.startsWith('<h2>After</h2>')));
+for (const chunk of splitted) {
+  assert.equal((chunk.match(/<pre\b/gi) || []).length, (chunk.match(/<\/pre>/gi) || []).length);
+}
+const escapedCloser = `<p>Before</p><pre><code>literal &lt;/pre&gt; and &lt;/code&gt; stay inside</code></pre><h2>After</h2>`;
+const escapedCloserChunks = splitTranslationChunks(escapedCloser, 20);
+assert.equal(escapedCloserChunks.join(''), escapedCloser);
+assert.equal(escapedCloserChunks.filter(chunk => /<pre\b/i.test(chunk) && !/<\/pre>/i.test(chunk)).length, 0);
+assert.ok(escapedCloserChunks.some(chunk => chunk.startsWith('<h2>After</h2>')));
+
+const section1 = `<h2>Why it 404s</h2><p>${'Browser requests /favicon.ico. '.repeat(80)}</p>`;
+const section2 = `<h2>Serve it</h2><p>Return HTML from the index route.</p>${codeSample}`;
+const section3 = `<h2>Check it</h2><p>${'Expect image bytes. '.repeat(80)}</p>`;
+const fastapiArticle = section1 + section2 + section3;
+const fastapiChunks = splitTranslationChunks(fastapiArticle, 2400);
+assert.ok(fastapiChunks.length >= 2);
+const failingChunk = fastapiChunks.find(chunk => chunk.includes("&lt;a href='/docs'&gt;"));
+assert.ok(failingChunk);
+assert.equal((failingChunk.match(/<pre\b/g) || []).length, (failingChunk.match(/<\/pre>/g) || []).length);
+assert.doesNotThrow(() => validateTranslationContent(failingChunk, failingChunk, '中文翻译输出'));
+
+resetRoutingStateForTests();
+const translatedArticle = await translateArticleBody(
+  fastapiArticle,
+  'FastAPI Favicon Setup',
+  { code: 'Zh', name: '中文' },
+  'fastapi favicon',
+  {
+    chunkBudget: 2400,
+    models: ['deepseek:deepseek-v4-flash'],
+    requestModel: async (_model, prompt) => completion(
+      fragmentFromPrompt(prompt).replace('Return HTML from the index route.', '从首页路由返回 HTML。'),
+    ),
+    sleep: async () => {},
+  },
+);
+assert.ok(translatedArticle.includes('从首页路由返回 HTML。'));
+assert.ok(translatedArticle.includes("&lt;code&gt;favicon.ico&lt;/code&gt;"));
+assert.equal(translatedArticle.includes('&lt;h2&gt;下一节'), false);
+
+resetRoutingStateForTests();
+await assert.rejects(
+  () => translateArticleBody('<p>See the next section.</p>', 'FastAPI Favicon', { code: 'Zh', name: '中文' }, 'fastapi favicon', {
+    chunkBudget: 100000,
+    models: ['deepseek:deepseek-v4-flash'],
+    requestModel: async () => completion('<p>参见 &lt;h2&gt;下一节&lt;/h2&gt; 与 &lt;p&gt;正文&lt;/p&gt;。</p>'),
+    sleep: async () => {},
+  }),
+  /中文翻译输出 包含被转义的结构标签/,
 );
 
 console.log('FaviconDL generator resilience tests passed.');
