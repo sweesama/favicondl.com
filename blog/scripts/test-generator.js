@@ -280,6 +280,19 @@ assert.throws(
 );
 assert.throws(
   () => validateTranslationContent(
+    '<p>See the table head.</p>',
+    '<p>表格头变成了 &lt;thead&gt; 与 &lt;blockquote&gt;引用&lt;/blockquote&gt;。</p>',
+    '中文翻译输出',
+  ),
+  /被转义的结构标签/,
+);
+assert.doesNotThrow(() => validateTranslationContent(
+  '<p>Example</p><pre><code>&lt;thead&gt;&lt;tr&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;blockquote&gt;note&lt;/blockquote&gt;</code></pre>',
+  '<p>示例</p><pre><code>&lt;thead&gt;&lt;tr&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;blockquote&gt;note&lt;/blockquote&gt;</code></pre>',
+  '中文翻译输出',
+));
+assert.throws(
+  () => validateTranslationContent(
     `<p>See below.</p>${codeSample}`,
     `<p>见 &lt;h2&gt;下一节&lt;/h2&gt;。</p>${codeSample}`,
     '中文翻译输出',
