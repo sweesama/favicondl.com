@@ -1765,34 +1765,49 @@ function buildHTML(data, queueItem, publishDate) {
 // Sitemap 更新
 // ============================================================
 
+// Spanish size queries live on /es/tamanos-de-favicon.html. The es blog files
+// stay on disk behind a 301, so a generator must not put those URLs back.
+const SPANISH_SIZE_SITEMAP_SLUGS = new Set([
+  'favicon-sizes-guide',
+  'favicon-best-size-2026',
+]);
+const SPANISH_SIZE_SITEMAP_URL = 'https://favicondl.com/es/tamanos-de-favicon.html';
+
+function localizedSitemapUrl(slug, lang) {
+  if (lang === 'es' && SPANISH_SIZE_SITEMAP_SLUGS.has(slug)) return SPANISH_SIZE_SITEMAP_URL;
+  if (!lang || lang === 'en') return `https://favicondl.com/blog/${slug}.html`;
+  return `https://favicondl.com/${lang}/blog/${slug}.html`;
+}
+
+function sitemapUrlEntry(loc, date, priority) {
+  return `  <url>
+    <loc>${loc}</loc>
+    <lastmod>${date}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>${priority}</priority>
+  </url>`;
+}
+
 function updateSitemap(slug, date) {
   let sitemap = fs.readFileSync(SITEMAP_PATH, 'utf-8');
 
   // 检查是否已经存在此 URL（防止重复）
-  if (sitemap.includes(`/blog/${slug}.html`)) {
+  if (sitemap.includes(localizedSitemapUrl(slug, 'en'))) {
     console.log(`  ⚠️ sitemap 中已存在 ${slug}.html，跳过`);
     return;
   }
 
-  // 英文原版 + 4 种语言版本
-  const langs = ['zh', 'ja', 'ko', 'es'];
-  let newEntries = `  <url>
-    <loc>https://favicondl.com/blog/${slug}.html</loc>
-    <lastmod>${date}</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>`;
-
+  // 英文原版 + 4 种语言版本。西语尺寸页改写到 tamanos，且不重复写入。
+  const langs = ['en', 'zh', 'ja', 'ko', 'es'];
+  const entries = [];
   for (const lang of langs) {
-    newEntries += `\n  <url>
-    <loc>https://favicondl.com/${lang}/blog/${slug}.html</loc>
-    <lastmod>${date}</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.4</priority>
-  </url>`;
+    const loc = localizedSitemapUrl(slug, lang);
+    if (sitemap.includes(loc) || entries.some((entry) => entry.includes(`<loc>${loc}</loc>`))) continue;
+    entries.push(sitemapUrlEntry(loc, date, lang === 'en' ? '0.5' : '0.4'));
   }
 
-  sitemap = sitemap.replace('</urlset>', newEntries + '\n</urlset>');
+  if (!entries.length) return;
+  sitemap = sitemap.replace('</urlset>', `${entries.join('\n')}\n</urlset>`);
   fs.writeFileSync(SITEMAP_PATH, sitemap, 'utf-8');
 }
 
@@ -1913,4 +1928,5 @@ export {
   validateTranslationContent,
   validateKnownPlatformClaims,
   validateArticleData,
+  localizedSitemapUrl,
 };

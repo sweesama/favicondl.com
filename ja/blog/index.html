@@ -315,7 +315,7 @@
                             allPublishedArticles = articles
                                 .filter(a => a.publishDate <= today)
                                 .filter(a => a.slug !== 'chrome-not-showing-favicons')
-                                .filter(a => !(lang === 'es' && a.slug === 'favicon-sizes-guide'))
+                                .filter(a => !(lang === 'es' && (a.slug === 'favicon-sizes-guide' || a.slug === 'favicon-best-size-2026')))
                                 .sort((a, b) => b.publishDate.localeCompare(a.publishDate));
                         }
 
