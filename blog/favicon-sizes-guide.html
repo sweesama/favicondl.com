@@ -76,7 +76,7 @@
       "name": "How does each platform pick a favicon size?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The tab reads the favicon.ico layers or the 32×32 PNG, iOS reads the 180×180 apple-touch-icon, and Android reads 192×192 and 512×512 from the manifest. The lookup chart of those favicon dimensions is on the favicon dimensions and sizes page. This guide explains why that platform reads that file."
+        "text": "The tab reads the favicon.ico layers or the 32×32 PNG, iOS reads the 180×180 apple-touch-icon, and Android reads 192×192 and 512×512 from the manifest. The lookup chart of those favicon dimensions is the favicon dimensions chart. This guide explains why that platform reads that file."
       }
     },
     {
@@ -168,11 +168,25 @@
         </header>
 
         <div class="article-body" data-lang="en">
+            <h2 id="quick-answer">Quick answer</h2>
+            <p>A favicon size is a set, not one number.</p>
+            <div style="overflow-x:auto">
+            <table>
+                <thead><tr><th>File</th><th>Favicon size</th></tr></thead>
+                <tbody>
+                    <tr><td><code>favicon.ico</code></td><td>16×16, 32×32, and 48×48</td></tr>
+                    <tr><td>apple-touch icon</td><td>180×180</td></tr>
+                    <tr><td>Web app manifest</td><td>192×192 and 512×512</td></tr>
+                </tbody>
+            </table>
+            </div>
+            <p>The full pixel lookup is the <a href="/blog/favicon-best-size-2026.html">favicon dimensions chart</a>. The rest of this page says which file each platform reads.</p>
+
             <div class="info-box">
                 <p><strong>Favicon size by platform.</strong> The favicon size to publish is a set, not one number: one <code>favicon.ico</code> with <strong>16×16, 32×32 and 48×48</strong>, an optional <strong>96×96</strong> PNG when you want a file larger than 48×48 for Google Search, a <strong>180×180</strong> apple-touch icon, and web-manifest PNGs at <strong>192×192</strong> and <strong>512×512</strong>, plus a maskable PNG (usually 512×512). Add an SVG for the tab. Windows tile sizes are only for old Internet Explorer.</p>
             </div>
 
-            <p>The lookup chart, with every favicon dimension in one table and the HTML to paste, is <a href="/blog/favicon-best-size-2026.html">Favicon Dimensions &amp; Sizes (2026)</a>. This page is the longer guide: which file each surface reads, and which legacy sizes current platforms scale for you.</p>
+            <p>The lookup chart, with every favicon dimension in one table and the HTML to paste, is the <a href="/blog/favicon-best-size-2026.html">favicon dimensions chart</a>. This page is the longer guide: which file each surface reads, and which legacy sizes current platforms scale for you.</p>
 
             <h2 id="favicon-dimensions">The sizes, then the platform rules</h2>
             <p>A favicon size is the pixel width and height of one icon, and every file in this set is square: Google Search, iOS, and the web app manifest reject a file that is not. There is no single favicon size. The paste-ready chart is linked above. The table here is the same set, and the sections below say which file each surface reads. An SVG has no fixed pixel dimensions.</p>
@@ -325,7 +339,7 @@
             <h3>What size should a favicon be?</h3>
             <p>Use a <code>favicon.ico</code> with 16×16, 32×32, and 48×48 layers, a 32×32 PNG, a 180×180 apple-touch-icon, and manifest PNGs at 192×192 and 512×512. Add a maskable PNG, usually 512×512, when the launcher crops the icon. An SVG with <code>sizes="any"</code> covers the tab in current browsers. A separate black SVG is the Safari mask-icon.</p>
             <h3>How does each platform pick a favicon size?</h3>
-            <p>The tab reads the favicon.ico layers or the 32×32 PNG, iOS reads the 180×180 apple-touch-icon, and Android reads 192×192 and 512×512 from the manifest. The lookup chart of those favicon dimensions is on the <a href="/blog/favicon-best-size-2026.html">favicon dimensions and sizes page</a>. This guide explains why that platform reads that file.</p>
+            <p>The tab reads the favicon.ico layers or the 32×32 PNG, iOS reads the 180×180 apple-touch-icon, and Android reads 192×192 and 512×512 from the manifest. The lookup chart of those favicon dimensions is the <a href="/blog/favicon-best-size-2026.html">favicon dimensions chart</a>. This guide explains why that platform reads that file.</p>
             <h3>Which sizes belong in favicon.ico?</h3>
             <p>16×16, 32×32, and 48×48, stored together in one <code>favicon.ico</code>. The browser or operating system picks one layer: 16 for a standard tab, 32 for a high-DPI tab, and 48 for a Windows desktop shortcut. <a href="/tools.html">Image to Favicon</a> writes those three sizes into one <code>.ico</code>. Keep larger artwork in PNG or SVG so the ICO stays small.</p>
             <h3>What size is the apple-touch-icon?</h3>

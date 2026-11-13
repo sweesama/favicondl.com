@@ -58,7 +58,22 @@
   "mainEntityOfPage": "https://favicondl.com/ja/blog/favicon-sizes-guide.html",
   "inLanguage": "ja"
 }</script>
-</head>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "inLanguage": "ja",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "ファビコンのサイズはいくつにすべきですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "一つの数字はありません。16×16、32×32、48×48 を入れた favicon.ico、180×180 の apple-touch アイコン、マニフェストの 192×192 と 512×512 を公開します。"
+      }
+    }
+  ]
+}</script></head>
 <body>
     <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
         <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
@@ -97,6 +112,18 @@
         </header>
 
         <div class="article-body">
+            <h2 id="quick-answer">すぐ分かる答え</h2>
+            <p>ファビコンのサイズは一つの数字ではなく、セットです。</p>
+            <table>
+                <thead><tr><th>ファイル</th><th>サイズ</th></tr></thead>
+                <tbody>
+                    <tr><td><code>favicon.ico</code></td><td>16×16、32×32、48×48</td></tr>
+                    <tr><td>apple-touch アイコン</td><td>180×180</td></tr>
+                    <tr><td>Web app manifest</td><td>192×192 と 512×512</td></tr>
+                </tbody>
+            </table>
+            <p>ピクセルの一覧は <a href="/ja/blog/favicon-best-size-2026.html">ファビコン寸法チャート</a> です。このページの残りは、各プラットフォームがどのファイルを読むかを説明します。</p>
+
             <p>多くのデバイス、ブラウザ、プラットフォームが存在するため、faviconのサイズは混乱を招くことがあります。6種類のファイルが必要なのでしょうか？それとも1つだけで済ませられるのでしょうか？このガイドがその疑問を解消します。</p>
 
             <h2>完全なFaviconサイズ表</h2>
@@ -157,6 +184,10 @@
                     <tr><td>macOS Dock (PWA)</td><td>512×512</td><td>PNG</td></tr>
                 </tbody>
             </table>
+
+            <h2 id="faq">よくある質問</h2>
+            <h3>ファビコンのサイズはいくつにすべきですか？</h3>
+            <p>一つの数字はありません。16×16、32×32、48×48 を入れた favicon.ico、180×180 の apple-touch アイコン、マニフェストの 192×192 と 512×512 を公開します。</p>
         </div>
 
 <div class="cta-box">

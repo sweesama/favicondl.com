@@ -58,7 +58,22 @@
   "mainEntityOfPage": "https://favicondl.com/ko/blog/favicon-sizes-guide.html",
   "inLanguage": "ko"
 }</script>
-</head>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "inLanguage": "ko",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "파비콘 크기는 얼마여야 하나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "하나의 숫자는 없습니다. 16×16, 32×32, 48×48이 들어 있는 favicon.ico, 180×180 apple-touch 아이콘, 매니페스트의 192×192과 512×512를 게시하세요."
+      }
+    }
+  ]
+}</script></head>
 <body>
     <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
         <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
@@ -97,6 +112,18 @@
         </header>
 
         <div class="article-body">
+            <h2 id="quick-answer">빠른 답</h2>
+            <p>파비콘 크기는 하나의 숫자가 아니라 묶음입니다.</p>
+            <table>
+                <thead><tr><th>파일</th><th>크기</th></tr></thead>
+                <tbody>
+                    <tr><td><code>favicon.ico</code></td><td>16×16, 32×32, 48×48</td></tr>
+                    <tr><td>apple-touch 아이콘</td><td>180×180</td></tr>
+                    <tr><td>Web app manifest</td><td>192×192 과 512×512</td></tr>
+                </tbody>
+            </table>
+            <p>전체 픽셀 표는 <a href="/ko/blog/favicon-best-size-2026.html">파비콘 치수 표</a>입니다. 이 페이지의 나머지는 각 플랫폼이 어느 파일을 읽는지 설명합니다.</p>
+
             <p>수많은 기기, 브라우저, 플랫폼으로 인해 favicon 크기는 혼란스러울 수 있습니다. 6가지 다른 파일이 필요한가요? 아니면 하나로 충분할까요? 이 가이드가 그 혼란을 해결해 드립니다.</p>
 
             <h2>완벽한 Favicon 크기 표</h2>
@@ -157,6 +184,10 @@
                     <tr><td>macOS Dock (PWA)</td><td>512×512</td><td>PNG</td></tr>
                 </tbody>
             </table>
+
+            <h2 id="faq">자주 묻는 질문</h2>
+            <h3>파비콘 크기는 얼마여야 하나요?</h3>
+            <p>하나의 숫자는 없습니다. 16×16, 32×32, 48×48이 들어 있는 favicon.ico, 180×180 apple-touch 아이콘, 매니페스트의 192×192과 512×512를 게시하세요.</p>
         </div>
 
 <div class="cta-box">
