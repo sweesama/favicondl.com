@@ -365,7 +365,7 @@
             + '<div class="fc-pngs" hidden></div>'
             + '<pre class="fc-code" hidden></pre>'
             + '<div class="fc-actions" data-copy hidden><button type="button" class="fc-btn-secondary fc-copy">Copy HTML snippet</button></div>'
-            + '<p class="fc-note">Which size goes where is in the <a href="/blog/favicon-sizes-guide.html">favicon dimensions</a> guide. To copy an existing site icon, use the <a href="/">favicon downloader</a>.</p>'
+            + '<p class="fc-note">Which file each platform reads is the <a href="/blog/favicon-sizes-guide.html">favicon size</a> guide. The pixel rows are the <a href="/blog/favicon-best-size-2026.html">favicon dimensions</a> chart. To copy an existing site icon, use the <a href="/">favicon downloader</a>.</p>'
             + '</div>';
         root.querySelector('h2').textContent = heading;
         root.querySelector('.fc-lead').textContent = lead;

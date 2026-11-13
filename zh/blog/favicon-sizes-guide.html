@@ -58,7 +58,22 @@
   "mainEntityOfPage": "https://favicondl.com/zh/blog/favicon-sizes-guide.html",
   "inLanguage": "zh-CN"
 }</script>
-</head>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "inLanguage": "zh-CN",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Favicon 该用多大？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "没有单一尺寸。发布带 16×16、32×32 和 48×48 的 favicon.ico、180×180 的 apple-touch 图标，以及清单里的 192×192 和 512×512。"
+      }
+    }
+  ]
+}</script></head>
 <body>
     <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
         <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
@@ -97,6 +112,18 @@
         </header>
 
         <div class="article-body">
+            <h2 id="quick-answer">快速回答</h2>
+            <p>Favicon 尺寸是一组数字，不是单个数字。</p>
+            <table>
+                <thead><tr><th>文件</th><th>尺寸</th></tr></thead>
+                <tbody>
+                    <tr><td><code>favicon.ico</code></td><td>16×16、32×32 和 48×48</td></tr>
+                    <tr><td>apple-touch 图标</td><td>180×180</td></tr>
+                    <tr><td>Web app manifest</td><td>192×192 和 512×512</td></tr>
+                </tbody>
+            </table>
+            <p>完整的像素对照表是 <a href="/zh/blog/favicon-best-size-2026.html">favicon 尺寸像素表</a>。下文说明每个平台读取哪个文件。</p>
+
             <p>面对这么多设备、浏览器和平台，Favicon 尺寸确实让人困惑。你需要 6 个不同的文件吗？还是一个就够了？本指南帮你理清思路。</p>
 
             <h2>完整 Favicon 尺寸表</h2>
@@ -157,6 +184,10 @@
                     <tr><td>macOS Dock（PWA）</td><td>512×512</td><td>PNG</td></tr>
                 </tbody>
             </table>
+
+            <h2 id="faq">常见问题</h2>
+            <h3>Favicon 该用多大？</h3>
+            <p>没有单一尺寸。发布带 16×16、32×32 和 48×48 的 favicon.ico、180×180 的 apple-touch 图标，以及清单里的 192×192 和 512×512。</p>
         </div>
 
 <div class="cta-box">
