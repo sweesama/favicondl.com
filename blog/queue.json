@@ -3266,7 +3266,9 @@
     "avoidOverlap": [
       "streamlit-favicon"
     ],
-    "status": "pending"
+    "status": "done",
+    "qualityScore": 80,
+    "qualityGrade": "A"
   },
   {
     "keyword": "blazor favicon",

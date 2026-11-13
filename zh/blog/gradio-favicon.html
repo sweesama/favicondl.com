@@ -1,0 +1,150 @@
+<!DOCTYPE html><html lang="zh"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gradio Favicon：自定义浏览器图标设置指南</title>
+    <meta name="description" content="使用 launch() 的 favicon_path 参数为 Gradio 应用设置 favicon，了解图标准备、路径配置、部署与验证方法。">
+    <meta name="keywords" content="gradio favicon, custom favicon, favicon_path, ICO favicon, Gradio app">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/zh/blog/gradio-favicon.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/gradio-favicon.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/gradio-favicon.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/gradio-favicon.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/gradio-favicon.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/gradio-favicon.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/gradio-favicon.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/zh/blog/gradio-favicon.html">
+    <meta property="og:title" content="Gradio Favicon：自定义浏览器图标设置指南">
+    <meta property="og:description" content="使用 launch() 的 favicon_path 参数为 Gradio 应用设置 favicon，了解图标准备、路径配置、部署与验证方法。">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Gradio Favicon：自定义浏览器图标设置指南">
+    <meta name="twitter:description" content="使用 launch() 的 favicon_path 参数为 Gradio 应用设置 favicon，了解图标准备、路径配置、部署与验证方法。">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Gradio Favicon：自定义浏览器图标设置指南",
+  "description": "使用 launch() 的 favicon_path 参数为 Gradio 应用设置 favicon，了解图标准备、路径配置、部署与验证方法。",
+  "datePublished": "2026-11-13",
+  "dateModified": "2026-11-13",
+  "author": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "mainEntityOfPage": "https://favicondl.com/zh/blog/gradio-favicon.html",
+  "inLanguage": "zh-CN"
+}</script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/zh/" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/zh/documentation.html" class="nav-link">文档</a>
+                <a href="/zh/tools.html" class="nav-link">工具</a>
+                <a href="/zh/blog/" class="nav-link">博客</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/gradio-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/gradio-favicon.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/gradio-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/gradio-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/gradio-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/zh/" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/zh/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600">Gradio Favicon：自定义浏览器图标设置指南</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">python</span><time class="text-sm text-gray-400">2026-11-13</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">Gradio Favicon：自定义浏览器图标设置指南</h1>
+        </header>
+
+        <div class="article-body"><p>如果 Gradio 应用加载正常，但浏览器标签页仍显示通用的地球图标，说明应用缺少图标元数据。给 Gradio 添加 favicon 最简单的方式是通过启动器（launcher）配置，让 Gradio 注册图标文件，而不必手动修改它生成的页面模板。</p><p>无需在 <code>gr.HTML</code> 组件中放入 <code>&lt;link&gt;</code> 标签，也没必要为每个组件重复设置图标。只要在应用启动时配置一次，再确认浏览器确实请求了该文件即可。</p><h2>准备工作</h2><p>开始前，需要有一个可以重启的 Gradio 应用、一份正方形图标文件，以及对启动该应用的进程的访问权限。</p><ul><li>一个 Gradio 项目，其中包含 <code>app.py</code> 文件或其他 Python 入口点。</li><li>一份正方形 <code>.ico</code> 文件。为了获得可预期的浏览器回退效果，ICO 容器中应包含 16 px、32 px 和 48 px 三种尺寸的图像。</li><li>对启动命令或托管平台的访问权限，包括读取图标文件的权限。</li></ul><p>如果设计稿最初采用 PNG 或 SVG 格式，请在部署前完成转换。可以使用 <a href="/zh/">Mzu favicondl</a> 创建 ICO 文件，并将生成的文件命名为 <code>favicon.ico</code>。<a href="/zh/blog/png-to-ico.html">PNG 转 ICO 指南</a>介绍了可选尺寸。</p><h2>1. 准备 favicon 文件</h2><p>在 Python 入口点旁创建 <code>assets</code> 目录。将图标存放在路径稳定的位置，确保项目的每个副本——无论是本地、容器还是托管版本——都使用同一路径引用。</p><pre><code>your-gradio-app/
+├── app.py
+└── assets/
+    └── favicon.ico</code></pre><p>图标应按浏览器标签页中的显示效果来设计，而不是按完整 logo 页面来设计。轮廓鲜明的图形或单个字母，通常比细小文字更能适应 16 像素的渲染。源图应保持正方形，也不要指望宽图总能以可预测的方式被裁剪。</p><h2>2. 使用 <code>launch()</code> 设置 Gradio favicon</h2><p>将文件的绝对路径传给 <code>demo.launch()</code> 的 <code>favicon_path</code> 参数。这是 Gradio 专用的配置项，不要把它写进 <code>gr.Blocks()</code>。</p><pre><code>from pathlib import Path
+
+import gradio as gr
+
+app_dir = Path(__file__).resolve().parent
+favicon = app_dir / 'assets' / 'favicon.ico'
+
+if not favicon.is_file():
+    raise FileNotFoundError(f'Favicon not found: {favicon}')
+
+with gr.Blocks() as demo:
+    gr.Markdown('# My Gradio app')
+
+demo.launch(favicon_path=str(favicon))</code></pre>
+<p><code>Path(__file__).resolve().parent</code> 这一表达式会以脚本所在位置为基准定位图标，而不是使用 shell 当前的执行目录。<code>is_file()</code> 检查会在启动流程继续运行前发现资源缺失或文件名拼写错误。该选项必须指向本地文件；远程图片 URL 不能代替可部署的资源文件。</p>
+<h2>3. 在本地验证图标</h2>
+<p>修改代码后，先停止正在运行的服务器，再重新启动。浏览器标签页很容易继续使用旧图标缓存，因此应在新标签页或隐私窗口中验证结果，不能只看原来的标签页。</p>
+<p>查看页面源代码中的 <code>&lt;head&gt;</code> 部分，找到 <code>rel</code> 值为 <code>icon</code> 的 <code>link</code> 元素。<a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">HTML 规范</a>将 <code>icon</code> 定义为一种用于外部资源的 link relation，浏览器可以单独获取对应文件，而不必将它与应用页面本身混在一起。</p>
+<p>在开发者工具中打开 Network 面板并重新加载页面。确认图标请求返回 <code>200</code> 而不是 <code>404</code>，并核对响应内容确实是上传的文件。如果 <code>link</code> 元素已经存在，但标签页仍显示旧图标，可以使用更完整的<a href="/zh/blog/favicon-not-showing.html">favicon 排查清单</a>，检查缓存以及相互冲突的图标链接。</p>
+<h2>4. 将资源文件与应用一起部署</h2>
+<p>部署时必须把图标和应用一起交付，而不只是放在自己的笔记本电脑上。最终交付包需要同时包含 <code>app.py</code> 和 <code>assets/favicon.ico</code>，并保持上文所示的相对位置。</p>
+<ul><li>如果使用 container image，将 <code>assets</code> 目录复制到包含 <code>app.py</code> 的同一构建 stage，或包含 <code>app.py</code> 的最终 image 中。</li><li>如果使用基于 Git 的部署，应将 <code>.ico</code> 文件提交到仓库，除非所用托管策略会将二进制资源存放到其他位置。</li><li>如果使用自定义服务器，确保启动命令会执行脚本中的 <code>demo.launch(...)</code> 调用；仅仅把文件放进 repository，本身无法配置正在运行的服务器。</li></ul><p>当平台提供自己的站点图标设置时，同样的检查也很有必要。如果 Gradio app 被嵌入另一个页面，浏览器标签页的图标可能由顶层文档决定。在这种情况下，除了更新 Gradio launcher 的图标，也要更新父页面的图标。</p><h2>常见误区</h2><p>大多数 Gradio favicon 配置失败，都是几个小错误造成的：</p><ul><li><strong>参数位置错误：</strong> <code>favicon_path</code> 应传给 <code>launch()</code>，而不是 <code>Blocks()</code> 或 <code>Interface()</code>。</li><li><strong>相对路径不稳定：</strong> <code>assets/favicon.ico</code> 取决于进程从哪里启动。按所示方式将其锚定到 <code>__file__</code>。</li><li><strong>部署时缺少文件：</strong> 本地运行成功，并不能证明托管构建产物中包含该 <code>.ico</code> 文件。</li><li><strong>文件内容不正确：</strong> 不要把 PNG 文件直接改名为 <code>favicon.ico</code>；应将图标图像转换为 ICO 格式。</li><li><strong>浏览器缓存未更新：</strong> 在再次修改应用代码之前，打开一个新标签页，或清除该站点的 favicon 数据。</li><li><strong>父页面冲突：</strong> 如果 Gradio 位于 iframe 中，外层页面仍可能决定标签页的图标。</li></ul><h2>结论</h2><p>把 Gradio favicon 作为启动时管理的资源，是最简单稳妥的做法：将一个正方形的 ICO 文件放在 app 旁边，把解析后的路径传给 <code>launch(favicon_path=...)</code>，并验证浏览器渲染图标时发出的请求。这样实现足够轻量，而且无论是本地还是托管的 Gradio app，标识更新时都只需替换同一个明确文件。</p></div>
+
+        <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
+
+        <div class="cta-box">
+            <h3>为 Gradio 应用准备 favicon 文件</h3>
+            <p>将 PNG 或 SVG 转换为 ICO 图标文件，然后与 Gradio 应用一起部署。</p>
+            <a href="/zh/" class="cta-btn">免费转换 →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/zh/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">首页</a>
+                <a href="/zh/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">博客</a>
+                <a href="/zh/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">隐私政策</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js?v=20260211"></script>
+
+</body></html>

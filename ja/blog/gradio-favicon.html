@@ -1,0 +1,153 @@
+<!DOCTYPE html><html lang="ja"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gradio faviconを設定してタブアイコンをカスタマイズ</title>
+    <meta name="description" content="Gradioのlaunch()にあるfavicon_pathを使い、faviconの作成、パス指定、デプロイ、表示確認までを解説します。">
+    <meta name="keywords" content="gradio favicon, custom favicon, favicon_path, ICO favicon, Gradio app">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/ja/blog/gradio-favicon.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/gradio-favicon.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/gradio-favicon.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/gradio-favicon.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/gradio-favicon.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/gradio-favicon.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/gradio-favicon.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/ja/blog/gradio-favicon.html">
+    <meta property="og:title" content="Gradio faviconを設定してタブアイコンをカスタマイズ">
+    <meta property="og:description" content="Gradioのlaunch()にあるfavicon_pathを使い、faviconの作成、パス指定、デプロイ、表示確認までを解説します。">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Gradio faviconを設定してタブアイコンをカスタマイズ">
+    <meta name="twitter:description" content="Gradioのlaunch()にあるfavicon_pathを使い、faviconの作成、パス指定、デプロイ、表示確認までを解説します。">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Gradio faviconを設定してタブアイコンをカスタマイズ",
+  "description": "Gradioのlaunch()にあるfavicon_pathを使い、faviconの作成、パス指定、デプロイ、表示確認までを解説します。",
+  "datePublished": "2026-11-13",
+  "dateModified": "2026-11-13",
+  "author": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "mainEntityOfPage": "https://favicondl.com/ja/blog/gradio-favicon.html",
+  "inLanguage": "ja"
+}</script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/ja/" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/ja/documentation.html" class="nav-link">ドキュメント</a>
+                <a href="/ja/tools.html" class="nav-link">ツール</a>
+                <a href="/ja/blog/" class="nav-link">ブログ</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/gradio-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/gradio-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/gradio-favicon.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/gradio-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/gradio-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/ja/" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/ja/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600">Gradio faviconを設定してタブアイコンをカスタマイズ</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">python</span><time class="text-sm text-gray-400">2026-11-13</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">Gradio faviconを設定してタブアイコンをカスタマイズ</h1>
+        </header>
+
+        <div class="article-body"><p>Gradio アプリが正常に動作しているのに、ブラウザーのタブに汎用的な地球アイコンしか表示されない場合、そのアプリにはアイコンのメタデータが設定されていません。Gradio の favicon は launcher 経由で追加するのが最も簡単です。launcher から設定すれば、Gradio にファイルを登録できるため、生成されるページテンプレートを編集せずに済みます。</p>
+<p><code>gr.HTML</code> コンポーネントの中に <code>&lt;link&gt;</code> タグを挿入したり、すべてのコンポーネントで favicon を重複設定したりする必要はありません。アプリケーションの起動時に一度だけ favicon を設定し、その後、ブラウザーが実際にそのファイルをリクエストすることを確認してください。</p>
+<h2>前提条件</h2>
+<p>着手する前に、再起動できる Gradio アプリケーション、正方形のアイコンファイル、およびアプリを起動するプロセスへのアクセス権が必要です。</p>
+<ul><li><code>app.py</code> ファイルまたはその他の Python エントリーポイントを備えた Gradio プロジェクトが必要です。</li><li>正方形の <code>.ico</code> ファイルが必要です。ブラウザーでのフォールバックを安定させるには、ICO コンテナーに 16 px、32 px、48 px のアートワークを含めてください。</li><li>launch コマンドまたは hosting platform へアクセスできることが必要です。アイコンファイルを読み取る権限も含めます。</li></ul>
+<p>アートワークが PNG または SVG として用意されている場合は、deployment 前に変換してください。<a href="/ja/">Mzu favicondl</a> を使って ICO を作成し、生成されたファイルは <code>favicon.ico</code> という名前のままにしてください。<a href="/ja/blog/png-to-ico.html">PNG to ICO ガイド</a> では、サイズの選択肢を説明しています。</p>
+<h2>1. favicon ファイルを準備する</h2>
+<p>Python のエントリーポイントの隣に <code>assets</code> ディレクトリを作成してください。アイコンは安定したパスに保存し、ローカル環境、コンテナ、ホスティング環境のいずれでも、プロジェクトの各コピーが同じ参照を使うようにします。</p>
+<pre><code>your-gradio-app/
+├── app.py
+└── assets/
+    └── favicon.ico</code></pre>
+<p>タブ表示を想定してデザインしてください。通常、細かい文字よりも、太い形状や1文字だけの表現のほうが、16 px で描画されても識別しやすくなります。元画像は正方形に保ち、横幅の広い画像が予想外の形で切り取られることに依存しないでください。</p>
+<h2>2. <code>launch()</code> で Gradio の favicon を設定する</h2>
+<p><code>demo.launch()</code> の <code>favicon_path</code> 引数に、アイコンファイルの絶対パスを渡してください。これは Gradio 固有の設定項目です。<code>gr.Blocks()</code> の中に指定しないでください。</p><pre><code>from pathlib import Path
+
+import gradio as gr
+
+app_dir = Path(__file__).resolve().parent
+favicon = app_dir / 'assets' / 'favicon.ico'
+
+if not favicon.is_file():
+    raise FileNotFoundError(f'Favicon not found: {favicon}')
+
+with gr.Blocks() as demo:
+    gr.Markdown('# My Gradio app')
+
+demo.launch(favicon_path=str(favicon))</code></pre><p><code>Path(__file__).resolve().parent</code>式は、アイコンの基準をシェルのカレントディレクトリではなくスクリプトに固定します。<code>is_file()</code>チェックにより、起動処理を続ける前に、存在しない、またはパスの指定に誤りがあるアセットを検出できます。このオプションにはローカルファイルを指定してください。リモートの画像URLは、デプロイ可能なアセットの代替にはなりません。</p><h2>3. ローカルでアイコンを確認する</h2><p>コードを変更したら、実行中のサーバーを停止して、もう一度起動してください。ブラウザーのタブはアイコンを強くキャッシュするため、以前のタブを信頼せず、新しいタブまたはプライベートウィンドウで結果を確認してください。</p><p>ページソースの<code>&lt;head&gt;</code>内を確認し、<code>rel</code>の値が<code>icon</code>であるリンクを探してください。<a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">HTML仕様</a>では、<code>icon</code>は外部リソースのlink relationとして定義されています。これにより、ブラウザーはアプリページとは別に、そのファイルを取得できます。</p><p>Developer ToolsでNetworkパネルを開き、ページを再読み込みしてください。アイコンのリクエストが<code>404</code>ではなく<code>200</code>を返すことを確認し、レスポンスがアップロードしたファイルになっているかを確認してください。リンクは存在するものの、タブには古いアイコンが表示されている場合は、キャッシュや競合するアイコンリンクを調べるための、より包括的な<a href="/ja/blog/favicon-not-showing.html">faviconトラブルシューティングチェックリスト</a>を利用してください。</p><h2>4. アセットをアプリと一緒にデプロイする</h2><p>アイコンはノートPCだけでなく、アプリケーションと一緒にデプロイしてください。アプリの配布パッケージには、上で示された相対位置に置かれた<code>app.py</code>と<code>assets/favicon.ico</code>の両方が必要です。</p><ul><li>container imageを利用する場合、<code>app.py</code>を含む同じstageまたは最終イメージに<code>assets</code>ディレクトリをコピーしてください。</li><li>Gitベースのデプロイでは、<code>.ico</code>ファイルをcommitしてください。ただし、ホスティングポリシーによってバイナリアセットを別の場所に保存している場合は除きます。</li><li>カスタムサーバーを利用する場合は、起動コマンドがスクリプトの<code>demo.launch(...)</code>呼び出しを実行するようにしてください。リポジトリ内のファイルだけでは、実行中のサーバーをそれ自体で設定することはできません。</li></ul><p>プラットフォームが独自のサイトアイコン設定を用意している場合も、同じ確認事項が必要です。Gradio アプリを別のページに埋め込む場合、ブラウザータブを制御するのは top-level document になることがあります。この構成では、親ページのアイコンと Gradio の launcher のアイコンの両方を更新してください。</p><h2>よくある落とし穴</h2><p>Gradio の favicon 設定が失敗するケースの多くは、次のような小さなミスが原因です。</p><ul><li><strong>引数の指定位置が誤っている：</strong> <code>favicon_path</code> は <code>launch()</code> の引数であり、<code>Blocks()</code> や <code>Interface()</code> の引数ではありません。</li><li><strong>相対パスが不安定：</strong> <code>assets/favicon.ico</code> は process の開始位置によって解決結果が変わります。例示されているとおり、パスを <code>__file__</code> を基準に固定してください。</li><li><strong>デプロイ対象のファイルがない：</strong> ローカルでの実行が成功しただけでは、hosted build に <code>.ico</code> ファイルが含まれていることを確認できません。</li><li><strong>ファイルの内容が不正：</strong> PNG ファイルの名前を <code>favicon.ico</code> に変更しないでください。代わりに、元の画像を ICO format に変換してください。</li><li><strong>browser cache が古い：</strong> application code を再び変更する前に、新しいタブを開くか、サイトの favicon データを消去してください。</li><li><strong>親ページとの競合：</strong> Gradio が iframe 内に配置されている場合、タブアイコンは依然として外側のページによって決定されることもあります。</li></ul><h2>まとめ</h2><p>Gradio の favicon は、launch 時の asset として管理するのが最も簡単です。アプリの横に正方形の ICO ファイルを配置し、解決後の path を <code>launch(favicon_path=...)</code> に渡して、表示に使うアイコンの request を確認してください。これにより実装は簡潔になり、local と hosted の Gradio app のどちらでも、mark を変更Bouときの更新対象が分かりやすい1つのファイルにまとまります。</p></div>
+
+        <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
+
+        <div class="cta-box">
+            <h3>Gradio用のfaviconを作成</h3>
+            <p>PNGやSVGをICOファイルに変換し、Gradioアプリと一緒にデプロイできます。</p>
+            <a href="/ja/" class="cta-btn">無料で試す →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/ja/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">ホーム</a>
+                <a href="/ja/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">ブログ</a>
+                <a href="/ja/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">プライバシー</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js?v=20260211"></script>
+
+</body></html>

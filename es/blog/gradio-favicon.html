@@ -1,0 +1,153 @@
+<!DOCTYPE html><html lang="es"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configura un favicon en Gradio paso a paso</title>
+    <meta name="description" content="Usa favicon_path en launch() para preparar, vincular, desplegar y comprobar el favicon de tu aplicación Gradio.">
+    <meta name="keywords" content="gradio favicon, custom favicon, favicon_path, ICO favicon, Gradio app">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/es/blog/gradio-favicon.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/gradio-favicon.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/gradio-favicon.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/gradio-favicon.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/gradio-favicon.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/gradio-favicon.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/gradio-favicon.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/es/blog/gradio-favicon.html">
+    <meta property="og:title" content="Configura un favicon en Gradio paso a paso">
+    <meta property="og:description" content="Usa favicon_path en launch() para preparar, vincular, desplegar y comprobar el favicon de tu aplicación Gradio.">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Configura un favicon en Gradio paso a paso">
+    <meta name="twitter:description" content="Usa favicon_path en launch() para preparar, vincular, desplegar y comprobar el favicon de tu aplicación Gradio.">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Configura un favicon en Gradio paso a paso",
+  "description": "Usa favicon_path en launch() para preparar, vincular, desplegar y comprobar el favicon de tu aplicación Gradio.",
+  "datePublished": "2026-11-13",
+  "dateModified": "2026-11-13",
+  "author": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "mainEntityOfPage": "https://favicondl.com/es/blog/gradio-favicon.html",
+  "inLanguage": "es"
+}</script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/es/" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/es/documentation.html" class="nav-link">Documentación</a>
+                <a href="/es/tools.html" class="nav-link">Herramientas</a>
+                <a href="/es/blog/" class="nav-link">Blog</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/gradio-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/gradio-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/gradio-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/gradio-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/gradio-favicon.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/es/" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/es/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600">Configura un favicon en Gradio paso a paso</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">python</span><time class="text-sm text-gray-400">2026-11-13</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">Configura un favicon en Gradio paso a paso</h1>
+        </header>
+
+        <div class="article-body"><p>Si la pestaña del navegador muestra un globo genérico mientras tu app de Gradio carga con normalidad, significa que a la app le faltan los metadatos del icono. La forma más sencilla de añadir un favicon a Gradio es hacerlo desde el launcher, donde Gradio puede registrar el archivo sin que tengas que editar la plantilla de página que genera.</p>
+<p>No necesitas insertar una etiqueta <code>&lt;link&gt;</code> dentro de un componente <code>gr.HTML</code> ni duplicar el icono en cada componente. Configúralo una sola vez al iniciar la aplicación y luego comprueba que el navegador solicite realmente el archivo.</p>
+<h2>Requisitos previos</h2>
+<p>Antes de empezar, necesitas una aplicación de Gradio que puedas reiniciar, un archivo de icono cuadrado y acceso al proceso que inicia la app.</p>
+<ul><li>Un proyecto de Gradio con un archivo <code>app.py</code> u otro punto de entrada de Python.</li><li>Un archivo <code>.ico</code> cuadrado. Para obtener un fallback predecible en el navegador, incluye diseños de 16 px, 32 px y 48 px en el contenedor.</li><li>Acceso al comando de launch o a la plataforma de hosting, incluido el permiso para leer el archivo del icono.</li></ul>
+<p>Si tu diseño empieza como PNG o SVG, conviértelo antes del despliegue. Puedes usar <a href="/es/">Mzu favicondl</a> para crear el ICO y, después, conserva el archivo generado con el nombre <code>favicon.ico</code>. La <a href="/es/blog/png-to-ico.html">guía para convertir PNG a ICO</a> explica las opciones de tamaño.</p>
+<h2>1. Prepara el archivo favicon</h2>
+<p>Crea un directorio <code>assets</code> junto al punto de entrada de Python. Guarda el icono en una ruta estable para que todas las copias del proyecto —local, en un contenedor o alojadas— usen la misma referencia.</p>
+<pre><code>your-gradio-app/
+├── app.py
+└── assets/
+    └── favicon.ico</code></pre>
+<p>Diseña para la pestaña, no para una página de logotipo completa. Una forma audaz o una sola letra suelen conservar mejor su legibilidad en el renderizado de 16 píxeles que un texto con muchos detalles. Mantén el original cuadrado y no dependas de que una imagen ancha se recorte de forma impredecible.</p>
+<h2>2. Configura el favicon de Gradio con <code>launch()</code></h2>
+<p>Pasa la ruta absoluta del archivo al argumento <code>favicon_path</code> de <code>demo.launch()</code>. Esta es la opción específica de Gradio; no la coloques dentro de <code>gr.Blocks()</code>.</p><pre><code>from pathlib import Path
+
+import gradio as gr
+
+app_dir = Path(__file__).resolve().parent
+favicon = app_dir / 'assets' / 'favicon.ico'
+
+if not favicon.is_file():
+    raise FileNotFoundError(f'Favicon not found: {favicon}')
+
+with gr.Blocks() as demo:
+    gr.Markdown('# My Gradio app')
+
+demo.launch(favicon_path=str(favicon))</code></pre><p>La expresión <code>Path(__file__).resolve().parent</code> ancla el icono al script, no al directorio de trabajo actual de la shell. La comprobación <code>is_file()</code> detecta un asset ausente o una ruta mal escrita antes de que la aplicación siga arrancando. Configura esta opción con un archivo local; una URL de imagen remota no sustituye a un asset que pueda incluirse en el despliegue.</p><h2>3. Verifica el icono localmente</h2><p>Detén el servidor en ejecución y vuelve a iniciarlo después de cambiar el código. Las pestañas del navegador almacenan los iconos en caché de forma agresiva, así que verifica el resultado en una pestaña nueva o una ventana privada, en lugar de confiar en la pestaña anterior.</p><p>Inspecciona el código fuente de la página dentro de <code>&lt;head&gt;</code> y busca un enlace cuyo valor de <code>rel</code> sea <code>icon</code>. La <a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">especificación de HTML</a> define <code>icon</code> como una relación de enlace para un recurso externo, lo que permite que el navegador solicite ese archivo por separado de la página de la app.</p><p>En las herramientas de desarrollo, abre el panel Network y recarga la página. Comprueba que la solicitud del icono devuelve <code>200</code> en lugar de <code>404</code> y que la respuesta corresponde al archivo que has subido. Si el enlace existe pero la pestaña todavía muestra el símbolo anterior, consulta la <a href="/es/blog/favicon-not-showing.html">lista completa de troubleshooting de favicon</a> para revisar la caché y los enlaces de iconos conflictivos.</p><h2>4. Despliega el asset junto con la app</h2><p>Despliega el icono junto con la aplicación, no solo en tu equipo. El paquete de entrega debe incluir tanto <code>app.py</code> como <code>assets/favicon.ico</code> en las ubicaciones relativas que se muestran arriba.</p><ul><li>Para una imagen de contenedor, copia el directorio <code>assets</code> en el stage o la imagen final que contenga <code>app.py</code>.</li><li>Para despliegues basados en Git, haz commit del archivo <code>.ico</code>, salvo que la política de tu hosting guarde los assets binarios en otra ubicación.</li><li>Para un servidor personalizado, asegúrate de que el comando de inicio ejecute la llamada <code>demo.launch(...)</code> del script; un archivo en el repositorio no puede configurar por sí solo un servidor en ejecución.</li></ul><p>La misma comprobación es importante cuando una plataforma ofrece su propia opción para configurar el icono del sitio. Si la app Gradio está incrustada en otra página, el documento principal puede controlar la pestaña del navegador. En ese caso, actualiza también el icono de la página contenedora, además del launcher de Gradio.</p><h2>Problemas comunes</h2><p>La mayoría de los intentos fallidos al configurar un favicon en Gradio se deben a algunos errores pequeños:</p><ul><li><strong>Ubicación incorrecta del argumento:</strong> <code>favicon_path</code> pertenece a <code>launch()</code>, no a <code>Blocks()</code> ni a <code>Interface()</code>.</li><li><strong>Ruta relativa frágil:</strong> <code>assets/favicon.ico</code> depende del directorio desde el que se inicia el proceso. Anclala a <code>__file__</code> como se muestra.</li><li><strong>Archivo de deployment ausente:</strong> Que la app funcione correctamente en local no demuestra que el build alojado incluya el archivo <code>.ico</code>.</li><li><strong>Contenido incorrecto del archivo:</strong> No renombres un archivo PNG como <code>favicon.ico</code>; convierte la imagen al formato ICO.</li><li><strong>Caché del navegador obsoleta:</strong> Abre una pestaña nueva o borra los datos del favicon del sitio antes de volver a modificar el código de la aplicación.</li><li><strong>Conflicto con la página contenedora:</strong> Si Gradio está dentro de un iframe, la página exterior todavía puede determinar el icono de la pestaña.</li></ul><h2>Conclusión</h2><p>Un favicon de Gradio es más fácil de gestionar como un recurso disponible en el momento del launch: coloca un archivo ICO cuadrado junto a la app, pasa su ruta resuelta a <code>launch(favicon_path=...)</code> y verifica la solicitud del icono renderizado. Así, la implementación se mantiene sencilla y las apps Gradio, tanto locales como alojadas, tienen un único archivo evidente que actualizar cuando cambie la marca.</p></div>
+
+        <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
+
+        <div class="cta-box">
+            <h3>Crea el favicon para tu app Gradio</h3>
+            <p>Convierte un PNG o SVG en un archivo ICO y despliega el favicon con tu app Gradio.</p>
+            <a href="/es/" class="cta-btn">Pruébalo gratis →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/es/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">Inicio</a>
+                <a href="/es/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">Blog</a>
+                <a href="/es/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">Privacidad</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js?v=20260211"></script>
+
+</body></html>

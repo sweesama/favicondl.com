@@ -4334,5 +4334,26 @@
     ],
     "qualityScore": 80,
     "qualityGrade": "A"
+  },
+  {
+    "slug": "gradio-favicon",
+    "publishDate": "2026-11-13",
+    "titleEn": "Gradio Favicon: Add a Custom Browser Icon the Right Way",
+    "titleZh": "Gradio Favicon：自定义浏览器图标设置指南",
+    "titleJa": "Gradio faviconを設定してタブアイコンをカスタマイズ",
+    "titleKo": "Gradio favicon 설정으로 탭 아이콘 바꾸기",
+    "titleEs": "Configura un favicon en Gradio paso a paso",
+    "descEn": "Set a Gradio favicon with the launch() favicon_path option, prepare suitable icon files, deploy the asset correctly, and verify it in browser tabs.",
+    "descZh": "使用 launch() 的 favicon_path 参数为 Gradio 应用设置 favicon，了解图标准备、路径配置、部署与验证方法。",
+    "descJa": "Gradioのlaunch()にあるfavicon_pathを使い、faviconの作成、パス指定、デプロイ、表示確認までを解説します。",
+    "descKo": "Gradio의 launch() favicon_path 옵션으로 아이콘 파일 준비, 경로 지정, 배포, 표시 확인까지 설정하세요.",
+    "descEs": "Usa favicon_path en launch() para preparar, vincular, desplegar y comprobar el favicon de tu aplicación Gradio.",
+    "keyword": "gradio favicon",
+    "tags": [
+      "python",
+      "framework"
+    ],
+    "qualityScore": 80,
+    "qualityGrade": "A"
   }
 ]
