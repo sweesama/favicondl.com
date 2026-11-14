@@ -4355,5 +4355,26 @@
     ],
     "qualityScore": 80,
     "qualityGrade": "A"
+  },
+  {
+    "slug": "blazor-favicon",
+    "publishDate": "2026-11-14",
+    "titleEn": "Blazor Favicon Setup: A Practical Step-by-Step Guide",
+    "titleZh": "Blazor Favicon 设置：实用分步指南",
+    "titleJa": "Blazor Favicon 設定：実践的なステップ別ガイド",
+    "titleKo": "Blazor Favicon 설정: 실용적인 단계별 가이드",
+    "titleEs": "Blazor Favicon: guía práctica paso a paso",
+    "descEn": "Add a Blazor favicon to any hosting model with the right wwwroot folder, head markup, static file setup, and verification steps without guesswork.",
+    "descZh": "通过正确的 wwwroot 目录、文档 head 标记和静态文件配置，为不同 Blazor 托管模式设置 favicon，并排查 404 与缓存问题。",
+    "descJa": "正しい wwwroot 配置、head の link タグ、静的ファイルの配信を設定し、Blazor の各ホスティングモデルで favicon を確実に表示します。",
+    "descKo": "올바른 wwwroot 구성, head 링크 태그, 정적 파일 제공을 설정해 Blazor 호스팅 모델에서 favicon을 안정적으로 표시하세요.",
+    "descEs": "Configura el favicon en Blazor con la carpeta wwwroot, las etiquetas head y la entrega de archivos estáticos. Evita 404 e icons obsoletos.",
+    "keyword": "blazor favicon",
+    "tags": [
+      "dotnet",
+      "framework"
+    ],
+    "qualityScore": 85,
+    "qualityGrade": "A"
   }
 ]

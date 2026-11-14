@@ -1,0 +1,144 @@
+<!DOCTYPE html><html lang="es"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blazor Favicon: guía práctica paso a paso</title>
+    <meta name="description" content="Configura el favicon en Blazor con la carpeta wwwroot, las etiquetas head y la entrega de archivos estáticos. Evita 404 e icons obsoletos.">
+    <meta name="keywords" content="blazor favicon, blazor icon, asp.net core favicon, wwwroot favicon">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/es/blog/blazor-favicon.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/blazor-favicon.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/blazor-favicon.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/blazor-favicon.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/blazor-favicon.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/blazor-favicon.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/blazor-favicon.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/es/blog/blazor-favicon.html">
+    <meta property="og:title" content="Blazor Favicon: guía práctica paso a paso">
+    <meta property="og:description" content="Configura el favicon en Blazor con la carpeta wwwroot, las etiquetas head y la entrega de archivos estáticos. Evita 404 e icons obsoletos.">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Blazor Favicon: guía práctica paso a paso">
+    <meta name="twitter:description" content="Configura el favicon en Blazor con la carpeta wwwroot, las etiquetas head y la entrega de archivos estáticos. Evita 404 e icons obsoletos.">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Blazor Favicon: guía práctica paso a paso",
+  "description": "Configura el favicon en Blazor con la carpeta wwwroot, las etiquetas head y la entrega de archivos estáticos. Evita 404 e icons obsoletos.",
+  "datePublished": "2026-11-14",
+  "dateModified": "2026-11-14",
+  "author": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "mainEntityOfPage": "https://favicondl.com/es/blog/blazor-favicon.html",
+  "inLanguage": "es"
+}</script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/es/" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/es/documentation.html" class="nav-link">Documentación</a>
+                <a href="/es/tools.html" class="nav-link">Herramientas</a>
+                <a href="/es/blog/" class="nav-link">Blog</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/blazor-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/blazor-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/blazor-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/blazor-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/blazor-favicon.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/es/" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/es/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600">Blazor Favicon: guía práctica paso a paso</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">dotnet</span><time class="text-sm text-gray-400">2026-11-14</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">Blazor Favicon: guía práctica paso a paso</h1>
+        </header>
+
+        <div class="article-body"><p>Si tu aplicación Blazor funciona pero su pestaña muestra el icono genérico de un documento, normalmente se debe a que falta un archivo estático o el enlace del head. Un <strong>Blazor favicon</strong> fiable necesita ambas cosas: un recurso servido por la aplicación y un enlace <code>rel='icon'</code> en el head del documento. El mismo enfoque funciona en los modelos de hosting habituales de Blazor.</p>
+<h2>Requisitos previos</h2><p>Necesitas un proyecto de Blazor ya creado, su .NET SDK y un logotipo cuadrado. Si tu imagen de origen es PNG, usa <a href="/es/">Mzu favicondl</a> para crear variantes SVG, ICO y PNG.</p><ul><li><strong>Blazor Web App:</strong> localiza el documento compartido en <code>Components/App.razor</code>.</li><li><strong>Standalone WebAssembly:</strong> localiza el documento en <code>wwwroot/index.html</code>.</li><li><strong>Hosted WebAssembly:</strong> identifica el index del cliente y el proyecto del servidor que lo publica.</li></ul>
+<h2>1. Identifica la plantilla y su archivo head</h2><p>Abre el archivo mencionado anteriormente y revisa su head. En una Blazor Web App, edita <code>Components/App.razor</code>; en WebAssembly independiente, edita <code>wwwroot/index.html</code>. En WebAssembly hospedado, edita el index del cliente, pero comprueba que el servidor desplegado sirva sus assets. Si una plantilla más antigua usa <code>Pages/_Host.cshtml</code>, edita ese documento en su lugar. Mantén el icono global fuera de los componentes de página normales, ya que allí podría aplicarse solo a una ruta.</p>
+<h2>2. Prepara un conjunto pequeño de iconos</h2><p>Crea una carpeta para cada variante:</p><pre><code>wwwroot/
+└── favicon/
+    ├── favicon.svg
+    ├── favicon.ico
+    └── apple-touch-icon.png</code></pre><p>Coloca estos archivos dentro de <code>wwwroot</code> para que se publiquen como static web assets. Recomendamos un SVG escalable, un ICO que contenga imágenes de 16, 32 y 48 px y un PNG opcional de 180×180 para los accesos táctiles. Usa una ilustración cuadrada con margen y elimina el texto pequeño: desaparece a 16 px. Convierte o empaqueta los archivos con <a href="/es/">Mzu favicondl</a>.</p>
+<h2>3. Añade los enlaces del Blazor favicon al head del documento</h2><p>Añade los enlaces globales dentro del mismo head que contiene la URL base y los enlaces a las hojas de estilos:</p><pre><code>&lt;head&gt;
+  &lt;base href='/' /&gt;
+
+  &lt;link rel='icon' href='favicon/favicon.ico'
+        sizes='16x16 32x32 48x48' /&gt;
+  &lt;link rel='icon' type='image/svg+xml'
+        href='favicon/favicon.svg' /&gt;
+  &lt;link rel='apple-touch-icon' sizes='180x180'
+        href='favicon/apple-touch-icon.png' /&gt;
+&lt;/head&gt;</code></pre><p>Estas URL relativas siguen la ruta base de la aplicación en lugar de dar por supuesta la raíz del dominio. La <a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">definición de <code>rel='icon'</code> del HTML Standard</a> especifica un icono almacenado en un recurso externo; <code>type</code> y <code>sizes</code> describen el archivo. Mantén el enlace al ICO como fallback y define un conjunto global único en lugar de repetirlo en cada componente.</p><h2>4. Actualiza los proyectos WebAssembly</h2><p>Para WebAssembly standalone, pega los mismos enlaces en el head de <code>wwwroot/index.html</code>. Para WebAssembly hosted, añádelos al archivo index del cliente, publica la solución y revisa la salida del servidor:</p><pre><code>dotnet publish -c Release</code></pre><p>Comprueba que el <code>wwwroot</code> publicado contenga la carpeta <code>favicon</code>. Si no, cópiala en el <code>wwwroot</code> del host o ajusta la publicación de archivos estáticos. El index del cliente puede funcionar aunque un icono siga devolviendo 404.</p><h2>5. Comprueba cómo se sirven los archivos estáticos</h2><p>Si la solicitud directa de un icono devuelve 404, revisa <code>Program.cs</code> en busca de <code>app.UseStaticFiles()</code> o de un mapeo existente de endpoints para archivos estáticos. Si no existe ninguno de los dos, inserta esto antes del enrutamiento y del registro de endpoints:</p><pre><code>app.UseStaticFiles();</code></pre><p>No reemplaces el pipeline ni dupliques la gestión existente de archivos estáticos. Cuando falta este paso, las páginas pueden renderizarse mientras <code>/favicon/favicon.ico</code> falla. WebAssembly standalone no necesita middleware de ASP.NET Core porque su salida publicada es un sitio estático.</p><h2>6. Verifica el archivo y la pestaña del navegador</h2><p>Ejecuta el proyecto con <code>dotnet run</code>, sustituye <code>5000</code> por el puerto que aparece en pantalla en los comandos siguientes y solicita directamente los dos archivos:</p><pre><code>curl -I http://localhost:5000/favicon/favicon.ico
+curl -I http://localhost:5000/favicon/favicon.svg</code></pre><p>Cada respuesta debe devolver 200 y un tipo de contenido de imagen. Consulta el código fuente de la página y confirma que los elementos link están en el head. Si el HTML es correcto pero la pestaña sigue mostrando el icono anterior, abre una pestaña nueva o una ventana privada e inspecciona el panel Network. Una recarga forzada normal puede no reemplazar un icono que ya esté en caché.</p><p>Repite la comprobación en la URL desplegada. Que funcione en localhost no demuestra que producción utilice el mismo base path o sirva los mismos archivos.</p><h2>Problemas habituales</h2><ul><li><strong>404 en el favicon:</strong> confirma que el archivo está en <code>wwwroot/favicon</code>, que la ruta relativa coincide y que los archivos estáticos están mapeados.</li><li><strong>Funciona en local, pero falla en una subruta:</strong> evita una URL <code>/favicon/...</code> limitada a la raíz cuando la base URL de Blazor apunte a otro lugar; mantén los enlaces relativos como se muestra.</li><li><strong>Iconos duplicados u obsoletos:</strong> elimina el enlace al favicon antiguo de la plantilla y abre una pestaña nueva. Consulta la <a href="/es/blog/favicon-not-showing-localhost.html">guía de resolución de problemas del favicon en localhost</a> para obtener una lista de comprobación específica.</li><li><strong>Un formato no funciona:</strong> exporta un SVG válido y autocontenido y conserva un ICO de respaldo con varios tamaños. Los estilos o recursos externos pueden hacer que un SVG no sea fiable como favicon.</li></ul><h2>Conclusión</h2><p>Ajusta el modelo de hosting al archivo head, coloca los recursos bajo <code>wwwroot</code> y declara URL globales relativas. Prueba los archivos directamente antes de depurar la pestaña. Para una configuración de servidor no estándar, consulta la referencia más amplia <a href="/es/blog/aspnet-core-favicon.html">sobre la configuración del favicon en ASP.NET Core</a>.</p></div>
+
+        <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
+
+        <div class="cta-box">
+            <h3>Crea un favicon limpio para tu proyecto</h3>
+            <p>Convierte una imagen cuadrada en archivos ICO, PNG y SVG con Mzu favicondl y aplícalos con los pasos de Blazor de esta guía.</p>
+            <a href="/es/" class="cta-btn">Pruébalo gratis →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/es/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">Inicio</a>
+                <a href="/es/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">Blog</a>
+                <a href="/es/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">Privacidad</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js?v=20260211"></script>
+
+</body></html>

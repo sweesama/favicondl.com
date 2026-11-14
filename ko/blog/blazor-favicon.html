@@ -1,0 +1,140 @@
+<!DOCTYPE html><html lang="ko"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blazor Favicon 설정: 실용적인 단계별 가이드</title>
+    <meta name="description" content="올바른 wwwroot 구성, head 링크 태그, 정적 파일 제공을 설정해 Blazor 호스팅 모델에서 favicon을 안정적으로 표시하세요.">
+    <meta name="keywords" content="blazor favicon, blazor icon, asp.net core favicon, wwwroot favicon">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/ko/blog/blazor-favicon.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/blazor-favicon.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/blazor-favicon.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/blazor-favicon.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/blazor-favicon.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/blazor-favicon.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/blazor-favicon.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/ko/blog/blazor-favicon.html">
+    <meta property="og:title" content="Blazor Favicon 설정: 실용적인 단계별 가이드">
+    <meta property="og:description" content="올바른 wwwroot 구성, head 링크 태그, 정적 파일 제공을 설정해 Blazor 호스팅 모델에서 favicon을 안정적으로 표시하세요.">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Blazor Favicon 설정: 실용적인 단계별 가이드">
+    <meta name="twitter:description" content="올바른 wwwroot 구성, head 링크 태그, 정적 파일 제공을 설정해 Blazor 호스팅 모델에서 favicon을 안정적으로 표시하세요.">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Blazor Favicon 설정: 실용적인 단계별 가이드",
+  "description": "올바른 wwwroot 구성, head 링크 태그, 정적 파일 제공을 설정해 Blazor 호스팅 모델에서 favicon을 안정적으로 표시하세요.",
+  "datePublished": "2026-11-14",
+  "dateModified": "2026-11-14",
+  "author": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "mainEntityOfPage": "https://favicondl.com/ko/blog/blazor-favicon.html",
+  "inLanguage": "ko"
+}</script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/ko/" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/ko/documentation.html" class="nav-link">문서</a>
+                <a href="/ko/tools.html" class="nav-link">도구</a>
+                <a href="/ko/blog/" class="nav-link">블로그</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/blazor-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/blazor-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/blazor-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/blazor-favicon.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/blazor-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/ko/" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/ko/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600">Blazor Favicon 설정: 실용적인 단계별 가이드</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">dotnet</span><time class="text-sm text-gray-400">2026-11-14</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">Blazor Favicon 설정: 실용적인 단계별 가이드</h1>
+        </header>
+
+        <div class="article-body"><p>Blazor 앱은 정상적으로 동작하지만 탭에 일반 문서 아이콘만 표시된다면, 대개 정적 파일이나 문서의 head에 연결된 링크가 빠져 있기 때문입니다. 안정적인 <strong>Blazor favicon</strong>을 적용하려면 앱이 제공하는 asset과 문서 head에 삽입한 <code>rel='icon'</code> 링크가 모두 필요합니다. 이 방식은 Blazor의 일반적인 hosting 모델 전반에서 동일하게 사용할 수 있습니다.</p><h2>준비 사항</h2><p>기존 Blazor 프로젝트, 해당 프로젝트의 .NET SDK, 정사각형 로고가 필요합니다. 원본이 PNG라면 <a href="/ko/">Mzu favicondl</a>로 SVG, ICO, PNG 변형 파일을 만드세요.</p><ul><li><strong>Blazor Web App:</strong> 공유 문서는 <code>Components/App.razor</code> 파일에서 찾습니다.</li><li><strong>Standalone WebAssembly:</strong> 문서는 <code>wwwroot/index.html</code> 파일에서 찾습니다.</li><li><strong>Hosted WebAssembly:</strong> 클라이언트의 index 파일과 해당 파일을 게시하는 server 프로젝트를 확인합니다.</li></ul><h2>1. 템플릿과 head 파일 확인</h2><p>위에서 확인한 파일을 열고 head를 살펴보세요. Blazor Web App은 <code>Components/App.razor</code>를 수정하고, Standalone WebAssembly은 <code>wwwroot/index.html</code>을 수정합니다. Hosted WebAssembly에서는 client index를 수정하되, 배포된 서버가 해당 asset을 실제로 제공하는지도 확인해야 합니다. 이전 템플릿에서 <code>Pages/_Host.cshtml</code>를 사용한다면 대신 그 문서를 수정합니다. 전역 아이콘 설정은 일반 page component에 넣지 마세요. 해당 component는 특정 route에만 적용될 수 있습니다.</p><h2>2. 작은 icon 세트 준비</h2><p>각 변형 파일을 저장할 폴더 하나를 만듭니다.</p><pre><code>wwwroot/
+└── favicon/
+    ├── favicon.svg
+    ├── favicon.ico
+    └── apple-touch-icon.png</code></pre><p>이 파일들을 <code>wwwroot</code> 아래에 배치하면 정적 web asset으로 게시됩니다. 확장 가능한 SVG, 16, 32, 48 px 이미지를 담은 ICO, touch shortcut용 180×180 PNG를 권장하며, PNG는 선택적으로 사용할 수 있습니다. 로고 그래픽은 정사각형에 여백을 두고 작은 글자는 제거하세요. 16 px에서는 작은 글자가 보이지 않습니다. 파일 변환과 패키징에는 <a href="/ko/">Mzu favicondl</a>을 사용하세요.</p><h2>3. 문서 head에 Blazor favicon 링크 추가</h2><p>base URL과 stylesheet 링크가 들어 있는 동일한 head 안에 전역 링크를 추가합니다.</p><pre><code>&lt;head&gt;
+  &lt;base href='/' /&gt;
+
+  &lt;link rel='icon' href='favicon/favicon.ico'
+        sizes='16x16 32x32 48x48' /&gt;
+  &lt;link rel='icon' type='image/svg+xml'
+        href='favicon/favicon.svg' /&gt;
+  &lt;link rel='apple-touch-icon' sizes='180x180'
+        href='favicon/apple-touch-icon.png' /&gt;
+&lt;/head&gt;</code></pre><p>이 상대 URL은 도메인 루트를 가정하는 대신 앱의 base path를 따릅니다. <a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">HTML Standard의 <code>rel='icon'</code> 정의</a>는 외부 리소스 아이콘을 설명하며, <code>type</code>과 <code>sizes</code>는 파일을 설명합니다. ICO 링크는 fallback으로 유지하고, 모든 component마다 반복하지 말고 하나의 global set으로 정의하세요.</p><h2>4. WebAssembly 프로젝트 업데이트</h2><p>독립형 WebAssembly에서는 동일한 링크를 <code>wwwroot/index.html</code>의 head에 붙여 넣으세요. hosted WebAssembly에서는 client index에 링크를 추가한 다음 solution을 게시하고 server output을 확인합니다.</p><pre><code>dotnet publish -c Release</code></pre><p>게시된 <code>wwwroot</code>에 <code>favicon</code> 폴더가 포함되어 있는지 확인하세요. 그렇지 않다면 해당 폴더를 host의 <code>wwwroot</code>에 복사하거나 static-asset publishing 설정을 조정하세요. client index가 정상적으로 표시되더라도 아이콘은 404를 반환할 수 있습니다.</p><h2>5. 정적 파일 제공 확인</h2><p>아이콘을 직접 요청했을 때 404가 반환된다면 <code>Program.cs</code>에서 <code>app.UseStaticFiles()</code> 또는 기존 static-assets endpoint mapping을 확인하세요. 둘 다 없다면 routing 및 endpoint 등록보다 앞에 다음 코드를 삽입하세요.</p><pre><code>app.UseStaticFiles();</code></pre><p>기존 pipeline을 교체하거나 static-asset 처리를 중복해서 추가하지 마세요. 이 단계를 빠뜨리면 페이지가 렌더링되더라도 <code>/favicon/favicon.ico</code> 요청은 실패할 수 있습니다. standalone WebAssembly은 게시된 output이 정적 사이트이므로 ASP.NET Core middleware가 필요하지 않습니다.</p><h2>6. 파일과 브라우저 탭 확인</h2><p><code>dotnet run</code>으로 프로젝트를 실행한 다음, 아래 명령의 <code>5000</code>을 출력된 port로 바꾸고 두 파일을 직접 요청하세요.</p><pre><code>curl -I http://localhost:5000/favicon/favicon.ico
+curl -I http://localhost:5000/favicon/favicon.svg</code></pre><p>각 응답은 200을 반환하고 image content type을 제공해야 합니다. 페이지 소스를 확인해 link 요소가 <code>head</code> 안에 있는지 확인하십시오. HTML이 올바르지만 탭에 기존 아이콘이 계속 표시된다면 새 탭이나 private window를 열어 Network panel을 점검하십시오. 일반적인 hard refresh로는 이미 캐시된 아이콘이 바뀌지 않을 수 있습니다.</p><p>배포된 URL에서도 동일한 검사를 반복하십시오. localhost에서 정상 동작한다고 해서 production이 동일한 base path를 사용하거나 동일한 파일을 제공한다는 뜻은 아닙니다.</p><h2>흔히 겪는 문제</h2><ul><li><strong>favicon에서 404 오류:</strong> 파일이 <code>wwwroot/favicon</code> 아래에 있는지, relative path가 일치하는지, static files가 매핑되었는지 확인하십시오.</li><li><strong>로컬에서는 작동하지만 subpath에서는 실패:</strong> Blazor의 base URL이 다른 위치를 가리킬 때는 root-only <code>/favicon/...</code> URL을 사용하지 마십시오. 표시된 것처럼 link를 relative로 유지하십시오.</li><li><strong>favicon이 중복되거나 오래된 파일이 남아 있음:</strong> 템플릿의 기존 favicon link를 제거한 다음 새 탭을 사용하십시오. 자세한 체크리스트는 <a href="/ko/blog/favicon-not-showing-localhost.html">localhost favicon 문제 해결 가이드</a>를 참고하십시오.</li><li><strong>한 가지 format이 실패함:</strong> 유효하고 self-contained한 SVG를 export하고 multi-size ICO fallback을 유지하십시오. 외부 styles나 resources를 참조하면 SVG를 favicon으로 사용하는 것이 불안정할 수 있습니다.</li></ul><h2>결론</h2><p>hosting model을 head file에 맞추고, assets를 <code>wwwroot</code> 아래에 놓고, relative global URL을 선언하십시오. 탭을 디버깅하기 전에 각 파일을 직접 테스트하십시오. 비표준 server setup을 사용하는 경우 더 자세한 <a href="/ko/blog/aspnet-core-favicon.html">ASP.NET Core favicon 설정 참고 문서</a>를 보십시오.</p></div>
+
+        <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
+
+        <div class="cta-box">
+            <h3>깔끔한 favicon 파일 세트 만들기</h3>
+            <p>정사각형 원본 이미지를 ICO, PNG, SVG 파일로 변환한 뒤 이 가이드의 Blazor 설정대로 적용하세요.</p>
+            <a href="/ko/" class="cta-btn">무료로 사용해보기 →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/ko/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">홈</a>
+                <a href="/ko/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">블로그</a>
+                <a href="/ko/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">개인정보</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js?v=20260211"></script>
+
+</body></html>

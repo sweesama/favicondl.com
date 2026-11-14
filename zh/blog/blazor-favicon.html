@@ -1,0 +1,152 @@
+<!DOCTYPE html><html lang="zh"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blazor Favicon 设置：实用分步指南</title>
+    <meta name="description" content="通过正确的 wwwroot 目录、文档 head 标记和静态文件配置，为不同 Blazor 托管模式设置 favicon，并排查 404 与缓存问题。">
+    <meta name="keywords" content="blazor favicon, blazor icon, asp.net core favicon, wwwroot favicon">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/zh/blog/blazor-favicon.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/blazor-favicon.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/blazor-favicon.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/blazor-favicon.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/blazor-favicon.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/blazor-favicon.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/blazor-favicon.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/zh/blog/blazor-favicon.html">
+    <meta property="og:title" content="Blazor Favicon 设置：实用分步指南">
+    <meta property="og:description" content="通过正确的 wwwroot 目录、文档 head 标记和静态文件配置，为不同 Blazor 托管模式设置 favicon，并排查 404 与缓存问题。">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Blazor Favicon 设置：实用分步指南">
+    <meta name="twitter:description" content="通过正确的 wwwroot 目录、文档 head 标记和静态文件配置，为不同 Blazor 托管模式设置 favicon，并排查 404 与缓存问题。">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Blazor Favicon 设置：实用分步指南",
+  "description": "通过正确的 wwwroot 目录、文档 head 标记和静态文件配置，为不同 Blazor 托管模式设置 favicon，并排查 404 与缓存问题。",
+  "datePublished": "2026-11-14",
+  "dateModified": "2026-11-14",
+  "author": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "mainEntityOfPage": "https://favicondl.com/zh/blog/blazor-favicon.html",
+  "inLanguage": "zh-CN"
+}</script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/zh/" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/zh/documentation.html" class="nav-link">文档</a>
+                <a href="/zh/tools.html" class="nav-link">工具</a>
+                <a href="/zh/blog/" class="nav-link">博客</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/blazor-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/blazor-favicon.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/blazor-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/blazor-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/blazor-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/zh/" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/zh/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600">Blazor Favicon 设置：实用分步指南</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">dotnet</span><time class="text-sm text-gray-400">2026-11-14</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">Blazor Favicon 设置：实用分步指南</h1>
+        </header>
+
+        <div class="article-body"><p>如果 Blazor 应用能够正常运行，但浏览器标签页里显示的还是默认文档图标，通常是因为缺少 static file，或文档 head 中没有对应的 link。要让 <strong>Blazor favicon</strong> 稳定生效，两者都需要：应用提供图标资源，文档 head 中包含 <code>rel='icon'</code> 链接。Blazor 常见的各种 hosting model 都适用这套做法。</p>
+<h2>前置条件</h2>
+<p>开始前需要准备一个现有的 Blazor 项目、.NET SDK，以及一张正方形 logo。如果源文件是 PNG，可以使用 <a href="/zh/">Mzu favicondl</a> 分别生成 SVG、ICO 和 PNG 文件。</p>
+<ul><li><strong>Blazor Web App：</strong>在 <code>Components/App.razor</code> 中找到共享文档。</li><li><strong>Standalone WebAssembly：</strong>文档位于 <code>wwwroot/index.html</code>。</li><li><strong>Hosted WebAssembly：</strong>确定客户端 index，以及发布它的 server 项目。</li></ul>
+<h2>1. 确认模板及其 head 文件</h2>
+<p>打开上面提到的文件，检查其中的 head。在 Blazor Web App 中，编辑 <code>Components/App.razor</code>；在 standalone WebAssembly 中，编辑 <code>wwwroot/index.html</code>。在 hosted WebAssembly 中，编辑客户端 index，但需要确认部署后的 server 会提供相关资源。如果旧版模板使用 <code>Pages/_Host.cshtml</code>，则改为编辑该文档。不要把全局图标放在普通页面组件中，因为这样可能只对某一条 route 生效。</p>
+<h2>2. 准备一组小尺寸图标</h2>
+<p>创建一个目录，用于存放各个 icon variant：</p>
+<pre><code>wwwroot/
+└── favicon/
+    ├── favicon.svg
+    ├── favicon.ico
+    └── apple-touch-icon.png</code></pre>
+<p>把这些文件放在 <code>wwwroot</code> 下，使其作为 static web assets 发布。我们推荐使用可缩放的 SVG，以及包含 16、32 和 48 px 图像的 ICO；也可以选用 180×180 PNG，作为 touch shortcut。图案应保持正方形并留出 padding，同时去掉细小的文字，因为文字在 16 px 下会消失。可以使用 <a href="/zh/">Mzu favicondl</a> 转换或打包这些文件。</p>
+<h2>3. 将 Blazor favicon 链接添加到文档 head</h2>
+<p>在包含 base URL 和 stylesheet 链接的同一个 head 中添加全局链接：</p><pre><code>&lt;head&gt;
+  &lt;base href='/' /&amp;gt;
+
+  &lt;link rel='icon' href='favicon/favicon.ico'
+        sizes='16x16 32x32 48x48' /&amp;gt;
+  &lt;link rel='icon' type='image/svg+xml'
+        href='favicon/favicon.svg' /&amp;gt;
+  &lt;link rel='apple-touch-icon' sizes='180x180'
+        href='favicon/apple-touch-icon.png' /&amp;gt;
+&lt;/head&gt;</code></pre><p>这些相对 URL 会跟随应用的 base path，而不会假定图标位于域名根目录。<a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">HTML Standard 对 <code>rel='icon'</code> 的定义</a>指出，它描述的是一种外部资源图标；<code>type</code> 和 <code>sizes</code> 用于描述文件。保留 ICO 链接作为 fallback，并统一定义一组全局图标配置，不要在每个 component 中重复添加。</p><h2>4. 更新 WebAssembly 项目</h2><p>对于 standalone WebAssembly，将同样的链接粘贴到 <code>wwwroot/index.html</code> 的 head 中。对于 hosted WebAssembly，把这些链接添加到客户端 index，发布 solution，然后检查服务器输出：</p><pre><code>dotnet publish -c Release</code></pre><p>确认发布后的 <code>wwwroot</code> 中包含 <code>favicon</code> 文件夹。如果没有，就将其复制到宿主的 <code>wwwroot</code> 中，或调整静态资源发布配置。即使客户端 index 工作正常，图标请求仍可能返回 404。</p><h2>5. 检查静态文件服务</h2><p>如果直接请求图标时返回 404，请检查 <code>Program.cs</code> 中是否有 <code>app.UseStaticFiles()</code>，或者是否已经配置了 static-assets endpoint mapping。如果两者都不存在，请在 routing 和 endpoint registration 之前插入：</p><pre><code>app.UseStaticFiles();</code></pre><p>不要替换整个 pipeline，也不要重复添加已有的 static-asset 处理。缺少这一步时，页面仍可能正常渲染，但 <code>/favicon/favicon.ico</code> 的请求会失败。standalone WebAssembly 不需要 ASP.NET Core middleware，因为它的发布结果是一个静态站点。</p><h2>6. 验证文件和浏览器标签页</h2><p>使用 <code>dotnet run</code> 运行项目，将下面的 <code>5000</code> 替换为控制台输出的端口，然后分别直接请求这两个文件：</p><pre><code>curl -I http://localhost:5000/favicon/favicon.ico
+curl -I http://localhost:5000/favicon/favicon.svg</code></pre><p>每次响应都应返回 200，且 Content-Type 为图片类型。查看页面源代码，确认 link 元素位于 head 中。如果 HTML 正确，但标签页仍显示旧图标，请打开新标签页或无痕窗口，并检查 Network 面板。普通的强制刷新可能不会替换已经缓存的图标。</p>
+<p>在部署后的 URL 上重复检查。localhost 验证成功，并不能证明生产环境使用了相同的 base path，或提供了相同的文件。</p><h2>常见问题</h2><ul><li><strong>图标返回 404：</strong>确认文件位于 <code>wwwroot/favicon</code>，相对路径匹配正确，并且静态文件已正确映射。</li><li><strong>本地正常，但在子路径下失效：</strong>当 Blazor 的 base URL 指向其他位置时，不要使用仅限根路径的 <code>/favicon/...</code> URL；请如示例所示保持链接为相对路径。</li><li><strong>图标重复或未更新：</strong>删除模板中旧的 favicon link，然后在新标签页中检查。更多针对性检查步骤可参考 <a href="/zh/blog/favicon-not-showing-localhost.html">localhost favicon 故障排查指南</a>。</li><li><strong>某种格式无法使用：</strong>导出有效且自包含的 SVG，同时保留多尺寸 ICO 作为 fallback。外部样式或资源可能让 SVG 作为 favicon 时不够可靠。</li></ul><h2>总结</h2><p>根据 hosting model 配置 head 文件，将资源放在 <code>wwwroot</code> 下，并用相对路径声明全局 URL。调试标签页之前，先直接测试这些文件。对于非标准服务器配置，可参阅更完整的 <a href="/zh/blog/aspnet-core-favicon.html">ASP.NET Core favicon 设置参考</a>。</p></div>
+
+        <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
+
+        <div class="cta-box">
+            <h3>生成清晰的 favicon 文件组</h3>
+            <p>将方形源图转换为 ICO、PNG 和 SVG 文件，再按照本指南的 Blazor 步骤部署。</p>
+            <a href="/zh/" class="cta-btn">免费试用 →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/zh/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">首页</a>
+                <a href="/zh/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">博客</a>
+                <a href="/zh/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">隐私政策</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js?v=20260211"></script>
+
+</body></html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html><html lang="ja"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blazor Favicon 設定：実践的なステップ別ガイド</title>
+    <meta name="description" content="正しい wwwroot 配置、head の link タグ、静的ファイルの配信を設定し、Blazor の各ホスティングモデルで favicon を確実に表示します。">
+    <meta name="keywords" content="blazor favicon, blazor icon, asp.net core favicon, wwwroot favicon">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/ja/blog/blazor-favicon.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/blazor-favicon.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/blazor-favicon.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/blazor-favicon.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/blazor-favicon.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/blazor-favicon.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/blazor-favicon.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/ja/blog/blazor-favicon.html">
+    <meta property="og:title" content="Blazor Favicon 設定：実践的なステップ別ガイド">
+    <meta property="og:description" content="正しい wwwroot 配置、head の link タグ、静的ファイルの配信を設定し、Blazor の各ホスティングモデルで favicon を確実に表示します。">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Blazor Favicon 設定：実践的なステップ別ガイド">
+    <meta name="twitter:description" content="正しい wwwroot 配置、head の link タグ、静的ファイルの配信を設定し、Blazor の各ホスティングモデルで favicon を確実に表示します。">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Blazor Favicon 設定：実践的なステップ別ガイド",
+  "description": "正しい wwwroot 配置、head の link タグ、静的ファイルの配信を設定し、Blazor の各ホスティングモデルで favicon を確実に表示します。",
+  "datePublished": "2026-11-14",
+  "dateModified": "2026-11-14",
+  "author": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "mainEntityOfPage": "https://favicondl.com/ja/blog/blazor-favicon.html",
+  "inLanguage": "ja"
+}</script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/ja/" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/ja/documentation.html" class="nav-link">ドキュメント</a>
+                <a href="/ja/tools.html" class="nav-link">ツール</a>
+                <a href="/ja/blog/" class="nav-link">ブログ</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/blazor-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/blazor-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/blazor-favicon.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/blazor-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/blazor-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/ja/" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/ja/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600">Blazor Favicon 設定：実践的なステップ別ガイド</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">dotnet</span><time class="text-sm text-gray-400">2026-11-14</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">Blazor Favicon 設定：実践的なステップ別ガイド</h1>
+        </header>
+
+        <div class="article-body"><p>Blazor アプリが動作しているのに、タブに表示されるアイコンが一般的なドキュメントアイコンなら、原因は通常、static file または head 内の link が欠けていることです。確実に機能する <strong>Blazor favicon</strong> には、次の両方が必要です。アプリが配信するアセットと、document head 内の <code>rel='icon'</code> link です。同じアプローチは Blazor の一般的なホスティングモデルでも使用できます。</p><h2>前提条件</h2><p>既存の Blazor プロジェクト、その .NET SDK、正方形のロゴを用意します。元画像が PNG の場合は、<a href="/ja/">Mzu favicondl</a> を使って SVG、ICO、PNG の variant を作成できます。</p><ul><li><strong>Blazor Web App:</strong> 共有 document は <code>Components/App.razor</code> にあります。</li><li><strong>Standalone WebAssembly:</strong> document は <code>wwwroot/index.html</code> にあります。</li><li><strong>Hosted WebAssembly:</strong> client index と、それを公開する server project を特定します。</li></ul><h2>1. テンプレートと head ファイルを確認する</h2><p>上記のファイルを開き、head を確認します。Blazor Web App では <code>Components/App.razor</code> を、Standalone WebAssembly では <code>wwwroot/index.html</code> を編集します。Hosted WebAssembly では client index を編集しますが、deploy された server がその assets を配信するかも確認します。古いテンプレートで <code>Pages/_Host.cshtml</code> を使用している場合は、その document を編集します。グローバルな icon は通常の page component には配置しないでください。そこでは 1 つの route にだけ適用される可能性があります。</p><h2>2. 小さな icon set を用意する</h2><p>各 variant 用の folder を作成します。</p><pre><code>wwwroot/
+└── favicon/
+    ├── favicon.svg
+    ├── favicon.ico
+    └── apple-touch-icon.png</code></pre><p>これらのファイルを <code>wwwroot</code> の下に配置すると、static web assets として公開されます。拡大縮小可能な SVG、16 px、32 px、48 px の画像を含む ICO、タッチショートカット用の任意の 180×180 PNG を推奨します。余白を持つ正方形の artwork を使用し、小さな文字は削除してください。小さな文字は 16 px では消えてしまいます。ファイルの変換やパッケージ化には <a href="/ja/">Mzu favicondl</a> を使用します。</p><h2>3. document head に Blazor favicon links を追加する</h2><p>base URL と stylesheet links を含む同じ head 内に、global links を追加します：</p><pre><code>&lt;head&gt;
+  &lt;base href='/' /&gt;
+
+  &lt;link rel='icon' href='favicon/favicon.ico'
+        sizes='16x16 32x32 48x48' /&gt;
+  &lt;link rel='icon' type='image/svg+xml'
+        href='favicon/favicon.svg' /&gt;
+  &lt;link rel='apple-touch-icon' sizes='180x180'
+        href='favicon/apple-touch-icon.png' /&gt;
+&lt;/head&gt;</code></pre><p>これらの相対 URL は、ドメインのルートを仮定するのではなく、アプリの base path に従います。<a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">HTML Standard の <code>rel='icon'</code> の定義</a>は、外部リソースのアイコンを示しています。<code>type</code> と <code>sizes</code> はファイルを示します。ICO のリンクは fallback として保持し、各コンポーネントで繰り返すのではなく、アプリ全体で共用する一組として定義してください。</p><h2>4. WebAssembly プロジェクトを更新する</h2><p>standalone WebAssembly の場合は、同じリンクを <code>wwwroot/index.html</code> の head に貼り付けます。hosted WebAssembly の場合は、クライアント側の index にリンクを追加し、solution を publish したうえで server 側の出力を確認します。</p><pre><code>dotnet publish -c Release</code></pre><p>publish された <code>wwwroot</code> に <code>favicon</code> フォルダが含まれていることを確認します。含まれていない場合は、host の <code>wwwroot</code> にコピーするか、static-asset の publish 設定を調整します。クライアント側の index が正常に動作していても、アイコンが 404 を返すことはあります。</p><h2>5. static-file の配信を確認する</h2><p>アイコンへの直接リクエストが 404 を返す場合は、<code>Program.cs</code> に <code>app.UseStaticFiles()</code> または既存の static-assets endpoint mapping があるか確認します。どちらも存在しない場合は、routing と endpoint registration より前に、次の行を追加します。</p><pre><code>app.UseStaticFiles();</code></pre><p>pipeline を置き換えたり、既存の static-asset 処理を重複させたりしないでください。この手順を省略すると、ページは描画できる一方、<code>/favicon/favicon.ico</code> へのリクエストは失敗することがあります。standalone WebAssembly では、publish された出力が静的サイトであるため、ASP.NET Core middleware は必要ありません。</p><h2>6. ファイルとブラウザタブを確認する</h2><p>プロジェクトを <code>dotnet run</code> で実行し、次の <code>5000</code> を実行時に表示されたポートに置き換えて、両方のファイルを直接リクエストします。</p><pre><code>curl -I http://localhost:5000/favicon/favicon.ico
+curl -I http://localhost:5000/favicon/favicon.svg</code></pre><p>各レスポンスは 200 を返し、image content type になっている必要があります。ページのソースを表示し、link 要素が head にあることを確認します。HTML が正しくても、タブに古いアイコンが表示される場合は、新しいタブまたはプライベートウィンドウを開き、Network パネルを点検します。通常のハードリロードでは、すでにキャッシュされたアイコンが置き換えられないことがあります。</p><p>同じ確認をデプロイ済みの URL でも行ってください。localhost で成功しても、本番環境で同じベースパスが使用されている、または同じファイルが配信されていることを証明するものではありません。</p><h2>よくある落とし穴</h2><ul><li><strong>アイコンが 404 になる場合：</strong> ファイルが <code>wwwroot/favicon</code> の下にあること、相対パスが一致していること、static files がマッピングされていることを確認してください。</li><li><strong>localhost では動作するが、サブパスでは失敗する場合：</strong> Blazor のベース URL が別の场所を指している場合は、ルート限定の <code>/favicon/...</code> URL を避け、示されたとおりリンクを相対的にしてください。</li><li><strong>アイコンが重複している、または古い場合：</strong> テンプレートの古い favicon link を削除し、新しいタブを使用します。 Antonia080536 に限定したチェックリストについては、<a href="/ja/blog/favicon-not-showing-localhost.html">localhost での favicon 表示トラブルシューティングガイド</a>を参照してください。</li><li><strong>いずれかの形式が失敗する場合：</strong> 有効な自己完結型の SVG を出力し、複数サイズの ICO をフォールバックとして残してください。外部のスタイルやリソースがあると、SVG を favicon として信頼できなくなる場合があります。</li></ul><h2>まとめ</h2><p>hosting model と head ファイルが適合するようにし、アセットを <code>wwwroot</code> の下に配置して、相対的なグローバル URL を宣言します。タブの動作を調査する前に、各ファイルを直接テストしてください。標準外のサーバー構成については、より一般的な<a href="/ja/blog/aspnet-core-favicon.html">ASP.NET Core favicon setup</a>のリファレンスを参照してください。</p></div>
+
+        <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
+
+        <div class="cta-box">
+            <h3>@favicon のファイル一式を 준비</h3>
+            <p>正方形の元画像を ICO、PNG、SVG ファイルに変換し、このガイドの Blazor 手順で配置できます。</p>
+            <a href="/ja/" class="cta-btn">無料で試す →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/ja/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">ホーム</a>
+                <a href="/ja/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">ブログ</a>
+                <a href="/ja/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">プライバシー</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js?v=20260211"></script>
+
+</body></html>
