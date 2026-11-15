@@ -3296,7 +3296,9 @@
     "intent": "how-to",
     "depth": "standard",
     "avoidOverlap": [],
-    "status": "pending"
+    "status": "done",
+    "qualityScore": 95,
+    "qualityGrade": "A"
   },
   {
     "keyword": "webpack favicon",

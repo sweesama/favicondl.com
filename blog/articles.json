@@ -4376,5 +4376,26 @@
     ],
     "qualityScore": 85,
     "qualityGrade": "A"
+  },
+  {
+    "slug": "aspnet-core-favicon",
+    "publishDate": "2026-11-15",
+    "titleEn": "ASP.NET Core Favicon Setup: A Practical Step-by-Step Guide",
+    "titleZh": "ASP.NET Core favicon 设置指南",
+    "titleJa": "ASP.NET Core favicon 設定ガイド",
+    "titleKo": "ASP.NET Core favicon 설정 가이드",
+    "titleEs": "Configuración de favicon en ASP.NET Core",
+    "descEn": "Add an ASP.NET Core favicon with the right static files, Razor layout tags, ICO fallback, and verification steps for browser tabs and mobile icons.",
+    "descZh": "通过静态文件、共享布局和兼容的 ICO、PNG、SVG 标记，为 ASP.NET Core 应用添加并验证 favicon。",
+    "descJa": "ASP.NET Core アプリに favicon を追加する方法を、静的ファイル、共有レイアウト、ICO・PNG・SVG のマークアップから解説します。",
+    "descKo": "정적 파일, 공유 레이아웃, ICO·PNG·SVG 마크업을 사용해 ASP.NET Core 앱에 favicon을 추가하고 확인하는 방법입니다.",
+    "descEs": "Aprende a añadir un favicon en ASP.NET Core con archivos estáticos, el layout compartido y una combinación compatible de ICO, PNG y SVG.",
+    "keyword": "asp.net core favicon",
+    "tags": [
+      "dotnet",
+      "framework"
+    ],
+    "qualityScore": 95,
+    "qualityGrade": "A"
   }
 ]

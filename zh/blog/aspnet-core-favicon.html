@@ -1,0 +1,189 @@
+<!DOCTYPE html><html lang="zh"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASP.NET Core favicon 设置指南</title>
+    <meta name="description" content="通过静态文件、共享布局和兼容的 ICO、PNG、SVG 标记，为 ASP.NET Core 应用添加并验证 favicon。">
+    <meta name="keywords" content="asp.net core favicon, favicon setup, ico favicon, svg favicon">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/zh/blog/aspnet-core-favicon.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/aspnet-core-favicon.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/aspnet-core-favicon.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/aspnet-core-favicon.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/aspnet-core-favicon.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/aspnet-core-favicon.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/aspnet-core-favicon.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/zh/blog/aspnet-core-favicon.html">
+    <meta property="og:title" content="ASP.NET Core favicon 设置指南">
+    <meta property="og:description" content="通过静态文件、共享布局和兼容的 ICO、PNG、SVG 标记，为 ASP.NET Core 应用添加并验证 favicon。">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="ASP.NET Core favicon 设置指南">
+    <meta name="twitter:description" content="通过静态文件、共享布局和兼容的 ICO、PNG、SVG 标记，为 ASP.NET Core 应用添加并验证 favicon。">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "ASP.NET Core favicon 设置指南",
+  "description": "通过静态文件、共享布局和兼容的 ICO、PNG、SVG 标记，为 ASP.NET Core 应用添加并验证 favicon。",
+  "datePublished": "2026-11-15",
+  "dateModified": "2026-11-15",
+  "author": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "mainEntityOfPage": "https://favicondl.com/zh/blog/aspnet-core-favicon.html",
+  "inLanguage": "zh-CN"
+}</script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/zh/" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/zh/documentation.html" class="nav-link">文档</a>
+                <a href="/zh/tools.html" class="nav-link">工具</a>
+                <a href="/zh/blog/" class="nav-link">博客</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/aspnet-core-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/aspnet-core-favicon.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/aspnet-core-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/aspnet-core-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/aspnet-core-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/zh/" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/zh/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600">ASP.NET Core favicon 设置指南</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">dotnet</span><time class="text-sm text-gray-400">2026-11-15</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">ASP.NET Core favicon 设置指南</h1>
+        </header>
+
+        <div class="article-body"><p>如果 ASP.NET Core 应用在浏览器标签页中显示为空白，或者没有显示品牌图标、只出现一个默认占位符号，问题通常在于图标没有被加入渲染后的 &lt;head&gt;，或者存放在对外公开的静态内容目录之外。配置 <strong>ASP.NET Core favicon</strong> 需要两样东西：<code>wwwroot</code> 下的图标文件，以及共享 layout 中的 <code>link</code> 声明。</p>
+<p>这两点不能混为一谈。把 <code>favicon.ico</code> 放在项目根目录，并不会让它自动进入 <code>wwwroot</code>；反过来，把文件加到 <code>wwwroot</code>，也不会让它自动出现在每个页面。下面介绍适用于使用常规共享 layout 的 MVC 和 Razor Pages 应用的配置步骤。</p>
+<h2>准备条件</h2>
+<ul>
+<li>一个通过共享 <code>_Layout.cshtml</code> 文件渲染 HTML 的 ASP.NET Core 应用。</li>
+<li>编辑 layout 和 <code>wwwroot</code> 文件夹的权限。</li>
+<li>一个可转换为 favicon 格式的正方形 logo 或 PNG。</li>
+</ul>
+<p>如果应用分别使用 public、account 或 admin 布局，需要在每个布局中重复添加相应的标签。纯 API 应用没有可供配置的页面 head，应改为在其 landing page 或 documentation host 中添加 favicon。</p>
+<h2>逐步添加 ASP.NET Core favicon</h2><ol>
+<li>
+<h3>准备一组精简图标</h3>
+<p>按以下结构创建目录：</p>
+<pre><code>wwwroot/
+  favicon.ico
+  icons/
+    favicon.svg
+    favicon-32x32.png
+    apple-touch-icon.png</code></pre>
+<p>ICO 应包含 16、32 和 48 像素的图像，另准备一个 32 像素 PNG 和一个简单的 SVG。如果用户可能把网站保存到主屏幕，还可以添加一个 180 像素的 Apple touch icon。如果源文件是 logo 或 PNG，<a href="/zh/">Mzu favicondl</a> 可以在不改动源文件的情况下生成 ICO、PNG 和 SVG 的各种版本。</p>
+</li>
+<li>
+<h3>确认静态文件能够正常提供</h3>
+<p>ASP.NET Core 通过 static-file middleware 提供 <code>wwwroot</code> 中的文件。如果你的应用已经能从该目录加载 CSS 或图像，这一步大概已经完成。否则，确保 pipeline 中包含：</p>
+<pre><code>var app = builder.Build();
+
+app.UseStaticFiles();
+
+// Keep your existing routing and endpoint registrations below.</code></pre>
+<p>只需调用一次。如果已经有 middleware 配置项，就不要重复注册。</p>
+</li>
+<li>
+<h3>在共享 head 中添加链接</h3>
+<p>对于 MVC，打开 <code>Views/Shared/_Layout.cshtml</code>；对于 Razor Pages，打开 <code>Pages/Shared/_Layout.cshtml</code>。将以下元素放在 <code>&lt;head&gt;</code> 内，并放在样式表链接旁边：</p>
+<pre><code>&lt;link rel='icon' href='~/favicon.ico' sizes='16x16 32x32 48x48'&gt;
+&lt;link rel='icon' href='~/icons/favicon-32x32.png' type='image/png' sizes='32x32'&gt;
+&lt;link rel='icon' href='~/icons/favicon.svg' type='image/svg+xml' sizes='any'&gt;
+&lt;link rel='apple-touch-icon' href='~/icons/apple-touch-icon.png' sizes='180x180'&gt;</code></pre>
+<p><code>rel='icon'</code> 这种形式用于标识外部图标资源，具体定义见 <a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">HTML link-type 文档</a>。Razor 的 <code>~/</code> 路径可以在应用部署到子路径下时保持 URL 正确。如果 layout 中没有 <code>&lt;head&gt;</code>，先添加一个，再插入这些链接。</p>
+</li>
+<li>
+<h3>保留根路径 ICO 作为兜底</h3>
+<p><code>wwwroot/favicon.ico</code> 中的文件可通过 <code>/favicon.ico</code> 访问。出于兼容性考虑，请保留该文件和显式的 ICO 链接：这样，即使页面模板不完整，浏览器请求惯用的根路径时也能得到有效响应。</p>
+</li>
+<li>
+<h3>运行应用并检查每个响应</h3>
+<p>使用 <code>dotnet run</code> 启动站点，打开本地 URL，然后打开浏览器开发者工具。切换到 Network 面板，按 <code>favicon</code> 筛选，并重新加载页面。其中显示的图标请求都应以图像 content type 成功返回，而不是返回 404 响应。使用 View Source 确认返回的 HTML 中包含这四个 link 元素，再检查浏览器标签页是否显示了预期的图标。</p>
+</li>
+<li>
+<h3>验证发布后的站点</h3>
+<p>部署应用，检查线上页面的源代码，并重复 Network 检查。如果图标在本地正常但在生产环境中失效，请将生成的 <code>href</code> 值与部署后的 URL 进行比较，并确认图标文件已包含在发布产物中。如果仍然显示旧图标，请先尝试使用隐私窗口，然后再排查 CDN、service worker 或浏览器 favicon 缓存。</p>
+</li>
+</ol><h2>常见误区</h2>
+<ul>
+<li><strong>正文中的链接：</strong> 将图标声明放在文档 head 中。如果页面没有引用某个 layout fragment，其中的图标也可能无法呈现。</li>
+<li><strong>文件位于 wwwroot 之外：</strong> 项目根目录中的文件不会由 static-file middleware 提供服务。</li>
+<li><strong>硬编码根路径：</strong> 如果应用可能运行在某个路径前缀下，请在 Razor layout 中使用 <code>~/</code>。</li>
+<li><strong>缺少 middleware：</strong> 如果 Network 面板中的所有图标请求都返回 404，请先检查 <code>app.UseStaticFiles()</code>。</li>
+<li><strong>输出未更新：</strong> 重新部署更新后的 <code>wwwroot</code> 内容，并将缓存因素考虑在内。</li>
+<li><strong>源素材损坏：</strong> 删除无效的 SVG 标记，并确保每个 ICO 都确实包含其声明的图层。</li>
+</ul>
+<p>如果标记和响应都没有问题，但标签页仍显示错误图标，可以按照更全面的 <a href="/zh/blog/favicon-not-showing.html">favicon 故障排查清单</a> 逐项检查。至于底层的纯 HTML 流程，可参阅<a href="/zh/blog/how-to-add-favicon-to-website.html">如何为网站添加 favicon</a>。</p>
+<h2>最后完善图标栈</h2>
+<p>当相关文件位于 <code>wwwroot</code> 下、static-file middleware 已启用，并且共享 layout 声明了 ICO、PNG 和 SVG 候选图标时，你的 ASP.NET Core favicon 才算准备就绪。保留根路径下的 <code>favicon.ico</code>，检查部署后的响应，确认无误后再认为标签页图标已经配置完成。</p></div>
+
+        <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
+
+        <div class="cta-box">
+            <h3>生成完整 favicon 文件组</h3>
+            <p>使用 Mzu favicondl 将 logo 转换为 ICO、PNG 和 SVG 文件。</p>
+            <a href="/zh/" class="cta-btn">免费试用 →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/zh/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">首页</a>
+                <a href="/zh/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">博客</a>
+                <a href="/zh/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">隐私政策</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js?v=20260211"></script>
+
+</body></html>

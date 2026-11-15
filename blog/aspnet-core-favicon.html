@@ -1,0 +1,449 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASP.NET Core Favicon Setup: A Practical Step-by-Step Guide</title>
+    <meta name="description" content="Add an ASP.NET Core favicon with the right static files, Razor layout tags, ICO fallback, and verification steps for browser tabs and mobile icons.">
+    <meta name="keywords" content="asp.net core favicon, favicon setup, ico favicon, svg favicon">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/blog/aspnet-core-favicon.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/aspnet-core-favicon.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/aspnet-core-favicon.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/aspnet-core-favicon.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/aspnet-core-favicon.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/aspnet-core-favicon.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/aspnet-core-favicon.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/blog/aspnet-core-favicon.html">
+    <meta property="og:title" content="ASP.NET Core Favicon Setup: A Practical Step-by-Step Guide">
+    <meta property="og:description" content="Add an ASP.NET Core favicon with the right static files, Razor layout tags, ICO fallback, and verification steps for browser tabs and mobile icons.">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="ASP.NET Core Favicon Setup: A Practical Step-by-Step Guide">
+    <meta name="twitter:description" content="Add an ASP.NET Core favicon with the right static files, Razor layout tags, ICO fallback, and verification steps for browser tabs and mobile icons.">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "ASP.NET Core Favicon Setup: A Practical Step-by-Step Guide",
+  "description": "Add an ASP.NET Core favicon with the right static files, Razor layout tags, ICO fallback, and verification steps for browser tabs and mobile icons.",
+  "datePublished": "2026-11-15",
+  "dateModified": "2026-11-15",
+  "author": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "mainEntityOfPage": "https://favicondl.com/blog/aspnet-core-favicon.html",
+  "inLanguage": "en"
+}</script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/documentation.html" class="nav-link" data-en="Docs" data-zh="文档">Docs</a>
+                <a href="/tools.html" class="nav-link" data-en="Tools" data-zh="工具">Tools</a>
+                <a href="/blog/" class="nav-link" data-en="Blog" data-zh="博客">Blog</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/aspnet-core-favicon.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/aspnet-core-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/aspnet-core-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/aspnet-core-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/aspnet-core-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600" data-en="ASP.NET Core Favicon Setup: A Practical Step-by-Step Guide" data-zh="ASP.NET Core favicon 设置指南" data-ja="ASP.NET Core favicon 設定ガイド" data-ko="ASP.NET Core favicon 설정 가이드" data-es="Configuración de favicon en ASP.NET Core">ASP.NET Core Favicon Setup: A Practical Step-by-Step Guide</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">dotnet</span><time class="text-sm text-gray-400">2026-11-15</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight" data-en="ASP.NET Core Favicon Setup: A Practical Step-by-Step Guide" data-zh="ASP.NET Core favicon 设置指南" data-ja="ASP.NET Core favicon 設定ガイド" data-ko="ASP.NET Core favicon 설정 가이드" data-es="Configuración de favicon en ASP.NET Core">ASP.NET Core Favicon Setup: A Practical Step-by-Step Guide</h1>
+        </header>
+
+        <div class="article-body" data-lang="en">
+            <p>If your ASP.NET Core app shows a blank browser tab or a fallback symbol instead of your brand, the icon is usually missing from the rendered &lt;head&gt; or stored outside the folder exposed as static content. An <strong>ASP.NET Core favicon</strong> needs two pieces: an icon file under <code>wwwroot</code> and a <code>link</code> declaration in the shared layout.</p>
+<p>That distinction matters. Placing <code>favicon.ico</code> in the project root does not put it under <code>wwwroot</code>, and adding a file to <code>wwwroot</code> does not automatically add it to every page. The steps below cover MVC and Razor Pages apps that use a conventional shared layout.</p>
+<h2>Prerequisites</h2>
+<ul>
+<li>An ASP.NET Core app that renders HTML through a shared <code>_Layout.cshtml</code> file.</li>
+<li>Permission to edit the layout and the <code>wwwroot</code> folder.</li>
+<li>A square logo or PNG that can be converted into favicon formats.</li>
+</ul>
+<p>If the app has separate public, account, or admin layouts, repeat the markup step in each one. An API-only app has no page head to configure; add the favicon to its landing page or documentation host instead.</p>
+<h2>Add an ASP.NET Core favicon step by step</h2>
+<ol>
+<li>
+<h3>Prepare a small icon set</h3>
+<p>Create this folder structure:</p>
+<pre><code>wwwroot/
+  favicon.ico
+  icons/
+    favicon.svg
+    favicon-32x32.png
+    apple-touch-icon.png</code></pre>
+<p>Use an ICO containing 16, 32, and 48 pixel images, a 32 pixel PNG, and a simple SVG. Add a 180 pixel Apple touch icon if users may save the site to a home screen. If your source is a logo or PNG, <a href="/">Mzu favicondl</a> can create the ICO, PNG, and SVG variants without changing the source file.</p>
+</li>
+<li>
+<h3>Confirm that static files are served</h3>
+<p>ASP.NET Core serves files from <code>wwwroot</code> through its static-file middleware. If your app already loads CSS or images from that folder, this step is probably done. Otherwise, ensure the pipeline includes:</p>
+<pre><code>var app = builder.Build();
+
+app.UseStaticFiles();
+
+// Keep your existing routing and endpoint registrations below.</code></pre>
+<p>Add the call once. If a middleware entry already exists, do not register it twice.</p>
+</li>
+<li>
+<h3>Add the links inside the shared head</h3>
+<p>Open <code>Views/Shared/_Layout.cshtml</code> for MVC or <code>Pages/Shared/_Layout.cshtml</code> for Razor Pages. Place these elements inside <code>&lt;head&gt;</code>, beside the stylesheet links:</p>
+<pre><code>&lt;link rel='icon' href='~/favicon.ico' sizes='16x16 32x32 48x48'&gt;
+&lt;link rel='icon' href='~/icons/favicon-32x32.png' type='image/png' sizes='32x32'&gt;
+&lt;link rel='icon' href='~/icons/favicon.svg' type='image/svg+xml' sizes='any'&gt;
+&lt;link rel='apple-touch-icon' href='~/icons/apple-touch-icon.png' sizes='180x180'&gt;</code></pre>
+<p>The <code>rel='icon'</code> form identifies an external icon resource, as defined by the <a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">HTML link-type documentation</a>. The Razor <code>~/</code> paths keep the URLs correct when the app is hosted below a subpath. If your layout has no <code>&lt;head&gt;</code>, add one before inserting the links.</p>
+</li>
+<li>
+<h3>Keep a root ICO fallback</h3>
+<p>The file at <code>wwwroot/favicon.ico</code> is available at <code>/favicon.ico</code>. As a compatibility measure, keep that file and the explicit ICO link: browser requests for the conventional root path then have a valid response even if a page template is incomplete.</p>
+</li>
+<li>
+<h3>Run the app and check each response</h3>
+<p>Start the site with <code>dotnet run</code>, open its local URL, and open browser developer tools. Select the Network panel, filter for <code>favicon</code>, and reload the page. Any icon requests shown there should return successfully with image content types rather than 404 responses. Use View Source to confirm that the four link elements are in the returned HTML, then check that the browser tab displays the intended mark.</p>
+</li>
+<li>
+<h3>Verify the published site</h3>
+<p>Deploy the app, inspect the live page source, and repeat the Network check. If the icon works locally but not in production, compare the generated <code>href</code> values with the deployed URL and confirm that the icon files are present in the published output. For an old icon that remains visible, try a private window before investigating a CDN, service worker, or browser favicon cache.</p>
+</li>
+</ol>
+<h2>Common pitfalls</h2>
+<ul>
+<li><strong>Links in the body:</strong> Put icon declarations in the document head. A layout fragment can also fail to render if the page does not use it.</li>
+<li><strong>Files outside wwwroot:</strong> A file in the project root is not served by the static-file middleware.</li>
+<li><strong>Hard-coded root paths:</strong> Use <code>~/</code> in Razor layouts when the app may run under a path prefix.</li>
+<li><strong>Missing middleware:</strong> If the Network panel returns 404 for every icon, check <code>app.UseStaticFiles()</code> first.</li>
+<li><strong>Stale output:</strong> Redeploy the updated <code>wwwroot</code> content and account for caching.</li>
+<li><strong>Broken source art:</strong> Remove invalid SVG markup and make sure every ICO actually contains its declared layers.</li>
+</ul>
+<p>If the markup and responses are correct but the tab still shows the wrong icon, work through the broader <a href="/blog/favicon-not-showing.html">favicon troubleshooting checklist</a>. For the underlying HTML-only process, see <a href="/blog/how-to-add-favicon-to-website.html">how to add a favicon to a website</a>.</p>
+<h2>Finish with a clean icon stack</h2>
+<p>Your ASP.NET Core favicon is ready when the files sit under <code>wwwroot</code>, static-file middleware is active, and the shared layout declares the ICO, PNG, and SVG candidates. Keep the root <code>favicon.ico</code>, verify the deployed responses, and only then treat the tab icon as complete.</p>
+        </div>
+
+        <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
+        <template data-article-lang="zh"><p>如果 ASP.NET Core 应用在浏览器标签页中显示为空白，或者没有显示品牌图标、只出现一个默认占位符号，问题通常在于图标没有被加入渲染后的 &lt;head&gt;，或者存放在对外公开的静态内容目录之外。配置 <strong>ASP.NET Core favicon</strong> 需要两样东西：<code>wwwroot</code> 下的图标文件，以及共享 layout 中的 <code>link</code> 声明。</p>
+<p>这两点不能混为一谈。把 <code>favicon.ico</code> 放在项目根目录，并不会让它自动进入 <code>wwwroot</code>；反过来，把文件加到 <code>wwwroot</code>，也不会让它自动出现在每个页面。下面介绍适用于使用常规共享 layout 的 MVC 和 Razor Pages 应用的配置步骤。</p>
+<h2>准备条件</h2>
+<ul>
+<li>一个通过共享 <code>_Layout.cshtml</code> 文件渲染 HTML 的 ASP.NET Core 应用。</li>
+<li>编辑 layout 和 <code>wwwroot</code> 文件夹的权限。</li>
+<li>一个可转换为 favicon 格式的正方形 logo 或 PNG。</li>
+</ul>
+<p>如果应用分别使用 public、account 或 admin 布局，需要在每个布局中重复添加相应的标签。纯 API 应用没有可供配置的页面 head，应改为在其 landing page 或 documentation host 中添加 favicon。</p>
+<h2>逐步添加 ASP.NET Core favicon</h2><ol>
+<li>
+<h3>准备一组精简图标</h3>
+<p>按以下结构创建目录：</p>
+<pre><code>wwwroot/
+  favicon.ico
+  icons/
+    favicon.svg
+    favicon-32x32.png
+    apple-touch-icon.png</code></pre>
+<p>ICO 应包含 16、32 和 48 像素的图像，另准备一个 32 像素 PNG 和一个简单的 SVG。如果用户可能把网站保存到主屏幕，还可以添加一个 180 像素的 Apple touch icon。如果源文件是 logo 或 PNG，<a href="/">Mzu favicondl</a> 可以在不改动源文件的情况下生成 ICO、PNG 和 SVG 的各种版本。</p>
+</li>
+<li>
+<h3>确认静态文件能够正常提供</h3>
+<p>ASP.NET Core 通过 static-file middleware 提供 <code>wwwroot</code> 中的文件。如果你的应用已经能从该目录加载 CSS 或图像，这一步大概已经完成。否则，确保 pipeline 中包含：</p>
+<pre><code>var app = builder.Build();
+
+app.UseStaticFiles();
+
+// Keep your existing routing and endpoint registrations below.</code></pre>
+<p>只需调用一次。如果已经有 middleware 配置项，就不要重复注册。</p>
+</li>
+<li>
+<h3>在共享 head 中添加链接</h3>
+<p>对于 MVC，打开 <code>Views/Shared/_Layout.cshtml</code>；对于 Razor Pages，打开 <code>Pages/Shared/_Layout.cshtml</code>。将以下元素放在 <code>&lt;head&gt;</code> 内，并放在样式表链接旁边：</p>
+<pre><code>&lt;link rel='icon' href='~/favicon.ico' sizes='16x16 32x32 48x48'&gt;
+&lt;link rel='icon' href='~/icons/favicon-32x32.png' type='image/png' sizes='32x32'&gt;
+&lt;link rel='icon' href='~/icons/favicon.svg' type='image/svg+xml' sizes='any'&gt;
+&lt;link rel='apple-touch-icon' href='~/icons/apple-touch-icon.png' sizes='180x180'&gt;</code></pre>
+<p><code>rel='icon'</code> 这种形式用于标识外部图标资源，具体定义见 <a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">HTML link-type 文档</a>。Razor 的 <code>~/</code> 路径可以在应用部署到子路径下时保持 URL 正确。如果 layout 中没有 <code>&lt;head&gt;</code>，先添加一个，再插入这些链接。</p>
+</li>
+<li>
+<h3>保留根路径 ICO 作为兜底</h3>
+<p><code>wwwroot/favicon.ico</code> 中的文件可通过 <code>/favicon.ico</code> 访问。出于兼容性考虑，请保留该文件和显式的 ICO 链接：这样，即使页面模板不完整，浏览器请求惯用的根路径时也能得到有效响应。</p>
+</li>
+<li>
+<h3>运行应用并检查每个响应</h3>
+<p>使用 <code>dotnet run</code> 启动站点，打开本地 URL，然后打开浏览器开发者工具。切换到 Network 面板，按 <code>favicon</code> 筛选，并重新加载页面。其中显示的图标请求都应以图像 content type 成功返回，而不是返回 404 响应。使用 View Source 确认返回的 HTML 中包含这四个 link 元素，再检查浏览器标签页是否显示了预期的图标。</p>
+</li>
+<li>
+<h3>验证发布后的站点</h3>
+<p>部署应用，检查线上页面的源代码，并重复 Network 检查。如果图标在本地正常但在生产环境中失效，请将生成的 <code>href</code> 值与部署后的 URL 进行比较，并确认图标文件已包含在发布产物中。如果仍然显示旧图标，请先尝试使用隐私窗口，然后再排查 CDN、service worker 或浏览器 favicon 缓存。</p>
+</li>
+</ol><h2>常见误区</h2>
+<ul>
+<li><strong>正文中的链接：</strong> 将图标声明放在文档 head 中。如果页面没有引用某个 layout fragment，其中的图标也可能无法呈现。</li>
+<li><strong>文件位于 wwwroot 之外：</strong> 项目根目录中的文件不会由 static-file middleware 提供服务。</li>
+<li><strong>硬编码根路径：</strong> 如果应用可能运行在某个路径前缀下，请在 Razor layout 中使用 <code>~/</code>。</li>
+<li><strong>缺少 middleware：</strong> 如果 Network 面板中的所有图标请求都返回 404，请先检查 <code>app.UseStaticFiles()</code>。</li>
+<li><strong>输出未更新：</strong> 重新部署更新后的 <code>wwwroot</code> 内容，并将缓存因素考虑在内。</li>
+<li><strong>源素材损坏：</strong> 删除无效的 SVG 标记，并确保每个 ICO 都确实包含其声明的图层。</li>
+</ul>
+<p>如果标记和响应都没有问题，但标签页仍显示错误图标，可以按照更全面的 <a href="/blog/favicon-not-showing.html">favicon 故障排查清单</a> 逐项检查。至于底层的纯 HTML 流程，可参阅<a href="/blog/how-to-add-favicon-to-website.html">如何为网站添加 favicon</a>。</p>
+<h2>最后完善图标栈</h2>
+<p>当相关文件位于 <code>wwwroot</code> 下、static-file middleware 已启用，并且共享 layout 声明了 ICO、PNG 和 SVG 候选图标时，你的 ASP.NET Core favicon 才算准备就绪。保留根路径下的 <code>favicon.ico</code>，检查部署后的响应，确认无误后再认为标签页图标已经配置完成。</p></template>
+        <template data-article-lang="ja"><p>ASP.NET Core アプリのブラウザタブが空白のまま 표시hbar、品牌的ロゴの代わりにフォールバック用の記号が描画される場合は、通常、favicon がレンダリングされる &lt;head&gt; に含まれていないか、静的コンテンツとして公開されるフォルダの外に保存されています。<strong>ASP.NET Core favicon</strong> の設定には2つの要素が必要です。1つは <code>wwwroot</code> 配下に配置する icon file、もう1つは共有 layout に追加する <code>link</code> declaration です。</p>
+<p>この違いを理解ことが重要です。<code>favicon.ico</code> をプロジェクトルートに配置しても、<code>wwwroot</code> 配下には置かれません。また、<code>wwwroot</code> にファイルを追加しても、全ページに自動的に追加されるわけではありません。以下の手順は、conventional な共有 layout を使用する MVC および Razor Pages アプリを対象としています。</p>
+<h2> Prerequisites</h2>
+<ul>
+<li>共有の <code>_Layout.cshtml</code> を通じて HTML を描画する ASP.NET Core アプリ。</li>
+<li>layout と <code>wwwroot</code> フォルダを編集する権限。</li>
+<li>favicon formats に変換できる正方形のロゴまたは PNG。</li>
+</ul>
+<p>アプリに public、account、admin 用の layout が個別に用意されている場合は、それぞれの layout で markup の追加手順をrepeat してください。API-only アプリには設定する page head がないため、代わりに landing page または documentation host に favicon を追加します。</p>
+<h2>ASP.NET Core favicon をステップバイステップで追加する</h2><ol>
+<li>
+<h3>小さなアイコンセットを準備する</h3>
+<p>次のフォルダ構成を作成します。</p>
+<pre><code>wwwroot/
+  favicon.ico
+  icons/
+    favicon.svg
+    favicon-32x32.png
+    apple-touch-icon.png</code></pre>
+<p>16、32、48ピクセルの画像を含むICO、32ピクセルのPNG、シンプルなSVGを用意します。ユーザーがサイトをホーム画面に保存する可能性がある場合は、180ピクセルのApple touch iconも追加します。元になる素材がロゴまたはPNGなら、<a href="/">Mzu favicondl</a>を使うことで、元ファイルを変更せずにICO、PNG、SVGの各variantを生成できます。</p>
+</li>
+<li>
+<h3>静的ファイルが配信されることを確認する</h3>
+<p>ASP.NET Coreは、static-file middlewareを通じて<code>wwwroot</code>からファイルを配信します。アプリがすでにそのフォルダからCSSや画像を読み込んでいるなら、この手順は完了している可能性が高いです。そうでなければ、pipelineに次の処理が含まれていることを確認してください。</p>
+<pre><code>var app = builder.Build();
+
+app.UseStaticFiles();
+
+// Keep your existing routing and endpoint registrations below.</code></pre>
+<p>この呼び出しは1回だけ追加してください。middlewareの指定がすでに存在するする場合は、同じものを2回登録しないでください。</p>
+</li>
+<li>
+<h3>共通レイアウトのhead内にlinkを追加する</h3>
+<p>MVCの場合は<code>Views/Shared/_Layout.cshtml</code>を、Razor Pagesの場合は<code>Pages/Shared/_Layout.cshtml</code>を開いてください。これらの要素は、<code>&lt;head&gt;</code>内、stylesheet linkの隣に配置します。</p>
+<pre><code>&lt;link rel='icon' href='~/favicon.ico' sizes='16x16 32x32 48x48'&gt;
+&lt;link rel='icon' href='~/icons/favicon-32x32.png' type='image/png' sizes='32x32'&gt;
+&lt;link rel='icon' href='~/icons/favicon.svg' type='image/svg+xml' sizes='any'&gt;
+&lt;link rel='apple-touch-icon' href='~/icons/apple-touch-icon.png' sizes='180x180'&gt;</code></pre>
+<p><code>rel='icon'</code>という形式は、<a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">HTML link-type documentation</a>で定義されているとおり、外部アイコンリソースを指定します。Razorの<code>~/</code>パスを使えば、アプリをサブパス配下にホストした場合もURLが正しく保たれます。layoutに<code>&lt;head&gt;</code>がない場合は、linkを挿入する前に追加してください。</p>
+</li>
+<li>
+<h3>ルートにICOのフォールバックを残す</h3>
+<p><code>wwwroot/favicon.ico</code>のファイルは、<code>/favicon.ico</code>として利用できます。互換性対策として、このファイルと明示的なICO linkは残してください。ページテンプレートが不完全な場合でも、ブラウザが慣例的なroot pathに対するリクエストを行ったときに、有効なレスポンスを返せるためです。</p>
+</li>
+<li>
+<h3>アプリを起動して各レスポンスを確認する</h3>
+<p><code>dotnet run</code>でサイトを起動し、local URLを開いて、ブラウザのdeveloper toolsを開きます。Networkパネルを選択し、<code>favicon</code>で絞り込んで、ページを再読み込みします。そこに表示されるアイコンのリクエストは、404レスポンスではなく、正常なステータスで返り、content typeが画像タイプになっている必要があります。View Sourceで、返されたHTMLに4つのlink要素が含まれていることを確認し、その後、ブラウザのタブに意図したアイコンが表示されるかも確認してください。</p>
+</li>
+<li>
+<h3>公開されたサイトを検証する</h3>
+<p>アプリをデプロイし、公開ページのソースを確認して、Networkのチェックを繰り返します。アイコンはローカルでは動作する一方、本番環境で動作しない場合は、生成された<code>href</code>の値とデプロイ先のURLを比較し、アイコンファイルが公開時のビルド出力に含まれていることを確認してください。古いアイコンが表示され続ける場合は、CDN、service worker、browserのfavicon cacheを調べる前に、private windowで試してください。</p>
+</li>
+</ol><h2>よくある落とし穴</h2>
+<ul>
+<li><strong>本文中のリンク：</strong> アイコンの宣言は document head に置いてください。ページが layout fragment を使用していない場合、layout fragment がレンダリングされないこともあります。</li>
+<li><strong>wwwroot 外のファイル：</strong> プロジェクト root にあるファイルは static-file middleware では配信されません。</li>
+<li><strong>root path のハードコード：</strong> app が path prefix の下で実行される可能性がある場合は、Razor layout で <code>~/</code> を使用してください。</li>
+<li><strong>middleware の欠落：</strong> Network panel ですべてのアイコンに対して 404 が返る場合は、まず <code>app.UseStaticFiles()</code> を確認してください。</li>
+<li><strong>古い出力：</strong> 更新した <code>wwwroot</code> の内容を再デプロイし、caching の影響も考慮してください。</li>
+<li><strong>壊れた元のアートワーク：</strong> 不正な SVG markup を削除し、各 ICO が宣言された layers を実際に含んでいることを確認してください。</li>
+</ul>
+<p>markup とレスポンスが正しくても、タブにまだ誤ったアイコンが表示される場合は、より包括的な <a href="/blog/favicon-not-showing.html">favicon のトラブルシューティングチェックリスト</a> を確認してください。HTML のみを使った手順については、<a href="/blog/how-to-add-favicon-to-website.html">ウェブサイトに favicon を追加する方法</a> を参照してください。</p>
+<h2>クリーンな icon stack で仕上げる</h2>
+<p>ファイルが <code>wwwroot</code> の配下にあり、static-file middleware が有効で、shared layout が ICO、PNG、SVG の候補を宣言していれば、ASP.NET Core の favicon の準備は完了です。root の <code>favicon.ico</code> は残し、デプロイ後のレスポンスを確認してから、タブアイコンが完成したと判断してください。</p></template>
+        <template data-article-lang="ko"><p>ASP.NET Core 앱에서 브라우저 탭이 비어 보이거나 브랜드 대신 기본 아이콘이 표시된다면, 보통 렌더링되는 &lt;head&gt;에 아이콘 연결이 없거나 정적 콘텐츠로 노출된 폴더 밖에 파일이 저장되어 있기 때문입니다. <strong>ASP.NET Core favicon</strong>을 설정하려면 두 가지가 필요합니다. <code>wwwroot</code> 아래에 있는 아이콘 파일과 공유 레이아웃의 <code>link</code> 선언입니다.</p>
+<p>이 구분을 중요하게 봐야 합니다. <code>favicon.ico</code>를 프로젝트 루트에 넣는다고 <code>wwwroot</code> 아래에 배치되는 것은 아니며, <code>wwwroot</code>에 파일을 추가한다고 모든 페이지에 자동으로 적용되는 것도 아닙니다. 아래 단계는 일반적인 공유 레이아웃을 사용하는 MVC 및 Razor Pages 앱을 기준으로 합니다.</p>
+<h2>사전 조건</h2>
+<ul>
+<li>공유 <code>_Layout.cshtml</code> 파일을 통해 HTML을 렌더링하는 ASP.NET Core 앱</li>
+<li>레이아웃과 <code>wwwroot</code> 폴더를 수정할 수 있는 권한</li>
+<li>favicon 형식으로 변환할 수 있는 정사각형 로고 또는 PNG</li>
+</ul>
+<p>앱에서 public, account, admin 레이아웃을 각각 사용한다면 각 레이아웃에 markup 단계를 반복해서 적용해야 합니다. API 전용 앱에는 설정할 페이지 head가 없으므로, 대신 landing page 또는 documentation host에 favicon을 추가하십시오.</p>
+<h2>ASP.NET Core favicon 추가 단계</h2><ol>
+<li>
+<h3>작은 아이콘 세트 준비</h3>
+<p>다음 폴더 구조를 만듭니다.</p>
+<pre><code>wwwroot/
+  favicon.ico
+  icons/
+    favicon.svg
+    favicon-32x32.png
+    apple-touch-icon.png</code></pre>
+<p>16, 32, 48픽셀 이미지를 담은 ICO, 32픽셀 PNG, 간단한 SVG를 사용합니다. 사용자가 사이트를 홈 화면에 저장할 수 있다면 180픽셀 크기의 Apple touch icon도 추가합니다. 소스가 로고 또는 PNG라면 <a href="/">Mzu favicondl</a>을 사용해 원본 파일을 변경하지 않고 ICO, PNG, SVG 버전을 만들 수 있습니다.</p>
+</li>
+<li>
+<h3>정적 파일 제공 여부 확인</h3>
+<p>ASP.NET Core는 static-file middleware를 통해 <code>wwwroot</code>에 있는 파일을 제공합니다. 앱에서 이미 해당 폴더의 CSS나 이미지를 불러오고 있다면 이 단계는 이미 처리되었을 가능성이 높습니다. 그렇지 않으면 파이프라인에 다음이 포함되어 있는지 확인합니다.</p>
+<pre><code>var app = builder.Build();
+
+app.UseStaticFiles();
+
+// Keep your existing routing and endpoint registrations below.</code></pre>
+<p>이 호출은 한 번만 추가합니다. middleware 항목이 이미 있다면 두 번 등록하지 마세요.</p>
+</li>
+<li>
+<h3>공유 head에 링크 추가</h3>
+<p>MVC라면 <code>Views/Shared/_Layout.cshtml</code>를, Razor Pages라면 <code>Pages/Shared/_Layout.cshtml</code>를 엽니다. 다음 요소들을 stylesheet 링크 옆에 배치하고 <code>&amp;lt;head&amp;gt;</code> 안에 넣습니다.</p>
+<pre><code>&amp;lt;link rel='icon' href='~/favicon.ico' sizes='16x16 32x32 48x48'&amp;gt;
+&amp;lt;link rel='icon' href='~/icons/favicon-32x32.png' type='image/png' sizes='32x32'&amp;gt;
+&amp;lt;link rel='icon' href='~/icons/favicon.svg' type='image/svg+xml' sizes='any'&amp;gt;
+&amp;lt;link rel='apple-touch-icon' href='~/icons/apple-touch-icon.png' sizes='180x180'&amp;gt;</code></pre>
+<p><code>rel='icon'</code> 형식은 <a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">HTML link-type 문서</a>의 정의에 따라 외부 아이콘 리소스를 식별합니다. Razor의 <code>~/</code> 경로를 사용하면 앱이 하위 경로 아래에 호스팅될 때 URL이 올바르게 유지됩니다. layout에 <code>&amp;lt;head&amp;gt;</code>가 없다면 링크를 삽입하기 전에 head를 추가합니다.</p>
+</li>
+<li>
+<h3>루트 ICO fallback 유지</h3>
+<p><code>wwwroot/favicon.ico</code>에 있는 파일은 <code>/favicon.ico</code>에서 제공됩니다. 호환성을 위해 해당 파일과 명시적인 ICO 링크를 유지합니다. 그러면 페이지 템플릿이 불완전하더라도 브라우저의 통상적인 루트 경로 요청에 유효한 응답이 돌아갑니다.</p>
+</li>
+<li>
+<h3>앱 실행 후 각 응답 확인</h3>
+<p><code>dotnet run</code>으로 사이트를 시작하고 로컬 URL에 접속한 다음 브라우저 개발자 도구를 엽니다. Network 패널을 선택하고 <code>favicon</code>으로 필터링한 뒤 페이지를 새로고침합니다. 표시되는 아이콘 요청은 404 응답이 아니라 성공적으로 반환되어야 하며, content type은 이미지여야 합니다. View Source로 반환된 HTML에 link 요소 네 개가 포함되어 있는지 확인한 다음 브라우저 탭에 의도한 마크가 표시되는지 점검합니다.</p>
+</li>
+<li>
+<h3>게시된 사이트 검증</h3>
+<p>앱을 배포하고 live page source를 확인한 뒤 Network 검사를 반복합니다. 아이콘이 로컬에서는 동작하지만 production에서는 동작하지 않는다면 생성된 <code>href</code> 값을 배포된 URL과 비교하고 아이콘 파일이 게시 출력에 포함되어 있는지 확인합니다. 이전 아이콘이 계속 보인다면 CDN, service worker 또는 browser favicon cache를 조사하기 전에 private window에서 먼저 확인해 보세요.</p>
+</li>
+</ol><h2>흔한 함정</h2>
+<ul>
+<li><strong>본문 안의 링크:</strong> 아이콘 선언은 문서 head에 넣습니다. 또한 페이지에서 해당 레이아웃을 사용하지 않으면 레이아웃 조각이 렌더링되지 않을 수도 있습니다.</li>
+<li><strong>wwwroot 밖의 파일:</strong> 프로젝트 루트에 있는 파일은 static-file middleware가 서비스하지 않습니다.</li>
+<li><strong>root 경로를 직접 지정:</strong> 앱이 path prefix 아래에서 실행될 수 있는 경우 Razor layouts에서는 <code>~/</code>를 사용합니다.</li>
+<li><strong>middleware 누락:</strong> Network panel에서 모든 아이콘이 404를 반환한다면 먼저 <code>app.UseStaticFiles()</code>를 확인합니다.</li>
+<li><strong>오래된 출력물:</strong> 업데이트된 <code>wwwroot</code> 콘텐츠를 다시 배포하고 캐싱도 고려합니다.</li>
+<li><strong>손상된 원본 아트워크:</strong> 잘못된 SVG markup를 제거하고, 모든 ICO 파일에 선언된 레이어가 실제로 포함되어 있는지 확인합니다.</li>
+</ul>
+<p>markup과 응답이 모두 정상인데도 탭에 잘못된 아이콘이 계속 표시된다면, 더 포괄적인 <a href="/blog/favicon-not-showing.html">favicon 문제 해결 체크리스트</a>를 따라가 보세요. HTML만으로 진행하는 기본 과정은 <a href="/blog/how-to-add-favicon-to-website.html">웹사이트에 favicon 추가하는 방법</a>에서 확인하세요.</p>
+<h2>깔끔한 아이콘 구성으로 마무리하기</h2>
+<p>파일이 <code>wwwroot</code> 아래에 있고 static-file middleware가 작동하며, 공유 레이아웃이 ICO, PNG, SVG 후보를 선언했다면 ASP.NET Core favicon 설정은 준비된 것입니다. root에 있는 <code>favicon.ico</code>를 유지하고, 배포된 응답을 확인한 뒤에야 탭 아이콘 설정이 완성되었다고 판단하세요.</p></template>
+        <template data-article-lang="es"><p>Si tu aplicación ASP.NET Core muestra una pestaña del navegador vacía o un símbolo de respaldo en lugar de tu marca, normalmente es porque el icono falta en el &lt;head&gt; renderizado o está guardado fuera de la carpeta expuesta como contenido estático. Un <strong>favicon de ASP.NET Core</strong> necesita dos elementos: un archivo de icono en <code>wwwroot</code> y una declaración <code>link</code> en el layout compartido.</p>
+<p>Esta distinción es importante. Colocar <code>favicon.ico</code> en la raíz del proyecto no lo sitúa dentro de <code>wwwroot</code>, y añadir un archivo a <code>wwwroot</code> no hace que se muestre automáticamente en todas las páginas. Los pasos siguientes se aplican a aplicaciones MVC y Razor Pages que utilizan un layout compartido convencional.</p>
+<h2>Requisitos previos</h2>
+<ul>
+<li>Una aplicación ASP.NET Core que renderice HTML mediante un archivo <code>_Layout.cshtml</code> compartido.</li>
+<li>Permiso para editar el layout y la carpeta <code>wwwroot</code>.</li>
+<li>Un logo cuadrado o un PNG que pueda convertirse a formatos de favicon.</li>
+</ul>
+<p>Si tu aplicación tiene layouts separados para las áreas pública, de cuentas o de administración, repite el paso de marcado en cada uno. Una aplicación solo de API no tiene ningún head de página que configurar; en su lugar, añade el favicon a su página de inicio o al host de documentación.</p>
+<h2>Añade un favicon de ASP.NET Core paso a paso</h2><ol>
+<li>
+<h3>Prepara un conjunto pequeño de iconos</h3>
+<p>Crea esta estructura de carpetas:</p>
+<pre><code>wwwroot/
+  favicon.ico
+  icons/
+    favicon.svg
+    favicon-32x32.png
+    apple-touch-icon.png</code></pre>
+<p>Usa un ICO que contenga imágenes de 16, 32 y 48 píxeles, un PNG de 32 píxeles y un SVG sencillo. Añade un Apple touch icon de 180 píxeles si los usuarios pueden guardar el sitio en una pantalla de inicio. Si tu archivo de origen es un logo o un PNG, <a href="/">Mzu favicondl</a> puede crear las variantes ICO, PNG y SVG sin modificar el archivo original.</p>
+</li>
+<li>
+<h3>Confirma que se sirven los archivos estáticos</h3>
+<p>ASP.NET Core sirve los archivos de <code>wwwroot</code> mediante su middleware de archivos estáticos. Si tu aplicación ya carga CSS o imágenes desde esa carpeta, probablemente este paso esté hecho. De lo contrario, asegúrate de que el pipeline incluya:</p>
+<pre><code>var app = builder.Build();
+
+app.UseStaticFiles();
+
+// Keep your existing routing and endpoint registrations below.</code></pre>
+<p>Añade la llamada una sola vez. Si ya existe una entrada de middleware, no la registres dos veces.</p>
+</li>
+<li>
+<h3>Añade los enlaces dentro del head compartido</h3>
+<p>Abre <code>Views/Shared/_Layout.cshtml</code> para MVC o <code>Pages/Shared/_Layout.cshtml</code> para Razor Pages. Coloca estos elementos dentro de <code>&lt;head&gt;</code>, junto a los enlaces de las hojas de estilos:</p>
+<pre><code>&lt;link rel='icon' href='~/favicon.ico' sizes='16x16 32x32 48x48'&gt;
+&lt;link rel='icon' href='~/icons/favicon-32x32.png' type='image/png' sizes='32x32'&gt;
+&lt;link rel='icon' href='~/icons/favicon.svg' type='image/svg+xml' sizes='any'&gt;
+&lt;link rel='apple-touch-icon' href='~/icons/apple-touch-icon.png' sizes='180x180'&gt;</code></pre>
+<p>La forma <code>rel='icon'</code> identifica un recurso de icono externo, tal como se define en la <a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">documentación de tipos de enlace de HTML</a>. Las rutas <code>~/</code> de Razor mantienen correctas las URL cuando la aplicación se aloja bajo una subruta. Si tu layout no tiene <code>&lt;head&gt;</code>, añade uno antes de insertar los enlaces.</p>
+</li>
+<li>
+<h3>Conserva un ICO de respaldo en la raíz</h3>
+<p>El archivo situado en <code>wwwroot/favicon.ico</code> está disponible en <code>/favicon.ico</code>. Como medida de compatibilidad, conserva ese archivo y el enlace explícito al ICO: de este modo, las solicitudes del navegador a la ruta raíz convencional obtienen una respuesta válida aunque una plantilla de página esté incompleta.</p>
+</li>
+<li>
+<h3>Ejecuta la aplicación y comprueba cada respuesta</h3>
+<p>Arranca el sitio con <code>dotnet run</code>, abre su URL local y abre las herramientas de desarrollo del navegador. Selecciona el panel Network, filtra por <code>favicon</code> y recarga la página. Cualquier solicitud de icono que aparezca ahí debería responder correctamente con tipos de contenido de imagen, en lugar de devolver respuestas 404. Usa View Source para confirmar que los cuatro elementos de enlace están en el HTML devuelto y, después, comprueba que la pestaña del navegador muestra la marca prevista.</p>
+</li>
+<li>
+<h3>Verifica el sitio publicado</h3>
+<p>Despliega la aplicación, inspecciona el código fuente de la página en producción y repite la comprobación en Network. Si el icono funciona localmente pero no en producción, compara los valores <code>href</code> generados con la URL desplegada y confirma que los archivos de iconos están presentes en la salida publicada. Si sigue visible un icono antiguo, prueba una ventana privada antes de investigar un CDN, un service worker o la caché de favicons del navegador.</p>
+</li>
+</ol><h2>Problemas habituales</h2>
+<ul>
+<li><strong>Enlaces en el body:</strong> Coloca las declaraciones de iconos en el head del documento. Un fragmento de layout también puede fallar al renderizarse si la página no lo utiliza.</li>
+<li><strong>Archivos fuera de wwwroot:</strong> El middleware de archivos estáticos no sirve los archivos ubicados en la raíz del proyecto.</li>
+<li><strong>Rutas raíz fijadas en el código:</strong> Usa <code>~/</code> en los layouts de Razor cuando la aplicación pueda ejecutarse bajo un prefijo de ruta.</li>
+<li><strong>Falta el middleware:</strong> Si el panel Network devuelve 404 para cada icono, comprueba primero <code>app.UseStaticFiles()</code>.</li>
+<li><strong>Salida obsoleta:</strong> Vuelve a desplegar el contenido actualizado de <code>wwwroot</code> y ten en cuenta el almacenamiento en caché.</li>
+<li><strong>Arte de origen defectuoso:</strong> Elimina el marcado SVG no válido y asegúrate de que cada ICO contiene realmente las capas declaradas.</li>
+</ul>
+<p>Si el marcado y las respuestas son correctos, pero la pestaña sigue mostrando el icono equivocado, revisa la <a href="/blog/favicon-not-showing.html">guía completa para solucionar problemas con el favicon</a>. Para conocer el proceso basado únicamente en HTML, consulta <a href="/blog/how-to-add-favicon-to-website.html">cómo añadir un favicon a un sitio web</a>.</p>
+<h2>Termina con una pila de iconos limpia</h2>
+<p>Tu favicon de ASP.NET Core estará listo cuando los archivos estén en <code>wwwroot</code>, el middleware de archivos estáticos esté activo y el layout compartido declare los candidatos ICO, PNG y SVG. Mantén el <code>favicon.ico</code> en la raíz, verifica las respuestas del despliegue y solo entonces considera que el icono de la pestaña está completo.</p></template>
+
+        <div class="cta-box">
+            <h3 data-en="Create a complete favicon set" data-zh="生成完整 favicon 文件组" data-ja="favicon セットを作成" data-ko="완전한 favicon 세트 만들기" data-es="Crea un conjunto completo de favicon">Create a complete favicon set</h3>
+            <p data-en="Convert your logo into ICO, PNG, and SVG files with Mzu favicondl." data-zh="使用 Mzu favicondl 将 logo 转换为 ICO、PNG 和 SVG 文件。" data-ja="Mzu favicondl でロゴを ICO、PNG、SVG ファイルに変換できます。" data-ko="Mzu favicondl로 로고를 ICO, PNG, SVG 파일로 변환하세요." data-es="Convierte tu logotipo en archivos ICO, PNG y SVG con Mzu favicondl.">Convert your logo into ICO, PNG, and SVG files with Mzu favicondl.</p>
+            <a href="/" class="cta-btn" data-en="Try It Free →" data-zh="免费试用 →" data-ja="無料で試す →" data-ko="무료로 사용해보기 →" data-es="Pruébalo gratis →">Try It Free →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Home" data-zh="首页">Home</a>
+                <a href="/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Blog" data-zh="博客">Blog</a>
+                <a href="/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Privacy" data-zh="隐私政策">Privacy</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js?v=20260211"></script>
+
+</body></html>

@@ -1,0 +1,189 @@
+<!DOCTYPE html><html lang="ja"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASP.NET Core favicon 設定ガイド</title>
+    <meta name="description" content="ASP.NET Core アプリに favicon を追加する方法を、静的ファイル、共有レイアウト、ICO・PNG・SVG のマークアップから解説します。">
+    <meta name="keywords" content="asp.net core favicon, favicon setup, ico favicon, svg favicon">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/ja/blog/aspnet-core-favicon.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/aspnet-core-favicon.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/aspnet-core-favicon.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/aspnet-core-favicon.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/aspnet-core-favicon.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/aspnet-core-favicon.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/aspnet-core-favicon.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/ja/blog/aspnet-core-favicon.html">
+    <meta property="og:title" content="ASP.NET Core favicon 設定ガイド">
+    <meta property="og:description" content="ASP.NET Core アプリに favicon を追加する方法を、静的ファイル、共有レイアウト、ICO・PNG・SVG のマークアップから解説します。">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="ASP.NET Core favicon 設定ガイド">
+    <meta name="twitter:description" content="ASP.NET Core アプリに favicon を追加する方法を、静的ファイル、共有レイアウト、ICO・PNG・SVG のマークアップから解説します。">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "ASP.NET Core favicon 設定ガイド",
+  "description": "ASP.NET Core アプリに favicon を追加する方法を、静的ファイル、共有レイアウト、ICO・PNG・SVG のマークアップから解説します。",
+  "datePublished": "2026-11-15",
+  "dateModified": "2026-11-15",
+  "author": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "mainEntityOfPage": "https://favicondl.com/ja/blog/aspnet-core-favicon.html",
+  "inLanguage": "ja"
+}</script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/ja/" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/ja/documentation.html" class="nav-link">ドキュメント</a>
+                <a href="/ja/tools.html" class="nav-link">ツール</a>
+                <a href="/ja/blog/" class="nav-link">ブログ</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/aspnet-core-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/aspnet-core-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/aspnet-core-favicon.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/aspnet-core-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/aspnet-core-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/ja/" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/ja/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600">ASP.NET Core favicon 設定ガイド</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">dotnet</span><time class="text-sm text-gray-400">2026-11-15</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">ASP.NET Core favicon 設定ガイド</h1>
+        </header>
+
+        <div class="article-body"><p>ASP.NET Core アプリのブラウザタブが空白のまま 표시hbar、品牌的ロゴの代わりにフォールバック用の記号が描画される場合は、通常、favicon がレンダリングされる &lt;head&gt; に含まれていないか、静的コンテンツとして公開されるフォルダの外に保存されています。<strong>ASP.NET Core favicon</strong> の設定には2つの要素が必要です。1つは <code>wwwroot</code> 配下に配置する icon file、もう1つは共有 layout に追加する <code>link</code> declaration です。</p>
+<p>この違いを理解ことが重要です。<code>favicon.ico</code> をプロジェクトルートに配置しても、<code>wwwroot</code> 配下には置かれません。また、<code>wwwroot</code> にファイルを追加しても、全ページに自動的に追加されるわけではありません。以下の手順は、conventional な共有 layout を使用する MVC および Razor Pages アプリを対象としています。</p>
+<h2> Prerequisites</h2>
+<ul>
+<li>共有の <code>_Layout.cshtml</code> を通じて HTML を描画する ASP.NET Core アプリ。</li>
+<li>layout と <code>wwwroot</code> フォルダを編集する権限。</li>
+<li>favicon formats に変換できる正方形のロゴまたは PNG。</li>
+</ul>
+<p>アプリに public、account、admin 用の layout が個別に用意されている場合は、それぞれの layout で markup の追加手順をrepeat してください。API-only アプリには設定する page head がないため、代わりに landing page または documentation host に favicon を追加します。</p>
+<h2>ASP.NET Core favicon をステップバイステップで追加する</h2><ol>
+<li>
+<h3>小さなアイコンセットを準備する</h3>
+<p>次のフォルダ構成を作成します。</p>
+<pre><code>wwwroot/
+  favicon.ico
+  icons/
+    favicon.svg
+    favicon-32x32.png
+    apple-touch-icon.png</code></pre>
+<p>16、32、48ピクセルの画像を含むICO、32ピクセルのPNG、シンプルなSVGを用意します。ユーザーがサイトをホーム画面に保存する可能性がある場合は、180ピクセルのApple touch iconも追加します。元になる素材がロゴまたはPNGなら、<a href="/ja/">Mzu favicondl</a>を使うことで、元ファイルを変更せずにICO、PNG、SVGの各variantを生成できます。</p>
+</li>
+<li>
+<h3>静的ファイルが配信されることを確認する</h3>
+<p>ASP.NET Coreは、static-file middlewareを通じて<code>wwwroot</code>からファイルを配信します。アプリがすでにそのフォルダからCSSや画像を読み込んでいるなら、この手順は完了している可能性が高いです。そうでなければ、pipelineに次の処理が含まれていることを確認してください。</p>
+<pre><code>var app = builder.Build();
+
+app.UseStaticFiles();
+
+// Keep your existing routing and endpoint registrations below.</code></pre>
+<p>この呼び出しは1回だけ追加してください。middlewareの指定がすでに存在するする場合は、同じものを2回登録しないでください。</p>
+</li>
+<li>
+<h3>共通レイアウトのhead内にlinkを追加する</h3>
+<p>MVCの場合は<code>Views/Shared/_Layout.cshtml</code>を、Razor Pagesの場合は<code>Pages/Shared/_Layout.cshtml</code>を開いてください。これらの要素は、<code>&lt;head&gt;</code>内、stylesheet linkの隣に配置します。</p>
+<pre><code>&lt;link rel='icon' href='~/favicon.ico' sizes='16x16 32x32 48x48'&gt;
+&lt;link rel='icon' href='~/icons/favicon-32x32.png' type='image/png' sizes='32x32'&gt;
+&lt;link rel='icon' href='~/icons/favicon.svg' type='image/svg+xml' sizes='any'&gt;
+&lt;link rel='apple-touch-icon' href='~/icons/apple-touch-icon.png' sizes='180x180'&gt;</code></pre>
+<p><code>rel='icon'</code>という形式は、<a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">HTML link-type documentation</a>で定義されているとおり、外部アイコンリソースを指定します。Razorの<code>~/</code>パスを使えば、アプリをサブパス配下にホストした場合もURLが正しく保たれます。layoutに<code>&lt;head&gt;</code>がない場合は、linkを挿入する前に追加してください。</p>
+</li>
+<li>
+<h3>ルートにICOのフォールバックを残す</h3>
+<p><code>wwwroot/favicon.ico</code>のファイルは、<code>/favicon.ico</code>として利用できます。互換性対策として、このファイルと明示的なICO linkは残してください。ページテンプレートが不完全な場合でも、ブラウザが慣例的なroot pathに対するリクエストを行ったときに、有効なレスポンスを返せるためです。</p>
+</li>
+<li>
+<h3>アプリを起動して各レスポンスを確認する</h3>
+<p><code>dotnet run</code>でサイトを起動し、local URLを開いて、ブラウザのdeveloper toolsを開きます。Networkパネルを選択し、<code>favicon</code>で絞り込んで、ページを再読み込みします。そこに表示されるアイコンのリクエストは、404レスポンスではなく、正常なステータスで返り、content typeが画像タイプになっている必要があります。View Sourceで、返されたHTMLに4つのlink要素が含まれていることを確認し、その後、ブラウザのタブに意図したアイコンが表示されるかも確認してください。</p>
+</li>
+<li>
+<h3>公開されたサイトを検証する</h3>
+<p>アプリをデプロイし、公開ページのソースを確認して、Networkのチェックを繰り返します。アイコンはローカルでは動作する一方、本番環境で動作しない場合は、生成された<code>href</code>の値とデプロイ先のURLを比較し、アイコンファイルが公開時のビルド出力に含まれていることを確認してください。古いアイコンが表示され続ける場合は、CDN、service worker、browserのfavicon cacheを調べる前に、private windowで試してください。</p>
+</li>
+</ol><h2>よくある落とし穴</h2>
+<ul>
+<li><strong>本文中のリンク：</strong> アイコンの宣言は document head に置いてください。ページが layout fragment を使用していない場合、layout fragment がレンダリングされないこともあります。</li>
+<li><strong>wwwroot 外のファイル：</strong> プロジェクト root にあるファイルは static-file middleware では配信されません。</li>
+<li><strong>root path のハードコード：</strong> app が path prefix の下で実行される可能性がある場合は、Razor layout で <code>~/</code> を使用してください。</li>
+<li><strong>middleware の欠落：</strong> Network panel ですべてのアイコンに対して 404 が返る場合は、まず <code>app.UseStaticFiles()</code> を確認してください。</li>
+<li><strong>古い出力：</strong> 更新した <code>wwwroot</code> の内容を再デプロイし、caching の影響も考慮してください。</li>
+<li><strong>壊れた元のアートワーク：</strong> 不正な SVG markup を削除し、各 ICO が宣言された layers を実際に含んでいることを確認してください。</li>
+</ul>
+<p>markup とレスポンスが正しくても、タブにまだ誤ったアイコンが表示される場合は、より包括的な <a href="/ja/blog/favicon-not-showing.html">favicon のトラブルシューティングチェックリスト</a> を確認してください。HTML のみを使った手順については、<a href="/ja/blog/how-to-add-favicon-to-website.html">ウェブサイトに favicon を追加する方法</a> を参照してください。</p>
+<h2>クリーンな icon stack で仕上げる</h2>
+<p>ファイルが <code>wwwroot</code> の配下にあり、static-file middleware が有効で、shared layout が ICO、PNG、SVG の候補を宣言していれば、ASP.NET Core の favicon の準備は完了です。root の <code>favicon.ico</code> は残し、デプロイ後のレスポンスを確認してから、タブアイコンが完成したと判断してください。</p></div>
+
+        <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
+
+        <div class="cta-box">
+            <h3>favicon セットを作成</h3>
+            <p>Mzu favicondl でロゴを ICO、PNG、SVG ファイルに変換できます。</p>
+            <a href="/ja/" class="cta-btn">無料で試す →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/ja/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">ホーム</a>
+                <a href="/ja/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">ブログ</a>
+                <a href="/ja/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">プライバシー</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js?v=20260211"></script>
+
+</body></html>
