@@ -14,6 +14,11 @@
     var PNG_SIZES = [16, 32, 48, 180, 192, 512];
     var ICO_SIZES = [16, 32, 48];
     var MAX_BYTES = 15 * 1024 * 1024;
+    var SVG_MAX_BYTES = 1024 * 1024;
+    var SVG_MAX_ELEMENTS = 5000;
+    var SVG_MAX_USES = 40;
+    var SVG_MAX_LENGTH = 8192;
+    var RASTER_LONG_SIDE = 512;
 
     var HTML_SNIPPET = [
         '<link rel="icon" href="/favicon.ico" sizes="48x48">',
@@ -195,21 +200,197 @@
     function loadImage(url) {
         return new Promise(function (resolve, reject) {
             var image = new Image();
-            image.onload = function () { resolve(image); };
-            image.onerror = function () { reject(new Error('Could not read that image. Use a PNG, JPG, SVG, or WebP.')); };
+            var settled = false;
+            var timer = setTimeout(function () {
+                if (settled) return;
+                settled = true;
+                image.onload = null;
+                image.onerror = null;
+                image.removeAttribute('src');
+                reject(new Error('That image took too long to draw. Export a simpler file and try again.'));
+            }, 8000);
+            image.onload = function () {
+                if (settled) return;
+                settled = true;
+                clearTimeout(timer);
+                resolve(image);
+            };
+            image.onerror = function () {
+                if (settled) return;
+                settled = true;
+                clearTimeout(timer);
+                reject(new Error('Could not read that image. Use a PNG, JPG, SVG, or WebP.'));
+            };
             image.src = url;
         });
     }
 
-    async function normalizeSvg(file) {
-        var text = await file.text();
-        if (!/<svg\b/i.test(text)) throw new Error('That file is not an SVG.');
-        var hasWidth = /\bwidth\s*=\s*["'][^"']+["']/i.test(text);
-        var hasHeight = /\bheight\s*=\s*["'][^"']+["']/i.test(text);
-        if (!hasWidth || !hasHeight) {
-            text = text.replace(/<svg\b/i, '<svg width="512" height="512"');
+    function svgAttr(tag, name) {
+        var match = new RegExp('\\s' + name + '\\s*=\\s*(["\'])([\\s\\S]*?)\\1', 'i').exec(tag);
+        return match ? match[2] : null;
+    }
+
+    function trimNum(value) {
+        return String(Math.round(value * 1000) / 1000);
+    }
+
+    function svgLength(raw) {
+        if (raw == null) return null;
+        var match = String(raw).trim().match(/^(\d+(?:\.\d+)?)(px)?$/i);
+        if (!match) return null;
+        var number = parseFloat(match[1]);
+        if (!isFinite(number) || number <= 0) return null;
+        if (number > SVG_MAX_LENGTH) {
+            throw new Error('That SVG declares a width or height above ' + SVG_MAX_LENGTH + '. Export a smaller canvas.');
         }
-        return new Blob([text], { type: 'image/svg+xml' });
+        return number;
+    }
+
+    function decodeXmlRefs(text) {
+        if (text.indexOf('&') === -1) return text;
+        if (/&(?!(?:amp|lt|gt|quot|apos|#\d{1,7}|#x[0-9a-f]{1,6});)/i.test(text)) {
+            throw new Error('SVG entities other than the five XML character references are not supported.');
+        }
+        return text.replace(/&#x([0-9a-f]{1,6});|&#(\d{1,7});|&(amp|lt|gt|quot|apos);/gi, function (all, hex, dec, named) {
+            if (named) {
+                if (named.toLowerCase() === 'amp') return '&';
+                if (named.toLowerCase() === 'lt') return '<';
+                if (named.toLowerCase() === 'gt') return '>';
+                if (named.toLowerCase() === 'quot') return '"';
+                return "'";
+            }
+            var code = hex ? parseInt(hex, 16) : parseInt(dec, 10);
+            if (!code || code > 0x10ffff || (code >= 0xd800 && code <= 0xdfff)) {
+                throw new Error('That SVG contains an invalid character reference.');
+            }
+            return String.fromCodePoint(code);
+        });
+    }
+
+    function assertNoDangerousMarkup(text) {
+        var lower = text.toLowerCase();
+        if (lower.indexOf('<!doctype') !== -1 || lower.indexOf('<!entity') !== -1 || lower.indexOf('<!element') !== -1 || lower.indexOf('<!attlist') !== -1) {
+            throw new Error('SVG with a DOCTYPE or custom entities is not supported.');
+        }
+        if (/<\?(?!xml\s)/i.test(text)) {
+            throw new Error('SVG processing instructions other than the XML declaration are not supported.');
+        }
+        var banned = ['script', 'foreignobject', 'iframe', 'embed', 'object', 'audio', 'video', 'canvas', 'link', 'meta', 'handler', 'set', 'animate', 'animatetransform', 'animatemotion', 'feimage', 'image', 'img', 'applet', 'frame', 'frameset', 'annotation', 'math'];
+        for (var i = 0; i < banned.length; i++) {
+            if (new RegExp('<\\s*/?\\s*' + banned[i] + '\\b', 'i').test(text)) {
+                throw new Error('That SVG uses <' + banned[i] + '>, which this generator does not rasterize.');
+            }
+        }
+        if (/\son[a-z]+\s*=/i.test(text)) throw new Error('SVG event handlers are not supported.');
+        if (/javascript\s*:|vbscript\s*:|data\s*:/i.test(text)) throw new Error('Script and data URLs in SVG are not supported.');
+        if (/@import\b|expression\s*\(|-moz-binding|behavior\s*:/i.test(text)) throw new Error('External or executable CSS in SVG is not supported.');
+        if (/\s(?:src|srcset|poster)\s*=\s*(['"])\s*[^'"]/i.test(text)) {
+            throw new Error('External links and embedded images in SVG are not supported.');
+        }
+        var hrefRe = /(?:xlink:)?href\s*=\s*(?:"([^"]*)"|'([^']*)')/gi;
+        var hrefMatch;
+        while ((hrefMatch = hrefRe.exec(text))) {
+            var href = String(hrefMatch[1] != null ? hrefMatch[1] : hrefMatch[2]).trim();
+            if (href && !/^#[A-Za-z_:][A-Za-z0-9_.:-]*$/.test(href)) {
+                throw new Error('External links and embedded images in SVG are not supported.');
+            }
+        }
+        var urlRe = /url\s*\(\s*(['"]?)\s*([^)'"]*)\1\s*\)/gi;
+        var urlMatch;
+        while ((urlMatch = urlRe.exec(text))) {
+            var target = String(urlMatch[2] || '').trim();
+            if (!/^#[A-Za-z_:][A-Za-z0-9_.:-]*$/.test(target)) {
+                throw new Error('External CSS or image URLs in SVG are not supported.');
+            }
+        }
+    }
+
+    function assertSvgLengths(text) {
+        var re = /<svg\b[^>]*>/gi;
+        var match;
+        while ((match = re.exec(text))) {
+            svgLength(svgAttr(match[0], 'width'));
+            svgLength(svgAttr(match[0], 'height'));
+        }
+    }
+
+    function lockRasterSize(text) {
+        var match = /<svg\b[^>]*>/i.exec(text);
+        if (!match) throw new Error('That file is not an SVG.');
+        var tag = match[0];
+        var viewBox = svgAttr(tag, 'viewBox');
+        var width = svgLength(svgAttr(tag, 'width'));
+        var height = svgLength(svgAttr(tag, 'height'));
+        var boxW;
+        var boxH;
+        if (viewBox != null) {
+            var parts = viewBox.trim().split(/[\s,]+/).map(Number);
+            if (parts.length !== 4 || parts.some(function (n) { return !isFinite(n); }) || parts[2] <= 0 || parts[3] <= 0) {
+                throw new Error('That SVG viewBox is invalid.');
+            }
+            if (parts.some(function (n) { return Math.abs(n) > 1000000; })) {
+                throw new Error('That SVG viewBox is too large to rasterize.');
+            }
+            boxW = parts[2];
+            boxH = parts[3];
+            viewBox = [parts[0], parts[1], parts[2], parts[3]].map(trimNum).join(' ');
+        } else if (width && height) {
+            boxW = width;
+            boxH = height;
+            viewBox = '0 0 ' + trimNum(width) + ' ' + trimNum(height);
+        } else {
+            boxW = RASTER_LONG_SIDE;
+            boxH = RASTER_LONG_SIDE;
+            viewBox = '0 0 ' + RASTER_LONG_SIDE + ' ' + RASTER_LONG_SIDE;
+        }
+        var longSide = Math.max(boxW, boxH);
+        var scale = RASTER_LONG_SIDE / longSide;
+        var rasterW = Math.max(1, Math.round(boxW * scale));
+        var rasterH = Math.max(1, Math.round(boxH * scale));
+        var rebuilt = tag
+            .replace(/\swidth\s*=\s*(["'])[\s\S]*?\1/i, '')
+            .replace(/\sheight\s*=\s*(["'])[\s\S]*?\1/i, '')
+            .replace(/\sviewBox\s*=\s*(["'])[\s\S]*?\1/i, '');
+        rebuilt = rebuilt.replace(/<svg\b/i, '<svg width="' + rasterW + '" height="' + rasterH + '" viewBox="' + viewBox + '"');
+        return text.slice(0, match.index) + rebuilt + text.slice(match.index + tag.length);
+    }
+
+    function assertXmlDeclaration(text) {
+        var match = /^\s*<\?xml\b([^?]*)\?>/i.exec(text);
+        if (!match) return;
+        var encoding = /\bencoding\s*=\s*(['"])(.*?)\1/i.exec(match[1]);
+        if (encoding && !/^(utf-8|us-ascii)$/i.test(encoding[2])) {
+            throw new Error('Only UTF-8 SVG files are supported.');
+        }
+    }
+
+    // Reject active or network-capable SVG before any rasterizer sees it.
+    // The decoded copy is only a scan. The returned markup is the original
+    // text plus a capped root width, height and viewBox.
+    function prepareSvg(text) {
+        if (typeof text !== 'string') throw new Error('That file is not an SVG.');
+        if (text.charCodeAt(0) === 0xfeff) text = text.slice(1);
+        if (text.length > SVG_MAX_BYTES) throw new Error('That SVG is over 1 MB. Export a simpler file and try again.');
+        if (text.indexOf('\0') !== -1) throw new Error('That file is not an SVG.');
+        assertXmlDeclaration(text);
+        assertNoDangerousMarkup(text);
+        var decoded = decodeXmlRefs(text);
+        if (decoded !== text) assertNoDangerousMarkup(decoded);
+        if (!/<svg\b/i.test(text)) throw new Error('That file is not an SVG.');
+        var elements = text.match(/<[a-zA-Z]/g);
+        if (elements && elements.length > SVG_MAX_ELEMENTS) {
+            throw new Error('That SVG has too many elements. Export a simpler icon.');
+        }
+        var uses = text.match(/<use\b/gi);
+        if (uses && uses.length > SVG_MAX_USES) throw new Error('That SVG uses too many <use> references.');
+        assertSvgLengths(text);
+        return lockRasterSize(text);
+    }
+
+    async function svgBlob(file) {
+        if (file.size > SVG_MAX_BYTES) throw new Error('That SVG is over 1 MB. Export a simpler file and try again.');
+        if (typeof file.text !== 'function') throw new Error('That file is not an SVG.');
+        return new Blob([prepareSvg(await file.text())], { type: 'image/svg+xml' });
     }
 
     function drawContain(image, size) {
@@ -246,13 +427,16 @@
         });
     }
 
-    async function convertFile(file) {
+    async function convertFile(file, options) {
+        options = options || {};
+        var name = String(file && file.name || '').toLowerCase();
+        var type = String(file && file.type || '').toLowerCase();
+        var isSvg = type === 'image/svg+xml' || name.endsWith('.svg');
+        if (options.svgOnly && !isSvg) throw new Error('Use an SVG file.');
         if (!isAccepted(file)) throw new Error('Use a PNG, JPG, SVG, or WebP file.');
-        if (file.size > MAX_BYTES) throw new Error('That file is over 15 MB. Export a smaller image and try again.');
-        var name = String(file.name || '').toLowerCase();
-        var type = String(file.type || '').toLowerCase();
         var blob = file;
-        if (type === 'image/svg+xml' || name.endsWith('.svg')) blob = await normalizeSvg(file);
+        if (isSvg) blob = await svgBlob(file);
+        else if (file.size > MAX_BYTES) throw new Error('That file is over 15 MB. Export a smaller image and try again.');
         var url = URL.createObjectURL(blob);
         try {
             var image = await loadImage(url);
@@ -346,15 +530,25 @@
         root.dataset.fcReady = '1';
         ensureStyle();
         var heading = root.dataset.heading || 'Favicon converter';
-        var lead = root.dataset.lead || 'Drop a PNG, JPG, SVG, or WebP. Your browser builds a multi-size favicon.ico (16, 32, 48), PNGs at 16, 32, 48, 180, 192 and 512, and a ZIP. The file is not uploaded.';
+        var svgOnly = root.dataset.accept === 'svg';
+        var lead = root.dataset.lead || (svgOnly
+            ? 'Drop an SVG. Your browser rasterizes favicon.ico at 16, 32 and 48, plus PNGs at 16, 32, 48, 180, 192 and 512, and a ZIP. The file is not uploaded.'
+            : 'Drop a PNG, JPG, SVG, or WebP. Your browser builds a multi-size favicon.ico (16, 32, 48), PNGs at 16, 32, 48, 180, 192 and 512, and a ZIP. The file is not uploaded.');
+        var accept = svgOnly
+            ? '.svg,image/svg+xml'
+            : '.png,.jpg,.jpeg,.svg,.webp,image/png,image/jpeg,image/svg+xml,image/webp';
+        var meta = svgOnly
+            ? 'SVG only, up to 1 MB. Fitted inside each square on a transparent background. Nothing is uploaded.'
+            : 'PNG, JPG, SVG, or WebP. Fitted inside each square. Nothing is uploaded.';
+        var pickLabel = svgOnly ? 'Choose SVG' : 'Choose image';
         root.innerHTML = ''
             + '<div class="fc-tool">'
             + '<h2></h2>'
             + '<p class="fc-lead"></p>'
             + '<div class="fc-drop">'
-            + '<input class="fc-file" type="file" accept=".png,.jpg,.jpeg,.svg,.webp,image/png,image/jpeg,image/svg+xml,image/webp">'
-            + '<button type="button" class="fc-btn fc-pick">Choose image</button>'
-            + '<p class="fc-meta">PNG, JPG, SVG, or WebP. Fitted inside each square. Nothing is uploaded.</p>'
+            + '<input class="fc-file" type="file" accept="' + accept + '">'
+            + '<button type="button" class="fc-btn fc-pick"></button>'
+            + '<p class="fc-meta"></p>'
             + '</div>'
             + '<p class="fc-status" role="status"></p>'
             + '<div class="fc-previews" hidden></div>'
@@ -369,6 +563,8 @@
             + '</div>';
         root.querySelector('h2').textContent = heading;
         root.querySelector('.fc-lead').textContent = lead;
+        root.querySelector('.fc-pick').textContent = pickLabel;
+        root.querySelector('.fc-meta').textContent = meta;
 
         var input = root.querySelector('.fc-file');
         var drop = root.querySelector('.fc-drop');
@@ -392,7 +588,7 @@
             setStatus('Converting in your browser…', false);
             root.dataset.fcStatus = 'working';
             try {
-                result = await convertFile(file);
+                result = await convertFile(file, { svgOnly: svgOnly });
                 root.__fcResult = result;
                 clearPreviews(previews);
                 [16, 32, 48, 180].forEach(function (size) {
@@ -414,7 +610,7 @@
                 previews.hidden = false;
                 actions.hidden = false;
                 pngs.hidden = false;
-                pngs.innerHTML = '';
+                pngs.textContent = '';
                 [
                     ['favicon-16x16.png', 16],
                     ['favicon-32x32.png', 32],
@@ -440,6 +636,14 @@
             } catch (error) {
                 result = null;
                 root.__fcResult = null;
+                clearPreviews(previews);
+                previews.hidden = true;
+                actions.hidden = true;
+                pngs.hidden = true;
+                pngs.textContent = '';
+                code.hidden = true;
+                code.textContent = '';
+                copyRow.hidden = true;
                 setStatus(error && error.message ? error.message : 'Could not convert that file.', true);
             }
         }
@@ -497,6 +701,8 @@
     return {
         PNG_SIZES: PNG_SIZES,
         ICO_SIZES: ICO_SIZES,
+        SVG_MAX_BYTES: SVG_MAX_BYTES,
+        prepareSvg: prepareSvg,
         asBytes: asBytes,
         crc32: crc32,
         pngSize: pngSize,

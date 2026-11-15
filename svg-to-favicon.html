@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SVG to Favicon Generator | favicondl</title>
+    <meta name="description" content="Free SVG to favicon generator. Upload an SVG in your browser and download favicon.ico plus PNG sizes 16, 32, 48, 180, 192 and 512. Scripts and external links are rejected. Nothing is uploaded.">
+    <meta name="keywords" content="svg to favicon generator, svg favicon generator, svg favicon maker">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/svg-to-favicon">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/svg-to-favicon">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/svg-to-favicon">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://favicondl.com/svg-to-favicon">
+    <meta property="og:title" content="SVG to Favicon Generator | favicondl">
+    <meta property="og:description" content="Upload an SVG and download favicon.ico plus PNG favicons. Conversion stays in your browser.">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="SVG to Favicon Generator | favicondl">
+    <meta name="twitter:description" content="Upload an SVG and download favicon.ico plus PNG favicons. Conversion stays in your browser.">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "SVG to Favicon Generator",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Web",
+      "url": "https://favicondl.com/svg-to-favicon",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "description": "Rasterizes an uploaded SVG into favicon.ico and PNG favicon sizes in the browser. No account and no upload.",
+      "browserRequirements": "Requires JavaScript"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What does the SVG to favicon generator download?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A ZIP named favicon-package.zip, plus individual downloads. favicon.ico contains PNG layers at 16×16, 32×32 and 48×48. Separate PNGs are favicon-16x16.png, favicon-32x32.png, favicon-48x48.png, apple-touch-icon.png at 180×180, android-chrome-192x192.png and android-chrome-512x512.png. The ZIP also includes site.webmanifest and favicon-links.html. It does not include a favicon.svg file, a JPG, or ICO sizes above 48."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is my SVG uploaded?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. The file is read in your browser, checked, drawn to a canvas, and turned into PNG and ICO bytes on that device. There is no account and no server conversion. Close the tab and the file is gone."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why was my SVG rejected?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The generator rejects files that are not SVG, files over 1 MB, more than 5000 elements, root width or height above 8192, a non-UTF-8 encoding, a DOCTYPE or custom entity, scripts, event handlers, foreignObject, animation elements, embedded images, and any external link, stylesheet, or CSS url() that is not a local fragment such as url(#gradient)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How are transparent backgrounds and wide icons handled?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The graphic is fitted inside each square from its viewBox, or from its width and height when there is no viewBox. Empty space stays transparent. A wide mark gets transparent bars above and below. A tall mark gets transparent bars on the sides. The preview is the PNG that will be downloaded, shown on a checkerboard."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does this create an SVG favicon file?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. This page rasterizes the icon. The download is ICO and PNG only, because an uploaded SVG can contain active content and is not republished. Local gradients and filters that point at an id in the same file are drawn. Text uses a browser fallback font. Embedded fonts, external images, and SMIL animation are not supported."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        * { font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; -webkit-font-smoothing: antialiased; }
+        body { background: #fafafa; color: #1d1d1f; }
+        .nav-link { color: #1d1d1f; font-size: 14px; font-weight: 500; text-decoration: none; }
+        .nav-link:hover { color: #0071e3; }
+        .btn-secondary { background: #f5f5f7; color: #1d1d1f; padding: 10px 16px; border-radius: 980px; font-size: 14px; font-weight: 500; border: none; cursor: pointer; }
+        .btn-secondary:hover { background: #e8e8ed; }
+    </style>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-7QLC8QV609');
+    </script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 min-h-14 py-2 flex flex-wrap items-center justify-between gap-y-2">
+            <a href="/" class="flex items-center gap-2 font-semibold text-lg text-gray-900 shrink-0"><img src="/favicons/favicon-32x32.png" alt="" class="w-6 h-6" width="24" height="24">Mzu favicondl</a>
+            <div class="flex flex-wrap items-center justify-end gap-x-5 gap-y-1 w-full sm:w-auto">
+                <a href="/documentation.html" class="nav-link">Docs</a>
+                <a href="/tools.html" class="nav-link">Tools</a>
+                <a href="/svg-to-favicon" class="nav-link" style="color:#0071e3;" aria-current="page">SVG to favicon</a>
+                <a href="/favicon-checker" class="nav-link">Checker</a>
+                <a href="/blog/" class="nav-link">Blog</a>
+            </div>
+        </div>
+    </nav>
+
+    <noscript>
+        <p class="max-w-3xl mx-auto px-6 pt-6 text-sm text-rose-700">This SVG to favicon generator runs in the browser and needs JavaScript to read the file and build the downloads.</p>
+    </noscript>
+
+    <main>
+        <section class="pt-14 pb-6 px-6">
+            <div class="max-w-3xl mx-auto">
+                <h1 class="text-4xl md:text-5xl font-semibold tracking-tight mb-4">SVG to Favicon Generator</h1>
+                <p class="text-lg text-gray-500 mb-4">Upload an SVG. Your browser draws it and downloads real favicon files. Nothing is sent to a server, and you do not need an account.</p>
+                <p class="text-sm text-gray-500 mb-6">The preview below is a PNG, not the SVG markup. A wide or tall graphic stays in proportion, with transparent bars filling the square.</p>
+                <p class="mb-4"><button type="button" id="svg-sample" class="btn-secondary">Try a sample SVG</button></p>
+                <section id="svg-to-favicon" class="fc-mount" data-accept="svg" data-heading="Generate favicon files" data-lead="Drop an SVG, or use the sample. The download is favicon.ico at 16, 32 and 48, PNGs at 16, 32, 48, 180, 192 and 512, and a ZIP with the manifest and link tags. The SVG itself is not in the package."></section>
+            </div>
+        </section>
+
+        <section class="px-6 pb-16">
+            <div class="max-w-3xl mx-auto text-gray-600 text-sm leading-relaxed">
+                <h2 class="text-2xl font-semibold text-gray-900 mb-4">Files this generator writes</h2>
+                <ul class="space-y-2 list-disc pl-5 mb-8">
+                    <li><code>favicon.ico</code> with three PNG images: 16×16, 32×32 and 48×48.</li>
+                    <li><code>favicon-16x16.png</code>, <code>favicon-32x32.png</code> and <code>favicon-48x48.png</code>.</li>
+                    <li><code>apple-touch-icon.png</code> at 180×180.</li>
+                    <li><code>android-chrome-192x192.png</code> and <code>android-chrome-512x512.png</code>.</li>
+                    <li><code>site.webmanifest</code> and <code>favicon-links.html</code> inside <code>favicon-package.zip</code>.</li>
+                </ul>
+                <p class="mb-8">Those are the only outputs. There is no JPG, no 64/128/256 ICO layer, and no <code>favicon.svg</code>. Where each size is used is the <a href="/blog/favicon-sizes-guide.html" class="text-blue-600 hover:underline">favicon size</a> guide. The pixel table is the <a href="/blog/favicon-best-size-2026.html" class="text-blue-600 hover:underline">favicon dimensions</a> chart.</p>
+
+                <h2 id="limits" class="text-2xl font-semibold text-gray-900 mb-4">What the SVG may contain</h2>
+                <p class="mb-4">Paths, shapes, groups, local gradients, local clip paths, and <code>&lt;use href="#id"&gt;</code> are rasterized. The root canvas is capped at 512px on the long side before it is fitted into each favicon square. A missing viewBox uses the numeric width and height, or a 512×512 square when neither is set.</p>
+                <p class="mb-4">The file is rejected, with an error on this page, when it is not SVG, is over 1 MB, has more than 5000 elements or 40 <code>&lt;use&gt;</code> references, declares a root width or height above 8192, uses a non-UTF-8 encoding, or contains any of the following:</p>
+                <ul class="space-y-2 list-disc pl-5 mb-8">
+                    <li>A DOCTYPE, or a named entity other than <code>amp</code>, <code>lt</code>, <code>gt</code>, <code>quot</code> and <code>apos</code>. Numeric character references are allowed unless they decode into one of the items below.</li>
+                    <li>A script, event handler, <code>foreignObject</code>, frame, or embedded <code>&lt;image&gt;</code>.</li>
+                    <li>SMIL animation (<code>animate</code>, <code>set</code>), which could change a link after the check.</li>
+                    <li>An external <code>href</code> / <code>xlink:href</code>, a stylesheet processing instruction, <code>@import</code>, or a CSS <code>url()</code> that is not a local fragment such as <code>url(#gradient)</code>.</li>
+                    <li><code>javascript:</code> or <code>data:</code> URLs.</li>
+                </ul>
+                <p class="mb-8">Text is drawn with a fallback font already on the system. Embedded fonts and external images are not supported. Filters that reference an id in the same file are drawn. The uploaded markup is never inserted into this page.</p>
+
+                <h2 class="text-2xl font-semibold text-gray-900 mb-4">Other ways to get a favicon</h2>
+                <ul class="space-y-2 list-disc pl-5 mb-10">
+                    <li><a href="/tools.html" class="text-blue-600 hover:underline">Image to Favicon</a> accepts PNG, JPG and WebP as well as SVG.</li>
+                    <li><a href="/favicon-checker" class="text-blue-600 hover:underline">Favicon checker</a> lists which of these sizes a live site is missing.</li>
+                    <li><a href="/blog/svg-favicon.html" class="text-blue-600 hover:underline">SVG favicon</a> is a separate choice: shipping the vector file itself. This generator does not do that.</li>
+                    <li><a href="/" class="text-blue-600 hover:underline">Favicon downloader</a> copies an icon that a site already publishes.</li>
+                </ul>
+
+                <h2 id="faq" class="text-2xl font-semibold text-gray-900 mb-6">Frequently asked questions</h2>
+                <div class="space-y-6">
+                    <div>
+                        <h3 class="text-base font-semibold text-gray-900 mb-1">What does the SVG to favicon generator download?</h3>
+                        <p>A ZIP named <code>favicon-package.zip</code>, plus individual downloads. <code>favicon.ico</code> contains PNG layers at 16×16, 32×32 and 48×48. Separate PNGs are <code>favicon-16x16.png</code>, <code>favicon-32x32.png</code>, <code>favicon-48x48.png</code>, <code>apple-touch-icon.png</code> at 180×180, <code>android-chrome-192x192.png</code> and <code>android-chrome-512x512.png</code>. The ZIP also includes <code>site.webmanifest</code> and <code>favicon-links.html</code>. It does not include a <code>favicon.svg</code> file, a JPG, or ICO sizes above 48.</p>
+                    </div>
+                    <div>
+                        <h3 class="text-base font-semibold text-gray-900 mb-1">Is my SVG uploaded?</h3>
+                        <p>No. The file is read in your browser, checked, drawn to a canvas, and turned into PNG and ICO bytes on that device. There is no account and no server conversion. Close the tab and the file is gone.</p>
+                    </div>
+                    <div>
+                        <h3 class="text-base font-semibold text-gray-900 mb-1">Why was my SVG rejected?</h3>
+                        <p>The generator rejects files that are not SVG, files over 1 MB, more than 5000 elements, root width or height above 8192, a non-UTF-8 encoding, a DOCTYPE or custom entity, scripts, event handlers, <code>foreignObject</code>, animation elements, embedded images, and any external link, stylesheet, or CSS <code>url()</code> that is not a local fragment such as <code>url(#gradient)</code>.</p>
+                    </div>
+                    <div>
+                        <h3 class="text-base font-semibold text-gray-900 mb-1">How are transparent backgrounds and wide icons handled?</h3>
+                        <p>The graphic is fitted inside each square from its viewBox, or from its width and height when there is no viewBox. Empty space stays transparent. A wide mark gets transparent bars above and below. A tall mark gets transparent bars on the sides. The preview is the PNG that will be downloaded, shown on a checkerboard.</p>
+                    </div>
+                    <div>
+                        <h3 class="text-base font-semibold text-gray-900 mb-1">Does this create an SVG favicon file?</h3>
+                        <p>No. This page rasterizes the icon. The download is ICO and PNG only, because an uploaded SVG can contain active content and is not republished. Local gradients and filters that point at an id in the same file are drawn. Text uses a browser fallback font. Embedded fonts, external images, and SMIL animation are not supported.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="py-8 px-6 border-t border-gray-200">
+        <div class="max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+            <p class="text-gray-400 text-sm">© <script>document.write(new Date().getFullYear())</script> Mzu favicondl</p>
+            <div class="flex flex-wrap justify-center gap-x-6 gap-y-2">
+                <a href="/" class="text-gray-500 hover:text-gray-900 text-sm">Home</a>
+                <a href="/documentation.html" class="text-gray-500 hover:text-gray-900 text-sm">Docs</a>
+                <a href="/tools.html" class="text-gray-500 hover:text-gray-900 text-sm">Tools</a>
+                <a href="/svg-to-favicon" class="text-gray-500 hover:text-gray-900 text-sm">SVG to favicon</a>
+                <a href="/favicon-checker" class="text-gray-500 hover:text-gray-900 text-sm">Checker</a>
+                <a href="/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm">Privacy</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/analytics.js?v=20261021a"></script>
+    <script src="/js/favicon-converter.js?v=20261115a"></script>
+    <script>
+        document.getElementById('svg-sample').addEventListener('click', function () {
+            var svg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="12" fill="#2563eb"/><circle cx="32" cy="32" r="12" fill="#ffffff"/></svg>';
+            var file = new File([svg], 'sample.svg', { type: 'image/svg+xml' });
+            var input = document.querySelector('#svg-to-favicon input[type=file]');
+            var transfer = new DataTransfer();
+            transfer.items.add(file);
+            input.files = transfer.files;
+            input.dispatchEvent(new Event('change', { bubbles: true }));
+        });
+    </script>
+</body>
+</html>

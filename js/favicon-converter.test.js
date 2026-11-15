@@ -103,6 +103,95 @@ test('ZIP round-trips the favicon package names', () => {
     assert.match(converter.manifestJson(), /512x512/);
 });
 
+function assertRejects(svg, pattern) {
+    assert.throws(() => converter.prepareSvg(svg), pattern);
+}
+
+test('prepareSvg caps a viewBox-only icon and keeps local fragments', () => {
+    const svg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10"><defs><linearGradient id="g"><stop offset="0" stop-color="#fff"/></linearGradient></defs><rect width="10" height="10" fill="url(#g)"/><use href="#g"/></svg>';
+    const out = converter.prepareSvg(svg);
+    assert.match(out, /<svg width="512" height="512" viewBox="0 0 10 10"/);
+    assert.match(out, /fill="url\(#g\)"/);
+    assert.match(out, /href="#g"/);
+    assert.doesNotMatch(out, /<script/i);
+});
+
+test('prepareSvg uses width and height when viewBox is missing, and preserves a wide ratio', () => {
+    const sized = converter.prepareSvg('<svg xmlns="http://www.w3.org/2000/svg" width="80" height="40"><rect width="80" height="40" fill="#f0f"/></svg>');
+    assert.match(sized, /width="512" height="256" viewBox="0 0 80 40"/);
+    const wide = converter.prepareSvg('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 20"><rect width="100" height="20" fill="#0f0"/></svg>');
+    assert.match(wide, /width="512" height="102" viewBox="0 0 100 20"/);
+    const titled = converter.prepareSvg('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 8"><title>A &amp; B</title><rect width="8" height="8" fill="#00f"/></svg>');
+    assert.match(titled, /A &amp; B/);
+    assert.match(titled, /width="512" height="512"/);
+});
+
+test('prepareSvg rejects active, external, and oversized SVG', () => {
+    const open = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10">';
+    const close = '</svg>';
+    assertRejects(open + '<script>window.__pwned=true</script>' + close, /script/i);
+    assertRejects('<svg xmlns="http://www.w3.org/2000/svg" onload="window.__pwned=true"></svg>', /event handler/i);
+    assertRejects(open + '<foreignObject><body xmlns="http://www.w3.org/1999/xhtml"></body></foreignObject>' + close, /foreignobject/i);
+    assertRejects(open + '<image href="https://evil.example/x.png"/>' + close, /image/i);
+    assertRejects(open + '<image href="data:image/png;base64,aaaa"/>' + close, /image|data/i);
+    assertRejects('<!DOCTYPE svg [<!ENTITY xxe SYSTEM "http://evil.example/x">]><svg>&xxe;</svg>', /DOCTYPE|entities/i);
+    assertRejects(open + '<style>@import url(https://evil.example/a.css);</style>' + close, /CSS|External/i);
+    assertRejects(open + '<rect style="fill:url(https://evil.example/a)"/>' + close, /External CSS|image URLs/i);
+    assertRejects('<?xml-stylesheet type="text/css" href="https://evil.example/a.css"?><svg xmlns="http://www.w3.org/2000/svg"></svg>', /processing instruction/i);
+    assertRejects(open + '<a href="https://evil.example/">x</a>' + close, /External links/i);
+    assertRejects(open + '<use href="https://evil.example/icon.svg#a"/>' + close, /External links/i);
+    assertRejects(open + '<rect fill="&#106;avascript:alert(1)"/>' + close, /Script and data URLs/i);
+    assertRejects(open + '&#60;script&#62;alert(1)&#60;/script&#62;' + close, /script/i);
+    assertRejects(open + '<rect href="&#104;ttps://evil.example/a.png"/>' + close, /External links/i);
+    assertRejects('<svg xmlns="http://www.w3.org/2000/svg" width="9000" height="9000"></svg>', /8192/);
+    assertRejects('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9999999 10"></svg>', /viewBox is too large/);
+    assertRejects('<html><body>nope</body></html>', /not an SVG/);
+    assertRejects(open + '&nbsp;' + close, /entities/i);
+    assertRejects('<?xml version="1.0" encoding="UTF-7"?><svg xmlns="http://www.w3.org/2000/svg"></svg>', /UTF-8/);
+    assertRejects(open + ' '.repeat(converter.SVG_MAX_BYTES) + close, /1 MB/);
+    assertRejects(open + '<g></g>'.repeat(5001) + close, /too many elements/);
+    const safe = converter.prepareSvg(open + '<rect width="10" height="10" fill="#111"/>' + close);
+    assert.equal(safe.includes('__pwned'), false);
+    assert.doesNotMatch(safe, /<script/i);
+});
+
+test('the SVG to favicon page is a real tool route, not an article rewrite', () => {
+    const fs = require('fs');
+    const path = require('path');
+    const root = path.join(__dirname, '..');
+    const html = fs.readFileSync(path.join(root, 'svg-to-favicon.html'), 'utf8');
+    assert.match(html, /<title>SVG to Favicon Generator \| favicondl<\/title>/);
+    assert.match(html, /<h1[^>]*>\s*SVG to Favicon Generator\s*<\/h1>/);
+    assert.match(html, /rel="canonical" href="https:\/\/favicondl.com\/svg-to-favicon"/);
+    assert.match(html, /data-accept="svg"/);
+    assert.match(html, /\/js\/favicon-converter\.js/);
+    assert.match(html, /favicon\.ico/);
+    assert.match(html, /16×16, 32×32 and 48×48/);
+    assert.match(html, /does not include a <code>favicon\.svg<\/code>/);
+    assert.doesNotMatch(html, /innerHTML\s*=/);
+    const untouched = ['blog/svg-to-ico.html', 'blog/svg-favicon.html', 'blog/favicon-sizes-guide.html', 'blog/favicon-best-size-2026.html'];
+    for (const file of untouched) {
+        const body = fs.readFileSync(path.join(root, file), 'utf8');
+        assert.equal(body.includes('/svg-to-favicon'), false, file);
+    }
+    const blocks = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)];
+    const json = JSON.parse(blocks.map((match) => match[1]).find((block) => block.includes('FAQPage')));
+    assert.equal(json.mainEntity.length, 5);
+    for (const entity of json.mainEntity) {
+        assert.ok(entity.acceptedAnswer.text.length > 40);
+        assert.match(html, new RegExp(entity.name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')));
+    }
+    const sitemap = fs.readFileSync(path.join(root, 'sitemap.xml'), 'utf8');
+    assert.equal(sitemap.split('https://favicondl.com/svg-to-favicon</loc>').length - 1, 1);
+    const vercel = JSON.parse(fs.readFileSync(path.join(root, 'vercel.json'), 'utf8'));
+    assert.ok(vercel.redirects.some((rule) => rule.source === '/svg-to-favicon.html' && rule.destination === '/svg-to-favicon' && rule.permanent === true));
+    assert.ok(vercel.redirects.some((rule) => rule.source === '/svg-to-favicon/' && rule.destination === '/svg-to-favicon' && rule.permanent === true));
+    assert.ok(vercel.rewrites.some((rule) => rule.source === '/svg-to-favicon' && rule.destination === '/svg-to-favicon.html'));
+    const tools = fs.readFileSync(path.join(root, 'tools.html'), 'utf8');
+    assert.match(tools, /data-i18n-only="en"[^>]*>[\s\S]*href="\/svg-to-favicon"/);
+    assert.match(fs.readFileSync(path.join(root, 'favicon-checker.html'), 'utf8'), /href="\/svg-to-favicon"/);
+});
+
 test('accepted types are PNG, JPG, SVG and WebP only', () => {
     assert.equal(converter.isAccepted({ name: 'a.PNG', type: '' }), true);
     assert.equal(converter.isAccepted({ name: 'a.jpeg', type: '' }), true);
