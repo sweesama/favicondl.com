@@ -1,0 +1,137 @@
+<!DOCTYPE html><html lang="zh"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webpack Favicon 配置：分步指南</title>
+    <meta name="description" content="学习如何在 Webpack 项目中添加 favicon。分步指南涵盖文件放置、HTML 注入和常见陷阱。">
+    <meta name="keywords" content="webpack favicon, favicon webpack, webpack html plugin, favicon setup">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/zh/blog/webpack-favicon.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/webpack-favicon.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/webpack-favicon.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/webpack-favicon.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/webpack-favicon.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/webpack-favicon.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/webpack-favicon.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/zh/blog/webpack-favicon.html">
+    <meta property="og:title" content="Webpack Favicon 配置：分步指南">
+    <meta property="og:description" content="学习如何在 Webpack 项目中添加 favicon。分步指南涵盖文件放置、HTML 注入和常见陷阱。">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Webpack Favicon 配置：分步指南">
+    <meta name="twitter:description" content="学习如何在 Webpack 项目中添加 favicon。分步指南涵盖文件放置、HTML 注入和常见陷阱。">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Webpack Favicon 配置：分步指南",
+  "description": "学习如何在 Webpack 项目中添加 favicon。分步指南涵盖文件放置、HTML 注入和常见陷阱。",
+  "datePublished": "2026-11-16",
+  "dateModified": "2026-11-16",
+  "author": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "mainEntityOfPage": "https://favicondl.com/zh/blog/webpack-favicon.html",
+  "inLanguage": "zh-CN"
+}</script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/zh/" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/zh/documentation.html" class="nav-link">文档</a>
+                <a href="/zh/tools.html" class="nav-link">工具</a>
+                <a href="/zh/blog/" class="nav-link">博客</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/webpack-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/webpack-favicon.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/webpack-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/webpack-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/webpack-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/zh/" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/zh/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600">Webpack Favicon 配置：分步指南</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">build-tools</span><time class="text-sm text-gray-400">2026-11-16</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">Webpack Favicon 配置：分步指南</h1>
+        </header>
+
+        <div class="article-body"><p>如果你做过 Webpack 项目，又发现浏览器标签页里只有一个通用地球图标或空白方块，这并不少见。Webpack 不会开箱即用地处理 favicon，需要你自己接入。好在弄清文件放在哪里、再注入 link 标签后，只需几行配置就能搞定。</p><p>本文会介绍如何为 Webpack 项目添加 favicon，从放置文件到在浏览器中验证结果。我们会分别说明简单的复制方案和 HtmlWebpackPlugin 方案，并指出大多数开发者容易踩到的坑。</p><h2>前置条件</h2><p>你应当已经有一个可以正常运行的 Webpack 项目，并安装了 <code>webpack</code> 和 <code>webpack-cli</code>。如果你使用 <code>html-webpack-plugin</code> 生成 HTML，那会更方便，因为后面的推荐方案会用到它。另外，准备好一个 favicon 文件，格式可以是 ICO、PNG 或 SVG。如果还没有，可以按照<a href="/zh/blog/multi-size-favicon-ico.html">我们的指南</a>生成一个包含多种尺寸的 ICO 文件。</p><h2>步骤 1：将 favicon 放入项目</h2><p>如果项目中还没有用于存放静态资源的目录，就先创建一个。常见约定是使用 <code>src/assets/</code> 或 <code>public/</code>。把 favicon 文件放在其中——为了获得最大范围的浏览器兼容性，这里将它命名为 <code>favicon.ico</code>。也可以使用 <code>favicon.png</code> 或 <code>favicon.svg</code>；现代浏览器支持 SVG，但旧版浏览器还需要一个 fallback，参见<a href="/zh/blog/svg-favicon-png-fallback.html">SVG with PNG fallback</a>。</p><p>本文假设文件路径为 <code>src/assets/favicon.ico</code>。</p><h2>步骤 2：配置 Webpack 复制 favicon</h2><p>Webpack 需要知道这个文件的存在，才能将它复制到构建产物中。最简单的做法是使用 <code>copy-webpack-plugin</code>。安装它：</p><pre><code>npm install --save-dev copy-webpack-plugin</code></pre><p>然后将它添加到 <code>webpack.config.js</code>：</p><pre><code>const CopyPlugin = require('copy-webpack-plugin');
+
+module.exports = {
+  // ... other config
+  plugins: [
+    new CopyPlugin({
+      patterns: [
+        { from: 'src/assets/favicon.ico', to: 'favicon.ico' }
+      ]
+    })
+  ]
+};</code></pre><p>这会将 favicon 复制到输出目录根部（例如 <code>dist/favicon.ico</code>）。如果没有 link 标签，浏览器会自动请求 <code>/favicon.ico</code>，因此仅这一项配置就可能生效；不过，显式添加 link 标签更便于控制，也能支持非 ICO 格式。</p><h2>第 3 步：使用 HtmlWebpackPlugin 注入 link 标签</h2><p>如果你在使用 <code>html-webpack-plugin</code>，可以直接在 HTML 模板中添加 favicon link。在 <code>index.html</code> 模板（通常位于 <code>src/</code> 中）的 <code>&lt;head&gt;</code> 内加入以下内容：</p><pre><code>&lt;link rel='icon' href='favicon.ico' type='image/x-icon'&gt;</code></pre><p>由于文件会被复制到输出目录根部，相对路径 <code>favicon.ico</code> 就能正确解析。如果站点部署在子目录下，请使用 <code>/favicon.ico</code> 这样的绝对路径，或在 Webpack 中配置 <code>publicPath</code>。</p><p>SVG favicon 可写成：</p><pre><code>&lt;link rel='icon' href='favicon.svg' type='image/svg+xml'&gt;</code></pre><p>PNG 则写成：</p><pre><code>&lt;link rel='icon' href='favicon.png' type='image/png'&gt;</code></pre><p><a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon" target="_blank" rel="noopener">HTML 标准</a>将 <code>rel='icon'</code> 属性定义为指定站点图标的方式。浏览器会据此为标签页、书签和历史记录选择最合适的图标。</p><h2>第 4 步：构建并验证</h2><p>运行构建命令（例如 <code>npm run build</code>），确认输出文件夹中存在 <code>favicon.ico</code>。然后在本地启动服务来提供构建产物（例如使用 <code>npx serve dist</code>），并用浏览器打开。此时标签页应该会显示你的图标。如果没有，请执行强制刷新（Ctrl+Shift+R 或 Cmd+Shift+R）以绕过缓存。</p><p>也可以查看页面源代码，确认 link 标签存在且路径正确。</p><h2>常见坑点</h2><ul><li><strong>输出路径不匹配：</strong>如果使用 <code>CopyPlugin</code>，并且 <code>to</code> 路径包含子目录，link 标签也必须与之对应。例如，<code>to: 'assets/favicon.ico'</code> 对应的链接应使用 <code>href='assets/favicon.ico'</code>。</li><li><strong>生产环境缺少文件：</strong>有些配置只在开发阶段复制资源。请确保 <code>CopyPlugin</code> 在所有模式下都会运行。</li><li><strong>缓存问题：</strong>浏览器会 aggressively 缓存 favicon。更新 favicon 时，可以附加类似 <code>favicon.ico?v=2</code> 的 query string，或者在构建流程中配置 cache busting（参见 <a href="/zh/blog/favicon-cache-busting.html">cache busting 最佳实践</a>）。</li><li><strong>SVG 缺少 fallback：</strong>较旧的浏览器会忽略 SVG favicon。务必提供 ICO 或 PNG 作为 fallback。</li><li><strong>文件不在根目录：</strong>如果不使用 link 标签，而是依赖浏览器默认发起的 <code>/favicon.ico</code> 请求，文件就必须放在服务目录的根路径下。</li></ul><h2>总结</h2><p>为 Webpack 项目添加 favicon 并不复杂，关键只有两步：把文件复制到输出目录，并在 HTML 中引用它。使用 <code>copy-webpack-plugin</code> 复制资源，再在模板中添加 <code>link rel='icon'</code> 标签即可。这样一来，浏览器标签页就会显得更精致、更专业。</p><p>如果需要生成一套完整的 favicon 文件，包括 ICO、PNG、Apple Touch 和 manifest icons，可以试试 <a href="/zh/">Mzu favicondl</a>，一次性创建所有文件。</p></div>
+
+        <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
+
+        <div class="cta-box">
+            <h3>生成你的 Favicon 套装</h3>
+            <p>使用 Mzu favicondl 在几秒钟内创建 ICO、PNG、SVG 和 Apple Touch 图标。无需设计技能。</p>
+            <a href="/zh/" class="cta-btn">免费试用 →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/zh/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">首页</a>
+                <a href="/zh/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">博客</a>
+                <a href="/zh/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">隐私政策</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js?v=20260211"></script>
+
+</body></html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html><html lang="ja"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webpack Favicon 設定：ステップバイステップガイド</title>
+    <meta name="description" content="Webpack プロジェクトに favicon を追加する方法を学びましょう。ファイル配置、HTML インジェクション、よくある落とし穴をカバーするステップバイステップガイドです。">
+    <meta name="keywords" content="webpack favicon, favicon webpack, webpack html plugin, favicon setup">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/ja/blog/webpack-favicon.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/webpack-favicon.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/webpack-favicon.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/webpack-favicon.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/webpack-favicon.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/webpack-favicon.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/webpack-favicon.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/ja/blog/webpack-favicon.html">
+    <meta property="og:title" content="Webpack Favicon 設定：ステップバイステップガイド">
+    <meta property="og:description" content="Webpack プロジェクトに favicon を追加する方法を学びましょう。ファイル配置、HTML インジェクション、よくある落とし穴をカバーするステップバイステップガイドです。">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Webpack Favicon 設定：ステップバイステップガイド">
+    <meta name="twitter:description" content="Webpack プロジェクトに favicon を追加する方法を学びましょう。ファイル配置、HTML インジェクション、よくある落とし穴をカバーするステップバイステップガイドです。">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Webpack Favicon 設定：ステップバイステップガイド",
+  "description": "Webpack プロジェクトに favicon を追加する方法を学びましょう。ファイル配置、HTML インジェクション、よくある落とし穴をカバーするステップバイステップガイドです。",
+  "datePublished": "2026-11-16",
+  "dateModified": "2026-11-16",
+  "author": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "mainEntityOfPage": "https://favicondl.com/ja/blog/webpack-favicon.html",
+  "inLanguage": "ja"
+}</script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/ja/" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/ja/documentation.html" class="nav-link">ドキュメント</a>
+                <a href="/ja/tools.html" class="nav-link">ツール</a>
+                <a href="/ja/blog/" class="nav-link">ブログ</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/webpack-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/webpack-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/webpack-favicon.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/webpack-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/webpack-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/ja/" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/ja/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600">Webpack Favicon 設定：ステップバイステップガイド</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">build-tools</span><time class="text-sm text-gray-400">2026-11-16</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">Webpack Favicon 設定：ステップバイステップガイド</h1>
+        </header>
+
+        <div class="article-body"><p>Webpackプロジェクトを構築し、ブラウザのタブに標準的な地球儀アイコンや空白の四角が表示された経験があるbihoca、mpoca。Webpackは初期状態ではfaviconを扱わないため、自分で設定する必要があります。ただし、配置する場所とlink tagの挿入方法を抑えれば、設定ファイルに数行追加するだけで導入できます。</p><p>このガイドでは、faviconファイルの配置からbrowser上での確認まで、Webpackプロジェクトにfaviconを追加する手順を解説します。ファイルをコピーするだけの方法とHtmlWebpackPluginを使う方法、および多くの開発者がつまずくポイントも取り上げます。</p><h2>前提条件</h2><p> functioning Webpackプロジェクトがあり、<code>webpack</code>と<code>webpack-cli</code>がインストールされている必要があります。HTMLの生成に<code>html-webpack-plugin</code>を使っている場合は、より顺畅です。このガイドでは推奨する方法としてHtmlWebpackPluginを使用します。また、使用するfaviconファイル（ICO、PNG、SVG）を用意しておく必要があります。必要であれば、<a href="/ja/blog/multi-size-favicon-ico.html">複数サイズのICOを生成するガイド</a>で作成できます。</p><h2>ステップ1: faviconをプロジェクトに配置する</h2><p>静态アセット用のフォルダがなければ作成します。一般的には<code>src/assets/</code>または<code>public/</code>が使われます。faviconファイルをそのフォルダに配置してください。ここでは、browserとの互換性を最大限確保するため、<code>favicon.ico</code>という名前にします。<code>favicon.png</code>や<code>favicon.svg</code>も使用できますが、SVGは現代のbrowserでサポートされている一方、古いbrowserでは代替ファイルが必要です（<a href="/ja/blog/svg-favicon-png-fallback.html">SVGとPNG fallbackの組み合わせ</a>を参照してください）。</p><p>このガイドでは、ファイルを<code>src/assets/favicon.ico</code>に配置 Assumingとします。</p><h2>ステップ2: Webpackでfaviconをコピー하도록設定する</h2><p>Webpackにこのファイルを認識させ、ビルド出力に含める必要があります最も単純な方法として、<code>copy-webpack-plugin</code>を使用します。インストールします。</p><pre><code>npm install --save-dev copy-webpack-plugin</code></pre><p>次に、<code>webpack.config.js</code>に追加します。</p><pre><code>const CopyPlugin = require('copy-webpack-plugin');
+
+module.exports = {
+  // ... other config
+  plugins: [
+    new CopyPlugin({
+      patterns: [
+        { from: 'src/assets/favicon.ico', to: 'favicon.ico' }
+      ]
+    })
+  ]
+};</code></pre><p>これにより、faviconが出力ディレクトリのルート（例：<code>dist/favicon.ico</code>）にコピーされます。linkタグが存在しない場合、ブラウザは自動的に<code>/favicon.ico</code>をリクエストするので、これだけでも機能します。ただし、明示的なlinkタグの方が、制御やICO以外の形式への対応に優れています。</p><h2>手順3: HtmlWebpackPluginでlinkタグを挿入する</h2><p><code>html-webpack-plugin</code>を使用する場合、HTMLテンプレートにfaviconのlinkタグを直接追加できます。通常は<code>src/</code>にある<code>index.html</code>テンプレートの<code>&lt;head&gt;</code>内に、次を追加します。</p><pre><code>&lt;link rel='icon' href='favicon.ico' type='image/x-icon'&gt;</code></pre><p>ファイルが出力ルートにコピーされるため、相対パス<code>favicon.ico</code>は正しく解決されます。サブディレクトリから配信する場合は、<code>/favicon.ico</code>のような絶対パスを使うか、Webpackで<code>publicPath</code>を設定します。</p><p>SVGのfaviconの場合は、次を使用します。</p><pre><code>&lt;link rel='icon' href='favicon.svg' type='image/svg+xml'&gt;</code></pre><p>PNGの場合は次のとおりです。</p><pre><code>&lt;link rel='icon' href='favicon.png' type='image/png'&gt;</code></pre><p><code>rel='icon'</code>属性は、サイトのアイコンを指定する方法として<a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon" target="_blank" rel="noopener">HTML標準</a>で定義されています。ブラウザはこれを利用して、タブ、ブックマーク、履歴に最も適したアイコンを選択します。</p><h2>手順4: ビルドして確認する</h2><p>ビルドコマンドを実行します（例：<code>npm run build</code>）。出力フォルダーに<code>favicon.ico</code>が配置されているか確認します。次に、ビルド結果をローカルで配信して（例：<code>npx serve dist</code>）、ブラウザで開きます。タブにはアイコンが表示されるはずです。表示されない場合は、キャッシュを回避するためハードリロード（Ctrl+Shift+RまたはCmd+Shift+R）を行ってください。</p><p>また、ページのソースを確認して、linkタグが存在し、パスが正しいことも確認できます。</p><h2>よくある落とし穴</h2><ul><li><strong>出力パスが不正：</strong><code>CopyPlugin</code>の<code>to</code>にサブフォルダを含むパスを指定した場合、linkタグのパスも一致させる必要があります。たとえば、<code>to: 'assets/favicon.ico'</code>なら、<code>href='assets/favicon.ico'</code>と指定します。</li><li><strong>本番環境でファイルが見つからない：</strong>開発時のみアセットをコピーする構成では、本番ビルドにファイルが含まれないことがあります。<code>CopyPlugin</code>がすべてのmodeで実行されるように設定してください。</li><li><strong>キャッシュの問題：</strong>ブラウザーはfaviconを強くキャッシュします。faviconを更新するときは、<code>favicon.ico?v=2</code>のようなquery stringを使うか、buildにcache-bustingを設定してください（<a href="/ja/blog/favicon-cache-busting.html">cache busting best practices</a>を参照）。</li><li><strong>SVGのfallbackがない：</strong>古いブラウザーはSVG faviconを無視します。ICOまたはPNGのfallbackを必ず含めてください。</li><li><strong>ファイルがルートにない：</strong>linkタグを使わず、デフォルトの<code>/favicon.ico</code>へのリクエストに依存する場合、ファイルは配信ディレクトリのルートに配置する必要があります。</li></ul><h2>まとめ</h2><p>Webpackプロジェクトにfaviconを追加する作業XD?ファイルを出力先にコピーすることと、HTMLから参照することの2つの要点を知れば_unlocked。copy-webpack-pluginでアセットをコピーし、テンプレートの<code>link rel='icon'</code>タグを追加します。これで完了です。ブラウザーのタブにも見栄えのよさが加わります。</p><p>一式のfaviconセット（ICO、PNG、Apple Touch、manifest icons）を生成する必要がある場合は、<a href="/ja/">Mzu favicondl</a>をお試しください。すべてのファイルを一括で作成できます。</p></div>
+
+        <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
+
+        <div class="cta-box">
+            <h3>Favicon セットを生成</h3>
+            <p>Mzu favicondl で ICO、PNG、SVG、Apple Touch アイコンを数秒で作成。デザインスキルは不要です。</p>
+            <a href="/ja/" class="cta-btn">無料で試す →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/ja/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">ホーム</a>
+                <a href="/ja/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">ブログ</a>
+                <a href="/ja/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">プライバシー</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js?v=20260211"></script>
+
+</body></html>

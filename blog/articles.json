@@ -4397,5 +4397,26 @@
     ],
     "qualityScore": 95,
     "qualityGrade": "A"
+  },
+  {
+    "slug": "webpack-favicon",
+    "publishDate": "2026-11-16",
+    "titleEn": "Webpack Favicon Setup: A Step-by-Step Guide",
+    "titleZh": "Webpack Favicon 配置：分步指南",
+    "titleJa": "Webpack Favicon 設定：ステップバイステップガイド",
+    "titleKo": "Webpack Favicon 설정: 단계별 가이드",
+    "titleEs": "Configuración de favicon con Webpack: guía paso a paso",
+    "descEn": "Learn how to add a favicon to your Webpack project. Step-by-step guide covering file placement, HTML injection, and common pitfalls.",
+    "descZh": "学习如何在 Webpack 项目中添加 favicon。分步指南涵盖文件放置、HTML 注入和常见陷阱。",
+    "descJa": "Webpack プロジェクトに favicon を追加する方法を学びましょう。ファイル配置、HTML インジェクション、よくある落とし穴をカバーするステップバイステップガイドです。",
+    "descKo": "Webpack 프로젝트에 favicon을 추가하는 방법을 알아보세요. 파일 배치, HTML 주입 및 일반적인 함정을 다루는 단계별 가이드입니다.",
+    "descEs": "Aprende a añadir un favicon a tu proyecto Webpack. Guía paso a paso que cubre la ubicación de archivos, la inyección de HTML y los errores comunes.",
+    "keyword": "webpack favicon",
+    "tags": [
+      "build-tools",
+      "framework"
+    ],
+    "qualityScore": 85,
+    "qualityGrade": "A"
   }
 ]
