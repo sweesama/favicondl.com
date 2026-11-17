@@ -4418,5 +4418,26 @@
     ],
     "qualityScore": 85,
     "qualityGrade": "A"
+  },
+  {
+    "slug": "mkdocs-favicon",
+    "publishDate": "2026-11-17",
+    "titleEn": "MkDocs Favicon: Step-by-Step Setup Guide",
+    "titleZh": "MkDocs Favicon 设置指南：一步步教你添加网站图标",
+    "titleJa": "MkDocs Favicon 設定ガイド：ステップバイステップ",
+    "titleKo": "MkDocs Favicon 설정 가이드: 단계별 안내",
+    "titleEs": "Guía paso a paso para el favicon de MkDocs",
+    "descEn": "Learn how to add a favicon to your MkDocs site with this step-by-step guide. Covers file placement, HTML tags, and common pitfalls.",
+    "descZh": "通过本分步指南学习如何为 MkDocs 站点添加 favicon。涵盖文件放置、HTML 标签和常见陷阱。",
+    "descJa": "このステップバイステップガイドで、MkDocs サイトに favicon を追加する方法を学びましょう。ファイルの配置、HTML タグ、よくある落とし穴をカバーします。",
+    "descKo": "이 단계별 가이드를 통해 MkDocs 사이트에 favicon을 추가하는 방법을 알아보세요. 파일 배치, HTML 태그 및 일반적인 함정을 다룹니다.",
+    "descEs": "Aprende a añadir un favicon a tu sitio MkDocs con esta guía paso a paso. Cubre la colocación de archivos, etiquetas HTML y errores comunes.",
+    "keyword": "mkdocs favicon",
+    "tags": [
+      "docs",
+      "static-site"
+    ],
+    "qualityScore": 80,
+    "qualityGrade": "A"
   }
 ]

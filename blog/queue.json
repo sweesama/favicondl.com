@@ -3328,7 +3328,9 @@
     "avoidOverlap": [
       "docusaurus-favicon"
     ],
-    "status": "pending"
+    "status": "done",
+    "qualityScore": 80,
+    "qualityGrade": "A"
   },
   {
     "keyword": "vitepress favicon",

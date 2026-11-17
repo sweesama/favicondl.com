@@ -1,0 +1,134 @@
+<!DOCTYPE html><html lang="ja"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MkDocs Favicon 設定ガイド：ステップバイステップ</title>
+    <meta name="description" content="このステップバイステップガイドで、MkDocs サイトに favicon を追加する方法を学びましょう。ファイルの配置、HTML タグ、よくある落とし穴をカバーします。">
+    <meta name="keywords" content="mkdocs favicon, mkdocs icon, favicon setup, mkdocs theme">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/ja/blog/mkdocs-favicon.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/mkdocs-favicon.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/mkdocs-favicon.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/mkdocs-favicon.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/mkdocs-favicon.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/mkdocs-favicon.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/mkdocs-favicon.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/ja/blog/mkdocs-favicon.html">
+    <meta property="og:title" content="MkDocs Favicon 設定ガイド：ステップバイステップ">
+    <meta property="og:description" content="このステップバイステップガイドで、MkDocs サイトに favicon を追加する方法を学びましょう。ファイルの配置、HTML タグ、よくある落とし穴をカバーします。">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="MkDocs Favicon 設定ガイド：ステップバイステップ">
+    <meta name="twitter:description" content="このステップバイステップガイドで、MkDocs サイトに favicon を追加する方法を学びましょう。ファイルの配置、HTML タグ、よくある落とし穴をカバーします。">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "MkDocs Favicon 設定ガイド：ステップバイステップ",
+  "description": "このステップバイステップガイドで、MkDocs サイトに favicon を追加する方法を学びましょう。ファイルの配置、HTML タグ、よくある落とし穴をカバーします。",
+  "datePublished": "2026-11-17",
+  "dateModified": "2026-11-17",
+  "author": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "mainEntityOfPage": "https://favicondl.com/ja/blog/mkdocs-favicon.html",
+  "inLanguage": "ja"
+}</script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/ja/" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/ja/documentation.html" class="nav-link">ドキュメント</a>
+                <a href="/ja/tools.html" class="nav-link">ツール</a>
+                <a href="/ja/blog/" class="nav-link">ブログ</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/mkdocs-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/mkdocs-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/mkdocs-favicon.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/mkdocs-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/mkdocs-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/ja/" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/ja/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600">MkDocs Favicon 設定ガイド：ステップバイステップ</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">docs</span><time class="text-sm text-gray-400">2026-11-17</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">MkDocs Favicon 設定ガイド：ステップバイステップ</h1>
+        </header>
+
+        <div class="article-body"><p>MkDocs サイトをデプロイした後、ブラウザーのタブには、ブランドのアイコンの代わりに、汎用的なドキュメントアイコンが表示されることがあります。同じ症状に当てはまるのは、あなただけではありません。MkDocs は静的 HTML を生成しますが、favicon の場所を指定しない限り、favicon を自動的に読み込みません。このガイドでは、MkDocs プロジェクトに favicon を追加する手順を段階的に解説します。</p><p>ファイルの配置場所、HTML タグ、開発者がよくつまずく落とし穴を扱います。最終的には、各タブに鮮明なアイコンを表示できます。</p><h2>前提条件</h2><p>開始する前に、次のものを用意してください。</p><ul><li>ローカルでセットアップしてビルドできる MkDocs プロジェクト。</li><li><code>mkdocs.yml</code> 設定ファイルへのアクセス権。</li><li>favicon 用の画像ファイル（PNG または SVG を推奨）。用意していない場合は、<a href="/ja/">Mzu favicondl</a> で生成できます。</li></ul><h2>ステップ1: favicon ファイルを準備する</h2><p>MkDocs はデフォルトで <code>docs/</code> ディレクトリから静的ファイルを配信します。<code>docs/</code> 内に <code>img</code> フォルダがなければ作成し、その中に favicon を配置してください。最大限の互換性を確保するには、32x32 PNG または SVG を使用します。古いブラウザーにも対応する場合は、サイトのルートに <code>favicon.ico</code> も追加してください。</p><p>構成は次のようになります。</p><pre><code>docs/
+  index.md
+  img/
+    favicon.png
+  favicon.ico  (optional, for legacy browsers)</code></pre><h2>ステップ2: MkDocs で favicon を使うように設定する</h2><p>MkDocs は theme を使ってページを描画します。多くの theme では、デフォルトの 'mkdocs' theme や Material for MkDocs などの人気テーマを含めて、<code>mkdocs.yml</code> の <code>theme</code> 設定で favicon を指定できます。</p><p><code>mkdocs.yml</code> を開いて、<code>theme</code> セクションを追加または変更します。</p><pre><code>theme:
+  name: material
+  favicon: img/favicon.png</code></pre><p>デフォルトの theme を使用している場合、設定は次のようになる可能性があります。</p><pre><code>theme:
+  name: mkdocs
+  favicon: img/favicon.png</code></pre><p>これにより、MkDocs は HTML の head に適切な <code>&lt;link&gt;</code> タグを含めます。正確な挙動は theme によって異なりますが、ほとんどの theme はこのパターンに従います。</p><h2>ステップ3: fallback 用の favicon.ico を追加する（任意）</h2><p>一部のブラウザ、特に古いブラウザでは、デフォルトで <code>/favicon.ico</code> をリクエストします。404 エラーを避けるには、<code>favicon.ico</code> ファイルを <code>docs/</code> ディレクトリのルートに配置してください。MkDocs は、そのファイルをビルドされたサイトのルートにコピーします。</p><p>PNG から ICO ファイルを作成するには、オンラインコンバーターや ImageMagick のようなツールを使えます。詳しい手順については、<a href="/ja/blog/png-to-ico.html">PNG から ICO への変換</a>に関するガイドを参照してください。</p><h2>手順4: ビルドして確認する</h2><p><code>mkdocs build</code> または <code>mkdocs serve</code> を実行してサイトをビルドします。ブラウザーで開き、タブを確認してください。favicon が表示されるはずです。表示されない場合は、ページソースを調べ、<code>&lt;link rel='icon'&gt;</code> タグが存在して、正しいパスを指していることを確認します。</p><p>より詳しく確認するには、ブラウザーの開発者ツールを使います。Network タブを開いて、favicon のリクエストを探してください。ステータスが 200 なら、正しく読み込まれています。</p><h2>よくある落とし穴</h2><ul><li><strong>誤ったファイルパス:</strong> <code>mkdocs.yml</code> 内のパスは、<code>docs/</code> ディレクトリを基準とした相対パスです。favicon を <code>docs/img/favicon.png</code> に配置した場合は、<code>img/favicon.png</code> を指定してください。</li><li><strong>テーマによる上書き:</strong> カスタムテーマを使用している場合、テンプレートに link タグを手動で追加する必要があるかもしれません。テーマのドキュメントを確認してください。</li><li><strong>キャッシュ:</strong> ブラウザーは favicon を強くキャッシュする傾向があります。更新後は、hard refresh（Ctrl+F5）を行うか、キャッシュを消去してください。詳しくは、<a href="/ja/blog/favicon-cache-clear.html">favicon のキャッシュを消去する方法</a>を参照してください。</li><li><strong>ICO ファイルの欠如:</strong> <code>favicon.ico</code> を用意していない場合、一部のブラウザーではコンソールに 404 が表示されます。重要な問題ではありませんが、回避できます。</li></ul><h2>まとめ</h2><p>ファイルの置き場所とテーマの設定方法を理解していれば、MkDocs に favicon を追加するのは簡単です。上記の手順どおりにすれば、ドキュメントサイトの見栄えがよくなり、ユーザーがタブを一目で識別できるようになります。異なるブラウザー间でテストし、パ Moose нужно favicon ファイルサイズが過大にならないよう管理することを忘れないでください。</p><h2>ドキュメントに記載された要件を確認する</h2><p>HTML Standard では、<a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon"><code>rel='icon'</code></a> は、現在のページを表すアイコンの link relationship と定義されています。</p></div>
+
+        <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
+
+        <div class="cta-box">
+            <h3>MkDocs サイト用の favicon が必要ですか？</h3>
+            <p>Mzu favicondl で完璧な favicon を数秒で生成。無料で高速、すべてのブラウザに対応。</p>
+            <a href="/ja/" class="cta-btn">無料で試す →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/ja/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">ホーム</a>
+                <a href="/ja/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">ブログ</a>
+                <a href="/ja/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">プライバシー</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js?v=20260211"></script>
+
+</body></html>
