@@ -1,0 +1,141 @@
+<!DOCTYPE html><html lang="zh"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VitePress Favicon 设置：分步指南</title>
+    <meta name="description" content="了解如何为 VitePress 站点添加 favicon。分步指南涵盖文件放置、HTML 标签和常见陷阱。">
+    <meta name="keywords" content="vitepress favicon, vitepress icon, favicon setup, vitepress config">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/zh/blog/vitepress-favicon.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/vitepress-favicon.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/vitepress-favicon.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/vitepress-favicon.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/vitepress-favicon.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/vitepress-favicon.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/vitepress-favicon.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/zh/blog/vitepress-favicon.html">
+    <meta property="og:title" content="VitePress Favicon 设置：分步指南">
+    <meta property="og:description" content="了解如何为 VitePress 站点添加 favicon。分步指南涵盖文件放置、HTML 标签和常见陷阱。">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="VitePress Favicon 设置：分步指南">
+    <meta name="twitter:description" content="了解如何为 VitePress 站点添加 favicon。分步指南涵盖文件放置、HTML 标签和常见陷阱。">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "VitePress Favicon 设置：分步指南",
+  "description": "了解如何为 VitePress 站点添加 favicon。分步指南涵盖文件放置、HTML 标签和常见陷阱。",
+  "datePublished": "2026-11-18",
+  "dateModified": "2026-11-18",
+  "author": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "mainEntityOfPage": "https://favicondl.com/zh/blog/vitepress-favicon.html",
+  "inLanguage": "zh-CN"
+}</script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/zh/" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/zh/documentation.html" class="nav-link">文档</a>
+                <a href="/zh/tools.html" class="nav-link">工具</a>
+                <a href="/zh/blog/" class="nav-link">博客</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/vitepress-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/vitepress-favicon.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/vitepress-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/vitepress-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/vitepress-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/zh/" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/zh/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600">VitePress Favicon 设置：分步指南</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">docs</span><time class="text-sm text-gray-400">2026-11-18</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">VitePress Favicon 设置：分步指南</h1>
+        </header>
+
+        <div class="article-body"><p>如果你部署过 VitePress 站点，发现浏览器标签页上还是默认的 VitePress 图标，那你不是一个人。很多开发者以为把 <code>favicon.ico</code> 丢进 <code>public</code> 文件夹就完事了，但 VitePress 需要额外配置才能正确链接你的图标。这篇指南会一步步带你为 VitePress 站点设置自定义 favicon，从文件放置到验证结果都涵盖。</p><h2>准备工作</h2><p>开始之前，请确保你有：</p><ul><li>一个已经搭建好的 VitePress 项目（1.x 或更高版本）。</li><li>一个准备好的 favicon 文件。可以用 ICO、PNG 或 SVG。如果需要生成，可以试试 <a href="/zh/">Mzu favicondl</a> 来制作多尺寸 favicon。</li><li>对 VitePress 项目中的 <code>config.js</code> 或 <code>config.ts</code> 文件有基本了解。</li></ul><h2>第一步：把 favicon 文件放到 public 目录</h2><p>VitePress 底层用的是 Vite，所以静态资源应该放在项目根目录的 <code>public</code> 文件夹里。<code>public</code> 中的文件会以根路径提供服务，并在构建时原样复制到输出目录。比如，你把 <code>favicon.ico</code> 放在 <code>public</code> 里，构建后就能通过 <code>/favicon.ico</code> 访问到。</p><p>如果 <code>public</code> 文件夹不存在就创建一个，然后把 favicon 文件放进去。你也可以用 PNG 或 SVG 文件，只要记住文件名就行。</p><pre><code>your-project/
+├── docs/
+│   └── .vitepress/
+│       └── config.js
+├── public/
+│   └── favicon.ico
+└── package.json</code></pre><p>注意：<code>public</code> 目录是相对于 VitePress 项目根目录（也就是 <code>package.json</code> 所在位置）的。如果你用的是默认的 <code>docs</code> 文件夹结构，public 文件夹应该放在项目根目录，而不是 <code>docs</code> 里面。</p><h2>第二步：在 VitePress 配置中设置 favicon</h2><p>VitePress 允许你通过配置文件中的 <code>head</code> 选项来定义站点的 <code>&lt;head&gt;</code> 标签。这里就是添加 <code>&lt;link rel="icon"&gt;</code> 标签的地方。</p><p>打开你的 <code>.vitepress/config.js</code>（或 <code>.ts</code>），添加以下内容：</p><pre><code>import { defineConfig } from 'vitepress'
+
+export default defineConfig({
+  head: [
+    ['link', { rel: 'icon', href: '/favicon.ico' }]
+  ],
+  // other config...
+})</code></pre><p>如果使用 SVG 格式的 favicon，可以指定 type：</p><pre><code>head: [
+  ['link', { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' }]
+]</code></pre><p>这样 VitePress 就会把 link 标签注入到每个页面的 <code>&lt;head&gt;</code> 中。注意 <code>href</code> 要以斜杠（<code>/</code>）开头，因为文件是从根目录提供的。</p><h2>第 3 步：验证 favicon 是否生效</h2><p>配置完成后，运行开发服务器（<code>npm run docs:dev</code> 或 <code>yarn docs:dev</code>），在浏览器中打开站点。查看标签页——favicon 应该显示出来了。如果没有，试试强制刷新（Ctrl+F5 或 Cmd+Shift+R）来绕过缓存。</p><p>对于生产环境，先构建站点（<code>npm run docs:build</code>），然后检查 <code>.vitepress/dist</code> 中生成的 HTML。在 <code>&lt;head&gt;</code> 部分查找你的 <code>&lt;link rel="icon"&gt;</code> 标签。</p><h2>常见坑</h2><ul><li><strong>文件路径错误：</strong>如果把 favicon 放在 <code>docs/public</code> 而不是项目根目录的 <code>public</code>，它不会被复制。一定要用根目录下的 <code>public</code> 目录。</li><li><strong>缺少前导斜杠：</strong>使用 <code>href: 'favicon.ico'</code>（没有斜杠）在嵌套路由下可能出问题。始终用 <code>/favicon.ico</code>。</li><li><strong>浏览器缓存：</strong>浏览器会激进地缓存 favicon。更新后，清除缓存或换个文件名（比如 <code>favicon-v2.ico</code>）来强制刷新。更多缓存问题，参见我们的 <a href="/zh/blog/favicon-not-showing.html">favicon 不显示排查清单</a>。</li><li><strong>SVG 支持：</strong>虽然 SVG favicon 已被广泛支持，但一些旧版浏览器可能无法显示。考虑提供 PNG 或 ICO 作为回退。了解更多请参阅我们的 <a href="/zh/blog/svg-favicon.html">SVG favicon 指南</a>。</li></ul><h2>总结</h2><p>在 VitePress 中设置 favicon 其实很简单，只要知道文件该放在哪里、head 标签该怎么配置就行。按下面的步骤操作，你的网站就能在浏览器标签页、书签和搜索结果中显得更专业。记得在不同浏览器里测试，修改后也要清理缓存。如果需要完整的 favicon 方案，可以考虑用 <a href="/zh/">Mzu favicondl</a> 来生成所有需要的尺寸和格式。</p><h2>核对文档中的要求</h2><p>Vite 的<a href="https://vite.dev/guide/assets.html#the-public-directory">公共目录文档</a>说明了根路径资源是如何被原样复制而不做转换的。</p></div>
+
+        <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
+
+        <div class="cta-box">
+            <h3>生成你的 VitePress Favicon</h3>
+            <p>使用 Mzu favicondl 为你的 VitePress 站点创建完美的 favicon。一键生成 ICO、PNG 和 SVG。</p>
+            <a href="/zh/" class="cta-btn">免费试用 →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/zh/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">首页</a>
+                <a href="/zh/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">博客</a>
+                <a href="/zh/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">隐私政策</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js?v=20260211"></script>
+
+</body></html>

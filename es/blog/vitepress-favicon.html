@@ -1,0 +1,141 @@
+<!DOCTYPE html><html lang="es"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favicon de VitePress: Guía paso a paso</title>
+    <meta name="description" content="Aprende a añadir un favicon a tu sitio VitePress. Guía paso a paso que cubre la ubicación de archivos, etiquetas HTML y errores comunes.">
+    <meta name="keywords" content="vitepress favicon, vitepress icon, favicon setup, vitepress config">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/es/blog/vitepress-favicon.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/vitepress-favicon.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/vitepress-favicon.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/vitepress-favicon.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/vitepress-favicon.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/vitepress-favicon.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/vitepress-favicon.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/es/blog/vitepress-favicon.html">
+    <meta property="og:title" content="Favicon de VitePress: Guía paso a paso">
+    <meta property="og:description" content="Aprende a añadir un favicon a tu sitio VitePress. Guía paso a paso que cubre la ubicación de archivos, etiquetas HTML y errores comunes.">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Favicon de VitePress: Guía paso a paso">
+    <meta name="twitter:description" content="Aprende a añadir un favicon a tu sitio VitePress. Guía paso a paso que cubre la ubicación de archivos, etiquetas HTML y errores comunes.">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Favicon de VitePress: Guía paso a paso",
+  "description": "Aprende a añadir un favicon a tu sitio VitePress. Guía paso a paso que cubre la ubicación de archivos, etiquetas HTML y errores comunes.",
+  "datePublished": "2026-11-18",
+  "dateModified": "2026-11-18",
+  "author": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "mainEntityOfPage": "https://favicondl.com/es/blog/vitepress-favicon.html",
+  "inLanguage": "es"
+}</script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/es/" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/es/documentation.html" class="nav-link">Documentación</a>
+                <a href="/es/tools.html" class="nav-link">Herramientas</a>
+                <a href="/es/blog/" class="nav-link">Blog</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/vitepress-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/vitepress-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/vitepress-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/vitepress-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/vitepress-favicon.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/es/" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/es/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600">Favicon de VitePress: Guía paso a paso</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">docs</span><time class="text-sm text-gray-400">2026-11-18</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">Favicon de VitePress: Guía paso a paso</h1>
+        </header>
+
+        <div class="article-body"><p>Si alguna vez has desplegado un sitio VitePress y te has dado cuenta de que la pestaña del navegador sigue mostrando el logotipo predeterminado de VitePress, no estás solo. Muchos desarrolladores asumen que basta con colocar un <code>favicon.ico</code> en la carpeta <code>public</code>, pero VitePress requiere un poco más de configuración para enlazar correctamente tu icono. Esta guía te explica los pasos exactos para establecer un favicon personalizado en tu sitio VitePress, desde la colocación del archivo hasta la verificación del resultado.</p><h2>Requisitos previos</h2><p>Antes de empezar, asegúrate de tener:</p><ul><li>Un proyecto VitePress configurado (versión 1.x o posterior).</li><li>Un archivo favicon listo. Puedes usar ICO, PNG o SVG. Si necesitas crear uno, prueba <a href="/es/">Mzu favicondl</a> para generar un favicon de varios tamaños.</li><li>Familiaridad básica con el archivo <code>config.js</code> o <code>config.ts</code> en tu proyecto VitePress.</li></ul><h2>Paso 1: Coloca tu archivo favicon en el directorio public</h2><p>VitePress usa Vite internamente, por lo que los recursos estáticos deben ir en el directorio <code>public</code> en la raíz de tu proyecto. Los archivos en <code>public</code> se sirven en la ruta raíz y se copian a la salida de compilación sin cambios. Por ejemplo, si colocas <code>favicon.ico</code> en <code>public</code>, será accesible en <code>/favicon.ico</code> después de la compilación.</p><p>Crea la carpeta <code>public</code> si no existe y coloca tu archivo favicon dentro. También puedes usar un archivo PNG o SVG; solo recuerda el nombre del archivo.</p><pre><code>your-project/
+├── docs/
+│   └── .vitepress/
+│       └── config.js
+├── public/
+│   └── favicon.ico
+└── package.json</code></pre><p>Nota: El directorio <code>public</code> es relativo a la raíz de tu proyecto VitePress (donde está <code>package.json</code>). Si usas la estructura predeterminada con una carpeta <code>docs</code>, la carpeta public debe estar en la raíz del proyecto, no dentro de <code>docs</code>.</p><h2>Paso 2: Configura el favicon en la configuración de VitePress</h2><p>VitePress te permite definir las etiquetas <code>&lt;head&gt;</code> para tu sitio mediante la opción <code>head</code> en tu archivo de configuración. Aquí es donde agregas la etiqueta <code>&lt;link rel="icon"&gt;</code>.</p><p>Abre tu <code>.vitepress/config.js</code> (o <code>.ts</code>) y agrega lo siguiente:</p><pre><code>import { defineConfig } from 'vitepress'
+
+export default defineConfig({
+  head: [
+    ['link', { rel: 'icon', href: '/favicon.ico' }]
+  ],
+  // other config...
+})</code></pre><p>Si usas un favicon SVG, puedes especificar el tipo:</p><pre><code>head: [
+  ['link', { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' }]
+]</code></pre><p>Esto le indica a VitePress que inyecte la etiqueta link en el <code>&lt;head&gt;</code> de cada página. El <code>href</code> debe comenzar con una barra (<code>/</code>) porque el archivo se sirve desde la raíz.</p><h2>Paso 3: Verifica tu favicon</h2><p>Después de configurar, ejecuta tu servidor de desarrollo (<code>npm run docs:dev</code> o <code>yarn docs:dev</code>) y abre tu sitio en un navegador. Revisa la pestaña: tu favicon debería aparecer. Si no es así, prueba una recarga forzada (Ctrl+F5 o Cmd+Shift+R) para saltar la caché.</p><p>Para producción, compila tu sitio (<code>npm run docs:build</code>) e inspecciona el HTML generado en <code>.vitepress/dist</code>. Busca tu etiqueta <code>&lt;link rel="icon"&gt;</code> en la sección <code>&lt;head&gt;</code>.</p><h2>Errores comunes</h2><ul><li><strong>Ruta de archivo incorrecta:</strong> Si colocas el favicon en <code>docs/public</code> en lugar de la raíz del proyecto <code>public</code>, no se copiará. Usa siempre el directorio raíz <code>public</code>.</li><li><strong>Falta la barra inicial:</strong> Usar <code>href: 'favicon.ico'</code> (sin barra) puede causar problemas en rutas anidadas. Usa siempre <code>/favicon.ico</code>.</li><li><strong>Caché del navegador:</strong> Los navegadores almacenan en caché los favicons de forma agresiva. Después de actualizar, borra la caché o usa un nombre de archivo diferente (por ejemplo, <code>favicon-v2.ico</code>) para forzar una actualización. Para más información sobre problemas de caché, consulta nuestra <a href="/es/blog/favicon-not-showing.html">lista de verificación para favicons que no se muestran</a>.</li><li><strong>Soporte de SVG:</strong> Aunque los favicons SVG son ampliamente compatibles, algunos navegadores antiguos pueden no mostrarlos. Considera proporcionar un fallback PNG o ICO. Aprende más en nuestra <a href="/es/blog/svg-favicon.html">guía de favicons SVG</a>.</li></ul><h2>Conclusión</h2><p>Configurar un favicon en VitePress es sencillo una vez que sabes dónde colocar el archivo y cómo configurar las etiquetas head. Siguiendo estos pasos, te aseguras de que tu sitio tenga un aspecto profesional en las pestañas del navegador, los marcadores y los resultados de búsqueda. Recuerda probar en diferentes navegadores y borrar la caché cuando hagas cambios. Para una solución completa de favicon, considera usar <a href="/es/">Mzu favicondl</a> para generar todos los tamaños y formatos necesarios.</p><h2>Verifica los requisitos documentados</h2><p>La <a href="https://vite.dev/guide/assets.html#the-public-directory">documentación del directorio público de Vite</a> explica cómo se copian los recursos de la ruta raíz sin transformación.</p></div>
+
+        <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
+
+        <div class="cta-box">
+            <h3>Genera tu favicon para VitePress</h3>
+            <p>Crea un favicon perfecto para tu sitio VitePress con Mzu favicondl. Genera ICO, PNG y SVG con un solo clic.</p>
+            <a href="/es/" class="cta-btn">Pruébalo gratis →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/es/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">Inicio</a>
+                <a href="/es/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">Blog</a>
+                <a href="/es/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">Privacidad</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js?v=20260211"></script>
+
+</body></html>

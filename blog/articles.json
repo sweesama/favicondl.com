@@ -4439,5 +4439,26 @@
     ],
     "qualityScore": 80,
     "qualityGrade": "A"
+  },
+  {
+    "slug": "vitepress-favicon",
+    "publishDate": "2026-11-18",
+    "titleEn": "VitePress Favicon: Step-by-Step Setup Guide",
+    "titleZh": "VitePress Favicon 设置：分步指南",
+    "titleJa": "VitePress ファビコン設定：ステップバイステップガイド",
+    "titleKo": "VitePress 파비콘 설정: 단계별 가이드",
+    "titleEs": "Favicon de VitePress: Guía paso a paso",
+    "descEn": "Learn how to add a favicon to your VitePress site. Step-by-step guide covering file placement, HTML tags, and common pitfalls.",
+    "descZh": "了解如何为 VitePress 站点添加 favicon。分步指南涵盖文件放置、HTML 标签和常见陷阱。",
+    "descJa": "VitePress サイトにファビコンを追加する方法を学びましょう。ファイルの配置、HTML タグ、一般的な落とし穴をカバーするステップバイステップガイドです。",
+    "descKo": "VitePress 사이트에 파비콘을 추가하는 방법을 알아보세요. 파일 배치, HTML 태그 및 일반적인 함정을 다루는 단계별 가이드입니다.",
+    "descEs": "Aprende a añadir un favicon a tu sitio VitePress. Guía paso a paso que cubre la ubicación de archivos, etiquetas HTML y errores comunes.",
+    "keyword": "vitepress favicon",
+    "tags": [
+      "docs",
+      "vue"
+    ],
+    "qualityScore": 80,
+    "qualityGrade": "A"
   }
 ]
