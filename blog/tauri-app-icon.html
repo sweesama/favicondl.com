@@ -1,0 +1,237 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tauri App Icon: Set Icons for Windows, macOS, Linux</title>
+    <meta name="description" content="Learn how to set a Tauri app icon for Windows, macOS, and Linux. Step-by-step guide with tauri.conf.json, icon generation, and common pitfalls.">
+    <meta name="keywords" content="tauri app icon, tauri icon, tauri.conf.json, app icon, tauri">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/blog/tauri-app-icon.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/tauri-app-icon.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/tauri-app-icon.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/tauri-app-icon.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/tauri-app-icon.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/tauri-app-icon.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/tauri-app-icon.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/blog/tauri-app-icon.html">
+    <meta property="og:title" content="Tauri App Icon: Set Icons for Windows, macOS, Linux">
+    <meta property="og:description" content="Learn how to set a Tauri app icon for Windows, macOS, and Linux. Step-by-step guide with tauri.conf.json, icon generation, and common pitfalls.">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Tauri App Icon: Set Icons for Windows, macOS, Linux">
+    <meta name="twitter:description" content="Learn how to set a Tauri app icon for Windows, macOS, and Linux. Step-by-step guide with tauri.conf.json, icon generation, and common pitfalls.">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Tauri App Icon: Set Icons for Windows, macOS, Linux",
+  "description": "Learn how to set a Tauri app icon for Windows, macOS, and Linux. Step-by-step guide with tauri.conf.json, icon generation, and common pitfalls.",
+  "datePublished": "2026-11-19",
+  "dateModified": "2026-11-19",
+  "author": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "mainEntityOfPage": "https://favicondl.com/blog/tauri-app-icon.html",
+  "inLanguage": "en"
+}</script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/documentation.html" class="nav-link" data-en="Docs" data-zh="文档">Docs</a>
+                <a href="/tools.html" class="nav-link" data-en="Tools" data-zh="工具">Tools</a>
+                <a href="/blog/" class="nav-link" data-en="Blog" data-zh="博客">Blog</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/tauri-app-icon.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/tauri-app-icon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/tauri-app-icon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/tauri-app-icon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/tauri-app-icon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600" data-en="Tauri App Icon: Set Icons for Windows, macOS, Linux" data-zh="Tauri 应用图标：为 Windows、macOS、Linux 设置图标" data-ja="Tauri アプリアイコン：Windows・macOS・Linux の設定方法" data-ko="Tauri 앱 아이콘: Windows, macOS, Linux 설정 가이드" data-es="Icono de Tauri: Configura para Windows, macOS y Linux">Tauri App Icon: Set Icons for Windows, macOS, Linux</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">desktop</span><time class="text-sm text-gray-400">2026-11-19</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight" data-en="Tauri App Icon: Set Icons for Windows, macOS, Linux" data-zh="Tauri 应用图标：为 Windows、macOS、Linux 设置图标" data-ja="Tauri アプリアイコン：Windows・macOS・Linux の設定方法" data-ko="Tauri 앱 아이콘: Windows, macOS, Linux 설정 가이드" data-es="Icono de Tauri: Configura para Windows, macOS y Linux">Tauri App Icon: Set Icons for Windows, macOS, Linux</h1>
+        </header>
+
+        <div class="article-body" data-lang="en">
+            <p>You've built a Tauri app, but the default icon still shows in the taskbar. Or maybe you're about to ship and realize the dock icon is a generic placeholder. Setting a proper Tauri app icon is straightforward once you know where the files go and how the config references them. This guide walks you through the exact steps for Windows, macOS, and Linux, using Tauri's built-in icon generator and the <code>tauri.conf.json</code> configuration.</p><h2>Prerequisites</h2><p>Before you start, make sure you have:</p><ul><li>A Tauri project (v1 or v2) already set up.</li><li>Node.js and npm installed (or your preferred package manager).</li><li>A square source image, ideally 1024×1024 PNG with transparency. SVG works too, but PNG is safer for the generator.</li></ul><p>If you need a high-quality source icon, you can create one from your existing logo or favicon using <a href="/">Mzu favicondl</a> — it exports clean PNGs at multiple sizes.</p><h2>Step 1: Generate the icon set</h2><p>Tauri provides a CLI command that takes a single source image and produces all the platform-specific formats: <code>.ico</code> for Windows, <code>.icns</code> for macOS, and various PNGs for Linux and mobile. Run this from your project root:</p><pre><code>npm run tauri icon path/to/your-icon.png</code></pre><p>If you're using Tauri v1, the command is <code>npm run tauri icon</code> as well, but check your <code>package.json</code> scripts. The generator writes files into <code>src-tauri/icons/</code> by default. You'll see files like <code>32x32.png</code>, <code>128x128.png</code>, <code>icon.icns</code>, and <code>icon.ico</code>.</p><p><strong>Tip:</strong> The source image should have a transparent background and a clear silhouette. Avoid text or fine details — they won't survive at 16×16 or 32×32. For design guidance, see our <a href="/blog/favicon-design-tips.html">favicon design tips</a> (the same principles apply to app icons).</p><h2>Step 2: Configure tauri.conf.json</h2><p>Open <code>src-tauri/tauri.conf.json</code> and locate the <code>bundle</code> section. Under <code>icon</code>, list the paths to the generated icons. Tauri v2 uses a slightly different structure than v1, but the concept is the same.</p><p>For Tauri v2:</p><pre><code>{
+  "bundle": {
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.ico"
+    ]
+  }
+}</code></pre><p>For Tauri v1, the <code>icon</code> array sits under <code>tauri.bundle</code>:</p><pre><code>{
+  "tauri": {
+    "bundle": {
+      "icon": [
+        "icons/32x32.png",
+        "icons/128x128.png",
+        "icons/icon.icns",
+        "icons/icon.ico"
+      ]
+    }
+  }
+}</code></pre><p>Make sure the paths are relative to <code>src-tauri/</code>. If you moved the icons elsewhere, update the paths accordingly.</p><h2>Step 3: Verify platform-specific behavior</h2><p>Each OS uses a different file from the list. Here's what matters:</p><ul><li><strong>Windows:</strong> Uses <code>icon.ico</code> for the executable, taskbar, and Start menu. The ICO should contain multiple sizes (16, 32, 48, 256). The Tauri generator handles this.</li><li><strong>macOS:</strong> Uses <code>icon.icns</code> for the dock and Finder. The ICNS format includes multiple resolutions up to 1024×1024.</li><li><strong>Linux:</strong> Uses the PNGs (typically 32x32, 128x128, 128x128@2x) for the app launcher and window manager. Some desktop environments also read <code>icon.png</code> from the bundle.</li></ul><p>If you're building for mobile (iOS/Android), the generator also creates appropriate assets, but those are outside the scope of this guide.</p><h2>Step 4: Rebuild and test</h2><p>After updating the config, rebuild your app:</p><pre><code>npm run tauri build</code></pre><p>Then install or run the built executable. Check the taskbar (Windows), dock (macOS), or application menu (Linux) to confirm the icon appears. On Windows, you may need to clear the icon cache if the old icon persists — a known quirk. For macOS, sometimes the dock caches icons; logging out and back in resolves it.</p><h2>Common pitfalls</h2><ul><li><strong>Wrong path in config:</strong> Tauri will fail to bundle if the icon file doesn't exist. Double-check the relative paths.</li><li><strong>Missing ICO sizes:</strong> If you manually create an ICO, ensure it includes 16, 32, 48, and 256 pixel layers. The Tauri generator does this correctly.</li><li><strong>Transparent background issues:</strong> On Windows, fully transparent areas may appear black in some contexts. Use a solid background if you see artifacts.</li><li><strong>Forgetting to rebuild:</strong> Changing the icon requires a full rebuild; hot reload won't update the native icon.</li><li><strong>macOS ICNS format:</strong> If you supply a PNG instead of ICNS, macOS may ignore it. Always use the generated <code>icon.icns</code>.</li></ul><h2>Conclusion</h2><p>Setting a Tauri app icon is a three-step process: generate the icon set with <code>tauri icon</code>, reference the files in <code>tauri.conf.json</code>, and rebuild. The built-in generator saves you from manually creating ICO and ICNS files. Keep your source image simple and square, and verify the icon on each target platform. For more on icon formats and best practices, explore our <a href="/blog/favicon-best-practices.html">favicon best practices</a> — many principles carry over to app icons.</p><h2>Check the documented requirements</h2><p>The HTML Standard defines <a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon"><code>rel='icon'</code></a> as the link relationship for an icon representing the current page.</p>
+        </div>
+
+        <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
+        <template data-article-lang="zh"><p>你已经用 Tauri 构建了一个应用，但任务栏里显示的仍然是默认图标。或者你正准备发布，却发现 Dock 图标是个通用占位符。只要搞清楚文件该放哪儿、配置怎么引用，设置一个像样的 Tauri 应用图标其实并不复杂。本文会带你走完 Windows、macOS 和 Linux 上的具体步骤，用的是 Tauri 自带的图标生成器和 <code>tauri.conf.json</code> 配置。</p><h2>准备工作</h2><p>开始之前，请确认你已具备：</p><ul><li>一个已经搭建好的 Tauri 项目（v1 或 v2）。</li><li>已安装 Node.js 和 npm（或你惯用的包管理器）。</li><li>一张正方形的源图，理想情况是带透明通道的 1024×1024 PNG。SVG 也可以用，但对生成器来说 PNG 更稳妥。</li></ul><p>如果你需要一张高质量的源图标，可以用 <a href="/">Mzu favicondl</a> 从现有的 logo 或 favicon 生成——它能导出多种尺寸的干净 PNG。</p><h2>第一步：生成图标集</h2><p>Tauri 提供了一个 CLI 命令，输入一张源图，就能产出所有平台专用的格式：Windows 用的 <code>.ico</code>、macOS 用的 <code>.icns</code>，以及 Linux 和移动端用的各种 PNG。在项目根目录下运行：</p><pre><code>npm run tauri icon path/to/your-icon.png</code></pre><p>如果你用的是 Tauri v1，命令同样是 <code>npm run tauri icon</code>，但建议先检查一下 <code>package.json</code> 里的 scripts。生成器默认把文件写入 <code>src-tauri/icons/</code>。你会看到 <code>32x32.png</code>、<code>128x128.png</code>、<code>icon.icns</code> 和 <code>icon.ico</code> 这类文件。</p><p><strong>提示：</strong>源图应当背景透明、轮廓清晰。避免文字或过于精细的细节——它们在 16×16 或 32×32 下根本看不清。设计方面的建议可以参考我们的 <a href="/blog/favicon-design-tips.html">favicon 设计技巧</a>（同样的原则也适用于应用图标）。</p><h2>第二步：配置 tauri.conf.json</h2><p>打开 <code>src-tauri/tauri.conf.json</code>，找到 <code>bundle</code> 部分。在 <code>icon</code> 下，列出生成图标的路径。Tauri v2 的结构与 v1 略有不同，但思路是一样的。</p><p>对于 Tauri v2：</p><pre><code>{
+  "bundle": {
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.ico"
+    ]
+  }
+}</code></pre><p>对于 Tauri v1，<code>icon</code> 数组位于 <code>tauri.bundle</code> 下：</p><pre><code>{
+  "tauri": {
+    "bundle": {
+      "icon": [
+        "icons/32x32.png",
+        "icons/128x128.png",
+        "icons/icon.icns",
+        "icons/icon.ico"
+      ]
+    }
+  }
+}</code></pre><p>确保路径是相对于 <code>src-tauri/</code> 的。如果你把图标移到了别处，记得相应更新路径。</p><h2>第 3 步：验证各平台的具体行为</h2><p>每个操作系统会使用列表中的不同文件。以下是关键点：</p><ul><li><strong>Windows：</strong> 使用 <code>icon.ico</code> 作为可执行文件、任务栏和开始菜单的图标。ICO 应包含多个尺寸（16、32、48、256）。Tauri 生成器会处理这一点。</li><li><strong>macOS：</strong> 使用 <code>icon.icns</code> 作为 Dock 和 Finder 中的图标。ICNS 格式包含多种分辨率，最高可达 1024×1024。</li><li><strong>Linux：</strong> 使用 PNG 文件（通常是 32x32、128x128、128x128@2x）作为应用启动器和窗口管理器的图标。某些桌面环境还会读取 bundle 中的 <code>icon.png</code>。</li></ul><p>如果你要为移动端（iOS/Android）构建，生成器也会创建相应的资源，但这超出了本指南的范围。</p><h2>第 4 步：重新构建并测试</h2><p>更新配置后，重新构建你的应用：</p><pre><code>npm run tauri build</code></pre><p>然后安装或运行构建出的可执行文件。检查任务栏（Windows）、Dock（macOS）或应用程序菜单（Linux）以确认图标出现。在 Windows 上，如果旧图标仍然存在，你可能需要清除图标缓存——这是一个已知的怪癖。对于 macOS，有时 Dock 会缓存图标；注销再重新登录即可解决。</p><h2>常见陷阱</h2><ul><li><strong>配置中的路径错误：</strong>如果图标文件不存在，Tauri 打包会失败。请仔细检查相对路径。</li><li><strong>缺少 ICO 尺寸：</strong>如果手动创建 ICO，请确保包含 16、32、48 和 256 像素的图层。Tauri 生成器会正确处理这一点。</li><li><strong>透明背景问题：</strong>在 Windows 上，完全透明的区域在某些上下文中可能显示为黑色。如果看到异常，请使用纯色背景。</li><li><strong>忘记重新构建：</strong>更改图标需要完全重新构建；热重载不会更新原生图标。</li><li><strong>macOS ICNS 格式：</strong>如果提供的是 PNG 而不是 ICNS，macOS 可能会忽略它。始终使用生成的 <code>icon.icns</code>。</li></ul><h2>结论</h2><p>设置 Tauri 应用图标分为三步：使用 <code>tauri icon</code> 生成图标集，在 <code>tauri.conf.json</code> 中引用这些文件，然后重新构建。内置生成器让你无需手动创建 ICO 和 ICNS 文件。保持源图像简单且为正方形，并在每个目标平台上验证图标。有关图标格式和最佳实践的更多信息，请参阅我们的 <a href="/blog/favicon-best-practices.html">favicon 最佳实践</a>——许多原则同样适用于应用图标。</p><h2>查阅文档中的要求</h2><p>HTML 标准将 <a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon"><code>rel='icon'</code></a> 定义为表示当前页面的图标的链接关系。</p></template>
+        <template data-article-lang="ja"><p>Tauriアプリを構築したものの、タスクバーにはまだデフォルトのアイコンが表示されている。あるいは、リリース間近になってドックのアイコンが汎用のプレースホルダーだと気づいたかもしれません。適切なTauriアプリのアイコンを設定するのは、ファイルの配置場所と設定での参照方法さえ分かれば簡単です。このガイドでは、Tauri内蔵のアイコジェネレーターと<code>tauri.conf.json</code>の設定を使い、Windows、macOS、Linux向けの正確な手順を説明します。</p><h2>前提条件</h2><p>始める前に、以下を確認してください：</p><ul><li>Tauriプロジェクト（v1またはv2）がすでにセットアップされていること。</li><li>Node.jsとnpmがインストールされていること（またはお好みのパッケージマネージャー）。</li><li>正方形のソース画像。理想的には透明度付きの1024×1024 PNGです。SVGも動作しますが、ジェネレーターにはPNGの方が安全です。</li></ul><p>高品質なソースアイコンが必要な場合は、既存のロゴやfaviconから<a href="/">Mzu favicondl</a>を使って作成できます。複数のサイズでクリーンなPNGをエクスポートします。</p><h2>ステップ1：アイコンセットを生成する</h2><p>Tauriは、単一のソース画像からプラットフォーム固有の形式をすべて生成するCLIコマンドを提供しています。Windows用の<code>.ico</code>、macOS用の<code>.icns</code>、そしてLinuxやモバイル用のさまざまなPNGです。プロジェクトのルートから以下を実行します：</p><pre><code>npm run tauri icon path/to/your-icon.png</code></pre><p>Tauri v1を使用している場合もコマンドは<code>npm run tauri icon</code>ですが、<code>package.json</code>のスクリプトを確認してください。ジェネレーターはデフォルトで<code>src-tauri/icons/</code>にファイルを書き込みます。<code>32x32.png</code>、<code>128x128.png</code>、<code>icon.icns</code>、<code>icon.ico</code>などのファイルが生成されます。</p><p><strong>ヒント：</strong>ソース画像は透明な背景と明確なシルエットを持つようにしてください。テキストや細かいディテールは避けましょう。16×16や32×32では維持されません。デザインのガイダンスについては、<a href="/blog/favicon-design-tips.html">faviconデザインのヒント</a>をご覧ください（同じ原則がアプリアイコンにも当てはまります）。</p><h2>ステップ2：tauri.conf.jsonを設定する</h2><p><code>src-tauri/tauri.conf.json</code>を開き、<code>bundle</code>セクションを見つけます。<code>icon</code>の下に、生成されたアイコンへのパスをリストします。Tauri v2はv1とは少し異なる構造を使用しますが、概念は同じです。</p><p>Tauri v2の場合：</p><pre><code>{
+  "bundle": {
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.ico"
+    ]
+  }
+}</code></pre><p>Tauri v1の場合、<code>icon</code>配列は<code>tauri.bundle</code>の下に配置します：</p><pre><code>{
+  "tauri": {
+    "bundle": {
+      "icon": [
+        "icons/32x32.png",
+        "icons/128x128.png",
+        "icons/icon.icns",
+        "icons/icon.ico"
+      ]
+    }
+  }
+}</code></pre><p>パスは<code>src-tauri/</code>からの相対パスであることを確認してください。アイコンを別の場所に移動した場合は、パスを適切に更新してください。</p><h2>ステップ3：プラットフォーム固有の動作を確認する</h2><p>各OSはリスト内の異なるファイルを使用します。重要なポイントは以下の通りです：</p><ul><li><strong>Windows：</strong>実行ファイル、タスクバー、スタートメニューには<code>icon.ico</code>を使用します。ICOには複数のサイズ（16、32、48、256）を含める必要があります。Tauriのジェネレーターがこれを処理します。</li><li><strong>macOS：</strong>DockとFinderには<code>icon.icns</code>を使用します。ICNS形式には最大1024×1024までの複数の解像度が含まれます。</li><li><strong>Linux：</strong>アプリランチャーとウィンドウマネージャーにはPNG（通常32x32、128x128、128x128@2x）を使用します。一部のデスクトップ環境では、バンドルから<code>icon.png</code>も読み取ります。</li></ul><p>モバイル（iOS/Android）向けにビルドする場合、ジェネレーターは適切なアセットも作成しますが、それらはこのガイドの範囲外です。</p><h2>ステップ4：再ビルドとテスト</h2><p>設定を更新した後、アプリを再ビルドします：</p><pre><code>npm run tauri build</code></pre><p>その後、ビルドされた実行ファイルをインストールまたは実行します。タスクバー（Windows）、Dock（macOS）、またはアプリケーションメニュー（Linux）でアイコンが表示されることを確認してください。Windowsでは、古いアイコンが残る場合、アイコンキャッシュをクリアする必要があるかもしれません — これは既知の癖です。macOSでは、Dockがアイコンをキャッシュすることがあり、ログアウトして再ログインすると解決します。</p><h2>よくある落とし穴</h2><ul><li><strong>設定のパスが間違っている：</strong>アイコンファイルが存在しない場合、Tauriはバンドルに失敗します。相対パスを再確認してください。</li><li><strong>ICOのサイズが不足している：</strong>手動でICOを作成する場合は、16、32、48、256ピクセルのレイヤーが含まれていることを確認してください。Tauriのジェネレーターはこれを正しく行います。</li><li><strong>透明背景の問題：</strong>Windowsでは、完全に透明な領域が状況によって黒く表示されることがあります。アーティファクトが見られる場合は、不透明な背景を使用してください。</li><li><strong>再ビルドを忘れる：</strong>アイコンを変更するには完全な再ビルドが必要です。ホットリロードではネイティブアイコンは更新されません。</li><li><strong>macOSのICNS形式：</strong>ICNSの代わりにPNGを提供すると、macOSがそれを無視する可能性があります。必ず生成された<code>icon.icns</code>を使用してください。</li></ul><h2>結論</h2><p>Tauriアプリのアイコン設定は3ステップのプロセスです。<code>tauri icon</code>でアイコンセットを生成し、<code>tauri.conf.json</code>でファイルを参照し、再ビルドします。組み込みのジェネレーターを使えば、ICOやICNSファイルを手動で作成する手間が省けます。ソース画像はシンプルで正方形に保ち、各ターゲットプラットフォームでアイコンを確認してください。アイコン形式とベストプラクティスの詳細については、<a href="/blog/favicon-best-practices.html">faviconのベストプラクティス</a>をご覧ください。多くの原則がアプリアイコンにも当てはまります。</p><h2>文書化された要件を確認する</h2><p>HTML Standardは、現在のページを表すアイコンのリンク関係として<a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon"><code>rel='icon'</code></a>を定義しています。</p></template>
+        <template data-article-lang="ko"><p>Tauri 앱을 만들었는데 작업 표시줄에 여전히 기본 아이콘이 보이나요? 아니면 출시를 앞두고 독 아이콘이 일반 플레이스홀더라는 걸 깨달았나요? 파일을 어디에 두고 설정에서 어떻게 참조하는지만 알면 Tauri 앱 아이콘을 제대로 설정하는 일은 간단합니다. 이 가이드에서는 Tauri의 내장 아이콘 생성기와 <code>tauri.conf.json</code> 설정을 사용해 Windows, macOS, Linux에서 정확한 단계를 안내합니다.</p><h2>사전 준비</h2><p>시작하기 전에 다음을 확인하세요:</p><ul><li>이미 설정된 Tauri 프로젝트(v1 또는 v2).</li><li>Node.js와 npm 설치(또는 선호하는 패키지 관리자).</li><li>정사각형 소스 이미지, 이상적으로는 투명 배경의 1024×1024 PNG. SVG도 작동하지만 생성기에는 PNG가 더 안전합니다.</li></ul><p>고품질 소스 아이콘이 필요하다면 기존 로고나 favicon에서 <a href="/">Mzu favicondl</a>을 사용해 만들 수 있습니다. 여러 크기의 깔끔한 PNG로 내보내 줍니다.</p><h2>1단계: 아이콘 세트 생성</h2><p>Tauri는 단일 소스 이미지를 받아 모든 플랫폼별 형식을 생성하는 CLI 명령을 제공합니다. Windows용 <code>.ico</code>, macOS용 <code>.icns</code>, Linux 및 모바일용 다양한 PNG입니다. 프로젝트 루트에서 다음을 실행하세요:</p><pre><code>npm run tauri icon path/to/your-icon.png</code></pre><p>Tauri v1을 사용 중이라면 명령은 역시 <code>npm run tauri icon</code>이지만 <code>package.json</code> 스크립트를 확인하세요. 생성기는 기본적으로 <code>src-tauri/icons/</code>에 파일을 씁니다. <code>32x32.png</code>, <code>128x128.png</code>, <code>icon.icns</code>, <code>icon.ico</code> 같은 파일이 보일 것입니다.</p><p><strong>팁:</strong> 소스 이미지는 투명 배경과 명확한 실루엣을 가져야 합니다. 텍스트나 세밀한 디테일은 피하세요. 16×16이나 32×32에서는 살아남지 못합니다. 디자인 가이드는 <a href="/blog/favicon-design-tips.html">favicon 디자인 팁</a>을 참고하세요(동일한 원칙이 앱 아이콘에도 적용됩니다).</p><h2>2단계: tauri.conf.json 설정</h2><p><code>src-tauri/tauri.conf.json</code>을 열고 <code>bundle</code> 섹션을 찾으세요. <code>icon</code> 아래에 생성된 아이콘의 경로를 나열합니다. Tauri v2는 v1과 구조가 약간 다르지만 개념은 같습니다.</p><p>Tauri v2의 경우:</p><pre><code>{
+  "bundle": {
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.ico"
+    ]
+  }
+}</code></pre><p>Tauri v1에서는 <code>icon</code> 배열이 <code>tauri.bundle</code> 아래에 위치합니다.</p><pre><code>{
+  "tauri": {
+    "bundle": {
+      "icon": [
+        "icons/32x32.png",
+        "icons/128x128.png",
+        "icons/icon.icns",
+        "icons/icon.ico"
+      ]
+    }
+  }
+}</code></pre><p>경로가 <code>src-tauri/</code>를 기준으로 상대 경로인지 확인하세요. 아이콘을 다른 곳으로 옮겼다면 경로도 그에 맞게 수정해야 합니다.</p><h2>3단계: 플랫폼별 동작 확인</h2><p>각 OS는 목록에서 서로 다른 파일을 사용합니다. 중요한 점은 다음과 같습니다.</p><ul><li><strong>Windows:</strong> 실행 파일, 작업 표시줄, 시작 메뉴에 <code>icon.ico</code>를 사용합니다. ICO 파일에는 여러 크기(16, 32, 48, 256)가 포함되어야 합니다. Tauri 생성기가 이를 처리합니다.</li><li><strong>macOS:</strong> Dock과 Finder에 <code>icon.icns</code>를 사용합니다. ICNS 형식은 최대 1024×1024까지 여러 해상도를 포함합니다.</li><li><strong>Linux:</strong> 앱 런처와 창 관리자에 PNG 파일(일반적으로 32x32, 128x128, 128x128@2x)을 사용합니다. 일부 데스크톱 환경은 번들에서 <code>icon.png</code>도 읽습니다.</li></ul><p>모바일(iOS/Android)용으로 빌드하는 경우 생성기가 적절한 에셋도 만들지만, 이 가이드의 범위를 벗어납니다.</p><h2>4단계: 재빌드 및 테스트</h2><p>설정을 업데이트한 후 앱을 다시 빌드하세요.</p><pre><code>npm run tauri build</code></pre><p>그런 다음 빌드된 실행 파일을 설치하거나 실행하세요. 작업 표시줄(Windows), Dock(macOS), 애플리케이션 메뉴(Linux)에서 아이콘이 표시되는지 확인하세요. Windows에서는 이전 아이콘이 남아 있을 경우 아이콘 캐시를 지워야 할 수 있습니다. 이는 알려진 특이 사항입니다. macOS에서는 Dock이 아이콘을 캐시하는 경우가 있는데, 로그아웃했다가 다시 로그인하면 해결됩니다.</p><h2>흔한 함정</h2><ul><li><strong>설정의 잘못된 경로:</strong> 아이콘 파일이 존재하지 않으면 Tauri는 번들링에 실패합니다. 상대 경로를 다시 확인하세요.</li><li><strong>ICO 크기 누락:</strong> ICO를 직접 만들 경우 16, 32, 48, 256픽셀 레이어를 포함해야 합니다. Tauri 생성기는 이를 올바르게 처리합니다.</li><li><strong>투명 배경 문제:</strong> Windows에서는 완전히 투명한 영역이 일부 상황에서 검게 보일 수 있습니다. 아티팩트가 보이면 단색 배경을 사용하세요.</li><li><strong>재빌드 누락:</strong> 아이콘을 변경하려면 전체 재빌드가 필요합니다. 핫 리로드는 네이티브 아이콘을 업데이트하지 않습니다.</li><li><strong>macOS ICNS 형식:</strong> ICNS 대신 PNG를 제공하면 macOS가 이를 무시할 수 있습니다. 항상 생성된 <code>icon.icns</code>를 사용하세요.</li></ul><h2>결론</h2><p>Tauri 앱 아이콘 설정은 세 단계로 이루어집니다: <code>tauri icon</code>으로 아이콘 세트를 생성하고, <code>tauri.conf.json</code>에서 파일을 참조한 뒤, 재빌드합니다. 내장 생성기를 사용하면 ICO와 ICNS 파일을 수동으로 만들 필요가 없습니다. 소스 이미지는 단순하고 정사각형으로 유지하고, 각 대상 플랫폼에서 아이콘을 확인하세요. 아이콘 형식과 모범 사례에 대해 더 알아보려면 <a href="/blog/favicon-best-practices.html">favicon 모범 사례</a>를 살펴보세요. 많은 원칙이 앱 아이콘에도 적용됩니다.</p><h2>문서화된 요구 사항 확인</h2><p>HTML 표준은 현재 페이지를 나타내는 아이콘의 링크 관계로 <a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon"><code>rel='icon'</code></a>을 정의합니다.</p></template>
+        <template data-article-lang="es"><p>Has creado una app con Tauri, pero el icono predeterminado sigue apareciendo en la barra de tareas. O quizás estás a punto de lanzarla y te das cuenta de que el icono del dock es un marcador de posición genérico. Configurar un icono de app Tauri adecuado es sencillo una vez que sabes dónde van los archivos y cómo los referencia la configuración. Esta guía te explica los pasos exactos para Windows, macOS y Linux, usando el generador de iconos integrado de Tauri y la configuración de <code>tauri.conf.json</code>.</p><h2>Requisitos previos</h2><p>Antes de empezar, asegúrate de tener:</p><ul><li>Un proyecto Tauri (v1 o v2) ya configurado.</li><li>Node.js y npm instalados (o tu gestor de paquetes preferido).</li><li>Una imagen fuente cuadrada, preferiblemente PNG de 1024×1024 con transparencia. SVG también funciona, pero PNG es más seguro para el generador.</li></ul><p>Si necesitas un icono fuente de alta calidad, puedes crear uno a partir de tu logo o favicon existente usando <a href="/">Mzu favicondl</a> — exporta PNGs limpios en varios tamaños.</p><h2>Paso 1: Genera el conjunto de iconos</h2><p>Tauri proporciona un comando CLI que toma una única imagen fuente y produce todos los formatos específicos de cada plataforma: <code>.ico</code> para Windows, <code>.icns</code> para macOS y varios PNGs para Linux y móvil. Ejecuta esto desde la raíz de tu proyecto:</p><pre><code>npm run tauri icon path/to/your-icon.png</code></pre><p>Si usas Tauri v1, el comando también es <code>npm run tauri icon</code>, pero revisa los scripts de tu <code>package.json</code>. El generador escribe los archivos en <code>src-tauri/icons/</code> por defecto. Verás archivos como <code>32x32.png</code>, <code>128x128.png</code>, <code>icon.icns</code> e <code>icon.ico</code>.</p><p><strong>Consejo:</strong> La imagen fuente debe tener fondo transparente y una silueta clara. Evita texto o detalles finos — no sobrevivirán a 16×16 o 32×32. Para orientación sobre diseño, consulta nuestros <a href="/blog/favicon-design-tips.html">consejos de diseño de favicon</a> (los mismos principios se aplican a los iconos de app).</p><h2>Paso 2: Configura tauri.conf.json</h2><p>Abre <code>src-tauri/tauri.conf.json</code> y localiza la sección <code>bundle</code>. En <code>icon</code>, enumera las rutas a los iconos generados. Tauri v2 usa una estructura ligeramente diferente a v1, pero el concepto es el mismo.</p><p>Para Tauri v2:</p><pre><code>{
+  "bundle": {
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.ico"
+    ]
+  }
+}</code></pre><p>Para Tauri v1, el array <code>icon</code> se encuentra bajo <code>tauri.bundle</code>:</p><pre><code>{
+  "tauri": {
+    "bundle": {
+      "icon": [
+        "icons/32x32.png",
+        "icons/128x128.png",
+        "icons/icon.icns",
+        "icons/icon.ico"
+      ]
+    }
+  }
+}</code></pre><p>Asegúrate de que las rutas sean relativas a <code>src-tauri/</code>. Si moviste los iconos a otro lugar, actualiza las rutas en consecuencia.</p><h2>Paso 3: Verifica el comportamiento específico de cada plataforma</h2><p>Cada sistema operativo utiliza un archivo diferente de la lista. Esto es lo que importa:</p><ul><li><strong>Windows:</strong> Usa <code>icon.ico</code> para el ejecutable, la barra de tareas y el menú Inicio. El ICO debe contener múltiples tamaños (16, 32, 48, 256). El generador de Tauri se encarga de esto.</li><li><strong>macOS:</strong> Usa <code>icon.icns</code> para el dock y Finder. El formato ICNS incluye múltiples resoluciones hasta 1024×1024.</li><li><strong>Linux:</strong> Usa los PNG (típicamente 32x32, 128x128, 128x128@2x) para el lanzador de aplicaciones y el gestor de ventanas. Algunos entornos de escritorio también leen <code>icon.png</code> del bundle.</li></ul><p>Si estás compilando para móvil (iOS/Android), el generador también crea los recursos apropiados, pero eso está fuera del alcance de esta guía.</p><h2>Paso 4: Recompila y prueba</h2><p>Después de actualizar la configuración, recompila tu aplicación:</p><pre><code>npm run tauri build</code></pre><p>Luego instala o ejecuta el ejecutable compilado. Revisa la barra de tareas (Windows), el dock (macOS) o el menú de aplicaciones (Linux) para confirmar que el icono aparece. En Windows, es posible que necesites borrar la caché de iconos si el icono antiguo persiste — una peculiaridad conocida. En macOS, a veces el dock almacena en caché los iconos; cerrar sesión y volver a iniciarla lo resuelve.</p><h2>Errores comunes</h2><ul><li><strong>Ruta incorrecta en la configuración:</strong> Tauri fallará al empaquetar si el archivo de icono no existe. Verifica dos veces las rutas relativas.</li><li><strong>Tamaños ICO faltantes:</strong> Si creas manualmente un ICO, asegúrate de que incluya capas de 16, 32, 48 y 256 píxeles. El generador de Tauri lo hace correctamente.</li><li><strong>Problemas con fondos transparentes:</strong> En Windows, las áreas totalmente transparentes pueden aparecer en negro en algunos contextos. Usa un fondo sólido si ves artefactos.</li><li><strong>Olvidar reconstruir:</strong> Cambiar el icono requiere una reconstrucción completa; la recarga en caliente no actualizará el icono nativo.</li><li><strong>Formato ICNS en macOS:</strong> Si proporcionas un PNG en lugar de ICNS, macOS puede ignorarlo. Usa siempre el <code>icon.icns</code> generado.</li></ul><h2>Conclusión</h2><p>Establecer un icono de aplicación Tauri es un proceso de tres pasos: genera el conjunto de iconos con <code>tauri icon</code>, haz referencia a los archivos en <code>tauri.conf.json</code> y reconstruye. El generador integrado te evita crear manualmente archivos ICO e ICNS. Mantén tu imagen de origen simple y cuadrada, y verifica el icono en cada plataforma de destino. Para obtener más información sobre formatos de iconos y mejores prácticas, explora nuestras <a href="/blog/favicon-best-practices.html">mejores prácticas para favicons</a>; muchos principios se aplican también a los iconos de aplicaciones.</p><h2>Consulta los requisitos documentados</h2><p>El Estándar HTML define <a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon"><code>rel='icon'</code></a> como la relación de enlace para un icono que representa la página actual.</p></template>
+
+        <div class="cta-box">
+            <h3 data-en="Need a clean source icon for your Tauri app?" data-zh="需要为 Tauri 应用准备干净的源图标？" data-ja="Tauri アプリ用のクリーンなソースアイコンが必要ですか？" data-ko="Tauri 앱용 깔끔한 소스 아이콘이 필요하신가요?" data-es="¿Necesitas un icono fuente limpio para tu app Tauri?">Need a clean source icon for your Tauri app?</h3>
+            <p data-en="Generate a crisp, square PNG from your logo or favicon with Mzu favicondl. Perfect as the base for Tauri's icon generator." data-zh="使用 Mzu favicondl 从您的徽标或 favicon 生成清晰的方形 PNG。非常适合作为 Tauri 图标生成器的基础。" data-ja="Mzu favicondl でロゴや favicon から鮮明な正方形 PNG を生成。Tauri のアイコン生成器のベースに最適です。" data-ko="Mzu favicondl로 로고나 favicon에서 선명한 정사각형 PNG를 생성하세요. Tauri 아이콘 생성기의 기반으로 완벽합니다." data-es="Genera un PNG cuadrado y nítido a partir de tu logo o favicon con Mzu favicondl. Perfecto como base para el generador de iconos de Tauri.">Generate a crisp, square PNG from your logo or favicon with Mzu favicondl. Perfect as the base for Tauri's icon generator.</p>
+            <a href="/" class="cta-btn" data-en="Try It Free →" data-zh="免费试用 →" data-ja="無料で試す →" data-ko="무료로 사용해보기 →" data-es="Pruébalo gratis →">Try It Free →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Home" data-zh="首页">Home</a>
+                <a href="/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Blog" data-zh="博客">Blog</a>
+                <a href="/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors" data-en="Privacy" data-zh="隐私政策">Privacy</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js?v=20260211"></script>
+
+</body></html>

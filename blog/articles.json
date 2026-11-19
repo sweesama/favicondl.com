@@ -4460,5 +4460,26 @@
     ],
     "qualityScore": 80,
     "qualityGrade": "A"
+  },
+  {
+    "slug": "tauri-app-icon",
+    "publishDate": "2026-11-19",
+    "titleEn": "Tauri App Icon: Set Icons for Windows, macOS, Linux",
+    "titleZh": "Tauri 应用图标：为 Windows、macOS、Linux 设置图标",
+    "titleJa": "Tauri アプリアイコン：Windows・macOS・Linux の設定方法",
+    "titleKo": "Tauri 앱 아이콘: Windows, macOS, Linux 설정 가이드",
+    "titleEs": "Icono de Tauri: Configura para Windows, macOS y Linux",
+    "descEn": "Learn how to set a Tauri app icon for Windows, macOS, and Linux. Step-by-step guide with tauri.conf.json, icon generation, and common pitfalls.",
+    "descZh": "了解如何为 Windows、macOS 和 Linux 设置 Tauri 应用图标。包含 tauri.conf.json、图标生成和常见陷阱的逐步指南。",
+    "descJa": "Windows、macOS、Linux 向けの Tauri アプリアイコン設定方法を解説。tauri.conf.json の設定、アイコン生成、よくある落とし穴までステップバイステップで紹介します。",
+    "descKo": "Windows, macOS, Linux용 Tauri 앱 아이콘 설정 방법을 알아보세요. tauri.conf.json 설정, 아이콘 생성, 흔한 실수까지 단계별로 안내합니다.",
+    "descEs": "Aprende a configurar el icono de tu app Tauri para Windows, macOS y Linux. Guía paso a paso con tauri.conf.json, generación de iconos y errores comunes.",
+    "keyword": "tauri app icon",
+    "tags": [
+      "desktop",
+      "framework"
+    ],
+    "qualityScore": 80,
+    "qualityGrade": "A"
   }
 ]

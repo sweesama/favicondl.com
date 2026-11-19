@@ -1,0 +1,147 @@
+<!DOCTYPE html><html lang="zh"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tauri 应用图标：为 Windows、macOS、Linux 设置图标</title>
+    <meta name="description" content="了解如何为 Windows、macOS 和 Linux 设置 Tauri 应用图标。包含 tauri.conf.json、图标生成和常见陷阱的逐步指南。">
+    <meta name="keywords" content="tauri app icon, tauri icon, tauri.conf.json, app icon, tauri">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/zh/blog/tauri-app-icon.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/tauri-app-icon.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/tauri-app-icon.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/tauri-app-icon.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/tauri-app-icon.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/tauri-app-icon.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/tauri-app-icon.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/zh/blog/tauri-app-icon.html">
+    <meta property="og:title" content="Tauri 应用图标：为 Windows、macOS、Linux 设置图标">
+    <meta property="og:description" content="了解如何为 Windows、macOS 和 Linux 设置 Tauri 应用图标。包含 tauri.conf.json、图标生成和常见陷阱的逐步指南。">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Tauri 应用图标：为 Windows、macOS、Linux 设置图标">
+    <meta name="twitter:description" content="了解如何为 Windows、macOS 和 Linux 设置 Tauri 应用图标。包含 tauri.conf.json、图标生成和常见陷阱的逐步指南。">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Tauri 应用图标：为 Windows、macOS、Linux 设置图标",
+  "description": "了解如何为 Windows、macOS 和 Linux 设置 Tauri 应用图标。包含 tauri.conf.json、图标生成和常见陷阱的逐步指南。",
+  "datePublished": "2026-11-19",
+  "dateModified": "2026-11-19",
+  "author": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "mainEntityOfPage": "https://favicondl.com/zh/blog/tauri-app-icon.html",
+  "inLanguage": "zh-CN"
+}</script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/zh/" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/zh/documentation.html" class="nav-link">文档</a>
+                <a href="/zh/tools.html" class="nav-link">工具</a>
+                <a href="/zh/blog/" class="nav-link">博客</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/tauri-app-icon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/tauri-app-icon.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/tauri-app-icon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/tauri-app-icon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/tauri-app-icon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/zh/" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/zh/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600">Tauri 应用图标：为 Windows、macOS、Linux 设置图标</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">desktop</span><time class="text-sm text-gray-400">2026-11-19</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">Tauri 应用图标：为 Windows、macOS、Linux 设置图标</h1>
+        </header>
+
+        <div class="article-body"><p>你已经用 Tauri 构建了一个应用，但任务栏里显示的仍然是默认图标。或者你正准备发布，却发现 Dock 图标是个通用占位符。只要搞清楚文件该放哪儿、配置怎么引用，设置一个像样的 Tauri 应用图标其实并不复杂。本文会带你走完 Windows、macOS 和 Linux 上的具体步骤，用的是 Tauri 自带的图标生成器和 <code>tauri.conf.json</code> 配置。</p><h2>准备工作</h2><p>开始之前，请确认你已具备：</p><ul><li>一个已经搭建好的 Tauri 项目（v1 或 v2）。</li><li>已安装 Node.js 和 npm（或你惯用的包管理器）。</li><li>一张正方形的源图，理想情况是带透明通道的 1024×1024 PNG。SVG 也可以用，但对生成器来说 PNG 更稳妥。</li></ul><p>如果你需要一张高质量的源图标，可以用 <a href="/zh/">Mzu favicondl</a> 从现有的 logo 或 favicon 生成——它能导出多种尺寸的干净 PNG。</p><h2>第一步：生成图标集</h2><p>Tauri 提供了一个 CLI 命令，输入一张源图，就能产出所有平台专用的格式：Windows 用的 <code>.ico</code>、macOS 用的 <code>.icns</code>，以及 Linux 和移动端用的各种 PNG。在项目根目录下运行：</p><pre><code>npm run tauri icon path/to/your-icon.png</code></pre><p>如果你用的是 Tauri v1，命令同样是 <code>npm run tauri icon</code>，但建议先检查一下 <code>package.json</code> 里的 scripts。生成器默认把文件写入 <code>src-tauri/icons/</code>。你会看到 <code>32x32.png</code>、<code>128x128.png</code>、<code>icon.icns</code> 和 <code>icon.ico</code> 这类文件。</p><p><strong>提示：</strong>源图应当背景透明、轮廓清晰。避免文字或过于精细的细节——它们在 16×16 或 32×32 下根本看不清。设计方面的建议可以参考我们的 <a href="/zh/blog/favicon-design-tips.html">favicon 设计技巧</a>（同样的原则也适用于应用图标）。</p><h2>第二步：配置 tauri.conf.json</h2><p>打开 <code>src-tauri/tauri.conf.json</code>，找到 <code>bundle</code> 部分。在 <code>icon</code> 下，列出生成图标的路径。Tauri v2 的结构与 v1 略有不同，但思路是一样的。</p><p>对于 Tauri v2：</p><pre><code>{
+  "bundle": {
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.ico"
+    ]
+  }
+}</code></pre><p>对于 Tauri v1，<code>icon</code> 数组位于 <code>tauri.bundle</code> 下：</p><pre><code>{
+  "tauri": {
+    "bundle": {
+      "icon": [
+        "icons/32x32.png",
+        "icons/128x128.png",
+        "icons/icon.icns",
+        "icons/icon.ico"
+      ]
+    }
+  }
+}</code></pre><p>确保路径是相对于 <code>src-tauri/</code> 的。如果你把图标移到了别处，记得相应更新路径。</p><h2>第 3 步：验证各平台的具体行为</h2><p>每个操作系统会使用列表中的不同文件。以下是关键点：</p><ul><li><strong>Windows：</strong> 使用 <code>icon.ico</code> 作为可执行文件、任务栏和开始菜单的图标。ICO 应包含多个尺寸（16、32、48、256）。Tauri 生成器会处理这一点。</li><li><strong>macOS：</strong> 使用 <code>icon.icns</code> 作为 Dock 和 Finder 中的图标。ICNS 格式包含多种分辨率，最高可达 1024×1024。</li><li><strong>Linux：</strong> 使用 PNG 文件（通常是 32x32、128x128、128x128@2x）作为应用启动器和窗口管理器的图标。某些桌面环境还会读取 bundle 中的 <code>icon.png</code>。</li></ul><p>如果你要为移动端（iOS/Android）构建，生成器也会创建相应的资源，但这超出了本指南的范围。</p><h2>第 4 步：重新构建并测试</h2><p>更新配置后，重新构建你的应用：</p><pre><code>npm run tauri build</code></pre><p>然后安装或运行构建出的可执行文件。检查任务栏（Windows）、Dock（macOS）或应用程序菜单（Linux）以确认图标出现。在 Windows 上，如果旧图标仍然存在，你可能需要清除图标缓存——这是一个已知的怪癖。对于 macOS，有时 Dock 会缓存图标；注销再重新登录即可解决。</p><h2>常见陷阱</h2><ul><li><strong>配置中的路径错误：</strong>如果图标文件不存在，Tauri 打包会失败。请仔细检查相对路径。</li><li><strong>缺少 ICO 尺寸：</strong>如果手动创建 ICO，请确保包含 16、32、48 和 256 像素的图层。Tauri 生成器会正确处理这一点。</li><li><strong>透明背景问题：</strong>在 Windows 上，完全透明的区域在某些上下文中可能显示为黑色。如果看到异常，请使用纯色背景。</li><li><strong>忘记重新构建：</strong>更改图标需要完全重新构建；热重载不会更新原生图标。</li><li><strong>macOS ICNS 格式：</strong>如果提供的是 PNG 而不是 ICNS，macOS 可能会忽略它。始终使用生成的 <code>icon.icns</code>。</li></ul><h2>结论</h2><p>设置 Tauri 应用图标分为三步：使用 <code>tauri icon</code> 生成图标集，在 <code>tauri.conf.json</code> 中引用这些文件，然后重新构建。内置生成器让你无需手动创建 ICO 和 ICNS 文件。保持源图像简单且为正方形，并在每个目标平台上验证图标。有关图标格式和最佳实践的更多信息，请参阅我们的 <a href="/zh/blog/favicon-best-practices.html">favicon 最佳实践</a>——许多原则同样适用于应用图标。</p><h2>查阅文档中的要求</h2><p>HTML 标准将 <a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon"><code>rel='icon'</code></a> 定义为表示当前页面的图标的链接关系。</p></div>
+
+        <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
+
+        <div class="cta-box">
+            <h3>需要为 Tauri 应用准备干净的源图标？</h3>
+            <p>使用 Mzu favicondl 从您的徽标或 favicon 生成清晰的方形 PNG。非常适合作为 Tauri 图标生成器的基础。</p>
+            <a href="/zh/" class="cta-btn">免费试用 →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/zh/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">首页</a>
+                <a href="/zh/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">博客</a>
+                <a href="/zh/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">隐私政策</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js?v=20260211"></script>
+
+</body></html>

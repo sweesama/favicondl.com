@@ -3360,7 +3360,9 @@
     "avoidOverlap": [
       "electron-app-icon"
     ],
-    "status": "pending"
+    "status": "done",
+    "qualityScore": 80,
+    "qualityGrade": "A"
   },
   {
     "keyword": "canva favicon",
