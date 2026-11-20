@@ -3376,7 +3376,9 @@
     "avoidOverlap": [
       "favicon-from-logo"
     ],
-    "status": "pending"
+    "status": "done",
+    "qualityScore": 95,
+    "qualityGrade": "A"
   },
   {
     "keyword": "figma favicon",

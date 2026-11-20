@@ -1,0 +1,177 @@
+<!DOCTYPE html><html lang="ja"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvaファビコン：書き出し・変換・サイトへの設置</title>
+    <meta name="description" content="Canvaから透明PNGを書き出し、ICOとPNGのWeb faviconに変換して、HTMLで正しく公開する手順を解説します。">
+    <meta name="keywords" content="canva favicon, favicon converter, ICO favicon, PNG to ICO, website icon">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/ja/blog/canva-favicon.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/canva-favicon.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/canva-favicon.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/canva-favicon.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/canva-favicon.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/canva-favicon.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/canva-favicon.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/ja/blog/canva-favicon.html">
+    <meta property="og:title" content="Canvaファビコン：書き出し・変換・サイトへの設置">
+    <meta property="og:description" content="Canvaから透明PNGを書き出し、ICOとPNGのWeb faviconに変換して、HTMLで正しく公開する手順を解説します。">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Canvaファビコン：書き出し・変換・サイトへの設置">
+    <meta name="twitter:description" content="Canvaから透明PNGを書き出し、ICOとPNGのWeb faviconに変換して、HTMLで正しく公開する手順を解説します。">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Canvaファビコン：書き出し・変換・サイトへの設置",
+  "description": "Canvaから透明PNGを書き出し、ICOとPNGのWeb faviconに変換して、HTMLで正しく公開する手順を解説します。",
+  "datePublished": "2026-11-20",
+  "dateModified": "2026-11-20",
+  "author": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "mainEntityOfPage": "https://favicondl.com/ja/blog/canva-favicon.html",
+  "inLanguage": "ja"
+}</script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/ja/" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/ja/documentation.html" class="nav-link">ドキュメント</a>
+                <a href="/ja/tools.html" class="nav-link">ツール</a>
+                <a href="/ja/blog/" class="nav-link">ブログ</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/canva-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/canva-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/canva-favicon.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/canva-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/canva-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/ja/" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/ja/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600">Canvaファビコン：書き出し・変換・サイトへの設置</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">design</span><time class="text-sm text-gray-400">2026-11-20</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">Canvaファビコン：書き出し・変換・サイトへの設置</h1>
+        </header>
+
+        <div class="article-body"><p>Canvaのデザインはエディター上では鮮明に見えますが、ブラウザータブにはまだ一般的なページアイコンが表示されています。不足しているのは、通常は書き出しとパッケージ化です。Canvaのデザインは、正方形の画像、ブラウザーで使えるファイル、HTMLでの参照に変換されるまでfaviconではありません。</p>
+<h2>Canvaから書き出す前に</h2>
+<p>次の項目を準備してください。</p>
+<ul>
+<li><strong>正方形のCanvaデザイン。</strong> 幅の広いバナーを切り詰めるのではなく、専用の1:1キャンバスを使用してください。</li>
+<li><strong>鮮明なPNGマスターデータ。</strong> 後で生成するすべての形式の元画像にします。</li>
+<li><strong>Webサイトのファイル管理権限。</strong> アセットをアップロードし、サイト全体のページテンプレートを編集できる権限が必要です。</li>
+</ul>
+<p>対象の素材が企業ロゴ全体なら、作業を続ける前に、最も認識しやすいシンボルだけを切り出してください。ロゴからfaviconを作る設計手順は、<a href="/ja/blog/favicon-from-logo.html">ロゴからfaviconを作成するワークフロー</a>で別に解説しています。</p>
+<h2>Canvaでfaviconを作る手順</h2>
+<h3>1. 正方形のアイコンを準備する</h3>
+<p>キャンバスを1:1に設定し、アートワークは正方形の背景に配置してください。ブラウザータブの表示サイズでは、小さな文字や細い線は消えて見えません。コンパクトなシルエットを優先し、一目で判別できない細部は除いてください。</p>
+<p>32 × 32ピクセルでプレビューします。マークを識別しづらい場合は、書き出す前にCanva上で簡略化してください。変換後にデザインを手直しする必要はありません。</p>
+<h3>2. 背景が透明なPNGを書き出す</h3>
+<p><strong>Download</strong>または<strong>Share &gt; Download</strong>を選び、<strong>PNG</strong>を選択して、選択中の要素に適用される場合は<strong>Transparent background</strong>を有効にします。Canvaではデザイン要素によって表示されるオプションが異なるため、透明背景がロゴレイヤーにも適用されていることを確認してください。</p>
+<p>カスタムサイズを設定できない場合は、最高解像度の正方形PNGをダウンロードし、<a href="/ja/">Mzu favicondl</a>で縦横比を保ってリサイズしてください。一辺だけを引き伸ばすような変形は行わないでください。元の書き出しファイルはマスターデータとして残してください。</p>
+<h3>3. 実用的なアイコンパッケージを生成する</h3>
+<p>PNGを<a href="/ja/">Mzu favicondl</a>にアップロードし、Web site's site needs generate the files... </p><ul>
+<li>幅広いfallback用として、16 × 16、32 × 32、48 × 48のレイヤーを持つ<code>favicon.ico</code>。</li>
+<li>そのまま配置できるラスターアイコンの候補となる<code>favicon-32.png</code>。</li>
+<li>ホーム画面のショートカット用<code>apple-touch-icon-180.png</code>。</li>
+<li>サイトがweb app manifestを利用する場合の<code>icon-192.png</code>と<code>icon-512.png</code>。</li>
+</ul>
+<p>CanvaのプロジェクトやデザインURLをアイコンのソースとして使わないでください。ブラウザーが必要とするのは、サイトが配信する画像ファイルです。また、1枚の大きなPNGよりも、複数サイズのICOの方が制御しやすくなります。</p>
+<h3>4. 生成したファイルをアップロードする</h3>
+<p>生成したファイルをサイトの公開Webディレクトリに配置してください。ルートディレクトリに置くと、パスを予測しやすくなります。</p>
+<ul>
+<li><code>/favicon.ico</code></li>
+<li><code>/favicon-32.png</code></li>
+<li><code>/apple-touch-icon-180.png</code></li>
+<li><code>/icon-192.png</code>と<code>/icon-512.png</code></li>
+</ul>
+<p>各URLを新しいタブで開き、画像が返ること、HTMLのエラーページが表示されないことを確認してください。ファイル名の大文字と小文字も確認が必要です。大文字と小文字を区別するサーバーでは、<code>/Favicon.ico</code>と<code>/favicon.ico</code>が異なるパスになることがあります。</p>
+<h3>5. HTML参照を追加する</h3>
+<p>以下の要素をドキュメントの<code>&lt;head&gt;</code>内に貼り付け、ファイル名が異なる場合は変更してください。manifestを作成していない場合は、最後の行を省略してください。</p>
+<pre><code>&lt;link rel='icon' href='/favicon.ico'&gt;
+&lt;link rel='icon' type='image/png' sizes='32x32' href='/favicon-32.png'&gt;
+&lt;link rel='apple-touch-icon' sizes='180x180' href='/apple-touch-icon-180.png'&gt;
+&lt;link rel='manifest' href='/site.webmanifest'&gt;</code></pre>
+<p><a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">HTML Standardの<code>icon</code> link-type定義</a>には、ブラウザーがこれらのリソースをどのように発見するかが説明されています。CMSを利用している場合は、タグを共通サイトテンプレートに置いて、すべてのページに同じ参照が挿入されるようにしてください。Frameworkごとのマークアップについては、<a href="/ja/blog/how-to-add-favicon-to-website.html">HTML faviconの完全ガイド</a>を参照してください。</p>
+<h3>6. 公開後の動作を確認する</h3><p>新しいタブでホームページを再読み込みし、その後、サブページとブックマークを開いてください。ブラウザーのネットワークパネルで、各アイコンURLが正常なレスポンスを返すことを確認します。古いアイコンが残る場合はハードリロードを試してください。同じURLでファイルを差し替えた場合は、<code>favicon-v2.ico</code>のような新しい名前で公開し、関連タグも更新します。</p>
+<p>モバイルでは、ブラウザーのタブと「ホーム画面に追加」の手順を別々に確認します。両者が異なるリソースを参照することがあるため、デスクトップのタブが正しく表示されていても、モバイルのショートカットが正しく設定されていることを示すものではありません。</p>
+<h2>Canva faviconでのよくある問題</h2>
+<ul>
+<li><strong>マークの周囲が白く四角くなる：</strong> PNGがフラット化されているか、透明化ives設定になっていません。Canvaで再書き出しし、市松模様の背景に対してキャンバスを確認してください。</li>
+<li><strong>タブの中でぼやけたり、詰められすぎている：</strong> デザインには、16～32ピクセルでは消えてしまうディテールが含まれています。ファイルを生成する前に、Canvaでuskificationを PATENT.</li>
+<li><strong>古いアイコンが毎回表示される：</strong> ブラウザーが以前のファイルをキャッシュしています。公開後、新しいファイル名またはバージョン付きのURLを使用してください。</li>
+<li><strong>アイコンが1ページだけでしか機能しない：</strong> アイコン用のタグが、共通のheadまたは全体レイアウトではなく、ページテンプレートに追加されているためです。</li>
+<li><strong>アイコンの直接URLが404を返す：</strong> ファイルが公開ディレクトリ外にアップロードされている、ビルドで除外されている、または大文字・小文字を誤って参照されているためです。</li>
+</ul>
+<h2>まとめ</h2>
+<p>花朵Canva faviconを正しく仕上げる流程は、正方形のデザイン、背景が透明なPNG、変換済みのアイコンファイル、正しいHTML、公開先URLへのアクセス確認からなる小さなパイプラインです。PNGの元データを保管し、ファイル名を記録してください。ブランドマークを変更するたびに、この手順を繰り返します。準備ができたら、<a href="/ja/">Mzu favicondl</a>が変換処理に対応しているため、WebサイトにはCanvaから書き出した大きすぎるファイルではなく、利用可能なICOとPNGアセットを用意できます。</p></div>
+
+        <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
+
+        <div class="cta-box">
+            <h3>Canva PNGをfaviconパッケージに変換</h3>
+            <p>書き出したPNGをMzu favicondlにアップロードし、Webサイトに必要なICOとPNGファイルを生成します。</p>
+            <a href="/ja/" class="cta-btn">無料で試す →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/ja/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">ホーム</a>
+                <a href="/ja/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">ブログ</a>
+                <a href="/ja/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">プライバシー</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js?v=20260211"></script>
+
+</body></html>

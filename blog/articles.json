@@ -4481,5 +4481,26 @@
     ],
     "qualityScore": 80,
     "qualityGrade": "A"
+  },
+  {
+    "slug": "canva-favicon",
+    "publishDate": "2026-11-20",
+    "titleEn": "Canva Favicon: Export, Convert and Add It to Your Site",
+    "titleZh": "Canva Favicon：导出、转换并添加到网站",
+    "titleJa": "Canvaファビコン：書き出し・変換・サイトへの設置",
+    "titleKo": "Canva 파비콘: 내보내기, 변환, 웹사이트에 연결",
+    "titleEs": "Favicon de Canva: exporta, convierte y añádelo a tu web",
+    "descEn": "Create a crisp Canva favicon in minutes: export the right PNG, convert it into ICO and PNG files, then add copy-ready HTML to your website.",
+    "descZh": "从 Canva 导出透明 PNG，用 ICO 和 PNG 格式生成网站图标，再通过清晰的 HTML 代码完成部署。",
+    "descJa": "Canvaから透明PNGを書き出し、ICOとPNGのWeb faviconに変換して、HTMLで正しく公開する手順を解説します。",
+    "descKo": "Canva에서 투명 PNG를 내보내고 ICO·PNG favicon으로 변환한 뒤, 복사 가능한 HTML로 웹사이트에 연결하세요.",
+    "descEs": "Exporta un PNG transparente desde Canva, conviértelo en archivos ICO y PNG y añade favicons a tu web con HTML listo para usar.",
+    "keyword": "canva favicon",
+    "tags": [
+      "design",
+      "tools"
+    ],
+    "qualityScore": 95,
+    "qualityGrade": "A"
   }
 ]
