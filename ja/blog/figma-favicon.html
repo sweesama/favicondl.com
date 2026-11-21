@@ -1,0 +1,137 @@
+<!DOCTYPE html><html lang="ja"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Figma faviconのエクスポートとWeb実装</title>
+    <meta name="description" content="Figmaで正方形のfaviconを作成し、PNGとSVGをエクスポート、Web向けに変換して正しいHTMLリンクを追加します。">
+    <meta name="keywords" content="figma favicon, favicon export, SVG favicon, favicon.ico">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/ja/blog/figma-favicon.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/figma-favicon.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/figma-favicon.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/figma-favicon.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/figma-favicon.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/figma-favicon.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/figma-favicon.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/ja/blog/figma-favicon.html">
+    <meta property="og:title" content="Figma faviconのエクスポートとWeb実装">
+    <meta property="og:description" content="Figmaで正方形のfaviconを作成し、PNGとSVGをエクスポート、Web向けに変換して正しいHTMLリンクを追加します。">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Figma faviconのエクスポートとWeb実装">
+    <meta name="twitter:description" content="Figmaで正方形のfaviconを作成し、PNGとSVGをエクスポート、Web向けに変換して正しいHTMLリンクを追加します。">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Figma faviconのエクスポートとWeb実装",
+  "description": "Figmaで正方形のfaviconを作成し、PNGとSVGをエクスポート、Web向けに変換して正しいHTMLリンクを追加します。",
+  "datePublished": "2026-11-21",
+  "dateModified": "2026-11-21",
+  "author": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "mainEntityOfPage": "https://favicondl.com/ja/blog/figma-favicon.html",
+  "inLanguage": "ja"
+}</script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/ja/" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/ja/documentation.html" class="nav-link">ドキュメント</a>
+                <a href="/ja/tools.html" class="nav-link">ツール</a>
+                <a href="/ja/blog/" class="nav-link">ブログ</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/figma-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/figma-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/figma-favicon.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/figma-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/figma-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/ja/" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/ja/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600">Figma faviconのエクスポートとWeb実装</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">design</span><time class="text-sm text-gray-400">2026-11-21</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">Figma faviconのエクスポートとWeb実装</h1>
+        </header>
+
+        <div class="article-body">Figma faviconのエクスポートとサイトへの追加方法
+
+<p>ブランドをFigmaで設計していても、ブラウザのタブにはまだ一般的なページアイコンしか表示されない場合、不足しているのは多くのケースで出力と公開の工程です。Figmaのfaviconは正方形のフレームから始まりますが、ブラウザが必要とするのは完成済みのファイルとHTMLリンクです。この手順で、キャンバス上のデザインからサイトへ公開できる状態になったアイコンまで進められます。</p><h2>前提条件</h2><ul><li>Figma editorへのアクセスと、ブランド素材を含むファイルへの権限。</li><li>小さいサイズにも適合できるロゴ、シンボル、またはその他のマーク。</li><li>エクスポート済みのPNGまたはSVGファイル。</li><li>サイトの静的アセットを公開するフォルダまたはbuild pipelineへのアクセス。</li></ul><h2>Figma faviconを作成してエクスポートする</h2><ol><li><h3>1. 正方形のマスターフレームを作成する</h3><p>Figma の <strong>Frame</strong> ツールでキャンバスをクリックし、Width と Height の両方を <code>512</code> に設定します。フレーム名を <code>Favicon / Master</code> に変更し、簡略化したブランドマークを少し余白を取って配置します。タブに表示されるサイズから始めるのではなく、大きくデザインしてから縮小した方が、より細かく制御できます。</p><p>ワードマークの場合は、横長のロゴ全体を一律に縮小するのではなく、最初の文字または記号だけを複製します。拡大した状態で、最小のカウンター（文字内の空き）とストロークの接合部を確認します。Figma のピクセルグリッドを使えば、16 × 16 px に縮小しても残る隙間かどうかを判断できます。エクスポート前に、細かい部分を簡略化してください。</p></li><li><h3>2. アートワークを component としてパッケージする</h3><p>完成したフレームから component を作成し、その下でレイヤーを <code>Icon/Background</code> や <code>Icon/Mark</code> などの明確な名前でグループ化します。ライト版とダーク版が必要なら、同じジオメトリを持つ component variants を作成します。管理された variants をエクスポートすることで、小さな手動修正が favicon の不統一につながるのを防げます。</p></li><li><h3>3. PNG と SVG のマスターをエクスポートする</h3><p>マスターフレームを選択し、Figma の右サイドバーにある <strong>Export</strong> を開きます。PNG export を追加し、<strong>1×</strong> のまま 512 px の画像をエクスポートします。SVG export も追加します。PNG は raster source として使い、SVG は vector geometry を保持します。そのため、SVG は対応しているブラウザーで利用できます。</p><p>エクスポート後、PNG を別のビューアーで開き、キャンバスが正方形、マークが中心、背景が意図した色になっているか確認します。これにより、favicon への変換前に、誤って選択したグループや不要な透明余白を検出できます。</p></li><li><h3>4. 小さいサイズのファイル一式を生成する</h3><p><a href="/ja/">Mzu favicondl</a> を使って、PNG または SVG を、複数サイズを収録した <code>favicon.ico</code> と、サイトに必要なサイズの PNG ファイルに変換します。拡張子だけを <code>.ico</code> に変更した PNG をアップロードするのではなく、元の SVG は保持してください。<a href="/ja/blog/favicon-sizes-guide.html">favicon size guide</a> では、16、32、48、180、192、512 px のファイルがそれぞれ使用される場面を確認できます。</p></li><li><h3>5. HTML に icon link を追加する</h3><p>次のコードをドキュメントの <code>&lt;head&gt;</code> 内に貼り付けます。アセットが別の場所にある場合は、path を調整してください。</p><pre><code>&lt;link rel='icon' href='/favicon.ico' sizes='any'&gt;
+&lt;link rel='icon' href='/favicon.svg' type='image/svg+xml'&gt;
+&lt;link rel='icon' href='/favicon-32.png' type='image/png' sizes='32x32'&gt;
+&lt;link rel='icon' href='/favicon-192.png' type='image/png' sizes='192x192'&gt;
+&lt;link rel='apple-touch-icon' href='/apple-touch-icon.png' sizes='180x180'&gt;</code></pre><p><a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">HTML Living Standard では、icon リソースを宣言するための <code>rel='icon'</code> リンク</a>が定義されています。各 path は、サーバー上で公開しているファイル名と常に一致させてください。</p></li><li><h3>6. 一致する path にファイルを公開する</h3><p>ファイルを、サイトが実際に配信するディレクトリに配置します。ルートに配置する場合、次の構成を使用できます。</p><pre><code>/
+├── favicon.ico
+├── favicon.svg
+├── favicon-32.png
+├── favicon-192.png
+└── apple-touch-icon.png</code></pre><p>バンドル型の project では、配置先は <code>public/</code>、<code>static/</code>、または別の設定済みアセットフォルダーになる場合があります。デプロイメントパイプラインがそのフォルダーを自動的に処理しない場合は、ビルド出力にもファイルをコピーしてください。</p></li><li><h3>7. ライブのレスポンスを検証する</h3><p>静的プレビューを確認するには、<code>index.html</code> を含むフォルダーで <code>python3 -m http.server 8000</code> を実行し、<code>http://localhost:8000</code> を開きます。これにより、サーバーが使用するのと同じ HTTP path を検証でき、file URL の挙動を避けられます。</p><p>DevTools を開き、<strong>Network</strong> を選択して、<code>favicon</code> で絞り込みます。リクエストされた各ファイルが成功レスポンスを返し、画像として開けることを確認してください。キャッシュされた1つの表示だけに頼らず、ブラウザータブ、ブックマーク、新しく開いたタブを確認します。icon が表示されない、または古いままなら、デザインを変更する前に <a href="/ja/blog/favicon-not-showing.html">favicon troubleshooting checklist</a> を使用してください。</p></li></ol><h2>よくある落とし穴</h2><ul><li><strong>ロゴ全体を書き出す。</strong> favicon に必要なのは、認識しやすい1つのマークです。wordmark や横長ロゴの全体ではありません。</li><li><strong>細かいディテールを使う。</strong> Hairline、小さな文字、低コントラストの色は、16 × 16ピクセルでは消えてしまいます。raster export をシャープにするのではなく、マスターを簡略化してください。</li><li><strong>形式と名前を混同する。</strong> 拡張子を <code>.ico</code> に変更した PNG も、形式は PNG のままです。ファイル名を変更するのではなく、ICO コンテナを生成してください。</li><li><strong>誤ったフォルダーに公開する。</strong> source directory に置いたファイルは、公開 сайтеにコピーされない可能性があります。最終的な公開URLで動作を確認してください。</li><li><strong>SVG だけ relyingする。</strong> SVG を表示できない環境に備え、ICO や PNG の fallback も用意してください。</li><li><strong>モバイルアイコンを無視する。</strong> Apple touch icon は別のアセットです。デスクトップのタブ表示用画像を書き出しても、touch icon が自動生成されるわけではありません。</li></ul><h2>Conclusion</h2><p>これで、Figma file から本番環境までに明確な流れができました。square component を設計し、PNG と SVG のマスターを書き出し、fallback format を生成して公開し、page head に宣言します。source component は編集可能な状態に保ち、今後のブランド変更が1つの一元管理されたアセットから始まるようにしてください。</p></div>
+
+        <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
+
+        <div class="cta-box">
+            <h3>Mzu favicondl で favicon セットを作成</h3>
+            <p>Figmaで書き出したPNGやSVGをICO・PNGファイルに変換し、正しいパスでWeb.Good Sitesへ追加できます。</p>
+            <a href="/ja/" class="cta-btn">無料で試す →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/ja/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">ホーム</a>
+                <a href="/ja/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">ブログ</a>
+                <a href="/ja/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">プライバシー</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js?v=20260211"></script>
+
+</body></html>

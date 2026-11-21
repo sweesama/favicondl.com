@@ -3392,7 +3392,9 @@
     "avoidOverlap": [
       "canva-favicon"
     ],
-    "status": "pending"
+    "status": "done",
+    "qualityScore": 95,
+    "qualityGrade": "A"
   },
   {
     "keyword": "gimp favicon ico",

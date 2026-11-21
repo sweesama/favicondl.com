@@ -4502,5 +4502,26 @@
     ],
     "qualityScore": 95,
     "qualityGrade": "A"
+  },
+  {
+    "slug": "figma-favicon",
+    "publishDate": "2026-11-21",
+    "titleEn": "Figma Favicon: How to Export and Add It to Your Site",
+    "titleZh": "Figma favicon：导出并添加到网站",
+    "titleJa": "Figma faviconのエクスポートとWeb実装",
+    "titleKo": "Figma favicon 내보내기 및 웹사이트에 추가하기",
+    "titleEs": "Cómo crear un favicon en Figma y añadirlo al sitio",
+    "descEn": "Create a Figma favicon from a square frame, export PNG and SVG files, convert them into web-ready icons, and add the correct HTML to your site.",
+    "descZh": "在 Figma 中制作方形 favicon，导出 PNG 和 SVG，转换为网页格式，并添加正确的 HTML 链接。",
+    "descJa": "Figmaで正方形のfaviconを作成し、PNGとSVGをエクスポート、Web向けに変換して正しいHTMLリンクを追加します。",
+    "descKo": "Figma에서 정사각형 favicon을 만들고 PNG와 SVG를 내보낸 뒤, 웹용 파일로 변환해 올바른 HTML 링크를 추가하세요.",
+    "descEs": "Crea un favicon cuadrado en Figma, exporta PNG y SVG, conviértelos a archivos web y añade los enlaces HTML correctos.",
+    "keyword": "figma favicon",
+    "tags": [
+      "design",
+      "tools"
+    ],
+    "qualityScore": 95,
+    "qualityGrade": "A"
   }
 ]
