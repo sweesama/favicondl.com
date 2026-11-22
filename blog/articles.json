@@ -4523,5 +4523,26 @@
     ],
     "qualityScore": 95,
     "qualityGrade": "A"
+  },
+  {
+    "slug": "gimp-favicon",
+    "publishDate": "2026-11-22",
+    "titleEn": "GIMP Favicon ICO: Create a Crisp Multi-Size Website Favicon",
+    "titleZh": "用 GIMP 制作多尺寸 favicon ICO 图标",
+    "titleJa": "GIMP でマルチサイズ favicon ICO を作成",
+    "titleKo": "GIMP로 멀티사이즈 favicon ICO 만들기",
+    "titleEs": "Crea un favicon ICO multirresolución con GIMP",
+    "descEn": "Create a GIMP favicon ICO with crisp 16, 32 and 48 px artwork, preserve transparency, package multiple sizes, and deploy it correctly on your website.",
+    "descZh": "用 GIMP 制作清晰的 16、32 和 48 px favicon，保留透明度、打包多尺寸 ICO，并在网站中正确部署。",
+    "descJa": "GIMPで16、32、48 pxのfaviconを作成し、透明度を維持してマルチサイズのICOにまとめ、Webサイトへ正しく配置します。",
+    "descKo": "GIMP에서 16, 32, 48 px favicon을 만들고 투명도를 유지한 멀티사이즈 ICO로 묶어 웹사이트에 올바르게 배포하세요.",
+    "descEs": "Crea favicons nítidos de 16, 32 y 48 px en GIMP, conserva la transparencia y empaqueta un ICO multirresolución para tu sitio.",
+    "keyword": "gimp favicon ico",
+    "tags": [
+      "design",
+      "tools"
+    ],
+    "qualityScore": 95,
+    "qualityGrade": "A"
   }
 ]

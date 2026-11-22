@@ -1,0 +1,135 @@
+<!DOCTYPE html><html lang="zh"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用 GIMP 制作多尺寸 favicon ICO 图标</title>
+    <meta name="description" content="用 GIMP 制作清晰的 16、32 和 48 px favicon，保留透明度、打包多尺寸 ICO，并在网站中正确部署。">
+    <meta name="keywords" content="gimp favicon ico, favicon design, multi-size ico, png to ico">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/zh/blog/gimp-favicon.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/gimp-favicon.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/gimp-favicon.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/gimp-favicon.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/gimp-favicon.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/gimp-favicon.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/gimp-favicon.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/zh/blog/gimp-favicon.html">
+    <meta property="og:title" content="用 GIMP 制作多尺寸 favicon ICO 图标">
+    <meta property="og:description" content="用 GIMP 制作清晰的 16、32 和 48 px favicon，保留透明度、打包多尺寸 ICO，并在网站中正确部署。">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="用 GIMP 制作多尺寸 favicon ICO 图标">
+    <meta name="twitter:description" content="用 GIMP 制作清晰的 16、32 和 48 px favicon，保留透明度、打包多尺寸 ICO，并在网站中正确部署。">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "用 GIMP 制作多尺寸 favicon ICO 图标",
+  "description": "用 GIMP 制作清晰的 16、32 和 48 px favicon，保留透明度、打包多尺寸 ICO，并在网站中正确部署。",
+  "datePublished": "2026-11-22",
+  "dateModified": "2026-11-22",
+  "author": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "mainEntityOfPage": "https://favicondl.com/zh/blog/gimp-favicon.html",
+  "inLanguage": "zh-CN"
+}</script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/zh/" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/zh/documentation.html" class="nav-link">文档</a>
+                <a href="/zh/tools.html" class="nav-link">工具</a>
+                <a href="/zh/blog/" class="nav-link">博客</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/gimp-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/gimp-favicon.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/gimp-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/gimp-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/gimp-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/zh/" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/zh/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600">用 GIMP 制作多尺寸 favicon ICO 图标</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">design</span><time class="text-sm text-gray-400">2026-11-22</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">用 GIMP 制作多尺寸 favicon ICO 图标</h1>
+        </header>
+
+        <div class="article-body"><p>从 GIMP 导出的 48 像素图像，在显示器上可能依然清晰，但放到浏览器标签页里却会变成一团模糊的色块。解决方法是在 GIMP 中分别制作 16、32 和 48 像素版本，再将它们打包成一个包含多种尺寸的 <code>favicon.ico</code>。这套 <strong>GIMP favicon ICO</strong> 工作流能稳定生成所需文件，不必再靠改扩展名把 PNG 冒充成 ICO。</p><h2>前置准备</h2><ul><li>使用 GIMP，并确保可以使用 <strong>File &gt; New</strong>、<strong>Image &gt; Scale Image</strong> 和 <strong>File &gt; Export As</strong> 命令。</li><li>准备一个正方形的 logo 或标志。512 × 512 像素的母版能让你在缩小之前，有足够的空间简化图形。</li><li>可选：安装 ImageMagick，用于最后的打包步骤。你也可以改用 Mzu favicondl，在浏览器中转换导出的 PNG 文件。</li></ul><h2>分步创建 favicon ICO</h2><ol>
+<li><h3>创建透明主图</h3><p>选择 <strong>File &gt; New</strong>，将宽度和高度都设置为 <strong>512 × 512</strong>，并选择 <strong>Fill with Transparency</strong>。导入 logo，或在 GIMP 中绘制标志。将主体轮廓保持在中央正方形范围内，这样缩到较小尺寸时，留白仍然清晰可见。</p><p>favicon 并不是缩小后的 logo。导出前先删减细小的文字、纤细的笔画和渐变；通常，单一而粗壮的形状会更清晰。</p></li>
+<li><h3>从主图创建各个尺寸</h3><p>使用 <strong>File &gt; Duplicate</strong> 复制主图，然后选择 <strong>Image &gt; Scale Image</strong>。保持宽度与高度联动，将一个副本缩放到 <strong>16 × 16</strong>，另一个缩放到 <strong>32 × 32</strong>，第三个缩放到 <strong>48 × 48</strong>。每个副本都要从 512 像素的原始主图缩放；放大 16 像素版本只会让边缘更柔和。</p></li>
+<li><h3>修整 16 像素版本</h3><p>打开 16 像素副本，启用 <strong>View &gt; Show Pixel Grid</strong>。放大后，移除会与相邻像素混在一起的细节，或调整标志的对齐方式。还要在 32 像素尺寸下重复检查：此时可以保留更多细节，但较弱的单像素笔画仍可能消失。</p></li>
+<li><h3>保留 alpha 透明度</h3><p>如果导入的图层没有 alpha 通道，选中该图层，然后选择 <strong>Layer &gt; Transparency &gt; Add Alpha Channel</strong>。保持背景透明，不要填充为白色。PNG 导出会保留这种透明度，为 ICO 编码器提供干净的源图像。</p></li>
+<li><h3>导出三个 PNG 文件</h3><p>选择 <strong>File &gt; Export As</strong>，输入 <code>icon-16.png</code>，然后点击 <strong>Export</strong>。对 <code>icon-32.png</code> 和 <code>icon-48.png</code> 重复上述操作，并将它们放在同一个文件夹中。使用 PNG 版本作为打包源文件，因为它们能保留精确的尺寸和 alpha 通道。</p></li>
+<li><h3>导出或打包 ICO</h3><p>要试用 GIMP 的 ICO 导出器，请选中 48 像素副本，选择 <strong>File &gt; Export As</strong>，输入 <code>favicon.ico</code>，然后检查导出选项。如果出现尺寸列表，选择 <strong>16</strong>、<strong>32</strong> 和 <strong>48</strong> 像素。如果没有出现列表，导出结果可能只包含当前画布，因此应显式打包这三个 PNG。</p><p>在包含这些 PNG 文件的文件夹中运行以下命令：</p><pre><code>magick -background none icon-16.png icon-32.png icon-48.png favicon.ico</code></pre><p>在命令名称为 <code>convert</code> 的系统上，用 <code>convert</code> 替换 <code>magick</code>。最终得到一个包含三种图像尺寸的 ICO。</p></li>
+<li><h3>检查内嵌尺寸</h3><p>如果已经安装 ImageMagick，请运行 <code>magick identify favicon.ico</code>，检查输出中是否列出了 <strong>16x16</strong>、<strong>32x32</strong> 和 <strong>48x48</strong> 条目。如果缺少某个尺寸，在 GIMP 中检查对应的 PNG，然后重新运行打包命令。还要在较高缩放下打开每个 PNG，确认图标没有白色背景，也没有新出现的模糊边缘。</p></li>
+<li><h3>部署 ICO</h3><p>将 <code>favicon.ico</code> 复制到网站的 public 根目录，然后在文档的 <code>&lt;head&gt;</code> 中链接它：</p><pre><code>&lt;link rel='icon' href='/favicon.ico' sizes='16x16 32x32 48x48'&gt;</code></pre><p><a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">HTML 标准定义了 <code>rel='icon'</code></a>，用于链接图标资源。如果网站位于某个子路径下，请相应调整 URL。有关完整标记和移动端图标变体，请参阅<a href="/zh/blog/how-to-add-favicon-to-website.html">如何为网站添加 favicon</a>。</p></li>
+</ol><h2>用 GIMP 制作 favicon ICO 时的常见问题</h2><ul><li><strong>文件里只有一种分辨率。</strong> 别只看文件名，要直接检查容器内容。16、32 和 48 像素这一组是实用的浏览器基准尺寸；<a href="/zh/blog/favicon-sizes-guide.html">favicon 尺寸指南</a> 会说明其他格式分别适合用在哪里。</li><li><strong>小尺寸图标模糊不清。</strong> 不要只缩放图像，还要简化图形本身。细小文字和一像素细节在 48 像素下可能看着还行，缩到 16 像素就会挤成一团。</li><li><strong>透明通道丢失。</strong> 导出前添加 alpha 通道，不要将图像合成为白色或主题色背景。</li><li><strong>线上站点仍显示旧图标。</strong> 先确认 <code>/favicon.ico</code> 返回的是 ICO 文件，而不是 HTML 错误页面；如果旧文件仍被缓存，部署时可以改用带版本号的 URL，例如 <code>/favicon.ico?v=2</code>。</li></ul><h2>让最终结果更可控</h2><p>将图形素材的准备工作与容器打包分开处理。GIMP 让你控制每个小尺寸下的渲染效果，而打包步骤则能确保 <code>favicon.ico</code> 中包含指定的分辨率。</p><p>如果更想使用浏览器端转换工具，可以将 GIMP 导出的 PNG 文件交给 Mzu favicondl 处理，再检查下载得到的 ICO，确认无误后添加到网站。</p></div>
+
+        <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
+
+        <div class="cta-box">
+            <h3>将 GIMP PNG 转换为多尺寸 ICO</h3>
+            <p>将 GIMP 中准备好的 PNG 转换为可部署的 ICO，并检查文件内包含的图标尺寸。</p>
+            <a href="/zh/" class="cta-btn">免费转换 ICO →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/zh/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">首页</a>
+                <a href="/zh/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">博客</a>
+                <a href="/zh/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">隐私政策</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js?v=20260211"></script>
+
+</body></html>

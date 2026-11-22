@@ -1,0 +1,135 @@
+<!DOCTYPE html><html lang="ja"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GIMP でマルチサイズ favicon ICO を作成</title>
+    <meta name="description" content="GIMPで16、32、48 pxのfaviconを作成し、透明度を維持してマルチサイズのICOにまとめ、Webサイトへ正しく配置します。">
+    <meta name="keywords" content="gimp favicon ico, favicon design, multi-size ico, png to ico">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/ja/blog/gimp-favicon.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/gimp-favicon.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/gimp-favicon.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/gimp-favicon.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/gimp-favicon.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/gimp-favicon.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/gimp-favicon.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/ja/blog/gimp-favicon.html">
+    <meta property="og:title" content="GIMP でマルチサイズ favicon ICO を作成">
+    <meta property="og:description" content="GIMPで16、32、48 pxのfaviconを作成し、透明度を維持してマルチサイズのICOにまとめ、Webサイトへ正しく配置します。">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="GIMP でマルチサイズ favicon ICO を作成">
+    <meta name="twitter:description" content="GIMPで16、32、48 pxのfaviconを作成し、透明度を維持してマルチサイズのICOにまとめ、Webサイトへ正しく配置します。">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "GIMP でマルチサイズ favicon ICO を作成",
+  "description": "GIMPで16、32、48 pxのfaviconを作成し、透明度を維持してマルチサイズのICOにまとめ、Webサイトへ正しく配置します。",
+  "datePublished": "2026-11-22",
+  "dateModified": "2026-11-22",
+  "author": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "mainEntityOfPage": "https://favicondl.com/ja/blog/gimp-favicon.html",
+  "inLanguage": "ja"
+}</script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/ja/" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/ja/documentation.html" class="nav-link">ドキュメント</a>
+                <a href="/ja/tools.html" class="nav-link">ツール</a>
+                <a href="/ja/blog/" class="nav-link">ブログ</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/gimp-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/gimp-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/gimp-favicon.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/gimp-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/gimp-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/ja/" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/ja/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600">GIMP でマルチサイズ favicon ICO を作成</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">design</span><time class="text-sm text-gray-400">2026-11-22</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">GIMP でマルチサイズ favicon ICO を作成</h1>
+        </header>
+
+        <div class="article-body"><p>GIMPで48ピクセルにエクスポートした画像は、モニターではシャープに見えても、ブラウザーのタブではぼやけた正方形になってしまうことがあります。対策は、GIMPで16、32、48ピクセルの版を個別に用意し、それらを1つのマルチサイズ<code>favicon.ico</code>にパッケージ化することです。この<strong>GIMP favicon ICO</strong>のワークフローを 따르면、PNGのファイル名を変更する方式に頼るのではなく、予測可能なファイルを作成できます。</p><h2>前提条件</h2><ul><li>GIMPの<strong>File &gt; New</strong>、<strong>Image &gt; Scale Image</strong>、<strong>File &gt; Export As</strong>の各コマンドを使います。</li><li>正方形のロゴまたはマークを用意します。512 × 512ピクセルのマスターを用意すると、縮小する前にアートワークを簡略化する余地が確保できます。</li><li>必要に応じて、最終的なパッケージング工程にImageMagickをインストールします。代わりにMzu favicondlを使えば、ブラウザー内でPNGのエクスポートを変換することもできます。</li></ul><h2>favicon ICOの作成手順</h2><ol>
+<li><h3>透明なマスター画像を作成する</h3><p><strong>File &gt; New</strong> を選び、縦横を <strong>512 × 512</strong> に設定して、<strong>Fill with Transparency</strong> を選択します。ロゴを読み込むか、GIMP でマークを描いてください。小さいサイズでも余白が見えるよう、主要なシルエットは中央の正方形内に収めてください。</p><p>favicon は縮小したロゴではありません。書き出す前に、小さな文字や細い線を減らし、グラデーションも控えてください。単一の太い形状のほうが、通常は鮮明に見えます。</p></li>
+<li><h3>マスター画像から各サイズを作成する</h3><p><strong>File &gt; Duplicate</strong> でマスターの複製を作り、<strong>Image &gt; Scale Image</strong> を選択します。幅と高さがリンクされた状態で、複製を1枚は <strong>16 × 16</strong>、別の1枚は <strong>32 × 32</strong>、3枚目を <strong>48 × 48</strong> に拡大縮小します。各複製は、必ず512 pxのオリジナルから縮小してください。16 px版を拡大しても、輪郭が柔らかくなるだけです。</p></li>
+<li><h3>16 px版を修正する</h3><p>16 pxの複製を開き、<strong>View &gt; Show Pixel Grid</strong> を有効にします。拡大して、隣のpixelに溶け込むような細かい部分を削除したり、マークの位置を調整してください。32 px版でも同じ確認を行います。32 pxではより多くのディテールを残せますが、薄すぎる1 pxの線は依然として消えることがあります。</p></li>
+<li><h3>alpha channelの透明性を保持する</h3><p>読み込んだlayerにalpha channelがない場合は、そのlayerを選択して <strong>Layer &gt; Transparency &gt; Add Alpha Channel</strong> を選びます。背景を白で塗るのではなく、透明なままにしてください。PNGへの書き出しではこの透明性が保持され、ICO encoderにノイズのない元画像が渡せます。</p></li>
+<li><h3>3つのPNGファイルを書き出す</h3><p><strong>File &gt; Export As</strong> を選び、<code>icon-16.png</code> と入力して、<strong>Export</strong> をクリックします。同じ手順で <code>icon-32.png</code> と <code>icon-48.png</code> を書き出し、同じfolderにまとめてください。PNG版は正確な寸法とalpha channelを保持しているため、パッケージング用の元データとして使えます。</p></li>
+<li><h3>ICOを書き出す、またはパックする</h3><p>GIMPのICO exporterを使ってみる場合は、48 pxの複製を選択し、<strong>File &gt; Export As</strong> を選んで <code>favicon.ico</code> と入力します。Export optionsを確認し、サイズのリストが表示される在其中、<strong>16</strong>、<strong>32</strong>、<strong>48</strong> pxを選択します。リストが表示されない場合、書き出し結果に現在のキャンバスだけが含まれる可能性があるため、3つのPNGを明示的にパックしてください。</p><p>PNGファイルと同じfolderで、次のcommandを実行します。</p><pre><code>magick -background none icon-16.png icon-32.png icon-48.png favicon.ico</code></pre><p>command名が <code>convert</code> になっているsystemでは、<code>magick</code> を <code>convert</code> に置き換えてください。結果は、3つの画像サイズを含む1つのICOになります。</p></li>
+<li><h3>埋め込みサイズを確認する</h3><p>ImageMagickをインストール済みの場合は、<code>magick identify favicon.ico</code> を実行し、出力に <strong>16x16</strong>、<strong>32x32</strong>、<strong>48x48</strong> のentryが表示されることを確認してください。サイズが欠けている場合は、該当するPNGをGIMPで確認し、パッキングのcommandを再実行します。また、各PNGを高倍率で開き、iconに白背景や新たにぼやけた輪郭がないことも確認してください。</p></li>
+<li><h3>ICOを配置する</h3><p><code>favicon.ico</code> をサイトのpublic rootにコピーし、ドキュメントの <code>&lt;head&gt;</code> からリンクします。</p><pre><code>&lt;link rel='icon' href='/favicon.ico' sizes='16x16 32x32 48x48'&gt;</code></pre><p><a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">HTML標準は、icon resourceをリンクするための <code>rel='icon'</code> を定義しています</a>。サイトがsubpathの下にある場合は、URLを調整してください。完全なmarkupとmobile icon variantsについては、<a href="/ja/blog/how-to-add-favicon-to-website.html">ウェブサイトにfaviconを追加する方法</a>を参照してください。</p></li>
+</ol><h2>GIMPでfavicon ICOを作るときのよくある落とし穴</h2><ul><li><strong>解像度が1種類しかない。</strong> ファイル名だけで判断せず、containerの中身をverifyしてください。16、32、48 pixelのセットは、ブラウザ向けの実用的なbaselineです。<a href="/ja/blog/favicon-sizes-guide.html">favicon size guide</a>では、他のフォーマットをどの場面で使うべきかも説明しています。</li><li><strong>小さいアイコンがぼやける。</strong> 単にサイズを縮小するのではなく、アートワークそのものも簡素化してください。48 pixelでは許容範囲に見える細かな文字や1 pixelのディテールでも、16 pixelでは潰れて判別できなくなります。</li><li><strong>透明情報が失われる。</strong> exportする前にalpha channelを追加し、白やテーマ色の背景にflattenしないでください。</li><li><strong>公開中のSiteに古いアイコンが残る。</strong> <code>/favicon.ico</code>がHTMLのエラーページではなくICOを返すことを確認してください。古いファイルがキャッシュされている場合は、<code>/favicon.ico?v=2</code>のようなversioned URLでdeployしてください。</li></ul><h2>作成結果をコントロールしやすくする</h2><p>アートワークの準備とcontainerのパッケージングは分けて考えます。GIMPなら、小さいサイズごとの描画を細かく制御できます。一方、パッケージングの工程では、<code>favicon.ico</code>にどの解像度を収録するかを保証できます。</p><p>ブラウザベースのconverter Trainerogugu“Mzu favicondlを利用する場合は、GIMPで書き出したPNGを渡し、ダウンロードしたICOをverifyしてからSiteに追加してください。</p></div>
+
+        <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
+
+        <div class="cta-box">
+            <h3>GIMP の PNG をマルチサイズ ICO に変換</h3>
+            <p>GIMP で作成した PNG を配置可能な ICO に変換し、収録されたサイズを確認できます。</p>
+            <a href="/ja/" class="cta-btn">ICOを無料変換 →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/ja/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">ホーム</a>
+                <a href="/ja/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">ブログ</a>
+                <a href="/ja/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">プライバシー</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js?v=20260211"></script>
+
+</body></html>

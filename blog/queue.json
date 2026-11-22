@@ -3408,7 +3408,9 @@
     "avoidOverlap": [
       "png-to-ico"
     ],
-    "status": "pending"
+    "status": "done",
+    "qualityScore": 95,
+    "qualityGrade": "A"
   },
   {
     "keyword": "inkscape favicon",
