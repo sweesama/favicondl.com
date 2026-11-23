@@ -3424,7 +3424,9 @@
     "avoidOverlap": [
       "svg-to-ico"
     ],
-    "status": "pending"
+    "status": "done",
+    "qualityScore": 80,
+    "qualityGrade": "A"
   },
   {
     "keyword": "google sites favicon",

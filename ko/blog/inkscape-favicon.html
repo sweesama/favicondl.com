@@ -1,0 +1,128 @@
+<!DOCTYPE html><html lang="ko"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inkscape로 favicon 제작하고 내보내는 방법</title>
+    <meta name="description" content="Inkscape의 SVG에서 favicon을 만드는 순서를 단계별로 설명합니다. 정사각형 문서, 텍스트 패스 변환, PNG·ICO 내보내기와 HTML 적용까지 다룹니다.">
+    <meta name="keywords" content="inkscape favicon, svg favicon, ico converter, favicon export">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/ko/blog/inkscape-favicon.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/inkscape-favicon.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/inkscape-favicon.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/inkscape-favicon.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/inkscape-favicon.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/inkscape-favicon.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/inkscape-favicon.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/ko/blog/inkscape-favicon.html">
+    <meta property="og:title" content="Inkscape로 favicon 제작하고 내보내는 방법">
+    <meta property="og:description" content="Inkscape의 SVG에서 favicon을 만드는 순서를 단계별로 설명합니다. 정사각형 문서, 텍스트 패스 변환, PNG·ICO 내보내기와 HTML 적용까지 다룹니다.">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Inkscape로 favicon 제작하고 내보내는 방법">
+    <meta name="twitter:description" content="Inkscape의 SVG에서 favicon을 만드는 순서를 단계별로 설명합니다. 정사각형 문서, 텍스트 패스 변환, PNG·ICO 내보내기와 HTML 적용까지 다룹니다.">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Inkscape로 favicon 제작하고 내보내는 방법",
+  "description": "Inkscape의 SVG에서 favicon을 만드는 순서를 단계별로 설명합니다. 정사각형 문서, 텍스트 패스 변환, PNG·ICO 내보내기와 HTML 적용까지 다룹니다.",
+  "datePublished": "2026-11-23",
+  "dateModified": "2026-11-23",
+  "author": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "mainEntityOfPage": "https://favicondl.com/ko/blog/inkscape-favicon.html",
+  "inLanguage": "ko"
+}</script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/ko/" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/ko/documentation.html" class="nav-link">문서</a>
+                <a href="/ko/tools.html" class="nav-link">도구</a>
+                <a href="/ko/blog/" class="nav-link">블로그</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/inkscape-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/inkscape-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/inkscape-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/inkscape-favicon.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/inkscape-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/ko/" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/ko/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600">Inkscape로 favicon 제작하고 내보내는 방법</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">design</span><time class="text-sm text-gray-400">2026-11-23</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">Inkscape로 favicon 제작하고 내보내는 방법</h1>
+        </header>
+
+        <div class="article-body"><p>Inkscape에서 만든 그래픽이 canvas에서는 잘 보이지만 browser tab에서는 잘려 흐릿해 보인다면, 문제는 export format이 아니라 document에 있는 경우가 많습니다. <strong>Inkscape favicon</strong>을 만들려면 정사각형으로 구성된 drawing, 이식성 높은 path, 그리고 웹에 바로 사용할 수 있는 file이 필요합니다.</p><h2>준비 사항</h2><p>Inkscape와 기존 SVG logo가 필요합니다. artwork가 넓은 페이지에 놓여 있다면 새로운 정사각형 document를 만들고, symbol을 복사해 비율을 유지한 채 크기를 조정한 다음 그 file을 editable master로 보관합니다. 식별하기 쉬운 symbol은 full wordmark보다 16×16 pixels에서 더 잘 표현됩니다.</p><p>예를 들어 source가 1200×400 wordmark라면 그 rectangle를 favicon 안에 억지로 늘이거나 줄여 넣지 않습니다. symbol만 선택해 정사각형 document에 붙여 넣고 비율을 유지한 채 크기를 조정합니다. 이렇게 하면 원본 artwork를 변경하지 않고도 반복해서 export할 수 있는 compact master가 만들어집니다.</p><ul><li>실용적인 design size로 128×128-pixel artboard를 사용합니다.</li><li>mark을 중앙에 두고 주변에 약간의 transparent space를 남겨 둡니다.</li><li>작은 크기에서도 구분하기 어려운 detail은 제거합니다.</li></ul><h2>1. 정사각형 canvas와 viewBox 설정</h2><p><strong>File → Document Properties</strong>를 열고, units를 pixels로 설정한 뒤 document의 너비와 높이를 같게 설정합니다. 128×128은 브라우저에서 요구하는 크기가 아니라 권장 크기이며, 64×64로 만들어도 됩니다. 128×128 document를 사용한다면 viewBox가 <code>0 0 128 128</code>로 표시되는지 확인합니다.</p><p><strong>Object → Align and Distribute</strong>를 열고 Page를 reference로 선택한 뒤, artwork를 가로와 세로 방향의 중앙에 정렬합니다. 페이지 미리보기가 정사각형이고 가장자리가 잘리지 않았는지 확인합니다.</p><h2>2. 텍스트와 취약한 effects를 path로 변환</h2><p>각 text object를 선택하고 <strong>Path → Object to Path</strong>를 실행합니다. 이렇게 하면 사용 중인 font가 없는 server가 다른 shape로 대체하는 일을 막을 수 있습니다.</p><p>반드시 유지해야 하는 dashed stroke나 outlined stroke에는 <strong>Path → Stroke to Path</strong>를 사용합니다. gradient, mask, filter는 꼭 필요한 경우에만 유지합니다. SVG가 서로 다른 환경에서 제공될 때 오류 발생 지점을 늘리기 때문입니다.</p><h2>3. 이식성 높은 SVG 저장</h2><p><strong>File → Save As</strong>를 선택하고 <strong>Plain SVG</strong>를 고른 뒤 복사본을 <code>favicon.svg</code>로 저장합니다.</p><p>SVG를 변환하기 전에 문서 속성에 정사각형 viewBox가 설정되어 있는지, 아트워크가 외부 font, 연결된 bitmap 또는 stylesheet에 의존하지 않는지 확인합니다. 로고에 연결된 이미지가 들어 있다면 SVG 옆에 배치한 뒤 의도적으로 다시 연결하거나, 동등한 vector 요소로 대체하세요.</p><h2>4. 512×512 PNG fallback 내보내기</h2><p><strong>File → Export PNG Image</strong>를 열고, 내보낼 영역으로 page를 선택한 다음 두 dimensions를 모두 512픽셀로 설정합니다. 배경은 transparent로 유지하고 <code>favicon-512.png</code>으로 내보내세요.</p><p>이 고해상도 PNG를 사용하면 converter가 작은 raster size를 만드는 데 필요한 pixel 수가 확보되므로, browser가 아주 작은 원본을 확대하도록 요청하지 않아도 됩니다.</p><p>반복적으로 같은 결과를 내보내려면 다음 명령을 실행할 수도 있습니다.</p><pre><code>inkscape favicon.svg --export-type=png --export-area-page --export-width=512 --export-height=512 --export-filename=favicon-512.png</code></pre><p>이 명령은 정사각형 page bounds를 기준으로 삼아 현재 작업 디렉터리에 512픽셀 PNG를 저장합니다.</p><h2>5. Inkscape favicon 패키지 만들기</h2><p><a href="/ko/">Mzu favicondl</a>을 열어 <code>favicon.svg</code> 또는 <code>favicon-512.png</code>을 업로드하고, multi-size ICO를 생성한 뒤 다운로드합니다. ICO에는 16×16, 32×32, 48×48 이미지를 포함하는 구성을 권장합니다. 또한 180×180 PNG를 <code>apple-touch-icon.png</code>이라는 이름으로 생성하도록 요청하세요.</p><p>정확한 packaging 절차를 확인하려면 <a href="/ko/blog/svg-to-ico.html">SVG to ICO guide</a>를 참고하세요. <a href="/ko/blog/favicon-sizes-guide.html">favicon size guide</a>에서는 추가 PNG 및 Apple용 size를 다룹니다.</p><p><a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">HTML Standard</a>는 <code>rel='icon'</code>을 사용자 인터페이스에서 페이지를 나타내는 외부 resource로 향하는 link로 정의합니다. 이 정의만으로 하나의 file format을 필수로 요구하지는 않으므로, 호환성을 위해 SVG와 ICO fallback을 함께 권장합니다.</p><h2>6. 파일과 HTML 배포하기</h2><p><code>favicon.ico</code>, <code>favicon.svg</code>, <code>apple-touch-icon.png</code>을 사이트에서 제공할 수 있는 경로에 배치합니다. 다음과 같이 <code>&lt;head&gt;</code> 안에 link를 추가하세요.</p><pre><code>&lt;link rel='icon' href='/favicon.ico'&gt;
+&lt;link rel='icon' href='/favicon.svg' type='image/svg+xml'&gt;
+&lt;link rel='apple-touch-icon' href='/apple-touch-icon.png' sizes='180x180'&gt;</code></pre><p>배포 루트와 일치하는 경우에만 루트 기준 경로를 사용합니다. 하위 경로에서 제공되는 애플리케이션이라면 경로를 수정하거나 상대 경로로 변경하세요. ICO는 fallback으로 유지하고, SVG는 크기 조절이 가능한 master 파일로 사용합니다.</p><h2>7. 실제 서버 응답 확인</h2><p>사이트를 열고 hard reload를 수행한 뒤, Network 패널에서 각 아이콘 URL을 확인합니다. 요청이 상태 코드 200과 이미지 응답을 반환하는지 확인하세요. 사이트의 HTML 404 페이지가 반환되면 안 됩니다.</p><p><code>/favicon.svg</code>를 직접 열어 SVG가 렌더링되는지 확인합니다. 기존 아이콘이 계속 표시된다면 배포를 변경하기 전에 브라우저가 새 URL을 가져왔는지 먼저 확인하세요.</p><p>터미널에서 ICO 응답도 확인할 수 있습니다:</p><pre><code>curl -I https://example.com/favicon.ico</code></pre><p>URL을 자신의 도메인으로 바꾼 다음 SVG와 PNG 파일에 대해서도 같은 확인을 반복합니다.</p><h2>흔한 문제</h2><ul><li><strong>아트워크가 잘려 보입니다.</strong> 원본의 넓은 캔버스가 아니라 정사각형 페이지에서 export하세요.</li><li><strong>텍스트의 형태가 바뀝니다.</strong> 최종 SVG를 저장하기 전에 텍스트를 path로 변환하세요.</li><li><strong>연결된 asset이 로드되지 않습니다.</strong> 연결된 bitmap을 vector artwork로 교체하거나 안정적인 상대 경로에 패키징하고, 외부 stylesheet 의존성을 제거하세요.</li><li><strong>아이콘이 비어 있습니다.</strong> 16×16 크기로 확인한 뒤 실루엣, 간격, 대비를 단순화하세요.</li><li><strong>기존 아이콘이 계속 표시됩니다.</strong> cache를 탓하기 전에 HTML source와 Network 패널을 확인하세요.</li><li><strong>아이콘이 늘어나 보입니다.</strong> viewBox를 정사각형으로 유지하고 정사각형 PNG를 export하세요. <code>sizes</code>는 artwork의 크기를 조정하지 않습니다.</li></ul><h2>반복 가능한 워크플로 만들기</h2><p>이제 반복해서 사용할 수 있는 <strong>Inkscape favicon</strong> 워크플로가 완성되었습니다. 정사각형 vector master 하나, outlined text, 이식 가능한 SVG, 512픽셀 PNG, ICO fallback, 명시적인 HTML link로 구성됩니다. 향후 export가 일관되도록 master SVG는 변경하지 마세요.</p></div>
+
+        <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
+
+        <div class="cta-box">
+            <h3>Inkscape SVG를 favicon 패키지로 변환</h3>
+            <p>정사각형 SVG 또는 PNG를 업로드하고 Mzu favicondl로 멀티사이즈 ICO와 필요한 아이콘 파일을 만들 수 있습니다.</p>
+            <a href="/ko/" class="cta-btn">무료로 사용해보기 →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/ko/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">홈</a>
+                <a href="/ko/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">블로그</a>
+                <a href="/ko/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">개인정보</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js?v=20260211"></script>
+
+</body></html>

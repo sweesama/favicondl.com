@@ -1,0 +1,128 @@
+<!DOCTYPE html><html lang="ja"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inkscapeでfaviconを作成・書き出す方法</title>
+    <meta name="description" content="InkscapeのSVGからfaviconを作成する手順です。図形の整形、文字のパス化、PNG・ICOの書き出し、HTMLへの設置まで解説します。">
+    <meta name="keywords" content="inkscape favicon, svg favicon, ico converter, favicon export">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/ja/blog/inkscape-favicon.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/inkscape-favicon.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/inkscape-favicon.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/inkscape-favicon.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/inkscape-favicon.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/inkscape-favicon.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/inkscape-favicon.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/ja/blog/inkscape-favicon.html">
+    <meta property="og:title" content="Inkscapeでfaviconを作成・書き出す方法">
+    <meta property="og:description" content="InkscapeのSVGからfaviconを作成する手順です。図形の整形、文字のパス化、PNG・ICOの書き出し、HTMLへの設置まで解説します。">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Inkscapeでfaviconを作成・書き出す方法">
+    <meta name="twitter:description" content="InkscapeのSVGからfaviconを作成する手順です。図形の整形、文字のパス化、PNG・ICOの書き出し、HTMLへの設置まで解説します。">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Inkscapeでfaviconを作成・書き出す方法",
+  "description": "InkscapeのSVGからfaviconを作成する手順です。図形の整形、文字のパス化、PNG・ICOの書き出し、HTMLへの設置まで解説します。",
+  "datePublished": "2026-11-23",
+  "dateModified": "2026-11-23",
+  "author": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "mainEntityOfPage": "https://favicondl.com/ja/blog/inkscape-favicon.html",
+  "inLanguage": "ja"
+}</script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/ja/" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/ja/documentation.html" class="nav-link">ドキュメント</a>
+                <a href="/ja/tools.html" class="nav-link">ツール</a>
+                <a href="/ja/blog/" class="nav-link">ブログ</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/inkscape-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/inkscape-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/inkscape-favicon.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/inkscape-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/inkscape-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/ja/" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/ja/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600">Inkscapeでfaviconを作成・書き出す方法</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">design</span><time class="text-sm text-gray-400">2026-11-23</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">Inkscapeでfaviconを作成・書き出す方法</h1>
+        </header>
+
+        <div class="article-body"><p>Inkscapeのアートワークはキャンバス上では問題なく見えるのに、ブラウザーのタブではトリミングされてぼやけてしまうなら、通常はエクスポート形式ではなくドキュメント側が原因です。<strong>Inkscapeのfavicon</strong>には、正方形の図案、移植可能なパス、Webでそのまま使える少数のファイルが必要です。</p><h2> Prerequisites</h2><p>Inkscapeと、既存のSVGロゴを用意します。アートワークが横長のページ上にある場合は、新しい正方形のドキュメントを作成し、シンボルをコピーして等比率でスケールし、そのファイルを編集可能なマスターとして保存してください。16×16ピクセルでも認識できるシンボルのほうが、ワードマーク全体よりも適しています。</p><p>たとえば、元のデータが1200×400のワードマークなら、その長方形をそのままfaviconに押し込まないでください。シンボルのみを選択して正方形のドキュメントに貼り付け、等比率でスケールします。这样すれば、元のアートワークを変更せずに何度もエクスポートできるコンパクトなマスターになります。</p><ul><li>実用的なデザインサイズとして、128×128ピクセルのアートボードを使用します。</li><li>マークを中央に置き、周囲に少し透明な余白を確保します。</li><li>小さなサイズでも区別できないディテールは削除します。</li></ul><h2>1. 正方形のキャンバスとviewBoxを設定する</h2><p><strong>File → Document Properties</strong>を開き、単位をpixelsに設定して、ドキュメントの幅と高さを同じにします。128×128というサイズはブラウザーへの要件ではなく推奨値であり、64×64でも問題ありません。128×128のドキュメントでは、viewBoxが<code>0 0 128 128</code>になっていることを確認してください。</p><p><strong>Object → Align and Distribute</strong>を開き、参照元としてPageを選び、アートワークを水平・垂直方向の中央に配置します。ページプレビューが正方形で、どの辺もトリミングされていないことを確認してください。</p><h2>2. テキストと崩れやすいエフェクトをパスに変換する</h2><p>各テキストオブジェクトを選択し、<strong>Path → Object to Path</strong>を実行します。これにより、使用したフォントがないサーバー側で、別の形状に置き換えられるのを防げます。</p><p>设计上重要な破線やアウトライン化されたstrokeには、<strong>Path → Stroke to Path</strong>を使用します。gradient、mask、filterは必要な場合に限って残してください。これらはSVGが異なる環境に配信された際の失敗要因になります。</p><h2>3. 移植可能なSVGを保存する</h2><p><strong>File → Save As</strong>を選択し、<strong>Plain SVG</strong>を指定して、<code>favicon.svg</code>という名前でコピーを保存します。</p><p>SVGの変換する前に、ドキュメントプロパティのviewBoxが正方形になっていること、アートワークがexternal font、linked bitmap、またはstylesheetに依存していないことを確認してください。logoにlinked imageが含まれている場合は、SVGの隣に配置して意図的にlinkし直すか、同等のvectorに置き換えてください。</p><h2>4. 512×512のPNG fallbackをexportする</h2><p><strong>File → Export PNG Image</strong>を開き、export areaにpageを指定して、幅と高さの両方を512 pixelsに設定します。backgroundはtransparentに保ったまま、<code>favicon-512.png</code>としてexportしてください。</p><p>この高解像度PNGなら、converterが小さなraster sizeを生成するために十分なpixelsがあり、browserに極小のsourceを拡大させる必要がありません。</p><p>exportをrepeatableにするには、次のcommandも実行できます。</p><pre><code>inkscape favicon.svg --export-type=png --export-area-page --export-width=512 --export-height=512 --export-filename=favicon-512.png</code></pre><p>このcommandは正方形のpage boundsを使用し、512-pixel PNGをcurrent working directoryに書き出します。</p><h2>5. Inkscapeのfavicon packageを作成する</h2><p><a href="/ja/">Mzu favicondl</a>を開き、<code>favicon.svg</code>または<code>favicon-512.png</code>をuploadして、複数サイズのICOを生成し、ダウンロードしてください。16×16、32×32、48×48の画像を含むICOを推奨します。併せて、<code>apple-touch-icon.png</code>という名前の180×180 PNGも作成依頼してください。</p><p>packaging processを詳しく確認したい場合は、<a href="/ja/blog/svg-to-ico.html">SVG to ICO guide</a>を参照してください。また、<a href="/ja/blog/favicon-sizes-guide.html">favicon size guide</a>では、追加のPNGとApple向けsizeを解説しています。</p><p><a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">HTML Standard</a>では、<code>rel='icon'</code>を、user interface上でpageを表すexternal resourceへのリンクとして定義しています。この定義によって特定の1つのfile formatが必須になるわけではないため、compatibilityを考慮し、SVGとICO fallbackを併用することを推奨します。</p><h2>6. fileを配置してHTMLを追加する</h2><p><code>favicon.ico</code>、<code>favicon.svg</code>、<code>apple-touch-icon.png</code>を、siteが配信できるpathに配置してください。以下のlinksを<code>&lt;head&gt;</code>内に追加してください。</p><pre><code>&lt;link rel='icon' href='/favicon.ico'&gt;
+&lt;link rel='icon' href='/favicon.svg' type='image/svg+xml'&gt;
+&lt;link rel='apple-touch-icon' href='/apple-touch-icon.png' sizes='180x180'&gt;</code></pre><p>root-relative パスは、deployment root と一致する場合にのみ使ってください。subpath 配下で配信されるアプリケーションでは、パスを更新するか相対パスに変更してください。ICO は fallback として保持し、SVG はスケール可能な master として扱ってください。</p><h2>7. 実際のレスポンスを確認する</h2><p>サイトを開き、hard reload したうえで、各 icon URL について Network panel を確認してください。リクエストが 200 ステータスで image response を返し、サイトの HTML 404 page になっていないことを確認してください。</p><p><code>/favicon.svg</code> に直接アクセスして、SVG が描画されることを確認してください。古い icon が表示され続ける場合は、deployment を変更する前に、まず browser が新しい URL を取得했かどうかを確認してください。</p><p>ICO の response は terminal からも確認できます。</p><pre><code>curl -I https://example.com/favicon.ico</code></pre><p>URL を自分のドメインに置き換え、SVG と PNG ファイルについても同じ確認を行ってください。</p><h2>よくある落とし穴</h2><ul><li><strong>Artwork がトリミングされます。</strong> 元の横長 canvas ではなく、正方形のページから export してください。</li><li><strong>Text の形が変わります。</strong> 最終 SVG を保存する前に、text を path に変換してください。</li><li><strong>リンクしたアセットが読み込めません。</strong> リンクした bitmap は vector artwork に置き換えるか、安定した relative path にまとめて配置してください。external stylesheet への依存も取り除いてください。</li><li><strong>アイコンが何も描かれていないように見えます。</strong> 16×16 で表示して確認し、silhouette、spacing、contrast を見やすく整理してください。</li><li><strong>古い icon が残ります。</strong> cache のせいだと判断する前に、HTML source と Network panel を確認してください。</li><li><strong>アイコンが引き伸ばされて見えます。</strong> viewBox は正方形に保ち、正方形の PNG を export してください。<code>sizes</code> は artwork をリサイズしません。</li></ul><h2>毎回同じ結果を得られるワークフローを構築する</h2><p>これで、<strong>Inkscape favicon</strong> の再現可能なワークフローが整いました。正方形の vector master が 1つ、text は outline 化済み、移植しやすい SVG、512ピクセルの PNG、ICO の fallback、明示的な HTML link が揃っています。今後の export が一貫するよう、master SVG は変更せずに保持してください。</p></div>
+
+        <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
+
+        <div class="cta-box">
+            <h3>InkscapeのSVGをfavicon一式に変換</h3>
+            <p>正方形の SVG または PNG をアップロードし、Mzu favicondl でマルチサイズ ICO と必要なアイコンファイルを作成できます。</p>
+            <a href="/ja/" class="cta-btn">無料で試す →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/ja/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">ホーム</a>
+                <a href="/ja/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">ブログ</a>
+                <a href="/ja/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">プライバシー</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js?v=20260211"></script>
+
+</body></html>
