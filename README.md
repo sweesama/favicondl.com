@@ -2,6 +2,8 @@
 
 > **https://favicondl.com** — 免费、快速、零成本的网站图标工具
 
+[![favicondl MCP server – quality and maintenance score on Glama](https://glama.ai/mcp/servers/sweesama/favicondl.com/badges/score.svg)](https://glama.ai/mcp/servers/sweesama/favicondl.com)
+
 输入网址/域名 → 抓取并下载 favicon，也可当作网站 logo 图标使用。附带图片转 favicon 工具、SEO 博客自动发布系统，支持 5 种语言。
 
 ## 🌟 功能特点
