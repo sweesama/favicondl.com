@@ -3440,7 +3440,9 @@
     "avoidOverlap": [
       "no-code-website-favicon"
     ],
-    "status": "pending"
+    "status": "done",
+    "qualityScore": 80,
+    "qualityGrade": "A"
   },
   {
     "keyword": "blogger favicon",

@@ -4565,5 +4565,26 @@
     ],
     "qualityScore": 80,
     "qualityGrade": "A"
+  },
+  {
+    "slug": "google-sites-favicon",
+    "publishDate": "2026-11-24",
+    "titleEn": "Google Sites Favicon: Add and Verify It Step by Step",
+    "titleZh": "Google Sites favicon：添加与验证分步指南",
+    "titleJa": "Google Sitesのfaviconを追加・確認する手順ガイド",
+    "titleKo": "Google Sites 파비콘 추가 및 확인 가이드",
+    "titleEs": "Cómo añadir y comprobar un favicon en Google Sites",
+    "descEn": "Learn how to add a Google Sites favicon, publish it, inspect the live icon, and troubleshoot why the browser or Google Search may not show it.",
+    "descZh": "为 Google Sites 添加 favicon，发布后检查浏览器与 Google 搜索中的显示，并排查缓存、尺寸和抓取问题。",
+    "descJa": "Google Sitesにfaviconを追加して公開し、ブラウザとGoogle検索での表示を確かめる手順と、キャッシュ・サイズ・再クロールの問題を解説します。",
+    "descKo": "Google Sites에 파비콘을 추가하고 게시한 뒤 브라우저와 Google 검색에서의 표시를 확인하며 캐시, 크기, 재크롤링 문제를 해결하세요.",
+    "descEs": "Añade un favicon a Google Sites, publícalo y comprueba su displaying en el navegador y Google Search con pasos claros.",
+    "keyword": "google sites favicon",
+    "tags": [
+      "no-code",
+      "platform"
+    ],
+    "qualityScore": 80,
+    "qualityGrade": "A"
   }
 ]

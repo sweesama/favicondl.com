@@ -1,0 +1,182 @@
+<!DOCTYPE html><html lang="ja"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Sitesのfaviconを追加・確認する手順ガイド</title>
+    <meta name="description" content="Google Sitesにfaviconを追加して公開し、ブラウザとGoogle検索での表示を確かめる手順と、キャッシュ・サイズ・再クロールの問題を解説します。">
+    <meta name="keywords" content="google sites favicon, add site favicon, Google Search icon, favicon troubleshooting">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://favicondl.com/ja/blog/google-sites-favicon.html">
+    <link rel="alternate" hreflang="en" href="https://favicondl.com/blog/google-sites-favicon.html">
+    <link rel="alternate" hreflang="x-default" href="https://favicondl.com/blog/google-sites-favicon.html">
+    <link rel="alternate" hreflang="zh" href="https://favicondl.com/zh/blog/google-sites-favicon.html">
+    <link rel="alternate" hreflang="ja" href="https://favicondl.com/ja/blog/google-sites-favicon.html">
+    <link rel="alternate" hreflang="ko" href="https://favicondl.com/ko/blog/google-sites-favicon.html">
+    <link rel="alternate" hreflang="es" href="https://favicondl.com/es/blog/google-sites-favicon.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://favicondl.com/ja/blog/google-sites-favicon.html">
+    <meta property="og:title" content="Google Sitesのfaviconを追加・確認する手順ガイド">
+    <meta property="og:description" content="Google Sitesにfaviconを追加して公開し、ブラウザとGoogle検索での表示を確かめる手順と、キャッシュ・サイズ・再クロールの問題を解説します。">
+    <meta property="og:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Google Sitesのfaviconを追加・確認する手順ガイド">
+    <meta name="twitter:description" content="Google Sitesにfaviconを追加して公開し、ブラウザとGoogle検索での表示を確かめる手順と、キャッシュ・サイズ・再クロールの問題を解説します。">
+    <meta name="twitter:image" content="https://favicondl.com/favicons/android-chrome-512x512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/blog/blog.css?v=20260211">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7QLC8QV609"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7QLC8QV609');
+    </script>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Google Sitesのfaviconを追加・確認する手順ガイド",
+  "description": "Google Sitesにfaviconを追加して公開し、ブラウザとGoogle検索での表示を確かめる手順と、キャッシュ・サイズ・再クロールの問題を解説します。",
+  "datePublished": "2026-11-24",
+  "dateModified": "2026-11-24",
+  "author": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mzu favicondl",
+    "url": "https://favicondl.com"
+  },
+  "mainEntityOfPage": "https://favicondl.com/ja/blog/google-sites-favicon.html",
+  "inLanguage": "ja"
+}</script>
+</head>
+<body>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="/ja/" class="flex items-center gap-2 font-semibold text-lg text-gray-900"><img src="/favicons/favicon-32x32.png" alt="Mzu favicondl logo" class="w-6 h-6">Mzu favicondl</a>
+            <div class="flex items-center gap-8">
+                <a href="/ja/documentation.html" class="nav-link">ドキュメント</a>
+                <a href="/ja/tools.html" class="nav-link">ツール</a>
+                <a href="/ja/blog/" class="nav-link">ブログ</a>
+                <div class="lang-dropdown">
+                    <button id="lang-toggle" class="lang-btn">
+                        <img class="lang-flag" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:20px;height:20px;">
+                        <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu">
+                        <a href="/blog/google-sites-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1fa-1f1f8.svg" alt="English" style="width:18px;height:18px;"><span>English</span></a>
+                        <a href="/zh/blog/google-sites-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e8-1f1f3.svg" alt="中文" style="width:18px;height:18px;"><span>中文</span></a>
+                        <a href="/ja/blog/google-sites-favicon.html" class="lang-option active" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ef-1f1f5.svg" alt="日本語" style="width:18px;height:18px;"><span>日本語</span></a>
+                        <a href="/ko/blog/google-sites-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f0-1f1f7.svg" alt="한국어" style="width:18px;height:18px;"><span>한국어</span></a>
+                        <a href="/es/blog/google-sites-favicon.html" class="lang-option" style="text-decoration:none;"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="Español" style="width:18px;height:18px;"><span>Español</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+        <nav class="text-sm text-gray-400 mb-8">
+            <a href="/ja/" class="hover:text-gray-600">Home</a><span class="mx-2">/</span>
+            <a href="/ja/blog/" class="hover:text-gray-600">Blog</a><span class="mx-2">/</span>
+            <span class="text-gray-600">Google Sitesのfaviconを追加・確認する手順ガイド</span>
+        </nav>
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-4"><span class="tag">no-code</span><time class="text-sm text-gray-400">2026-11-24</time></div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">Google Sitesのfaviconを追加・確認する手順ガイド</h1>
+        </header>
+
+        <div class="article-body"><p>Google Sites の favicon（サイトアイコン）が、ブラウザタブで 여전히genericな地球儀アイコンやページアイコンとして表示される場合、アップロードが下書きにだけ反映されたか、公開中のbooookで別のicon URLが配信されている可能性GREE高いです。theme XMLを編集しなくても、この問題は解消できます。</p>
+<p>以下の手順では、<strong>Google Sitesのfavicon</strong>を追加して公開し、ブラウザでのアイコン表示とGoogle Searchでの掲載適格性を確認します。ブラウザでの確認とSearchでの確認は別々です。ブラウザでは正しく表示されても、Searchでは再クロールを待っていることがあります。</p>
+<h2>faviconとサイトへのアクセスを準備する</h2>
+<p>サイトを編集して公開できるブラウザでGoogle Sitesを開きます。作業を始める前に、ロゴマーク、モノグラム、シンボルなどを入れた正方形の画像を 준비してください。wordmark全体を配置すると、通常は16×16ピクセルでは判読困難になります。</p>
+<ul>
+<li><strong>アクセス権:</strong> サイトの編集権限と公開権限。</li>
+<li><strong>元画像:</strong>  simplestなアップロード候補は正方形のPNGです。実用的な素材としては、中央にシンプルなマークを配置した192×192ピクセルのPNGを使用してください。</li>
+<li><strong>公開URL:</strong> 訪問者がfaviconを見る、sites.google.comのアドレスまたはカスタムドメイン。</li>
+</ul>
+<p>Googleでは、Searchのfaviconは正方形で、少なくとも8×8ピクセルである必要があると説明しています。また、48×48ピクセルより大きい画像を推奨しています。faviconは表示対象として適格であれば、必ず表示されるとは限りません。そのURLは安定状態を保つべきです。詳しくは<a href="https://developers.google.com/search/docs/appearance/favicon-in-search?hl=en">Googleのfaviconドキュメント</a>を参照してください。</p>
+<p>素材がSVG、JPG、または別の形式の場合は、アップロード前に正方形のPNGへ変換してください。<a href="/ja/">Mzu favicondl</a>でこの変換 Conceivably行えます。エクスポート前に図形を簡略化しておくと、ブラウザタブに表示されるサイズでも輪郭を保ちやすくなります。</p>
+<h2>カスタムコードなしでGoogle Sitesのfaviconを追加する</h2><ol>
+<li>
+<strong>サイト設定を開きます。</strong>
+<p>Google Sites のダッシュボードを開き、対象サイトを選択して「編集」をクリックします。編集画面の右上にある「公開」の横の「その他（More）」または三点メニューから「サイト設定」を選択します。「Favicon」コントロールを見つけ、ファイルピッカーを開きます。</p>
+</li>
+<li>
+<strong>画像をアップロードして確認します。</strong>
+<p>準備した PNG を選択します。プレビューまたはクロップ領域を確認し、マーク全体が中心に表示されるよう調整してから、選択を保存します。アイコンが暗いブラウザタブ上で見失われないよう、背景に対して十分なコントラストのある単色を使ってください。</p>
+</li>
+<li>
+<strong>更新したサイトを公開します。</strong>
+<p>「公開」をクリックし、サイトの URL を確認して、更新を公開します。「サイト設定」で画像を保存しても、新しいバージョンを公開するまで、訪問者に表示されるサイトは変更されません。</p>
+</li>
+<li>
+<strong>公開済みのホームページを確認します。</strong>
+<p>編集画面のプレビューではなく、公開済みの URL を新しいタブで開きます。ブラウザーの DevTools でドキュメントの head を調べ、icon link を確認します。続いて、DevTools のコンソールで次の snippet を実行します。</p>
+<pre><code>Array.from(document.querySelectorAll('link[rel~=icon]')).map(function (link) {
+  return {
+    href: link.href,
+    type: link.type,
+    sizes: link.getAttribute('sizes') || ''
+  };
+})</code></pre>
+<p>結果には、少なくとも1つの favicon URL が含まれるはずです。<a href="https://html.spec.whatwg.org/multipage/links.html#rel-icon">HTML 標準</a>では、<code>rel='icon'</code>はアイコンの外部リソースリンクとして定義されています。そのため、<code>favicon.ico</code>で終わるリンクと決めつけるのではなく、リンクの実際の URL を確認してください。</p>
+<p>「Network」パネルでページを再読み込みし、icon のリクエストを選択します。HTML の fallback や 404 レスポンスではなく、画像レスポンスが返るはずです。</p>
+</li>
+<li>
+<strong>ブラウザーでの表示を確認します。</strong>
+<p>公開済みのページを再読み込みし、タブ、ブックマーク、ショートカットを確認します。古いアイコンが残っている場合は、コンソールに新しい asset の URL が表示されているか確認してから、プライベートウィンドウで試してください。ブラウザーは、通常のページコンテンツとは別に favicon をキャッシュする場合があります。</p>
+</li>
+<li>
+<strong>Google Search の再クロールを待ちます。</strong>
+<p>Google の<a href="https://developers.google.com/search/docs/appearance/favicon-in-search?hl=en">Search favicon 要件</a>を使って、正方形であるか、最小サイズ、安定した URL、クロールアクセスを確認してください。公開後、再クロールには数日から数週間かかる場合があるため、直ちに Search の結果に反映されなくても、アップロードが失敗した証拠にはなりません。</p>
+<p>検索結果でアイコンが表示されない問題を絞り込んで診断する場合は、<a href="/ja/blog/favicon-not-showing-google-results.html">Google Search favicon チェックリスト</a>を参照してください。</p>
+</li>
+</ol><h2>Google Sites の favicon でよくある落とし穴</h2>
+<ul>
+<li><strong>編集画面ではなく公開済みドメインを確認している：</strong>編集時のプレビューだけを確認するのではなく、公開済みのホームページに favicon が含まれていることを確認してください。</li>
+<li><strong>アセットを繰り返し変更している：</strong>置き換えるたびに新しいアイコン URL が生成される可能性があります。Google が認識した後は、公開済みの URL を安定させてください。</li>
+<li><strong>細部の多いロゴを使用している：</strong>細い線や小さな文字は、16×16 のタブでは見えません。公開前にそのサイズでロゴを確認してください。</li>
+<li><strong>キャッシュの問題と Search の反映遅延を混同している：</strong>更新経路が異なるため、ブラウザには新しいアイコンが表示されても Google Search には古いアイコンが残る、逆にそのパターンになることもあります。</li>
+<li><strong>競合する icon タグを追加している：</strong>Google Sites 標準のアップロード機能を使う場合、複数の <code>rel='icon'</code> の候補を追加和不必要な HTML の埋め込みは避け、トラブルシュートを複雑にしないようにしてください。</li>
+</ul>
+<h2>最終的な設定を確認する</h2>
+<p>確実に設定する手順はシンプルです。Site settings で正方形の PNG を 1 点アップロードし、公開して、公開済みのホームページを確認してから、Google Search に再クロールさせます。別の no-code プラットフォームを管理している場合も、より一般的な <a href="/ja/blog/no-code-website-favicon.html">no-code website favicon ガイド</a>と手順を比較してみてください。</p>
+<p>公開済みのアイコン URL は変更せず、ブランドのアセットを変更した場合は canonical ホームページを再確認してください。これにより、ブラウザ利用者、ブックマーククライアント、Google のクローラーが参照する一貫したソースになります。</p></div>
+
+        <!-- 译文作为构建源保存在 template 中，不在英文页面渲染或参与可见正文。 -->
+
+        <div class="cta-box">
+            <h3>Mzu favicondl で favicon を準備</h3>
+            <p>元の画像を正方形のPNGに変換し、Google Sitesにアップロードして変更を公開します。</p>
+            <a href="/ja/" class="cta-btn">無料で試す →</a>
+        </div>
+    </article>
+
+    <footer class="py-8 px-6 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-sm">© 2026 Mzu favicondl</p>
+            <div class="flex gap-6">
+                <a href="/ja/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">ホーム</a>
+                <a href="/ja/blog/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">ブログ</a>
+                <a href="/ja/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">プライバシー</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/blog/blog.js?v=20260211"></script>
+
+</body></html>
