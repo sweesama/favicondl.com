@@ -4586,5 +4586,26 @@
     ],
     "qualityScore": 80,
     "qualityGrade": "A"
+  },
+  {
+    "slug": "blogger-favicon",
+    "publishDate": "2026-11-25",
+    "titleEn": "Blogger Favicon: Add a Custom Icon to Your Blog in 5 Steps",
+    "titleZh": "Blogger Favicon：5 步添加博客网站图标",
+    "titleJa": "Bloggerのfaviconを5ステップで設定するガイド",
+    "titleKo": "블로그 favicon 설정 가이드: 5단계로 끝내기",
+    "titleEs": "Cómo añadir un favicon a Blogger en 5 pasos",
+    "descEn": "Add a blogger favicon in minutes using Blogger's Layout settings, then use clear HTML link tags to control your icon, verify it, and fix common caching issues.",
+    "descZh": "通过 Blogger 的“布局”设置添加 favicon，并用 HTML 链接标签和浏览器请求确认图标已在公开博客中正确加载。",
+    "descJa": "Bloggerの「レイアウト」でfaviconを追加し、HTMLリンクタグとブラウザーのリクエストから公開ページでの読み込みを確認します。",
+    "descKo": "Blogger의 레이아웃에서 favicon을 설정하고 HTML 링크 태그와 브라우저 요청으로 실제 반영 여부를 확인하세요.",
+    "descEs": "Añade un favicon desde Diseño y verifica con etiquetas HTML que el icono se carga correctamente en el blog público.",
+    "keyword": "blogger favicon",
+    "tags": [
+      "no-code",
+      "platform"
+    ],
+    "qualityScore": 80,
+    "qualityGrade": "A"
   }
 ]
