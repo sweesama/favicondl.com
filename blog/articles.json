@@ -4607,5 +4607,26 @@
     ],
     "qualityScore": 80,
     "qualityGrade": "A"
+  },
+  {
+    "slug": "carrd-favicon",
+    "publishDate": "2026-11-26",
+    "titleEn": "Carrd Favicon: Add a Custom Icon Step by Step",
+    "titleZh": "Carrd Favicon 设置教程：一步步添加自定义图标",
+    "titleJa": "Carrd Favicon 設定：カスタムアイコンを追加する手順",
+    "titleKo": "Carrd Favicon 설정: 사용자 정의 아이콘 추가 단계별 가이드",
+    "titleEs": "Favicon de Carrd: Cómo añadir un icono personalizado",
+    "descEn": "Learn how to add a custom Carrd favicon in minutes. Step-by-step guide to upload your icon, verify it in browser tabs, and fix common caching issues.",
+    "descZh": "几分钟内为你的 Carrd 网站添加自定义 favicon。本教程分步讲解上传图标、在浏览器标签中验证，并解决常见的缓存问题。",
+    "descJa": "Carrd サイトにカスタム favicon を数分で追加する方法を解説。アイコンのアップロードからブラウザタブでの確認、キャッシュ問題の解決までステップバイステップで紹介します。",
+    "descKo": "Carrd 사이트에 사용자 정의 favicon을 몇 분 만에 추가하는 방법을 알아보세요. 아이콘 업로드부터 브라우저 탭 확인, 일반적인 캐시 문제 해결까지 단계별로 안내합니다.",
+    "descEs": "Aprende a añadir un favicon personalizado a tu sitio de Carrd en minutos. Guía paso a paso para subir tu icono, verificarlo en las pestañas y solucionar problemas de caché.",
+    "keyword": "carrd favicon",
+    "tags": [
+      "no-code",
+      "platform"
+    ],
+    "qualityScore": 73,
+    "qualityGrade": "B"
   }
 ]
