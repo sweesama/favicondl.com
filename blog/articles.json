@@ -4628,5 +4628,26 @@
     ],
     "qualityScore": 73,
     "qualityGrade": "B"
+  },
+  {
+    "slug": "godaddy-favicon",
+    "publishDate": "2026-11-27",
+    "titleEn": "GoDaddy Website Builder Favicon: A Step-by-Step Guide",
+    "titleZh": "GoDaddy Website Builder favicon 设置指南",
+    "titleJa": "GoDaddy Website Builderのfavicon設定方法",
+    "titleKo": "GoDaddy Website Builder favicon 설정 가이드",
+    "titleEs": "Favicon en GoDaddy Website Builder: guía paso a paso",
+    "descEn": "Add or replace a GoDaddy Website Builder favicon, publish the site, and verify the browser-tab icon with practical steps and troubleshooting.",
+    "descZh": "在 GoDaddy Website Builder 中上传、发布并验证 favicon，按步骤排查旧图标、路径错误、缓存和显示异常。",
+    "descJa": "GoDaddy Website Builderでfaviconをアップロードし、公開後に確認する手順と、古いアイコンやキャッシュ、解像度のトラブルシューティングを解説します。",
+    "descKo": "GoDaddy Website Builder에서 favicon을 업로드하고 게시한 뒤 확인하는 방법과 기존 아이콘, 경로 오류, 캐시 문제 해결을 단계별로 안내합니다.",
+    "descEs": "Añade, publica y verifica el favicon en GoDaddy Website Builder, y resuelve problemas de caché, rutas y símbolos antiguos.",
+    "keyword": "godaddy website builder favicon",
+    "tags": [
+      "no-code",
+      "platform"
+    ],
+    "qualityScore": 87,
+    "qualityGrade": "A"
   }
 ]
