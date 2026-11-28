@@ -4649,5 +4649,26 @@
     ],
     "qualityScore": 87,
     "qualityGrade": "A"
+  },
+  {
+    "slug": "weebly-favicon",
+    "publishDate": "2026-11-28",
+    "titleEn": "Weebly Favicon: Add or Replace Your Site Icon Step by Step",
+    "titleZh": "Weebly favicon：添加或替换网站图标",
+    "titleJa": "Weebly faviconを追加・変更する7ステップガイド",
+    "titleKo": "Weebly favicon 추가 및 교체 7단계 가이드",
+    "titleEs": "Cómo añadir o cambiar el favicon de Weebly: 7 pasos",
+    "descEn": "Add or replace a Weebly favicon with a square image, publish the site, verify the icon in browser tools, and fix common path or cache issues.",
+    "descZh": "用方形 PNG 替换 Weebly favicon，发布站点并在浏览器中验证图标。按照清晰步骤排查路径、缓存和重复标签问题。",
+    "descJa": "正方形のPNGをWeeblyにアップロードし、公開後にブラウザーで確認します。パス、キャッシュ、重複タグのトラブルシューティングも解説します。",
+    "descKo": "정사각형 PNG를 Weebly에 업로드하고 게시한 뒤 브라우저에서 아이콘을 확인합니다. 경로, 캐시, 중복 태그 문제도 단계별로 해결합니다.",
+    "descEs": "Sube un PNG cuadrado a Weebly, publica el sitio y comprueba el icono en el navegador. Aprende a resolver rutas, cachés y etiquetas duplicadas.",
+    "keyword": "weebly favicon",
+    "tags": [
+      "no-code",
+      "platform"
+    ],
+    "qualityScore": 95,
+    "qualityGrade": "A"
   }
 ]
